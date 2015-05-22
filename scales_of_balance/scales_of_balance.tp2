@@ -108,7 +108,7 @@ INCLUDE ~scales_of_balance/components/230_spell_tables.tpa~
 
 BEGIN @2500
 DESIGNATED 250
-REQUIRE_PREDICATE MOD_IS_INSTALLED "TOBEX.TP2" "100" @1
+REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee iwdee~) @1
 
 INCLUDE ~scales_of_balance/components/250_proficiency_overhaul.tpa~
 //__________________________________________________________________________________
