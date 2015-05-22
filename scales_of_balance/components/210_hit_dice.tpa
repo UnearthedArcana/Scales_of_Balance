@@ -1,0 +1,25 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//						HIT DICE CHANGES
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+COPY ~scales_of_balance/misc/hpconbon.2da~ ~override~
+COPY ~scales_of_balance/misc/hpbarb.2da~ ~override~
+COPY ~scales_of_balance/misc/hpcm.2da~ ~override~
+COPY ~scales_of_balance/misc/hpct.2da~ ~override~
+COPY ~scales_of_balance/misc/hpfc.2da~ ~override~
+COPY ~scales_of_balance/misc/hpfm.2da~ ~override~
+COPY ~scales_of_balance/misc/hpfmt.2da~ ~override~
+COPY ~scales_of_balance/misc/hpft.2da~ ~override~
+COPY ~scales_of_balance/misc/hpmt.2da~ ~override~
+COPY ~scales_of_balance/misc/hpmonk.2da~ ~override~
+COPY ~scales_of_balance/misc/hpprs.2da~ ~override~
+COPY ~scales_of_balance/misc/hprog.2da~ ~override~
+COPY ~scales_of_balance/misc/hpwar.2da~ ~override~
+COPY ~scales_of_balance/misc/hpwiz.2da~ ~override~
+//___________________________________________________________________________________
+

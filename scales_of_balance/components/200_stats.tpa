@@ -1,0 +1,32 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//						STATS, SAVES
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+//COPY MARKER FILE___________________________________________________________________
+//
+COPY ~scales_of_balance/misc/d5_stats.d5~ ~override~
+//___________________________________________________________________________________
+
+//EDIT STATS______________________________________________________________
+//
+//COPY ~scales_of_balance/misc/abracead.2da~ ~override~
+COPY ~scales_of_balance/misc/savemonk.2da~ ~override~
+COPY ~scales_of_balance/misc/saveprs.2da~ ~override~
+COPY ~scales_of_balance/misc/saverog.2da~ ~override~
+COPY ~scales_of_balance/misc/savewar.2da~ ~override~
+COPY ~scales_of_balance/misc/savewiz.2da~ ~override~
+COPY ~scales_of_balance/misc/dexmod.2da~ ~override~
+COPY ~scales_of_balance/misc/strmod.2da~ ~override~
+COPY ~scales_of_balance/misc/strmodex.2da~ ~override~
+COPY ~scales_of_balance/misc/mxsplwis.2da~ ~override~
+COPY ~scales_of_balance/misc/chrmodst.2da~ ~override~
+COPY ~scales_of_balance/misc/intmod.2da~ ~override~
+COPY_EXISTING ~abclasrq.2da~ ~override~
+	REPLACE_TEXTUALLY ~ 0~ ~ 7~
+	BUT_ONLY
+//___________________________________________________________________________________
