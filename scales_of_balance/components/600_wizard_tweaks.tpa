@@ -1562,22 +1562,22 @@ END
 ACTION_IF FILE_EXISTS_IN_GAME ~QDMGPYRO.2da~ THEN BEGIN
 	COPY_EXISTING ~QDMGPYRO.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~ 
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~ 
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~QDMGAERO.2da~ THEN BEGIN
 	COPY_EXISTING ~QDMGAERO.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~ 
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~ 
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~QDMGGEOM.2da~ THEN BEGIN
 	COPY_EXISTING ~QDMGGEOM.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHYDR.2da~ THEN BEGIN
 	COPY_EXISTING ~QDMGHYDR.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~ 
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~ 
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARG2.2da~ THEN BEGIN
 	COPY_EXISTING ~QDMGARG2.2da~ ~override~
