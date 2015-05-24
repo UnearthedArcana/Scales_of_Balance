@@ -502,6 +502,42 @@ ACTION_IF FILE_EXISTS_IN_GAME ~clableaf.2da~ THEN BEGIN
 		APPEND_FILE ~scales_of_balance/profs/pcclub.txt~
 		BUT_ONLY
 END
+DEFINE_PATCH_FUNCTION ~REMOVE_CLASS_LINE_FROM_USABILITIES~
+  INT_VAR
+    offset = 0
+  STR_VAR
+    desc = ~~
+    unusable_regexp = ~~
+    unusable_replacement = ~~
+    class_regexp = ~~ //
+    class_prefix = ~~ //
+BEGIN
+  INNER_PATCH_SAVE desc ~%desc%~ BEGIN
+    REPLACE_TEXTUALLY ~%unusable_regexp%~ ~%unusable_replacement%~
+  END
+  PATCH_IF ((~%desc%~ STRING_CONTAINS_REGEXP ~^%unusable_replacement%~) == 0) BEGIN
+    INNER_PATCH_SAVE usab_block ~%desc%~ BEGIN
+      REPLACE_TEXTUALLY ~\(.*[%LNL%%MNL%%WNL%]\)*%unusable_replacement%~ ~~
+    END
+    INNER_PATCH_SAVE usab_block_new ~%usab_block%~ BEGIN
+      REPLACE_TEXTUALLY ~[%LNL%%MNL%%WNL%][- %TAB%]*$~ ~~
+      REPLACE_TEXTUALLY ~^[- %TAB%]*~ ~%class_prefix%~
+      REPLACE_TEXTUALLY ~%mage_regexp%~ ~~
+    END
+    INNER_PATCH_SAVE desc ~%desc%~ BEGIN
+      REPLACE_TEXTUALLY EXACT_MATCH ~%usab_block%~ ~%usab_block_new%~
+    END
+    INNER_PATCH_SAVE compare ~%desc%~ BEGIN 
+      REPLACE_TEXTUALLY ~^%unusable_replacement%.*[%LNL%%MNL%%WNL%]%class_prefix%[^- %TAB%]~ ~~
+    END
+    PATCH_IF (~%desc%~ STRING_EQUAL ~%compare%~) BEGIN
+      INNER_PATCH_SAVE desc ~%desc%~ BEGIN
+        REPLACE_TEXTUALLY ~[%LNL%%MNL%%WNL%]%unusable_replacement%.*~ ~~
+      END
+    END
+    SAY_EVALUATED ~%offset%~ ~%desc%~
+  END
+END
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
 		READ_BYTE  0x1e cleric 

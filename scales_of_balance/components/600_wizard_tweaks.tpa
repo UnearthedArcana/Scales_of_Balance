@@ -459,6 +459,1624 @@ COPY ~scales_of_balance/wizard/d5_contd.spl~ ~override~
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
+//						WIZARD KIT CHANGES
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+//MAGE______________________________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clabma01.2da~ THEN BEGIN
+	COPY_EXISTING ~KITLIST.2da~ ~override~
+		SET_2DA_ENTRY 33 5 1 ~d5_wildm ~
+		BUT_ONLY
+	COPY_EXISTING ~clabma01.2da~ ~override/d5_wildm.2da~
+	COPY_EXISTING ~clabma01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma1clab.txt~
+		BUT_ONLY
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma01.2da~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/clabma01.2da~ ~override~
+	COPY ~scales_of_balance/wizard/d5_wildm.2da~ ~override~
+END
+//__________________________________________________________________________________
+
+//ABJURER___________________________________________________________________________
+//range: @6201-6249
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clabma02.2da~ THEN BEGIN
+	COPY_EXISTING ~clabma02.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
+		BUT_ONLY
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma02.2da~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/clabma02.2da~ ~override~
+END
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/d5_abju.eff~ ~override~
+	COPY_EXISTING ~spwi522.spl~ ~override~
+			~spwi618.spl~ ~override~
+			~spwi701.spl~ ~override~
+			~spwi902.spl~ ~override~
+			~spwi406.spl~ ~override~
+			~spwi602.spl~ ~override~
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=177 target=1 parameter1=9 parameter2=64 resist_dispel=0 timing=9 power=0 STR_VAR resource=~d5_abju~ END
+END
+ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
+	ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~spwi406.spl~ ~override/d5_abju1.spl~
+		SAY NAME1 @6201
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	COPY_EXISTING ~spwi522.spl~ ~override/d5_abju2.spl~
+		SAY NAME1 @6202
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	COPY_EXISTING ~spwi602.spl~ ~override/d5_abju3.spl~
+		SAY NAME1 @6203
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	COPY_EXISTING ~spwi618.spl~ ~override/d5_abju4.spl~
+		SAY NAME1 @6204
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	COPY_EXISTING ~spwi701.spl~ ~override/d5_abju5.spl~
+		SAY NAME1 @6205
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	COPY_EXISTING ~spwi902.spl~ ~override/d5_abju6.spl~
+		SAY NAME1 @6206
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~spwi406.spl~ ~override/d5_abju1.spl~
+		SAY NAME1 @6211
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	COPY_EXISTING ~spwi522.spl~ ~override/d5_abju2.spl~
+		SAY NAME1 @6212
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	COPY_EXISTING ~spwi602.spl~ ~override/d5_abju3.spl~
+		SAY NAME1 @6213
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	COPY_EXISTING ~spwi618.spl~ ~override/d5_abju4.spl~
+		SAY NAME1 @6214
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	COPY_EXISTING ~spwi701.spl~ ~override/d5_abju5.spl~
+		SAY NAME1 @6215
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	COPY_EXISTING ~spwi902.spl~ ~override/d5_abju6.spl~
+		SAY NAME1 @6216
+		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~spwi406.spl~ THEN BEGIN
+		COPY_EXISTING ~spwi406.spl~ ~override~
+			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
+			BUT_ONLY
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~spwi522.spl~ THEN BEGIN
+		COPY_EXISTING ~spwi522.spl~ ~override~
+			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
+			BUT_ONLY
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~spwi602.spl~ THEN BEGIN
+		COPY_EXISTING ~spwi602.spl~ ~override~
+			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
+			BUT_ONLY
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~spwi618.spl~ THEN BEGIN
+		COPY_EXISTING ~spwi618.spl~ ~override~
+			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
+			BUT_ONLY
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~spwi701.spl~ THEN BEGIN
+		COPY_EXISTING ~spwi701.spl~ ~override~
+			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
+			BUT_ONLY
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~spwi902.spl~ THEN BEGIN
+		COPY_EXISTING ~spwi902.spl~ ~override~
+			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
+			BUT_ONLY
+	END
+END
+COPY_EXISTING ~clabma02.2da~ ~override~
+	LPM remove_blank_lines
+	APPEND_FILE ~scales_of_balance/wizard/m12clab.txt~
+//__________________________________________________________________________________
+
+//NECROMANCER_______________________________________________________________________
+//range @6251-6299
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clabma03.2da~ THEN BEGIN
+	COPY_EXISTING ~clabma03.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma03.2da~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/clabma03.2da~ ~override~
+END
+COPY ~scales_of_balance/wizard/d5_nect1.spl~ ~override~
+	SAY NAME1 @6251
+	SAY IDENTIFIED_DESC @6252
+COPY ~scales_of_balance/wizard/d5_nect2.spl~ ~override~
+	SAY NAME1 @6253
+	SAY IDENTIFIED_DESC @6254
+COPY ~scales_of_balance/wizard/d5_nect3.spl~ ~override~
+	SAY NAME1 @6255
+	SAY IDENTIFIED_DESC @6256
+COPY ~scales_of_balance/wizard/d5_nnct1.spl~ ~override~
+	SAY NAME1 @6257
+	SAY IDENTIFIED_DESC @6257
+COPY ~scales_of_balance/wizard/d5_nnct2.spl~ ~override~
+	SAY NAME1 @6258
+	SAY IDENTIFIED_DESC @6258
+COPY ~scales_of_balance/wizard/d5_nnct3.spl~ ~override~
+	SAY NAME1 @6259
+	SAY IDENTIFIED_DESC @6259
+COPY ~scales_of_balance/wizard/d5_nect1.itm~ ~override~
+	SAY NAME1 @6251
+	SAY IDENTIFIED_DESC @6251
+COPY ~scales_of_balance/wizard/d5_nect2.itm~ ~override~
+	SAY NAME1 @6253
+	SAY IDENTIFIED_DESC @6253
+COPY ~scales_of_balance/wizard/d5_nect3.itm~ ~override~
+	SAY NAME1 @6255
+	SAY IDENTIFIED_DESC @6255
+COPY ~scales_of_balance/wizard/d5_nect3.bam~ ~override~
+COPY ~scales_of_balance/wizard/scrl82.itm~ ~override~
+	SAY NAME1 @6251
+	SAY IDENTIFIED_DESC @6252
+COPY ~scales_of_balance/wizard/scrl1c.itm~ ~override~
+	SAY NAME1 @6253
+	SAY IDENTIFIED_DESC @6254
+COPY ~scales_of_balance/wizard/scrl1q.itm~ ~override~
+	SAY NAME1 @6255
+	SAY IDENTIFIED_DESC @6256
+COPY ~scales_of_balance/wizard/spwi119.spl~ ~override~
+	SAY NAME1 @6260
+	SAY UNIDENTIFIED_DESC @6261
+COPY ~scales_of_balance/wizard/spwi119a.spl~ ~override~
+COPY ~scales_of_balance/wizard/spwi221.spl~ ~override~
+	SAY NAME1 @6262
+	SAY UNIDENTIFIED_DESC @6263
+ACTION_IF FILE_EXISTS_IN_GAME ~hidespl.2da~ THEN BEGIN
+	COPY_EXISTING ~hidespl.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/nechide.txt~
+END		
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~clabma03.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m13clab.txt~
+	ACTION_IF FILE_EXISTS_IN_GAME ~A!DIRGE.2da~ THEN BEGIN
+		COPY_EXISTING ~a!dirge.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/wizard/m13clab.txt~
+	END
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~clabma03.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m13clabsr.txt~
+	ACTION_IF FILE_EXISTS_IN_GAME ~A!DIRGE.2da~ THEN BEGIN
+		COPY_EXISTING ~a!dirge.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/wizard/m13clabsr.txt~
+	END
+END
+//__________________________________________________________________________________
+
+//TRANSMUTER________________________________________________________________________
+//range: @6301-6349
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clabma04.2da~ THEN BEGIN
+	COPY_EXISTING ~clabma04.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma4clab.txt~
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma04.2da~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/clabma04.2da~ ~override~
+END
+COPY ~scales_of_balance/wizard/d5_tran1.spl~ ~override~
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~sppr117.spl~ ~override/d5_tran2.spl~
+		WRITE_SHORT 0x1c 1
+		WRITE_LONG 0x34 3
+	COPY_EXISTING ~sppr217.spl~ ~override/d5_tran3.spl~
+		WRITE_SHORT 0x1c 1
+		WRITE_LONG 0x34 4
+	COPY_EXISTING ~sppr323.spl~ ~override/d5_tran4.spl~
+		WRITE_SHORT 0x1c 1
+		WRITE_LONG 0x34 5
+	COPY_EXISTING ~sppr419.spl~ ~override/d5_tran5.spl~
+		WRITE_SHORT 0x1c 1
+		WRITE_LONG 0x34 6
+	COPY_EXISTING ~sppr524.spl~ ~override/d5_tran6.spl~
+		WRITE_SHORT 0x1c 1
+		WRITE_LONG 0x34 7
+	COPY_EXISTING ~sppr619.spl~ ~override/d5_tran7.spl~
+		WRITE_SHORT 0x1c 1
+		WRITE_LONG 0x34 8
+	COPY_EXISTING ~clabma04.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m24clab.txt~
+END
+COPY ~scales_of_balance/wizard/d5_golsu.spl~ ~override~
+ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/tomegol1.cre~ ~override~
+	COPY ~scales_of_balance/wizard/tomegol2.cre~ ~override~
+	COPY ~scales_of_balance/wizard/tomegol3.cre~ ~override~
+	COPY ~scales_of_balance/wizard/tomegol4.cre~ ~override~
+END
+COPY_EXISTING ~clabma04.2da~ ~override~
+	LPM remove_blank_lines
+	APPEND_FILE ~scales_of_balance/wizard/m14clab.txt~
+//__________________________________________________________________________________
+
+//DIVINER___________________________________________________________________________
+//range: @6351-6399
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clabma05.2da~ THEN BEGIN
+	COPY_EXISTING ~clabma05.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma5clab.txt~
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma05.2da~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/clabma05.2da~ ~override~
+END
+COPY ~scales_of_balance/wizard/d5_contd.spl~ ~override~
+	SAY NAME1 @6351
+	SAY IDENTIFIED_DESC @6352
+COPY ~scales_of_balance/wizard/d5_divi1.spl~ ~override~
+COPY_EXISTING ~clabma05.2da~ ~override~
+	LPM remove_blank_lines
+	APPEND_FILE ~scales_of_balance/wizard/m15clab.txt~
+//__________________________________________________________________________________
+
+//CONJURER__________________________________________________________________________
+//range: @6401-6449
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clabma06.2da~ THEN BEGIN
+	COPY_EXISTING ~clabma06.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma6clab.txt~
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma06.2da~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/clabma06.2da~ ~override~
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~clabma06.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m16clab.txt~
+		BUT_ONLY
+	COPY_EXISTING ~spwi309.spl~ ~override/d5_conv1.spl~
+		LPM spell_to_innate
+	COPY_EXISTING ~spwi407.spl~ ~override/d5_conv2.spl~
+		LPM spell_to_innate
+	COPY_EXISTING ~spwi504.spl~ ~override/d5_conv2.spl~
+		LPM spell_to_innate
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~clabma06.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m16clabsr.txt~
+	COPY_EXISTING ~spwi226.spl~ ~override/d5_conj1.spl~
+		WRITE_LONG 0x34 1
+	COPY_EXISTING ~spwi309.spl~ ~override/d5_conj2.spl~
+		WRITE_LONG 0x34 2
+	COPY_EXISTING ~spwi423.spl~ ~override/d5_conj3.spl~
+		WRITE_LONG 0x34 3
+	COPY_EXISTING ~spwi504.spl~ ~override/d5_conj4.spl~
+		WRITE_LONG 0x34 4
+	COPY_EXISTING ~spwi619.spl~ ~override/d5_conj5.spl~
+		WRITE_LONG 0x34 5
+	COPY_EXISTING ~spwi724.spl~ ~override/d5_conj6.spl~
+		WRITE_LONG 0x34 6
+END
+//__________________________________________________________________________________
+
+//INVOKER___________________________________________________________________________
+//range: @6451-6499
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clabma07.2da~ THEN BEGIN
+	COPY_EXISTING ~clabma07.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma07.2da~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/clabma07.2da~ ~override~
+END
+ACTION_IF MOD_IS_INSTALLED "TOBEX.TP2" "100" THEN BEGIN
+	COPY_EXISTING ~clabma07.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m27clab.txt~
+	COPY ~scales_of_balance/wizard/d5_pyrot.spl~ ~override/d5_pyro1.spl~
+END
+ACTION_IF ENGINE_IS ~iwdee~ THEN BEGIN
+	COPY_EXISTING ~clabma07.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m27clab.txt~
+	COPY ~scales_of_balance/wizard/d5_pyroe.spl~ ~override/d5_pyro1.spl~
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~clabma07.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m17clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~clabma07.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m17clabsr.txt~
+END
+//__________________________________________________________________________________
+
+//ILLUSIONIST_______________________________________________________________________
+//range: @6501-6549
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clabma08.2da~ THEN BEGIN
+	COPY_EXISTING ~clabma08.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma8clab.txt~
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma08.2da~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/clabma08.2da~ ~override~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/d5_illus.spl~ ~override/d5_illu1.spl~
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/d5_illuv.spl~ ~override/d5_illu1.spl~
+END
+COPY_EXISTING ~sppr109.spl~ ~override/d5_illu2.spl~
+	WRITE_SHORT 0x1c 1
+ACTION_IF FILE_EXISTS_IN_GAME ~spwi310.spl~ THEN BEGIN
+	COPY_EXISTING ~spwi310.spl~ ~override~
+		WRITE_LONG 0x1e ("0x00000400") //blocked: illusionists
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl1m.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl1m.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x04") //blocked: illusionists	
+		BUT_ONLY
+END
+ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spsd02.spl~ ~override~
+		SAY NAME1 @6049
+		SAY UNIDENTIFIED_DESC @6050
+	COPY ~scales_of_balance/wizard/spsd02b.bam~ ~override~
+	COPY ~scales_of_balance/wizard/spsd02c.bam~ ~override~
+END
+COPY_EXISTING ~clabma08.2da~ ~override~
+	LPM remove_blank_lines
+	APPEND_FILE ~scales_of_balance/wizard/m18clab.txt~
+//__________________________________________________________________________________
+
+//ENCHANTER_________________________________________________________________________
+//range: @6551-6598
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clabma09.2da~ THEN BEGIN
+	COPY_EXISTING ~clabma09.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma09.2da~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/clabma09.2da~ ~override~
+END
+COPY ~scales_of_balance/wizard/d5_ench1.spl~ ~override~
+COPY ~scales_of_balance/wizard/d5_ench2.spl~ ~override~
+COPY ~scales_of_balance/wizard/d5_ench2.eff~ ~override~
+COPY ~scales_of_balance/wizard/d5_enc2a.spl~ ~override~
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~clabma09.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m19clab.txt~
+	ACTION_IF FILE_EXISTS_IN_GAME ~A!GYP.2da~ THEN BEGIN
+		COPY_EXISTING ~a!gyp.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/wizard/m19clab.txt~
+	END
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	COPY_EXISTING ~clabma09.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m19clabsr.txt~
+	ACTION_IF FILE_EXISTS_IN_GAME ~A!GYP.2da~ THEN BEGIN
+		COPY_EXISTING ~a!gyp.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/wizard/m19clabsr.txt~
+	END
+END
+//__________________________________________________________________________________
+
+
+//OTHER KIT 2DA FILES_______________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clabso01.2da~ THEN BEGIN
+	COPY_EXISTING ~clabso01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~d5_meist.2da~ THEN BEGIN
+	COPY_EXISTING ~d5_meist.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/bard/meistcant.txt~
+END
+//__________________________________________________________________________________
+
+/*
+//SONG & SILENCE COMPATIBILITY______________________________________________________
+//
+COPY_EXISTING ~kitlist.2da~ ~override~
+		0x00004000
+//__________________________________________________________________________________
+*/
+
+//TOME & BLOOD KIT COMPATIBILITY____________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~QDELDSOR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDELDSOR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMAGUS.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMAGUS.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma4clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ABJ.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_ABJ.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ALT.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_ALT.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma4clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_CON.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_CON.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma6clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ENC.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_ENC.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_EVO.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_EVO.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ILL.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_ILL.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma8clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_NEC.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_NEC.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARGT.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGARGT.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARMC.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGARMC.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGBTTL.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGBTTL.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARMC.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGARMC.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma5clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED1.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED1.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
+	COPY_EXISTING ~QDMGRED1.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma6clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED2.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED2.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma5clab.txt~
+	COPY_EXISTING ~QDMGRED2.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma6clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED3.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED3.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma5clab.txt~
+	COPY_EXISTING ~QDMGRED3.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED4.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED4.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
+	COPY_EXISTING ~QDMGRED4.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED5.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED5.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
+	COPY_EXISTING ~QDMGRED5.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma8clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED6.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED6.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+	COPY_EXISTING ~QDMGRED6.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma8clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED7.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED7.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+	COPY_EXISTING ~QDMGRED7.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGPYRO.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGPYRO.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGAERO.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGAERO.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb4clab.txt~ // elec missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGGEOM.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGGEOM.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb5clab.txt~ // earth missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHYDR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHYDR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb3clab.txt~ // acid missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARG2.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGARG2.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGSHDW.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGSHDW.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGTRNS.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGTRNS.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGSTAR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGSTAR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGPALE.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGPALE.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGWNEC.2da~ THEN BEGIN // white necro
+	COPY_EXISTING ~QDMGWNEC.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP1.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP1.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP2.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP2.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma6clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP3.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP3.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma4clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP4.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP4.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP5.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP5.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP6.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP6.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma8clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP7.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP7.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDDBLA.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDDBLA.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb3clab.txt~ // acid missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDDBLU.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDDBLU.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb4clab.txt~ // elec missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDDGRE.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDDGRE.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb3clab.txt~ // acid missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDDRED.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDDRED.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDDWHI.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDDWHI.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb2clab.txt~ // cold missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDDBRA.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDDBRA.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDDBRO.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDDBRO.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb4clab.txt~ // elec missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDDCOP.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDDCOP.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb3clab.txt~ // acid missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDDGOL.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDDGOL.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDDSIL.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDDSIL.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb2clab.txt~ // cold missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDXAN.2da~ THEN BEGIN
+	COPY_EXISTING ~QDXAN.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDYNAHE.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDYNAHE.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDCELSOR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDCELSOR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDFIESOR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDFIESOR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDSTOSOR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDSTOSOR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb4clab.txt~ // elec missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDRBLSOR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDRBLSOR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb2clab.txt~ // cold missile
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDGROSOR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDGROSOR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma4clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDSYLSOR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDSYLSOR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDREVSOR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDREVSOR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDOOZSOR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDOOZSOR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/tb3clab.txt~ // acid missile
+END
+//_________________________________________________________________________________
+
+
+//MAGIC BATTLE CHANGES_____________________________________________________________
+//
+COPY - ~scales_of_balance/sob_settings.ini~ ~scales_of_balance/backup~
+	COUNT_REGEXP_INSTANCES ~spell_battle_changes=1~ spell_battle_changes
+
+ACTION_IF (spell_battle_changes) THEN BEGIN
+
+COPY ~scales_of_balance/wizard/spwi318.spl~ ~override~
+	SAY NAME1 @6051
+	SAY UNIDENTIFIED_DESC @6052
+COPY ~scales_of_balance/wizard/spwi321.spl~ ~override~
+	SAY NAME1 @6053
+	SAY UNIDENTIFIED_DESC @6054
+COPY ~scales_of_balance/wizard/spwi318.spl~ ~override/d5_mys32.spl~
+	SAY NAME1 @6051
+	SAY UNIDENTIFIED_DESC @6052
+COPY ~scales_of_balance/wizard/spwi321.spl~ ~override/d5_mys22.spl~
+	SAY NAME1 @6053
+	SAY UNIDENTIFIED_DESC @6054
+COPY ~scales_of_balance/wizard/spwi318.spl~ ~override/d5_radfl.spl.spl~
+	SAY NAME1 @6051
+	SAY UNIDENTIFIED_DESC @6052
+COPY ~scales_of_balance/wizard/spwi321.spl~ ~override/d5_rathr.spl~
+	SAY NAME1 @6053
+	SAY UNIDENTIFIED_DESC @6054
+COPY ~scales_of_balance/wizard/sppr612.spl~ ~override~
+	SAY NAME1 @6055
+	SAY UNIDENTIFIED_DESC @6056
+ACTION_IF ENGINE_IS ~tob bg2ee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi419.spl~ ~override~
+		SAY NAME1 @6057
+		SAY UNIDENTIFIED_DESC @6058
+END
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi419ee.spl~ ~override/spwi419.spl~
+		SAY NAME1 @6057
+		SAY UNIDENTIFIED_DESC @6058
+END
+ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi419iw.spl~ ~override/spwi419.spl~
+		SAY NAME1 @6057
+		SAY UNIDENTIFIED_DESC @6058
+END
+ACTION_IF ENGINE_IS ~tob bg2ee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi704.spl~ ~override~
+		SAY NAME1 @6059
+		SAY UNIDENTIFIED_DESC @6060
+END
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi704ee.spl~ ~override/spwi704.spl~
+		SAY NAME1 @6059
+		SAY UNIDENTIFIED_DESC @6060
+END
+ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi704iw.spl~ ~override/spwi704.spl~
+		SAY NAME1 @6059
+		SAY UNIDENTIFIED_DESC @6060
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	ACTION_IF ENGINE_IS ~tob bg2ee~ THEN BEGIN
+		COPY ~scales_of_balance/wizard/spwi805.spl~ ~override~
+			SAY NAME1 @6061
+			SAY UNIDENTIFIED_DESC @6062
+	END
+	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+		COPY ~scales_of_balance/wizard/spwi805ee.spl~ ~override/spwi805.spl~
+			SAY NAME1 @6061
+			SAY UNIDENTIFIED_DESC @6062
+	END
+	ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+		COPY ~scales_of_balance/wizard/spwi805iw.spl~ ~override/spwi805.spl~
+			SAY NAME1 @6061
+			SAY UNIDENTIFIED_DESC @6062
+	END
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl6o.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl6o.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x00")  		  
+		WRITE_BYTE 0x2f ("0x00") 
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl7l.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl7l.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x00")  		  
+		WRITE_BYTE 0x2f ("0x00") 
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl8g.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl8g.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x00")  		  
+		WRITE_BYTE 0x2f ("0x00") 
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl8h.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl8h.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x00")  		  
+		WRITE_BYTE 0x2f ("0x00") 
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl9a.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl9a.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x00")  		  
+		WRITE_BYTE 0x2f ("0x00") 
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl9m.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl9m.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x00")  		  
+		WRITE_BYTE 0x2f ("0x00") 
+		BUT_ONLY
+END
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+	ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
+		COPY ~scales_of_balance/wizard/spwi522.spl~ ~override~
+			SAY NAME1 @6063
+			SAY UNIDENTIFIED_DESC @6064
+	END
+	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+		COPY ~scales_of_balance/wizard/spwi522ee.spl~ ~override/spwi522.spl~
+			SAY NAME1 @6063
+			SAY UNIDENTIFIED_DESC @6064
+	END
+	ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
+		COPY ~scales_of_balance/wizard/spwi618.spl~ ~override~
+			SAY NAME1 @6065
+			SAY UNIDENTIFIED_DESC @6066
+	END
+	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+		COPY ~scales_of_balance/wizard/spwi618ee.spl~ ~override/spwi618.spl~
+			SAY NAME1 @6065
+			SAY UNIDENTIFIED_DESC @6066
+	END
+	ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
+		COPY ~scales_of_balance/wizard/spwi701.spl~ ~override~
+			SAY NAME1 @6067
+			SAY UNIDENTIFIED_DESC @6068
+	END
+	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+		COPY ~scales_of_balance/wizard/spwi701ee.spl~ ~override/spwi701.spl~
+			SAY NAME1 @6067
+			SAY UNIDENTIFIED_DESC @6068
+	END
+	COPY ~scales_of_balance/wizard/spwi902.spl~ ~override~
+		SAY NAME1 @6069
+		SAY UNIDENTIFIED_DESC @6070
+	ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
+		STRING_SET 10875 @6071
+	END
+	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+		STRING_SET 26593 @6071
+	END
+END	
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl7d.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl7d.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x00")  		  
+		WRITE_BYTE 0x2f ("0x00") 
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl7v.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl7v.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x00")  		  
+		WRITE_BYTE 0x2f ("0x00") 
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl8d.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl8d.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x00")  		  
+		WRITE_BYTE 0x2f ("0x00") 
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl9l.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl9l.itm~ ~override~
+		WRITE_BYTE 0x2d ("0x00")  		  
+		WRITE_BYTE 0x2f ("0x00") 
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl6p.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl6p.itm~ ~override/scrl6g.itm~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl6o.itm~ THEN BEGIN
+	COPY_EXISTING ~scrl6o.itm~ ~override/scrl6j.itm~
+END
+//_________________________________________________________________________________
+
+//SPELL REVISIONS COMPATIBILITY_____________________________________________________
+//
+//ACTION_IF NOT MOD_IS_INSTALLED "setup-spell_rev.tp2" "60" THEN BEGIN
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+
+ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi522.spl~ ~override~
+		SAY NAME1 @6063
+		SAY UNIDENTIFIED_DESC @6064
+END
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi522ee.spl~ ~override~
+		SAY NAME1 @6063
+		SAY UNIDENTIFIED_DESC @6064
+END
+ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi618.spl~ ~override~
+		SAY NAME1 @6065
+		SAY UNIDENTIFIED_DESC @6066
+END
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi618ee.spl~ ~override~
+		SAY NAME1 @6065
+		SAY UNIDENTIFIED_DESC @6066
+END
+ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi701.spl~ ~override~
+		SAY NAME1 @6067
+		SAY UNIDENTIFIED_DESC @6068
+END
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY ~scales_of_balance/wizard/spwi701ee.spl~ ~override~
+		SAY NAME1 @6067
+		SAY UNIDENTIFIED_DESC @6068
+END
+COPY ~scales_of_balance/wizard/spwi902.spl~ ~override~
+	SAY NAME1 @6069
+	SAY UNIDENTIFIED_DESC @6070
+ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
+	STRING_SET 10875 @6071
+END
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	STRING_SET 26593 @6071
+END
+
+END
+//__________________________________________________________________________________
+
+//MODIFY CLABS______________________________________________________________________
+//
+COPY_EXISTING ~clabma01.2da~ ~override~
+			~clabma03.2da~ ~override~
+			~clabma04.2da~ ~override~
+			~clabma05.2da~ ~override~
+			~clabma06.2da~ ~override~
+			~clabma07.2da~ ~override~
+			~clabma08.2da~ ~override~
+			~clabma09.2da~ ~override~
+	LPM remove_blank_lines
+	APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+COPY_EXISTING ~clabma02.2da~ ~override~
+	LPM remove_blank_lines
+	APPEND_FILE ~scales_of_balance/wizard/m42clab.txt~
+//__________________________________________________________________________________
+
+//TOME & BLOOD KIT COMPATIBILITY____________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ABJ.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_ABJ.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m42clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ALT.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_ALT.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_CON.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_CON.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ENC.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_ENC.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_EVO.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_EVO.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ILL.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_ILL.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_NEC.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMG_NEC.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARGT.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGARGT.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARMC.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGARMC.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGBTTL.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGBTTL.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARMC.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGARMC.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED1.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED1.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED2.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED2.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED3.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED3.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED4.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED4.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED5.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED5.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED6.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED6.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED7.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGRED7.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGPYRO.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGPYRO.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~ 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGAERO.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGAERO.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~ 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGGEOM.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGGEOM.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHYDR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHYDR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~ 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARG2.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGARG2.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGSHDW.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGSHDW.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGTRNS.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGTRNS.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGSTAR.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGSTAR.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGPALE.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGPALE.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGWNEC.2da~ THEN BEGIN // white necro
+	COPY_EXISTING ~QDMGWNEC.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP1.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP1.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP2.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP2.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP3.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP3.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP4.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP4.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP5.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP5.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP6.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP6.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP7.2da~ THEN BEGIN
+	COPY_EXISTING ~QDMGHRP7.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDXAN.2da~ THEN BEGIN
+	COPY_EXISTING ~QDXAN.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~QDDYNAHE.2da~ THEN BEGIN
+	COPY_EXISTING ~QDDYNAHE.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
+END
+//_________________________________________________________________________________
+
+	PRINT @119
+END
+ELSE BEGIN
+	PRINT @120
+END
+//__________________________________________________________________________________
+
+
+//COPY WIZARD CRE FILES____________________________________________________________
+//
+ACTION_IF GAME_IS ~tutu bgt bgee~ THEN BEGIN
+//ACTION_IF NOT FILE_EXISTS_IN_GAME ~qdtnb10.qd~ THEN BEGIN
+	COPY_EXISTING ~DYNAHE.cre~ ~override~
+				~DYNAHE2.cre~ ~override~
+				~DYNAHE4.cre~ ~override~
+				~DYNAHE6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wiin~ END
+		BUT_ONLY
+	COPY_EXISTING ~DYNAHE4.cre~ ~override~
+				~DYNAHE6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~DYNAHE6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+
+	COPY_EXISTING ~EDWIN.cre~ ~override~
+				~EDWIN2.cre~ ~override~
+				~EDWIN4.cre~ ~override~
+				~EDWIN6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
+		BUT_ONLY
+	COPY_EXISTING ~EDWIN4.cre~ ~override~
+				~EDWIN6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~EDWIN6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+
+	COPY_EXISTING ~XAN4.cre~ ~override~
+				~XAN6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wine~ END
+		BUT_ONLY
+	COPY_EXISTING ~XAN4.cre~ ~override~
+				~XAN6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~XAN6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+
+	COPY_EXISTING ~XZAR.cre~ ~override~
+				~XZAR2.cre~ ~override~
+				~XZAR4.cre~ ~override~
+				~XZAR6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wine~ END
+		BUT_ONLY
+	COPY_EXISTING ~XZAR4.cre~ ~override~
+				~XZAR6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~XZAR6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+
+	COPY_EXISTING ~QUAYLE.cre~ ~override~
+				~QUAYLE4.cre~ ~override~
+				~QUAYLE6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wiil~ END
+		BUT_ONLY
+	COPY_EXISTING ~QUAYLE4.cre~ ~override~
+				~QUAYLE6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~QUAYLE6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+//	END
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~XAN.cre~ THEN BEGIN
+//ACTION_IF NOT FILE_EXISTS_IN_GAME ~qdtnb10.qd~ THEN BEGIN
+	COPY_EXISTING ~XAN.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wien~ END
+		BUT_ONLY
+//	END
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~NEERA.cre~ THEN BEGIN
+	COPY_EXISTING ~NEERA.cre~ ~override~
+				~NEERA2.cre~ ~override~
+				~NEERA4.cre~ ~override~
+				~NEERA6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
+		BUT_ONLY
+	COPY_EXISTING ~NEERA4.cre~ ~override~
+				~NEERA6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~NEERA6.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+
+ACTION_IF GAME_IS ~tob bgt bg2ee~ THEN BEGIN
+	COPY_EXISTING ~jan8.cre~ ~override~
+				~jan10.cre~ ~override~
+				~jan11.cre~ ~override~
+				~jan12.cre~ ~override~
+				~jan15.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wiil~ END
+		BUT_ONLY
+	COPY_EXISTING ~jan8.cre~ ~override~
+				~jan10.cre~ ~override~
+				~jan11.cre~ ~override~
+				~jan12.cre~ ~override~
+				~jan15.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~jan8.cre~ ~override~
+				~jan10.cre~ ~override~
+				~jan11.cre~ ~override~
+				~jan12.cre~ ~override~
+				~jan15.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+	COPY_EXISTING ~edwin9.cre~ ~override~
+				~edwin11.cre~ ~override~
+				~edwin12.cre~ ~override~
+				~edwin13.cre~ ~override~
+				~edwin15.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
+		BUT_ONLY
+	COPY_EXISTING ~edwin9.cre~ ~override~
+				~edwin11.cre~ ~override~
+				~edwin12.cre~ ~override~
+				~edwin13.cre~ ~override~
+				~edwin15.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~edwin9.cre~ ~override~
+				~edwin11.cre~ ~override~
+				~edwin12.cre~ ~override~
+				~edwin13.cre~ ~override~
+				~edwin15.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+	COPY_EXISTING ~aerie6.cre~ ~override~
+				~aerie7.cre~ ~override~
+				~aerie9.cre~ ~override~
+				~aerie10.cre~ ~override~
+				~aerie11.cre~ ~override~
+				~aerie12.cre~ ~override~
+				~imoen6.cre~ ~override~
+				~imoen10.cre~ ~override~
+				~imoen15.cre~ ~override~
+				~imoen211.cre~ ~override~
+				~imoen213.cre~ ~override~
+				~nalia8.cre~ ~override~
+				~nalia10.cre~ ~override~
+				~nalia11.cre~ ~override~
+				~nalia13.cre~ ~override~
+				~nalia15.cre~ ~override~
+				~nalia18.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
+		BUT_ONLY
+	COPY_EXISTING ~aerie6.cre~ ~override~
+				~aerie7.cre~ ~override~
+				~aerie9.cre~ ~override~
+				~aerie10.cre~ ~override~
+				~aerie11.cre~ ~override~
+				~aerie12.cre~ ~override~
+				~imoen6.cre~ ~override~
+				~imoen10.cre~ ~override~
+				~imoen15.cre~ ~override~
+				~imoen211.cre~ ~override~
+				~imoen213.cre~ ~override~
+				~nalia8.cre~ ~override~
+				~nalia10.cre~ ~override~
+				~nalia11.cre~ ~override~
+				~nalia13.cre~ ~override~
+				~nalia15.cre~ ~override~
+				~nalia18.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~aerie6.cre~ ~override~
+				~aerie7.cre~ ~override~
+				~aerie9.cre~ ~override~
+				~aerie10.cre~ ~override~
+				~aerie11.cre~ ~override~
+				~aerie12.cre~ ~override~
+				~imoen6.cre~ ~override~
+				~imoen10.cre~ ~override~
+				~imoen15.cre~ ~override~
+				~imoen211.cre~ ~override~
+				~imoen213.cre~ ~override~
+				~nalia8.cre~ ~override~
+				~nalia10.cre~ ~override~
+				~nalia11.cre~ ~override~
+				~nalia13.cre~ ~override~
+				~nalia15.cre~ ~override~
+				~nalia18.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	COPY_EXISTING ~neera8.cre~ ~override~
+				~neera10.cre~ ~override~
+				~neera15.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
+		BUT_ONLY
+	COPY_EXISTING ~neera8.cre~ ~override~
+				~neera10.cre~ ~override~
+				~neera15.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~neera8.cre~ ~override~
+				~neera10.cre~ ~override~
+				~neera15.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~J#indi01.cre~ THEN BEGIN
+	COPY_EXISTING ~J#indi01.cre~ ~override~
+				~J#indi03.cre~ ~override~
+				~J#indi03.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
+		BUT_ONLY
+	COPY_EXISTING ~J#indi03.cre~ ~override~
+				~J#indi03.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~tsujath.cre~ THEN BEGIN
+	COPY_EXISTING ~tsujath.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wine~ END
+		BUT_ONLY
+	COPY_EXISTING ~tsujath.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~tsujath.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~lk#nind.cre~ THEN BEGIN
+	COPY_EXISTING ~lk#nind.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wine~ END
+		BUT_ONLY
+	COPY_EXISTING ~lk#nind.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~lk#nind.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~lk#ni25.cre~ THEN BEGIN
+	COPY_EXISTING ~lk#ni25.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wine~ END
+		BUT_ONLY
+	COPY_EXISTING ~lk#ni25.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~lk#ni25.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~rh#adr1.cre~ THEN BEGIN
+	COPY_EXISTING ~rh#adr1.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
+		BUT_ONLY
+	COPY_EXISTING ~rh#adr1.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~rh#adr1.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~rh#ad25c.cre~ THEN BEGIN
+	COPY_EXISTING ~rh#ad25c.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
+		BUT_ONLY
+	COPY_EXISTING ~rh#ad25c.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~rh#ad25c.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~rh#adr2.cre~ THEN BEGIN
+	COPY_EXISTING ~rh#adr2.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
+		BUT_ONLY
+	COPY_EXISTING ~rh#adr2.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~rh#adr2.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~rh#ad25t.cre~ THEN BEGIN
+	COPY_EXISTING ~rh#ad25t.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
+		BUT_ONLY
+	COPY_EXISTING ~rh#ad25t.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~rh#ad25t.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~adangel.cre~ THEN BEGIN
+	COPY_EXISTING ~adangel.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wiin~ END
+		BUT_ONLY
+	COPY_EXISTING ~adangel.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~adangel.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~adang25.cre~ THEN BEGIN
+	COPY_EXISTING ~adang25.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wiin~ END
+		BUT_ONLY
+	COPY_EXISTING ~adang25.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~adang25.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~adangma1.cre~ THEN BEGIN
+	COPY_EXISTING ~adangma1.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
+		BUT_ONLY
+	COPY_EXISTING ~adangma1.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~adangma1.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~adangma2.cre~ THEN BEGIN
+	COPY_EXISTING ~adangma2.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
+		BUT_ONLY
+	COPY_EXISTING ~adangma2.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~adangma2.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~adangma3.cre~ THEN BEGIN
+	COPY_EXISTING ~adangma3.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
+		BUT_ONLY
+	COPY_EXISTING ~adangma3.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~adangma3.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~adangma4.cre~ THEN BEGIN
+	COPY_EXISTING ~adangma4.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
+		BUT_ONLY
+	COPY_EXISTING ~adangma4.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
+		BUT_ONLY
+	COPY_EXISTING ~adangma4.cre~ ~override~
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
+		BUT_ONLY
+END
+//__________________________________________________________________________________
+
+
+//NERF EDWIN'S AMULET_______________________________________________________________
+//
+COPY ~scales_of_balance/wizard/misc89.itm~ ~override~
+	SAY UNIDENTIFIED_DESC @6501
+	SAY IDENTIFIED_DESC @6501
+//__________________________________________________________________________________
+
+
+//TWEAK SUMMONS HLAS________________________________________________________________
+//
+COPY - ~scales_of_balance/sob_settings.ini~ ~scales_of_balance/backup~
+	COUNT_REGEXP_INSTANCES ~change_hla_summons=1~ change_hla_summons
+
+ACTION_IF (change_hla_summons) THEN BEGIN
+
+ACTION_IF FILE_EXISTS_IN_GAME ~sppr726.spl~ THEN BEGIN
+	COPY ~scales_of_balance/spells/sppr726.spl~ ~override~
+		SAY NAME1 @6511
+		SAY UNIDENTIFIED_DESC @6512
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sppr727.spl~ THEN BEGIN
+	COPY ~scales_of_balance/spells/sppr727.spl~ ~override~
+		SAY NAME1 @6513
+		SAY UNIDENTIFIED_DESC @6514
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sppr723.spl~ THEN BEGIN
+	COPY_EXISTING ~sppr723.spl~ ~override/spwi923.spl~
+		WRITE_SHORT 0x1c 1
+	COPY_EXISTING ~sppr723.spl~ ~override/spwi924.spl~
+		WRITE_SHORT 0x1c 1
+END
+	PRINT @121
+END
+ELSE BEGIN
+	PRINT @122
+END
+//__________________________________________________________________________________
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
 //						SPELL SCHOOL CHANGES
 //__________________________________________________________________________________
 //__________________________________________________________________________________
@@ -2004,1621 +3622,5 @@ END // end of SR version
 //__________________________________________________________________________________
 
 
-//__________________________________________________________________________________
-//__________________________________________________________________________________
-//
-//						WIZARD KIT CHANGES
-//__________________________________________________________________________________
-//__________________________________________________________________________________
-
-//MAGE______________________________________________________________________________
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~clabma01.2da~ THEN BEGIN
-	COPY_EXISTING ~KITLIST.2da~ ~override~
-		SET_2DA_ENTRY 33 5 1 ~d5_wildm ~
-		BUT_ONLY
-	COPY_EXISTING ~clabma01.2da~ ~override/d5_wildm.2da~
-	COPY_EXISTING ~clabma01.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma1clab.txt~
-		BUT_ONLY
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma01.2da~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/clabma01.2da~ ~override~
-	COPY ~scales_of_balance/wizard/d5_wildm.2da~ ~override~
-END
-//__________________________________________________________________________________
-
-//ABJURER___________________________________________________________________________
-//range: @6201-6249
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~clabma02.2da~ THEN BEGIN
-	COPY_EXISTING ~clabma02.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
-		BUT_ONLY
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma02.2da~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/clabma02.2da~ ~override~
-END
-ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/d5_abju.eff~ ~override~
-	COPY_EXISTING ~spwi522.spl~ ~override~
-			~spwi618.spl~ ~override~
-			~spwi701.spl~ ~override~
-			~spwi902.spl~ ~override~
-			~spwi406.spl~ ~override~
-			~spwi602.spl~ ~override~
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=177 target=1 parameter1=9 parameter2=64 resist_dispel=0 timing=9 power=0 STR_VAR resource=~d5_abju~ END
-END
-ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
-	ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~spwi406.spl~ ~override/d5_abju1.spl~
-		SAY NAME1 @6201
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	COPY_EXISTING ~spwi522.spl~ ~override/d5_abju2.spl~
-		SAY NAME1 @6202
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	COPY_EXISTING ~spwi602.spl~ ~override/d5_abju3.spl~
-		SAY NAME1 @6203
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	COPY_EXISTING ~spwi618.spl~ ~override/d5_abju4.spl~
-		SAY NAME1 @6204
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	COPY_EXISTING ~spwi701.spl~ ~override/d5_abju5.spl~
-		SAY NAME1 @6205
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	COPY_EXISTING ~spwi902.spl~ ~override/d5_abju6.spl~
-		SAY NAME1 @6206
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~spwi406.spl~ ~override/d5_abju1.spl~
-		SAY NAME1 @6211
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	COPY_EXISTING ~spwi522.spl~ ~override/d5_abju2.spl~
-		SAY NAME1 @6212
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	COPY_EXISTING ~spwi602.spl~ ~override/d5_abju3.spl~
-		SAY NAME1 @6213
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	COPY_EXISTING ~spwi618.spl~ ~override/d5_abju4.spl~
-		SAY NAME1 @6214
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	COPY_EXISTING ~spwi701.spl~ ~override/d5_abju5.spl~
-		SAY NAME1 @6215
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	COPY_EXISTING ~spwi902.spl~ ~override/d5_abju6.spl~
-		SAY NAME1 @6216
-		LPF ADD_SPELL_EFFECT INT_VAR opcode=146 target=1 resist_dispel=0 timing=0 power=0 STR_VAR resource=~spwi519~ END
-	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~spwi406.spl~ THEN BEGIN
-		COPY_EXISTING ~spwi406.spl~ ~override~
-			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
-			BUT_ONLY
-	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~spwi522.spl~ THEN BEGIN
-		COPY_EXISTING ~spwi522.spl~ ~override~
-			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
-			BUT_ONLY
-	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~spwi602.spl~ THEN BEGIN
-		COPY_EXISTING ~spwi602.spl~ ~override~
-			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
-			BUT_ONLY
-	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~spwi618.spl~ THEN BEGIN
-		COPY_EXISTING ~spwi618.spl~ ~override~
-			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
-			BUT_ONLY
-	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~spwi701.spl~ THEN BEGIN
-		COPY_EXISTING ~spwi701.spl~ ~override~
-			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
-			BUT_ONLY
-	END
-	ACTION_IF FILE_EXISTS_IN_GAME ~spwi902.spl~ THEN BEGIN
-		COPY_EXISTING ~spwi902.spl~ ~override~
-			WRITE_LONG 0x1e ("0x00000040") //blocked: abjurers
-			BUT_ONLY
-	END
-END
-COPY_EXISTING ~clabma02.2da~ ~override~
-	LPM remove_blank_lines
-	APPEND_FILE ~scales_of_balance/wizard/m12clab.txt~
-//__________________________________________________________________________________
-
-//NECROMANCER_______________________________________________________________________
-//range @6251-6299
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~clabma03.2da~ THEN BEGIN
-	COPY_EXISTING ~clabma03.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma03.2da~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/clabma03.2da~ ~override~
-END
-COPY ~scales_of_balance/wizard/d5_nect1.spl~ ~override~
-	SAY NAME1 @6251
-	SAY IDENTIFIED_DESC @6252
-COPY ~scales_of_balance/wizard/d5_nect2.spl~ ~override~
-	SAY NAME1 @6253
-	SAY IDENTIFIED_DESC @6254
-COPY ~scales_of_balance/wizard/d5_nect3.spl~ ~override~
-	SAY NAME1 @6255
-	SAY IDENTIFIED_DESC @6256
-COPY ~scales_of_balance/wizard/d5_nnct1.spl~ ~override~
-	SAY NAME1 @6257
-	SAY IDENTIFIED_DESC @6257
-COPY ~scales_of_balance/wizard/d5_nnct2.spl~ ~override~
-	SAY NAME1 @6258
-	SAY IDENTIFIED_DESC @6258
-COPY ~scales_of_balance/wizard/d5_nnct3.spl~ ~override~
-	SAY NAME1 @6259
-	SAY IDENTIFIED_DESC @6259
-COPY ~scales_of_balance/wizard/d5_nect1.itm~ ~override~
-	SAY NAME1 @6251
-	SAY IDENTIFIED_DESC @6251
-COPY ~scales_of_balance/wizard/d5_nect2.itm~ ~override~
-	SAY NAME1 @6253
-	SAY IDENTIFIED_DESC @6253
-COPY ~scales_of_balance/wizard/d5_nect3.itm~ ~override~
-	SAY NAME1 @6255
-	SAY IDENTIFIED_DESC @6255
-COPY ~scales_of_balance/wizard/d5_nect3.bam~ ~override~
-COPY ~scales_of_balance/wizard/scrl82.itm~ ~override~
-	SAY NAME1 @6251
-	SAY IDENTIFIED_DESC @6252
-COPY ~scales_of_balance/wizard/scrl1c.itm~ ~override~
-	SAY NAME1 @6253
-	SAY IDENTIFIED_DESC @6254
-COPY ~scales_of_balance/wizard/scrl1q.itm~ ~override~
-	SAY NAME1 @6255
-	SAY IDENTIFIED_DESC @6256
-COPY ~scales_of_balance/wizard/spwi119.spl~ ~override~
-	SAY NAME1 @6260
-	SAY IDENTIFIED_DESC @6261
-COPY ~scales_of_balance/wizard/spwi119a.spl~ ~override~
-COPY ~scales_of_balance/wizard/spwi221.spl~ ~override~
-	SAY NAME1 @6262
-	SAY IDENTIFIED_DESC @6263
-ACTION_IF FILE_EXISTS_IN_GAME ~hidespl.2da~ THEN BEGIN
-	COPY_EXISTING ~hidespl.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/nechide.txt~
-END		
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~clabma03.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m13clab.txt~
-	ACTION_IF FILE_EXISTS_IN_GAME ~A!DIRGE.2da~ THEN BEGIN
-		COPY_EXISTING ~a!dirge.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/wizard/m13clab.txt~
-	END
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~clabma03.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m13clabsr.txt~
-	ACTION_IF FILE_EXISTS_IN_GAME ~A!DIRGE.2da~ THEN BEGIN
-		COPY_EXISTING ~a!dirge.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/wizard/m13clabsr.txt~
-	END
-END
-//__________________________________________________________________________________
-
-//TRANSMUTER________________________________________________________________________
-//range: @6301-6349
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~clabma04.2da~ THEN BEGIN
-	COPY_EXISTING ~clabma04.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma4clab.txt~
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma04.2da~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/clabma04.2da~ ~override~
-END
-COPY ~scales_of_balance/wizard/d5_tran1.spl~ ~override~
-ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~sppr117.spl~ ~override/d5_tran2.spl~
-		WRITE_SHORT 0x1c 1
-		WRITE_LONG 0x34 3
-	COPY_EXISTING ~sppr217.spl~ ~override/d5_tran3.spl~
-		WRITE_SHORT 0x1c 1
-		WRITE_LONG 0x34 4
-	COPY_EXISTING ~sppr323.spl~ ~override/d5_tran4.spl~
-		WRITE_SHORT 0x1c 1
-		WRITE_LONG 0x34 5
-	COPY_EXISTING ~sppr419.spl~ ~override/d5_tran5.spl~
-		WRITE_SHORT 0x1c 1
-		WRITE_LONG 0x34 6
-	COPY_EXISTING ~sppr524.spl~ ~override/d5_tran6.spl~
-		WRITE_SHORT 0x1c 1
-		WRITE_LONG 0x34 7
-	COPY_EXISTING ~sppr619.spl~ ~override/d5_tran7.spl~
-		WRITE_SHORT 0x1c 1
-		WRITE_LONG 0x34 8
-	COPY_EXISTING ~clabma04.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m24clab.txt~
-END
-COPY ~scales_of_balance/wizard/d5_golsu.spl~ ~override~
-ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/tomegol1.cre~ ~override~
-	COPY ~scales_of_balance/wizard/tomegol2.cre~ ~override~
-	COPY ~scales_of_balance/wizard/tomegol3.cre~ ~override~
-	COPY ~scales_of_balance/wizard/tomegol4.cre~ ~override~
-END
-COPY_EXISTING ~clabma04.2da~ ~override~
-	LPM remove_blank_lines
-	APPEND_FILE ~scales_of_balance/wizard/m14clab.txt~
-//__________________________________________________________________________________
-
-//DIVINER___________________________________________________________________________
-//range: @6351-6399
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~clabma05.2da~ THEN BEGIN
-	COPY_EXISTING ~clabma05.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma5clab.txt~
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma05.2da~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/clabma05.2da~ ~override~
-END
-COPY ~scales_of_balance/wizard/d5_contd.spl~ ~override~
-	SAY NAME1 @6351
-	SAY IDENTIFIED_DESC @6352
-COPY ~scales_of_balance/wizard/d5_divi1.spl~ ~override~
-COPY_EXISTING ~clabma05.2da~ ~override~
-	LPM remove_blank_lines
-	APPEND_FILE ~scales_of_balance/wizard/m15clab.txt~
-//__________________________________________________________________________________
-
-//CONJURER__________________________________________________________________________
-//range: @6401-6449
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~clabma06.2da~ THEN BEGIN
-	COPY_EXISTING ~clabma06.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma6clab.txt~
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma06.2da~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/clabma06.2da~ ~override~
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~clabma06.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m16clab.txt~
-		BUT_ONLY
-	COPY_EXISTING ~spwi309.spl~ ~override/d5_conv1.spl~
-		LPM spell_to_innate
-	COPY_EXISTING ~spwi407.spl~ ~override/d5_conv2.spl~
-		LPM spell_to_innate
-	COPY_EXISTING ~spwi504.spl~ ~override/d5_conv2.spl~
-		LPM spell_to_innate
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~clabma06.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m16clabsr.txt~
-	COPY_EXISTING ~spwi226.spl~ ~override/d5_conj1.spl~
-		WRITE_LONG 0x34 1
-	COPY_EXISTING ~spwi309.spl~ ~override/d5_conj2.spl~
-		WRITE_LONG 0x34 2
-	COPY_EXISTING ~spwi423.spl~ ~override/d5_conj3.spl~
-		WRITE_LONG 0x34 3
-	COPY_EXISTING ~spwi504.spl~ ~override/d5_conj4.spl~
-		WRITE_LONG 0x34 4
-	COPY_EXISTING ~spwi619.spl~ ~override/d5_conj5.spl~
-		WRITE_LONG 0x34 5
-	COPY_EXISTING ~spwi724.spl~ ~override/d5_conj6.spl~
-		WRITE_LONG 0x34 6
-END
-//__________________________________________________________________________________
-
-//INVOKER___________________________________________________________________________
-//range: @6451-6499
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~clabma07.2da~ THEN BEGIN
-	COPY_EXISTING ~clabma07.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma07.2da~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/clabma07.2da~ ~override~
-END
-ACTION_IF MOD_IS_INSTALLED "TOBEX.TP2" "100" THEN BEGIN
-	COPY_EXISTING ~clabma07.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m27clab.txt~
-	COPY ~scales_of_balance/wizard/d5_pyrot.spl~ ~override/d5_pyro1.spl~
-END
-ACTION_IF ENGINE_IS ~iwdee~ THEN BEGIN
-	COPY_EXISTING ~clabma07.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m27clab.txt~
-	COPY ~scales_of_balance/wizard/d5_pyroe.spl~ ~override/d5_pyro1.spl~
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~clabma07.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m17clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~clabma07.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m17clabsr.txt~
-END
-//__________________________________________________________________________________
-
-//ILLUSIONIST_______________________________________________________________________
-//range: @6501-6549
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~clabma08.2da~ THEN BEGIN
-	COPY_EXISTING ~clabma08.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma8clab.txt~
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma08.2da~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/clabma08.2da~ ~override~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/d5_illus.spl~ ~override/d5_illu1.spl~
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/d5_illuv.spl~ ~override/d5_illu1.spl~
-END
-COPY_EXISTING ~sppr109.spl~ ~override/d5_illu2.spl~
-	WRITE_SHORT 0x1c 1
-ACTION_IF FILE_EXISTS_IN_GAME ~spwi310.spl~ THEN BEGIN
-	COPY_EXISTING ~spwi310.spl~ ~override~
-		WRITE_LONG 0x1e ("0x00000400") //blocked: illusionists
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl1m.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl1m.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x04") //blocked: illusionists	
-		BUT_ONLY
-END
-ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spsd02.spl~ ~override~
-		SAY NAME1 @6049
-		SAY UNIDENTIFIED_DESC @6050
-	COPY ~scales_of_balance/wizard/spsd02b.bam~ ~override~
-	COPY ~scales_of_balance/wizard/spsd02c.bam~ ~override~
-END
-COPY_EXISTING ~clabma08.2da~ ~override~
-	LPM remove_blank_lines
-	APPEND_FILE ~scales_of_balance/wizard/m18clab.txt~
-//__________________________________________________________________________________
-
-//ENCHANTER_________________________________________________________________________
-//range: @6551-6598
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~clabma09.2da~ THEN BEGIN
-	COPY_EXISTING ~clabma09.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma09.2da~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/clabma09.2da~ ~override~
-END
-COPY ~scales_of_balance/wizard/d5_ench1.spl~ ~override~
-COPY ~scales_of_balance/wizard/d5_ench2.spl~ ~override~
-COPY ~scales_of_balance/wizard/d5_ench2.eff~ ~override~
-COPY ~scales_of_balance/wizard/d5_enc2a.spl~ ~override~
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~clabma09.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m19clab.txt~
-	ACTION_IF FILE_EXISTS_IN_GAME ~A!GYP.2da~ THEN BEGIN
-		COPY_EXISTING ~a!gyp.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/wizard/m19clab.txt~
-	END
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	COPY_EXISTING ~clabma09.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m19clabsr.txt~
-	ACTION_IF FILE_EXISTS_IN_GAME ~A!GYP.2da~ THEN BEGIN
-		COPY_EXISTING ~a!gyp.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/wizard/m19clabsr.txt~
-	END
-END
-//__________________________________________________________________________________
-
-
-//OTHER KIT 2DA FILES_______________________________________________________________
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~clabso01.2da~ THEN BEGIN
-	COPY_EXISTING ~clabso01.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_meist.2da~ THEN BEGIN
-	COPY_EXISTING ~d5_meist.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/bard/meistcant.txt~
-END
-//__________________________________________________________________________________
-
-/*
-//SONG & SILENCE COMPATIBILITY______________________________________________________
-//
-COPY_EXISTING ~kitlist.2da~ ~override~
-		0x00004000
-//__________________________________________________________________________________
-*/
-
-//TOME & BLOOD KIT COMPATIBILITY____________________________________________________
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~QDELDSOR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDELDSOR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMAGUS.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMAGUS.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma4clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ABJ.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_ABJ.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ALT.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_ALT.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma4clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_CON.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_CON.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma6clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ENC.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_ENC.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_EVO.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_EVO.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ILL.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_ILL.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma8clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_NEC.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_NEC.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARGT.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGARGT.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARMC.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGARMC.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGBTTL.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGBTTL.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARMC.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGARMC.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma5clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED1.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED1.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
-	COPY_EXISTING ~QDMGRED1.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma6clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED2.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED2.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma5clab.txt~
-	COPY_EXISTING ~QDMGRED2.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma6clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED3.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED3.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma5clab.txt~
-	COPY_EXISTING ~QDMGRED3.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED4.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED4.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
-	COPY_EXISTING ~QDMGRED4.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED5.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED5.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
-	COPY_EXISTING ~QDMGRED5.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma8clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED6.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED6.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-	COPY_EXISTING ~QDMGRED6.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma8clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED7.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED7.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-	COPY_EXISTING ~QDMGRED7.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGPYRO.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGPYRO.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGAERO.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGAERO.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb4clab.txt~ // elec missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGGEOM.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGGEOM.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb5clab.txt~ // earth missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHYDR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHYDR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb3clab.txt~ // acid missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARG2.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGARG2.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGSHDW.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGSHDW.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGTRNS.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGTRNS.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGSTAR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGSTAR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGPALE.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGPALE.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGWNEC.2da~ THEN BEGIN // white necro
-	COPY_EXISTING ~QDMGWNEC.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP1.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP1.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma2clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP2.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP2.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma6clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP3.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP3.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma4clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP4.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP4.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP5.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP5.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP6.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP6.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma8clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP7.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP7.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDDBLA.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDDBLA.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb3clab.txt~ // acid missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDDBLU.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDDBLU.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb4clab.txt~ // elec missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDDGRE.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDDGRE.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb3clab.txt~ // acid missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDDRED.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDDRED.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDDWHI.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDDWHI.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb2clab.txt~ // cold missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDDBRA.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDDBRA.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDDBRO.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDDBRO.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb4clab.txt~ // elec missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDDCOP.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDDCOP.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb3clab.txt~ // acid missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDDGOL.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDDGOL.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDDSIL.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDDSIL.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb2clab.txt~ // cold missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDXAN.2da~ THEN BEGIN
-	COPY_EXISTING ~QDXAN.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDYNAHE.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDYNAHE.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma7clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDCELSOR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDCELSOR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDFIESOR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDFIESOR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~ // fire missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDSTOSOR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDSTOSOR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb4clab.txt~ // elec missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDRBLSOR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDRBLSOR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb2clab.txt~ // cold missile
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDGROSOR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDGROSOR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma4clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDSYLSOR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDSYLSOR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma9clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDREVSOR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDREVSOR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/ma3clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDOOZSOR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDOOZSOR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/tb3clab.txt~ // acid missile
-END
-//_________________________________________________________________________________
-
-
-//MAGIC BATTLE CHANGES_____________________________________________________________
-//
-COPY - ~scales_of_balance/sob_settings.ini~ ~scales_of_balance/backup~
-	COUNT_REGEXP_INSTANCES ~spell_battle_changes=1~ spell_battle_changes
-
-ACTION_IF (spell_battle_changes) THEN BEGIN
-
-COPY ~scales_of_balance/wizard/spwi318.spl~ ~override~
-	SAY NAME1 @6051
-	SAY UNIDENTIFIED_DESC @6052
-COPY ~scales_of_balance/wizard/spwi321.spl~ ~override~
-	SAY NAME1 @6053
-	SAY UNIDENTIFIED_DESC @6054
-COPY ~scales_of_balance/wizard/spwi318.spl~ ~override/d5_mys32.spl~
-	SAY NAME1 @6051
-	SAY UNIDENTIFIED_DESC @6052
-COPY ~scales_of_balance/wizard/spwi321.spl~ ~override/d5_mys22.spl~
-	SAY NAME1 @6053
-	SAY UNIDENTIFIED_DESC @6054
-COPY ~scales_of_balance/wizard/spwi318.spl~ ~override/d5_radfl.spl.spl~
-	SAY NAME1 @6051
-	SAY UNIDENTIFIED_DESC @6052
-COPY ~scales_of_balance/wizard/spwi321.spl~ ~override/d5_rathr.spl~
-	SAY NAME1 @6053
-	SAY UNIDENTIFIED_DESC @6054
-COPY ~scales_of_balance/wizard/sppr612.spl~ ~override~
-	SAY NAME1 @6055
-	SAY UNIDENTIFIED_DESC @6056
-ACTION_IF ENGINE_IS ~tob bg2ee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi419.spl~ ~override~
-		SAY NAME1 @6057
-		SAY UNIDENTIFIED_DESC @6058
-END
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi419ee.spl~ ~override/spwi419.spl~
-		SAY NAME1 @6057
-		SAY UNIDENTIFIED_DESC @6058
-END
-ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi419iw.spl~ ~override/spwi419.spl~
-		SAY NAME1 @6057
-		SAY UNIDENTIFIED_DESC @6058
-END
-ACTION_IF ENGINE_IS ~tob bg2ee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi704.spl~ ~override~
-		SAY NAME1 @6059
-		SAY UNIDENTIFIED_DESC @6060
-END
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi704ee.spl~ ~override/spwi704.spl~
-		SAY NAME1 @6059
-		SAY UNIDENTIFIED_DESC @6060
-END
-ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi704iw.spl~ ~override/spwi704.spl~
-		SAY NAME1 @6059
-		SAY UNIDENTIFIED_DESC @6060
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	ACTION_IF ENGINE_IS ~tob bg2ee~ THEN BEGIN
-		COPY ~scales_of_balance/wizard/spwi805.spl~ ~override~
-			SAY NAME1 @6061
-			SAY UNIDENTIFIED_DESC @6062
-	END
-	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-		COPY ~scales_of_balance/wizard/spwi805ee.spl~ ~override/spwi805.spl~
-			SAY NAME1 @6061
-			SAY UNIDENTIFIED_DESC @6062
-	END
-	ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-		COPY ~scales_of_balance/wizard/spwi805iw.spl~ ~override/spwi805.spl~
-			SAY NAME1 @6061
-			SAY UNIDENTIFIED_DESC @6062
-	END
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl6o.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl6o.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x00")  		  
-		WRITE_BYTE 0x2f ("0x00") 
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl7l.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl7l.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x00")  		  
-		WRITE_BYTE 0x2f ("0x00") 
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl8g.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl8g.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x00")  		  
-		WRITE_BYTE 0x2f ("0x00") 
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl8h.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl8h.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x00")  		  
-		WRITE_BYTE 0x2f ("0x00") 
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl9a.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl9a.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x00")  		  
-		WRITE_BYTE 0x2f ("0x00") 
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl9m.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl9m.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x00")  		  
-		WRITE_BYTE 0x2f ("0x00") 
-		BUT_ONLY
-END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-	ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
-		COPY ~scales_of_balance/wizard/spwi522.spl~ ~override~
-			SAY NAME1 @6063
-			SAY UNIDENTIFIED_DESC @6064
-	END
-	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-		COPY ~scales_of_balance/wizard/spwi522ee.spl~ ~override/spwi522.spl~
-			SAY NAME1 @6063
-			SAY UNIDENTIFIED_DESC @6064
-	END
-	ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
-		COPY ~scales_of_balance/wizard/spwi618.spl~ ~override~
-			SAY NAME1 @6065
-			SAY UNIDENTIFIED_DESC @6066
-	END
-	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-		COPY ~scales_of_balance/wizard/spwi618ee.spl~ ~override/spwi618.spl~
-			SAY NAME1 @6065
-			SAY UNIDENTIFIED_DESC @6066
-	END
-	ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
-		COPY ~scales_of_balance/wizard/spwi701.spl~ ~override~
-			SAY NAME1 @6067
-			SAY UNIDENTIFIED_DESC @6068
-	END
-	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-		COPY ~scales_of_balance/wizard/spwi701ee.spl~ ~override/spwi701.spl~
-			SAY NAME1 @6067
-			SAY UNIDENTIFIED_DESC @6068
-	END
-	COPY ~scales_of_balance/wizard/spwi902.spl~ ~override~
-		SAY NAME1 @6069
-		SAY UNIDENTIFIED_DESC @6070
-	ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
-		STRING_SET 10875 @6071
-	END
-	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-		STRING_SET 26593 @6071
-	END
-END	
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl7d.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl7d.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x00")  		  
-		WRITE_BYTE 0x2f ("0x00") 
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl7v.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl7v.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x00")  		  
-		WRITE_BYTE 0x2f ("0x00") 
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl8d.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl8d.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x00")  		  
-		WRITE_BYTE 0x2f ("0x00") 
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl9l.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl9l.itm~ ~override~
-		WRITE_BYTE 0x2d ("0x00")  		  
-		WRITE_BYTE 0x2f ("0x00") 
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl6p.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl6p.itm~ ~override/scrl6g.itm~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl6o.itm~ THEN BEGIN
-	COPY_EXISTING ~scrl6o.itm~ ~override/scrl6j.itm~
-END
-//_________________________________________________________________________________
-
-//SPELL REVISIONS COMPATIBILITY_____________________________________________________
-//
-//ACTION_IF NOT MOD_IS_INSTALLED "setup-spell_rev.tp2" "60" THEN BEGIN
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
-
-ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi522.spl~ ~override~
-		SAY NAME1 @6063
-		SAY UNIDENTIFIED_DESC @6064
-END
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi522ee.spl~ ~override~
-		SAY NAME1 @6063
-		SAY UNIDENTIFIED_DESC @6064
-END
-ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi618.spl~ ~override~
-		SAY NAME1 @6065
-		SAY UNIDENTIFIED_DESC @6066
-END
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi618ee.spl~ ~override~
-		SAY NAME1 @6065
-		SAY UNIDENTIFIED_DESC @6066
-END
-ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi701.spl~ ~override~
-		SAY NAME1 @6067
-		SAY UNIDENTIFIED_DESC @6068
-END
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-	COPY ~scales_of_balance/wizard/spwi701ee.spl~ ~override~
-		SAY NAME1 @6067
-		SAY UNIDENTIFIED_DESC @6068
-END
-COPY ~scales_of_balance/wizard/spwi902.spl~ ~override~
-	SAY NAME1 @6069
-	SAY UNIDENTIFIED_DESC @6070
-ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
-	STRING_SET 10875 @6071
-END
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-	STRING_SET 26593 @6071
-END
-
-END
-//__________________________________________________________________________________
-
-//MODIFY CLABS______________________________________________________________________
-//
-COPY_EXISTING ~clabma01.2da~ ~override~
-			~clabma03.2da~ ~override~
-			~clabma04.2da~ ~override~
-			~clabma05.2da~ ~override~
-			~clabma06.2da~ ~override~
-			~clabma07.2da~ ~override~
-			~clabma08.2da~ ~override~
-			~clabma09.2da~ ~override~
-	LPM remove_blank_lines
-	APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-COPY_EXISTING ~clabma02.2da~ ~override~
-	LPM remove_blank_lines
-	APPEND_FILE ~scales_of_balance/wizard/m42clab.txt~
-//__________________________________________________________________________________
-
-//TOME & BLOOD KIT COMPATIBILITY____________________________________________________
-//
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ABJ.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_ABJ.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m42clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ALT.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_ALT.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_CON.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_CON.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ENC.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_ENC.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_EVO.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_EVO.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_ILL.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_ILL.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMG_NEC.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMG_NEC.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARGT.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGARGT.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARMC.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGARMC.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGBTTL.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGBTTL.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARMC.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGARMC.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED1.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED1.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED2.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED2.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED3.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED3.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED4.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED4.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED5.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED5.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED6.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED6.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGRED7.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGRED7.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGPYRO.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGPYRO.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~ 
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGAERO.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGAERO.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~ 
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGGEOM.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGGEOM.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHYDR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHYDR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/t41clab.txt~ 
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGARG2.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGARG2.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGSHDW.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGSHDW.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGTRNS.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGTRNS.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGSTAR.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGSTAR.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGPALE.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGPALE.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGWNEC.2da~ THEN BEGIN // white necro
-	COPY_EXISTING ~QDMGWNEC.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP1.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP1.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP2.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP2.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP3.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP3.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP4.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP4.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP5.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP5.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP6.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP6.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDMGHRP7.2da~ THEN BEGIN
-	COPY_EXISTING ~QDMGHRP7.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDXAN.2da~ THEN BEGIN
-	COPY_EXISTING ~QDXAN.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~QDDYNAHE.2da~ THEN BEGIN
-	COPY_EXISTING ~QDDYNAHE.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/wizard/m41clab.txt~
-END
-//_________________________________________________________________________________
-
-	PRINT @119
-END
-ELSE BEGIN
-	PRINT @120
-END
-//__________________________________________________________________________________
-
-
-//COPY WIZARD CRE FILES____________________________________________________________
-//
-ACTION_IF GAME_IS ~tutu bgt bgee~ THEN BEGIN
-//ACTION_IF NOT FILE_EXISTS_IN_GAME ~qdtnb10.qd~ THEN BEGIN
-	COPY_EXISTING ~DYNAHE.cre~ ~override~
-				~DYNAHE2.cre~ ~override~
-				~DYNAHE4.cre~ ~override~
-				~DYNAHE6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wiin~ END
-		BUT_ONLY
-	COPY_EXISTING ~DYNAHE4.cre~ ~override~
-				~DYNAHE6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~DYNAHE6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-
-	COPY_EXISTING ~EDWIN.cre~ ~override~
-				~EDWIN2.cre~ ~override~
-				~EDWIN4.cre~ ~override~
-				~EDWIN6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
-		BUT_ONLY
-	COPY_EXISTING ~EDWIN4.cre~ ~override~
-				~EDWIN6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~EDWIN6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-
-	COPY_EXISTING ~XAN4.cre~ ~override~
-				~XAN6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wine~ END
-		BUT_ONLY
-	COPY_EXISTING ~XAN4.cre~ ~override~
-				~XAN6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~XAN6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-
-	COPY_EXISTING ~XZAR.cre~ ~override~
-				~XZAR2.cre~ ~override~
-				~XZAR4.cre~ ~override~
-				~XZAR6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wine~ END
-		BUT_ONLY
-	COPY_EXISTING ~XZAR4.cre~ ~override~
-				~XZAR6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~XZAR6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-
-	COPY_EXISTING ~QUAYLE.cre~ ~override~
-				~QUAYLE4.cre~ ~override~
-				~QUAYLE6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wiil~ END
-		BUT_ONLY
-	COPY_EXISTING ~QUAYLE4.cre~ ~override~
-				~QUAYLE6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~QUAYLE6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-//	END
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~XAN.cre~ THEN BEGIN
-//ACTION_IF NOT FILE_EXISTS_IN_GAME ~qdtnb10.qd~ THEN BEGIN
-	COPY_EXISTING ~XAN.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wien~ END
-		BUT_ONLY
-//	END
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~NEERA.cre~ THEN BEGIN
-	COPY_EXISTING ~NEERA.cre~ ~override~
-				~NEERA2.cre~ ~override~
-				~NEERA4.cre~ ~override~
-				~NEERA6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
-		BUT_ONLY
-	COPY_EXISTING ~NEERA4.cre~ ~override~
-				~NEERA6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~NEERA6.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-
-ACTION_IF GAME_IS ~tob bgt bg2ee~ THEN BEGIN
-	COPY_EXISTING ~jan8.cre~ ~override~
-				~jan10.cre~ ~override~
-				~jan11.cre~ ~override~
-				~jan12.cre~ ~override~
-				~jan15.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wiil~ END
-		BUT_ONLY
-	COPY_EXISTING ~jan8.cre~ ~override~
-				~jan10.cre~ ~override~
-				~jan11.cre~ ~override~
-				~jan12.cre~ ~override~
-				~jan15.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~jan8.cre~ ~override~
-				~jan10.cre~ ~override~
-				~jan11.cre~ ~override~
-				~jan12.cre~ ~override~
-				~jan15.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-	COPY_EXISTING ~edwin9.cre~ ~override~
-				~edwin11.cre~ ~override~
-				~edwin12.cre~ ~override~
-				~edwin13.cre~ ~override~
-				~edwin15.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
-		BUT_ONLY
-	COPY_EXISTING ~edwin9.cre~ ~override~
-				~edwin11.cre~ ~override~
-				~edwin12.cre~ ~override~
-				~edwin13.cre~ ~override~
-				~edwin15.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~edwin9.cre~ ~override~
-				~edwin11.cre~ ~override~
-				~edwin12.cre~ ~override~
-				~edwin13.cre~ ~override~
-				~edwin15.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-	COPY_EXISTING ~aerie6.cre~ ~override~
-				~aerie7.cre~ ~override~
-				~aerie9.cre~ ~override~
-				~aerie10.cre~ ~override~
-				~aerie11.cre~ ~override~
-				~aerie12.cre~ ~override~
-				~imoen6.cre~ ~override~
-				~imoen10.cre~ ~override~
-				~imoen15.cre~ ~override~
-				~imoen211.cre~ ~override~
-				~imoen213.cre~ ~override~
-				~nalia8.cre~ ~override~
-				~nalia10.cre~ ~override~
-				~nalia11.cre~ ~override~
-				~nalia13.cre~ ~override~
-				~nalia15.cre~ ~override~
-				~nalia18.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
-		BUT_ONLY
-	COPY_EXISTING ~aerie6.cre~ ~override~
-				~aerie7.cre~ ~override~
-				~aerie9.cre~ ~override~
-				~aerie10.cre~ ~override~
-				~aerie11.cre~ ~override~
-				~aerie12.cre~ ~override~
-				~imoen6.cre~ ~override~
-				~imoen10.cre~ ~override~
-				~imoen15.cre~ ~override~
-				~imoen211.cre~ ~override~
-				~imoen213.cre~ ~override~
-				~nalia8.cre~ ~override~
-				~nalia10.cre~ ~override~
-				~nalia11.cre~ ~override~
-				~nalia13.cre~ ~override~
-				~nalia15.cre~ ~override~
-				~nalia18.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~aerie6.cre~ ~override~
-				~aerie7.cre~ ~override~
-				~aerie9.cre~ ~override~
-				~aerie10.cre~ ~override~
-				~aerie11.cre~ ~override~
-				~aerie12.cre~ ~override~
-				~imoen6.cre~ ~override~
-				~imoen10.cre~ ~override~
-				~imoen15.cre~ ~override~
-				~imoen211.cre~ ~override~
-				~imoen213.cre~ ~override~
-				~nalia8.cre~ ~override~
-				~nalia10.cre~ ~override~
-				~nalia11.cre~ ~override~
-				~nalia13.cre~ ~override~
-				~nalia15.cre~ ~override~
-				~nalia18.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
-	COPY_EXISTING ~neera8.cre~ ~override~
-				~neera10.cre~ ~override~
-				~neera15.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
-		BUT_ONLY
-	COPY_EXISTING ~neera8.cre~ ~override~
-				~neera10.cre~ ~override~
-				~neera15.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~neera8.cre~ ~override~
-				~neera10.cre~ ~override~
-				~neera15.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~J#indi01.cre~ THEN BEGIN
-	COPY_EXISTING ~J#indi01.cre~ ~override~
-				~J#indi03.cre~ ~override~
-				~J#indi03.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
-		BUT_ONLY
-	COPY_EXISTING ~J#indi03.cre~ ~override~
-				~J#indi03.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~tsujath.cre~ THEN BEGIN
-	COPY_EXISTING ~tsujath.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wine~ END
-		BUT_ONLY
-	COPY_EXISTING ~tsujath.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~tsujath.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~lk#nind.cre~ THEN BEGIN
-	COPY_EXISTING ~lk#nind.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wine~ END
-		BUT_ONLY
-	COPY_EXISTING ~lk#nind.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~lk#nind.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~lk#ni25.cre~ THEN BEGIN
-	COPY_EXISTING ~lk#ni25.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wine~ END
-		BUT_ONLY
-	COPY_EXISTING ~lk#ni25.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~lk#ni25.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~rh#adr1.cre~ THEN BEGIN
-	COPY_EXISTING ~rh#adr1.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
-		BUT_ONLY
-	COPY_EXISTING ~rh#adr1.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~rh#adr1.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~rh#ad25c.cre~ THEN BEGIN
-	COPY_EXISTING ~rh#ad25c.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
-		BUT_ONLY
-	COPY_EXISTING ~rh#ad25c.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~rh#ad25c.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~rh#adr2.cre~ THEN BEGIN
-	COPY_EXISTING ~rh#adr2.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
-		BUT_ONLY
-	COPY_EXISTING ~rh#adr2.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~rh#adr2.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~rh#ad25t.cre~ THEN BEGIN
-	COPY_EXISTING ~rh#ad25t.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_cant~ END
-		BUT_ONLY
-	COPY_EXISTING ~rh#ad25t.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~rh#ad25t.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~adangel.cre~ THEN BEGIN
-	COPY_EXISTING ~adangel.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wiin~ END
-		BUT_ONLY
-	COPY_EXISTING ~adangel.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~adangel.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~adang25.cre~ THEN BEGIN
-	COPY_EXISTING ~adang25.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wiin~ END
-		BUT_ONLY
-	COPY_EXISTING ~adang25.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~adang25.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~adangma1.cre~ THEN BEGIN
-	COPY_EXISTING ~adangma1.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
-		BUT_ONLY
-	COPY_EXISTING ~adangma1.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~adangma1.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~adangma2.cre~ THEN BEGIN
-	COPY_EXISTING ~adangma2.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
-		BUT_ONLY
-	COPY_EXISTING ~adangma2.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~adangma2.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~adangma3.cre~ THEN BEGIN
-	COPY_EXISTING ~adangma3.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
-		BUT_ONLY
-	COPY_EXISTING ~adangma3.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~adangma3.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~adangma4.cre~ THEN BEGIN
-	COPY_EXISTING ~adangma4.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5_wico~ END
-		BUT_ONLY
-	COPY_EXISTING ~adangma4.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi318~ END
-		BUT_ONLY
-	COPY_EXISTING ~adangma4.cre~ ~override~
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~spwi321~ END
-		BUT_ONLY
-END
-//__________________________________________________________________________________
-
-
-//NERF EDWIN'S AMULET_______________________________________________________________
-//
-COPY ~scales_of_balance/wizard/misc89.itm~ ~override~
-	SAY UNIDENTIFIED_DESC @6501
-	SAY IDENTIFIED_DESC @6501
-//__________________________________________________________________________________
-
-
-//TWEAK SUMMONS HLAS________________________________________________________________
-//
-COPY - ~scales_of_balance/sob_settings.ini~ ~scales_of_balance/backup~
-	COUNT_REGEXP_INSTANCES ~change_hla_summons=1~ change_hla_summons
-
-ACTION_IF (change_hla_summons) THEN BEGIN
-
-ACTION_IF FILE_EXISTS_IN_GAME ~sppr726.spl~ THEN BEGIN
-	COPY ~scales_of_balance/spells/sppr726.spl~ ~override~
-		SAY NAME1 @6511
-		SAY UNIDENTIFIED_DESC @6512
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~sppr727.spl~ THEN BEGIN
-	COPY ~scales_of_balance/spells/sppr727.spl~ ~override~
-		SAY NAME1 @6513
-		SAY UNIDENTIFIED_DESC @6514
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~sppr723.spl~ THEN BEGIN
-	COPY_EXISTING ~sppr723.spl~ ~override/spwi923.spl~
-		WRITE_SHORT 0x1c 1
-	COPY_EXISTING ~sppr723.spl~ ~override/spwi924.spl~
-		WRITE_SHORT 0x1c 1
-END
-	PRINT @121
-END
-ELSE BEGIN
-	PRINT @122
-END
-//__________________________________________________________________________________
 //__________________________________________________________________________________
 CLEAR_ARRAYS

@@ -58,7 +58,7 @@ ACTION_IF (install_tweaks) THEN BEGIN
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
 	COPY_EXISTING ~clabfi01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~SoB\fighter\ficlab.txt~
+		APPEND_FILE ~scales_of_balance/fighter/ficlab.txt~
 		BUT_ONLY
 	END
 

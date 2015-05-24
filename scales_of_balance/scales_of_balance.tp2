@@ -1478,7 +1478,7 @@ COPY_EXISTING ~ELDOTH.cre~ ~override~
 BEGIN @8111
 DESIGNATED 855
 REQUIRE_PREDICATE GAME_IS ~tutu bgt bgee~ ~Garrick~
-REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~d5_GALLA.2da~ ~Jongleur kit not installed~
+REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~d5_GALLA.2da~ ~Gallant kit not installed~
 
 COPY_EXISTING ~kitlist.2da~ ~override~
 	COUNT_2DA_ROWS 8 "rows"
