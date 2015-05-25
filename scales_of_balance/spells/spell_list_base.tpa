@@ -94,10 +94,10 @@ SPWI319 => 1  // Protection from Fire
 SPWI320 => 1  // Protection from Cold 
 SPWI321 => 0  // Spell Thrust 
 SPWI322 => 4  // Detect Illusion 
-SPWI323 => 1  // Dispel Magic [bg2]
+SPWI323 => 1  // Dispel Magic [iwd]
 SPWI324 => 8  // Hold Undead 
 SPWI325 => 3  // Melf's Minute Meteors 
-SPWI326 => 1  // Dispel Magic [iwd]
+SPWI326 => 1  // Dispel Magic [bg2]
 SPWI327 => 6  // Icelance 
 SPWI328 => 6  // Lance of Disruption 
 

@@ -49,8 +49,9 @@ ACTION_IF (install_tweaks) THEN BEGIN
 	COPY_EXISTING ~clabfi02.2da~ ~override~
 		REPLACE_TEXTUALLY ~GA_SPCL321~ ~GA_D5_RAGE~
 		BUT_ONLY
-//	COPY ~scales_of_balance/fighter/d5_rage.spl~ ~override/spcl321.spl~
-//	COPY ~scales_of_balance/fighter/d5_rage.spl~ ~override/spcl152.spl~
+	COPY ~scales_of_balance/fighter/d5_rage.spl~ ~override~
+	COPY ~scales_of_balance/fighter/d5_rage.spl~ ~override/spcl321.spl~
+	COPY ~scales_of_balance/fighter/d5_rage.spl~ ~override/spcl152.spl~
 //________________________________________________________________________________
 
 //FIGHTER KIT 2DA FILES___________________________________________________________

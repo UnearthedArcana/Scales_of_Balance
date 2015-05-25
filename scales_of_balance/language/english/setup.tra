@@ -3517,6 +3517,7 @@ Area of Effect: 1 creature
 Saving Throw: None 
 
 This spell protects the target from all forms of death magic for the duration of the spell. This includes, but is not limited to, Disintegrate, Power Word Kill, Death Spell and Finger of Death. The beneficiary of the spell also receives a +10 bonus to saving throws vs. Death, applicable against any necromantic magic not specifically blocked by the Death Ward.~
+@6950   = ~695: Magic Resistance Overhaul~
 @7000   = ~700: Multiclass Changes~
 @7010   = ~CLERIC/RANGER: This character can use the abilities of a Cleric and a Ranger, though weapons are restricted to only those allowed by the Cleric's ethos.  This character may Specialize in any weapon a cleric can use.  Upon starting the game, this character will automatically become a kitted Woodscout of Mielikki, or, if an elf, a Forestwalker of Solonor Thelandira.  With the blessings of these forest deities, the Woodscout or Forestwalker may cast both cleric and druid spells of all levels.~
 @7011   = ~Woodscout of Mielikki~

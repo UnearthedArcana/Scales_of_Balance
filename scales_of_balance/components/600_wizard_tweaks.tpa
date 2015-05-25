@@ -450,7 +450,7 @@ END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl9d.itm~ THEN BEGIN
 	COPY ~scales_of_balance/wizard/trigscrl.itm~ ~override/scrl9d.itm~
 END
-COPY ~scales_of_balance/wizard/d5_contd.spl~ ~override~
+COPY ~scales_of_balance/wizard/d5_conti.spl~ ~override~
 	SAY NAME1 @6351
 	SAY IDENTIFIED_DESC @6352
 //_________________________________________________________________________________
@@ -749,7 +749,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
 		LPM spell_to_innate
 	COPY_EXISTING ~spwi407.spl~ ~override/d5_conv2.spl~
 		LPM spell_to_innate
-	COPY_EXISTING ~spwi504.spl~ ~override/d5_conv2.spl~
+	COPY_EXISTING ~spwi504.spl~ ~override/d5_conv3.spl~
 		LPM spell_to_innate
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN

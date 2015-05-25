@@ -1,0 +1,172 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//						MAGIC RESISTANCE OVERHAUL
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+//changing MR-granting items________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clck05.itm~ THEN BEGIN
+	COPY_EXISTING ~clck05.itm~ ~override~ // Cloak of Balduran
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~potn34.itm~ THEN BEGIN
+	COPY_EXISTING ~potn34.itm~ ~override~ // Potion of Magic Protection
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~hgwra02.itm~ THEN BEGIN
+	COPY_EXISTING ~hgwra02.itm~ ~override~ // Robe of the Good/Neutral/Evil Archmagi
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~carsomyr.itm~ THEN BEGIN
+	COPY_EXISTING ~carsomyr.itm~ ~override~ // Carsomyr +5/+6
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sw2h10.itm~ THEN BEGIN
+	COPY_EXISTING ~sw2h10.itm~ ~override~ // Carsomyr +5/+6
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sw2h19.itm~ THEN BEGIN
+	COPY_EXISTING ~sw2h19.itm~ ~override~ // Carsomyr +5/+6
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~amul21.itm~ THEN BEGIN
+	COPY_EXISTING ~amul21.itm~ ~override~ // Amulet of Power
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~amul19.itm~ THEN BEGIN
+	COPY_EXISTING ~amul19.itm~ ~override~ // Amulet of 5% Magic Resistance
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~amul20.itm~ THEN BEGIN
+	COPY_EXISTING ~amul20.itm~ ~override~ // Kaligun's Amulet of Magic Resistance
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~amul27.itm~ THEN BEGIN
+	COPY_EXISTING ~amul27.itm~ ~override~ // Amulet of the Seldarine
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~wa2robe.itm~ THEN BEGIN
+	COPY_EXISTING ~wa2robe.itm~ ~override~ // Robe of Vecna
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~leat21.itm~ THEN BEGIN
+	COPY_EXISTING ~leat21.itm~ ~override~ // Human Flesh +5
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~dwchan01.itm~ THEN BEGIN
+	COPY_EXISTING ~dwchan01.itm~ ~override~ // Drow Elven Chain +3
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~shld26.itm~ THEN BEGIN
+	COPY_EXISTING ~shld26.itm~ ~override~ // Shield of the Lost +2
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~shld26a.itm~ THEN BEGIN
+	COPY_EXISTING ~shld26a.itm~ ~override~ // Shield of the Lost +2
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~ring39.itm~ THEN BEGIN
+	COPY_EXISTING ~ring39.itm~ ~override~ // Ring of Gaxx
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sw1h64.itm~ THEN BEGIN
+	COPY_EXISTING ~sw1h64.itm~ ~override~ // The Purifier +4/+5
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sw1h65.itm~ THEN BEGIN
+	COPY_EXISTING ~sw1h65.itm~ ~override~ // The Purifier +4/+5
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~comps64.itm~ THEN BEGIN
+	COPY_EXISTING ~comps64.itm~ ~override~ // The Purifier +4/+5
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~comps65.itm~ THEN BEGIN
+	COPY_EXISTING ~comps65.itm~ ~override~ // The Purifier +4/+5
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~blun30.itm~ THEN BEGIN
+	COPY_EXISTING ~blun30.itm~ ~override~ // The Flail of Ages +5
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sw1h71.itm~ THEN BEGIN
+	COPY_EXISTING ~sw1h71.itm~ ~override~ // Hindo's Doom +4
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sw1h77.itm~ THEN BEGIN
+	COPY_EXISTING ~sw1h77.itm~ ~override~ // The Answerer (kind of. subtracts MR from its targets.)
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sw2h12.itm~ THEN BEGIN
+	COPY_EXISTING ~sw2h12.itm~ ~override~ // The Flame of the North +2
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~chevil10.itm~ THEN BEGIN
+	COPY_EXISTING ~chevil10.itm~ ~override~ // The Flame of the North +2
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~sw2h18.itm~ THEN BEGIN
+	COPY_EXISTING ~sw2h18.itm~ ~override~ // Gram the Sword of Grief +5
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~ohdarmor.itm~ THEN BEGIN
+	COPY_EXISTING ~ohdarmor.itm~ ~override~ // Silver Dragon Armor (15%)
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~ohnshld1.itm~ THEN BEGIN
+	COPY_EXISTING ~ohnshld1.itm~ ~override~ // Shield of Fyrus Khal (All allies within 5ft gain +5% magic resistance)
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~wa2s1h.itm~ THEN BEGIN
+	COPY_EXISTING ~wa2s1h.itm~ ~override~ // Sword of Balduran (10%)
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~plat21.itm~ THEN BEGIN
+	COPY_EXISTING ~plat21.itm~ ~override~ // Enkidu Armor (5%)
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~belt12.itm~ THEN BEGIN
+	COPY_EXISTING ~belt12.itm~ ~override~ // Symbols of Helm/Lathander/Talos
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~belt13.itm~ THEN BEGIN
+	COPY_EXISTING ~belt13.itm~ ~override~ // Symbols of Helm/Lathander/Talos
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~belt14.itm~ THEN BEGIN
+	COPY_EXISTING ~belt14.itm~ ~override~ // Symbols of Helm/Lathander/Talos
+		DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+END
+ACTION_IF NOT (MOD_IS_INSTALLED "item_rev.tp2" "0") THEN BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~clck15.itm~ THEN BEGIN
+		COPY_EXISTING ~clck15.itm~ ~override~ // Robe of the Good/Neutral/Evil Archmagi
+			DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~clck16.itm~ THEN BEGIN
+		COPY_EXISTING ~clck16.itm~ ~override~ // Robe of the Good/Neutral/Evil Archmagi
+			DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~clck17.itm~ THEN BEGIN
+		COPY_EXISTING ~clck17.itm~ ~override~ // Robe of the Good/Neutral/Evil Archmagi
+			DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+	END
+END
+ACTION_IF (MOD_IS_INSTALLED "item_rev.tp2" "0") THEN BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~.itm~ THEN BEGIN
+		COPY_EXISTING ~.itm~ ~override~ // IR Helm of Balduran
+			DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+	END
+	ACTION_IF FILE_EXISTS_IN_GAME ~.itm~ THEN BEGIN
+		COPY_EXISTING ~.itm~ ~override~ // IR Robe of the Weave
+			DELETE_ITEM_EQEFFECT SET opcode_to_delete=166 
+	END
+END
+
+// STILL TO CONSIDER: 
+ // Hell Trials (10%)
+ // Lum the Mad (5%)
+ // sw1h77 : The Answerer (kind of. subtracts MR from its targets.)
