@@ -14,6 +14,11 @@
 @11   = ~Tome & Blood is installed~
 @12   = ~Spell Revisions compatibility~
 @13   = ~Ranger/cleric spells disabled~
+@15   = ~Save vs. Spells bonus~
+@16   = ~Save vs. Death bonus~
+@17   = ~Save vs. Breath bonus~
+@18   = ~Save vs. Wands bonus~
+@19   = ~Save vs. Petrify bonus~
 @20   = ~Would you like to view basic tweaks & changes? (y/n)~
 @30   = ~Would you like to install new kits? (y/n)~
 @40   = ~Would you like to alter NPC classes/kits? (y/n)~
@@ -1316,6 +1321,7 @@ Advantages:
 - Can achieve Grand Mastery (+++++) with light bladed weapons
 - Begins with one proficiency point in Single-Weapon Style and Two-Weapon Style.
 - Can use use the skill Swashbuckling once per day for each five levels.  While Swashbuckling, the character wheels and spins and parries, gaining an Armor Class of -1 per two levels, up to a maximum of -10. The character's movement rate is halved while swashbuckling.
+- +1 bonus to saves vs. Breath for each 5 levels of experience.
 
 Disadvantages:
 - Cannot become proficient with heavy weapons 
@@ -1330,6 +1336,7 @@ Advantages:
 - Can achieve Grand Mastery (+++++) with light bladed weapons
 - Begins with one proficiency point in Single-Weapon Style and Two-Weapon Style.
 - Can use use the skill Swashbuckling once per day for each five levels.  While Swashbuckling, the character wheels and spins and parries, gaining an Armor Class of -1 per two levels, up to a maximum of -10. The character's movement rate is halved while swashbuckling.
+- +1 bonus to saves vs. Breath for each 5 levels of experience.
 
 Disadvantages:
 - Cannot become proficient with heavy weapons 
@@ -1343,9 +1350,10 @@ For four rounds, the character wheels and spins and parries, gaining an Armor Cl
 @3209  = ~CORSAIR: Part warrior, part rogue, part charming sailor, the Corsair is a dashing swordsman who survives by sharp wits and a sharper blade.
 
 Advantages:
+- +1 bonus to Armor Class and thac0 at levels 7, 14, and 21.
 - Can achieve Grand Mastery (+++++) with light bladed weapons.
 - Can use use the skill Swashbuckling once per day for each five levels. While Swashbuckling, the character wheels and spins and parries, gaining an Armor Class of -1 per two levels, up to a maximum of -10.
-- Corsairs have an inherent +1 bonus to Luck.
+- +1 bonus to saves vs. Breath for each 5 levels of experience.
 
 Disadvantages:
 - Cannot become proficient with heavy weapons.
@@ -1355,9 +1363,10 @@ Disadvantages:
 @3210  = ~CORSAIR: Part warrior, part rogue, part charming sailor, the Corsair is a dashing swordsman who survives by sharp wits and a sharper blade.
 
 Advantages:
+- +1 bonus to Armor Class and thac0 at levels 7, 14, and 21.
 - Can achieve Grand Mastery (+++++) with light bladed weapons.
 - Can use use the skill Swashbuckling once per day for each five levels. While Swashbuckling, the character wheels and spins and parries, gaining an Armor Class of -1 per two levels, up to a maximum of -10.
-- Corsairs have an inherent +1 bonus to Luck.
+- +1 bonus to saves vs. Breath for each 5 levels of experience.
 
 Disadvantages:
 - Cannot become proficient with heavy weapons.
@@ -1457,7 +1466,7 @@ Advantages:
 - Begins with one proficiency point in Single-Weapon Style, and may add one more.
 - Begins with one proficiency point in Two-Weapon Style, and may add two more.
 - Can use use the skill Swashbuckling once per day at level 1, 3, 6, 10, 15, and 21. While Swashbuckling, the character wheels and spins and parries, gaining an Armor Class of -1 per two levels, up to a maximum of -10. The character's movement rate is halved while swashbuckling.
-- Swashbucklers have an inherent +1 bonus to Luck as of 9th level.
+- Swashbucklers have a +1 bonus to saves vs. Breath for each 5 levels of experience.
 
 Disadvantages:
 - May not use traps.
@@ -2675,7 +2684,7 @@ Area of Effect: 30-ft. radius
 Saving Throw: None
 
 The spell grants the caster the ability to understand and subtly manipulate the flow of time, making any following spells more likely to be successful and effective. The practical result is to adversely affect all enemy Saving Throws. The effect is applied to all hostile creatures within the area of effect, who make all saving throws at a penalty of -4.~
-@6118  = ~Illusionary Stalker
+@6118  = ~Shadow Stalker
 (Illusion/Phamtasm)
 
 Level: 6
@@ -2685,7 +2694,7 @@ Casting Time: 9
 Area of Effect: Special
 Saving Throw: None
 
-This spell advances on effects like Reflected Image and Mislead by attempting to give the created double some degree of form and autonomy. It is only partially successful - the double is blurry and shapeless, and lacks the personality and control of the caster. But it will fight on the caster's behalf and remain in relatively stable form for up to 9 hours (unless it meets a violent demise).~
+This spell creates a double of the caster formed from pure shadow, and imparts upon it some degree of form and autonomy. Blurry and shapeless, this entity will fight on the caster's behalf and remain in relatively stable form for up to 9 hours (unless it meets a violent demise).~
 @6119  = ~Mordenkainen's Sword
 (Enchantment/Charm)
 
@@ -2835,7 +2844,7 @@ Area of Effect: Special
 Saving Throw: None
 
 This spell is the result of a Necromancer dipping his toes into the Diviner's sphere of influence. With it, an actual eyeball is enchanted to float around and send visual information to the caster's mind. The Wizard Eye can see with normal vision up to 60 ft. away in brightly lit areas, and can travel in any direction as long as the spell lasts. Solid barriers prevent the passage of a Wizard Eye. The powers of the eye cannot be enhanced by other spells or items. The caster is subject to any gaze attack met by the eye. A successful Dispel Magic spell cast on the wizard or the eye ends the spell.~
-@6135  = ~Illusionary Stalker
+@6135  = ~Shadow Stalker
 Level: 6
 School: Illusion
 Range: 120 ft.
@@ -2844,7 +2853,7 @@ Casting Time: 9
 Area of Effect: Special
 Saving Throw: None
 
-This spell advances on effects like Reflected Image and Mislead, by attempting to give the created double some degree of form and autonomy. It is only partially successful - the double is blurry and shapeless, and lacks the personality and control of the caster. But it will fight on the caster's behalf and remain in relatively stable form for up to 8 hours (unless it meets a violent demise).~
+This spell creates a double of the caster formed from pure shadow, and imparts upon it some degree of form and autonomy. Blurry and shapeless, this entity will fight on the caster's behalf and remain in relatively stable form for up to 9 hours (unless it meets a violent demise).~
 @6136   = ~Discorporate
 Level: 6
 School: Necromancy
@@ -3000,512 +3009,90 @@ Saving Throw: None
 This spell opens an abyssal gate and calls forth a demonic deva to fight at the caster's side until the spell expires or the deva's earthly avatar is slain.
 
 If the summoning priest is 25th level or higher, a powerful dark planetar is summoned instead.~
-//Grammarsalad TRA strings
-@115000 = ~660: Arcane Crafting by Grammarsalad (beta)~
-@115001 = ~Tome & Blood Crafting component already installed~
-@115003 = ~Scribe Scrolls~
-@115004 = ~You must have a spell memorized in order to scribe a scroll.  Try again when you have memorized at least one spell.~
-@115005 = ~You must have at least 100 gold to scribe a scroll.  Try again when you have 100 gold or more.~
-@115006 = ~1st Level Spells (100 gold)~
-@115007 = ~2nd Level Spells (200 gold)~
-@115008 = ~3rd Level Spells (300 gold)~
-@115009 = ~4th Level Spells (400 gold)~
-@115010 = ~5th Level Spells (500 gold)~
-@115011 = ~6th Level Spells (1,000 gold)~
-@115012 = ~7th Level Spells (1,500 gold)~
-@115013 = ~8th Level Spells (2,500 gold)~
-@115014 = ~9th Level Spells (5,000 gold)~
-@115015 = ~Exit~
-@115016 = ~Select another Spell Level~
-@115017 = ~Scribe Scroll
-This ability allows you to scribe a scroll from a spell that you currently have memorized if you have the gold.~
-@115018 = ~You must have at least 100 experience points to scribe a spell.  Try again when you have attained the required experience.~
-@115019 = ~Select Spell Level~
-@115020 = ~Craft Wand~
-@115021 = ~Craft Wand
-This ability allows you to craft a wand from a spell that you currently have memorized if you have the gold.  Note that not all spells can be bound to wands.  Typically, only offensive spells are suitable.~
-@115022 = ~You must have at least 900 gold to create a wand.  Try again when you have 900 gold or more.~
-@115023 = ~Craft Wand~
-@115024 = ~You must have at least 75 gold to brew a potion.  Try again when you have 75 gold or more.~
-@115025 = ~Brew Potion~
-@115026 = ~Bonus Spells~
-@115027 = ~Nahal's Reckless Dweomer~
-@115028 = ~Nahal's Reckless Dweomer
-(Invocation/Evocation)
-
-Level: 1
-Range: Special
-Duration: Special
-Casting Time: 5
-Area of Effect: Special
-Saving Throw: Special
-
-This spell is the Wild Mage's ultimate last-resort spell. When cast, the Mage releases a sudden flood of wild magical energy in the hope of seizing and shaping that energy into a desired spell effect. The attempt usually fails, but something almost always occurs in the process.
-
-To use Nahal's Reckless Dweomer simply cast it, then choose from your list of known spells. A burst of magical energy is released, which the Wild Mage will try to manipulate into the desired form. The actual effect of the spell is determined randomly by a dice roll on the Wild Surge Table (see the manual for more details).
-
-Because the release of energy is planned by the Mage, <PRO_HISHER> level is added to the dice roll. If the result indicates success, the Mage has shaped the magical energy into the desired effect. More often than not, the effect is completely unexpected. The result might be beneficial to the Mage, or it might be completely disastrous: This is the risk the Mage takes in casting Nahal's Reckless Dweomer.~
-
-@115029 = ~Chaos Shield~
-@115030 = ~Chaos Shield
-(Abjuration)
-
-Level: 2
-Range: 0
-Duration: 5 rounds + 1 turn/5 levels
-Casting Time: 2
-Area of Effect: The caster
-Saving Throw: None
-
-Chaos Shield increases a Wild Mage's chance to gain a favorable result when a Wild Surge occurs. Every time a roll is made on the Wild Surge chart, an extra 15 is added to the dice roll. When Nahal's Reckless Dweomer is cast, the bonus from Chaos Shield stacks with the Wild Mage's level bonus.~
-
-@115031 = ~Improved Chaos Shield~
-
-@115032 = ~Improved Chaos Shield
-(Abjuration)
-
-Level: 7
-Range: 0
-Duration: 2 turns
-Casting Time: 7
-Area of Effect: The caster
-Saving Throw: None
-
-Improved Chaos Shield increases a Wild Mage's chance to gain a favorable result when a Wild Surge occurs. Every time a roll is made on the Wild Surge chart, an extra 25 is added to the dice roll. When Nahal's Reckless Dweomer is cast, the bonus from Improved Chaos Shield stacks with the Wild Mage's level bonus.~
-
-@115033 = ~1st Tier Wands (900 gp)~
-@115034 = ~2nd Tier Wands (1,900 gp)~
-@115035 = ~3rd Tier Wands (5,000 gp)~
-@115036 = ~4th Tier Wands (10,000 gp)~
-@115037 = ~5th Tier Wands (15,000 gp)~
-
-@115038 = ~Recharge Wands~
-
-@115039 = ~Recharge Wands
-With this ability, you can recharge wands if you have the right spell or scroll, and the gold for special materials.  The spell/scroll requirements for recharging a wand are less restricted than for wand creation (i.e. you can recharge a given wand with lower level spells than would be required to create that wand.)
-You cannot recharge any wand if you have more than one in your immediate possession as the conflict will cause the magical energies to dissipate.~
-
-@115040 = ~You need a minimum of 225 gold to recharge a wand.  Try again when you have at least 225 gold.~
-
-@115041 = ~Select a wand to recharge~
-@115042 = ~Recharge Wand of Magic Missiles~
-@115043 = ~Choose which Scroll or Spell that you wish to use to recharge your Wand~
-@115044 = ~Use Scroll of Magic Missile~
-@115045 = ~Use Magic Missile Spell~
-@115046 = ~Recharge another wand~
-@115047 = ~Wand of Sleep~
-@115048 = ~Wand of Fear~
-@115049 = ~Use Scroll of Spook~
-@115050 = ~Use Spook Spell~
-@115051 = ~Use Scroll of Horror~
-@115052 = ~Use Horror Spell~
-@115053 = ~Use Scroll of Symbol: Fear~
-@115054 = ~Use Symbol: Fear Spell~
-@115055 = ~Wand of Monster Summoning~
-@115056 = ~Wand of Fire~
-@115057 = ~Wand of Paralyzation~
-@115058 = ~Wand of Lightning~
-@115059 = ~Wand of Freezing Death~
-@115060 = ~Use Scroll of Monster Summoning I~
-@115061 = ~Use Monster Summoning I Spell~
-@115062 = ~Use Scroll of Monster Summoning II~
-@115063 = ~Use Monster Summoning II Spell~
-@115064 = ~Use Scroll of Monster Summoning III~
-@115065 = ~Use Monster Summoning III Spell~
-@115066 = ~Use Scroll of Monster Summoning IV~
-@115067 = ~Use Monster Summoning IV Spell~
-@115068 = ~Use Scroll of Monster Summoning V~
-@115069 = ~Use Monster Summoning V Spell~
-@115070 = ~Use Scroll of Burning Hands~
-@115071 = ~Use Burning Hands Spell~
-@115070 = ~Use Scroll of Agannazar's Scorcher~
-@115071 = ~Use Agannazar's Scorcher Spell~
-@115072 = ~Wand of Magic Missiles: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115073 = ~*Recharge Wand of Magic Missiles*~
-@115074 = ~Recharge Wand of Sleep~
-@115075 = ~Wand of Sleep: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115076 = ~Use Scroll of Sleep~
-@115077 = ~Use Sleep Spell~
-@115078 = ~Use Scroll of Power Word: Sleep~
-@115079 = ~Use Power Word: Sleep Spell~
-@115080 = ~*Recharge Wand of Sleep*~
-@115081 = ~Use Scroll of Sleep~
-@115082 = ~Wand of Magic Missile~
-@115083 = ~Select the wand that you want to create~
-@115084 = ~Choose which Scroll or Spell that you wish to use to create your Wand~
-@115085 = ~Use Scroll of Magic Missile~
-@115086 = ~Use Magic Missile Spell~
-@115087 = ~Select another Tier Level~
-@115088 = ~Select a different 1st Tier wand~
-@115089 = ~Wand of Sleep~
-@115090 = ~Select a different 2nd Tier wand~
-@115091 = ~Use Fireball Spell~
-@115092 = ~Select a different 3rd Tier wand~
-@115093 = ~Use Flame Arrow Spell~
-@115094 = ~Use Conjure Lesser Fire Elemental Spell~
-@115095 = ~Use Sun Fire Spell~
-@115096 = ~Use Shroud of Flame Spell~
-@115097 = ~Use Conjure Fire Elemental Spell~
-@115098 = ~Use Delayed Blast Fireball Spell~
-@115099 = ~Use Incendiary Cloud Spell~
-@115100 = ~Use Meteor Swarm Spell~
-@115101 = ~Use Scroll of Fire Ball~
-@115102 = ~Use Scroll of Flame Arrow~
-@115103 = ~Use Scroll of Conjure Lesser Fire Elemental~
-@115104 = ~Select Tier you wish to recharge.~
-@115105 = ~1st Tier Wands (225 gp)~
-@115106 = ~2nd Tier Wands (475 gp)~
-@115107 = ~3rd Tier Wands (1,250 gp)~
-@115108 = ~4th Tier Wands (2,500 gp)~
-@115109 = ~5th Tier Wands (3,750 gp)~
-@115110 = ~You need a minimum of 475 gold to recharge a Tier 2 wand.  Exit and try again when you have at least 475 gold.~
-@115111 = ~You need a minimum of 1,250 gold to recharge a Tier 3 wand.  Exit and try again when you have at least 1,250 gold.~
-@115112 = ~You need a minimum of 2,500 gold to recharge a Tier 4 wand.  Exit and try again when you have at least 1,250 gold.~
-@115113 = ~You need a minimum of 3,750 gold to recharge a Tier 5 wand.  Exit and try again when you have at least 1,250 gold.~
-@115114 = ~Use Scroll of Lightning Bolt~
-@115115 = ~Use Ligntning Bolt Spell~
-@115116 = ~Use Summon Monster I Spell~
-@115117 = ~Use Scroll of Summon Monster I~
-@115118 = ~This deadly wand can cast a number of cold themed spells
-
-STATISTICS:
-
-Charge abilities:
-â€“ Icelance
-  Damage: 5d6 cold
-  Stuns target for 3 rounds (Save vs. Spell negates)
-  Range: 100 ft.
-  Area of Effect: 1 creature
-
-â€“ Snilloc's Snowball Swarm
-  Damage: 4d3 cold (Save vs. Spell for half)
-  Range: 40 ft.
-  Area of Effect: 30-ft. radius
-
-â€“ Ice Storm
-  Damage: 3d10 cold
-  Range: 40 ft.
-  Area of Effect: 30-ft. radius
-
-Requires:
- 9 Intelligence
-
-Weight: 1~
-
-@115119 =  ~This deadly wand was crafted by the wizard Hegthen to protect him from his rival's fire-using minions. Hegthen made frequent use of the wand during his protracted war with his enemy. After ten years of hounding, Hegthen decided to take the battle to his rival, defeating him in one of the most spectacular magical duels ever seen in Suzail's history. As his terms of victory, Hethgen demanded that his enemy's name be magically snuffed out of the memory of all who knew him. His enemy accepted and later went on to become the Cloaked Flame, a dangerous terrorist killed by Cormyrean Purple Dragons and War Wizards in 1212 DR.
-
-STATISTICS:
-
-Charge abilities:
-â€“ Icelance
-  Damage: 5d6 cold
-  Stuns target for 3 rounds (Save vs. Spell negates)
-  Range: 100 ft.
-  Area of Effect: 1 creature
-
-â€“ Snilloc's Snowball Swarm
-  Damage: 4d3 cold (Save vs. Spell for half)
-  Range: 40 ft.
-  Area of Effect: 30-ft. radius
-
-â€“ Ice Storm
-  Damage: 3d10 cold
-  Range: 40 ft.
-  Area of Effect: 30-ft. radius
-
-Requires:
- 9 Intelligence
-
-Weight: 1~
-@115120 =  ~Wand of Freezing Death~
-
-~This deadly wand casts Ice Storm.
-
-STATISTICS:
-
-Charge abilities:
-
-â€“ Ice Storm
-  Damage: 3d10 cold
-  Range: 40 ft.
-  Area of Effect: 30-ft. radius
-
-Requires:
- 9 Intelligence
-
-Weight: 1~
-@115121 = ~Wand of Freezing Death~
-@115122 = ~Use Ice Storm Spell~
-@115123 = ~Use Scroll of Ice Storm~
-@115124 = ~Select a different 4th Tier wand~
-@115125 = ~Wand of Armory~
-@115126 = ~Often confused with another wand of the same name, the Wand of Armory is used to cast protective spells on the user.
-
-STATISTICS:
-
-Charge abilities:
-â€“ Shield
-  Armor Class set to 4 (2 vs. missile); immunity to magical missiles
-  Duration: 15 rounds
-  Area of Effect: The user
-
-â€“ Ghost Armor
-  Armor Class set to 3
-  Duration: 7 rounds
-  Area of Effect: The user
-
-Requires:
- 9 Intelligence
-
-Weight: 1~
-@115127 = ~Use Spirit Armor Spell~
-@115128 = ~Use Scroll of Spirit Armor~
-
-@115129 = ~Use Hold Monster Spell~
-@115130 = ~Use Scroll of Hold Monster~
-
-@115131 = ~Select a different 5th Tier wand~
-@115132 = ~Wand of Frost~
-
-@115133 = ~6th Tier Wands (25,000 gp)~
-@115134 = ~Wand of Spell Striking~
-@115135 = ~Select a different 6th Tier wand~
-@115136 = ~Wand of Polymorphing~
-@115137 = ~Wand of Polymorphing
-This wand emits a thin, green beam that darts forth to a maximum distance of 60 ft. Any creature touched by this beam must make a Save vs. Wand or be polymorphed into a squirrel.
-
-STATISTICS:
-
-Charge abilities:
-â€“ Polymorph target into squirrel (Save vs. Wand negates)
-  Range: 100 ft.
-  Area of Effect: 1 creature
-  Duration: Permanent (until dispelled)
-
-Requires:
- 9 Intelligence
-
-Weight: 1~
-
-@115138 = ~Use Cone of Cold Spell~
-@115139 = ~Use Scroll of Cone of Cold~
-
-@115140 = ~Use Pierce Magic Spell~
-@115141 = ~Use Scroll of Pierce Magic~
-
-@115142 = ~Use Polymorph: Other Spell~
-@115143 = ~Use Scroll of Polymorph: Other~
-@115144 = ~Wand of Cursing~
-
-@115145 = ~This wand instantly renders the target blind, deaf, and mute. But perhaps the most dangerous aspect of this terrible device is that anyone can use it.
-
-STATISTICS:
-
-Charge abilities:
-â€“ Blindness, Deafness, and Silence (Save vs. Spell negates all effects)
-  Duration: 1 turn
-  Area of Effect: 1 creature
-
-Weight: 1~
-
-@115146 = ~Wand of Corrosion~
-
-@115147 = ~A trio of wizards worked on this wand using a number of material components they had available to them and more that were relatively easy to acquire. Otterly the Rotund, Mabdek of the Seventh Star, and Yrgon the Moron only crafted the wand so they could sell it. Their long-term goal was the construction of a vast magical research facility based on the designs of the Naturalist Guild in Myth Drannor. Their wand was a greater success than their research facility.
-
-STATISTICS:
-
-Charge abilities:
-â€“ Death Fog
-  Damage: 4 acid in the 1st round, 8 acid in the 2nd round, 16 acid in the 3rd round
-  Special: Movement speed limited to 50% within fog; must save vs. Spell or suffer -2 to Strength and Dexterity that round
-  Range: Visual range of the user
-  Duration: 15 rounds
-  Area of Effect: 24-ft. radius
-
-â€“ Acid Storm
-  Damage: 1d4 acid for 3 rounds, 1d6 acid for the next 3 rounds, and 1d8 acid for the remaining rounds (Save vs. Spell for half)
-  Range: Visual range of the user
-  Duration: 30 rounds
-  Area of Effect: 24-ft. radius
-
-Requires:
- 9 Intelligence
-
-Weight: 1~
-
-@115148 = ~When activated, this wand casts either Death Fog or Acid Storm.
-
-STATISTICS:
-
-Charge abilities:
-â€“ Death Fog
-  Damage: 4 acid in the 1st round, 8 acid in the 2nd round, 16 acid in the 3rd round
-  Special: Movement speed limited to 50% within fog; must save vs. Spell or suffer -2 to Strength and Dexterity that round
-  Range: Visual range of the user
-  Duration: 15 rounds
-  Area of Effect: 24-ft. radius
-
-â€“ Acid Storm
-  Damage: 1d4 acid for 3 rounds, 1d6 acid for the next 3 rounds, and 1d8 acid for the remaining rounds (Save vs. Spell for half)
-  Range: Visual range of the user
-  Duration: 30 rounds
-  Area of Effect: 24-ft. radius
-
-Requires:
- 9 Intelligence
-
-Weight: 1~
-
-@115149 = ~When activated, this wand casts death fog.
-
-STATISTICS:
-
-Charge abilities:
-â€“ Death Fog
-  Damage: 4 acid in the 1st round, 8 acid in the 2nd round, 16 acid in the 3rd round
-  Special: Movement speed limited to 50% within fog; must save vs. Spell or suffer -2 to Strength and Dexterity that round
-  Range: Visual range of the user
-  Duration: 15 rounds
-  Area of Effect: 24-ft. radius
-
-Requires:
- 9 Intelligence
-
-Weight: 1~
-
-@115150 = ~7th Tier Wands (50,000 gp)~
-
-@115151 = ~Use Acid Storm Spell~
-@115152 = ~Use Scroll of Acid Storm~
-@115153 = ~Select a different 7th Tier wand~
-@115154 = ~Wand of Cloudkill~
-@115155 = ~Wand of Cloudkill
-This wand emits a vapor bubble that travels towards the target exploding into a deadly cloud of noxious gas that expands to fill an area roughly 20 ft. in radius. The cloud will instantly kill any creature with 4 HD or less with no Saving Throw. Any creature within 5 to 6 HD must make a Saving Throw or be slain. Creatures with greater than 6 HD simply take 1d10 damage for every round that they remain within the cloud. The cloud will dissipate after 1d4 turns.
-
-STATISTICS:
-
-Charge abilities:
-â€“ Cloudkill
-  Damage: 1d10 poison per round
-  Special: Slays creatures with 1-4 HD; creatures with 5-6 HD must save vs. Spell or die
-  Range: 60 ft.
-  Area of Effect: 20-ft. radius
-  Duration: 1d4 turns
-
-Requires:
- 9 Intelligence
-
-Weight: 1~
-
-@115156 = ~Use Cloudkill Spell~
-@115157 = ~Use Scroll of Cloudkill~
-@115158 = ~6th Tier Wands (6,250 gp)~
-@115159 = ~7th Tier Wands (12,500 gp)~
-@115160 = ~You need a minimum of 6,250 gold to recharge a Tier 6 wand.  Exit and try again when you have at least 6,250 gold.~
-@115161 = ~You need a minimum of 12,500 gold to recharge a Tier 7 wand.  Exit and try again when you have at least 12,500 gold.~
-@115162 = ~Wand of Fear: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115163 = ~Recharge Wand of Fear~
-@115164 = ~*Recharge Wand of Fear*~
-@115165 = ~Wand of Fire: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115166 = ~Recharge Wand of Fire~
-@115167 = ~*Recharge Wand of Fire*~
-@115168 = ~Recharge Wand of Lightning~
-@115169 = ~Wand of Lightning: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115170 = ~Recharge Wand of Monster Summoning~
-@115171 = ~Wand of Monster Summoning: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115172 = ~Use Scroll of Fireball~
-@115173 = ~Use Scroll of Lightning Bolt~
-@115174 = ~Use Lightning Bolt Spell~
-@115175 = ~*Recharge Wand of Lightning*~
-@115176 = ~*Recharge Wand of Monster Summoning*~
-@115177 = ~Wand of Freezing Death: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115178 = ~Recharge Wand of Freezing Death~
-@115179 = ~*Recharge Wand of Freezing Death*~
-@115180 = ~Recharge Wand of Freezing Death~
-@115181 = ~Wand of Armory: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115182 = ~Use Scroll of Spirit Armor~
-@115183 = ~Use Spirit Armor Spell~
-@115184 = ~*Recharge Wand of Armory*~
-@115185 = ~Recharge Wand of Polymorph~
-@115186 = ~Wand of Polymorph: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115187 = ~Use Scroll of Polymorph: Other~
-@115188 = ~Use Polymorph: Other Spell~
-@115189 = ~*Recharge Wand of Polymorph*~
-@115190 = ~Recharge Wand of Paralyzation~
-@115191 = ~Wand of Paralyzation: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115192 = ~Use Scroll of Hold Monster~
-@115193 = ~Use Hold Monster Spell~
-@115194 = ~Recharge Wand of Frost~
-@115195 = ~Wand of Frost: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115196 = ~Use Scroll of Cone of Cold~
-@115197 = ~Use Cone of Cold Spell~
-@115198 = ~Recharge Wand of Cloudkill~
-@115199 = ~Wand of Cloudkill: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115200 = ~Use Scroll of Cloudkill~
-@115201 = ~Use Cloudkill Spell~
-@115202 = ~*Recharge Wand of Frost*~
-@115203 = ~*Recharge Wand of Paralyzation*~
-@115204 = ~*Recharge Wand of Cloudkill*~
-@115205 = ~*Recharge Wand of Freezing Death*~
-@115206 = ~Recharge Wand of Spell Striking~
-@115207 = ~Wand of Spell Striking: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115208 = ~Use Scroll of Pierce Magic~
-@115209 = ~Use Pierce Magic Spell~
-@115210 = ~*Recharge Wand of Spell Striking*~
-@115211 = ~Recharge Wand of Cursing~
-@115212 = ~Wand of Cursing: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115213 = ~Use Scroll of Power Word: Silence~
-@115214 = ~Use Power Word: Silence Spell~
-@115215 = ~*Recharge Wand of Cursing*~
-@115216 = ~Recharge Wand of Corrosion~
-@115217 = ~Wand of Corrosion: You cannot recharge a wand if you have more than one of the same type in your inventory.  Exit and try again when you have a single wand of missiles in your inventory.~
-@115218 = ~Use Scroll of Acid Storm~
-@115219 = ~Use Acid Storm Spell~
-@115220 = ~*Recharge Wand of Corrosion*~
-@115221 = ~artificer~
-@115222 = ~Artificer~
-@115223 = ~ARTIFICER: Artificers are gnomish inventers that supplement their spellcasting with a strange and obscure magic called 'science'.  They channel their magic through powerful devices that they construct from spare parts that they find laying around.  A well prepared aritficer is an devistaing opponent.  However, they are less practiced as casting spells 'raw' than other casters.  As such, their casting level is 1/2 their class level, rounded up.
-
-Advantages
--
-- Efficient Crafting: Starting at level 6, artificers can craft and recharge items at half the cost
-Disadvantages
--  Artificers cast spells at 1/2 their illusionist level.
--  Artificers do not gain an extra slot as normal for a specialist  ~
-
-@115224 = ~Use Scroll of Death Fog~
-@115225 = ~Use Death Fog Spell~
-@115226 = ~You must have at least 50 gold to scribe a scroll.  Try again when you have 50 gold or more.~
-@115227 = ~Efficient Scribe Scrolls~
-@115228 = ~You must have at least 450 gold to create a wand.  Try again when you have 450 gold or more.~
-@115229 = ~You need a minimum of 115 gold to recharge a wand.  Try again when you have at least 115 gold.~
-@115230 = ~Efficient Craft Wand~
-@115231 = ~Efficient Recharge Wand~
-
-@115232 = ~1st Tier Potions (75 gold)~
-@115233 = ~Potion of Infravision~
-@115234 = ~Potion of Strength~
-@115235 = ~Potion of Fire Resistance~
-@115236 = ~Potion of Invisibility~
-@115237 = ~Oil of Fiery Burning~
-@115238 = ~Potion of Agility~
-@115239 = ~Potion of Cold Resistance~
-@115240 = ~Oil of Speed~
-@115241 = ~Potion of Magic Blocking~
-@115242 = ~Potion of Magic Protection~
-@115243 = ~Potion of Potion of Defense~
-@115244 = ~Potion of Insulation~
-@115245 = ~Potion of Invulnerability~
-@115246 = ~Potion of Fire Breath~
-@115247 = ~Potion of Mirrored Eyes~
-@115248 = ~2nd Tier Potions (300 gold)~
-@115249 = ~3rd Tier Potions (400 gold)~
-@115250 = ~4th Tier Potions (500 gold)~
-@115251 = ~5th Tier Potions (1000 gold)~
-@115252 = ~6th Tier Potions (1500 gold)~
-@115253 = ~Select another Tier~
-@115254 = ~Brew Potion
-You can brew potions if you have the right spell and enough gold.~
+@6800   = ~680: Magic Resistance Overhaul (BETA. EXPERIMENTAL.)~
+@6811   = ~WIZARD SLAYER: This warrior has been specially trained by <PRO_HISHER> sect to excel in hunting and combating spellcasters of all kinds.
+
+Advantages:
+- Each successful melee hit bestows a 10% cumulative chance of spell failure on the target.
+- +1 bonus to all saving throws at 1st level, and at each 4th level thereafter.
+
+Disadvantages:
+- May not use any magic items apart from weapons and armor.~
+@6815   = ~MONK: Monks are warriors who pursue perfection through contemplation as well as action. They are versatile fighters, especially skilled in combat without weapons or armor. Though Monks cannot cast spells, they have a unique magic of their own: they channel a subtle energy, called ki, which allows them to perform amazing feats. The Monk's best known feat is their ability to stun an opponent with an unarmed blow.
+
+CLASS FEATURES:
+
+- May not wear any armor.
+- May only use weapons available to the Thief class (except two-handed).
+- May only become Proficient (one slot) in any weapon class.
+- May only become Proficient (one slot) in Single-Weapon Style and may not put slots into any other style.
+- Moves 2 points faster than other characters. Movement rate further improves by 1 every 5 levels.
+- May make 1 unarmed attack per round. An additional 1/2 attack per round is gained every 3 levels. Damage dealt by unarmed attacks increases with level as follows:
+  Level 1-2: 1d6
+  Level 3-5: 1d8
+  Level 6-8: 1d10
+  Level 9-14: 1d12
+  Level 15+: 1d20
+- +1 bonus to all saving throws at 1st level, and at each 4th level thereafter.
+- At level 9, unarmed attacks are treated as a +1 magical weapon and gain a +1 bonus to hit and damage rolls. This enchantment improves to +2 at level 12, +3 at level 15, and +4 at level 25. 
+- Receives a +2 bonus to Saving Throws vs. Spell.
+- Deflect Missiles: +1 bonus to AC vs. missile attacks every 3 levels.
+- Starts with an Armor Class of 9 at 1st level and gains an additional +1 bonus every 2 levels.
+- May use the Stunning Blow ability once per day. Gains one use at level 1 and an additional use every 4 levels thereafter.
+
+STUNNING BLOW: All successful attacks within the next round force the victim to save vs. Spell or be stunned. This special ability automatically modifies normal attacks; no targeting needs to be done.
+
+- 5th level: Becomes immune to all diseases and cannot be slowed or hasted.
+- 7th level: May use the Lay On Hands ability on <PRO_HIMHER>self to heal 2 Hit Points per level.
+- 8th level: Gains a -1 bonus to Speed Factor.
+- 9th level: Gains a +1 bonus to all Saving Throws and becomes immune to charm.
+- 11th level: Becomes immune to poison.
+- 12th level: Gains another -1 bonus to Speed Factor.
+- 13th level: May use the Quivering Palm ability once per day.
+
+QUIVERING PALM: The next successful attack forces the opponent to save vs. Spell or die. This special ability automatically modifies normal attacks; no targeting needs to be done.
+
+- 20th level: Becomes immune to non-magical weapons.
+- Alignment restricted to lawful.
+- Hit Die: d8~
+@6816   = ~MONK: these meditative warriors who pursue perfection through contemplation as well as action. They are versatile fighters, especially skilled in combat without weapons or armor. Though Monks cannot cast spells, they have a unique magic of their own: they channel a subtle energy, called ki, which allows them to perform amazing feats. The Monk's best known feat is their ability to stun an opponent with an unarmed blow.
+
+CLASS FEATURES:
+
+- May not wear armor.
+- May only become Proficient (+) in clubs, daggers, and slings.
+- May move faster than other characters. Movement rate further improves by every 5 levels.
+- +1 bonus to all saving throws at 1st level, and at each 4th level thereafter.
+- May make 2 unarmed attacks per round. An additional 1/2 attack per round is gained every 3 levels. Damage dealt by unarmed attacks is of the non-lethal variety, and increases with level as follows:
+  Level 1-2: 1d3
+  Level 3-5: 1d4
+  Level 6-8: 1d5
+  Level 9-11: 1d6
+  Level 12-14: 1d7
+  Level 15-18: 1d8
+  Level 19-24: 1d9
+  Level 25+:  1d10
+- A monk may choose to imbue his fist attacks with his ki energy; when powered up, a monk's fists do crushing damage, act +1 enchanted weapons, and do an additional +1 magic damage.  These bonuses increase at levels 9, 15, and 25.
+- Receives a +2 bonus to Saving Throws vs. Spell.
+- Deflect Missiles: +1 bonus to AC vs. missile attacks every 3 levels.
+- Starts with an Armor Class of 9 at 1st level and gains an additional +1 bonus every 2 levels.
+- May use the Stunning Blow ability once per day. Gains one use at level 1 and an additional use every 4 levels thereafter.
+
+STUNNING BLOW: All successful attacks within the next round force the victim to save vs. Spell or be stunned. This special ability automatically modifies normal attacks; no targeting needs to be done.
+
+- 5th level: Becomes immune to all diseases and cannot be slowed or hasted.
+- 7th level: May heal 2 Hit Points per level.
+- 8th level: Gains a -1 bonus to Speed Factor.
+- 9th level: Gains a +1 bonus to all Saving Throws and becomes immune to charm.
+- 11th level: Becomes immune to poison.
+- 12th level: Gains another -1 bonus to Speed Factor.
+- 13th level: May use the Quivering Palm ability once per day.
+
+QUIVERING PALM: The next successful attack forces the opponent to save vs. Spell or die. This special ability automatically modifies normal attacks; no targeting needs to be done.
+
+- 20th level: Becomes immune to non-magical weapons.
+- Alignment restricted to lawful.
+- Hit Die: d8~
 @6900   = ~690: Spell Saving Throw Standardization~
 @6901   = ~Death Ward~
 @6902   = ~Death Ward
@@ -3517,7 +3104,6 @@ Area of Effect: 1 creature
 Saving Throw: None 
 
 This spell protects the target from all forms of death magic for the duration of the spell. This includes, but is not limited to, Disintegrate, Power Word Kill, Death Spell and Finger of Death. The beneficiary of the spell also receives a +10 bonus to saving throws vs. Death, applicable against any necromantic magic not specifically blocked by the Death Ward.~
-@6950   = ~695: Magic Resistance Overhaul~
 @7000   = ~700: Multiclass Changes~
 @7010   = ~CLERIC/RANGER: This character can use the abilities of a Cleric and a Ranger, though weapons are restricted to only those allowed by the Cleric's ethos.  This character may Specialize in any weapon a cleric can use.  Upon starting the game, this character will automatically become a kitted Woodscout of Mielikki, or, if an elf, a Forestwalker of Solonor Thelandira.  With the blessings of these forest deities, the Woodscout or Forestwalker may cast both cleric and druid spells of all levels.~
 @7011   = ~Woodscout of Mielikki~

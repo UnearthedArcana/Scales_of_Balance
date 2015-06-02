@@ -34,7 +34,7 @@ SCRL83 => 3  //Chromatic Orb
 SCRL84 => 8  //Larloch's Minor Drain
 SCRL5U => 7  //Reflected Image
 SCRL6D => 0  //Find Familiar
-SCRLA6 => 7 //Spook
+SCRLA6 => 7  //Spook
 SPWI126X => 2  //Expeditious Retreat 
 
 SCRL85 =>  7 //Blur
@@ -59,8 +59,8 @@ SCRL3G => 0  //Vocalize
 SCRL6E => 5  //Power Word, Sleep
 SCRLAI => 8  //Ray of Enfeeblement
 SCRL6F => 8  //Ray of Enfeeblement
-SCRLA2 => 8  //Deafness
-SCRLA3 => 6  //Glitterdust
+SCRLA2 => 6  //Deafness
+SCRLA3 => 7  //Glitterdust
 SPWI223A => 2  //Cat's Grace 
 
 SCRL1D => 4  //Clairvoyance

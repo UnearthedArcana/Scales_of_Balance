@@ -6,33 +6,70 @@
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
+
+//COPY MARKER FILE_________________________________________________________________
+//
+COPY ~scales_of_balance/monk/d5_mfist.d5~ ~override~
+//__________________________________________________________________________________
+
+
 //CHANGE MONK FISTS_________________________________________________________________
 //
 COPY ~scales_of_balance/monk/mfist1.itm~ ~override~
+	SAY NAME1 @4910
+	SAY NAME2 @4910
 COPY ~scales_of_balance/monk/mfist2.itm~ ~override~
+	SAY NAME1 @4910
+	SAY NAME2 @4910
 COPY ~scales_of_balance/monk/mfist3.itm~ ~override~
+	SAY NAME1 @4910
+	SAY NAME2 @4910
 COPY ~scales_of_balance/monk/mfist4.itm~ ~override~
+	SAY NAME1 @4910
+	SAY NAME2 @4910
 COPY ~scales_of_balance/monk/mfist5.itm~ ~override~
+	SAY NAME1 @4910
+	SAY NAME2 @4910
 COPY ~scales_of_balance/monk/mfist6.itm~ ~override~
+	SAY NAME1 @4910
+	SAY NAME2 @4910
 COPY ~scales_of_balance/monk/mfist7.itm~ ~override~
+	SAY NAME1 @4910
+	SAY NAME2 @4910
 COPY ~scales_of_balance/monk/mfist8.itm~ ~override~
+	SAY NAME1 @4910
+	SAY NAME2 @4910
 
 COPY ~scales_of_balance/monk/d5mfist1.itm~ ~override~
+	SAY NAME1 @4912
+	SAY NAME2 @4912
 COPY ~scales_of_balance/monk/d5mfist2.itm~ ~override~
+	SAY NAME1 @4912
+	SAY NAME2 @4912
 COPY ~scales_of_balance/monk/d5mfist3.itm~ ~override~
+	SAY NAME1 @4912
+	SAY NAME2 @4912
 COPY ~scales_of_balance/monk/d5mfist4.itm~ ~override~
+	SAY NAME1 @4912
+	SAY NAME2 @4912
 COPY ~scales_of_balance/monk/d5mfist5.itm~ ~override~
+	SAY NAME1 @4912
+	SAY NAME2 @4912
 COPY ~scales_of_balance/monk/d5mfist6.itm~ ~override~
+	SAY NAME1 @4912
+	SAY NAME2 @4912
 COPY ~scales_of_balance/monk/d5mfist7.itm~ ~override~
+	SAY NAME1 @4912
+	SAY NAME2 @4912
 COPY ~scales_of_balance/monk/d5mfist8.itm~ ~override~
+	SAY NAME1 @4912
+	SAY NAME2 @4912
 
 COPY ~scales_of_balance/monk/d5_mfist.spl~ ~override~
 	SAY NAME1 @4910
-	SAY NAME2 @4910
 	SAY UNIDENTIFIED_DESC @4911
 COPY ~scales_of_balance/monk/d5_nofst.spl~ ~override~
 	SAY NAME1 @4912
-	SAY NAME2 @4912
 	SAY UNIDENTIFIED_DESC @4913
 
 COPY_EXISTING ~clabmo01.2da~ ~override~

@@ -1697,10 +1697,7 @@ END
 //REVISED SPELL TABLES_______________________________________________________________
 //
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_taspl.d5~ THEN BEGIN
-	COPY_EXISTING ~d5_mageh.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/ranger/raspl2.txt~
-		BUT_ONLY
+	COPY ~scales_of_balance/ranger/d5_maghb.2da~ ~override/d5_mageh.2da~
 END
 //____________________________________________________________________________________
 

@@ -635,6 +635,8 @@ COPY ~scales_of_balance/wizard/spwi119a.spl~ ~override~
 COPY ~scales_of_balance/wizard/spwi221.spl~ ~override~
 	SAY NAME1 @6262
 	SAY UNIDENTIFIED_DESC @6263
+COPY ~scales_of_balance/misc/d5_dsvbo.spl~ ~override~
+	SAY NAME1 @16
 ACTION_IF FILE_EXISTS_IN_GAME ~hidespl.2da~ THEN BEGIN
 	COPY_EXISTING ~hidespl.2da~ ~override~
 		LPM remove_blank_lines
@@ -697,6 +699,8 @@ ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
 		LPM remove_blank_lines
 		APPEND_FILE ~scales_of_balance/wizard/m24clab.txt~
 END
+COPY ~scales_of_balance/misc/d5_psvbo.spl~ ~override~
+	SAY NAME1 @19
 COPY ~scales_of_balance/wizard/d5_golsu.spl~ ~override~
 ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 	COPY ~scales_of_balance/wizard/tomegol1.cre~ ~override~
@@ -858,6 +862,8 @@ END
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~clabma09.2da~ THEN BEGIN
 	COPY ~scales_of_balance/wizard/clabma09.2da~ ~override~
 END
+COPY ~scales_of_balance/misc/d5_ssvbo.spl~ ~override~
+	SAY NAME1 @15
 COPY ~scales_of_balance/wizard/d5_ench1.spl~ ~override~
 COPY ~scales_of_balance/wizard/d5_ench2.spl~ ~override~
 COPY ~scales_of_balance/wizard/d5_ench2.eff~ ~override~
@@ -2083,7 +2089,7 @@ END
 
 //range: @6101-6199
 
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN // version without Spell Revisions
 
 INCLUDE ~scales_of_balance/spells/spell_list_base.tpa~
 
@@ -2632,23 +2638,6 @@ COPY_EXISTING ~scrl66.itm~ ~override~
 	SAY IDENTIFIED_DESC @6111
 END
 
-//PROTECTION FROM EVIL_______________________________________________________________
-ACTION_IF FILE_EXISTS_IN_GAME ~spwi113.spl~ THEN BEGIN
-COPY_EXISTING ~spwi113.spl~ ~override~
-	WRITE_LONG 0x34 2
-	SAY UNIDENTIFIED_DESC @6112
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl3h.itm~ THEN BEGIN
-COPY_EXISTING ~scrl3h.itm~ ~override~
-	WRITE_LONG 0x34 200
-	SAY IDENTIFIED_DESC @6112
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl78.itm~ THEN BEGIN
-COPY_EXISTING ~scrl78.itm~ ~override~
-	WRITE_LONG 0x34 200
-	SAY IDENTIFIED_DESC @6112
-END
-
 //BLINDNESS_________________________________________________________________________
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi106.spl~ THEN BEGIN
 COPY_EXISTING ~spwi106.spl~ ~override~
@@ -2665,34 +2654,6 @@ COPY_EXISTING ~spwi106.spl~ ~override~
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl71.itm~ THEN BEGIN
 COPY_EXISTING ~scrl71.itm~ ~override~
-	WRITE_LONG 0x34 200
-	READ_LONG 0x54 "valid"
-	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-		READ_STRREF 0x54 "desc"
-		INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-			REPLACE_TEXTUALLY ~Level: 1~ ~Level: 2~
-		END
-		SAY_EVALUATED 0x54 ~%new_desc%~
-	END
-	BUT_ONLY
-END
-
-//SHIELD____________________________________________________________________________
-ACTION_IF FILE_EXISTS_IN_GAME ~spwi114.spl~ THEN BEGIN
-COPY_EXISTING ~spwi114.spl~ ~override~
-	WRITE_LONG 0x34 2
-	READ_LONG 0x50 "valid"
-	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-		READ_STRREF 0x50 "desc"
-		INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-			REPLACE_TEXTUALLY ~Level: 1~ ~Level: 2~
-		END
-		SAY_EVALUATED 0x50 ~%new_desc%~
-	END
-	BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl79.itm~ THEN BEGIN
-COPY_EXISTING ~scrl79.itm~ ~override~
 	WRITE_LONG 0x34 200
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
@@ -2731,44 +2692,6 @@ COPY_EXISTING ~scrla2.itm~ ~override~
 		SAY_EVALUATED 0x54 ~%new_desc%~
 	END
 	BUT_ONLY
-END
-
-//MIRROR IMAGE_____________________________________________________________________
-ACTION_IF FILE_EXISTS_IN_GAME ~spwi212.spl~ THEN BEGIN
-COPY_EXISTING ~spwi212.spl~ ~override~
-	WRITE_LONG 0x34 3
-//	SAY UNIDENTIFIED_DESC @6113
-	READ_LONG 0x50 "valid"
-	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-		READ_STRREF 0x50 "desc"
-		INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-			REPLACE_TEXTUALLY ~Level: 2~ ~Level: 3~
-		END
-		SAY_EVALUATED 0x50 ~%new_desc%~
-	END
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl96.itm~ THEN BEGIN
-COPY_EXISTING ~scrl96.itm~ ~override~
-	WRITE_LONG 0x34 300
-//	SAY IDENTIFIED_DESC @6113
-	READ_LONG 0x54 "valid"
-	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-		READ_STRREF 0x54 "desc"
-		INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-			REPLACE_TEXTUALLY ~Level: 2~ ~Level: 3~
-		END
-		SAY_EVALUATED 0x54 ~%new_desc%~
-	END
-END
-
-//GLITTERDUST______________________________________________________________________
-ACTION_IF FILE_EXISTS_IN_GAME ~spwi224.spl~ THEN BEGIN
-COPY_EXISTING ~spwi224.spl~ ~override~
-	SAY UNIDENTIFIED_DESC @6114
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrla3.itm~ THEN BEGIN
-COPY_EXISTING ~scrla3.itm~ ~override~
-	SAY IDENTIFIED_DESC @6114
 END
 
 //LUCK_____________________________________________________________________________
@@ -2816,6 +2739,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~stalkesu.cre~ THEN BEGIN
 COPY_EXISTING ~stalkesu.cre~ ~override~
 	WRITE_BYTE 0x275 7
 END
+
 //DISINTEGRATE______________________________________________________________________
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi616.spl~ THEN BEGIN
 COPY_EXISTING ~spwi616.spl~ ~override~
@@ -2954,7 +2878,7 @@ END // end of non-SR version
 
 //__________________________________________________________________________________
 
-ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
+ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN // version for Spell Revisions
 
 INCLUDE ~scales_of_balance/spells/spell_list_sr.tpa~
 
@@ -3385,7 +3309,7 @@ END
 
 //SPECIFIC SPELL CHANGES____________________________________________________________
 //
-//ARMOR____________________________________________________________________________
+//ARMOR_____________________________________________________________________________
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi102.spl~ THEN BEGIN
 COPY_EXISTING ~spwi102.spl~ ~override~
 	WRITE_LONG 0x34 2
@@ -3413,21 +3337,60 @@ COPY_EXISTING ~scrl67.itm~ ~override~
 	BUT_ONLY
 END
 
-//PROTECTION FROM EVIL_______________________________________________________________
-ACTION_IF FILE_EXISTS_IN_GAME ~spwi113.spl~ THEN BEGIN
-COPY_EXISTING ~spwi113.spl~ ~override~
+//BLUR______________________________________________________________________________
+ACTION_IF FILE_EXISTS_IN_GAME ~spwi201.spl~ THEN BEGIN
+COPY_EXISTING ~spwi201.spl~ ~override~
+	WRITE_LONG 0x34 1
+	READ_LONG 0x50 "valid"
+	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+		READ_STRREF 0x50 "desc"
+		INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+			REPLACE_TEXTUALLY ~Level: 2~ ~Level: 1~
+		END
+		SAY_EVALUATED 0x50 ~%new_desc%~
+	END
+	BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl85.itm~ THEN BEGIN
+COPY_EXISTING ~scrl85.itm~ ~override~
+	WRITE_LONG 0x34 100
+	READ_LONG 0x54 "valid"
+	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+		READ_STRREF 0x54 "desc"
+		INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+			REPLACE_TEXTUALLY ~Level: 2~ ~Level: 1~
+		END
+		SAY_EVALUATED 0x54 ~%new_desc%~
+	END
+	BUT_ONLY
+END
+
+//REFLECTED IMAGE___________________________________________________________________
+ACTION_IF FILE_EXISTS_IN_GAME ~spwi120.spl~ THEN BEGIN
+COPY_EXISTING ~spwi120.spl~ ~override~
 	WRITE_LONG 0x34 2
-	SAY UNIDENTIFIED_DESC @6128
+	READ_LONG 0x50 "valid"
+	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+		READ_STRREF 0x50 "desc"
+		INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+			REPLACE_TEXTUALLY ~Level: 1~ ~Level: 2~
+		END
+		SAY_EVALUATED 0x50 ~%new_desc%~
+	END
+	BUT_ONLY
 END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl3h.itm~ THEN BEGIN
-COPY_EXISTING ~scrl3h.itm~ ~override~
+ACTION_IF FILE_EXISTS_IN_GAME ~scrl5u.itm~ THEN BEGIN
+COPY_EXISTING ~scrl5u.itm~ ~override~
 	WRITE_LONG 0x34 200
-	SAY IDENTIFIED_DESC @6128
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrl78.itm~ THEN BEGIN
-COPY_EXISTING ~scrl78.itm~ ~override~
-	WRITE_LONG 0x34 200
-	SAY IDENTIFIED_DESC @6128
+	READ_LONG 0x54 "valid"
+	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+		READ_STRREF 0x54 "desc"
+		INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+			REPLACE_TEXTUALLY ~Level: 1~ ~Level: 2~
+		END
+		SAY_EVALUATED 0x54 ~%new_desc%~
+	END
+	BUT_ONLY
 END
 
 //MIRROR IMAGE_____________________________________________________________________
@@ -3456,16 +3419,6 @@ COPY_EXISTING ~scrl96.itm~ ~override~
 		END
 		SAY_EVALUATED 0x54 ~%new_desc%~
 	END
-END
-
-//GLITTERDUST______________________________________________________________________
-ACTION_IF FILE_EXISTS_IN_GAME ~spwi224.spl~ THEN BEGIN
-COPY_EXISTING ~spwi224.spl~ ~override~
-	SAY UNIDENTIFIED_DESC @6129
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~scrla3.itm~ THEN BEGIN
-COPY_EXISTING ~scrla3.itm~ ~override~
-	SAY IDENTIFIED_DESC @6129
 END
 
 //LUCK_____________________________________________________________________________
@@ -3608,11 +3561,13 @@ END
 //ENERGY DRAIN_______________________________________________________________________
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi914.spl~ THEN BEGIN
 COPY ~scales_of_balance/spells/spwi914sr.spl~ ~override/spwi914.spl~
+	WRITE_LONG 0x34 8
 	SAY NAME1 @6141
 	SAY UNIDENTIFIED_DESC @6142
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl9w.itm~ THEN BEGIN
 COPY_EXISTING ~scrl9w.itm~ ~override~
+	WRITE_LONG 0x34 5000
 	SAY NAME1 @6141
 	SAY IDENTIFIED_DESC @6142
 END
