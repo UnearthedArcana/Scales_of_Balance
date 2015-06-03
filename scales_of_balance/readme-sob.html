@@ -68,10 +68,10 @@
   <h4 class="subheader">Component 100: </h4>
   <div class="section">
     <p><strong><em>Enchantment Standardization</em></strong></p>
-    <p>This component has two main effects. First, it removes "+1," "+2," etc. from item names, and standardizes the enchantment levels of weapons for purposes of which enemies they can hit (NB this part of the component is skipped in IWDEE):</p>
+    <p>This component has two main effects. First, it removes "+1," "+2," etc. from item names, and standardizes the enchantment levels of weapons for purposes of which enemies they can hit:</p>
     <ul>
       <li> Generic +1 weapons become "Mastercraft" weapons, forged with unusual materials and skill that enable them to strike enemies who are immune to normal weapons.</li>
-      <li> Generic +2 and +3 weapons become "Enchanted" weapons, with the enchantment level *and stats* of +2 weapons.</li>
+      <li> Generic +2 and +3 weapons become "Enchanted" weapons, with the enchantment level and stats of +2 weapons.</li>
       <li> All named weapons that were formerly from +1 to +4, become +3 weapons for purposes of what they can hit - though their bonuses and magical abilities remain unchanged.</li>
       <li> All upgraded weapons and originally +5/+6 weapons become +5 for purposes of what they can hit.</li>
     </ul>
@@ -87,6 +87,7 @@
       <li> Sling bullets do blunt damage.</li>
       <li> Darts have 5/2 APR instead of 3.</li>
     </ul>
+    <p>This component will not install on IWDEE, as many of its effects are specific to the items found in BG/NG2.</p>
   </div>
   <h4 class="subheader">Component 200: </h4>
   <div class="section">
