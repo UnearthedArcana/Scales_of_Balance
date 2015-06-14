@@ -28,7 +28,7 @@ END
 COPY ~scales_of_balance/profs/clswpbon.2da~ ~override~
 //__________________________________________________________________________________
 
-
+/*
 //UPDATE MISSILE WEAPONS____________________________________________________________
 //
 //ACTION_IF (FILE_EXISTS_IN_GAME ~d5_apr.d5~) OR (FILE_EXISTS_IN_GAME ~TB#TATT.spl~) THEN BEGIN
@@ -84,15 +84,17 @@ COPY ~scales_of_balance/profs/clswpbon.2da~ ~override~
 			END
 			BUT_ONLY
 	END
-	COPY ~scales_of_balance/profs/wspat3.2da~ ~override/wspatck.2da~
-	COPY ~scales_of_balance/profs/wspecial2.2da~ ~override/wspecial.2da~
 //END
 //ELSE BEGIN
 //	COPY ~scales_of_balance/profs/wspat2.2da~ ~override/wspatck.2da~
 //	COPY ~scales_of_balance/profs/wspecial.2da~ ~override~
 //END
 //__________________________________________________________________________________
+*/
 
+	COPY ~scales_of_balance/profs/wspat3.2da~ ~override/wspatck.2da~
+	COPY ~scales_of_balance/profs/wspecial2.2da~ ~override/wspecial.2da~
+	
 
 //UPDATE CLASS STRINGS______________________________________________________________
 //
