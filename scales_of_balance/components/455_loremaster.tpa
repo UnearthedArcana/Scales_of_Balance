@@ -77,6 +77,19 @@ SAY @4553
 SAY @4554
 //___________________________________________________________________________________
 
+//EE KIT EXTRAS______________________________________________________________________
+// 
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@4555)
+		STR_VAR
+			kit_name = D5LOREM
+			clswpbon = ~0 0 3~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -147,8 +160,6 @@ SAY @4553
 SAY @4554
 //___________________________________________________________________________________
 
-END
-
 //EE KIT EXTRAS______________________________________________________________________
 // 
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
@@ -157,9 +168,12 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@4555)
 		STR_VAR
 			kit_name = D5LOREM
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
+
+END
 
 //LOREMASTER ABILITY FILES____________________________________________________________
 //

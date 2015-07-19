@@ -77,6 +77,19 @@ SAY @4603
 SAY @4604
 //___________________________________________________________________________________
 
+//EE KIT EXTRAS_____________________________________________________________________
+// 
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@4605)
+		STR_VAR
+			kit_name = D5MEIST
+			clswpbon = ~0 0 3~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -147,8 +160,6 @@ SAY @4603
 SAY @4604
 //___________________________________________________________________________________
 
-END
-
 //EE KIT EXTRAS_____________________________________________________________________
 // 
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
@@ -157,9 +168,12 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@4605)
 		STR_VAR
 			kit_name = D5MEIST
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
+
+END
 
 //MEISTERSINGER ABILITY FILES_________________________________________________________
 //
@@ -247,4 +261,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~d5_taspl.d5~ THEN BEGIN
 		LPM remove_blank_lines
 		APPEND_FILE ~scales_of_balance/bard/baspl2.txt~
 END
+COPY ~scales_of_balance/wizard/d5_maco.spl~ ~override~
+	SAY NAME1 @6016
+	SAY UNIDENTIFIED_DESC @6017
+COPY ~scales_of_balance/wizard/d5_wico.spl~ ~override~
+	SAY NAME1 @6016
+	SAY UNIDENTIFIED_DESC @6017
+COPY ~scales_of_balance/wizard/d5_rabb.cre~ ~override~
+	SAY NAME1 @6018
+COPY_EXISTING ~d5_meist.2da~ ~override~
+	LPM remove_blank_lines
+	APPEND_FILE ~scales_of_balance/bard/meistcant.txt~
 //__________________________________________________________________________________

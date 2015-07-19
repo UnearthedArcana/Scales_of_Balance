@@ -77,6 +77,19 @@ SAY @5403
 SAY @5404
 //___________________________________________________________________________________
 
+//EE KIT EXTRAS_____________________________________________________________________
+// 
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@5405)
+		STR_VAR
+			kit_name = D5FAST
+			clswpbon = ~0 0 3~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -147,8 +160,6 @@ SAY @5403
 SAY @5409
 //___________________________________________________________________________________
 
-END
-
 //EE KIT EXTRAS_____________________________________________________________________
 // 
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
@@ -157,9 +168,12 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@5405)
 		STR_VAR
 			kit_name = D5FAST
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
+
+END
 
 //FASTPAWS ABILITY FILES______________________________________________________________
 //

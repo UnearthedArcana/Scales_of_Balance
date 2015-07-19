@@ -25,7 +25,12 @@ END
 
 //WSPATCK FOR ALL___________________________________________________________________
 //
-COPY ~scales_of_balance/profs/clswpbon.2da~ ~override~
+COPY_EXISTING ~clswpbon.2da~ ~override~
+	COUNT_2DA_ROWS ~3~ rows
+	FOR (row = 1; row < rows; row += 1) BEGIN
+		SET_2DA_ENTRY row 1 3 ~1~
+	END
+	BUT_ONLY
 //__________________________________________________________________________________
 
 /*

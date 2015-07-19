@@ -642,6 +642,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@3077)
 		STR_VAR
 			kit_name = D5NUWSL
+			clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -874,6 +875,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@3015)
 		STR_VAR
 			kit_name = D5MARKS
+			clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -1163,6 +1165,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@3030)
 		STR_VAR
 			kit_name = D5SLING
+			clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -1576,6 +1579,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@3056)
 		STR_VAR
 			kit_name = D5MAGEH
+			clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -1607,6 +1611,10 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_taspl.d5~ THEN BEGIN
 		APPEND_FILE ~scales_of_balance/ranger/raspl1.txt~
 		BUT_ONLY
 	END
+	COPY_EXISTING ~d5_mageh.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/ranger/mhspl1.txt~
+		BUT_ONLY
 	COPY_EXISTING ~d5_mageh.2da~ ~override~
 		LPM remove_blank_lines
 		APPEND_FILE ~scales_of_balance/ranger/raspl1.txt~
@@ -1735,10 +1743,40 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
 			BUT_ONLY
 	END
 END
+COPY_EXISTING ~kitlist.2da~ ~override~
+	COUNT_2DA_ROWS ~9~ "rows"
+	PATCH_IF ( rows > 31 ) BEGIN
+		FOR ( index = 32 ; index < rows ; index = index + 1 ) BEGIN
+			READ_2DA_ENTRY %index% 5 9 modclab
+			READ_2DA_ENTRY %index% 8 9 modclass
+			DEFINE_ASSOCIATIVE_ARRAY d5_ranstab_clabs BEGIN "%modclab%" => "%modclass%" END
+		END
+	END
+	BUT_ONLY
+ACTION_PHP_EACH d5_ranstab_clabs AS roo => goo BEGIN
+	ACTION_IF (%goo% = 12) AND (FILE_EXISTS_IN_GAME ~%roo%.2da~) THEN BEGIN
+		COPY_EXISTING ~%roo%.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/ranger/ranstab.txt~
+			BUT_ONLY
+	END
+END
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	COPY_EXISTING ~d5_stlk2.2da~ ~override~
+		REPLACE_TEXTUALLY ~AP_SPCL332 ~ ~****       ~
+END
+ACTION_IF GAME_IS ~tob bgt tutu~ THEN BEGIN
+	COPY_EXISTING ~d5_stlk2.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/ranger/stlkstab.txt~
+		BUT_ONLY
+END
 //____________________________________________________________________________________
 
 //MAGE HUNTER+STALKER ABILITY FILES___________________________________________________
 //
+COPY ~scales_of_balance/ranger/d5_rnosp.eff~ ~override~
+COPY ~scales_of_balance/ranger/d5_rnosp.spl~ ~override~
 COPY ~scales_of_balance/ranger/d5_rasp1.spl~ ~override~
 COPY ~scales_of_balance/ranger/d5_rasp2.spl~ ~override~
 COPY ~scales_of_balance/ranger/d5_rasp3.spl~ ~override~
@@ -1872,6 +1910,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@3103)
 		STR_VAR
 			kit_name = D5KBSWO
+			clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -1949,6 +1988,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@3103)
 		STR_VAR
 			kit_name = D5KLSWO
+			clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2026,6 +2066,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KKATA
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2103,6 +2144,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KSCIM
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2180,6 +2222,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KSSWO
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2257,6 +2300,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5K2SWO
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2334,6 +2378,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KDAGG
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2411,6 +2456,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KBAXE
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2488,6 +2534,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KFLAI
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2565,6 +2612,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KHAMM
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2642,6 +2690,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KMACE
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2719,6 +2768,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KCLUB
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2796,6 +2846,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KSTAF
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2873,6 +2924,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KSPEA
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -2950,6 +3002,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KHALB
+		clswpbon = ~1 0 2~
 	END
 END
 //___________________________________________________________________________________
@@ -3033,6 +3086,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KLSWO
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3110,6 +3164,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KSCIM
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3187,6 +3242,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KSSWO
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3264,6 +3320,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5K2SWO
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3341,6 +3398,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KDAGG
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3418,6 +3476,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KBAXE
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3495,6 +3554,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KFLAI
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3572,6 +3632,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KHAMM
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3649,6 +3710,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KMACE
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3726,6 +3788,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KCLUB
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3803,6 +3866,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KSTAF
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -3880,6 +3944,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		briefdesc = RESOLVE_STR_REF (@3103)
 	STR_VAR
 		kit_name = D5KSPEA
+		clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________

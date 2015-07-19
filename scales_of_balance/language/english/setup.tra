@@ -694,6 +694,7 @@ Disadvantages:
 Advantages:
 - +20% to Move Silently and Hide In Shadows.
 - May achieve Mastery (+++) with short swords and daggers.
+- May set traps, with a success rate that begins at 30% and increases by 3% per level.
 - May use Backstab ability, although for a lower damage multiplier than Thieves:
   Level 1-8: x2
   Level 9-16: x3
@@ -707,6 +708,7 @@ Disadvantages:
 Advantages:
 - +20% to Move Silently and Hide In Shadows.
 - May achieve Grand Mastery (+++++) with short swords and daggers.
+- May set traps, with a success rate that begins at 30% and increases by 3% per level.
 - May use Backstab ability, although for a lower damage multiplier than Thieves:
   Level 1-8: x2
   Level 9-16: x3
@@ -1373,10 +1375,44 @@ Disadvantages:
 - May only specialize (++) with ranged weapons.
 - May not wear heavier armor than studded leather.
 ~
-@3500  = ~350: Add the Harrier ranger kit~
-@3504  = ~harrier~
-@3505  = ~Harrier~
-@3506  = ~HARRIER: When corruption takes hold in the centers of civilization, good men become outlaws.  While not a true ranger, with the blessing and divine abilities granted by Mielikki, the Harrier uses a ranger's skills in stealth, combat, and guerilla tactics to fight for freedom and justice.  Often decried as lawless by those in power, the common folk tend to view these dashing heroes with admiration and gratitude.
+@3500  = ~350: Add the Barbarian Ranger kit~
+@3504  = ~barbarian ranger~
+@3505  = ~Barbarian Ranger~
+@3506  = ~BARBARIAN RANGER: Among barbarian tribes there are hunters of great skill. Spending many days alone in the wild, stalking their prey, they are closer to nature than most men. They are not quite as hardy as their more aggressive brethren, and tend to be loners. Yet they bring uncommon skills to bear both in providing for, and in defending, their tribe.
+ 
+Advantages:
+- Moves 2 points faster than other characters.
+- May enter an enraged state, enhancing combat abilities, once per day per six levels.
+- May Charm animals once per day per five levels.
+- Gains 5% physical damage resistance at 11th level, and again at 15th and 19th levels.
+
+Disadvantages:
+- Cannot cast priest spells.
+- Is not immune to backstab.
+- -2 penalty to Charisma.
+- May not wear armor heavier than studded leather or hide armor
+- May not dual-class.
+~
+@3507  = ~Among barbarian tribes there are hunters of great skill. Spending many days alone in the wild, stalking their prey, they are closer to nature than most men. They are not quite as hardy as their more aggressive brethren, and tend to be loners. Yet they bring uncommon skills to bear both in providing for, and in defending, their tribe.~
+@3508  = ~BARBARIAN RANGER: Among barbarian tribes there are hunters of great skill. Spending many days alone in the wild, stalking their prey, they are closer to nature than most men. They are not quite as hardy as their more aggressive brethren, and tend to be loners. Yet they bring uncommon skills to bear both in providing for, and in defending, their tribe.
+ 
+Advantages:
+- Moves 2 points faster than other characters.
+- May enter an enraged state, enhancing combat abilities, once per day per six levels.
+- May Charm animals once per day per five levels.
+- Gains 5% physical damage resistance at 11th level, and again at 15th and 19th levels.
+
+Disadvantages:
+- Cannot cast priest spells.
+- Is not immune to backstab.
+- -2 penalty to Charisma.
+- May not wear armor heavier than studded leather or hide armor
+- May not dual-class.
+~
+@3600  = ~360: Add the Harrier ranger kit~
+@3604  = ~harrier~
+@3605  = ~Harrier~
+@3606  = ~HARRIER: When corruption takes hold in the centers of civilization, good men become outlaws.  While not a true ranger, with the blessing and divine abilities granted by Mielikki, the Harrier uses a ranger's skills in stealth, combat, and guerilla tactics to fight for freedom and justice.  Often decried as lawless by those in power, the common folk tend to view these dashing heroes with admiration and gratitude.
  
 Advantages:
 - May achieve Mastery (+++) in light swords, axes, dagger, quarterstaff, and bows.
@@ -1387,8 +1423,8 @@ Disadvantages:
 - May cast one fewer spell per day of each level available
 - Cannot use Charm Animal ability.
 ~
-@3507  = ~When corruption takes hold in the centers of civilization, good men become outlaws.  While not a true ranger, with the blessing and divine abilities granted by Mielikki, the Harrier uses a ranger's skills in stealth, combat, and guerilla tactics to fight for freedom and justice.  Often decried as lawless by those in power, the common folk tend to view these dark heros with admiration and gratitude.~
-@3508  = ~HARRIER: When corruption takes hold in the centers of civilization, good men become outlaws.  While not a true ranger, with the blessing and divine abilities granted by Mielikki, the Harrier uses a ranger's skills in stealth, combat, and guerilla tactics to fight for freedom and justice.  Often decried as lawless by those in power, the common folk tend to view these dark heros with admiration and gratitude.
+@3607  = ~When corruption takes hold in the centers of civilization, good men become outlaws.  While not a true ranger, with the blessing and divine abilities granted by Mielikki, the Harrier uses a ranger's skills in stealth, combat, and guerilla tactics to fight for freedom and justice.  Often decried as lawless by those in power, the common folk tend to view these dark heros with admiration and gratitude.~
+@3608  = ~HARRIER: When corruption takes hold in the centers of civilization, good men become outlaws.  While not a true ranger, with the blessing and divine abilities granted by Mielikki, the Harrier uses a ranger's skills in stealth, combat, and guerilla tactics to fight for freedom and justice.  Often decried as lawless by those in power, the common folk tend to view these dark heros with admiration and gratitude.
  
 Advantages:
 - May achieve Grand Mastery (+++++) in light swords, dagger, and quarterstaff.
@@ -1399,40 +1435,6 @@ Disadvantages:
 - May cast one fewer spell per day of each level available
 - Cannot use Charm Animal ability
 - May only achieve Mastery (+++) in heavy/blunt weapons.
-~
-@3600  = ~360: Add the Barbarian Ranger kit~
-@3604  = ~barbarian ranger~
-@3605  = ~Barbarian Ranger~
-@3606  = ~BARBARIAN RANGER: Among barbarian tribes there are hunters of great skill. Spending many days alone in the wild, stalking their prey, they are closer to nature than most men. They are not quite as hardy as their more aggressive brethren, and tend to be loners. Yet they bring uncommon skills to bear both in providing for, and in defending, their tribe.
- 
-Advantages:
-- Moves 2 points faster than other characters.
-- May enter an enraged state, enhancing combat abilities, once per day per six levels.
-- May Charm animals once per day per five levels.
-- Gains 5% physical damage resistance at 11th level, and again at 15th and 19th levels.
-
-Disadvantages:
-- Cannot cast priest spells.
-- Is not immune to backstab.
-- -2 penalty to Charisma.
-- May not wear armor heavier than studded leather or hide armor
-- May not dual-class.
-~
-@3607  = ~Among barbarian tribes there are hunters of great skill. Spending many days alone in the wild, stalking their prey, they are closer to nature than most men. They are not quite as hardy as their more aggressive brethren, and tend to be loners. Yet they bring uncommon skills to bear both in providing for, and in defending, their tribe.~
-@3608  = ~BARBARIAN RANGER: Among barbarian tribes there are hunters of great skill. Spending many days alone in the wild, stalking their prey, they are closer to nature than most men. They are not quite as hardy as their more aggressive brethren, and tend to be loners. Yet they bring uncommon skills to bear both in providing for, and in defending, their tribe.
- 
-Advantages:
-- Moves 2 points faster than other characters.
-- May enter an enraged state, enhancing combat abilities, once per day per six levels.
-- May Charm animals once per day per five levels.
-- Gains 5% physical damage resistance at 11th level, and again at 15th and 19th levels.
-
-Disadvantages:
-- Cannot cast priest spells.
-- Is not immune to backstab.
-- -2 penalty to Charisma.
-- May not wear armor heavier than studded leather or hide armor
-- May not dual-class.
 ~
 @4000  = ~400: Rogue Class Tweaks~
 @4002  = ~scout~
@@ -2271,7 +2273,7 @@ Advantages:
 
 Advantages:
 - Transmuters automatically learn spells from the school of Alteration.
-- Transmuters may use the "Earthen Grasp" cantrip, which causes tendrils from the ground to reach out and Entangle the target for 1 round (and Holding the taget frozen in place for that time if the target fails a saving throw).
+- Transmuters may use the "Earthen Grasp" cantrip, which causes tendrils from the ground to reach out and Entangle the target for 1 round (and Holding the target frozen in place for that time if the target fails a saving throw).
 - Transmuters can maintain the stability of their personal form, resisting hostile polymorph, petrification, and disintegration effects.
 - Beginning at 11th level, Transmuters may learn to animate a golem for short periods of time. Golems generally cannot be created on short notice; the effort involved is such that it will only be in existence for 60 seconds, and the Transmuter becomes fatigued and suffers a 1-second penalty to casting speed until the next rest period. A flesh golem may be animated at first; this upgrades to a clay golem at 14th level, and a stone golem at 18th level, and a juggernaut golem at 24th level.~
 @6012   = ~Choose a cantrip~

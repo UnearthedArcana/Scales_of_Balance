@@ -196,6 +196,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@6099)
 		STR_VAR
 			kit_name = D5SORCE
+			clswpbon = ~0 0 3~
 	END
 END
 //____________________________________________________________________________________
@@ -898,11 +899,13 @@ ACTION_IF FILE_EXISTS_IN_GAME ~clabso01.2da~ THEN BEGIN
 		LPM remove_blank_lines
 		APPEND_FILE ~scales_of_balance/wizard/tb1clab.txt~
 END
+/*
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_meist.2da~ THEN BEGIN
 	COPY_EXISTING ~d5_meist.2da~ ~override~
 		LPM remove_blank_lines
 		APPEND_FILE ~scales_of_balance/bard/meistcant.txt~
 END
+*/
 //__________________________________________________________________________________
 
 /*

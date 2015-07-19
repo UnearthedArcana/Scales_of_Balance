@@ -156,6 +156,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@3204)
 		STR_VAR
 			kit_name = D5CORSA
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________

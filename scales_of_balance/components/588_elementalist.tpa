@@ -149,6 +149,18 @@ SAY @5884
 
 END
 
+//EE KIT EXTRAS_____________________________________________________________________
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@5884)
+		STR_VAR
+			kit_name = D5ELEME
+			clswpbon = ~0 0 3~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -291,16 +303,19 @@ SAY @5884
 
 END
 
-END
-
 //EE KIT EXTRAS_____________________________________________________________________
-LAF fl#add_kit_ee
-	INT_VAR
-		briefdesc = RESOLVE_STR_REF (@5884)
-	STR_VAR
-		kit_name = D5ELEME
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@5884)
+		STR_VAR
+			kit_name = D5ELEME
+			clswpbon = ~1 0 3~
+	END
 END
 //____________________________________________________________________________________
+
+END
 
 //PURIFIER ABILITY FILES_____________________________________________________________
 //

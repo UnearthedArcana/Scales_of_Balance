@@ -246,6 +246,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7011)
 		STR_VAR
 			kit_name = D5MIELI
+			clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -431,6 +432,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7014)
 		STR_VAR
 			kit_name = D5RILLI
+			clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -626,6 +628,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7020)
 		STR_VAR
 			kit_name = D5BLADS
+			clswpbon = ~1 0 2~
 	END
 END
 //____________________________________________________________________________________
@@ -722,6 +725,19 @@ SAY @7031
 SAY @7031
 //__________________________________________________________________________________
 
+//EE KIT EXTRAS_____________________________________________________________________
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@7031)
+		STR_VAR
+			kit_name = D5FILCH
+			clswpbon = ~0 0 3~
+			thiefskl = ~50 25~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -791,8 +807,6 @@ SAY @7031
 SAY @7031
 //__________________________________________________________________________________
 
-END
-
 //EE KIT EXTRAS_____________________________________________________________________
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 	LAF fl#add_kit_ee
@@ -800,11 +814,13 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7031)
 		STR_VAR
 			kit_name = D5FILCH
-			backstab = ~1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4~
+			clswpbon = ~1 0 3~
 			thiefskl = ~50 25~
 	END
 END
 //____________________________________________________________________________________
+
+END
 
 //SPELLFILCHER ABILITY FILES__________________________________________________________
 //
@@ -902,6 +918,18 @@ SAY @7041
 SAY @7041
 //__________________________________________________________________________________
 
+//EE KIT EXTRAS_____________________________________________________________________
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@7041)
+		STR_VAR
+			kit_name = D5MASK
+			clswpbon = ~0 0 3~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -971,8 +999,6 @@ SAY @7041
 SAY @7041
 //__________________________________________________________________________________
 
-END
-
 //EE KIT EXTRAS_____________________________________________________________________
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 	LAF fl#add_kit_ee
@@ -980,9 +1006,12 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7041)
 		STR_VAR
 			kit_name = D5MASK
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
+
+END
 
 //NIGHTRUNNER ABILITY FILES__________________________________________________________
 //
@@ -1083,6 +1112,18 @@ SAY @7060
 SAY @7060
 //__________________________________________________________________________________
 
+//EE KIT EXTRAS_____________________________________________________________________
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@7060)
+		STR_VAR
+			kit_name = D5MSADV
+			clswpbon = ~0 0 3~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -1152,8 +1193,6 @@ SAY @7060
 SAY @7060
 //__________________________________________________________________________________
 
-END
-
 //EE KIT EXTRAS_____________________________________________________________________
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 	LAF fl#add_kit_ee
@@ -1161,9 +1200,12 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7060)
 		STR_VAR
 			kit_name = D5MSADV
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
+
+END
 
 //MISADVENTURER ABILITY FILES_________________________________________________________
 //
@@ -1337,6 +1379,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7070)
 		STR_VAR
 			kit_name = D5HARTH
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
@@ -1502,6 +1545,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7080)
 		STR_VAR
 			kit_name = D5ALAGH
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
@@ -1737,6 +1781,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7090)
 		STR_VAR
 			kit_name = D5TEMPU
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
@@ -1908,6 +1953,18 @@ SAY @7102
 
 END
 
+//EE KIT EXTRAS_____________________________________________________________________
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@7102)
+		STR_VAR
+			kit_name = D5MYSTR
+			clswpbon = ~0 0 3~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -2050,8 +2107,6 @@ SAY @7102
 
 END
 
-END
-
 //EE KIT EXTRAS_____________________________________________________________________
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 	LAF fl#add_kit_ee
@@ -2059,9 +2114,12 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7102)
 		STR_VAR
 			kit_name = D5MYSTR
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
+
+END
 
 //MONITOR ABILITY FILES_______________________________________________________________
 //
@@ -2156,6 +2214,18 @@ SAY @7101
 SAY @7102
 //__________________________________________________________________________________
 
+//EE KIT EXTRAS_____________________________________________________________________
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@7112)
+		STR_VAR
+			kit_name = D5BENDR
+			clswpbon = ~1 0 3~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -2225,8 +2295,6 @@ SAY @7111
 SAY @7112
 //__________________________________________________________________________________
 
-END
-
 //EE KIT EXTRAS_____________________________________________________________________
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 	LAF fl#add_kit_ee
@@ -2234,9 +2302,12 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@7112)
 		STR_VAR
 			kit_name = D5BENDR
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
+
+END
 
 //SPELLBENDER ABILITY FILES___________________________________________________________
 //

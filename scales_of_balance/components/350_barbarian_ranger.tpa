@@ -72,9 +72,9 @@ ADD_KIT ~D5RBARB~
 ~CHAN09	* HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
 
 //CHARACTER CREATION KIT DESCRIPTION________________________________________________
-SAY @3604
-SAY @3605
-SAY @3606
+SAY @3504
+SAY @3505
+SAY @3506
 //___________________________________________________________________________________
 
 END
@@ -142,9 +142,9 @@ ADD_KIT ~D5RBARB~
 ~CHAN09	* HELM07 BAG20 RING06 RING31 * BOOT01 AMUL19 BRAC16 BELT06 AROW11,40 BULL03,40 BOLT06,40 POTN52,5 POTN04,2 POTN14,5 HAMM07 SW1H27 STAF08~
 
 //CHARACTER CREATION KIT DESCRIPTION________________________________________________
-SAY @3604
-SAY @3605
-SAY @3608
+SAY @3504
+SAY @3505
+SAY @3508
 //___________________________________________________________________________________
 
 END
@@ -154,9 +154,10 @@ END
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 	LAF fl#add_kit_ee
 		INT_VAR
-			briefdesc = RESOLVE_STR_REF (@3607)
+			briefdesc = RESOLVE_STR_REF (@3507)
 		STR_VAR
 			kit_name = D5RBARB
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
@@ -165,11 +166,13 @@ END
 //
 COPY ~scales_of_balance/ranger/d5_rbaab.spl~ ~override~
 COPY ~scales_of_balance/ranger/d5_rback.spl~ ~override~
+COPY ~scales_of_balance/ranger/d5_rnosp.eff~ ~override~
+COPY ~scales_of_balance/ranger/d5_rnosp.spl~ ~override~
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_strid.d5~ THEN BEGIN
 	COPY_EXISTING ~d5_rbarb.2da~ ~override~
 		REPLACE_TEXTUALLY ~AP_SPCL151 ~ ~****       ~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/strirang.txt~
+		APPEND_FILE ~scales_of_balance/misc/stribarb.txt~
 		BUT_ONLY
 END
 ACTION_IF GAME_IS ~iwdee~ THEN BEGIN

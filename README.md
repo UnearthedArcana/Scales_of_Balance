@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 3.1 </strong><br />
+  <p><strong> Version 3.2 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (?)</p>
 </div>
@@ -27,7 +27,7 @@
     The mod archive should be extracted into your game folder from the archive (or just unzipped and then copied there). If properly extracted, you should have an "SoB" folder and "setup-SoB.exe" in your BG2 folder. To install, simply double-click "setup-SoB.exe" and follow the instructions on screen.</p>
   <p>Please run setup-SoB.exe in your BG2 folder to reinstall, uninstall or otherwise change components.</p>
   <p><strong>Mac OS X:</strong><br />
-    This mod is packaged and installed with WeiDU. To install, simply extract the contents of the mod into your game folder. If properly extracted, you should have a folder called "SoB," a file called "weidu," and the "WeiDU Mac Launcher v3.3" in your BG2 directory. To install, simply double-click the WeiDU Launcher, choose SoB from the list, and follow the instructions on screen.</p>
+    This mod is packaged and installed with WeiDU. To install, simply extract the contents of the mod into your game folder. If properly extracted, you should have a folder called "SoB," a file called "weidu," and the "WeiDU Mac Launcher" in your BG2 directory. To install, simply double-click the WeiDU Launcher, choose Scales of Balance from the list, and follow the instructions on screen.</p>
 </div>
 <h2>Compatibility</h2>
 <div class="section">
@@ -38,7 +38,7 @@
   	<li>The cleric kits in Scales of Balance are not compatible (yet!) with the <u>Divine Remix</u> Sphere System. You <strong>can</strong> use all of the DR kits and all of the SoB kits together; to do so you must use DR v8 or later, and <strong>do not</strong> install the sphere system component.</li><br />
   	<li>I have not tested compatibility with Kit Revisions. These two mods cover a lot of the same ground. Eventually (after KR is released, anyway) I will try to see if I can make them work well together. But for now, you should probably choose one or the other. (You may try to skip the SoB tweaks and only install new kits, and/or the multiclass component... it should work, but there might be balance issues.)</li><br />
   	<li>The first component of <u>Rogue Rebalancing</u> is not compatible, and not necessary, with SoB's component #250 "the Proficiency Overhaul." Also, SoB and RR's Bard Tweaks component modify some of the same resources; be aware that you might see some different behavior depending on which you install last.</li><br />
-  	<li>Most of SoB's class tweaks are incompatible with the first, "core" component of <u>Six's Kitpack</u>. Take a look at what each mod does and decide which one you want to use. The kits in Six's Kitpack, however, should work just fine with SoB, without Six's "core" component. In particular, if you install Six's Hunter of Silvanus and SoB's Druid Tweaks, the Hunter will be able to wield bows just as Six intended :)</li><br />
+  	<li>Most of SoB's class tweaks are incompatible with the first, "core" component of <u>Six's Kitpack</u>. Take a look at what each mod does and decide which one you want to use. The <strong>kits</strong> in Six's Kitpack, however, should work just fine with SoB, without Six's "core" component. In particular, if you install Six's Hunter of Silvanus and SoB's Druid Tweaks, the Hunter will be able to wield bows just as Six intended :)</li><br />
   	<li>The <u>Hidden Kits</u> mods is probably extremely incompatible. You can try to use them together but you might see some very weird behavior, like innate abilities changing or disappearing - if not even worse symptoms.</li>
   </ul></p>
   <p>If you install lots of kit mods, keep in mind that without TobEx, the kit selection screen can only show 10 kits per class - that's the main class plus nine kits. If you install a lot of kits, the Scales of Balance kits will not be selectable. This doesn't matter for clerics, since you can use items in-game to adopt those kits. But, for example, if you install all of the bard kits from Song & Silence, then you won't be able to see all of SoB's bard kits. The vanilla game has 4 kits in each class, so you can install six kits without worries. Plan ahead, or use the 'Mod Kit Remover' to clear space in the Character Generation screens.</p>
@@ -96,7 +96,7 @@
       <ul>
       	<li>The 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same.  Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</li><br />
       	<li>Wisdom now grants an extra 1st-level priest spell at 13 and at 14; and extra 2nd-level spell at 15 and at 16; an extra 3rd-level spell at 17 and at 18; et cetera, up to 2 extra spells of every level at 25 WIS</p>
-      	<li>Constitution bonuses are folded into Component 3, Modified Hit Points, below.</p>
+      	<li>Constitution bonuses are folded into Component #210, Modified Hit Points, below.</p>
       </ul>
       <p>Saving throw tables are just made more sensible, nothing earth-shaking. Wizards save well against spells, priests save well against death, rogues save well against breath, etc.</p>
   </div>
@@ -138,7 +138,7 @@
         <li> Crossbows are usable by everyone except druids. But no one can reach Grand Mastery except Marksmen (see component 300 below).</li>
       </ul>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
-      <p>Fighters start with 10 proficiency points and gain a new one every other level. But they cannot place more than one point in any weapon or style at first level; they cannot reach specialization (++) until 2nd level. Paladins, rangers, barbarians and rogues begin with 6 proficiency points, and gain a new one every 3 levels. Clerics begin with 5 proficiency points, and gain a new one every 6 levels. Druids begin with 5 proficiency points, and gain a new one every 5 levels. Wizards begin with 4 proficiency points, and can never move past their initial proficiencies (NB - dual-classing into a mage means no more weapon advancement at all!).</p>
+      <p>Fighters start with 10 proficiency points and gain a new one every other level. But they cannot place more than one point in any weapon or style at first level; they cannot reach specialization (++) until 2nd level. Paladins, rangers, barbarians and rogues begin with 6 proficiency points, and gain a new one every 3 levels. Clerics begin with 5 proficiency points, and gain a new one every 6 levels. Druids begin with 5 proficiency points, and gain a new one every 5 levels. Wizards begin with 4 proficiency points, and can never move past their initial proficiencies (NB - dual-classing into a mage means no more weapon advancement <strong>at all!</strong>).</p>
       <p>Trueclass fighters, and Kensai can attain Grandmastery (+++++) in any weapons they focus on. Wizard Slayers and paladins can attain High Mastery (++++) in any weapon. Berserkers, Barbarians, Rangers and rogues can attain Mastery (+++) with most weapons, but see below. Druids can attain Mastery (+++) with any weapons they can use. Clerics can attain specialization (++) with most weapons, but kitted clerics gain Mastery (+++) with their deity's chosen weapon (if you install the Divine Class Tweaks, see component #500 below).</p>
       <p>Multiclass fighter/mages can attain High Mastery (++++) in any weapon but the only available style is Single-Weapon Style. Fighter/clerics and Fighter/thieves can attain High Mastery (++++) in any weapon they can use. Mage/thieves and cleric/thieves can attain Mastery (+++) with any weapon they can use. Cleric/Mages can attain Specialization (++) with any weapon they can use.</p>
       <p>Beyond that, weapons are classed into certain themes: 
@@ -177,23 +177,17 @@
       <p>This component makes serious changes and it has been extremely hard to get various game mechanisms to work with it, especially dual-classing and NPCs. As a result, ALL NPCs you meet will be dropped to level 1, TOB-style, and start with selected base proficiencies. They will have the normal amount of XP however, so you can immediately level them up and direct their advancement. This method doesn't work well for dual-classed NPCs, so for Imoen, Anomen, and Nalia, they will receive a special "Proficiency Tome" that you can use to set their proficiencies correctly.</p>
       <p>A new, experimental part of this component aims to fix a longstanding bug in the game: when you dual-class, your weapon proficiency advancement is supposed to be capped by your <strong>new</strong> class, not your old one. In BG you can start with a fighter, dual to thief, and get Grandmastery with longswords. Not more. Now, when you dual-class from one of the eight base warrior kits (Fighter, Wizard Slayer, Berserker, Kensai, Ranger, Archer, Beastmaster, or Stalker) you will be limited to Mastery (+++) in any future advancement.
   </div>
-  <h4 class="subheader">Component 270: </h4>
-  <div class="section">
-    <p><strong><em>APR on Spec</em></strong></p>
-      <p>This sets all classes to get extra APR from proficiencies. You can use this apart from any other Scales of Balance components: in an otherwise-unmodded game, its only effect will be to allow Swashbucklers and Haer'Dalis to get the extra APR from specialization.</p>
-      <p><strong>This component is EE-only!</strong> If you are playing on the old engine (TOB, Tutu, or BGT) then you should instead use the "WSPATCK for All" component of <u>TB#Tweaks</u>. (That should be installed before Scales of Balance.)</p>
-  </div>
   <h4 class="subheader">Component 300: </h4>
   <div class="section">
     <p><strong><em>Warrior Class Tweaks</em></strong></p>
-      <p> Berserkers and Wizard Slayers are limited to 3 *s in weapons. Berserkers are further limited to 1 * in fighting styles. Berserk Rage and Barbarian Rage are merged, because 1) I don't know why there are two different kinds of Rage, and 2) vanilla Berserk Rage is more like a Mind Shield spell than an actual Rage. Rage now lasts for 30 seconds, provides a bonus 1.2 APR, increases STR and CON by 4, provides immunity to Charm/Hold/Stun/Confusion (but NOT level drain or Maze/Imprisonment), and penalizes AC by 2.</p>
+      <p> Berserkers and Wizard Slayers are limited to Mastery (+++) in weapons. Berserkers are further limited to basic proficiency (+) in fighting styles. Berserk Rage and Barbarian Rage are merged, because 1) I don't know why there are two different kinds of Rage, and 2) vanilla Berserk Rage is more like a Mind Shield spell than an actual Rage. Rage now lasts for 30 seconds, provides a bonus 1 APR, increases STR and CON by 4, provides immunity to Charm/Hold/Stun/Confusion (but NOT level drain or Maze/Imprisonment), and penalizes AC by 2.</p>
       <p> Barbarians' and Monks' movement bonus is changed from a permanent characteristic to an at-will ability called Quickstride. Now if they want to walk slowly to keep the group together, they can.</p>
       <p> Rangers and Scouts (if installed, see component 400 below) get the Quickstride ability at 10th level.</p>
-      <p> Rangers are limited to medium armor (splint or lighter).  Beastmasters gain the ability to wield daggers, axes, and spears.</p>
+      <p> Rangers are limited to medium armor (splint or lighter).  Beastmasters gain the ability to wield daggers, axes, and spears. ALL rangers can now backstab for x2 damage from stealth; Stalkers' backstab multiplier increases at higher levels.</p>
       <p> The Wizard Slayer is replaced with a milder variant: no item restrictions, but no Magic resistance. If you also install the multiclass tweaks (see component 700 below) then fighter/thieves will have the option to take this kit. <strong>The Wizard Slayer changes may be disabled by adjusting a setting in the .ini file.</strong></p>
-      <p> The Stalker kit is split in two: players can now be either a stealth-focused Stalker or a magic-focused Mage Hunter. The Stalker loses its wizard spells, and can cast fewer spells per day than normal rangers. However they can attain Mastery (3 stars) with daggers and short swords.</p>
+      <p> The Stalker kit is split in two: players can now be either a stealth-focused Stalker or a magic-focused Mage Hunter. The Stalker loses its special wizard spells, and can cast fewer spells per day than normal rangers. However they can set traps like a thief, and can attain greater proficiency than other rangers with daggers and short swords.</p>
     <div class="kit_description">
-      <p>MAGE HUNTER: These rangers participate in demanding rituals with Avenger druids in order to gain access to magic abilities which help them in their campaign against any wizards who use their skills to defile nature.</p>
+      <p>WIZARD SLAYER: This warrior has been specially trained to excel in hunting and combating spellcasters of all kinds.</p>
       <p>Advantages:<br />
         &ndash; Wizard Slayers have a +1 bonus to all saving throws. This bonus increases by one for each five levels gained.<br />
         &ndash; Each successful melee hit bestows a 40% chance of spell failure on the target for one round.<br />
@@ -216,35 +210,35 @@
       <p>MARKSMAN: This soldier is the epitome of skill with ranged weapons. He can make almost any shot, no matter how difficult. To become so skilled, the marksman has had to sacrifice some proficiency with melee weapons and armor.</p>
       <p>Advantages:<br />
         &ndash; +1 to hit and damage rolls with ranged weapon at levels 3, 6, 10, 15, and 21.<br />
-        &ndash; Can achieve Grand Mastery (5 Points) with bows and crossbows.<br />
-        &ndash; Can use Called Shots once per day per three levels. Called shots by a Marksman can pin, slow, or disarm the target.</p>
+        &ndash; Can achieve Grand Mastery (+++++) with bows and crossbows.<br />
+        &ndash; Can use Called Shots once per day per three levels. Called shots by a Marksman can <strong>pin, slow, or disarm</strong> the target.</p>
       <p>Disadvantages:<br />
-        &ndash; May only specialize (two slots) with melee weapons.<br />
+        &ndash; May only specialize (++) with melee weapons.<br />
         &ndash; May not wear heavier armor than splint mail.<br />.</p>
     </div><br />
     <div class="kit_description">
       <p>HALFLING SLINGER: The Slinger is the epitome of skill with the sling - the result of halflings' natural aptitude with bows as well as their single-minded dedication to training with the weapon. To become so skilled with the sling, the Slinger has had to sacrifice some proficiency with melee weapons and armor.</p>
       <p>Advantages:<br />
         &ndash; +1 to hit and damage rolls with ranged weapon at levels 3, 6, 10, 15, and 21.<br />
-        &ndash; Can achieve Grand Mastery (5 Points) with slings.<br />
-        &ndash; Can use Called Shots once per day per three levels. Called shots by a Slinger can slow, disarm, or stun the target.</p>
+        &ndash; Can achieve Grand Mastery (+++++) with slings.<br />
+        &ndash; Can use Called Shots once per day per three levels. Called shots by a Slinger can <strong>slow, disarm, or stun</strong> the target.</p>
       <p>Disadvantages:<br />
         &ndash; May not wear any metal armor.<br />
-        &ndash; May only become Proficient (one slot) with melee weapons.<br />
+        &ndash; May only become Proficient (+) with melee weapons.<br />
         &ndash; May not cast druid spells.<br />.</p>
     </div><br />
     <div class="kit_description">
       <p>ELVEN ARCHER: The Elven Archer is the epitome of skill with the bow - the result of elves natural aptitude with bows as well as their single-minded dedication to training with the weapon. To become so skilled with the bow, the Archer has had to sacrifice some proficiency with melee weapons and armor.</p>
       <p>Advantages:<br />
         &ndash; +1 to hit and damage rolls with ranged weapon at levels 3, 6, 10, 15, and 21.<br />
-        &ndash; Can achieve Grand Mastery (5 Points) with bows.<br />
-        &ndash; Can use Called Shots once per day per three levels. Called shots by an Elven Archer can cause Entanglement, Sleep, or Faerie Fire.</p>
+        &ndash; Can achieve Grand Mastery (+++++) with bows.<br />
+        &ndash; Can use Called Shots once per day per three levels. Called shots by an Elven Archer can cause <strong>Entanglement, Sleep, or Faerie Fire.</strong></p>
       <p>Disadvantages:<br />
         &ndash; May not wear any metal armor.<br />
-        &ndash; May only become Proficient (one slot) with melee weapons.<br />.</p>
+        &ndash; May only become Proficient (+) with melee weapons.<br />.</p>
     </div>
     <p><strong><em>Kensai Weapon Focus</em></strong></p>
-      <p>At character creation, Kensai will begin with an innate spell ability that will let them choose a weapon (once only! careful!). Upon casting, they are changed to a sub-kit which can reach GM in that weapon, and can only be proficient in others.</p>
+      <p>At character creation, Kensai will begin with an innate spell ability that will let them choose a weapon (once only! careful!). Upon casting, they are changed to a sub-kit which can reach Grand Mastery (+++++) in that weapon, and can only be proficient (+) in others.</p>
       <p>Kensai thac0/damage bonuses become just damage bonuses, because they have great thac0 anyway. Their AC bonuses get better over time like a Swashbuckler's. Finally, kensai get a 0.5 bonus to APR right from 1st level, drastically increasing their offensive capabilities. The trade-off for this is having to truly devote themselves completely and permanently to their chosen weapon: kensai cannot dual-class at all. If you're into playing a kensage or a kenthief, this component is not for you. But I think it allows kensai to truly shine as a kit on its own.</p>
       <p>Finally, upon choosing a weapon focus, the Kensai will receive a weapon from the Candlekeep armory. In some instances (weaker weapons like staff, spear, dagger) it will be a +1 magical weapon.</p>
       <p><strong>The Kensai changes may be disable by adjusting a setting in the .ini file.</strong></p>
@@ -261,31 +255,17 @@
         &ndash; Can use use the skill Swashbuckling once per day for each five levels. While Swashbuckling, the character wheels and spins and parries, gaining an Armor Class of -1 per two levels, up to a maximum of -10.</p>
       <p>Disadvantages:<br />
         &ndash; Cannot become proficient with heavy weapons.<br />
-        &ndash; May only achieve Mastery (three stars) with ranged weapons.<br />
+        &ndash; May only achieve Mastery (+++) with ranged weapons.<br />
         &ndash; May not wear heavier armor than studded leather.<br />.</p>
     </div>
   </div>
   <h4 class="subheader">Component 350: </h4>
   <div class="section">
-    <p><strong><em>Add the HARRIER ranger kit</em></strong></p>
-    <div class="kit_description">
-      <p>HARRIER: When corruption takes hold in the centers of civilization, good men become outlaws.  The Harrier uses a ranger's skills in stealth, combat, and guerilla tactics to fight for freedom and justice.  Often decried as lawless by those in power, the common folk tend to view these dashing heroes with admiration and gratitude.</p>
-      <p>Advantages:<br />
-        &ndash; May achieve Mastery (3 slots) in light swords, axes, dagger, quarterstaff, and bows.<br />
-        &ndash; Begins with proficiency in single-handed weapon, two-weapon, and two-handed weapon styles.<br />
-        &ndash; Once per day (and twice per day after level 6), may set traps as a thief. The chance of success begins at 30% at level 1, and increases 3% for each level gained.</p>
-      <p>Disadvantages:<br />
-        &ndash; Can cast one fewer spell per day of each level.<br />
-        &ndash; May not use Charm Animal ability.<br />.</p>
-    </div>
-  </div>
-  <h4 class="subheader">Component 360: </h4>
-  <div class="section">
     <p><strong><em>Add the BARBARIAN RANGER kit</em></strong></p>
     <div class="kit_description">
       <p>BARBARIAN RANGER: Among barbarian tribes there are hunters of great skill. Spending many days alone in the wild, stalking their prey, they are closer to nature than most men. They are not quite as hardy as their more aggressive brethren, and tend to be loners. Yet they bring uncommon skills to bear both in providing for, and in defending, their tribe.</p>
       <p>Advantages:<br />
-        &ndash; Moves 2 points faster than other characters.<br />
+        &ndash; Can move 2 points faster than other characters.<br />
         &ndash; May enter an enraged state, enhancing combat abilities, once per day per six levels.<br />
         &ndash; May Charm animals once per day per five levels.<br />
         &ndash; Gains 5% physical damage resistance at 11th level, and again at 15th and 19th levels.</p>
@@ -300,7 +280,7 @@
   <div class="section">
     <p><strong><em>Rogue Class Tweaks</em></strong></p>
       <p>This component splits the Swashbuckler in two: the Scout is good at combat and gets traps but no backstab (like the old swashbuckler), and the new Swashbuckler is good at combat and can backstab (somewhat) but cannot set traps.</p>
-      <p>This component also replaces the Blade with the Jongleur, an acrobat and knife-wielding expert, and increases the combat ability of skalds. <strong>You may keep the Blade in your game by adjusting a setting in the .ini file.</strong></p>
+      <p>This component also <strong>eliminates</strong> the Blade, and replaces it with the <i>Jongleur</i>, an acrobat and knife-wielding expert, and increases the combat ability of skalds. <strong>You may keep the Blade in your game by adjusting a setting in the .ini file.</strong></p>
     <div class="kit_description">
       <p>SCOUT: While technically a member of the thief class, a scout does not burgle or murder. Scouts employ the dexterity and ingenuity of thieves for military purposes. They have skill in combat and with traps, but do not employ backstabs against enemies.</p>
       <p>Advantages:<br />
@@ -342,8 +322,7 @@
         &ndash; +1 bonus to hit at 1st level, and each 6 levels thereafter.<br />
         &ndash; Skald Song</p>
       <p>Disadvantages:<br />
-        &ndash; May cast one fewer spell per level compared to most bards.<br />
-        &ndash; One fewer spell per level.<br />.</p>
+        &ndash; May cast one fewer spell per level compared to most bards.<br />.</p>
     </div>
   </div>
   <h4 class="subheader">Component 410: </h4>
@@ -381,11 +360,11 @@
   <div class="section">
    <p><strong><em>Add the LOREMASTER bard kit</em></strong></p>
     <div class="kit_description">
-      <p>LOREMASTER: Loremasters are romantically entranced by the past. There is a fine line between Loremaster and sage - so fine that many Lore masters call themselves sages and are rarely questioned about it. However, true sages are knowledge specialists who concentrate their efforts into mastering a specific field such as mushrooms, elven swords, and so on. Loremasters are fond of any aspect of history that makes a good story. Further, Loremasters are likely to go adventuring and exploring, playign the part of an archaeologist or anthropologist, to learn about the world first-hand instead of from dusty tomes.</p>
+      <p>LOREMASTER: Loremasters are romantically entranced by the past. There is a fine line between Loremaster and sage - so fine that many Lore masters call themselves sages and are rarely questioned about it. However, true sages are knowledge specialists who concentrate their efforts into mastering a specific field such as mushrooms, elven swords, and so on. Loremasters are fond of any aspect of history that makes a good story. Further, Loremasters are likely to go adventuring and exploring, playing the part of an archaeologist or anthropologist, to learn about the world first-hand instead of from dusty tomes.</p>
       <p>Advantages:<br />
         &ndash; Through their devoted study of the past, gain a fundamental understanding of many strange magical items not normally usable by the bard class. Thus, they can use any magical item.<br />
-        &ndash; Loremasters' studies enhance their understanding of magic, such much that they cast spells as if they were one level higher.</p>
-        &ndash; Loremasters may cast the Find Traps priest spells as an innate ability.</p>
+        &ndash; Loremasters' studies enhance their understanding of magic, such much that they cast spells as if they were one level higher.<br />
+        &ndash; Loremasters may cast the Find Traps priest spell as an innate ability.</p>
       <p>Disadvantages:<br />
         &ndash; Bard song does not improve over time.<br />.</p>
     </div>
@@ -397,7 +376,7 @@
       <p>MEISTERSINGER: These bards wander the woodlands, charming animals with their melodies and helping druids and rangers to protect nature. They are the enemies of ruthless hunters and trappers, striving against such activities with their animal allies, beguiling music, and nature-based magic.</p>
       <p>Advantages:<br />
         &ndash; May use the ranger's Animal Empathy ability.<br />
-        &ndash; May use the 'Summon Rabbit' cantrip (if the wizard tweaks are installed)<br />
+        &ndash; May use the 'Summon Rabbit' innate ability.<br />
         &ndash; Once per day, may summon a swarm of rodents to <PRO_HISHER> aid (3 a 1st level, and 3 more for every third level after that).<br />
         &ndash; May cast the following druid spells: Cure Light Wounds, Entangle, Sanctuary, Shillelagh, Barkskin, Charm Person/Mammal, Resist Fire/Cold, Slow Poison, Remove Paralysis, Cure Disease, Zone of Sweet Air, Summon Insects, Cure Serious Wounds, Call Woodland Being, Leser Restoration, Mass Cure, Chaotic Commands, Insect Plague, Animal Summoning III, and False Dawn.</p>
       <p>Disadvantages:<br />
@@ -614,18 +593,18 @@
     <p><strong><em>Wizard Class Changes</em></strong></p>
     <p><u>CANTRIPS:</u> each specialist will have a single cantrip relating to their field which they will be able to cast at will. Generalists can choose any three of the eight cantrips. Here's the list:</p>
     <ul>
-      <li> Abjuration: Protective Shell (self: 1 skin, 30 second duration)</li>
-      <li> Conjuration: Conjure Rabbit</li>
-      <li> Enchantment: Drowse (target: save or Sleep for 9 seconds)</li>
-      <li> Illusion: Bedazzle (target: save or -3 penalties to AC, thac0, and damage, for 12 seconds)</li>
+      <li> Abjuration: Protective Shell (self: 1 stoneskin, 3 turn duration, does not stack)</li>
+      <li> Conjuration: Conjure Rabbit (what it sounds like)</li>
+      <li> Enchantment: Drowse (target: save or Sleep for 6 seconds)</li>
+      <li> Illusion: Bedazzle (target: -1 to thac0, damage, and AC for 12 seconds; save or penalties increase to -3 and be Blinded for 6 seconds)</li>
       <li> Invocation: Magic Bolt (target: 1d4+1 magic damage)</li>
-      <li> Necromancy: Stiffen Bones (target: save or slowed for 12 seconds)</li>
-      <li> Transmutation: Earthen Grasp (target: save or become Entangled for 12 seconds)</li>
+      <li> Necromancy: Stiffen Bones (target: -1 to thac0 and AC for 12 seconds; save or penalties increase to -2 and be Slowed)</li>
+      <li> Transmutation: Earthen Grasp (target: Entangled for 6 seconds; save or also be Held)</li>
       <li> Divination: Diviners have no cantrip per se, but as described below, one of their class abilities is to cast Contingency as an innate ability at 1st level</li>
     </ul>
     <p><u>METAMAGIC:</u> spell sequencers become innate abilities. They are learned like spells, but once cast they will be removed from the wizard's spellbook. Thenceforth, they can be created from the innate abilities button. A sequencer can be re-created as soon as it is spent. Contingency becomes an innate ability instead of a spell, granted at level 11.</p>
     <p><u>SPELL BATTLES:</u> Spell Thrust and Minor Spell Deflection (renamed "Parry Magic") become repeatable innate abilities, acquired at levels 3 and 5. Parry Magic deflects 2 spell levels; Spell Thrust will affect spell protections of level equal to the caster's level divided by 3. Secret Word deafness a Deafness secondary effect. Ruby Ray of Reversal gains a Blindness secondary effect. Pierce Shield gains a Breach secondary effect. Minor Spell Turning, Spell Deflection, and Spell Turning become Minor Spell Absorption, Spell Absorption, and Greater Spell Absorption, respectively.<strong>The spell battle changes may be skipped by adjusting a setting in the .ini file.</strong></p>
-    <p>SPELL TWEAKS: numerous spells are moved to different schools to balance the list of spells available from each school (this will not affect the player much, because there are no longer any opposition schools - see below). Some spells are moved to different levels; some are more thoroughly revised and improved. 
+    <p><u>SPELL TWEAKS:</u> numerous spells are moved to different schools to balance the list of spells available from each school (this will not affect the player much, because there are no longer any opposition schools - see below). Some spells are moved to different levels; some are more thoroughly revised and improved. 
     <ul>
       <li> Vanilla Blindness and Deafness switch places at levels 1 and 2.</li>
       <li> Luck drops to level 1.</li>
@@ -638,7 +617,7 @@
       <li> If Spell Revisions v4 is installed, low-level protection spells are changed: the 'pure' protective spells run from Shield at 1st level to Mage Armor at 2nd level to Ghost armor is at 3rd level; the illusionary protection spells run from Blur at 1st level to Reflected Image at 2nd level to Mirror Image at 3rd level.</li>
       <li> Finally, wizards can no longer summon a Planetar as an HLA (because come on, that is completely stupid); instead they may summon greater elementals. The Planetar is summoned by clerics in place of the Deva, when he summoning cleric is higher than 25th level. <strong>The HLA summoning changes may be skipped by adjusting a setting in the .ini file.</strong></li>    
     </ul></p>
-    <p>REVISED SPECIALISTS: as stated, there are no more opposition schools; specialists may cast spells from any schools (with one exception) and are now defined by their special abilities instead of spell restrictions. The exception is Necromancy, which is a dark art; most wizards cannot or will not learn such magic. Only Necromancers may use necromancy spells. (Horrid Wilting is moved to the school of Invocation so as not to deny players access to it, and Energy Drain takes its place at 8th level.) Specialists still gain an extra spell per level, and spells in their school are added to their spellbooks automatically. In some cases, the spells added in their school are enhanced versions of spells that other wizards may cast; for example, Abjurers' native version of Spell Deflection will simultaneously raise a Spell Shield. Do not erase spells in your specialty school from your spellbook! Descriptions of the revised kits follow:</p>
+    <p><u>REVISED SPECIALISTS:</u> as stated, there are no more opposition schools; specialists may cast spells from any schools (with one exception) and are now defined by their special abilities instead of spell restrictions. The exception is Necromancy, which is a dark art; most wizards cannot or will not learn such magic. Only Necromancers may use necromancy spells. (Horrid Wilting is moved to the school of Invocation so as not to deny players access to it, and Energy Drain takes its place at 8th level.) Specialists still gain an extra spell per level, and spells in their school are added to their spellbooks automatically. In some cases, the spells added in their school are enhanced versions of spells that other wizards may cast; for example, Abjurers' native version of Spell Deflection will simultaneously raise a Spell Shield. Do not erase spells in your specialty school from your spellbook! Descriptions of the revised kits follow:</p>
     <div class="kit_description">
       <p>ABJURER: A Mage who specializes in protective magic and metamagic disciplines. These mages can erect powerful wards and barriers, and are also trained to break those wards and effects that are created by other spellcasters.</p>
       <p>Abilities:<br />
@@ -901,6 +880,12 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 3.2 - July 19, 2015</strong></p>
+  <ul>
+    <li>Eliminated the Harrier kit</li>
+    <li>Added backstabbing for Rangers</li>
+    <li>Better handling of CLSWPBON.2da</li>
+  </ul>
   <p><strong>Version 3.1 - June 1, 2015</strong></p>
   <ul>
     <li>Various small bug fixes</li>

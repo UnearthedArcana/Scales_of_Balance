@@ -154,6 +154,22 @@ SAY @4007
 SAY @4008
 //___________________________________________________________________________________
 
+//EE KIT EXTRAS_____________________________________________________________________
+// 
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@4009)
+		STR_VAR
+			kit_name = D5SWASH
+			backstab = ~1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4~
+			clswpbon = ~0 0 3~
+			thiefskl = ~40 15~
+			clsrcreq = ~1 1 1 0 1 0 0~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -224,8 +240,6 @@ SAY @4007
 SAY @4008
 //___________________________________________________________________________________
 
-END
-
 //EE KIT EXTRAS_____________________________________________________________________
 // 
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
@@ -235,11 +249,14 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		STR_VAR
 			kit_name = D5SWASH
 			backstab = ~1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4 4~
+			clswpbon = ~1 0 3~
 			thiefskl = ~40 15~
 			clsrcreq = ~1 1 1 0 1 0 0~
 	END
 END
 //____________________________________________________________________________________
+
+END
 
 ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
 	COPY ~scales_of_balance/thief/d5_swasg.2da~ ~override/d5_swash.2da~
@@ -488,6 +505,18 @@ SAY @4056
 SAY @4057
 //___________________________________________________________________________________
 
+//EE KIT EXTRAS_____________________________________________________________________
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	LAF fl#add_kit_ee
+		INT_VAR
+			briefdesc = RESOLVE_STR_REF (@4059)
+		STR_VAR
+			kit_name = D5JONGL
+			clswpbon = ~0 0 3~
+	END
+END
+//____________________________________________________________________________________
+
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
@@ -558,8 +587,6 @@ SAY @4056
 SAY @4058
 //___________________________________________________________________________________
 
-END
-
 //EE KIT EXTRAS_____________________________________________________________________
 ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 	LAF fl#add_kit_ee
@@ -567,9 +594,12 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 			briefdesc = RESOLVE_STR_REF (@4059)
 		STR_VAR
 			kit_name = D5JONGL
+			clswpbon = ~1 0 3~
 	END
 END
 //____________________________________________________________________________________
+
+END
 
 //SKALD+JONGLEUR ABILITY FILES________________________________________________________
 //
