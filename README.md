@@ -87,7 +87,7 @@
       <li> Sling bullets do blunt damage.</li>
       <li> Darts have 5/2 APR instead of 3.</li>
     </ul>
-    <p>This component will not install on IWDEE, as many of its effects are specific to the items found in BG/NG2.</p>
+    <p>This component will not install on IWDEE, as many of its effects are specific to the items found in BG/BG2.</p>
   </div>
   <h4 class="subheader">Component 200: </h4>
   <div class="section">
