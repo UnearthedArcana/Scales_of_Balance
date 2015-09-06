@@ -1621,6 +1621,8 @@ Disadvantages:
 - Bard song does not improve over time.
 ~
 @4605  = ~Meistersingers wander the woodlands, charming animals with their melodies and helping druids and rangers to protect nature. They are the enemies of ruthless hunters and trappers, striving against such activities with their animal allies, beguiling music, and nature-based magic.~
+@4606  = ~Pied Piping~
+@4607  = ~With this ability, the Meistersinger can summon a swarm of rodents to attack adn confuse his enemies.~
 @4650  = ~465: Add the Loresinger of Milil divine bard kit~
 @4652  = ~loresinger~
 @4653  = ~Loresinger~
@@ -2175,7 +2177,6 @@ Prime Requisites For Dual-Classing: Wisdom, Charisma~
 @5838   = ~Giant Spider~
 @5839   = ~Shapechange Rat~
 @5840   = ~Improved Invisibility~
-@5880   = ~586: Add the Elementalist druid kit~ 
 @5860   = ~586: Add the Purifier druid kit~ 
 @5862   = ~purifier~
 @5863   = ~Purifier~
@@ -2190,7 +2191,7 @@ Disadvantages:
 - May not shapeshift into animal forms.
 ~
 @5865   = ~Some druids understand that destructive forces can be used in constructive ways. Natural environments may sometimes be corrupted, and twisted with death; while some druids in these situations may despair and become Lost Druids, others understand that a purifying inferno may cleanse the corruption and allow the environment to regrow, even stronger than it was. Most people, even other druids, lack such long-term perspective, and fear Purifiers.~
-@5880   = ~586: Add the Elementalist druid kit~ 
+@5880   = ~588: Add the Elementalist druid kit~ 
 @5882   = ~elementalist~
 @5883   = ~Elementalist~
 @5884   = ~ELEMENTALIST: While all druids serve the cause of life, some have a deeper understanding of the fundamental forces that underlie the world of nature. These 'Elementalists' master learn to shapechange into forms sprung from the four elemental inner planes, which contain the building blocks of all of the natural matter in the rest of the universe.

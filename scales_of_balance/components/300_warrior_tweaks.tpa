@@ -43,15 +43,21 @@ ACTION_IF (install_tweaks) THEN BEGIN
 	ACTION_IF ENGINE_IS ~iwdee~ THEN BEGIN
 		STRING_SET 37094 @3003
 	END
-	ACTION_IF GAME_IS ~bgee~ AND NOT FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
+	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 		STRING_SET 32235 @3004
 	END
 	COPY_EXISTING ~clabfi02.2da~ ~override~
 		REPLACE_TEXTUALLY ~GA_SPCL321~ ~GA_D5_RAGE~
 		BUT_ONLY
 	COPY ~scales_of_balance/fighter/d5_rage.spl~ ~override~
+		SAY NAME1 @3008
+		SAY UNIDENTIFIED_DESC @3004
 	COPY ~scales_of_balance/fighter/d5_rage.spl~ ~override/spcl321.spl~
-	COPY ~scales_of_balance/fighter/d5_rage.spl~ ~override/spcl152.spl~
+		SAY NAME1 @3008
+		SAY UNIDENTIFIED_DESC @3004
+//	COPY ~scales_of_balance/fighter/d5_rage.spl~ ~override/spcl152.spl~
+//		SAY NAME1 @3008
+//		SAY UNIDENTIFIED_DESC @3004
 //________________________________________________________________________________
 
 //FIGHTER KIT 2DA FILES___________________________________________________________
@@ -1743,10 +1749,16 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_profs.d5~ THEN BEGIN
 			BUT_ONLY
 	END
 END
+ACTION_IF (FILE_EXISTS_IN_GAME ~clabrn01.2da~) THEN BEGIN
+	COPY_EXISTING ~clabrn01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/ranger/ranstab.txt~
+	BUT_ONLY
+END
 COPY_EXISTING ~kitlist.2da~ ~override~
 	COUNT_2DA_ROWS ~9~ "rows"
-	PATCH_IF ( rows > 31 ) BEGIN
-		FOR ( index = 32 ; index < rows ; index = index + 1 ) BEGIN
+	PATCH_IF ( rows > 1 ) BEGIN
+		FOR ( index = 2 ; index < rows ; index = index + 1 ) BEGIN
 			READ_2DA_ENTRY %index% 5 9 modclab
 			READ_2DA_ENTRY %index% 8 9 modclass
 			DEFINE_ASSOCIATIVE_ARRAY d5_ranstab_clabs BEGIN "%modclab%" => "%modclass%" END
@@ -1761,11 +1773,11 @@ ACTION_PHP_EACH d5_ranstab_clabs AS roo => goo BEGIN
 			BUT_ONLY
 	END
 END
-ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+ACTION_IF (GAME_IS ~bgee bg2ee iwdee~) AND (FILE_EXISTS_IN_GAME ~d5_stlk2.2da~) THEN BEGIN
 	COPY_EXISTING ~d5_stlk2.2da~ ~override~
 		REPLACE_TEXTUALLY ~AP_SPCL332 ~ ~****       ~
 END
-ACTION_IF GAME_IS ~tob bgt tutu~ THEN BEGIN
+ACTION_IF (GAME_IS ~tob bgt tutu~) AND (FILE_EXISTS_IN_GAME ~d5_stlk2.2da~) THEN BEGIN
 	COPY_EXISTING ~d5_stlk2.2da~ ~override~
 		LPM remove_blank_lines
 		APPEND_FILE ~scales_of_balance/ranger/stlkstab.txt~

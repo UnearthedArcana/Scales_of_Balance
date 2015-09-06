@@ -317,7 +317,7 @@ END
 
 END
 
-//PURIFIER ABILITY FILES_____________________________________________________________
+//ELEMENTALIST ABILITY FILES_____________________________________________________________
 //
 COPY ~scales_of_balance/druid/d5_pele1.spl~ ~override~
 	SAY NAME1 @5824

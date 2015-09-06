@@ -39,7 +39,7 @@ SPWI120 => 7  //Reflected Image
 SPWI121 => 3  //??? 
 SPWI122 => 3  //??? 
 SPWI123 => 0  //Find Familiar 
-SPWI124 => 0  //Nahal's Reckless Dweomer
+//SPWI124 => 0  //Nahal's Reckless Dweomer
 SPWI125 => 7  //Spook 
 SPWI126 => 2  //Expeditious Retreat 
 
@@ -65,7 +65,7 @@ SPWI218 => 8  // Ghoul Touch
 SPWI219 => 2  // Vocalize 
 SPWI220 => 5  // Power Word: Sleep
 SPWI221 => 8  // Ray of Enfeeblement 
-SPWI222 => 0  // Chaos Shield 
+//SPWI222 => 0  // Chaos Shield 
 SPWI223 => 6  // Deafness 
 SPWI224 => 7  // Glitterdust 
 SPWI225 => 2  // Cat's Grace 

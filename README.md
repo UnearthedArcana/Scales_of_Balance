@@ -818,6 +818,7 @@
   </div>
   <h4 class="subheader">NPC Changes</h4>
   <div class="section">
+    <p><strong>Most of the NPC components have bee disabled here, because I have spun them off as a separate mod. For BG1 NPCs, look for "NPC_EE" which has more class/kit options, a bunch of bug-fixes, and lots of technical improvements.</em></p>
     <p><strong>Component 800: <em>Make Imoen a Spellfilcher (mage/thief)</em></strong><br />
       &ndash; Requires that the multiclass tweaks be installed.</p>
       &ndash; This will make Imoen a multiclass (and, necessarily, a half-elf) in BG1; but she will stay a dual-class in BG2 and only advance in mage levels. Consider the switch a result of Irenicus'... experiments.</p>
@@ -830,7 +831,7 @@
       &ndash; Requires that the Sniper and/or Scout kits be installed.</p>
     <p><strong>Component 825-826: <em>Make Branwen a Battleguard (cleric), or a Gloryblood (fighter/cleric)</em></strong><br />
       &ndash; Requires that the Divine Remix Battleguard and/or the multiclass tweaks be installed.</p>
-    <p><strong>Component 830: <em>Make Safana a Swashbuckler</em></strong></p>
+    <s><p><strong>Component 830: <em>Make Safana a Swashbuckler</em></strong></p>
     <p><strong>Component 835: <em>Make Ajantis an Inquisitor</em></strong></p>
     <p><strong>Component 840: <em>Make Montaron an Assassin</em></strong></p>
     <p><strong>Component 845-846: <em>Make Faldorn an Avenger, or a Purifier</em></strong><br />
@@ -840,7 +841,7 @@
     <p><strong>Component 855: <em>Make Garrick a Gallant</em></strong><br />
       &ndash; Requires that the Gallant kit be installed.</p>
     <p><strong>Component 860: <em>Make Alora a Misadventurer of Brandobaris (cleric/thief)</em></strong><br />
-      &ndash; Requires that the multiclass tweaks be installed.</p>
+      &ndash; Requires that the multiclass tweaks be installed.</p></s>
     <p><strong>Component 865: <em>Make Xan a Bladesinger (fighter/mage)</em></strong><br />
       &ndash; Requires that the multiclass tweaks be installed.</p>
     <p><strong>Component 870-872: <em>Make Viconia a Darkcloak, a Nightcloak, or a cleric/thief</em></strong><br />

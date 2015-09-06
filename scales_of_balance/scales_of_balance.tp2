@@ -32,7 +32,7 @@ LANGUAGE
 
 BEGIN @1000
 DESIGNATED 100
-REQUIRE_PREDICATE NOT GAME_IS ~iwdee~ @8
+//REQUIRE_PREDICATE NOT GAME_IS ~iwdee~ @8
 
 INCLUDE ~scales_of_balance/components/100_items.tpa~
 //__________________________________________________________________________________
@@ -642,7 +642,7 @@ END
 //__________________________________________________________________________________
 BEGIN @8022
 DESIGNATED 810
-REQUIRE_PREDICATE (GAME_IS ~tutu bgt bgee~) OR (FILE_EXISTS_IN_GAME ~zikhalid.cre.2da~) ~Khalid~
+REQUIRE_PREDICATE /* (GAME_IS ~tutu bgt bgee~) OR */ (FILE_EXISTS_IN_GAME ~zikhalid.cre.2da~) ~Khalid~
 REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~d5_forun.2da~) OR (FILE_EXISTS_IN_GAME ~d5_mieli.2da~) ~Khalid~
 SUBCOMPONENT @8021 (FILE_EXISTS_IN_GAME ~d5_forun.2da~)
 
@@ -833,7 +833,7 @@ END
 //__________________________________________________________________________________
 BEGIN @8033
 DESIGNATED 815
-REQUIRE_PREDICATE (GAME_IS ~tutu bgt bgee~) OR (FILE_EXISTS_IN_GAME ~p#kivan.cre~) ~Kivan~
+REQUIRE_PREDICATE /* (GAME_IS ~tutu bgt bgee~) OR */ (FILE_EXISTS_IN_GAME ~p#kivan.cre~) ~Kivan~
 SUBCOMPONENT @8031
 
 ACTION_IF GAME_IS ~tutu bgt bgee~ THEN BEGIN
@@ -938,7 +938,7 @@ COPY_EXISTING ~KIVAN.cre~ ~override~
 //__________________________________________________________________________________
 BEGIN @8043
 DESIGNATED 820
-REQUIRE_PREDICATE (GAME_IS ~tutu bgt bgee~) OR (FILE_EXISTS_IN_GAME ~o#coran.cre~) ~Coran~
+REQUIRE_PREDICATE /* (GAME_IS ~tutu bgt bgee~) OR */ (FILE_EXISTS_IN_GAME ~o#coran.cre~) ~Coran~
 REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~d5_snipe.2da~) OR (FILE_EXISTS_IN_GAME ~d5_ADVEN.2da~) ~Coran~
 SUBCOMPONENT @8041 (FILE_EXISTS_IN_GAME ~d5_snipe.2da~)
 
@@ -1061,7 +1061,7 @@ END
 //__________________________________________________________________________________
 BEGIN @8052
 DESIGNATED 825
-REQUIRE_PREDICATE (GAME_IS ~tutu bgt bgee~) OR (FILE_EXISTS_IN_GAME ~O#bran.cre~) ~Branwen~
+REQUIRE_PREDICATE /* (GAME_IS ~tutu bgt bgee~) OR */ (FILE_EXISTS_IN_GAME ~O#bran.cre~) ~Branwen~
 REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~a#temp.2da~) OR (FILE_EXISTS_IN_GAME ~d5_tempu.2da~) ~Branwen~
 SUBCOMPONENT @8051 (FILE_EXISTS_IN_GAME ~a#temp.2da~)
 
@@ -1190,6 +1190,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~O#bran.cre~ THEN BEGIN
 END
 //__________________________________________________________________________________
 
+/* 
 
 //__________________________________________________________________________________
 BEGIN @8061
@@ -1562,11 +1563,12 @@ ACTION_IF FILE_EXISTS_IN_GAME ~alora09.cre~ THEN BEGIN
 END
 //__________________________________________________________________________________
 
+*/
 
 //__________________________________________________________________________________
 BEGIN @8131
 DESIGNATED 865
-REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~xan4.cre~) OR (FILE_EXISTS_IN_GAME ~O#xan09.cre~) ~Xan~
+REQUIRE_PREDICATE /* (FILE_EXISTS_IN_GAME ~xan4.cre~) OR */ (FILE_EXISTS_IN_GAME ~O#xan09.cre~) ~Xan~
 REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~d5_BLADS.2da~ ~Bladesinger kit not installed~
 
 COPY_EXISTING ~kitlist.2da~ ~override~

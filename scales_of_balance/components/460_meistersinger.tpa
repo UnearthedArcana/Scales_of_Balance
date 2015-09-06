@@ -177,6 +177,9 @@ END
 
 //MEISTERSINGER ABILITY FILES_________________________________________________________
 //
+COPY ~scales_of_balance/misc/d5_luckp.spl~ ~override~
+	SAY NAME1 @3208
+	SAY UNIDENTIFIED_DESC @3208
 COPY_EXISTING ~sppr103.spl~ ~override/d5_mei11.spl~
 	WRITE_SHORT 0x1c 1
 COPY_EXISTING ~sppr105.spl~ ~override/d5_mei12.spl~
@@ -224,6 +227,8 @@ COPY_EXISTING ~sppr720.spl~ ~override/d5_mei72.spl~
 COPY ~scales_of_balance/bard/d5_meiss.spl~ ~override~
 COPY ~scales_of_balance/bard/d5_meisa.spl~ ~override~
 COPY ~scales_of_balance/bard/d5_meisu.spl~ ~override~
+	SAY NAME1 @4606
+	SAY UNIDENTIFIED_DESC @4607
 ACTION_IF FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ THEN BEGIN
 	COPY_EXISTING ~sppr120.spl~ ~override/d5_meis1.spl~
 		WRITE_SHORT 0x1c 1

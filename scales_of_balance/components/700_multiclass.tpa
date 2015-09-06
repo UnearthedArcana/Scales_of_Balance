@@ -834,6 +834,7 @@ COPY ~scales_of_balance/mc/d5_filch.spl~ ~override~
 COPY ~scales_of_balance/mc/d5_filch.cre~ ~override~
 COMPILE ~scales_of_balance/mc/d5_filch.baf~
 COPY ~scales_of_balance/misc/d5_ssvbo.spl~ ~override~
+	SAY NAME1 @15
 COPY ~scales_of_balance/mc/d5_flch1.spl~ ~override~
 	SAY NAME1 @7034
 	SAY NAME2 @7034

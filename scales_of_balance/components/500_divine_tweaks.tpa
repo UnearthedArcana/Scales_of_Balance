@@ -700,60 +700,64 @@ END
 
 //EDIT CLERIC MOD NPCS______________________________________________________________
 //
-ACTION_IF FILE_EXISTS_IN_GAME ~B!gavin.cre~ THEN BEGIN
-	COPY_EXISTING ~B!gavin.cre~ ~override~
+ACTION_IF FILE_EXISTS_IN_GAME ~b!gavin.cre~ THEN BEGIN
+	COPY_EXISTING ~b!gavin.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
 		WRITE_SHORT 0x244 0
 		WRITE_BYTE 0x247 0x40
+		WRITE_SHORT 0x0024 7
 		WRITE_SHORT 0x0026 7
 		WRITE_LONG 0x02a0 0x000 //removes known spells
 		WRITE_LONG 0x02a4 0x000
 		WRITE_LONG 0x02b0 0x000 // removes memorized spells
 		WRITE_LONG 0x02b4 0x000
-		LPF ADD_CRE_EFFECT INT_VAR opcode=147 target=1 timing=9 power=1 STR_VAR resource=~d5_LATBO~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=147 target=1 timing=9 power=1 STR_VAR resource=~d5_latbo~ END
 END
-ACTION_IF FILE_EXISTS_IN_GAME ~B!gavin2.cre~ THEN BEGIN
-	COPY_EXISTING ~B!gavin2.cre~ ~override~
+ACTION_IF FILE_EXISTS_IN_GAME ~b!gavin2.cre~ THEN BEGIN
+	COPY_EXISTING ~b!gavin2.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
 		WRITE_SHORT 0x244 0
 		WRITE_BYTE 0x247 0x40
+		WRITE_SHORT 0x0024 7
 		WRITE_SHORT 0x0026 7
 		WRITE_LONG 0x02a0 0x000 //removes known spells
 		WRITE_LONG 0x02a4 0x000
 		WRITE_LONG 0x02b0 0x000 // removes memorized spells
 		WRITE_LONG 0x02b4 0x000
-		LPF ADD_CRE_EFFECT INT_VAR opcode=147 target=1 timing=9 power=1 STR_VAR resource=~d5_LATBO~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=147 target=1 timing=9 power=1 STR_VAR resource=~d5_latbo~ END
 END
-ACTION_IF FILE_EXISTS_IN_GAME ~B!gav08.cre~ THEN BEGIN
-	COPY_EXISTING ~B!gav08.cre~ ~override~
+ACTION_IF FILE_EXISTS_IN_GAME ~b!gav08.cre~ THEN BEGIN
+	COPY_EXISTING ~b!gav08.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
 		WRITE_SHORT 0x244 0
 		WRITE_BYTE 0x247 0x40
+		WRITE_SHORT 0x0024 7
 		WRITE_SHORT 0x0026 7
 		WRITE_LONG 0x02a0 0x000 //removes known spells
 		WRITE_LONG 0x02a4 0x000
 		WRITE_LONG 0x02b0 0x000 // removes memorized spells
 		WRITE_LONG 0x02b4 0x000
-		LPF ADD_CRE_EFFECT INT_VAR opcode=147 target=1 timing=9 power=1 STR_VAR resource=~d5_LATBO~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=147 target=1 timing=9 power=1 STR_VAR resource=~d5_latbo~ END
 END
-ACTION_IF FILE_EXISTS_IN_GAME ~B!gav013.cre~ THEN BEGIN
-	COPY_EXISTING ~B!gav13.cre~ ~override~
+ACTION_IF FILE_EXISTS_IN_GAME ~b!gav013.cre~ THEN BEGIN
+	COPY_EXISTING ~b!gav13.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
 		WRITE_SHORT 0x244 0
 		WRITE_BYTE 0x247 0x40
+		WRITE_SHORT 0x0024 7
 		WRITE_SHORT 0x0026 7
 		WRITE_LONG 0x02a0 0x000 //removes known spells
 		WRITE_LONG 0x02a4 0x000
 		WRITE_LONG 0x02b0 0x000 // removes memorized spells
 		WRITE_LONG 0x02b4 0x000
-		LPF ADD_CRE_EFFECT INT_VAR opcode=147 target=1 timing=9 power=1 STR_VAR resource=~d5_LATBO~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=147 target=1 timing=9 power=1 STR_VAR resource=~d5_latbo~ END
 END
 //__________________________________________________________________________________
