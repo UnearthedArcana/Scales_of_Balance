@@ -816,47 +816,6 @@
           &ndash; Spellbenders receive the "Divine Weaving" wizard spells of levels 2-7, which allow them to cast wizard spells of one level lower.<br />.</p>
       </div>
   </div>
-  <h4 class="subheader">NPC Changes</h4>
-  <div class="section">
-    <p><strong>Most of the NPC components have bee disabled here, because I have spun them off as a separate mod. For BG1 NPCs, look for "NPC_EE" which has more class/kit options, a bunch of bug-fixes, and lots of technical improvements.</em></p>
-    <p><strong>Component 800: <em>Make Imoen a Spellfilcher (mage/thief)</em></strong><br />
-      &ndash; Requires that the multiclass tweaks be installed.</p>
-      &ndash; This will make Imoen a multiclass (and, necessarily, a half-elf) in BG1; but she will stay a dual-class in BG2 and only advance in mage levels. Consider the switch a result of Irenicus'... experiments.</p>
-    <p><strong>Component 805: <em>Make Minsc a Barbarian Ranger</em></strong><br />
-      &ndash; Requires that the Barbarian Ranger kit be installed.</p>
-    <p><strong>Component 810-811: <em>Make Khalid a Harrier (ranger), or a Woodscout of Mielikki (cleric/ranger)</em></strong><br />
-      &ndash; Requires that the Harrier kit and/or the multiclass tweaks be installed.</p>
-    <p><strong>Component 815-816: <em>Make Kivan a Stalker, or an Archer</em></strong></p>
-    <p><strong>Component 820-821: <em>Make Coran a Sniper, or a Scout (single-class thief)</em></strong><br />
-      &ndash; Requires that the Sniper and/or Scout kits be installed.</p>
-    <p><strong>Component 825-826: <em>Make Branwen a Battleguard (cleric), or a Gloryblood (fighter/cleric)</em></strong><br />
-      &ndash; Requires that the Divine Remix Battleguard and/or the multiclass tweaks be installed.</p>
-    <s><p><strong>Component 830: <em>Make Safana a Swashbuckler</em></strong></p>
-    <p><strong>Component 835: <em>Make Ajantis an Inquisitor</em></strong></p>
-    <p><strong>Component 840: <em>Make Montaron an Assassin</em></strong></p>
-    <p><strong>Component 845-846: <em>Make Faldorn an Avenger, or a Purifier</em></strong><br />
-      &ndash; The latter requires that the Purifier kit be installed.</p>
-    <p><strong>Component 850: <em>Make Eldoth a Jongleur</em></strong><br />
-      &ndash; Requires that the Jongleur kit be installed.</p>
-    <p><strong>Component 855: <em>Make Garrick a Gallant</em></strong><br />
-      &ndash; Requires that the Gallant kit be installed.</p>
-    <p><strong>Component 860: <em>Make Alora a Misadventurer of Brandobaris (cleric/thief)</em></strong><br />
-      &ndash; Requires that the multiclass tweaks be installed.</p></s>
-    <p><strong>Component 865: <em>Make Xan a Bladesinger (fighter/mage)</em></strong><br />
-      &ndash; Requires that the multiclass tweaks be installed.</p>
-    <p><strong>Component 870-872: <em>Make Viconia a Darkcloak, a Nightcloak, or a cleric/thief</em></strong><br />
-      &ndash; Requires that the Darkcloak and/or the Divine Remix Nightcloak kits be installed.</p>
-    <p><strong>Component 875: <em>Make Yoshimo a Swashbuckler</em></strong></p>
-    <p><strong>Component 880-881: <em>Make Valygar a Mage Hunter, or a fighter/thief Wizard Slayer</em></strong><br />
-      &ndash; Requires that the Mage Hunter kit be installed, and/or that the modified Wizard Slayer *and* the multiclass tweaks be installed.</p>
-    <p><strong>Component 885-886: <em>Make Nalia a Loresinger, or a Spellbender</em></strong><br />
-      &ndash; Requires that the Loresinger kit and/or the multiclass tweaks be installed.</p>
-    <p><strong>Component 890: <em>Make Haer'Dalis a Skald</em></strong></p>
-    <p><strong>Component 895: <em>Make Mazzy a Hearthguard of Arvoreen (fighter/cleric)</em></strong><br />
-      &ndash; Requires that the multiclass tweaks be installed.</p>
-    <p><strong>Component 900: <em>Make Aerie a Fastpaws of Baervan Wildwanderer</em></strong><br />
-      &ndash; Requires that the Fastpaws kit be installed.</p>
-  </div>
 </div>
 <h2>Contact Information</h2>
 <div class="section">
