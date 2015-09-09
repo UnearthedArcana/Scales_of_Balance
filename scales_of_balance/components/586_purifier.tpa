@@ -319,6 +319,7 @@ END
 
 //PURIFIER ABILITY FILES_____________________________________________________________
 //
+COPY ~scales_of_balance/druid/d5_purif.2da~ ~override~
 COPY_EXISTING ~spwi103.spl~ ~override/d5_pur11.spl~
 	WRITE_SHORT 0x1c 2
 COPY_EXISTING ~spwi217.spl~ ~override/d5_pur21.spl~

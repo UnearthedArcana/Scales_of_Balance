@@ -6465,6 +6465,12 @@ END
 
 //DUAL KIT FILES_____________________________________________________________________
 // 
+//COPY ~scales_of_balance/fighter/d5_bersk.2da~ ~override~
+//COPY ~scales_of_balance/fighter/d5_wizsl.2da~ ~override~
+//COPY ~scales_of_balance/fighter/d5_kensa.2da~ ~override~
+//COPY ~scales_of_balance/ranger/d5_arche.2da~ ~override~
+//COPY ~scales_of_balance/ranger/d5_stalk.2da~ ~override~
+//COPY ~scales_of_balance/ranger/d5_beast.2da~ ~override~
 COPY ~scales_of_balance/profs/d5_duafc.spl~ ~override~
 	SAY NAME1 @6
 COPY ~scales_of_balance/profs/d5_duafd.spl~ ~override~

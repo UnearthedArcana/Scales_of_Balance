@@ -177,6 +177,7 @@ END
 
 //LORESINGER ABILITY FILES____________________________________________________________
 //
+COPY ~scales_of_balance/bard/d5_chori.2da~ ~override~
 COPY ~scales_of_balance/bard/d5_chor.spl~ ~override~
 COPY ~scales_of_balance/bard/d5_chou1.eff~ ~override~
 COPY ~scales_of_balance/bard/d5_chou2.eff~ ~override~

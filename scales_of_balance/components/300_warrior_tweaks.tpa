@@ -655,6 +655,7 @@ END
 
 //WIZARD SLAYER ABILITY FILES_________________________________________________________
 //
+COPY ~scales_of_balance/fighter/d5_nuwsl.2da~ ~override~
 COPY ~scales_of_balance/misc/d5_savbo.spl~ ~override~
 COPY ~scales_of_balance/fighter/d5_wizs1.spl~ ~override~
 COPY ~scales_of_balance/fighter/d5_wizsa.eff~ ~override~
@@ -888,6 +889,7 @@ END
 
 //MARKSMAN ABILITY FILES______________________________________________________________
 //
+COPY ~scales_of_balance/fighter/d5_marks.2da~ ~override~
 COPY ~scales_of_balance/misc/d5_mthac.spl~ ~override~
 COPY ~scales_of_balance/fighter/d5_armv1.eff~ ~override~
 COPY ~scales_of_balance/fighter/d5_armv2.eff~ ~override~
@@ -1324,6 +1326,7 @@ END
 
 //ARCHER+SLINGER ABILITY FILES________________________________________________________
 //
+COPY ~scales_of_balance/ranger/d5_sling.2da~ ~override~
 COPY ~scales_of_balance/ranger/d5_arche.2da~ ~override~
 COPY ~scales_of_balance/fighter/d5_arstn.eff~ ~override~
 COPY ~scales_of_balance/fighter/d5_arstn.spl~ ~override~
@@ -1716,6 +1719,7 @@ END
 //____________________________________________________________________________________
 
 //2DA MODIFICATIONS___________________________________________________________________
+COPY ~scales_of_balance/ranger/d5_mageh.2da~ ~override~
 COPY ~scales_of_balance/ranger/d5_stlk2.2da~ ~override~
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_strid.d5~ THEN BEGIN
 	COPY_EXISTING ~d5_stlk2.2da~ ~override~
@@ -3965,6 +3969,21 @@ END
 
 //KENSAI ABILITY FILES______________________________________________________________
 //
+COPY ~scales_of_balance/kensai/d5_kbswo.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_klswo.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_kkata.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_kscim.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_ksswo.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_k2swo.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_kdagg.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_kbaxe.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_khamm.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_kflai.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_kmace.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_kclub.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_kstaf.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_kspea.2da~ ~override~
+COPY ~scales_of_balance/kensai/d5_khalb.2da~ ~override~
 COPY ~scales_of_balance/misc/d5_numat.spl~ ~override~
 COPY ~scales_of_balance/kensai/clabfi04.2da~ ~override~
 COPY ~scales_of_balance/misc/d5_acbon.spl~ ~override~

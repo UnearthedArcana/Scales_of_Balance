@@ -265,6 +265,7 @@ END
 
 //SCOUT & SWASHBUCKLER ABILITY FILES________________________________________________
 //
+COPY ~scales_of_balance/thief/d5_swash.2da~ ~override~
 COPY ~scales_of_balance/misc/d5_luckp.spl~ ~override~
 	SAY NAME1 @3208
 	SAY UNIDENTIFIED_DESC @3208
@@ -603,6 +604,7 @@ END
 
 //SKALD+JONGLEUR ABILITY FILES________________________________________________________
 //
+COPY ~scales_of_balance/bard/d5_jongl.2da~ ~override~
 COPY ~scales_of_balance/misc/d5_thac0.spl~ ~override~
 COPY ~scales_of_balance/wizard/d5_cstpn.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_acbon.spl~ ~override~

@@ -163,6 +163,7 @@ END
 
 //CORSAIR ABILITY FILES______________________________________________________________
 //
+COPY ~scales_of_balance/fighter/d5_corsa.2da~ ~override~
 COPY ~scales_of_balance/misc/d5_bsvbo.spl~ ~override~
 	SAY NAME1 @17
 COPY ~scales_of_balance/misc/d5_luckp.spl~ ~override~

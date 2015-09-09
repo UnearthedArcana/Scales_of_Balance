@@ -177,6 +177,7 @@ END
 
 //LOREMASTER ABILITY FILES____________________________________________________________
 //
+COPY ~scales_of_balance/bard/d5_lorem.2da~ ~override~
 COPY ~scales_of_balance/bard/d5_lorm1.spl~ ~override~
 COPY_EXISTING ~sppr205.spl~ ~override/d5_lorm2.spl~
 	LPM spell_to_innate

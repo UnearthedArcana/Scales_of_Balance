@@ -319,6 +319,7 @@ END
 
 //ELEMENTALIST ABILITY FILES_____________________________________________________________
 //
+COPY ~scales_of_balance/druid/d5_eleme.2da~ ~override~
 COPY ~scales_of_balance/druid/d5_pele1.spl~ ~override~
 	SAY NAME1 @5824
 	SAY UNIDENTIFIED_DESC @5824

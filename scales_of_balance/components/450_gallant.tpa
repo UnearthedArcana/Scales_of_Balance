@@ -177,6 +177,7 @@ END
 
 //GALLANT ABILITY FILES_______________________________________________________________
 //
+COPY ~scales_of_balance/bard/d5_galla.2da~ ~override~
 COPY ~scales_of_balance/misc/d5_luckp.spl~ ~override~
 	SAY NAME1 @3208
 	SAY UNIDENTIFIED_DESC @3208

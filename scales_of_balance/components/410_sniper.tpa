@@ -181,6 +181,7 @@ END
 
 //SNIPER ABILITY FILES________________________________________________________________
 //
+COPY ~scales_of_balance/thief/d5_snipe.2da~ ~override~
 COPY ~scales_of_balance/misc/d5_mthac.spl~ ~override~
 COPY ~scales_of_balance/fighter/d5_armv1.eff~ ~override~
 COPY ~scales_of_balance/fighter/d5_armv2.eff~ ~override~
