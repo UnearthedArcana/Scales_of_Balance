@@ -1307,10 +1307,10 @@ COPY - ~scales_of_balance/sob_settings.ini~ ~scales_of_balance/backup~
 
 ACTION_IF (spell_battle_changes) THEN BEGIN
 
-COPY ~scales_of_balance/wizard/spwi318.spl~ ~override~
+ADD_SPELL ~scales_of_balance/wizard/spwi318.spl~ 3 1 WIZARD_MINOR_SPELL_DEFLECTION
 	SAY NAME1 @6051
 	SAY UNIDENTIFIED_DESC @6052
-COPY ~scales_of_balance/wizard/spwi321.spl~ ~override~
+ADD_SPELL ~scales_of_balance/wizard/spwi321.spl~ 3 1 WIZARD_SPELL_THRUST 
 	SAY NAME1 @6053
 	SAY UNIDENTIFIED_DESC @6054
 COPY ~scales_of_balance/wizard/spwi318.spl~ ~override/d5_mys32.spl~
@@ -2730,8 +2730,24 @@ ADD_SPELL ~override/spwi106.spl~ 2 2 WIZARD_BLINDNESS
 	BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl71.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_BLINDNESS~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl71.itm~ ~override~
 	WRITE_LONG 0x34 200
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -2759,8 +2775,24 @@ ADD_SPELL ~override/spwi223.spl~ 2 1 WIZARD_DEAFNESS
 	BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrla2.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_DEAFNESS~
+      RET spell_res
+   END
 COPY_EXISTING ~scrla2.itm~ ~override~
 	WRITE_LONG 0x34 100
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -2780,8 +2812,24 @@ ADD_SPELL ~override/spwi209.spl~ 2 1 WIZARD_LUCK
 	SAY UNIDENTIFIED_DESC @6115
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl93.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_LUCK~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl93.itm~ ~override~
 	WRITE_LONG 0x34 100
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	SAY IDENTIFIED_DESC @6115
 END
 
@@ -2862,8 +2910,24 @@ ADD_SPELL ~override/spwi722.spl~ 2 8 WIZARD_LIMITED_WISH
 	BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrla4.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_LIMITED_WISH~
+      RET spell_res
+   END
 COPY_EXISTING ~scrla4.itm~ ~override~
 	WRITE_LONG 0x34 5000
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -2891,8 +2955,24 @@ ADD_SPELL ~override/spwi811.spl~ 2 7 WIZARD_SYMBOL_FEAR
 	BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl9f.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_SYMBOL_FEAR~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl9f.itm~ ~override~
 	WRITE_LONG 0x34 3000
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -2920,8 +3000,24 @@ ADD_SPELL ~override/spwi916.spl~ 2 8 WIZARD_SHAPECHANGE
 	BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl9y.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_SHAPECHANGE~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl9y.itm~ ~override~
 	WRITE_LONG 0x34 7500
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -2941,8 +3037,24 @@ ADD_SPELL ~override/spwi915.spl~ 2 8 WIZARD_BLACK_BLADE_OF_DISASTER
 	SAY UNIDENTIFIED_DESC @6121
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl9x.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_BLACK_BLADE_OF_DISASTER~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl9x.itm~ ~override~
 	WRITE_LONG 0x34 5000
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	SAY IDENTIFIED_DESC @6121
 END
 
@@ -3408,8 +3520,24 @@ ADD_SPELL ~override/spwi102.spl~ 2 2 WIZARD_ARMOR
 	BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl67.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_ARMOR~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl67.itm~ ~override~
 	WRITE_LONG 0x34 200
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -3418,7 +3546,7 @@ COPY_EXISTING ~scrl67.itm~ ~override~
 		END
 		SAY_EVALUATED 0x54 ~%new_desc%~
 	END
-	BUT_ONLY
+BUT_ONLY
 END
 
 //BLUR______________________________________________________________________________
@@ -3437,8 +3565,24 @@ ADD_SPELL ~override/spwi201.spl~ 2 1 WIZARD_BLUR
 	BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl85.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_BLUR~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl85.itm~ ~override~
 	WRITE_LONG 0x34 100
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -3453,7 +3597,7 @@ END
 //REFLECTED IMAGE___________________________________________________________________
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi120.spl~ THEN BEGIN
 COPY_EXISTING ~spwi120.spl~ ~override~
-ADD_SPELL ~override/spwi120.spl~ 2 8 WIZARD_REFLECTED_IMAGE
+ADD_SPELL ~override/spwi120.spl~ 2 2 WIZARD_REFLECTED_IMAGE
 	WRITE_LONG 0x34 2
 	READ_LONG 0x50 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
@@ -3466,8 +3610,24 @@ ADD_SPELL ~override/spwi120.spl~ 2 8 WIZARD_REFLECTED_IMAGE
 	BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl5u.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_REFLECTED_IMAGE~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl5u.itm~ ~override~
 	WRITE_LONG 0x34 200
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -3495,9 +3655,25 @@ ADD_SPELL ~override/spwi212.spl~ 2 3 WIZARD_MIRROR_IMAGE
 	END
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl96.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_MIRROR_IMAGE~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl96.itm~ ~override~
 	WRITE_LONG 0x34 300
 //	SAY IDENTIFIED_DESC @6130
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -3516,8 +3692,24 @@ ADD_SPELL ~override/spwi209.spl~ 2 1 WIZARD_LUCK
 	SAY UNIDENTIFIED_DESC @6131
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl93.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_LUCK~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl93.itm~ ~override~
 	WRITE_LONG 0x34 100
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	SAY IDENTIFIED_DESC @6131
 END
 
@@ -3594,8 +3786,24 @@ ADD_SPELL ~override/spwi811.spl~ 2 7 WIZARD_SYMBOL_FEAR
 	BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl9f.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_SYMBOL_FEAR~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl9f.itm~ ~override~
 	WRITE_LONG 0x34 3000
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -3623,8 +3831,24 @@ ADD_SPELL ~override/spwi916.spl~ 2 8 WIZARD_SHAPECHANGE
 	BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl9y.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_SHAPECHANGE~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl9y.itm~ ~override~
 	WRITE_LONG 0x34 7500
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	READ_LONG 0x54 "valid"
 	PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
@@ -3644,8 +3868,24 @@ ADD_SPELL ~override/spwi915.spl~ 2 8 WIZARD_BLACK_BLADE_OF_DISASTER
 	SAY UNIDENTIFIED_DESC @6139
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl9x.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_BLACK_BLADE_OF_DISASTER~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl9x.itm~ ~override~
 	WRITE_LONG 0x34 5000
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	SAY IDENTIFIED_DESC @6139
 END
 
@@ -3658,8 +3898,24 @@ ADD_SPELL ~override/spwi914.spl~ 2 8 WIZARD_ENERGY_DRAIN
 	SAY UNIDENTIFIED_DESC @6142
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl9w.itm~ THEN BEGIN
+   LAF RES_NUM_OF_SPELL_NAME
+      STR_VAR spell_name = ~WIZARD_ENERGY_DRAIN~
+      RET spell_res
+   END
 COPY_EXISTING ~scrl9w.itm~ ~override~
 	WRITE_LONG 0x34 5000
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 146
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 147
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
+    LPF ALTER_EFFECT
+    	INT_VAR opcode = 148
+    	STR_VAR resource = EVAL ~%spell_res%~
+    END
 	SAY NAME1 @6141
 	SAY IDENTIFIED_DESC @6142
 END

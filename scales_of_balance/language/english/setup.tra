@@ -1960,10 +1960,10 @@ Restrictions:
 @5312  = ~DARKCLOAK OF SHAR: Shar is known as the Mistress of the Night. She is the goddess of darkness, presiding over caverns, darkness, dungeons, forgetfulness, loss, night, secrets, and the Underdark. The Darkcloak sect travels to spread Shar's influence: working against the followers of her nemesis, Selune, but also giving care and comfort to those who are lost or emotionally damaged. The favored weapons of Shar's followers are daggers and darts.
  
 Advantages:
-- May cast Power Word: Sleep once per day at level 1.
-- May cast Blur once per day at level 5.
-- May cast Phantom Blade once per day at level 9.
-- May cast Power Word: Blindness once per day at level 13.
+- May innately cast Power Word: Sleep once per day at level 1.
+- May innately cast Blur once per day at level 5.
+- May innately cast Phantom Blade once per day at level 9.
+- May innately cast Power Word: Blindness once per day at level 13.
 
 Restrictions:
 - May not dual-class to fighter.
