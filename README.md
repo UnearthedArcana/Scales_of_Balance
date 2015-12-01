@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 4.1 </strong><br />
+  <p><strong> Version 4.2 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (?)</p>
 </div>
@@ -371,6 +371,10 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 4.2 - November 29, 2015</strong></p>
+  <ul>
+    <li>REALLY ACTUALLY fixed bugs with wizard spell changes</li>
+  </ul>
   <p><strong>Version 4.1 - September 16, 2015</strong></p>
   <ul>
     <li>Fixed bugs with wizard spell changes</li>
