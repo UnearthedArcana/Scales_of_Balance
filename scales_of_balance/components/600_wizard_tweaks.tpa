@@ -2851,8 +2851,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 		READ_BYTE 0x273 class
 		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
-			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~innate~
-			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
+			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~wizard~
+			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~wizard~
 		END
 	END
 BUT_ONLY
@@ -2905,8 +2905,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 		READ_BYTE 0x273 class
 		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
-			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~innate~
-			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
+			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~wizard~
+			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~wizard~
 		END
 	END
 BUT_ONLY
@@ -2943,8 +2943,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 		READ_BYTE 0x273 class
 		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
-			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~innate~
-			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
+			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~wizard~
+			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~wizard~
 		END
 	END
 BUT_ONLY
@@ -3669,8 +3669,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 		READ_BYTE 0x273 class
 		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
-			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~innate~
-			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
+			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~wizard~
+			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~wizard~
 		END
 	END
 BUT_ONLY
@@ -3821,8 +3821,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 		READ_BYTE 0x273 class
 		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
-			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~innate~
-			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
+			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~wizard~
+			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~wizard~
 		END
 	END
 BUT_ONLY
@@ -3859,8 +3859,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 		READ_BYTE 0x273 class
 		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
-			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~innate~
-			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
+			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~wizard~
+			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~wizard~
 		END
 	END
 BUT_ONLY
