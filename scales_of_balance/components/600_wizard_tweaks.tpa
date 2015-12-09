@@ -445,12 +445,18 @@ COPY ~scales_of_balance/wizard/spwi809d.spl~ ~override~
 COPY ~scales_of_balance/wizard/spwi809p.spl~ ~override~
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl6p.itm~ THEN BEGIN
 	COPY ~scales_of_balance/wizard/mseqscrl.itm~ ~override/scrl6p.itm~
+		SAY NAME1 @6041
+		SAY IDENTIFIED_DESC @6042
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl8l.itm~ THEN BEGIN
 	COPY ~scales_of_balance/wizard/seqscrl.itm~ ~override/scrl8l.itm~
+		SAY NAME1 @6043
+		SAY IDENTIFIED_DESC @6044
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl9d.itm~ THEN BEGIN
 	COPY ~scales_of_balance/wizard/trigscrl.itm~ ~override/scrl9d.itm~
+		SAY NAME1 @6045
+		SAY IDENTIFIED_DESC @6046
 END
 COPY ~scales_of_balance/wizard/d5_conti.spl~ ~override~
 	SAY NAME1 @6351
@@ -1302,6 +1308,8 @@ END
 
 //MAGIC BATTLE CHANGES_____________________________________________________________
 //
+ACTION_IF NOT GAME_IS ~iwdee~ THEN BEGIN
+
 COPY - ~scales_of_balance/sob_settings.ini~ ~scales_of_balance/backup~
 	COUNT_REGEXP_INSTANCES ~spell_battle_changes=1~ spell_battle_changes
 
@@ -1558,6 +1566,8 @@ ACTION_IF ENGINE_IS ~tob bg2ee iwdee~ THEN BEGIN
 END
 ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	STRING_SET 26593 @6071
+END
+
 END
 
 END
@@ -2793,7 +2803,6 @@ COPY_EXISTING ~scrl66.itm~ ~override~
 	SAY IDENTIFIED_DESC @6111
 END
 
-/*
 //BLINDNESS_________________________________________________________________________
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi106.spl~ THEN BEGIN
 COPY_EXISTING ~spwi106.spl~ ~override~
@@ -2817,15 +2826,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl71.itm~ THEN BEGIN
 COPY_EXISTING ~scrl71.itm~ ~override~
 	WRITE_LONG 0x34 200
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	READ_LONG 0x54 "valid"
@@ -2838,6 +2847,15 @@ COPY_EXISTING ~scrl71.itm~ ~override~
 	END
 	BUT_ONLY
 END
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+		READ_BYTE 0x273 class
+		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
+			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~innate~
+			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
+		END
+	END
+BUT_ONLY
 
 //DEAFNESS__________________________________________________________________________
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi223.spl~ THEN BEGIN
@@ -2862,15 +2880,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrla2.itm~ THEN BEGIN
 COPY_EXISTING ~scrla2.itm~ ~override~
 	WRITE_LONG 0x34 100
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	READ_LONG 0x54 "valid"
@@ -2883,37 +2901,53 @@ COPY_EXISTING ~scrla2.itm~ ~override~
 	END
 	BUT_ONLY
 END
-*/
-/*
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+		READ_BYTE 0x273 class
+		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
+			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~innate~
+			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
+		END
+	END
+BUT_ONLY
+
 //LUCK_____________________________________________________________________________
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi209.spl~ THEN BEGIN
-COPY_EXISTING ~spwi209.spl~ ~override~
-ADD_SPELL ~override/spwi209.spl~ 2 1 WIZARD_LUCK
-	WRITE_LONG 0x34 1
-	SAY UNIDENTIFIED_DESC @6115
+	COPY_EXISTING ~spwi209.spl~ ~override~
+	ADD_SPELL ~override/spwi209.spl~ 2 1 WIZARD_LUCK
+		WRITE_LONG 0x34 1
+		SAY UNIDENTIFIED_DESC @6131
 END
+LAF RES_NUM_OF_SPELL_NAME
+	STR_VAR spell_name = ~WIZARD_LUCK~
+	RET spell_res
+	END
 ACTION_IF FILE_EXISTS_IN_GAME ~scrl93.itm~ THEN BEGIN
-   LAF RES_NUM_OF_SPELL_NAME
-      STR_VAR spell_name = ~WIZARD_LUCK~
-      RET spell_res
-   END
-COPY_EXISTING ~scrl93.itm~ ~override~
-	WRITE_LONG 0x34 100
-    LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
-    	STR_VAR resource = EVAL ~%spell_res%~
-    END
-    LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
-    	STR_VAR resource = EVAL ~%spell_res%~
-    END
-    LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
-    	STR_VAR resource = EVAL ~%spell_res%~
-    END
-	SAY IDENTIFIED_DESC @6115
+	COPY_EXISTING ~scrl93.itm~ ~override~
+		WRITE_LONG 0x34 100
+	    LPF ALTER_EFFECT
+	    	INT_VAR match_opcode = 146
+	    	STR_VAR resource = EVAL ~%spell_res%~
+	    END
+	    LPF ALTER_EFFECT
+	    	INT_VAR match_opcode = 147
+	    	STR_VAR resource = EVAL ~%spell_res%~
+	    END
+	    LPF ALTER_EFFECT
+	    	INT_VAR match_opcode = 148
+	    	STR_VAR resource = EVAL ~%spell_res%~
+	    END
+		SAY IDENTIFIED_DESC @6131
 END
-*/
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+		READ_BYTE 0x273 class
+		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
+			ADD_KNOWN_SPELL ~%spell_res%~ #0 ~innate~
+			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
+		END
+	END
+BUT_ONLY
 
 //FLAME ARROW________________________________________________________________________
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi303.spl~ THEN BEGIN
@@ -2976,7 +3010,6 @@ COPY_EXISTING ~scrl8r.itm~ ~override~
 	SAY IDENTIFIED_DESC @6119
 END
 
-/*
 //LIMITED WISH________________________________________________________________________
 ACTION_IF FILE_EXISTS_IN_GAME ~spwi722.spl~ THEN BEGIN
 COPY_EXISTING ~spwi722.spl~ ~override~
@@ -3000,15 +3033,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrla4.itm~ THEN BEGIN
 COPY_EXISTING ~scrla4.itm~ ~override~
 	WRITE_LONG 0x34 5000
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	READ_LONG 0x54 "valid"
@@ -3021,7 +3054,6 @@ COPY_EXISTING ~scrla4.itm~ ~override~
 	END
 	BUT_ONLY
 END
-*/
 
 /*
 //SYMBOL: FEAR________________________________________________________________________
@@ -3047,15 +3079,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl9f.itm~ THEN BEGIN
 COPY_EXISTING ~scrl9f.itm~ ~override~
 	WRITE_LONG 0x34 3000
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	READ_LONG 0x54 "valid"
@@ -3093,15 +3125,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl9y.itm~ THEN BEGIN
 COPY_EXISTING ~scrl9y.itm~ ~override~
 	WRITE_LONG 0x34 7500
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	READ_LONG 0x54 "valid"
@@ -3130,15 +3162,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl9x.itm~ THEN BEGIN
 COPY_EXISTING ~scrl9x.itm~ ~override~
 	WRITE_LONG 0x34 5000
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	SAY IDENTIFIED_DESC @6121
@@ -3612,15 +3644,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl67.itm~ THEN BEGIN
 	COPY_EXISTING ~scrl67.itm~ ~override~
 		WRITE_LONG 0x34 200
 	    LPF ALTER_EFFECT
-	    	INT_VAR opcode = 146
+	    	INT_VAR match_opcode = 146
 	    	STR_VAR resource = EVAL ~%spell_res%~
 	    END
 	    LPF ALTER_EFFECT
-	    	INT_VAR opcode = 147
+	    	INT_VAR match_opcode = 147
 	    	STR_VAR resource = EVAL ~%spell_res%~
 	    END
 	    LPF ALTER_EFFECT
-	    	INT_VAR opcode = 148
+	    	INT_VAR match_opcode = 148
 	    	STR_VAR resource = EVAL ~%spell_res%~
 	    END
 		READ_LONG 0x54 "valid"
@@ -3667,15 +3699,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl85.itm~ THEN BEGIN
 COPY_EXISTING ~scrl85.itm~ ~override~
 	WRITE_LONG 0x34 100
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	READ_LONG 0x54 "valid"
@@ -3712,15 +3744,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl5u.itm~ THEN BEGIN
 COPY_EXISTING ~scrl5u.itm~ ~override~
 	WRITE_LONG 0x34 200
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	READ_LONG 0x54 "valid"
@@ -3765,15 +3797,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl96.itm~ THEN BEGIN
 		WRITE_LONG 0x34 300
 //		SAY IDENTIFIED_DESC @6130
 		LPF ALTER_EFFECT
-	    	INT_VAR opcode = 146
+	    	INT_VAR match_opcode = 146
 	    	STR_VAR resource = EVAL ~%spell_res%~
 	    END
 	    LPF ALTER_EFFECT
-	    	INT_VAR opcode = 147
+	    	INT_VAR match_opcode = 147
 	    	STR_VAR resource = EVAL ~%spell_res%~
 	    END
 	    LPF ALTER_EFFECT
-	    	INT_VAR opcode = 148
+	    	INT_VAR match_opcode = 148
 	    	STR_VAR resource = EVAL ~%spell_res%~
 	    END
 		READ_LONG 0x54 "valid"
@@ -3810,15 +3842,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl93.itm~ THEN BEGIN
 	COPY_EXISTING ~scrl93.itm~ ~override~
 		WRITE_LONG 0x34 100
 	    LPF ALTER_EFFECT
-	    	INT_VAR opcode = 146
+	    	INT_VAR match_opcode = 146
 	    	STR_VAR resource = EVAL ~%spell_res%~
 	    END
 	    LPF ALTER_EFFECT
-	    	INT_VAR opcode = 147
+	    	INT_VAR match_opcode = 147
 	    	STR_VAR resource = EVAL ~%spell_res%~
 	    END
 	    LPF ALTER_EFFECT
-	    	INT_VAR opcode = 148
+	    	INT_VAR match_opcode = 148
 	    	STR_VAR resource = EVAL ~%spell_res%~
 	    END
 		SAY IDENTIFIED_DESC @6131
@@ -3914,15 +3946,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl9f.itm~ THEN BEGIN
 COPY_EXISTING ~scrl9f.itm~ ~override~
 	WRITE_LONG 0x34 3000
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	READ_LONG 0x54 "valid"
@@ -3960,15 +3992,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl9y.itm~ THEN BEGIN
 COPY_EXISTING ~scrl9y.itm~ ~override~
 	WRITE_LONG 0x34 7500
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	READ_LONG 0x54 "valid"
@@ -3997,15 +4029,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl9x.itm~ THEN BEGIN
 COPY_EXISTING ~scrl9x.itm~ ~override~
 	WRITE_LONG 0x34 5000
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	SAY IDENTIFIED_DESC @6139
@@ -4027,15 +4059,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~scrl9w.itm~ THEN BEGIN
 COPY_EXISTING ~scrl9w.itm~ ~override~
 	WRITE_LONG 0x34 5000
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 146
+    	INT_VAR match_opcode = 146
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 147
+    	INT_VAR match_opcode = 147
     	STR_VAR resource = EVAL ~%spell_res%~
     END
     LPF ALTER_EFFECT
-    	INT_VAR opcode = 148
+    	INT_VAR match_opcode = 148
     	STR_VAR resource = EVAL ~%spell_res%~
     END
 	SAY NAME1 @6141
