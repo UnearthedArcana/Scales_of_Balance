@@ -1308,29 +1308,22 @@ END
 
 //MAGIC BATTLE CHANGES_____________________________________________________________
 //
-ACTION_IF NOT GAME_IS ~iwdee~ THEN BEGIN
+//ACTION_IF NOT GAME_IS ~iwdee~ THEN BEGIN
 
 COPY - ~scales_of_balance/sob_settings.ini~ ~scales_of_balance/backup~
 	COUNT_REGEXP_INSTANCES ~spell_battle_changes=1~ spell_battle_changes
 
 ACTION_IF (spell_battle_changes) THEN BEGIN
 
-/*
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
-	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
-		READ_BYTE 0x273 class
-		PATCH_IF (class == 1) BEGIN // wizards
-			REMOVE_KNOWN_SPELL ~spwi318~
-			REMOVE_KNOWN_SPELL ~spwi321~
-		END
-	END
-BUT_ONLY
-*/
-ADD_SPELL ~scales_of_balance/wizard/spwi318.spl~ 3 1 WIZARD_MINOR_SPELL_DEFLECTION
+ ADD_SPELL ~scales_of_balance/wizard/spwi318.spl~ 4 1 WIZARD_MINOR_SPELL_DEFLECTION
 	SAY NAME1 @6051
 	SAY UNIDENTIFIED_DESC @6052
-LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MINOR_SPELL_DEFLECTION~ RET spell_res END
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+ LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_MINOR_SPELL_DEFLECTION~ RET spell_res END
+ COPY_EXISTING ~%spell_res%.spl~ ~override~
+ 	LPF ALTER_EFFECT INT_VAR match_opcode = 172 STR_VAR resource = EVAL ~%spell_res%~ END
+ 	LPF ALTER_EFFECT INT_VAR match_opcode = 171 STR_VAR resource = EVAL ~%spell_res%~ END
+ BUT_ONLY
+ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 		READ_BYTE 0x273 class
 		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
@@ -1338,12 +1331,19 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
 		END
 	END
-BUT_ONLY
-ADD_SPELL ~scales_of_balance/wizard/spwi321.spl~ 3 1 WIZARD_SPELL_THRUST 
+ BUT_ONLY
+ COPY ~scales_of_balance/wizard/spwi318.spl~ ~override~
+	SAY NAME1 @6051
+	SAY UNIDENTIFIED_DESC @6052
+ ADD_SPELL ~scales_of_balance/wizard/spwi321.spl~ 4 1 WIZARD_SPELL_THRUST 
 	SAY NAME1 @6053
 	SAY UNIDENTIFIED_DESC @6054
-LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_THRUST~ RET spell_res END
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+ LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = ~WIZARD_SPELL_THRUST~ RET spell_res END
+ COPY_EXISTING ~%spell_res%.spl~ ~override~
+ 	LPF ALTER_EFFECT INT_VAR match_opcode = 172 STR_VAR resource = EVAL ~%spell_res%~ END
+ 	LPF ALTER_EFFECT INT_VAR match_opcode = 171 STR_VAR resource = EVAL ~%spell_res%~ END
+ BUT_ONLY
+ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 		READ_BYTE 0x273 class
 		PATCH_IF (class == 1 || class == 13 || class == 14 || class == 7 || class == 10 || class == 17) BEGIN // wizards
@@ -1351,7 +1351,10 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 			ADD_MEMORIZED_SPELL ~%spell_res%~ #0 ~innate~
 		END
 	END
-BUT_ONLY
+ BUT_ONLY
+ COPY ~scales_of_balance/wizard/spwi321.spl~ ~override~
+	SAY NAME1 @6053
+	SAY UNIDENTIFIED_DESC @6054
 COPY ~scales_of_balance/wizard/spwi318.spl~ ~override/d5_mys32.spl~
 	SAY NAME1 @6051
 	SAY UNIDENTIFIED_DESC @6052
@@ -1570,7 +1573,7 @@ END
 
 END
 
-END
+//END
 //__________________________________________________________________________________
 
 //MODIFY CLABS______________________________________________________________________
