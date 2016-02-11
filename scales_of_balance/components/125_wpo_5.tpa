@@ -1,0 +1,91 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//						WPO - APR ON SPEC
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+//WSPATCK FOR ALL___________________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clswpbon.2da~ BEGIN
+
+  COPY_EXISTING ~clswpbon.2da~ ~override~
+	COUNT_2DA_ROWS ~3~ rows
+	FOR (row = 1; row < rows; row += 1) BEGIN
+		SET_2DA_ENTRY row 1 3 ~1~
+	END
+  BUT_ONLY
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_apr.d5~ BEGIN
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_profs.d5~ BEGIN
+
+	COPY ~APR_on_Spec/misc/wspat1.2da~ ~override/WSPATCK.2DA~
+
+	COPY ~APR_on_Spec/misc/d5_numat.spl~ ~override~
+
+	COPY_EXISTING ~clabfi01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~APR_on_Spec/misc/d5_waapr.txt~
+		BUT_ONLY
+	COPY_EXISTING ~clabpa01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~APR_on_Spec/misc/d5_waapr.txt~
+		BUT_ONLY
+	COPY_EXISTING ~clabrn01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~APR_on_Spec/misc/d5_waapr.txt~
+		BUT_ONLY
+
+	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+		STRING_SET 24220 @103
+		STRING_SET 24221 @104
+		STRING_SET 24222 @105
+		STRING_SET 24223 @106
+		STRING_SET 24315 @107
+	END
+
+	ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+		STRING_SET 9588 @107
+	END
+
+	COPY_EXISTING ~kitlist.2da~ ~override~
+		COUNT_2DA_ROWS ~10~ "rows"
+		FOR ( index = 1 ; index < rows ; index = index + 1 ) BEGIN
+			READ_2DA_ENTRY %index% 5 10 modclab
+			READ_2DA_ENTRY %index% 8 10 modclass
+			DEFINE_ASSOCIATIVE_ARRAY d5_apr_clabs BEGIN "%modclab%" => "%modclass%" END
+		END
+		BUT_ONLY
+	ACTION_PHP_EACH d5_apr_clabs AS foo => zoo BEGIN
+		ACTION_IF (%zoo% = 2) AND (FILE_EXISTS_IN_GAME ~%foo%.2da~) THEN BEGIN
+			COPY_EXISTING ~%foo%.2DA~ ~override~
+				LPM remove_blank_lines
+				APPEND_FILE ~APR_on_Spec/misc/d5_waapr.txt~
+				BUT_ONLY
+		END
+		ACTION_IF (%zoo% = 6) AND (FILE_EXISTS_IN_GAME ~%foo%.2da~) THEN BEGIN
+			COPY_EXISTING ~%foo%.2DA~ ~override~
+				LPM remove_blank_lines
+				APPEND_FILE ~APR_on_Spec/misc/d5_waapr.txt~
+				BUT_ONLY
+		END
+		ACTION_IF (%zoo% = 12) AND (FILE_EXISTS_IN_GAME ~%foo%.2da~) THEN BEGIN
+			COPY_EXISTING ~%foo%.2DA~ ~override~
+				LPM remove_blank_lines
+				APPEND_FILE ~APR_on_Spec/misc/d5_waapr.txt~
+				BUT_ONLY
+		END
+	END
+
+	CLEAR_ARRAYS
+
+  END
+  
+  END
+
+END
+//__________________________________________________________________________________
+

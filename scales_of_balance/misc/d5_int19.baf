@@ -1,0 +1,14 @@
+IF
+	CheckStatGT(LastSummonerOf(Myself),19,INT)
+THEN
+	RESPONSE #100
+	ReallyForceSpellRES("d5_wisp8",LastSummonerOf(Myself))
+	DestroySelf()
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+	DestroySelf()
+END

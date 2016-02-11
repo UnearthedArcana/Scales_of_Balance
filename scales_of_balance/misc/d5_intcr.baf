@@ -1,0 +1,46 @@
+IF
+	CheckStatGT(LastSummonerOf(Myself),18,INT)
+THEN
+	RESPONSE #100
+	ReallyForceSpellRES("d5_crit3",LastSummonerOf(Myself))
+	DestroySelf()
+END
+
+IF
+	CheckStat(LastSummonerOf(Myself),18,INT)
+THEN
+	RESPONSE #100
+	ReallyForceSpellRES("d5_crit2",LastSummonerOf(Myself))
+	DestroySelf()
+END
+
+IF
+	CheckStat(LastSummonerOf(Myself),17,INT)
+THEN
+	RESPONSE #100
+	ReallyForceSpellRES("d5_crit2",LastSummonerOf(Myself))
+	DestroySelf()
+END
+
+IF
+	CheckStat(LastSummonerOf(Myself),16,INT)
+THEN
+	RESPONSE #100
+	ReallyForceSpellRES("d5_crit1",LastSummonerOf(Myself))
+	DestroySelf()
+END
+
+IF
+	CheckStat(LastSummonerOf(Myself),15,INT)
+THEN
+	RESPONSE #100
+	ReallyForceSpellRES("d5_crit1",LastSummonerOf(Myself))
+	DestroySelf()
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+	DestroySelf()
+END

@@ -1,0 +1,281 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//							FUNCTIONAL WEAPON TWEAKS
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+//__________________________________________________________________________________
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+	PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
+		READ_SHORT ~0x1c~ ~type~
+		PATCH_IF (~%type%~ = ~16~) BEGIN // daggers
+			LPF DELETE_EFFECT INT_VAR match_opcode = 1 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=1 target=1 timing=2 parameter1=6 parameter2=0 END
+		END
+		PATCH_IF (~%type%~ = ~26~) BEGIN // quarterstaff
+			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=3 dicenumber=2 END
+//			WRITE_BYTE 0x88 3
+//			WRITE_BYTE 0x8a 2
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=1 parameter2=0 END
+		END
+		PATCH_IF (~%type%~ = ~23~) BEGIN // flails
+			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=8 dicenumber=1 END
+//			WRITE_BYTE 0x88 8
+//			WRITE_BYTE 0x8a 1
+		END
+		PATCH_IF (~%type%~ = ~29~) BEGIN // spears
+//			WRITE_BYTE 0x88 8
+			READ_BYTE ~0x8c~ ~damagebonus~
+//			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=8 damage_bonus=EVAL (%damagebonus% + 1) END
+			PATCH_IF (~%damagebonus%~ = ~5~) BEGIN
+				WRITE_SHORT 0x8c 6
+			END
+			PATCH_IF (~%damagebonus%~ = ~4~) BEGIN
+				WRITE_SHORT 0x8c 5
+			END
+			PATCH_IF (~%damagebonus%~ = ~3~) BEGIN
+				WRITE_SHORT 0x8c 4
+			END
+			PATCH_IF (~%damagebonus%~ = ~2~) BEGIN
+				WRITE_SHORT 0x8c 3
+			END
+			PATCH_IF (~%damagebonus%~ = ~1~) BEGIN
+				WRITE_SHORT 0x8c 2
+			END
+			PATCH_IF (~%damagebonus%~ = ~0~) BEGIN
+				WRITE_SHORT 0x8c 1
+			END
+			FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
+				READ_LONG "%index%" "valid"
+				PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
+					READ_STRREF "%index%" "description"
+						PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~1d6~) = 0 BEGIN // more validation
+							INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+								REPLACE_TEXTUALLY ~1d6~ ~2d4~
+							END
+							SAY_EVALUATED "%index%" ~%new_desc%~
+						END
+				END
+			END
+
+		END
+		PATCH_IF (~%type%~ = ~25~) BEGIN // axes
+			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 damage_type=8 END
+//			WRITE_SHORT 0x8e 8
+		END
+		PATCH_IF (~%type%~ = ~19~) BEGIN // small swords
+			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 damage_type=7 END
+//			WRITE_SHORT 0x8e 7
+		END
+	END
+	BUT_ONLY
+//__________________________________________________________________________________
+
+/*
+//COPY MARKER FILE_________________________________________________________________
+//
+COPY ~scales_of_balance/misc/d5_missl.d5~ ~override~
+//__________________________________________________________________________________
+*/
+
+//__________________________________________________________________________________
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+	PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
+		READ_SHORT ~0x1c~ ~type~
+		PATCH_IF (~%type%~ = ~14~) BEGIN // bullets
+			LPF ALTER_ITEM_HEADER INT_VAR header_type=2 damage_type=2 END
+//			WRITE_SHORT 0x8e 2
+			FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
+				READ_LONG "%index%" "valid"
+				PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
+					READ_STRREF "%index%" "description"
+						PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~missile~) = 0 BEGIN // more validation
+							INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+								REPLACE_TEXTUALLY ~missiles~ ~projectiles~
+								REPLACE_TEXTUALLY ~missile (piercing)~ ~blunt~
+								REPLACE_TEXTUALLY ~missile~ ~blunt~
+							END
+							SAY_EVALUATED "%index%" ~%new_desc%~
+						END
+				END
+			END
+		END
+		PATCH_IF (~%type%~ = ~24~) BEGIN // darts
+			LPF DELETE_EFFECT INT_VAR match_opcode = 1 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=1 target=1 timing=2 power=1 parameter1=8 parameter2=1 END
+		END
+		PATCH_IF (~%type%~ = ~31~) BEGIN // bolts
+			LPF ALTER_ITEM_HEADER INT_VAR header_type=2 dicesize=4 dicenumber=2 END
+//			WRITE_BYTE 0x88 4
+//			WRITE_BYTE 0x8a 2
+		END
+		PATCH_IF (~%type%~ = ~5~) BEGIN // arrows
+			LPF ALTER_ITEM_HEADER INT_VAR header_type=2 dicesize=5 END
+//			WRITE_BYTE 0x88 5
+			FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
+				READ_LONG "%index%" "valid"
+				PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
+					READ_STRREF "%index%" "description"
+						PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~1d6~) = 0 BEGIN // more validation
+							INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+								REPLACE_TEXTUALLY ~1d6~ ~1d5~
+							END
+							SAY_EVALUATED "%index%" ~%new_desc%~
+						END
+				END
+			END
+		END
+		READ_BYTE 0x31 ~bowtype~
+		PATCH_IF (~%bowtype%~ = 104) BEGIN   // longbows
+			READ_LONG 0x64 abilities_off
+			READ_SHORT 0x68 num_abilities
+			FOR (ability = 0; ability < num_abilities; ability += 1) BEGIN
+				PATCH_IF (BYTE_AT (abilities_off + 0x38 * ability + 0x00) == 4) BEGIN // Launcher
+					READ_SHORT (abilities_off + 0x38 * ability + 0x1a) damage_bonus
+					SET new_damage_bonus = damage_bonus + 2
+					WRITE_SHORT (abilities_off + 0x38 * ability + 0x1a) new_damage_bonus
+				END
+			END
+			FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
+				READ_LONG "%index%" "valid"
+				PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
+					READ_STRREF "%index%" "description"
+					INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+						REPLACE_TEXTUALLY EXACT_MATCH ~Damage: +5~ ~Damage: +6~
+						REPLACE_TEXTUALLY EXACT_MATCH ~Damage: +4~ ~Damage: +6~
+						REPLACE_TEXTUALLY EXACT_MATCH ~Damage: +3~ ~Damage: +5~
+						REPLACE_TEXTUALLY EXACT_MATCH ~Damage: +2~ ~Damage: +4~
+						REPLACE_TEXTUALLY EXACT_MATCH ~Damage: +1~ ~Damage: +3~
+					END
+					PATCH_IF GAME_IS ~bgee bg2ee iwdee eet~ AND NOT (~%description%~ STRING_CONTAINS_REGEXP ~Damage:~ = 0) BEGIN
+						INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+							REPLACE_TEXTUALLY ~Speed Factor:~ ~Damage: +2
+Speed Factor:~
+						END
+					END
+					PATCH_IF ENGINE_IS ~tob~ AND NOT (~%description%~ STRING_CONTAINS_REGEXP ~Damage:~ = 0) BEGIN
+						INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+							REPLACE_TEXTUALLY ~Weight:~ ~Damage: +2
+Weight:~
+						END
+					END
+					SAY_EVALUATED "%index%" ~%new_desc%~
+				END
+			END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 1 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=1 target=1 timing=2 power=1 parameter1=7 parameter2=1 END
+		END
+		READ_BYTE 0x31 ~bowtype~
+/*
+		PATCH_IF (~%bowtype%~ = 105) BEGIN   // shortbows
+			LPF DELETE_EFFECT INT_VAR match_opcode = 1 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=1 target=1 timing=2 power=1 parameter1=2 parameter2=1 END
+		END
+*/
+	END
+	BUT_ONLY
+//__________________________________________________________________________________
+
+
+//NO RANGED STR BONUS_______________________________________________________________
+//
+ACTION_IF GAME_IS ~bgee bg2ee iwdee eet~ BEGIN
+  COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+	PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
+		READ_SHORT 0x1c type
+		PATCH_IF (%type% = 16 || %type% = 25 || %type% = 21 || %type% = 18) BEGIN // daggers, axes, hammers, slings
+			READ_LONG 0x64 abil_offset
+			READ_SHORT 0x68 abil_number
+			WHILE (%abil_number% > 0) BEGIN
+				SET abil_number = (%abil_number% - 1)
+				READ_SHORT (%abil_offset% + (0x38 * %abil_number%)) range
+				PATCH_IF (%range% = 2 || %range% = 4) BEGIN // ranged or launcher
+					WRITE_BYTE (%abil_offset% + 0x26 + (0x38 * %abil_number%)) 0
+				END
+			END
+		END
+	END
+  BUT_ONLY
+END
+//__________________________________________________________________________________
+
+					
+//ARCHERS USE ELVEN CHAIN____________________________________________________________
+//		
+ACTION_FOR_EACH elven_chain IN
+	~chan12~
+	~chan13~
+	~chan14~
+	~chan15~
+	~chan16~
+	~chan19~
+	~clolth~
+	~dwchan01~
+	~a!bchan1~
+	~bsingchn~
+	~c2chan01~
+	~chandrw~
+	~cmarq02~
+	~cmarq12~
+	~cmtuch01~
+	~cota~
+	~dsjearm~
+	~echan01~
+	~echan02~
+	~elfmail~
+	~elvarmx~
+	~fwchan02~
+	~gcmch01~
+	~illas04~
+	~kimchain~
+	~kiyoarm1~
+	~kiyoarm2~
+	~kiyoarm3~
+	~kiyowed1~
+	~mau006~
+	~ntchan04~
+	~rr#chn01~
+	~s!chan02~
+	~scal04~
+	~sgchan2~ 
+	~tzchan01~
+	~u#chan01~
+	~u#chan07~
+	~ucmgch01~
+	~zyplatn8~
+	~chands06~
+	~drowchn1~
+	~drowchn2~
+	~drowchn3~
+	~efml01~
+	~pchan~
+	~AAITM127~
+	~BGSX10~
+	~KOVAWED1~
+	~cmchan02~
+	~elfchan~
+	~kaychai~
+	~ntchan06~
+	~r#aspchn~
+	~tcarmor5~
+	~tcechan~
+	~tcrihar1~
+	~tcrihar2~
+	~tcrivarm~
+	~CMTCH02~
+	~CMTCH03~
+	~CMTCH05~
+	~ESXCHA~
+	~FWCHAN03~
+	~SOAITM01~
+BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%elven_chain%.itm~ BEGIN
+		COPY_EXISTING ~%elven_chain%.itm~ ~override~
+			WRITE_BYTE 0x2d ("0x00") //blocked: none
+		BUT_ONLY
+	END
+END
+//__________________________________________________________________________________

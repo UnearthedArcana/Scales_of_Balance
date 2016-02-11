@@ -1,0 +1,607 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//						WPO - STYLE CHANGES
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+
+//UPDATE CLASS STRINGS______________________________________________________________
+//
+STRING_SET 9556 @1214
+STRING_SET 9557 @1215
+STRING_SET 9558 @1216
+STRING_SET 9559 @1217
+STRING_SET 9560 @1218
+STRING_SET 9561 @1219
+STRING_SET 9562 @1220
+STRING_SET 9563 @1221
+//__________________________________________________________________________________
+
+
+//UPDATE STYLE STRINGS______________________________________________________________
+//
+COPY_EXISTING ~weapprof.2da~ ~override~
+	SET_2DA_ENTRY 31 2 1 RESOLVE_STR_REF (@1250)
+	SET_2DA_ENTRY 31 3 1 RESOLVE_STR_REF (@1245)
+	SET_2DA_ENTRY 32 2 1 RESOLVE_STR_REF (@1251)
+	SET_2DA_ENTRY 32 3 1 RESOLVE_STR_REF (@1246)
+	SET_2DA_ENTRY 33 2 1 RESOLVE_STR_REF (@1252)
+	SET_2DA_ENTRY 33 3 1 RESOLVE_STR_REF (@1247)
+	SET_2DA_ENTRY 34 2 1 RESOLVE_STR_REF (@1253)
+	SET_2DA_ENTRY 34 3 1 RESOLVE_STR_REF (@1249)
+	BUT_ONLY
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	STRING_SET 25020 @1250
+	STRING_SET 25044 @1245
+	STRING_SET 25021 @1251
+	STRING_SET 25045 @1246
+	STRING_SET 25022 @1252
+	STRING_SET 25046 @1247
+	STRING_SET 25023 @1253
+	STRING_SET 24999 @1249
+END
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	STRING_SET 31135 @1250
+	STRING_SET 34171 @1245
+	STRING_SET 31136 @1251
+	STRING_SET 34173 @1246
+	STRING_SET 31137 @1252
+	STRING_SET 34174 @1247
+	STRING_SET 31138 @1253
+	STRING_SET 34176 @1249
+END
+ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+	STRING_SET 37727 @1250 // 2HS
+	STRING_SET 37728 @1245 // 2HS
+	STRING_SET 37729 @1251 // SnS
+	STRING_SET 37730 @1246 // SnS
+	STRING_SET 37731 @1252 // SWS
+	STRING_SET 37732 @1247 // SWS
+	STRING_SET 37733 @1253 // DW
+	STRING_SET 37734 @1249 // DW
+END
+//__________________________________________________________________________________
+
+
+//AMEND WEAPPROF.2da_______________________________________________________________
+//
+COPY_EXISTING ~weapprof.2da~ ~override~
+	// Fighter
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 5 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 5 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 5 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 5 3
+	// Cleric
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 6 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 6 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 6 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 6 0
+	// Thief
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 7 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 7 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 7 3
+	// Bard
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 8 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 8 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 8 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 8 2
+	// Paladin
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 9 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 9 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 9 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 9 2
+	// Druid
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 10 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 10 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 10 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 10 2
+	// Ranger
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 11 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 11 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 11 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 11 3
+	// Fighter/Mage
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 12 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 12 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 12 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 12 0
+	// Fighter/Cleric
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 13 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 13 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 13 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 13 0
+	// Fighter/Thief
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 14 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 14 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 14 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 15 3
+	// Fighter/Mage/Thief
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 15 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 15 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 15 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 15 3
+	// Mage/Thief
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 16 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 16 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 16 3
+	// Cleric/Mage
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 17 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 17 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 17 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 17 0
+	// Cleric/Thief
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 18 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 18 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 18 3
+	// Fighter/Druid
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 19 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 19 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 19 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 19 3
+	// Fighter/Mage/Cleric
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 20 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 20 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 20 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 20 0
+	// Ranger/Cleric
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 21 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 21 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 21 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 21 3
+	// Wizards
+	// Berserker
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 30 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 30 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 30 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 30 3
+	// Wizard Slayer
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 31 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 31 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 31 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 31 3
+	// Kensai
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 32 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 32 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 32 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 32 3
+	// Cavalier
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 33 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 33 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 33 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 33 2
+	// Inquisitor
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 34 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 34 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 34 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 34 2
+	// Undead Hunter
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 35 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 35 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 35 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 35 2
+	// Archer
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 36 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 36 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 36 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 36 2
+	// Stalker
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 37 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 37 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 37 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 37 3
+	// Beastmaster
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 38 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 38 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 38 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 38 3
+	// Assassin
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 39 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 39 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 39 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 39 3
+	// Bounty Hunter
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 40 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 40 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 40 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 40 3
+	// Swashbuckler
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 41 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 41 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 41 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 41 3
+	// Blade
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 42 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 42 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 42 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 42 3
+	// Jester
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 43 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 43 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 43 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 43 2
+	// Skald
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 44 2
+	// Totemic Driud
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 45 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 45 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 45 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 45 2
+	// Shapeshifter
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 46 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 46 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 46 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 46 2
+	// Avenger
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 47 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 47 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 47 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 47 2
+	// Talos
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 48 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 48 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 48 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 48 0
+	// Helm
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 49 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 49 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 49 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 49 0
+	// Lathander
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 49 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 49 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 49 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 49 0
+	// Monk
+	// Barbarian
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 52 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 52 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 52 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 52 1
+	// Wild Mage	
+	SET_2DA_ENTRIES_NOW ~#weapprof~ 1
+
+ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+	COPY_EXISTING ~weapprof.2da~ ~override~
+		// Blackguard
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 54 1
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 54 1
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 54 1
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 54 2
+		// Shadowdancer
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 55 0
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 55 0
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 55 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 55 3
+		// Dwarven Defender
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 56 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 56 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 56 0
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 56 2
+		// Dragon Disciple
+		// Dark Moon Monk
+		// Sun Soul Monk
+		SET_2DA_ENTRIES_NOW ~EE#weapprof~ 1
+END
+	
+ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+	COPY_EXISTING ~weapprof.2da~ ~override~
+		// Tyr
+		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 31 61 1
+		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 32 61 1
+		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 33 61 1
+		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 34 61 0
+		// Tempus
+		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 31 62 1
+		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 32 62 1
+		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 33 62 1
+		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 34 62 0
+		SET_2DA_ENTRIES_NOW ~IEE#weapprof~ 1
+END
+//__________________________________________________________________________________
+
+
+//STYLES FOR MOD CLERICS____________________________________________________________
+//
+DEFINE_ACTION_FUNCTION mod_cleric_styles BEGIN
+	OUTER_SET count = 0
+
+	ACTION_FOR_EACH class IN
+                  cleric
+
+	BEGIN
+		OUTER_SPRINT $clerics("%count%") "%class%"
+		OUTER_SET ++count
+	END
+
+	COPY_EXISTING kitlist.2da override
+		READ_2DA_ENTRIES_NOW kitlist 3
+		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
+			READ_2DA_ENTRY_FORMER kitlist row 1 label
+			READ_2DA_ENTRY_FORMER kitlist row 8 class
+			PATCH_IF class = 3 BEGIN // cleric
+				SPRINT $clerics("%count%") "%label%"
+				++count
+			END
+		END
+	BUT_ONLY
+
+	COPY_EXISTING ~WEAPPROF.2DA~ override
+		READ_2DA_ENTRIES_NOW weapprof 3
+		COUNT_2DA_COLS cols
+		PHP_EACH clerics AS _ => name BEGIN
+			FOR (col = 0; col < cols - 1; ++col) BEGIN
+				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
+				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
+					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 1
+					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 1
+					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 1
+					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 0
+				END
+			END
+		END
+		SET_2DA_ENTRIES_NOW wweapprof 1
+		PRETTY_PRINT_2DA
+	BUT_ONLY
+END
+
+LAF mod_cleric_styles END
+//__________________________________________________________________________________
+
+
+//STYLES FOR MOD DRUIDS_____________________________________________________________
+//
+DEFINE_ACTION_FUNCTION mod_druid_styles BEGIN
+	OUTER_SET count = 0
+
+	ACTION_FOR_EACH class IN
+                  druid
+
+	BEGIN
+		OUTER_SPRINT $druids("%count%") "%class%"
+		OUTER_SET ++count
+	END
+
+	COPY_EXISTING kitlist.2da override
+		READ_2DA_ENTRIES_NOW kitlist 3
+		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
+			READ_2DA_ENTRY_FORMER kitlist row 1 label
+			READ_2DA_ENTRY_FORMER kitlist row 8 class
+			PATCH_IF class = 11 BEGIN // druid
+				SPRINT $druids("%count%") "%label%"
+				++count
+			END
+		END
+	BUT_ONLY
+
+	COPY_EXISTING ~WEAPPROF.2DA~ override
+		READ_2DA_ENTRIES_NOW weapprof 3
+		COUNT_2DA_COLS cols
+		PHP_EACH druids AS _ => name BEGIN
+			FOR (col = 0; col < cols - 1; ++col) BEGIN
+				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
+				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
+					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 2
+					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 0
+					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 2
+					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 2
+				END
+			END
+		END
+		SET_2DA_ENTRIES_NOW wweapprof 1
+		PRETTY_PRINT_2DA
+	BUT_ONLY
+END
+
+LAF mod_druid_styles END
+//__________________________________________________________________________________
+
+
+//STYLES FOR MOD THIEVES____________________________________________________________
+//
+DEFINE_ACTION_FUNCTION mod_thief_styles BEGIN
+	OUTER_SET count = 0
+
+	ACTION_FOR_EACH class IN
+                  thief
+
+	BEGIN
+		OUTER_SPRINT $thiefs("%count%") "%class%"
+		OUTER_SET ++count
+	END
+
+	COPY_EXISTING kitlist.2da override
+		READ_2DA_ENTRIES_NOW kitlist 3
+		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
+			READ_2DA_ENTRY_FORMER kitlist row 1 label
+			READ_2DA_ENTRY_FORMER kitlist row 8 class
+			PATCH_IF class = 4 BEGIN // thief
+				SPRINT $thiefs("%count%") "%label%"
+				++count
+			END
+		END
+	BUT_ONLY
+
+	COPY_EXISTING ~WEAPPROF.2DA~ override
+		READ_2DA_ENTRIES_NOW weapprof 3
+		COUNT_2DA_COLS cols
+		PHP_EACH thiefs AS _ => name BEGIN
+			FOR (col = 0; col < cols - 1; ++col) BEGIN
+				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
+				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
+					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 0
+					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 0
+					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 2
+					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 3
+				END
+			END
+		END
+		SET_2DA_ENTRIES_NOW wweapprof 1
+		PRETTY_PRINT_2DA
+	BUT_ONLY
+END
+
+LAF mod_thief_styles END
+//__________________________________________________________________________________
+
+
+//STYLES FOR MOD BARDS______________________________________________________________
+//
+DEFINE_ACTION_FUNCTION mod_bard_styles BEGIN
+	OUTER_SET count = 0
+
+	ACTION_FOR_EACH class IN
+                  bard
+
+	BEGIN
+		OUTER_SPRINT $bards("%count%") "%class%"
+		OUTER_SET ++count
+	END
+
+	COPY_EXISTING kitlist.2da override
+		READ_2DA_ENTRIES_NOW kitlist 3
+		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
+			READ_2DA_ENTRY_FORMER kitlist row 1 label
+			READ_2DA_ENTRY_FORMER kitlist row 8 class
+			PATCH_IF class = 5 BEGIN // bard
+				SPRINT $bards("%count%") "%label%"
+				++count
+			END
+		END
+	BUT_ONLY
+
+	COPY_EXISTING ~WEAPPROF.2DA~ override
+		READ_2DA_ENTRIES_NOW weapprof 3
+		COUNT_2DA_COLS cols
+		PHP_EACH bards AS _ => name BEGIN
+			FOR (col = 0; col < cols - 1; ++col) BEGIN
+				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
+				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
+					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 1
+					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 1
+					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 1
+					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 2
+				END
+			END
+		END
+		SET_2DA_ENTRIES_NOW wweapprof 1
+		PRETTY_PRINT_2DA
+	BUT_ONLY
+END
+
+LAF mod_bard_styles END
+//__________________________________________________________________________________
+
+
+//STYLES FOR MOD RANGERS____________________________________________________________
+//
+DEFINE_ACTION_FUNCTION mod_ranger_styles BEGIN
+	OUTER_SET count = 0
+
+	ACTION_FOR_EACH class IN
+                  ranger
+
+	BEGIN
+		OUTER_SPRINT $rangers("%count%") "%class%"
+		OUTER_SET ++count
+	END
+
+	COPY_EXISTING kitlist.2da override
+		READ_2DA_ENTRIES_NOW kitlist 3
+		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
+			READ_2DA_ENTRY_FORMER kitlist row 1 label
+			READ_2DA_ENTRY_FORMER kitlist row 8 class
+			PATCH_IF class = 12 BEGIN // ranger
+				SPRINT $rangers("%count%") "%label%"
+				++count
+			END
+		END
+	BUT_ONLY
+
+	COPY_EXISTING ~WEAPPROF.2DA~ override
+		READ_2DA_ENTRIES_NOW weapprof 3
+		COUNT_2DA_COLS cols
+		PHP_EACH rangers AS _ => name BEGIN
+			FOR (col = 0; col < cols - 1; ++col) BEGIN
+				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
+				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
+					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 2
+					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 0
+					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 2
+					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 3
+				END
+			END
+		END
+		SET_2DA_ENTRIES_NOW wweapprof 1
+		PRETTY_PRINT_2DA
+	BUT_ONLY
+END
+
+LAF mod_ranger_styles END
+//__________________________________________________________________________________
+
+
+//STYLES FOR MOD PALADINS___________________________________________________________
+//
+DEFINE_ACTION_FUNCTION mod_paladin_styles BEGIN
+	OUTER_SET count = 0
+
+	ACTION_FOR_EACH class IN
+                  paladin
+
+	BEGIN
+		OUTER_SPRINT $paladins("%count%") "%class%"
+		OUTER_SET ++count
+	END
+
+	COPY_EXISTING kitlist.2da override
+		READ_2DA_ENTRIES_NOW kitlist 3
+		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
+			READ_2DA_ENTRY_FORMER kitlist row 1 label
+			READ_2DA_ENTRY_FORMER kitlist row 8 class
+			PATCH_IF class = 6 BEGIN // paladin
+				SPRINT $paladins("%count%") "%label%"
+				++count
+			END
+		END
+	BUT_ONLY
+
+	COPY_EXISTING ~WEAPPROF.2DA~ override
+		READ_2DA_ENTRIES_NOW weapprof 3
+		COUNT_2DA_COLS cols
+		PHP_EACH paladins AS _ => name BEGIN
+			FOR (col = 0; col < cols - 1; ++col) BEGIN
+				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
+				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
+					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 1
+					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 1
+					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 1
+					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 2
+				END
+			END
+		END
+		SET_2DA_ENTRIES_NOW wweapprof 1
+		PRETTY_PRINT_2DA
+	BUT_ONLY
+END
+
+LAF mod_paladin_styles END
+//__________________________________________________________________________________
+
+
+//CHANGE BONUSES____________________________________________________________________
+//
+COPY ~scales_of_balance/profs/stylbonu.2da~ ~override~
+//__________________________________________________________________________________
+
+
+CLEAR_ARRAYS
