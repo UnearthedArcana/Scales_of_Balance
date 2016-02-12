@@ -684,3 +684,23 @@ Half-elves have the following traits:
 Half-orcs have the following traits:
 - Infravision.
 - +1 Strength, -1 Intelligence, -2 Charisma.~
+@2632  = ~Choose weapon focus~
+@2648  = ~KENSAI: This class's name, which means "sword saint" in the common tongue, refers to a warrior who has been specially trained to be one with a single weapon. The kensai is deadly, fast, and trained to fight without the protection of armor. 
+
+NOTE: During skill selection, where you assign proficiency points is more or less meaningless.  When you choose a weapon of focus, you will begin the game proficient in that weapon and, in the single-weapon, two-weapon, and two-handed weapon fighting styles.
+
+Abilities:
+- +1/2 attack per round.
+- +1 to damage rolls every 4 levels.
+- +1 bonus to Armor Class every 6 levels (starting at 1st level).
+- -1 bonus to Weapon Speed Factor every 10 levels.
+- May use the Kai ability twice per day every 10 levels (starts at 1st level with one use).
+
+KAI: All successful attacks within the next 10 seconds deal maximum damage.
+
+Restrictions:
+- May not wear any armor.
+- May not use missile weapons.
+- May not dual-class.
+~
+

@@ -5750,6 +5750,63 @@ END
 //__________________________________________________________________________________
 
 
+//MnG KENSAI________________________________________________________________________
+// 
+ACTION_IF FILE_EXISTS_IN_GAME ~d5_kensai.d5~ BEGIN
+	COPY ~scales_of_balance/profs/d5_kenf.spl~ ~override~
+		SAY NAME1 @2632
+		SAY UNIDENTIFIED_DESC @2632
+	COPY ~scales_of_balance/profs/d5_kens.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_klswo.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_ksswo.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_kdagg.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_kscim.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_k2swo.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_kspea.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_kstaf.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_kclub.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_kmace.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_kflai.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_khamm.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_kbaxe.spl~ ~override~
+	COPY ~scales_of_balance/profs/d5_kenf.cre~ ~override~
+	COMPILE ~scales_of_balance/profs/d5_kenf2.baf~
+	COPY_EXISTING ~d5_klswo.2da~ ~override~
+				~d5_ksswo.2da~ ~override~
+				~d5_kdagg.2da~ ~override~
+				~d5_kscim.2da~ ~override~
+				~d5_kkata.2da~ ~override~
+				~d5_kbswo.2da~ ~override~
+				~d5_k2swo.2da~ ~override~
+				~d5_khalb.2da~ ~override~
+				~d5_kspea.2da~ ~override~
+				~d5_kstaf.2da~ ~override~
+				~d5_kclub.2da~ ~override~
+				~d5_kmace.2da~ ~override~
+				~d5_kflai.2da~ ~override~
+				~d5_khamm.2da~ ~override~
+				~d5_kbaxe.2da~ ~override~
+		REPLACE_TEXTUALLY ~D5_KENF2~ ~****    ~
+		REPLACE_TEXTUALLY ~D5_KENF3~ ~****    ~
+		REPLACE_TEXTUALLY ~D5_KENF4~ ~****    ~
+		REPLACE_TEXTUALLY ~D5_KENF5~ ~****    ~
+		REPLACE_TEXTUALLY ~D5_KENF6~ ~****    ~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/profs/kensai_focus.txt~
+
+  ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	STRING_SET 25362 @2648
+  END
+  ACTION_IF ENGINE_IS ~tob bg2ee~ THEN BEGIN
+	STRING_SET 25204 @2648
+  END
+  ACTION_IF ENGINE_IS ~iwdee~ THEN BEGIN
+	STRING_SET 37100 @2648
+  END
+END
+//__________________________________________________________________________________
+
+
 //UPDATE SoA STARTING XP____________________________________________________________
 // 
 ACTION_IF GAME_IS ~tob~ AND NOT GAME_IS ~bgt~ THEN BEGIN

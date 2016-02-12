@@ -1,0 +1,20 @@
+IF
+	NumTimesTalkedTo(0)
+THEN
+	RESPONSE #100
+		SetGlobal("D5_KENF","GLOBAL",1)    // kensai focus
+		SetGlobal("D5_KBSWO","GLOBAL",1)    // no bastard sword
+		SetGlobal("D5_KKATA","GLOBAL",1)    // no katana
+		SetGlobal("D5_KHALB","GLOBAL",1)    // no halberd
+	SetNumTimesTalkedTo(1)
+	ActionOverride(LastSummonerOf(Myself),StartDialogOverride("d5_kenf",Myself))
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+		SetGlobal("D5_KENF","GLOBAL",0)
+		SetNumTimesTalkedTo(0)
+		DestroySelf()               // reset all global variables, then destroy self
+END
