@@ -46,6 +46,7 @@ STRING_SET 9563 @1221
 
 //UPDATE PROFICIENCY STRINGS_________________________________________________________
 //
+/*
 COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY 12 3 1 RESOLVE_STR_REF (@1230)
 	SET_2DA_ENTRY 13 3 1 RESOLVE_STR_REF (@1231)
@@ -62,61 +63,60 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY 26 3 1 RESOLVE_STR_REF (@1242)
 	SET_2DA_ENTRY 28 3 1 RESOLVE_STR_REF (@1243)
 	SET_2DA_ENTRY 30 3 1 RESOLVE_STR_REF (@1244)
-	BUT_ONLY
+BUT_ONLY
+*/
 
-/*
 ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-//	STRING_SET 25025 @1230
-//	STRING_SET 25026 @1231
-//	STRING_SET 25027 @1232
-//	STRING_SET 25028 @1233
-//	STRING_SET 25030 @1234
-//	STRING_SET 25031 @1235
-//	STRING_SET 25032 @1236
-//	STRING_SET 25033 @1237
-//	STRING_SET 25034 @1238
-//	STRING_SET 25036 @1239
-//	STRING_SET 25037 @1240
-//	STRING_SET 25038 @1241
-//	STRING_SET 25039 @1242
-//	STRING_SET 25041 @1243
-//	STRING_SET 25043 @1244
+	STRING_SET 25025 @1230
+	STRING_SET 25026 @1231
+	STRING_SET 25027 @1232
+	STRING_SET 25028 @1233
+	STRING_SET 25030 @1234
+	STRING_SET 25031 @1235
+	STRING_SET 25032 @1236
+	STRING_SET 25033 @1237
+	STRING_SET 25034 @1238
+	STRING_SET 25036 @1239
+	STRING_SET 25037 @1240
+	STRING_SET 25038 @1241
+	STRING_SET 25039 @1242
+	STRING_SET 25041 @1243
+	STRING_SET 25043 @1244
 END
-ACTION_IF GAME_IS ~tob bgt tutu bg2ee~ THEN BEGIN
-//	STRING_SET 34147 @1230
-//	STRING_SET 34148 @1231
-//	STRING_SET 34149 @1232
-//	STRING_SET 34150 @1233
-//	STRING_SET 34152 @1234
-//	STRING_SET 34153 @1235
-//	STRING_SET 34156 @1236
-//	STRING_SET 35442 @1237
-//	STRING_SET 34157 @1238
-//	STRING_SET 34159 @1239
-//	STRING_SET 34160 @1240
-//	STRING_SET 34161 @1241
-//	STRING_SET 34162 @1242
-//	STRING_SET 34164 @1243
-//	STRING_SET 34166 @1244
+ACTION_IF GAME_IS ~tob bgt tutu bg2ee eet~ THEN BEGIN
+	STRING_SET 34147 @1230
+	STRING_SET 34148 @1231
+	STRING_SET 34149 @1232
+	STRING_SET 34150 @1233
+	STRING_SET 34152 @1234
+	STRING_SET 34153 @1235
+	STRING_SET 34156 @1236
+	STRING_SET 35442 @1237
+	STRING_SET 34157 @1238
+	STRING_SET 34159 @1239
+	STRING_SET 34160 @1240
+	STRING_SET 34161 @1241
+	STRING_SET 34162 @1242
+	STRING_SET 34164 @1243
+	STRING_SET 34166 @1244
 END
 ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-//	STRING_SET 36802 @1230 // long sw
-//	STRING_SET 36804 @1231 // short sw
-//	STRING_SET 36806 @1232 // axe
-//	STRING_SET 36808 @1233 // 2-H sw
-//	STRING_SET 36812 @1234 // scimitar
-//	STRING_SET 36814 @1235 // dagger
-//	STRING_SET 36816 @1236 // hammer
-//	STRING_SET 36818 @1237 // club
-//	STRING_SET 36820 @1238 // spear
-//	STRING_SET 37712 @1239 // flail
-//	STRING_SET 37714 @1240 // mace
-//	STRING_SET 37716 @1241 // staff
-//	STRING_SET 37718 @1242 // xbow
-//	STRING_SET 37722 @1243 // shortbow
-//	STRING_SET 37726 @1244 // sling
+	STRING_SET 36802 @1230 // long sw
+	STRING_SET 36804 @1231 // short sw
+	STRING_SET 36806 @1232 // axe
+	STRING_SET 36808 @1233 // 2-H sw
+	STRING_SET 36812 @1234 // scimitar
+	STRING_SET 36814 @1235 // dagger
+	STRING_SET 36816 @1236 // hammer
+	STRING_SET 36818 @1237 // club
+	STRING_SET 36820 @1238 // spear
+	STRING_SET 37712 @1239 // flail
+	STRING_SET 37714 @1240 // mace
+	STRING_SET 37716 @1241 // staff
+	STRING_SET 37718 @1242 // xbow
+	STRING_SET 37722 @1243 // shortbow
+	STRING_SET 37726 @1244 // sling
 END
-*/
 //__________________________________________________________________________________
 
 
@@ -341,26 +341,6 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 20 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 20 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 20 0
-	// Ranger/Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 21 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 21 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 21 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 21 3
 	// Wizards
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 4 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 4 1
@@ -693,7 +673,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRIES_NOW ~#weapprof~ 1
 	REPLACE_TEXTUALLY ~TYPE ~ ~      ~
 
-ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee iwdee eet~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Blackguard
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 54 4
@@ -734,7 +714,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 56 0
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 56 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 56 3
 		// Dragon Disciple
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 57 1
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 26 57 1
@@ -742,11 +722,58 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 58 1
 		// Sun Soul Monk
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 59 1
-		SET_2DA_ENTRIES_NOW ~EE#weapprof~ 1
+		// Tyr
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 7 61 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 8 61 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 10 61 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 19 61 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 23 61 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 24 61 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 25 61 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 30 61 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 61 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 26 61 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 61 1
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 61 1
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 61 1
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 61 0
+	SET_2DA_ENTRIES_NOW ~EE#weapprof~ 1
+END
+
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+	COPY_EXISTING ~weapprof.2da~ ~override~
+		// Shaman
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 17 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 18 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 20 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 21 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 25 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 30 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 31 60 1
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 32 60 0
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 33 60 1
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 34 60 2
+	SET_2DA_ENTRIES_NOW ~BEE#weapprof~ 1
+END
+ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+	COPY_EXISTING ~weapprof.2da~ ~override~
+		// Shaman
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 17 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 18 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 20 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 21 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 25 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 30 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 31 62 1
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 32 62 0
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 33 62 1
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 34 62 2
+	SET_2DA_ENTRIES_NOW ~2EE#weapprof~ 1
 END
 	
 ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
+/*
 		// Tyr
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 7 61 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 8 61 2
@@ -762,6 +789,7 @@ ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 32 61 1
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 33 61 1
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 34 61 0
+*/
 		// Tempus
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 7 62 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 8 62 2
@@ -777,7 +805,64 @@ ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 32 62 1
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 33 62 1
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 34 62 0
-		SET_2DA_ENTRIES_NOW ~IEE#weapprof~ 1
+	SET_2DA_ENTRIES_NOW ~IEE#weapprof~ 1
+END
+
+//CHECK FOR R/C DRUID SPELLS____________________________________________________________
+//
+ACTION_IF FILE_EXISTS ~%USER_DIRECTORY%/Baldur.ini~ THEN BEGIN
+
+COPY - ~%USER_DIRECTORY%/Baldur.ini~ ~%USER_DIRECTORY%~
+  COUNT_REGEXP_INSTANCES ~'Cleric Ranger Spells',[ %TAB%]*'1'~ cr_bugfix_enabled
+
+  ACTION_IF (cr_bugfix_enabled) BEGIN // no druid spells for cleric/rangers
+	COPY_EXISTING ~weapprof.2da~ ~override~
+		// Ranger/Cleric
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 12 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 13 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 14 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 15 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 17 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 18 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 19 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 20 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 21 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 23 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 24 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 25 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 26 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 28 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 30 21 4
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 31 21 2
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 32 21 2
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 33 21 2
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 34 21 3
+	SET_2DA_ENTRIES_NOW ~RC#weapprof~ 1
+  END
+  ELSE BEGIN
+	COPY_EXISTING ~weapprof.2da~ ~override~
+		// Ranger/Cleric
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 12 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 13 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 14 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 15 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 17 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 18 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 19 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 20 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 21 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 23 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 24 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 25 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 26 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 28 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 30 21 3
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 31 21 2
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 32 21 2
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 33 21 2
+		SET_2DA_ENTRY_LATER ~RC#weapprof~ 34 21 3
+	SET_2DA_ENTRIES_NOW ~RC#weapprof~ 1
+  END
 END
 //__________________________________________________________________________________
 
@@ -814,26 +899,26 @@ DEFINE_ACTION_FUNCTION mod_cleric_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 7 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 8 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 10 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 18 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 19 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 20 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 21 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 23 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 24 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 25 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 26 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 30 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 1
-					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 1
-					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 1
-					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 0
+					SET_2DA_ENTRY_LATER C#weapprof 7 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 8 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 10 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 18 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 19 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 20 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 21 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 23 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 24 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 25 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 26 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 30 (col + 1) 2
+					SET_2DA_ENTRY_LATER C#weapprof 31 (col + 1) 1
+					SET_2DA_ENTRY_LATER C#weapprof 32 (col + 1) 1
+					SET_2DA_ENTRY_LATER C#weapprof 33 (col + 1) 1
+					SET_2DA_ENTRY_LATER C#weapprof 34 (col + 1) 0
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW C#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -874,21 +959,21 @@ DEFINE_ACTION_FUNCTION mod_druid_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 17 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 18 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 20 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 21 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 25 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 28 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 30 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 2
+					SET_2DA_ENTRY_LATER D#weapprof 17 (col + 1) 3
+					SET_2DA_ENTRY_LATER D#weapprof 18 (col + 1) 3
+					SET_2DA_ENTRY_LATER D#weapprof 20 (col + 1) 3
+					SET_2DA_ENTRY_LATER D#weapprof 21 (col + 1) 3
+					SET_2DA_ENTRY_LATER D#weapprof 25 (col + 1) 3
+					SET_2DA_ENTRY_LATER D#weapprof 28 (col + 1) 3
+					SET_2DA_ENTRY_LATER D#weapprof 30 (col + 1) 3
+					SET_2DA_ENTRY_LATER D#weapprof 31 (col + 1) 2
+					SET_2DA_ENTRY_LATER D#weapprof 32 (col + 1) 0
+					SET_2DA_ENTRY_LATER D#weapprof 33 (col + 1) 2
+					SET_2DA_ENTRY_LATER D#weapprof 34 (col + 1) 2
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW D#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -929,23 +1014,23 @@ DEFINE_ACTION_FUNCTION mod_thief_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 12 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 13 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 17 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 18 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 20 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 25 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 26 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 28 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 30 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 12 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 13 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 17 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 18 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 20 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 25 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 26 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 28 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 30 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 31 (col + 1) 0
+					SET_2DA_ENTRY_LATER T#weapprof 32 (col + 1) 0
+					SET_2DA_ENTRY_LATER T#weapprof 33 (col + 1) 2
+					SET_2DA_ENTRY_LATER T#weapprof 34 (col + 1) 3
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW T#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -986,29 +1071,29 @@ DEFINE_ACTION_FUNCTION mod_bard_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 12 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 13 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 14 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 15 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 17 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 18 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 19 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 20 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 21 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 23 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 24 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 25 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 26 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 28 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 30 (col + 1) 3
-					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 1
-					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 1
-					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 1
-					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 12 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 13 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 14 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 15 (col + 1) 0
+					SET_2DA_ENTRY_LATER B#weapprof 17 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 18 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 19 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 20 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 21 (col + 1) 0
+					SET_2DA_ENTRY_LATER B#weapprof 23 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 24 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 25 (col + 1) 0
+					SET_2DA_ENTRY_LATER B#weapprof 26 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 28 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 30 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 31 (col + 1) 1
+					SET_2DA_ENTRY_LATER B#weapprof 32 (col + 1) 1
+					SET_2DA_ENTRY_LATER B#weapprof 33 (col + 1) 1
+					SET_2DA_ENTRY_LATER B#weapprof 34 (col + 1) 2
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW B#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -1049,22 +1134,22 @@ DEFINE_ACTION_FUNCTION mod_ranger_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 12 (col + 1) 4
-					SET_2DA_ENTRY_LATER wweapprof 13 (col + 1) 4
-					SET_2DA_ENTRY_LATER wweapprof 14 (col + 1) 4
-					SET_2DA_ENTRY_LATER wweapprof 17 (col + 1) 4
-					SET_2DA_ENTRY_LATER wweapprof 18 (col + 1) 4
-					SET_2DA_ENTRY_LATER wweapprof 21 (col + 1) 4
-					SET_2DA_ENTRY_LATER wweapprof 25 (col + 1) 4
-					SET_2DA_ENTRY_LATER wweapprof 28 (col + 1) 4
-					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 3
+					SET_2DA_ENTRY_LATER R#weapprof 12 (col + 1) 4
+					SET_2DA_ENTRY_LATER R#weapprof 13 (col + 1) 4
+					SET_2DA_ENTRY_LATER R#weapprof 14 (col + 1) 4
+					SET_2DA_ENTRY_LATER R#weapprof 17 (col + 1) 4
+					SET_2DA_ENTRY_LATER R#weapprof 18 (col + 1) 4
+					SET_2DA_ENTRY_LATER R#weapprof 21 (col + 1) 4
+					SET_2DA_ENTRY_LATER R#weapprof 25 (col + 1) 4
+					SET_2DA_ENTRY_LATER R#weapprof 28 (col + 1) 4
+					SET_2DA_ENTRY_LATER R#weapprof 31 (col + 1) 2
+					SET_2DA_ENTRY_LATER R#weapprof 32 (col + 1) 0
+					SET_2DA_ENTRY_LATER R#weapprof 33 (col + 1) 2
+					SET_2DA_ENTRY_LATER R#weapprof 34 (col + 1) 3
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW R#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -1105,14 +1190,14 @@ DEFINE_ACTION_FUNCTION mod_paladin_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 1
-					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 1
-					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 1
-					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 2
+					SET_2DA_ENTRY_LATER P#weapprof 31 (col + 1) 1
+					SET_2DA_ENTRY_LATER P#weapprof 32 (col + 1) 1
+					SET_2DA_ENTRY_LATER P#weapprof 33 (col + 1) 1
+					SET_2DA_ENTRY_LATER P#weapprof 34 (col + 1) 2
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW P#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -1153,14 +1238,14 @@ DEFINE_ACTION_FUNCTION mod_fighter_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 31 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 32 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER wweapprof 34 (col + 1) 3
+					SET_2DA_ENTRY_LATER F#weapprof 31 (col + 1) 2
+					SET_2DA_ENTRY_LATER F#weapprof 32 (col + 1) 2
+					SET_2DA_ENTRY_LATER F#weapprof 33 (col + 1) 2
+					SET_2DA_ENTRY_LATER F#weapprof 34 (col + 1) 3
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW F#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -1993,101 +2078,103 @@ BUT_ONLY
 
 //DELETE NPCS' PROFICIENCIES________________________________________________________
 //
-ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
-	COPY_EXISTING ~ajanti.cre~ ~override~
-				~ajanti4.cre~ ~override~
-				~ajanti6.cre~ ~override~
-				~alora.cre~ ~override~
-				~alora6.cre~ ~override~
-				~imoen1.cre~ ~override~
-				~imoen2.cre~ ~override~
-				~imoen4.cre~ ~override~
-				~imoen6.cre~ ~override~
-				~safana.cre~ ~override~
-				~safana4.cre~ ~override~
-				~safana6.cre~ ~override~
-				~coran.cre~ ~override~
-				~coran5.cre~ ~override~
-				~skie.cre~ ~override~
-				~skie6.cre~ ~override~
-				~montar.cre~ ~override~
-				~montar2.cre~ ~override~
-				~montar4.cre~ ~override~
-				~montar6.cre~ ~override~
-				~garric.cre~ ~override~
-				~garric2.cre~ ~override~
-				~garric4.cre~ ~override~
-				~garric6.cre~ ~override~
-				~eldoth.cre~ ~override~
-				~eldoth5.cre~ ~override~
-				~dynahe.cre~ ~override~
-				~dynahe2.cre~ ~override~
-				~dynahe4.cre~ ~override~
-				~dynahe6.cre~ ~override~
-				~edwin.cre~ ~override~
-				~edwin2.cre~ ~override~
-				~edwin4.cre~ ~override~
-				~edwin6.cre~ ~override~
-				~xan4.cre~ ~override~
-				~xan6.cre~ ~override~
-				~xzar.cre~ ~override~
-				~xzar2.cre~ ~override~
-				~xzar4.cre~ ~override~
-				~xzar6.cre~ ~override~
-				~jaheir.cre~ ~override~
-				~jaheir2.cre~ ~override~
-				~jaheir4.cre~ ~override~
-				~jaheir6.cre~ ~override~
-				~faldor.cre~ ~override~
-				~faldor5.cre~ ~override~
-				~yeslic.cre~ ~override~
-				~yeslic5.cre~ ~override~
-				~branwe.cre~ ~override~
-				~branwe5.cre~ ~override~
-				~quayle.cre~ ~override~
-				~quayle4.cre~ ~override~
-				~quayle6.cre~ ~override~
-				~viconi.cre~ ~override~
-				~viconi4.cre~ ~override~
-				~viconi6.cre~ ~override~
-				~tiax.cre~ ~override~
-				~tiax4.cre~ ~override~
-				~tiax6.cre~ ~override~
-				~minsc.cre~ ~override~
-				~minsc2.cre~ ~override~
-				~minsc4.cre~ ~override~
-				~minsc6.cre~ ~override~
-				~kivan.cre~ ~override~
-				~kivan4.cre~ ~override~
-				~kivan6.cre~ ~override~
-				~khalid.cre~ ~override~
-				~khalid2.cre~ ~override~
-				~khalid4.cre~ ~override~
-				~khalid6.cre~ ~override~
-				~kagain.cre~ ~override~
-				~kagain2.cre~ ~override~
-				~kagain4.cre~ ~override~
-				~kagain6.cre~ ~override~
-				~sharte.cre~ ~override~
-				~sharte4.cre~ ~override~
-				~sharte6.cre~ ~override~
+ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
+	COPY_EXISTING ~%tutu_var%ajanti.cre~ ~override~
+				~%tutu_var%ajanti4.cre~ ~override~
+				~%tutu_var%ajanti6.cre~ ~override~
+				~%tutu_var%alora.cre~ ~override~
+				~%tutu_var%alora6.cre~ ~override~
+				~%tutu_var%imoen1.cre~ ~override~
+				~%tutu_var%imoen2.cre~ ~override~
+				~%tutu_var%imoen4.cre~ ~override~
+				~%tutu_var%%imoen6_var%.cre~ ~override~
+				~%tutu_var%safana.cre~ ~override~
+				~%tutu_var%safana4.cre~ ~override~
+				~%tutu_var%safana6.cre~ ~override~
+				~%tutu_var%coran.cre~ ~override~
+				~%tutu_var%coran5.cre~ ~override~
+				~%tutu_var%skie.cre~ ~override~
+				~%tutu_var%skie6.cre~ ~override~
+				~%tutu_var%montar.cre~ ~override~
+				~%tutu_var%montar2.cre~ ~override~
+				~%tutu_var%montar4.cre~ ~override~
+				~%tutu_var%montar6.cre~ ~override~
+				~%tutu_var%garric.cre~ ~override~
+				~%tutu_var%garric2.cre~ ~override~
+				~%tutu_var%garric4.cre~ ~override~
+				~%tutu_var%garric6.cre~ ~override~
+				~%tutu_var%eldoth.cre~ ~override~
+				~%tutu_var%eldoth5.cre~ ~override~
+				~%tutu_var%dynahe.cre~ ~override~
+				~%tutu_var%dynahe2.cre~ ~override~
+				~%tutu_var%dynahe4.cre~ ~override~
+				~%tutu_var%dynahe6.cre~ ~override~
+				~%tutu_var%edwin.cre~ ~override~
+				~%tutu_var%edwin2.cre~ ~override~
+				~%tutu_var%edwin4.cre~ ~override~
+				~%tutu_var%edwin6.cre~ ~override~
+				~%tutu_var%%xan_var%.cre~ ~override~
+				~%tutu_var%xan4.cre~ ~override~
+				~%tutu_var%xan6.cre~ ~override~
+				~%tutu_var%%xzar_var%.cre~ ~override~
+				~%tutu_var%xzar2.cre~ ~override~
+				~%tutu_var%xzar4.cre~ ~override~
+				~%tutu_var%xzar6.cre~ ~override~
+				~%tutu_var%jaheir.cre~ ~override~
+				~%tutu_var%jaheir2.cre~ ~override~
+				~%tutu_var%jaheir4.cre~ ~override~
+				~%tutu_var%jaheir6.cre~ ~override~
+				~%tutu_var%faldor.cre~ ~override~
+				~%tutu_var%faldor5.cre~ ~override~
+				~%tutu_var%yeslic.cre~ ~override~
+				~%tutu_var%yeslic5.cre~ ~override~
+				~%tutu_var%branwe.cre~ ~override~
+				~%tutu_var%branwe5.cre~ ~override~
+				~%tutu_var%%quayle_var%.cre~ ~override~
+				~%tutu_var%quayle4.cre~ ~override~
+				~%tutu_var%quayle6.cre~ ~override~
+				~%tutu_var%viconi.cre~ ~override~
+				~%tutu_var%viconi4.cre~ ~override~
+				~%tutu_var%%viconi6_var%.cre~ ~override~
+				~%tutu_var%tiax.cre~ ~override~
+				~%tutu_var%tiax4.cre~ ~override~
+				~%tutu_var%tiax6.cre~ ~override~
+				~%tutu_var%minsc.cre~ ~override~
+				~%tutu_var%minsc2.cre~ ~override~
+				~%tutu_var%minsc4.cre~ ~override~
+				~%tutu_var%minsc6.cre~ ~override~
+				~%tutu_var%kivan.cre~ ~override~
+				~%tutu_var%kivan4.cre~ ~override~
+				~%tutu_var%kivan6.cre~ ~override~
+				~%tutu_var%khalid.cre~ ~override~
+				~%tutu_var%khalid2.cre~ ~override~
+				~%tutu_var%khalid4.cre~ ~override~
+				~%tutu_var%khalid6.cre~ ~override~
+				~%tutu_var%kagain.cre~ ~override~
+				~%tutu_var%kagain2.cre~ ~override~
+				~%tutu_var%kagain4.cre~ ~override~
+				~%tutu_var%kagain6.cre~ ~override~
+				~%tutu_var%sharte.cre~ ~override~
+				~%tutu_var%sharte4.cre~ ~override~
+				~%tutu_var%sharte6.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 		BUT_ONLY
 END
 
+/*
 ACTION_IF FILE_EXISTS_IN_GAME ~xan.cre~ THEN BEGIN
 	COPY_EXISTING ~xan.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 		BUT_ONLY
 END
-
 ACTION_IF GAME_IS ~bgt~ THEN BEGIN
 	COPY_EXISTING ~viconi61.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 		BUT_ONLY
 END
+*/
 
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
 	COPY_EXISTING ~dorn.cre~ ~override~
 				~dorn2.cre~ ~override~
 				~dorn4.cre~ ~override~
@@ -2101,7 +2188,7 @@ ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 		BUT_ONLY
 END
 
-ACTION_IF GAME_IS ~tob bgt bg2ee~ THEN BEGIN
+ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 	COPY_EXISTING ~keldor8.cre~ ~override~
 				~keldor9.cre~ ~override~
 				~keldor10.cre~ ~override~
@@ -2172,7 +2259,7 @@ ACTION_IF GAME_IS ~tob bgt bg2ee~ THEN BEGIN
 		BUT_ONLY
 END
 
-ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
 	COPY_EXISTING ~dorn8.cre~ ~override~
 				~dorn9.cre~ ~override~
 				~dorn10.cre~ ~override~
@@ -2289,10 +2376,10 @@ thief:
 
 //ADD PROFICIENCIES TO BG1 NPCS_____________________________________________________
 //
-ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
-	COPY_EXISTING ~ajanti.cre~ ~override~
-				~ajanti4.cre~ ~override~
-				~ajanti6.cre~ ~override~
+ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
+	COPY_EXISTING ~%tutu_var%ajanti.cre~ ~override~
+				~%tutu_var%ajanti4.cre~ ~override~
+				~%tutu_var%ajanti6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2308,8 +2395,8 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 103 1
 		SET_BG2_PROFICIENCY 111 1
 		BUT_ONLY
-	COPY_EXISTING ~alora.cre~ ~override~
-				~alora6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%alora.cre~ ~override~
+				~%tutu_var%alora6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2330,10 +2417,10 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 95 1
 		SET_BG2_PROFICIENCY 114 1
 		BUT_ONLY
-	COPY_EXISTING ~imoen1.cre~ ~override~
-				~imoen2.cre~ ~override~
-				~imoen4.cre~ ~override~
-				~imoen6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%imoen1.cre~ ~override~
+				~%tutu_var%imoen2.cre~ ~override~
+				~%tutu_var%imoen4.cre~ ~override~
+				~%tutu_var%%imoen6_var%.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2354,9 +2441,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 91 1
 		SET_BG2_PROFICIENCY 113 1
 		BUT_ONLY
-	COPY_EXISTING ~safana.cre~ ~override~
-				~safana4.cre~ ~override~
-				~safana6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%safana.cre~ ~override~
+				~%tutu_var%safana4.cre~ ~override~
+				~%tutu_var%safana6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2378,8 +2465,8 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 114 1
 		SET_BG2_PROFICIENCY 113 1
 		BUT_ONLY
-	COPY_EXISTING ~coran.cre~ ~override~
-				~coran5.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%coran.cre~ ~override~
+				~%tutu_var%coran5.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2401,8 +2488,8 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 114 1
 		SET_BG2_PROFICIENCY 113 1
 		BUT_ONLY
-	COPY_EXISTING ~skie.cre~ ~override~
-				~skie6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%skie.cre~ ~override~
+				~%tutu_var%skie6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2423,10 +2510,10 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 95 1
 		SET_BG2_PROFICIENCY 114 1
 		BUT_ONLY
-	COPY_EXISTING ~montar.cre~ ~override~
-				~montar2.cre~ ~override~
-				~montar4.cre~ ~override~
-				~montar6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%montar.cre~ ~override~
+				~%tutu_var%montar2.cre~ ~override~
+				~%tutu_var%montar4.cre~ ~override~
+				~%tutu_var%montar6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2447,10 +2534,10 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 95 1
 		SET_BG2_PROFICIENCY 114 1
 		BUT_ONLY
-	COPY_EXISTING ~garric.cre~ ~override~
-				~garric2.cre~ ~override~
-				~garric4.cre~ ~override~
-				~garric6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%garric.cre~ ~override~
+				~%tutu_var%garric2.cre~ ~override~
+				~%tutu_var%garric4.cre~ ~override~
+				~%tutu_var%garric6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2465,8 +2552,8 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 103 1
 		SET_BG2_PROFICIENCY 105 1
 		BUT_ONLY
-	COPY_EXISTING ~eldoth.cre~ ~override~
-				~eldoth5.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%eldoth.cre~ ~override~
+				~%tutu_var%eldoth5.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2481,26 +2568,27 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 101 1
 		SET_BG2_PROFICIENCY 103 1
 		BUT_ONLY
-	COPY_EXISTING ~dynahe.cre~ ~override~
-				~dynahe2.cre~ ~override~
-				~dynahe4.cre~ ~override~
-				~dynahe6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%dynahe.cre~ ~override~
+				~%tutu_var%dynahe2.cre~ ~override~
+				~%tutu_var%dynahe4.cre~ ~override~
+				~%tutu_var%dynahe6.cre~ ~override~
 		SET_BG2_PROFICIENCY 96 1
 		SET_BG2_PROFICIENCY 102 1
 		SET_BG2_PROFICIENCY 103 1
 		SET_BG2_PROFICIENCY 107 1
 		BUT_ONLY
-	COPY_EXISTING ~edwin.cre~ ~override~
-				~edwin2.cre~ ~override~
-				~edwin4.cre~ ~override~
-				~edwin6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%edwin.cre~ ~override~
+				~%tutu_var%edwin2.cre~ ~override~
+				~%tutu_var%edwin4.cre~ ~override~
+				~%tutu_var%edwin6.cre~ ~override~
 		SET_BG2_PROFICIENCY 96 1
 		SET_BG2_PROFICIENCY 102 1
 		SET_BG2_PROFICIENCY 103 1
 		SET_BG2_PROFICIENCY 107 1
 		BUT_ONLY
-	COPY_EXISTING ~xan4.cre~ ~override~
-				~xan6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%%xan_var%.cre~ ~override~
+				~%tutu_var%xan4.cre~ ~override~
+				~%tutu_var%xan6.cre~ ~override~
 		SET_BG2_PROFICIENCY 90 1
 		SET_BG2_PROFICIENCY 91 1
 		SET_BG2_PROFICIENCY 102 1
@@ -2523,19 +2611,19 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 			END
 		END
 		BUT_ONLY
-	COPY_EXISTING ~xzar.cre~ ~override~
-				~xzar2.cre~ ~override~
-				~xzar4.cre~ ~override~
-				~xzar6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%%xzar_var%.cre~ ~override~
+				~%tutu_var%xzar2.cre~ ~override~
+				~%tutu_var%xzar4.cre~ ~override~
+				~%tutu_var%xzar6.cre~ ~override~
 		SET_BG2_PROFICIENCY 96 1
 		SET_BG2_PROFICIENCY 102 1
 		SET_BG2_PROFICIENCY 103 1
 		SET_BG2_PROFICIENCY 107 1
 		BUT_ONLY
-	COPY_EXISTING ~jaheir.cre~ ~override~
-				~jaheir2.cre~ ~override~
-				~jaheir4.cre~ ~override~
-				~jaheir6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%jaheir.cre~ ~override~
+				~%tutu_var%jaheir2.cre~ ~override~
+				~%tutu_var%jaheir4.cre~ ~override~
+				~%tutu_var%jaheir6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2550,8 +2638,8 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 107 1
 		SET_BG2_PROFICIENCY 111 1
 		BUT_ONLY
-	COPY_EXISTING ~faldor.cre~ ~override~
-				~faldor5.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%faldor.cre~ ~override~
+				~%tutu_var%faldor5.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2565,8 +2653,8 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 102 1
 		SET_BG2_PROFICIENCY 107 1
 		BUT_ONLY
-	COPY_EXISTING ~yeslic.cre~ ~override~
-				~yeslic5.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%yeslic.cre~ ~override~
+				~%tutu_var%yeslic5.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2582,8 +2670,8 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 107 1
 		SET_BG2_PROFICIENCY 112 1
 		BUT_ONLY
-	COPY_EXISTING ~branwe.cre~ ~override~
-				~branwe5.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%branwe.cre~ ~override~
+				~%tutu_var%branwe5.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2599,9 +2687,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 107 1
 		SET_BG2_PROFICIENCY 112 1
 		BUT_ONLY
-	COPY_EXISTING ~quayle.cre~ ~override~
-				~quayle4.cre~ ~override~
-				~quayle6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%%quayle_var%.cre~ ~override~
+				~%tutu_var%quayle4.cre~ ~override~
+				~%tutu_var%quayle6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2615,9 +2703,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 100 1
 		SET_BG2_PROFICIENCY 102 1
 		BUT_ONLY
-	COPY_EXISTING ~viconi.cre~ ~override~
-				~viconi4.cre~ ~override~
-				~viconi6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%viconi.cre~ ~override~
+				~%tutu_var%viconi4.cre~ ~override~
+				~%tutu_var%%viconi6_var%.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2632,9 +2720,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 102 1
 		SET_BG2_PROFICIENCY 103 1
 		BUT_ONLY
-	COPY_EXISTING ~tiax.cre~ ~override~
-				~tiax4.cre~ ~override~
-				~tiax6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%tiax.cre~ ~override~
+				~%tutu_var%tiax4.cre~ ~override~
+				~%tutu_var%tiax6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2649,10 +2737,10 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 101 1
 		SET_BG2_PROFICIENCY 103 1
 		BUT_ONLY
-	COPY_EXISTING ~minsc.cre~ ~override~
-				~minsc2.cre~ ~override~
-				~minsc4.cre~ ~override~
-				~minsc6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%minsc.cre~ ~override~
+				~%tutu_var%minsc2.cre~ ~override~
+				~%tutu_var%minsc4.cre~ ~override~
+				~%tutu_var%minsc6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2671,9 +2759,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 98 1
 		SET_BG2_PROFICIENCY 103 1
 		BUT_ONLY
-	COPY_EXISTING ~kivan.cre~ ~override~
-				~kivan4.cre~ ~override~
-				~kivan6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%kivan.cre~ ~override~
+				~%tutu_var%kivan4.cre~ ~override~
+				~%tutu_var%kivan6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2691,10 +2779,10 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 102 1
 		SET_BG2_PROFICIENCY 105 1
 		BUT_ONLY
-	COPY_EXISTING ~khalid.cre~ ~override~
-				~khalid2.cre~ ~override~
-				~khalid4.cre~ ~override~
-				~khalid6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%khalid.cre~ ~override~
+				~%tutu_var%khalid2.cre~ ~override~
+				~%tutu_var%khalid4.cre~ ~override~
+				~%tutu_var%khalid6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2714,10 +2802,10 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 112 1
 		SET_BG2_PROFICIENCY 113 1
 		BUT_ONLY
-	COPY_EXISTING ~kagain.cre~ ~override~
-				~kagain2.cre~ ~override~
-				~kagain4.cre~ ~override~
-				~kagain6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%kagain.cre~ ~override~
+				~%tutu_var%kagain2.cre~ ~override~
+				~%tutu_var%kagain4.cre~ ~override~
+				~%tutu_var%kagain6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2737,9 +2825,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 107 1
 		SET_BG2_PROFICIENCY 114 1
 		BUT_ONLY
-	COPY_EXISTING ~sharte.cre~ ~override~
-				~sharte4.cre~ ~override~
-				~sharte6.cre~ ~override~
+	COPY_EXISTING ~%tutu_var%sharte.cre~ ~override~
+				~%tutu_var%sharte4.cre~ ~override~
+				~%tutu_var%sharte6.cre~ ~override~
 		WRITE_SHORT 0x0234 1 //sets level to 1
 		WRITE_SHORT 0x0235 1
 		WRITE_SHORT 0x0236 1
@@ -2760,6 +2848,7 @@ ACTION_IF GAME_IS ~bgee tutu bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 114 1
 		BUT_ONLY
 END
+/*
 ACTION_IF FILE_EXISTS_IN_GAME ~xan.cre~ THEN BEGIN
 	COPY_EXISTING ~xan.cre~ ~override~
 		SET_BG2_PROFICIENCY 90 1
@@ -2807,7 +2896,8 @@ ACTION_IF GAME_IS ~bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 103 1
 		BUT_ONLY
 END
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+*/
+ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
 	COPY_EXISTING ~dorn.cre~ ~override~
 				~dorn2.cre~ ~override~
 				~dorn4.cre~ ~override~
@@ -2861,7 +2951,7 @@ END
 
 //ADD PROFICIENCIES TO BG2 NPCS______________________________________________________
 //
-ACTION_IF GAME_IS ~tob bgt bg2ee~ THEN BEGIN
+ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 	COPY_EXISTING ~edwin7.cre~ ~override~
 		SET_BG2_PROFICIENCY 115 1
 		SET_BG2_PROFICIENCY 103 1
@@ -3341,7 +3431,7 @@ ACTION_IF GAME_IS ~tob bgt bg2ee~ THEN BEGIN
 		SET_BG2_PROFICIENCY 114 1
 		BUT_ONLY
 END
-ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
 	COPY_EXISTING ~dorn8.cre~ ~override~
 				~dorn9.cre~ ~override~
 				~dorn10.cre~ ~override~
@@ -5797,7 +5887,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~d5_kensai.d5~ BEGIN
   ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	STRING_SET 25362 @2648
   END
-  ACTION_IF ENGINE_IS ~tob bg2ee~ THEN BEGIN
+  ACTION_IF ENGINE_IS ~tob bg2ee eet~ THEN BEGIN
 	STRING_SET 25204 @2648
   END
   ACTION_IF ENGINE_IS ~iwdee~ THEN BEGIN

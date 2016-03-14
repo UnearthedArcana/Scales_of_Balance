@@ -1,8 +1,8 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v1.6.2~
-README ~scales_of_balance/readme-M_n_G.html~
+VERSION ~v5.1~
+README ~scales_of_balance/readme-SoB.html~
 
 ALWAYS
 
@@ -15,6 +15,37 @@ ALWAYS
 	INCLUDE ~scales_of_balance/lib/spell_to_innate.tpa~
 
 	INCLUDE ~scales_of_balance/lib/fl#add_kit_ee.tpa~
+
+// joinable NPC issues for tutu/bgt/eet:
+  ACTION_IF GAME_IS ~bgee~ BEGIN
+    OUTER_SPRINT tutu_var ~~
+    OUTER_SPRINT imoen6_var ~imoen6~
+    OUTER_SPRINT quayle_var ~quayle~
+    OUTER_SPRINT viconi6_var ~viconi6~
+    OUTER_SPRINT xan_var ~xan~
+    OUTER_SPRINT xzar_var ~xzar~
+  END ELSE ACTION_IF GAME_IS ~eet~ BEGIN
+    OUTER_SPRINT tutu_var ~~
+    OUTER_SPRINT imoen6_var ~imoen6_~
+    OUTER_SPRINT quayle_var ~quayle_~
+    OUTER_SPRINT viconi6_var ~viconi6_~
+    OUTER_SPRINT xan_var ~xan_~
+    OUTER_SPRINT xzar_var ~xzar_~
+  END ELSE ACTION_IF GAME_IS ~bgt~ BEGIN
+    OUTER_SPRINT tutu_var ~~
+    OUTER_SPRINT imoen6_var ~imoen61~
+    OUTER_SPRINT quayle_var ~bgquayle~
+    OUTER_SPRINT viconi6_var ~viconi61~
+    OUTER_SPRINT xan_var ~bgxan~
+    OUTER_SPRINT xzar_var ~bgxzar~
+  END ELSE ACTION_IF GAME_IS ~tutu tutu_totsc~ BEGIN
+    OUTER_SPRINT tutu_var ~_~
+    OUTER_SPRINT imoen6_var ~imoen6~
+    OUTER_SPRINT quayle_var ~quayle~
+    OUTER_SPRINT viconi6_var ~viconi6~
+    OUTER_SPRINT xan_var ~xan~
+    OUTER_SPRINT xzar_var ~xzar~
+  END
 
 END
 
@@ -115,7 +146,7 @@ INCLUDE ~scales_of_balance/components/125_wpo_5.tpa~
 //__________________________________________________________________________________
 
 
-/*
+
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
@@ -132,7 +163,7 @@ INCLUDE ~scales_of_balance/spells/save_list_base.tpa~
 
 INCLUDE ~scales_of_balance/components/160_sto.tpa~
 //__________________________________________________________________________________
-*/
+
 
 
 //__________________________________________________________________________________

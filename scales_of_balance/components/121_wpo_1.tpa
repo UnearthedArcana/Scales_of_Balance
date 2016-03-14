@@ -33,38 +33,42 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY 27 2 1 RESOLVE_STR_REF (@1225)
 	SET_2DA_ENTRY 28 2 1 RESOLVE_STR_REF (@1229)
 	SET_2DA_ENTRY 29 2 1 RESOLVE_STR_REF (@1225)
-	BUT_ONLY
+BUT_ONLY
 
 ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	STRING_SET 24315 @1222
-//	STRING_SET 25000 @1223
-//	STRING_SET 25004 @1224
-//	STRING_SET 25005 @1225
-//	STRING_SET 25006 @1226
-//	STRING_SET 25007 @1227
-//	STRING_SET 25010 @1228
-//	STRING_SET 25011 @1225
-//	STRING_SET 25016 @1225
-//	STRING_SET 25017 @1229
-//	STRING_SET 25018 @1225
+/*
+	STRING_SET 25000 @1223
+	STRING_SET 25004 @1224
+	STRING_SET 25005 @1225
+	STRING_SET 25006 @1226
+	STRING_SET 25007 @1227
+	STRING_SET 25010 @1228
+	STRING_SET 25011 @1225
+	STRING_SET 25016 @1225
+	STRING_SET 25017 @1229
+	STRING_SET 25018 @1225
+*/
 	STRING_SET 25024 ~ ~
 	STRING_SET 25029 ~ ~
 	STRING_SET 25035 ~ ~
 	STRING_SET 25040 ~ ~
 	STRING_SET 25042 ~ ~
 END
-ACTION_IF GAME_IS ~tob bgt tutu bg2ee~ THEN BEGIN
+ACTION_IF GAME_IS ~tob bgt tutu bg2ee eet~ THEN BEGIN
 	STRING_SET 9588 @1222
-//	STRING_SET 31113 @1223
-//	STRING_SET 31117 @1224
-//	STRING_SET 31118 @1225
-//	STRING_SET 31119 @1226
-//	STRING_SET 31120 @1227
-//	STRING_SET 31122 @1228
-//	STRING_SET 31123 @1225
-//	STRING_SET 31128 @1225
-//	STRING_SET 31129 @1229
-//	STRING_SET 31130 @1225
+/*
+	STRING_SET 31113 @1223
+	STRING_SET 31117 @1224
+	STRING_SET 31118 @1225
+	STRING_SET 31119 @1226
+	STRING_SET 31120 @1227
+	STRING_SET 31122 @1228
+	STRING_SET 31123 @1225
+	STRING_SET 31128 @1225
+	STRING_SET 31129 @1229
+	STRING_SET 31130 @1225
+*/
 	STRING_SET 34146 ~ ~
 	STRING_SET 34151 ~ ~
 	STRING_SET 34158 ~ ~
@@ -73,16 +77,18 @@ ACTION_IF GAME_IS ~tob bgt tutu bg2ee~ THEN BEGIN
 END
 ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 	STRING_SET 9588 @1222
-//	STRING_SET 36799 @1223 // bastard sw
-//	STRING_SET 36807 @1224 // 2-H sw
-//	STRING_SET 36809 @1225 // katana
-//	STRING_SET 36811 @1226 // scimitar
-//	STRING_SET 36813 @1227 // dagger
-//	STRING_SET 36819 @1228 // spear
-//	STRING_SET 36821 @1225 // halberd
-//	STRING_SET 37719 @1225 // longbow
-//	STRING_SET 37721 @1229 // shortbow
-//	STRING_SET 37723 @1225 // dart
+/*
+	STRING_SET 36799 @1223 // bastard sw
+	STRING_SET 36807 @1224 // 2-H sw
+	STRING_SET 36809 @1225 // katana
+	STRING_SET 36811 @1226 // scimitar
+	STRING_SET 36813 @1227 // dagger
+	STRING_SET 36819 @1228 // spear
+	STRING_SET 36821 @1225 // halberd
+	STRING_SET 37719 @1225 // longbow
+	STRING_SET 37721 @1229 // shortbow
+	STRING_SET 37723 @1225 // dart
+*/
 	STRING_SET 36800 ~ ~ // bastard sw
 	STRING_SET 36810 ~ ~ // katana
 	STRING_SET 36822 ~ ~ // halberd
@@ -94,6 +100,7 @@ END
 
 //AMEND WEAPPROF.2da_______________________________________________________________
 //
+/*
 COPY_EXISTING ~weapprof.2da~ ~override~
 	// Fighter
 	SET_2DA_ENTRY_LATER ~#weapprof~ 11 5 0
@@ -389,7 +396,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 29 53 0
 	SET_2DA_ENTRIES_NOW ~#weapprof~ 1
 
-ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee iwdee eet~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Blackguard
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 11 54 0
@@ -427,17 +434,18 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 22 59 0
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 27 59 0
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 29 59 0
+
+		// Tyr
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 11 61 0
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 16 61 0
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 22 61 0
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 27 61 0
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 29 61 0
 		SET_2DA_ENTRIES_NOW ~EE#weapprof~ 1
 END
 	
 ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
-		// Tyr
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 11 61 0
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 16 61 0
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 22 61 0
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 27 61 0
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 29 61 0
 		// Tempus
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 11 62 0
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 16 62 0
@@ -481,15 +489,15 @@ DEFINE_ACTION_FUNCTION mod_cleric_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 11 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 16 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 22 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 27 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 29 (col + 1) 0
+					SET_2DA_ENTRY_LATER C#weapprof 11 (col + 1) 0
+					SET_2DA_ENTRY_LATER C#weapprof 16 (col + 1) 0
+					SET_2DA_ENTRY_LATER C#weapprof 22 (col + 1) 0
+					SET_2DA_ENTRY_LATER C#weapprof 27 (col + 1) 0
+					SET_2DA_ENTRY_LATER C#weapprof 29 (col + 1) 0
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW C#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -530,15 +538,15 @@ DEFINE_ACTION_FUNCTION mod_druid_combine BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 11 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 16 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 22 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 27 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 29 (col + 1) 0
+					SET_2DA_ENTRY_LATER D#weapprof 11 (col + 1) 0
+					SET_2DA_ENTRY_LATER D#weapprof 16 (col + 1) 0
+					SET_2DA_ENTRY_LATER D#weapprof 22 (col + 1) 0
+					SET_2DA_ENTRY_LATER D#weapprof 27 (col + 1) 0
+					SET_2DA_ENTRY_LATER D#weapprof 29 (col + 1) 0
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW D#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -579,15 +587,15 @@ DEFINE_ACTION_FUNCTION mod_thief_combine BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 11 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 16 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 22 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 27 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 29 (col + 1) 0
+					SET_2DA_ENTRY_LATER T#weapprof 11 (col + 1) 0
+					SET_2DA_ENTRY_LATER T#weapprof 16 (col + 1) 0
+					SET_2DA_ENTRY_LATER T#weapprof 22 (col + 1) 0
+					SET_2DA_ENTRY_LATER T#weapprof 27 (col + 1) 0
+					SET_2DA_ENTRY_LATER T#weapprof 29 (col + 1) 0
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW T#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -628,15 +636,15 @@ DEFINE_ACTION_FUNCTION mod_bard_combine BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 11 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 16 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 22 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 27 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 29 (col + 1) 0
+					SET_2DA_ENTRY_LATER B#weapprof 11 (col + 1) 0
+					SET_2DA_ENTRY_LATER B#weapprof 16 (col + 1) 0
+					SET_2DA_ENTRY_LATER B#weapprof 22 (col + 1) 0
+					SET_2DA_ENTRY_LATER B#weapprof 27 (col + 1) 0
+					SET_2DA_ENTRY_LATER B#weapprof 29 (col + 1) 0
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW B#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -677,15 +685,15 @@ DEFINE_ACTION_FUNCTION mod_ranger_combine BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 11 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 16 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 22 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 27 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 29 (col + 1) 0
+					SET_2DA_ENTRY_LATER R#weapprof 11 (col + 1) 0
+					SET_2DA_ENTRY_LATER R#weapprof 16 (col + 1) 0
+					SET_2DA_ENTRY_LATER R#weapprof 22 (col + 1) 0
+					SET_2DA_ENTRY_LATER R#weapprof 27 (col + 1) 0
+					SET_2DA_ENTRY_LATER R#weapprof 29 (col + 1) 0
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW R#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -726,15 +734,15 @@ DEFINE_ACTION_FUNCTION mod_paladin_combine BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 11 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 16 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 22 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 27 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 29 (col + 1) 0
+					SET_2DA_ENTRY_LATER P#weapprof 11 (col + 1) 0
+					SET_2DA_ENTRY_LATER P#weapprof 16 (col + 1) 0
+					SET_2DA_ENTRY_LATER P#weapprof 22 (col + 1) 0
+					SET_2DA_ENTRY_LATER P#weapprof 27 (col + 1) 0
+					SET_2DA_ENTRY_LATER P#weapprof 29 (col + 1) 0
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW P#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
@@ -775,21 +783,36 @@ DEFINE_ACTION_FUNCTION mod_fighter_combine BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER wweapprof 11 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 16 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 22 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 27 (col + 1) 0
-					SET_2DA_ENTRY_LATER wweapprof 29 (col + 1) 0
+					SET_2DA_ENTRY_LATER F#weapprof 11 (col + 1) 0
+					SET_2DA_ENTRY_LATER F#weapprof 16 (col + 1) 0
+					SET_2DA_ENTRY_LATER F#weapprof 22 (col + 1) 0
+					SET_2DA_ENTRY_LATER F#weapprof 27 (col + 1) 0
+					SET_2DA_ENTRY_LATER F#weapprof 29 (col + 1) 0
 				END
 			END
 		END
-		SET_2DA_ENTRIES_NOW wweapprof 1
+		SET_2DA_ENTRIES_NOW F#weapprof 1
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 END
 
 LAF mod_fighter_combine END
 //__________________________________________________________________________________
+*/
+
+COPY_EXISTING ~WEAPPROF.2DA~ override
+	READ_2DA_ENTRIES_NOW weapprof 3
+	COUNT_2DA_COLS cols
+	FOR (col = 0; col < cols - 1; ++col) BEGIN
+		SET_2DA_ENTRY_LATER F#weapprof 11 (col + 1) 0
+		SET_2DA_ENTRY_LATER F#weapprof 16 (col + 1) 0
+		SET_2DA_ENTRY_LATER F#weapprof 22 (col + 1) 0
+		SET_2DA_ENTRY_LATER F#weapprof 27 (col + 1) 0
+		SET_2DA_ENTRY_LATER F#weapprof 29 (col + 1) 0
+	END
+	SET_2DA_ENTRIES_NOW F#weapprof 1
+	PRETTY_PRINT_2DA
+BUT_ONLY
 
 
 //MERGE HALBERDS > SPEARS___________________________________________________________
