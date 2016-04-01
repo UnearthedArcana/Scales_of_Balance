@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.0 </strong><br />
+  <p><strong> Version 5.1 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -207,14 +207,20 @@
   <h4 class="subheader">Component 205: </h4>
   <div class="section">
     <p><strong><em>Revised Hit Point Tables</em></strong></p>
-      <p>This component takes some of the randomness out of hit point rolls. In the vanilla system, a warrior with 16 CON can actually get *fewer* hit points at level-up than a mage with 8 CON. That only leads to annoying reloads or constant moving of the difficulty bar to get max hp (which is just too cheaty, and perverts various game mechanics). With this component, there are still rolls, but the roll will always seem fair and should never cause you to feel you need to reload or go below Core difficulty. Every single point of CON above 11 provides some real benefit. And that 16 CON warrior will get between 8 and 10 hit points per level, instead of from 3 to 12. Higher average rolls, and more satisfying numbers, but not overpowered.<br />
+      <p>This component takes some of the randomness out of hit point rolls. In the vanilla system, a warrior with 16 CON can actually get *fewer* hit points at level-up than a mage with 8 CON. That only leads to annoying reloads or constant moving of the difficulty bar to get max hp (which is just too cheaty, and perverts various game mechanics). With this component, there are still rolls, but the roll will always seem fair and should never cause you to feel you need to reload or go below Core difficulty. That 16 CON warrior will get between 9 and 12 hit points per level, instead of from 3 to 12. Higher average rolls, and more satisfying numbers, but not overpowered.<br />
       <ul>
-      	<li>Wizard hit dice is now 1d4. Rogue hit dice is 1d5+1. Priest hit dice is 1d6+1. And Warrior hit dice is 1d6+3 (1d8+3 for barbarians).</li>
-      	<li>Non-warriors get an extra hit point for every odd point of CON starting at 13.</li>
-      	<li>The minimum roll for all hit dice rolls is 2 at 12 CON, 3 at 14 CON, and 4 at 16 CON.</li>
-      	<li>Everyone gets some slow hit point regeneration at 18 CON, and the regeneration speeds up a bit with every even point of CON above that.</li>
+      	<li>Wizard hit dice is now 1d3+1. Rogue and priest hit dice is 2d3+1. And warrior hit dice is 3d3+1 (3d4+1 for barbarians).</li>
+      	<li>Everyone gets an extra hit point at 15 CON and 16 CON (like vanilla), plus an extra hit point at 21, 23, and 25 CON (so stat-boosting spells and effects can actually increase your hit points). Warriors also get a bonus hit point at 19 CON.</li>
+      	<li>The minimum roll for those d3 rolls is 2 at 14 CON, and 3 at 18 CON. (So 18 CON means max hit points.)</li>
+      	<li>Everyone gets very slow hit point regeneration (1 hp per 3 turns) at 17 CON. The regeneration speeds up a bit at 19 CON (1 per turn), 20 CON (1 per 4 rounds), 22 CON (1 per 2 rounds), 24 CON (1 per round) and 25 CON (2 per round).</li>
       </ul>
-      <p>Additionally, this smooths out the decline in added hp. Everyone stops getting hit dice after 9th level. Warriors get 4/level from 10 to 15, then 3/level from 16 to 25, and 2/level after that. Rogues and priests get 3/level from 10 to 15, 2/level from 16 to 25, and 1 per level after that. Wizards get 2/level from 10 to 15, and 1/level after that.</p>
+      <p>Additionally, this smooths out the decline in added hp. Everyone stops getting hit dice after 8th level. 
+      <ul>
+      	<li>Warriors get 4/level from 10 to 15, then 3/level from 16 to 25, and 2/level after that. </li>
+      	<li>Rogues and priests get 3/level from 10 to 15, 2/level from 16 to 25, and 1 per level after that. </li>
+      	<li>Wizards get 2/level from 10 to 15, and 1/level after that. </li>
+      </ul>
+      <p>Finally, I have added an alternate hardcore version of this component, which eliminates 1 hp from each class (so wizards are 1d3, rogues/priests are 2d3, and warriors are 3d3). The regular component should give hit points somewhere between the vanilla game's mean and max values; the hardcore variant should result in hit points closer to the mean. </p>
   </div>
   <h4 class="subheader">Component 210: </h4>
   <div class="section">
@@ -246,6 +252,11 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.1 - March 2016</strong></p>
+  <ul>
+    <li>EET and EE 2.0 compatibility</li>
+    <li>changed hit dice component, added hardcore variant</li>
+  </ul>
   <p><strong>Version 5.0 - February 2016</strong></p>
   <ul>
     <li>major re-write and revival</li>

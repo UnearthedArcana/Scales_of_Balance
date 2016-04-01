@@ -210,12 +210,22 @@ INCLUDE ~scales_of_balance/components/200_stats.tpa~
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-BEGIN @205
-DESIGNATED 205
+BEGIN @206
+DESIGNATED 206
+SUBCOMPONENT @205
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "20") @4
 //GROUP @22
 
-INCLUDE ~scales_of_balance/components/205_hit_dice.tpa~
+INCLUDE ~scales_of_balance/components/206_hit_dice.tpa~
+//__________________________________________________________________________________
+
+BEGIN @207
+DESIGNATED 207
+SUBCOMPONENT @205
+//REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "20") @4
+//GROUP @22
+
+INCLUDE ~scales_of_balance/components/207_hit_dice_hc.tpa~
 //__________________________________________________________________________________
 
 
