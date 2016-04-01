@@ -16,6 +16,10 @@ ALWAYS
 
 	INCLUDE ~scales_of_balance/lib/fl#add_kit_ee.tpa~
 
+	ACTION_IF GAME_IS ~bgee~ BEGIN
+		COPY ~scales_of_balance/compatibility/25stweap.2da~ ~override~
+	END
+
 // joinable NPC issues for tutu/bgt/eet:
   ACTION_IF GAME_IS ~bgee~ BEGIN
     OUTER_SPRINT tutu_var ~~
