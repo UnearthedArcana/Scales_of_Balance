@@ -341,6 +341,26 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 20 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 20 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 20 0
+	// Ranger/Cleric
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 15 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 24 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 21 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 21 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 21 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 21 3
 	// Wizards
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 4 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 4 1
@@ -743,11 +763,14 @@ END
 ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Shaman
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 17 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 9 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 14 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 17 60 0
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 18 60 3
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 20 60 3
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 21 60 3
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 25 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 28 60 3
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 30 60 3
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 31 60 1
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 32 60 0
@@ -758,11 +781,14 @@ END
 ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Shaman
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 17 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 9 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 14 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 17 62 0
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 18 62 3
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 20 62 3
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 21 62 3
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 25 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 28 62 3
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 30 62 3
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 31 62 1
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 32 62 0
@@ -806,63 +832,6 @@ ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 33 62 1
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 34 62 0
 	SET_2DA_ENTRIES_NOW ~IEE#weapprof~ 1
-END
-
-//CHECK FOR R/C DRUID SPELLS____________________________________________________________
-//
-ACTION_IF FILE_EXISTS ~%USER_DIRECTORY%/Baldur.ini~ THEN BEGIN
-
-COPY - ~%USER_DIRECTORY%/Baldur.ini~ ~%USER_DIRECTORY%~
-  COUNT_REGEXP_INSTANCES ~'Cleric Ranger Spells',[ %TAB%]*'1'~ cr_bugfix_enabled
-
-  ACTION_IF (cr_bugfix_enabled) BEGIN // no druid spells for cleric/rangers
-	COPY_EXISTING ~weapprof.2da~ ~override~
-		// Ranger/Cleric
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 12 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 13 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 14 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 15 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 17 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 18 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 19 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 20 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 21 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 23 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 24 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 25 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 26 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 28 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 30 21 4
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 31 21 2
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 32 21 2
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 33 21 2
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 34 21 3
-	SET_2DA_ENTRIES_NOW ~RC#weapprof~ 1
-  END
-  ELSE BEGIN
-	COPY_EXISTING ~weapprof.2da~ ~override~
-		// Ranger/Cleric
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 12 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 13 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 14 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 15 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 17 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 18 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 19 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 20 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 21 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 23 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 24 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 25 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 26 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 28 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 30 21 3
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 31 21 2
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 32 21 2
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 33 21 2
-		SET_2DA_ENTRY_LATER ~RC#weapprof~ 34 21 3
-	SET_2DA_ENTRIES_NOW ~RC#weapprof~ 1
-  END
 END
 //__________________________________________________________________________________
 
@@ -1486,7 +1455,12 @@ COPY ~scales_of_balance/profs/d5_pimo.spl~ ~override~
 COPY ~scales_of_balance/profs/d5_pnal.spl~ ~override~
 	SAY NAME1 @1248
 COPY ~scales_of_balance/profs/thac0.2da~ ~override~
-COPY ~scales_of_balance/profs/profsmax.2da~ ~override~
+ACTION_IF GAME_IS ~iwdee tob bgt~ BEGIN
+	COPY ~scales_of_balance/profs/profsmax_i.2da~ ~override/profsmax.2da~
+END
+ACTION_IF GAME_IS ~bgee bg2ee~ BEGIN
+	COPY ~scales_of_balance/profs/profsmax.2da~ ~override~
+END
 COPY ~scales_of_balance/profs/profs.2da~ ~override~
 COPY ~scales_of_balance/misc/d5_numat.spl~ ~override~
 //__________________________________________________________________________________
@@ -1918,7 +1892,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
 		READ_BYTE  0x1e cleric 
 		READ_BYTE  0x1f mcler 
 		READ_SHORT  ~0x1c~ type 
-		PATCH_IF (type = 15 || type = 29 || type = 25 || type = 19 || type = 20 || type = 16) BEGIN // bows, spears, axes, small swords, large swords, daggers
+		PATCH_IF (type = 15 || type = 5 || type = 31 || type = 29 || type = 25 || type = 19 || type = 20 || type = 16) BEGIN // bows, spears, axes, small swords, large swords, daggers
 			WRITE_BYTE 0x1e (cleric BAND 0b01111111)
 			WRITE_BYTE 0x1f (mcler BAND 0b00111000)
   	      PATCH_FOR_EACH offset IN
@@ -2380,9 +2354,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%ajanti.cre~ ~override~
 				~%tutu_var%ajanti4.cre~ ~override~
 				~%tutu_var%ajanti6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 10
@@ -2397,9 +2371,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 		BUT_ONLY
 	COPY_EXISTING ~%tutu_var%alora.cre~ ~override~
 				~%tutu_var%alora6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -2421,9 +2395,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 				~%tutu_var%imoen2.cre~ ~override~
 				~%tutu_var%imoen4.cre~ ~override~
 				~%tutu_var%%imoen6_var%.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -2444,9 +2418,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%safana.cre~ ~override~
 				~%tutu_var%safana4.cre~ ~override~
 				~%tutu_var%safana6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -2467,9 +2441,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 		BUT_ONLY
 	COPY_EXISTING ~%tutu_var%coran.cre~ ~override~
 				~%tutu_var%coran5.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -2490,9 +2464,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 		BUT_ONLY
 	COPY_EXISTING ~%tutu_var%skie.cre~ ~override~
 				~%tutu_var%skie6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -2514,9 +2488,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 				~%tutu_var%montar2.cre~ ~override~
 				~%tutu_var%montar4.cre~ ~override~
 				~%tutu_var%montar6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -2538,9 +2512,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 				~%tutu_var%garric2.cre~ ~override~
 				~%tutu_var%garric4.cre~ ~override~
 				~%tutu_var%garric6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 8
@@ -2554,9 +2528,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 		BUT_ONLY
 	COPY_EXISTING ~%tutu_var%eldoth.cre~ ~override~
 				~%tutu_var%eldoth5.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 7
@@ -2624,9 +2598,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 				~%tutu_var%jaheir2.cre~ ~override~
 				~%tutu_var%jaheir4.cre~ ~override~
 				~%tutu_var%jaheir6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 9
@@ -2640,9 +2614,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 		BUT_ONLY
 	COPY_EXISTING ~%tutu_var%faldor.cre~ ~override~
 				~%tutu_var%faldor5.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 7
@@ -2655,9 +2629,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 		BUT_ONLY
 	COPY_EXISTING ~%tutu_var%yeslic.cre~ ~override~
 				~%tutu_var%yeslic5.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 10
@@ -2672,9 +2646,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 		BUT_ONLY
 	COPY_EXISTING ~%tutu_var%branwe.cre~ ~override~
 				~%tutu_var%branwe5.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 8
@@ -2690,9 +2664,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%%quayle_var%.cre~ ~override~
 				~%tutu_var%quayle4.cre~ ~override~
 				~%tutu_var%quayle6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 5
@@ -2706,9 +2680,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%viconi.cre~ ~override~
 				~%tutu_var%viconi4.cre~ ~override~
 				~%tutu_var%%viconi6_var%.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 7
@@ -2723,9 +2697,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%tiax.cre~ ~override~
 				~%tutu_var%tiax4.cre~ ~override~
 				~%tutu_var%tiax6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 6
@@ -2741,9 +2715,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 				~%tutu_var%minsc2.cre~ ~override~
 				~%tutu_var%minsc4.cre~ ~override~
 				~%tutu_var%minsc6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -2762,9 +2736,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%kivan.cre~ ~override~
 				~%tutu_var%kivan4.cre~ ~override~
 				~%tutu_var%kivan6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -2783,9 +2757,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 				~%tutu_var%khalid2.cre~ ~override~
 				~%tutu_var%khalid4.cre~ ~override~
 				~%tutu_var%khalid6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -2806,9 +2780,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 				~%tutu_var%kagain2.cre~ ~override~
 				~%tutu_var%kagain4.cre~ ~override~
 				~%tutu_var%kagain6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -2828,9 +2802,9 @@ ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%sharte.cre~ ~override~
 				~%tutu_var%sharte4.cre~ ~override~
 				~%tutu_var%sharte6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -2860,9 +2834,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~xan.cre~ THEN BEGIN
 	END
 ACTION_IF GAME_IS ~bgt~ THEN BEGIN
 	COPY_EXISTING ~imoen61.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -2881,9 +2855,9 @@ ACTION_IF GAME_IS ~bgt~ THEN BEGIN
 		SET_BG2_PROFICIENCY 113 1
 		BUT_ONLY
 	COPY_EXISTING ~viconi61.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 7
@@ -2902,9 +2876,9 @@ ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
 				~dorn2.cre~ ~override~
 				~dorn4.cre~ ~override~
 				~dorn6.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -2984,9 +2958,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~korgan11.cre~ ~override~
 				~korgan12.cre~ ~override~
 				~korgan15.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -3004,9 +2978,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 		SET_BG2_PROFICIENCY 114 1
 		BUT_ONLY
 	COPY_EXISTING ~sarevok.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -3029,9 +3003,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~keldor10.cre~ ~override~
 				~keldor12.cre~ ~override~
 				~keldor14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -3051,9 +3025,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~minsc10.cre~ ~override~
 				~minsc12.cre~ ~override~
 				~minsc14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -3075,9 +3049,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~valyg11.cre~ ~override~
 				~valyg12.cre~ ~override~
 				~valyg14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -3176,9 +3150,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~viconi11.cre~ ~override~
 				~viconi13.cre~ ~override~
 				~viconi16.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 7
 		WRITE_SHORT 0x0026 7
@@ -3196,9 +3170,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~aerie10.cre~ ~override~
 				~aerie11.cre~ ~override~
 				~aerie12.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 7
@@ -3217,9 +3191,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~jaheir12.cre~ ~override~
 				~jahei12b.cre~ ~override~
 				~jahei14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 9
 		WRITE_SHORT 0x0026 9
@@ -3236,9 +3210,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~cernd13.cre~ ~override~
 				~cernd13b.cre~ ~override~
 				~cernd14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -3363,9 +3337,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~jan11.cre~ ~override~
 				~jan12.cre~ ~override~
 				~jan15.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -3389,9 +3363,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~yoshi10.cre~ ~override~
 				~yoshi11.cre~ ~override~
 				~yoshi12.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -3415,9 +3389,9 @@ ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
 				~haer13.cre~ ~override~
 				~haer15.cre~ ~override~
 				~haer19.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 7
@@ -3437,9 +3411,9 @@ ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
 				~dorn10.cre~ ~override~
 				~dorn12.cre~ ~override~
 				~dorn14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -3471,9 +3445,9 @@ ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
 				~ohhex13.cre~ ~override~
 				~ohhex15.cre~ ~override~
 				~ohhex25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -3497,9 +3471,9 @@ ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
 				~ohhfak11.cre~ ~override~
 				~ohhfak13.cre~ ~override~
 				~ohhfak15.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -3537,9 +3511,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~chloe7.cre~ THEN BEGIN
 	COPY_EXISTING ~chloe7.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~chloe7.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 9
 		WRITE_SHORT 0x0026 9
@@ -3553,9 +3527,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~chloe9.cre~ THEN BEGIN
 	COPY_EXISTING ~chloe9.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~chloe9.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 9
 		WRITE_SHORT 0x0026 9
@@ -3569,9 +3543,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~chloe13.cre~ THEN BEGIN
 	COPY_EXISTING ~chloe13.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~chloe13.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 9
 		WRITE_SHORT 0x0026 9
@@ -3585,9 +3559,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~chloe15.cre~ THEN BEGIN
 	COPY_EXISTING ~chloe15.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~chloe15.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 9
 		WRITE_SHORT 0x0026 9
@@ -3601,9 +3575,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~nath07.cre~ THEN BEGIN
 	COPY_EXISTING ~nath07.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~nath07.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -3618,9 +3592,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~nath08.cre~ THEN BEGIN
 	COPY_EXISTING ~nath08.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~nath08.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -3635,9 +3609,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~nath10.cre~ THEN BEGIN
 	COPY_EXISTING ~nath10.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~nath10.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -3652,9 +3626,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~nath25.cre~ THEN BEGIN
 	COPY_EXISTING ~nath25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~nath25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -3799,9 +3773,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~vxvar01.cre~ THEN BEGIN
 	COPY_EXISTING ~vxvar01.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~vxvar01.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -3812,9 +3786,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~vxvar25.cre~ THEN BEGIN
 	COPY_EXISTING ~vxvar25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~VXvar25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -3935,9 +3909,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~o#xanf9.cre~ THEN BEGIN
 	COPY_EXISTING ~o#xanf9.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~o#xanf9.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 7
 		WRITE_SHORT 0x0026 7
@@ -3955,9 +3929,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~o#xan25f.cre~ THEN BEGIN
 	COPY_EXISTING ~o#xan25f.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~o#xan25f.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 7
 		WRITE_SHORT 0x0026 7
@@ -3975,9 +3949,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~adangel.cre~ THEN BEGIN
 	COPY_EXISTING ~adangel.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~adangel.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -3995,9 +3969,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~adang25.cre~ THEN BEGIN
 	COPY_EXISTING ~adang25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~adang25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4015,9 +3989,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~j#indi01.cre~ THEN BEGIN
 	COPY_EXISTING ~j#indi01.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~J#indi01.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4035,9 +4009,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~j#indi03.cre~ THEN BEGIN
 	COPY_EXISTING ~j#indi03.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~j#indi03.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4055,9 +4029,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~j#indi04.cre~ THEN BEGIN
 	COPY_EXISTING ~j#indi04.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~j#indi04.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4075,9 +4049,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~kiyone.cre~ THEN BEGIN
 	COPY_EXISTING ~kiyone.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~kiyone.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4095,9 +4069,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~z#kywed.cre~ THEN BEGIN
 	COPY_EXISTING ~z#kywed.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~z#kywed.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4117,9 +4091,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~zikhalidm.cre~ THEN BEGIN
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~zikhalidm.cre~ ~override~
 				~zikhalid25m.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4139,9 +4113,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~zikhalid.cre~ THEN BEGIN
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~zikhalid.cre~ ~override~
 				~zikhalid25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4162,9 +4136,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~auren.cre~ THEN BEGIN
 	COPY_EXISTING ~auren.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~auren.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4184,9 +4158,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~auren1.cre~ THEN BEGIN
 	COPY_EXISTING ~auren1.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~auren1.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4206,9 +4180,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~b!hal.cre~ THEN BEGIN
 	COPY_EXISTING ~b!hal.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~b!hal.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4228,9 +4202,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~g#tyrs8.cre~ THEN BEGIN
 	COPY_EXISTING ~g#tyrs8.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~g#tyrs8.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4250,9 +4224,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~g#tyrs10.cre~ THEN BEGIN
 	COPY_EXISTING ~g#tyrs10.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~g#tyrs10.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4272,9 +4246,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~g#tyrs11.cre~ THEN BEGIN
 	COPY_EXISTING ~g#tyrs11.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~g#tyrs11.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4294,9 +4268,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~g#tyrs13.cre~ THEN BEGIN
 	COPY_EXISTING ~g#tyrs13.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~g#tyrs13.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4316,9 +4290,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~g#tyrs16.cre~ THEN BEGIN
 	COPY_EXISTING ~g#tyrs16.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~g#tyrs16.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4338,9 +4312,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan08.cre~ THEN BEGIN
 	COPY_EXISTING ~c#ajan08.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~c#ajan08.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4357,9 +4331,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan09.cre~ THEN BEGIN
 	COPY_EXISTING ~c#ajan09.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~C#ajan09.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4376,9 +4350,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan10.cre~ THEN BEGIN
 	COPY_EXISTING ~c#ajan10.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~c#ajan10.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4395,9 +4369,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan12.cre~ THEN BEGIN
 	COPY_EXISTING ~c#ajan12.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~c#ajan12.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4414,9 +4388,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan14.cre~ THEN BEGIN
 	COPY_EXISTING ~c#ajan14.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~c#ajan14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4433,9 +4407,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan16.cre~ THEN BEGIN
 	COPY_EXISTING ~c#ajan16.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~c#ajan16.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4452,9 +4426,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~c#ajatob.cre~ THEN BEGIN
 	COPY_EXISTING ~c#ajatob.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~c#ajatob.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4471,9 +4445,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~rh#isra.cre~ THEN BEGIN
 	COPY_EXISTING ~rh#isra.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~rh#isra.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4490,9 +4464,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~rh#isr.cre~ THEN BEGIN
 	COPY_EXISTING ~rh#isr.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~rh#isr.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4509,9 +4483,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~rh#is25.cre~ THEN BEGIN
 	COPY_EXISTING ~rh#is25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~rh#is25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4528,9 +4502,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~saerilet.cre~ THEN BEGIN
 	COPY_EXISTING ~saerilet.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~saerilet.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4561,9 +4535,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~k#sarah.cre~ THEN BEGIN
 	COPY_EXISTING ~k#sarah.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~k#sarah.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -4583,9 +4557,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~k#sarah1.cre~ THEN BEGIN
 	COPY_EXISTING ~k#sarah1.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~k#sarah1.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
@@ -4605,9 +4579,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~t1dar.cre~ THEN BEGIN
 	COPY_EXISTING ~t1dar.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~t1dar.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 9
 		WRITE_SHORT 0x0026 9
@@ -4625,9 +4599,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~t1dar1.cre~ THEN BEGIN
 	COPY_EXISTING ~t1dar1.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~t1dar1.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 9
 		WRITE_SHORT 0x0026 9
@@ -4645,9 +4619,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~t1dar2.cre~ THEN BEGIN
 	COPY_EXISTING ~t1dar2.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~t1dar2.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 9
 		WRITE_SHORT 0x0026 9
@@ -4665,9 +4639,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~t1dar3.cre~ THEN BEGIN
 	COPY_EXISTING ~t1dar3.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~t1dar3.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 9
 		WRITE_SHORT 0x0026 9
@@ -4685,9 +4659,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~v#1whi.cre~ THEN BEGIN
 	COPY_EXISTING ~v#1whi.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~v#1whi.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4705,9 +4679,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~o#bran.cre~ THEN BEGIN
 	COPY_EXISTING ~o#bran.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~o#bran.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4724,9 +4698,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~o#bran25.cre~ THEN BEGIN
 	COPY_EXISTING ~o#bran25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~o#bran25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4743,9 +4717,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~b!gavin.cre~ THEN BEGIN
 	COPY_EXISTING ~b!gavin.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~b!gavin.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4762,9 +4736,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~b!gavin2.cre~ THEN BEGIN
 	COPY_EXISTING ~b!gavin2.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~b!gavin2.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4781,9 +4755,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~b!gav08.cre~ THEN BEGIN
 	COPY_EXISTING ~b!gav08.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~b!gav08.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4800,9 +4774,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~b!gav13.cre~ THEN BEGIN
 	COPY_EXISTING ~b!gav13.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~b!gav13.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4819,9 +4793,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~tenya.cre~ THEN BEGIN
 	COPY_EXISTING ~tenya.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~tenya.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 8
 		WRITE_SHORT 0x0026 8
@@ -4838,9 +4812,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~lk#neph.cre~ THEN BEGIN
 	COPY_EXISTING ~lk#neph.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~lk#neph.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 7
 		WRITE_SHORT 0x0026 7
@@ -4857,9 +4831,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~lk#yesl.cre~ THEN BEGIN
 	COPY_EXISTING ~lk#yesl.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~lk#yesl.cre~ ~override~
-		WRITE_SHORT 0x0234 1 // sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 // sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_SHORT 0x0024 10
 		WRITE_SHORT 0x0026 10
@@ -4878,9 +4852,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~k-rose.cre~ THEN BEGIN
 	COPY_EXISTING ~k-rose.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~k-rose.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 7
@@ -4898,9 +4872,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~keto08.cre~ THEN BEGIN
 	COPY_EXISTING ~keto08.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~keto08.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 7
@@ -4918,9 +4892,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~keto10.cre~ THEN BEGIN
 	COPY_EXISTING ~keto10.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~keto10.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 7
@@ -4938,9 +4912,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~keto12.cre~ THEN BEGIN
 	COPY_EXISTING ~keto12.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~keto12.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x006a 5
 		WRITE_SHORT 0x0024 7
@@ -4958,9 +4932,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~alora09.cre~ THEN BEGIN
 	COPY_EXISTING ~alora09.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~alora09.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -4984,9 +4958,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~alora25.cre~ THEN BEGIN
 	COPY_EXISTING ~alora25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~alora25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5010,9 +4984,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~o#coran.cre~ THEN BEGIN
 	COPY_EXISTING ~o#coran.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~o#coran.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5036,9 +5010,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~o#cor25.cre~ THEN BEGIN
 	COPY_EXISTING ~o#cor25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~o#cor25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5062,9 +5036,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~t#dace8.cre~ THEN BEGIN
 	COPY_EXISTING ~t#dace8.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~t#dace8.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5088,9 +5062,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~t#dace12.cre~ THEN BEGIN
 	COPY_EXISTING ~t#dace12.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~t#dace12.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5114,9 +5088,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~t#dace14.cre~ THEN BEGIN
 	COPY_EXISTING ~t#dace14.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~t#dace14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5140,9 +5114,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~e3fade13.cre~ THEN BEGIN
 	COPY_EXISTING ~e3fade13.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~e3fade13.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5166,9 +5140,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~e3fade25.cre~ THEN BEGIN
 	COPY_EXISTING ~e3fade25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~e3fade25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5192,9 +5166,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~m#ambr10.cre~ THEN BEGIN
 	COPY_EXISTING ~m#ambr10.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~m#ambr10.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5218,9 +5192,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~m#ambr12.cre~ THEN BEGIN
 	COPY_EXISTING ~m#ambr12.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~m#ambr12.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5244,9 +5218,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~m#ambr14.cre~ THEN BEGIN
 	COPY_EXISTING ~m#ambr14.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~m#ambr14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5270,9 +5244,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~m#ambr15.cre~ THEN BEGIN
 	COPY_EXISTING ~m#ambr15.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~m#ambr15.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5296,9 +5270,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~mfrn09.cre~ THEN BEGIN
 	COPY_EXISTING ~mfrn09.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~mfrn09.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5322,9 +5296,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~mfrn11.cre~ THEN BEGIN
 	COPY_EXISTING ~mfrn11.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~mfrn11.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5348,9 +5322,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~mfrn12.cre~ THEN BEGIN
 	COPY_EXISTING ~mfrn12.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~mfrn12.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5374,9 +5348,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~mfrn13.cre~ THEN BEGIN
 	COPY_EXISTING ~mfrn13.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~mfrn13.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5400,9 +5374,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~mfrn14.cre~ THEN BEGIN
 	COPY_EXISTING ~mfrn14.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~mfrn14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5426,9 +5400,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~mfrn25.cre~ THEN BEGIN
 	COPY_EXISTING ~mfrn25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~mfrn25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5452,9 +5426,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~rofrn09.cre~ THEN BEGIN
 	COPY_EXISTING ~rofrn09.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~rofrn09.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5478,9 +5452,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~rofrn11.cre~ THEN BEGIN
 	COPY_EXISTING ~rofrn11.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~rofrn11.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5504,9 +5478,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~rofrn12.cre~ THEN BEGIN
 	COPY_EXISTING ~rofrn12.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~rofrn12.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5530,9 +5504,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~rofrn13.cre~ THEN BEGIN
 	COPY_EXISTING ~rofrn13.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~rofrn13.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5556,9 +5530,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~rofrn14.cre~ THEN BEGIN
 	COPY_EXISTING ~rofrn14.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~rofrn14.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5582,9 +5556,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~rofrn25.cre~ THEN BEGIN
 	COPY_EXISTING ~rofrn25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~rofrn25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5608,9 +5582,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~kova.cre~ THEN BEGIN
 	COPY_EXISTING ~kova.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~kova.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5634,9 +5608,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~z#kvwed.cre~ THEN BEGIN
 	COPY_EXISTING ~z#kvwed.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~z#kvwed.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5660,9 +5634,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~l3petsy.cre~ THEN BEGIN
 	COPY_EXISTING ~l3petsy.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~l3petsy.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5686,9 +5660,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~l3pet25.cre~ THEN BEGIN
 	COPY_EXISTING ~l3pet25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~l3pet25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5712,9 +5686,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~1xskie2.cre~ THEN BEGIN
 	COPY_EXISTING ~1xskie2.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~1xskie2.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5738,9 +5712,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~1xskie3.cre~ THEN BEGIN
 	COPY_EXISTING ~1xskie3.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~1xskie3.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5764,9 +5738,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~gv#vynd.cre~ THEN BEGIN
 	COPY_EXISTING ~gv#vynd.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~gv#vynd.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5790,9 +5764,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~o#tiax.cre~ THEN BEGIN
 	COPY_EXISTING ~o#tiax.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~o#tiax.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5
@@ -5816,9 +5790,9 @@ ACTION_IF FILE_EXISTS_IN_GAME ~o#tiax25.cre~ THEN BEGIN
 	COPY_EXISTING ~o#tiax25.cre~ ~override~
 		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	COPY_EXISTING ~o#tiax25.cre~ ~override~
-		WRITE_SHORT 0x0234 1 //sets level to 1
-		WRITE_SHORT 0x0235 1
-		WRITE_SHORT 0x0236 1
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 10
 		WRITE_BYTE 0x0064 5
 		WRITE_BYTE 0x0065 5

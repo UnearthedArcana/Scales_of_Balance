@@ -140,6 +140,7 @@
   <h4 class="subheader">Component 123: </h4>
   <div class="section">
     <p><strong><em>WPO part 3: Hardcore Dual-Classing Rules</em></strong></p>
+      <p>PLEASE NOTE, THIS COMPONENT HAS BEEN DISABLED WHILE I FIX AND EXTEND IT. APOLOGIES.</p>
       <p>This component aims to fix a longstanding bug in the games: when you dual-class, your weapon proficiency advancement is supposed to be capped by your <strong>new</strong> class, not your old one. In BG you can start with a fighter, dual to thief at level 2, and still proceed to Grandmastery with bastard swords.  No more!  Now, when you dual-class from one of the eight base warrior kits (Fighter, Wizard Slayer, Berserker, Kensai, Ranger, Archer, Beastmaster, or Stalker) you will be limited to Mastery (+++) in any future advancement.</p>
       <p>If you install this component <i>without</i> having first installed component 122, it will cap advancement at specialization (++).</p>
   </div>
@@ -163,6 +164,7 @@
         &ndash; (++) = -3 main-hand thac0, and -1 off-hand thac0<br />
         &ndash; (+++) = -2 main-hand thac0, and no penalty to off-hand thac0<br />.</p>
       </div>
+      <p>If you have installed the "IWO part 3: Distinctions between Light and Heavy Weapons," then the penalties for dual-wielding will be increased by 1 point, to offset the doubled thac0 bonuses for light weapons in that component.</p>
   </div>
   <h4 class="subheader">Component 125: </h4>
   <div class="section">

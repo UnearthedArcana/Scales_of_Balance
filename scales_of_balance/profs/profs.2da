@@ -7,7 +7,7 @@ CLERIC                  4               5
 THIEF                   6               3
 BARD                    6               3
 PALADIN                 7               3
-DRUID                   4               5
+DRUID                   4               4
 RANGER                  6               3
 FIGHTER_MAGE            7               3
 FIGHTER_CLERIC          7               3
@@ -21,3 +21,4 @@ FIGHTER_MAGE_CLERIC     7               2
 CLERIC_RANGER           6               3
 SORCERER                4               50
 MONK                    4               50
+SHAMAN                  4               4

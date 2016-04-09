@@ -620,7 +620,12 @@ LAF mod_paladin_styles END
 
 //CHANGE BONUSES____________________________________________________________________
 //
-COPY ~scales_of_balance/profs/stylbonu.2da~ ~override~
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5_dwweap.d5~) BEGIN
+	COPY ~scales_of_balance/profs/stylbonu_iwo.2da~ ~override/stylbonu.2da~
+END
+ACTION_IF NOT (FILE_EXISTS_IN_GAME ~d5_dwweap.d5~) BEGIN
+	COPY ~scales_of_balance/profs/stylbonu.2da~ ~override~
+END
 //__________________________________________________________________________________
 
 
