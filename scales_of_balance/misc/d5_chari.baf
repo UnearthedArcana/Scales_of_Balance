@@ -31,14 +31,6 @@ THEN
 END
 
 IF
-	CheckStat(LastSummonerOf(Myself),15,CHR)
-THEN
-	RESPONSE #100
-	ReallyForceSpellRES("d5_cha15",LastSummonerOf(Myself))
-	DestroySelf()
-END
-
-IF
 	True()
 THEN
 	RESPONSE #100

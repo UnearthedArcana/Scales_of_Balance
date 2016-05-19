@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.1 </strong><br />
+  <p><strong> Version 5.2 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -40,7 +40,7 @@
   	<li>Most of SoB's overhauls and class tweaks are incompatible with the first, "core" component of <u>Six's Kitpack</u>. Take a look at what each mod does and decide which one you want to use.</li><br />
   	<li>The <u>Hidden Kits</u> mods is probably extremely incompatible. You can try to use them together but you might see some very weird behavior, like innate abilities changing or disappearing - if not even worse symptoms.</li>
   </ul></p>
-  <p>If you install lots of kit mods, keep in mind that without TobEx, the kit selection screen can only show 10 kits per class - that's the main class plus nine kits. If you install a lot of kits, the Scales of Balance kits will not be selectable. This doesn't matter for clerics, since you can use items in-game to adopt those kits. But, for example, if you install all of the bard kits from Song & Silence, then you won't be able to see all of SoB's bard kits. The vanilla game has 4 kits in each class, so you can install six kits without worries. Plan ahead, or use the 'Mod Kit Remover' to clear space in the Character Generation screens.</p>
+  <p>See the component descriptions below for more specific information about compatibility.</p>
   <p><strong>Load Order:</strong><br />
     Scales of Balance should be installed <strong>after</strong> all other mods that add or change creatures, items or kits. It should be installed <strong>after</strong> the "WSPATCK for All" component of <u>tb#Tweaks</u>.  It should be just about the last thing you install, with the exception of something like Generalized Biffing, Level1NPCs, NPC_EE, lolfixer, etc.</p>
 </div>
@@ -57,6 +57,7 @@
       <li> All upgraded weapons and originally +5/+6 weapons become +5 for purposes of what they can hit.</li>
     </ul>
     <p>(This component does not work on IWDEE - too many items are defined and recognized by the "plus" in their names and descriptions.</p>
+    <p><b>Compatibility:</b> this component covers the same ground as the SCS component "Make +1 Weapons Into Fine Weapons." This component also has other effects, of course. You should not install that component of SCS if you want to use this component.</p>
   </div>
   <h4 class="subheader">Component 102: </h4>
   <div class="section">
@@ -75,12 +76,14 @@
       <li> Darts have 5/2 APR instead of 3.</li>
       <li> In the EE games, strength damage bonuses are removed from all thrown/launched weapons.</li>
     </ul>
+    <p><b>Compatibility:</b> this component covers some of the same ground as the "Weapon Changes" component of Item Revisions. I, for one, use both together. But be aware that this might compound or override some of the IR component's effects.</p>
   </div>
   <h4 class="subheader">Component 103: </h4>
   <div class="section">
     <p><strong><em>IWO part 3: Distinctions between Light and Heavy Weapons</em></strong></p>
     <p>Light, low-damage weapons get a +1 thac0 bonus. So beginning adventurers will be better off using light, simple weapons until they gain experience and their thac0 improves - unless they are strong enough to wield the heavy weapons comfortably, or they are skilled in a weapon style that grants thac0 bonuses. These weapons include short swords, daggers, clubs, war hammers, spears, and quarterstaves.</p>
     <p>Heavy weapons that are inappropriate for dual-wielding get a -1 penalty to off-hand thac0. These include bastard swords, katanas, and flails.</p>
+    <p><b>Compatibility:</b> this component covers the same ground as the "Dual-Wielding Changes for Light and Heavy Weapons" component of Item Revisions. You can probably use both together, but the effects will be compounded and will likely be somewhat extreme. Best to choose one or the other.</p>
   </div>
   <h4 class="subheader">Component 104: </h4>
   <div class="section">
@@ -104,6 +107,7 @@
         <li> Daggers and darts are combined into a "knives" proficiency.</li>
         <li> Long bows and short bows are combined into a "bows" proficiency.</li>
       </ul>
+    <p><b>Compatibility:</b> this component is probably not compatible with stuff like the weapon proficiency changes in Tweaks Anthology. Choose one proficiency system mod and stick with it.</p>
   </div>
   <h4 class="subheader">Component 122: </h4>
   <div class="section">
@@ -136,6 +140,7 @@
         <p>(These APR bonuses will only affect warriors, unless you also install the WPO part 5, "APR on Spec.")
       <p>This component also tweaks the thac0 tables: Rogues' thac0 is buffed, making it equal to clerics. Their progression is smoothed out, no more jumping by 2. Warriors start at thac0 20, and non-warriors start at thac0 21.</p>
       <p>This component makes serious changes and it has been extremely hard to get various game mechanisms to work with it, especially dual-classing and NPCs. As a result, <b>ALL</b> NPCs you meet except dual-classed ones will be dropped to level 1, TOB-style, and start with selected base proficiencies. They will have the normal amount of XP however, so you can immediately level them up and direct their advancement.  Because this method doesn't work well for dual-classed NPCs, Imoen, Anomen, and Nalia, will instead receive a special "Proficiency Tome" that you can use to set their proficiencies.</p>
+    <p><b>Compatibility:</b> this component is probably not compatible with stuff like the weapon proficiency changes in Tweaks Anthology. Choose one proficiency system mod and stick with it.</p>
   </div>
   <h4 class="subheader">Component 123: </h4>
   <div class="section">
@@ -171,6 +176,7 @@
     <p><strong><em>WPO part 5: APR on Spec</em></strong></p>
       <p>This component <b>(which is EE-only)</b> enables any class to gain APR benefits from weapon specialization - not just warriors.</p>
       <p>(NB if you install component 122 without this one, only warriors will get the benefit of the APR bonus for basic proficiency.)</p>
+    <p><b>Compatibility:</b> this component is not compatible with the APR on Spec component of Tweaks Anthology (which I wrote, and is based on this one). The other version is specifically designed for the vanilla proficiency system; this one is specifically designed for the WPO proficiency system. Use If you installed the "WPO Part 2," use this version.</p>
   </div>
   <h4 class="subheader">Component 180: </h4>
   <div class="section">
@@ -193,7 +199,7 @@
       	<li>Dexterity bonuses are also pushed lower and spread out a bit more. 14 DEX gives -1 AC; 15 gives +1 missile thac0; 16 gives another -1 AC; 17 gives another +1 to missile thac0; etc.</p>
       	<li>Intelligence is no longer a dump-stat. Bards and wizards get an extra spell of each level for as many points of intelligence they have above 12 - so, an extra 1st-level spell for 13 INT, and an extra spell of level 1 through 9 at 21 INT. (This is only measured once, however - drinking a potion for bonus INT points will not give you extra spells.) In addition, at 15 INT the player has a +1 bonus rolling for critical hits; at 17 INT this is a +2 bonus, and at 19 INT it is a +3 bonus to crit. (To make up for this, *everyone* will have a -1 penalty to crit rolls.  So the only way to score critical hits is to have 15 or greater INT, or to have points in Single-Weapon Style or Two-Handed Style.)</p>
       	<li>Wisdom now grants an extra 1st-level priest spell at 13 and at 14; and extra 2nd-level spell at 15 and at 16; an extra 3rd-level spell at 17 and at 18; et cetera, up to 2 extra spells of every level at 25 WIS</p>
-      	<li>Charisma is not a dump stat either! Charisma now measures something like 'spirit' or 'karma' at the beginning of a character's career. Upon creating a character, 15 CHA will grant a +1 bonus to saves. At 16 CHA this bonus will be +2 and at 17 CHA it will be +3. At 18 CHA the character is also granted a permanent +1 Luck, and at 19 CHA this grows to +2 Luck. (Note, this takes the place of so-called "shorty save bonuses" associated with CON, which are removed. Note also, this will not apply to paladins, who have their own save bonuses to reflect the strength of their spirit.)</p>
+      	<li>Charisma is not a dump stat either! Charisma now measures something like 'spirit' or 'karma' at the beginning of a character's career. Upon creating a character, 16 CHA will grant a +1 bonus to saves. At 17 CHA this bonus will be +2. At 18 CHA the character is also granted a permanent +1 Luck, and at 19 CHA this grows to +2 Luck. (Note, this takes the place of so-called "shorty save bonuses" associated with CON, which are removed. Note also, this will not apply to paladins, who get save bonuses automatically, to reflect the strength of their spirit.)</p>
       	<li>Constitution bonuses are folded into Component #210, Modified Hit Points, below.</p>
       </ul>
       <p>Finally, to make more meaningful differences between races, demihumans will have more stat bonuses and penalties.  The racial maximums are now:</p>
@@ -212,11 +218,11 @@
       <p>This component takes some of the randomness out of hit point rolls. In the vanilla system, a warrior with 16 CON can actually get *fewer* hit points at level-up than a mage with 8 CON. That only leads to annoying reloads or constant moving of the difficulty bar to get max hp (which is just too cheaty, and perverts various game mechanics). With this component, there are still rolls, but the roll will always seem fair and should never cause you to feel you need to reload or go below Core difficulty. That 16 CON warrior will get between 9 and 12 hit points per level, instead of from 3 to 12. Higher average rolls, and more satisfying numbers, but not overpowered.<br />
       <ul>
       	<li>Wizard hit dice is now 1d3+1. Rogue and priest hit dice is 2d3+1. And warrior hit dice is 3d3+1 (3d4+1 for barbarians).</li>
-      	<li>Everyone gets an extra hit point at 15 CON and 16 CON (like vanilla), plus an extra hit point at 21, 23, and 25 CON (so stat-boosting spells and effects can actually increase your hit points). Warriors also get a bonus hit point at 19 CON.</li>
-      	<li>The minimum roll for those d3 rolls is 2 at 14 CON, and 3 at 18 CON. (So 18 CON means max hit points.)</li>
-      	<li>Everyone gets very slow hit point regeneration (1 hp per 3 turns) at 17 CON. The regeneration speeds up a bit at 19 CON (1 per turn), 20 CON (1 per 4 rounds), 22 CON (1 per 2 rounds), 24 CON (1 per round) and 25 CON (2 per round).</li>
+      	<li>Everyone gets an extra hit point at 15 CON and 16 CON (like vanilla), plus an extra hit point at 21, 23, and 25 CON (so stat-boosting spells and effects can actually increase your hit points). Warriors also get a bonus hit point at 18 CON.</li>
+      	<li>The minimum roll for those d3 rolls is 2 at 14 CON, and 3 at 17 CON. (So 17 CON means max hit points.)</li>
+      	<li>Everyone gets very slow hit point regeneration (1 hp per 2 turns) at 19 CON. The regeneration speeds up a bit at 20 CON (1 per turn), 21 CON (1 per 4 rounds), 22 CON (1 per 2 rounds), 23 CON (1 per round), 24 CON (2 per round), and 25 CON (1 per second).</li>
       </ul>
-      <p>Additionally, this smooths out the decline in added hp. Everyone stops getting hit dice after 8th level. 
+      <p>Additionally, this smooths out the decline in added hp. Everyone stops getting hit dice after 8th level. After that:
       <ul>
       	<li>Warriors get 4/level from 10 to 15, then 3/level from 16 to 25, and 2/level after that. </li>
       	<li>Rogues and priests get 3/level from 10 to 15, 2/level from 16 to 25, and 1 per level after that. </li>
@@ -254,6 +260,10 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.2 - April 2016</strong></p>
+  <ul>
+    <li>SoD and EE 2.1 compatibility</li>
+  </ul>
   <p><strong>Version 5.1 - March 2016</strong></p>
   <ul>
     <li>EET and EE 2.0 compatibility</li>
