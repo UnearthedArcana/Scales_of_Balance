@@ -25,18 +25,19 @@
 @37  = ~Abilities:~
 @38  = ~Disadvantages:~
 @39  = ~Restrictions:~
-@101   = ~IWO part 1 - aesthetic & enchantment tweaks~
-@102   = ~IWO part 2 - functional weapon tweaks~
-@103   = ~IWO part 3 - light/heavy weapon distinctions~
-@104   = ~IWO part 4 - IWDEE-specific tweaks~
-@121   = ~WPO part 1 - weapon category collapse~
-@122   = ~WPO part 2 - systemic proficiency changes~
-@123   = ~WPO part 3 - dual-class restrictions - TEMPORARILY UNAVAILABLE~
-@124   = ~WPO part 4 - weapon style changes~
-@125   = ~WPO part 5 - APR on Spec~
+@100   = ~IWO - Another Revised Armor System~
+@101   = ~IWO - Aesthetic & Enchantment Tweaks~
+@102   = ~IWO - Functional Weapon Tweaks~
+@103   = ~IWO - Light/Heavy Weapon Distinctions~
+@104   = ~IWO - IWDEE Item Tweaks~
+@121   = ~WPO - Weapon Category Collapse~
+@122   = ~WPO - Systemic Proficiency Changes~
+@123   = ~WPO - TEMPORARILY UNAVAILABLE~
+@124   = ~WPO - Fighting Style Changes~
+@125   = ~WPO - APR on Spec~
 @150   = ~WCO (Wizard Class Overhaul)~
-@160   = ~STO (Saving Throw Overhaul)~
-@180   = ~MRO (Magic Resistance Overhaul)~
+@160   = ~STO - Saving Throw Overhaul~
+@180   = ~MRO - Magic Resistance Overhaul~
 @200   = ~Revised Stat Bonuses~
 @205   = ~Revised Hit Point Tables~
 @206   = ~Generous (above-average) hit points~
@@ -203,17 +204,17 @@ Weight: 0~
 CLASS FEATURES:
 - May wear helmets.
 - May wear any armor and use any weapon.
-- May achieve Grand Mastery (five stars) with any weapon. 
-- May allocate two stars in any fighting style and allocate three stars in Two-Weapon Style.
+- May achieve Grand Mastery (+++++) with any weapon. 
+- May achieve Specialization in any fighting style, and Mastery (+++) in two-weapon style.
 
 Prime Requisites For Dual-Classing: Strength~
 @1215   = ~RANGER: The Ranger is a warrior and a woodsman who is skilled with weapons and is knowledgeable in the ways of the forest. The Ranger often protects and guides lost travelers and honest peasant-folk. A Ranger needs to be strong and wise to the ways of nature to live a full life.
 CLASS FEATURES:
 - May wear helmets.
 - May wear any armor and use any weapon.
-- May achieve High Mastery (four stars) with any weapon. 
-- May allocate two stars in any fighting style and allocate three stars in Two-Weapon Style.
-- Begins Specialized (two stars) in Two-Weapon Style.
+- May achieve High Mastery (++++) with any weapon. 
+- May achieve Specialization (++) in the single-weapon and two-handed fighting styles, and Mastery (+++) in two-weapon style.
+- Begins Specialized (++) in two-weapon style.
 - May select a racial enemy, which grants a +4 bonus to hit and damage rolls against the selected enemy race.
 - May use the Charm Animal ability once per day. Gains one use at level 1 and an additional use every 2 levels thereafter.
 - May use the Hide In Shadows ability while wearing no armor, leather armor, or studded leather armor.
@@ -226,8 +227,8 @@ Prime Requisites For Dual-Classing: Strength, Dexterity, Wisdom~
 CLASS FEATURES:
 - May wear helmets.
 - May wear any armor and use any weapon.
-- May achieve High Mastery (four stars) with any weapon. 
-- May allocate two stars in any fighting style and allocate three stars in Two-Weapon Style.
+- May achieve High Mastery (++++) with any weapon. 
+- May achieve Specialization (++) in any fighting style.
 - May use Lay On Hands ability once per day to heal a target for 2 Hit Points per level of the Paladin.
 - May cast Detect Evil once per day per level (starts at 1st level with 3 uses).
 - May cast Protection From Evil once per day per level (starts at 1st level with one use).
@@ -241,8 +242,8 @@ CLASS FEATURES:
 CLASS FEATURES:
 - May wear helmets.
 - May wear any armor.
-- May achieve Specialization (two stars) with permitted weapons. 
-- May become Proficient (one star) in any fighting style.
+- May achieve Specialization (++) with permitted weapons. 
+- May become Proficient (+) in the sword-and-shield, single-weapon, and two-handed fighting styles.
 - May Turn Undead.
 - May cast priest spells.
 
@@ -252,8 +253,8 @@ Prime Requisites For Dual-Classing: Wisdom
 
 CLASS FEATURES:
 - May not wear armor heavier than studded leather or equip shields larger than bucklers.
-- May achieve Mastery (three stars) with permitted weapons. 
-- May become Proficient (one star) in any fighting style.
+- May achieve Mastery (+++) with permitted weapons. 
+- May become Proficient (+) in the single-weapon, two-handed, and two-weapon fighting styles.
 - 7th level: May Shapeshift into a wolf, black bear, or brown bear once per day.
 - 15th level: Becomes immune to poison.
 - 18th level: Gains 10% resistance to cold, fire, electricity, and acid; gains a further 10% resistance at levels 21 and 24.
@@ -264,8 +265,8 @@ Prime Requisites For Dual-Classing: Wisdom, Charisma~
 
 CLASS FEATURES:
 - May not wear armor heavier than studded leather, or equip shields larger than bucklers.
-- May achieve Mastery (three stars) with permitted weapons.
-- May allocate two stars Single-Weapon style and three stars in Two-Weapon Style.
+- May achieve Mastery (+++) with permitted weapons.
+- May achieve Specialization (++) in single-weapon style and Mastery (+++) in two-weapon style.
 - May distribute 25 points per level (40 at level 1) in thieving abilities: Open Locks, Pick Pockets, Find Traps, Move Silently, Hide In Shadows, Detect Illusion, Set Traps.
 - May backstab for increased damage:
   Level 1-4: x2
@@ -287,8 +288,8 @@ Prime Requisites For Dual-Classing: Dexterity~
 
 CLASS FEATURES:
 - May not wear armor heavier than chain mail, or equip shields larger than bucklers. (Spells cannot be cast while wearing armor.)
-- May achieve Mastery (three stars) in any one-handed weapons.
-- May become Proficient (one star) in any fighting style.
+- May achieve Mastery (+++) in any one-handed weapons.
+- May become Proficient (+) in any fighting style.
 - Thieving abilities: Pick Pockets.
 - Increased Lore.
 - May cast arcane spells starting at 2nd level.
@@ -300,7 +301,7 @@ CLASS FEATURES:
 
 CLASS FEATURES:
 - May not wear any armor.
-- May not advance past Proficiency (one slot) in any weapon class.
+- May not advance past Proficiency (+) in any weapon class.
 - May not place any slots in any fighting style.
 - May cast arcane spells.
 - Hit Die: d4
@@ -318,12 +319,12 @@ Prime Requisites For Dual-Classing: Intelligence~
 
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15
 ~
-@1223   = ~Special~
+@1223   = ~Club / Mace~
 @1224   = ~Greatswords~
 @1225   = ~...~
-@1226   = ~Scimitar/Katana~
-@1227   = ~Daggers/Darts~
-@1228   = ~Spears/Halberds~
+@1226   = ~Scimitar / Katana~
+@1227   = ~Dagger / Dart~
+@1228   = ~Spear / Halberd~
 @1229   = ~Bows~
 @1230   = ~LONG SWORD: The long sword is perhaps one of the most common weapons in Faerûn. Skill with the long sword will allow your character to have access to a widely available and cheap weapon.
 

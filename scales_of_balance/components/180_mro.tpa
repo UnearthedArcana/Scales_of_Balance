@@ -709,7 +709,7 @@ ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
 		END
 	BUT_ONLY
 END
-ACTION_IF GAME_IS ~bgee bg2ee iwdee eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee sod bg2ee eet iwdee~ THEN BEGIN
 	COPY_EXISTING ~wa2s1h.itm~ ~override~ // Sword of Balduran (10%)
 //	bonus to movement
 		LPF ALTER_EFFECT INT_VAR match_opcode=166 opcode=126 parameter1=120 parameter2=2 END
@@ -853,49 +853,57 @@ END // end of IR
 //monks and wizard slayers__________________________________________________________
 //__________________________________________________________________________________
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_nuwsl.d5~ THEN BEGIN
-	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-		STRING_SET 24285 @1611 
-		STRING_SET 25361 @1611 
-	END
-	ACTION_IF ENGINE_IS ~tob bg2ee eet~ THEN BEGIN
-		STRING_SET 25203 @1611
-	END
-	ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-		STRING_SET 25203 @1611 
-		STRING_SET 37097 @1611 
-	END
-	COPY_EXISTING ~clabfi03.2da~ ~override~
-		REPLACE_TEXTUALLY ~AP_SPCL131~ ~****      ~
-		REPLACE_TEXTUALLY ~AP_SPCL819~ ~****      ~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/mr/nomr.txt~
-		BUT_ONLY
+  ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
+	COPY_EXISTING ~clastext.2da~ ~override~
+		SET_2DA_ENTRY 5 4 1 RESOLVE_STR_REF (@1611)
+	BUT_ONLY
+  END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~sodcltxt.2da~) BEGIN
+	COPY_EXISTING ~sodcltxt.2da~ ~override~
+		SET_2DA_ENTRY 5 4 1 RESOLVE_STR_REF (@1611)
+	BUT_ONLY
+  END
+  ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
+	STRING_SET 25203 @1611
+  END
+  COPY_EXISTING ~clabfi03.2da~ ~override~
+	REPLACE_TEXTUALLY ~AP_SPCL131~ ~****      ~
+	REPLACE_TEXTUALLY ~AP_SPCL819~ ~****      ~
+	LPM remove_blank_lines
+	APPEND_FILE ~scales_of_balance/mr/nomr.txt~
+  BUT_ONLY
 END
 
 // monk class description
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_mfist.d5~ THEN BEGIN
-	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-		STRING_SET 24234 @1615 
-	END
-	ACTION_IF ENGINE_IS ~tob bg2ee eet~ THEN BEGIN
-		STRING_SET 45867 @1615 
-	END
-	ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-		STRING_SET 34606 @1615 
-		STRING_SET 37256 @1615
-	END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
+	COPY_EXISTING ~clastext.2da~ ~override~
+		SET_2DA_ENTRY 56 4 1 RESOLVE_STR_REF (@1615)
+	BUT_ONLY
+  END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~sodcltxt.2da~) BEGIN
+	COPY_EXISTING ~sodcltxt.2da~ ~override~
+		SET_2DA_ENTRY 56 4 1 RESOLVE_STR_REF (@1615)
+	BUT_ONLY
+  END
+  ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
+	STRING_SET 45867 @1615
+  END
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_mfist.d5~ THEN BEGIN
-	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-		STRING_SET 24234 @1618 
-	END
-	ACTION_IF ENGINE_IS ~tob bg2ee eet~ THEN BEGIN
-		STRING_SET 45867 @1618 
-	END
-	ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-		STRING_SET 34606 @1618 
-		STRING_SET 37256 @1618
-	END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
+	COPY_EXISTING ~clastext.2da~ ~override~
+		SET_2DA_ENTRY 56 4 1 RESOLVE_STR_REF (@1618)
+	BUT_ONLY
+  END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~sodcltxt.2da~) BEGIN
+	COPY_EXISTING ~sodcltxt.2da~ ~override~
+		SET_2DA_ENTRY 56 4 1 RESOLVE_STR_REF (@1618)
+	BUT_ONLY
+  END
+  ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
+	STRING_SET 45867 @1618
+  END
 END
 
 COPY_EXISTING ~clabmo01.2da~ ~override~

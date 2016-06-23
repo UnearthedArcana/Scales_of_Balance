@@ -48,7 +48,37 @@
 <div class="section">
   <h4 class="subheader">Component 101: </h4>
   <div class="section">
-    <p><strong><em>Item & Weapon Overhaul ("IWO") part 1: Aesthetic & Enchantment Tweaks</em></strong></p>
+    <p><strong><em>Item & Weapon Overhaul ("IWO"): Yet Another Revised Armor System</em></strong></p>
+    <p>This component changes armor to give the wearer a mix of Armor Class and Damage Resistance bonuses. The values are listed below:</p>
+      <pre>
+    Armor:
+	 leather:	AC 8 	-1 Dex 	6% DR 	+1 casting time
+	 studded:	AC 7 	-2 Dex 	12% DR 	+2 casting time
+	 hide armor: 	AC 6 	-3 Dex 	21% DR	+3 casting time
+	 chain mail: 	AC 6 	-3 Dex 	18% DR	+3 casting time
+	 scale armor: 	AC 5 	-3 Dex 	12% DR	+3 casting time
+	 splint mail: 	AC 5 	-4 Dex 	21% DR	+4 casting time
+	 plate mail: 	AC 4 	-4 Dex 	25% DR	+4 casting time
+	 full plate*: 	(AC 3 	-5 Dex	30% DR	+5 casting time)<br />
+    Enchantment:
+	 +1:	 	-1 AC	+1 Dex	+1% DR
+	 +2: 		-2 AC 	+2 Dex	+2% DR
+	 +3:		-3 AC 	    "	+3% DR
+	 +4:		-4 AC 	    "	+4% DR
+	 +5:		-5 AC 	    "	+5% DR
+	 +6:		-6 AC 	    "	+6% DR<br />
+  *Full plate: acts like one level of enchantment higher than indicated
+  *Bardic armor:	-2 casting time
+  *Elven armor: +1 DEX, -2 casting time, acts like one level of enchantment higher than indicated
+      </pre>
+    <p>This component allows casting arcane spells in armor, but with steep casting time penalties. (As of now, these penalties do not affect divine casters.) also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
+    <p>This also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
+    <p>Finally, this alters the Armor of Faith spell to only give a flat 10% DR bonus, at all levels; and reduces the DR bonus from Hardiness and Defensive Stance form 40% to 20%; and reduces the price of the Defender of Easthaven while reducing its DR bonus from 20% to 5%.</p>
+    <p><b>Compatibility:</b> this component covers the same ground as the IR component "Revised Armors" as well as the "Spellcasting in Armor" component.  Ditto for the Full Plate and Packing Steel mod. Choose one armor system mod and stick with it.</p>
+  </div>
+  <h4 class="subheader">Component 101: </h4>
+  <div class="section">
+    <p><strong><em>IWO: Aesthetic & Enchantment Tweaks</em></strong></p>
     <p>This component removes "+1," "+2," etc. from item names, and standardizes the enchantment levels of weapons for purposes of which enemies they can hit:</p>
     <ul>
       <li> Generic +1 weapons become "Mastercraft" weapons, forged with unusual materials and skill that enable them to strike enemies who are immune to normal weapons.</li>
@@ -61,15 +91,13 @@
   </div>
   <h4 class="subheader">Component 102: </h4>
   <div class="section">
-    <p><strong><em>IWO part 2: Functional Weapon Tweaks</em></strong></p>
+    <p><strong><em>IWO: Functional Weapon Tweaks</em></strong></p>
     <p>This component makes tweaks to the base characteristics of various items:</p>
     <ul>
       <li> Spears do 1d8+1 damage, since in BG games they are of the 2-handed variety (this is per PnP).</li>
       <li> Quarterstaves seem better suited to defensive parrying than many other weapons, so they get an inherent -1 AC bonus.</li>
       <li> Daggers get 1.5 base APR. (A thief with Rogue Rebalancing, dual-wielding daggers, should be a reasonable and interesting choice.)</li>
       <li> Flails do 1d8+1 damage.</li>
-      <li> Axes do "slashing or crushing" damage.</li>
-      <li> Short swords do "slashing or piercing" damage.</li>
       <li> Crossbow bolts do 2d4 damage.</li>
       <li> Arrows do 1d5 damage from shortbows; longbows and composite bows have their base APR reduced to 3/2 but do an extra +2 damage.</li>
       <li> Sling bullets do blunt damage.</li>
@@ -80,14 +108,14 @@
   </div>
   <h4 class="subheader">Component 103: </h4>
   <div class="section">
-    <p><strong><em>IWO part 3: Distinctions between Light and Heavy Weapons</em></strong></p>
+    <p><strong><em>IWO: Distinctions between Light and Heavy Weapons</em></strong></p>
     <p>Light, low-damage weapons get a +1 thac0 bonus. So beginning adventurers will be better off using light, simple weapons until they gain experience and their thac0 improves - unless they are strong enough to wield the heavy weapons comfortably, or they are skilled in a weapon style that grants thac0 bonuses. These weapons include short swords, daggers, clubs, war hammers, spears, and quarterstaves.</p>
     <p>Heavy weapons that are inappropriate for dual-wielding get a -1 penalty to off-hand thac0. These include bastard swords, katanas, and flails.</p>
     <p><b>Compatibility:</b> this component covers the same ground as the "Dual-Wielding Changes for Light and Heavy Weapons" component of Item Revisions. You can probably use both together, but the effects will be compounded and will likely be somewhat extreme. Best to choose one or the other.</p>
   </div>
   <h4 class="subheader">Component 104: </h4>
   <div class="section">
-    <p><strong><em>IWO part 4: IWDEE-specific Tweaks</em></strong></p>
+    <p><strong><em>IWO: IWDEE-specific Item Tweaks</em></strong></p>
     <p>This component patches IWDEE items in several different ways:</p>
     <ul>
       <li> Weapons for sale by Conlan have their prices normalized a bit.</li>
@@ -98,20 +126,21 @@
   </div>
   <h4 class="subheader">Component 121: </h4>
   <div class="section">
-    <p><strong><em>Weapon Proficiency Overhaul ("WPO") part 1: Weapon Category Combination</em></strong></p>
+    <p><strong><em>Weapon Proficiency Overhaul ("WPO"): Weapon Category Combination</em></strong></p>
       <p>This component groups certain proficiencies together:</p>
       <ul>
         <li> Two-handed swords and bastard swords are combined into a "greatswords" proficiency.</li>
-        <li> Scimitars, katanas, and wakizashi are combined into a "curved swords" proficiency.</li>
-        <li> Spears and halberds are combined into a "polearms" proficiency.</li>
-        <li> Daggers and darts are combined into a "knives" proficiency.</li>
+        <li> Scimitars, katanas, and wakizashi are combined into a "scimitar/katana" proficiency.</li>
+        <li> Clubs and Maces are combined into a "club/mace" proficiency.</li>
+        <li> Spears and halberds are combined into a "spear/halberd" proficiency.</li>
+        <li> Daggers and darts are combined into a "dagger/dart" proficiency.</li>
         <li> Long bows and short bows are combined into a "bows" proficiency.</li>
       </ul>
     <p><b>Compatibility:</b> this component is probably not compatible with stuff like the weapon proficiency changes in Tweaks Anthology. Choose one proficiency system mod and stick with it.</p>
   </div>
   <h4 class="subheader">Component 122: </h4>
   <div class="section">
-    <p><strong><em>WPO part 2: Proficiency System Overhaul</em></strong></p>
+    <p><strong><em>WPO: Proficiency System Overhaul</em></strong></p>
       <p><strong>Please note, this component can only be installed on an EE or TobEx game.  And you <u>must</u> install the "Category Combination" component first.</strong></p>
       <p>This component can be considered a convenience tweak; it will give most classes substantially more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
@@ -144,14 +173,14 @@
   </div>
   <h4 class="subheader">Component 123: </h4>
   <div class="section">
-    <p><strong><em>WPO part 3: Hardcore Dual-Classing Rules</em></strong></p>
+    <p><strong><em>WPO: Hardcore Dual-Classing Rules</em></strong></p>
       <p>PLEASE NOTE, THIS COMPONENT HAS BEEN DISABLED WHILE I FIX AND EXTEND IT. APOLOGIES.</p>
       <p>This component aims to fix a longstanding bug in the games: when you dual-class, your weapon proficiency advancement is supposed to be capped by your <strong>new</strong> class, not your old one. In BG you can start with a fighter, dual to thief at level 2, and still proceed to Grandmastery with bastard swords.  No more!  Now, when you dual-class from one of the eight base warrior kits (Fighter, Wizard Slayer, Berserker, Kensai, Ranger, Archer, Beastmaster, or Stalker) you will be limited to Mastery (+++) in any future advancement.</p>
       <p>If you install this component <i>without</i> having first installed component 122, it will cap advancement at specialization (++).</p>
   </div>
   <h4 class="subheader">Component 124: </h4>
   <div class="section">
-    <p><strong><em>WPO part 4: Weapon Style Overhaul</em></strong></p>
+    <p><strong><em>WPO: Weapon Style Overhaul</em></strong></p>
       <p>This component <b>(which is EE-only)</b> rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  All style get thac0 bonuses in addition to other benefits.  So especially at low levels, it might be worth investing in a style for benefits that work for all weapons, rather than progressing in a single weapon proficiency.  The benefits of each style are listed below (cumulative totals):</p>
       <div class="kit_description">
         <p>Single-Weapon Style: now called <b>"Finesse"</b><br />
@@ -173,7 +202,7 @@
   </div>
   <h4 class="subheader">Component 125: </h4>
   <div class="section">
-    <p><strong><em>WPO part 5: APR on Spec</em></strong></p>
+    <p><strong><em>WPO: APR on Spec</em></strong></p>
       <p>This component <b>(which is EE-only)</b> enables any class to gain APR benefits from weapon specialization - not just warriors.</p>
       <p>(NB if you install component 122 without this one, only warriors will get the benefit of the APR bonus for basic proficiency.)</p>
     <p><b>Compatibility:</b> this component is not compatible with the APR on Spec component of Tweaks Anthology (which I wrote, and is based on this one). The other version is specifically designed for the vanilla proficiency system; this one is specifically designed for the WPO proficiency system. Use If you installed the "WPO Part 2," use this version.</p>

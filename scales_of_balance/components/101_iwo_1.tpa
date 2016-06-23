@@ -459,7 +459,7 @@ COPY_EXISTING ~quiver02.itm~ ~override~
 	SAY DESC @1061
 END
 
-ACTION_IF GAME_IS ~bgee bg2ee eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee sod bg2ee eet~ THEN BEGIN
 ACTION_IF FILE_EXISTS_IN_GAME ~bull07.itm~ THEN BEGIN
 	COPY_EXISTING ~bull07.itm~ ~override~
 		WRITE_LONG 0x60 2

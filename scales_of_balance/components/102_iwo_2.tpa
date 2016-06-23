@@ -17,39 +17,19 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 		END
 		PATCH_IF (~%type%~ = ~26~) BEGIN // quarterstaff
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=3 dicenumber=2 END
-//			WRITE_BYTE 0x88 3
-//			WRITE_BYTE 0x8a 2
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=1 parameter2=0 END
 		END
+/*
+		PATCH_IF (~%type%~ = ~22~) BEGIN // morning star
+			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=6 dicenumber=1 END
+			LPF ADD_ITEM_EFFECT INT_VAR opcode=12 target=2 timing=1 parameter1=1 parameter2=0 dicesize=3 dicenumber=1 END
+		END
+*/
 		PATCH_IF (~%type%~ = ~23~) BEGIN // flails
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=8 dicenumber=1 END
-//			WRITE_BYTE 0x88 8
-//			WRITE_BYTE 0x8a 1
 		END
 		PATCH_IF (~%type%~ = ~29~) BEGIN // spears
-//			WRITE_BYTE 0x88 8
-//			READ_BYTE ~0x8c~ ~damagebonus~
-			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=3 dicenumber=3 END
-/*
-			PATCH_IF (~%damagebonus%~ = ~5~) BEGIN
-				WRITE_SHORT 0x8c 6
-			END
-			PATCH_IF (~%damagebonus%~ = ~4~) BEGIN
-				WRITE_SHORT 0x8c 5
-			END
-			PATCH_IF (~%damagebonus%~ = ~3~) BEGIN
-				WRITE_SHORT 0x8c 4
-			END
-			PATCH_IF (~%damagebonus%~ = ~2~) BEGIN
-				WRITE_SHORT 0x8c 3
-			END
-			PATCH_IF (~%damagebonus%~ = ~1~) BEGIN
-				WRITE_SHORT 0x8c 2
-			END
-			PATCH_IF (~%damagebonus%~ = ~0~) BEGIN
-				WRITE_SHORT 0x8c 1
-			END
-*/
+			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=2 dicenumber=4 END
 			FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 				READ_LONG "%index%" "valid"
 				PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
@@ -67,11 +47,9 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 /*
 		PATCH_IF (~%type%~ = ~25~) BEGIN // axes
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 damage_type=8 END
-//			WRITE_SHORT 0x8e 8
 		END
 		PATCH_IF (~%type%~ = ~19~) BEGIN // small swords
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 damage_type=7 END
-//			WRITE_SHORT 0x8e 7
 		END
 */
 	END
@@ -91,7 +69,6 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 		READ_SHORT ~0x1c~ ~type~
 		PATCH_IF (~%type%~ = ~14~) BEGIN // bullets
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=2 damage_type=2 END
-//			WRITE_SHORT 0x8e 2
 			FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 				READ_LONG "%index%" "valid"
 				PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
@@ -113,12 +90,9 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 		END
 		PATCH_IF (~%type%~ = ~31~) BEGIN // bolts
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=2 dicesize=4 dicenumber=2 END
-//			WRITE_BYTE 0x88 4
-//			WRITE_BYTE 0x8a 2
 		END
 		PATCH_IF (~%type%~ = ~5~) BEGIN // arrows
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=2 dicesize=5 END
-//			WRITE_BYTE 0x88 5
 			FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 				READ_LONG "%index%" "valid"
 				PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
@@ -154,7 +128,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 						REPLACE_TEXTUALLY EXACT_MATCH ~Damage: +2~ ~Damage: +4~
 						REPLACE_TEXTUALLY EXACT_MATCH ~Damage: +1~ ~Damage: +3~
 					END
-					PATCH_IF GAME_IS ~bgee bg2ee iwdee eet~ AND NOT (~%description%~ STRING_CONTAINS_REGEXP ~Damage:~ = 0) BEGIN
+					PATCH_IF GAME_IS ~bgee sod bg2ee eet iwdee~ AND NOT (~%description%~ STRING_CONTAINS_REGEXP ~Damage:~ = 0) BEGIN
 						INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
 							REPLACE_TEXTUALLY ~Speed Factor:~ ~Damage: +2
 Speed Factor:~
@@ -186,7 +160,7 @@ Weight:~
 
 //NO RANGED STR BONUS_______________________________________________________________
 //
-ACTION_IF GAME_IS ~bgee bg2ee iwdee eet~ BEGIN
+ACTION_IF GAME_IS ~bgee sod bg2ee eet iwdee~ BEGIN
   COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
 		READ_SHORT 0x1c type

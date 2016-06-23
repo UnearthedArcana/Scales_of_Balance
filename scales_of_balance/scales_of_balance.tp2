@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.1~
+VERSION ~v5.2~
 README ~scales_of_balance/readme-SoB.html~
 
 ALWAYS
@@ -16,12 +16,12 @@ ALWAYS
 
 	INCLUDE ~scales_of_balance/lib/fl#add_kit_ee.tpa~
 
-	ACTION_IF GAME_IS ~bgee~ BEGIN
-		COPY ~scales_of_balance/compatibility/25stweap.2da~ ~override~
-	END
+//	ACTION_IF GAME_IS ~bgee~ BEGIN
+//		COPY ~scales_of_balance/compatibility/25stweap.2da~ ~override~
+//	END
 
 // joinable NPC issues for tutu/bgt/eet:
-  ACTION_IF GAME_IS ~bgee~ BEGIN
+  ACTION_IF GAME_IS ~bgee sod~ BEGIN
     OUTER_SPRINT tutu_var ~~
     OUTER_SPRINT imoen6_var ~imoen6~
     OUTER_SPRINT quayle_var ~quayle~
@@ -69,6 +69,12 @@ LANGUAGE
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
+BEGIN @100 // revised armor
+DESIGNATED 100
+
+INCLUDE ~scales_of_balance/components/100_iwo_0.tpa~
+//__________________________________________________________________________________
+
 BEGIN @101 // aesthetic/enchantment tweaks
 DESIGNATED 101
 REQUIRE_PREDICATE NOT GAME_IS ~iwdee~ @8
@@ -114,7 +120,7 @@ INCLUDE ~scales_of_balance/components/121_wpo_1.tpa~
 
 BEGIN @122 // change pip values
 DESIGNATED 122
-REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee iwdee eet~) @1
+REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee sod bg2ee eet iwdee~) @1
 REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "121") @1
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
@@ -122,6 +128,7 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "121") @1
 INCLUDE ~scales_of_balance/components/122_wpo_2.tpa~
 //__________________________________________________________________________________
 
+/*
 BEGIN @123 // hardcore dual
 DESIGNATED 123
 REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "122") @1 // ??? or else add alternative for 
@@ -130,10 +137,11 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "122") @1 // ??? or 
 
 INCLUDE ~scales_of_balance/components/123_wpo_3.tpa~
 //__________________________________________________________________________________
+*/
 
 BEGIN @124 // change styles
 DESIGNATED 124
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ @8
+REQUIRE_PREDICATE GAME_IS ~bgee sod bg2ee eet iwdee~ @8
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
@@ -142,7 +150,7 @@ INCLUDE ~scales_of_balance/components/124_wpo_4.tpa~
 
 BEGIN @125 // wspatck for all
 DESIGNATED 125
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee eet~ @8
+REQUIRE_PREDICATE GAME_IS ~bgee sod bg2ee sod iwdee~ @8
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 

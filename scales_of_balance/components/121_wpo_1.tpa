@@ -7,38 +7,26 @@
 //__________________________________________________________________________________
 
 
-//UPDATE CLASS STRINGS______________________________________________________________
-//
-STRING_SET 9556 @1214
-STRING_SET 9557 @1215
-STRING_SET 9558 @1216
-STRING_SET 9559 @1217
-STRING_SET 9560 @1218
-STRING_SET 9561 @1219
-STRING_SET 9562 @1220
-STRING_SET 9563 @1221
-//__________________________________________________________________________________
-
-
 //UPDATE PROFICIENCY STRINGS_________________________________________________________
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
-	SET_2DA_ENTRY 11 2 1 RESOLVE_STR_REF (@1223)
+	SET_2DA_ENTRY 11 2 1 RESOLVE_STR_REF (@1225)
 	SET_2DA_ENTRY 15 2 1 RESOLVE_STR_REF (@1224)
 	SET_2DA_ENTRY 16 2 1 RESOLVE_STR_REF (@1225)
 	SET_2DA_ENTRY 17 2 1 RESOLVE_STR_REF (@1226)
 	SET_2DA_ENTRY 18 2 1 RESOLVE_STR_REF (@1227)
 	SET_2DA_ENTRY 21 2 1 RESOLVE_STR_REF (@1228)
 	SET_2DA_ENTRY 22 2 1 RESOLVE_STR_REF (@1225)
+	SET_2DA_ENTRY 24 2 1 RESOLVE_STR_REF (@1223)
 	SET_2DA_ENTRY 27 2 1 RESOLVE_STR_REF (@1225)
 	SET_2DA_ENTRY 28 2 1 RESOLVE_STR_REF (@1229)
 	SET_2DA_ENTRY 29 2 1 RESOLVE_STR_REF (@1225)
 BUT_ONLY
 
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee sod~ THEN BEGIN
 	STRING_SET 24315 @1222
 /*
-	STRING_SET 25000 @1223
+	STRING_SET 25000 @1225
 	STRING_SET 25004 @1224
 	STRING_SET 25005 @1225
 	STRING_SET 25006 @1226
@@ -58,7 +46,7 @@ END
 ACTION_IF GAME_IS ~tob bgt tutu bg2ee eet~ THEN BEGIN
 	STRING_SET 9588 @1222
 /*
-	STRING_SET 31113 @1223
+	STRING_SET 31113 @1225
 	STRING_SET 31117 @1224
 	STRING_SET 31118 @1225
 	STRING_SET 31119 @1226
@@ -78,7 +66,7 @@ END
 ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 	STRING_SET 9588 @1222
 /*
-	STRING_SET 36799 @1223 // bastard sw
+	STRING_SET 36799 @1225 // bastard sw
 	STRING_SET 36807 @1224 // 2-H sw
 	STRING_SET 36809 @1225 // katana
 	STRING_SET 36811 @1226 // scimitar
@@ -97,6 +85,28 @@ ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 END
 //__________________________________________________________________________________
 
+
+//MERGE CLUBS > MACES_______________________________________________________________
+//
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+	READ_BYTE 0x31 prof
+		PATCH_IF prof = 115 BEGIN
+			WRITE_BYTE 0x31 101
+		END
+	END
+BUT_ONLY
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+	LPF ALTER_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 115 parameter2 = 101 END
+	BUT_ONLY
+	
+COPY_EXISTING ~weapprof.2da~ ~override~
+	COUNT_2DA_COLS weapcols
+	FOR (col = 4; col < weapcols; col += 1) BEGIN
+	    SET_2DA_ENTRY 17 col weapcols ~0~
+	END
+//__________________________________________________________________________________
 
 //MERGE HALBERDS > SPEARS___________________________________________________________
 //

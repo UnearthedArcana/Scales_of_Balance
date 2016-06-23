@@ -33,14 +33,40 @@ COPY ~scales_of_balance/profs/wspecial2.2da~ ~override/wspecial.2da~
 
 //UPDATE CLASS STRINGS______________________________________________________________
 //
-STRING_SET 9556 @1214
-STRING_SET 9557 @1215
-STRING_SET 9558 @1216
-STRING_SET 9559 @1217
-STRING_SET 9560 @1218
-STRING_SET 9561 @1219
-STRING_SET 9562 @1220
-STRING_SET 9563 @1221
+ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
+	COPY_EXISTING ~clastext.2da~ ~override~
+		SET_2DA_ENTRY 3 4 1 RESOLVE_STR_REF (@1214)
+		SET_2DA_ENTRY 8 4 1 RESOLVE_STR_REF (@1215)
+		SET_2DA_ENTRY 16 4 1 RESOLVE_STR_REF (@1216)
+		SET_2DA_ENTRY 25 4 1 RESOLVE_STR_REF (@1217)
+		SET_2DA_ENTRY 31 4 1 RESOLVE_STR_REF (@1218)
+		SET_2DA_ENTRY 45 4 1 RESOLVE_STR_REF (@1219)
+		SET_2DA_ENTRY 50 4 1 RESOLVE_STR_REF (@1220)
+		SET_2DA_ENTRY 35 4 1 RESOLVE_STR_REF (@1221)
+	BUT_ONLY
+END
+ACTION_IF (FILE_EXISTS_IN_GAME ~sodcltxt.2da~) BEGIN
+	COPY_EXISTING ~sodcltxt.2da~ ~override~
+		SET_2DA_ENTRY 3 4 1 RESOLVE_STR_REF (@1214)
+		SET_2DA_ENTRY 8 4 1 RESOLVE_STR_REF (@1215)
+		SET_2DA_ENTRY 16 4 1 RESOLVE_STR_REF (@1216)
+		SET_2DA_ENTRY 25 4 1 RESOLVE_STR_REF (@1217)
+		SET_2DA_ENTRY 31 4 1 RESOLVE_STR_REF (@1218)
+		SET_2DA_ENTRY 45 4 1 RESOLVE_STR_REF (@1219)
+		SET_2DA_ENTRY 50 4 1 RESOLVE_STR_REF (@1220)
+		SET_2DA_ENTRY 35 4 1 RESOLVE_STR_REF (@1221)
+	BUT_ONLY
+END
+ACTION_IF ENGINE_IS ~tob~ BEGIN
+	STRING_SET 9556 @1214
+	STRING_SET 9557 @1215
+	STRING_SET 9558 @1216
+	STRING_SET 9559 @1217
+	STRING_SET 9560 @1218
+	STRING_SET 9561 @1219
+	STRING_SET 9562 @1220
+	STRING_SET 9563 @1221
+END
 //__________________________________________________________________________________
 
 
@@ -66,7 +92,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 BUT_ONLY
 */
 
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee sod~ THEN BEGIN
 	STRING_SET 25025 @1230
 	STRING_SET 25026 @1231
 	STRING_SET 25027 @1232
@@ -195,9 +221,9 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 9 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 24 9 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 9 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 9 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 9 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 9 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 9 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 9 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 9 2
 	// Druid
 	SET_2DA_ENTRY_LATER ~#weapprof~ 17 10 3
@@ -322,21 +348,21 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 19 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 19 3
 	// Fighter/Mage/Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 15 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 24 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 20 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 20 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 20 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 20 2
@@ -693,7 +719,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRIES_NOW ~#weapprof~ 1
 	REPLACE_TEXTUALLY ~TYPE ~ ~      ~
 
-ACTION_IF GAME_IS ~bgee bg2ee iwdee eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee sod bg2ee eet iwdee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Blackguard
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 54 4
@@ -760,7 +786,7 @@ ACTION_IF GAME_IS ~bgee bg2ee iwdee eet~ THEN BEGIN
 	SET_2DA_ENTRIES_NOW ~EE#weapprof~ 1
 END
 
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee sod~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Shaman
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 9 60 3
@@ -778,7 +804,7 @@ ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 34 60 2
 	SET_2DA_ENTRIES_NOW ~BEE#weapprof~ 1
 END
-ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
+ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Shaman
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 9 62 3
@@ -1458,7 +1484,7 @@ COPY ~scales_of_balance/profs/thac0.2da~ ~override~
 ACTION_IF GAME_IS ~iwdee tob bgt~ BEGIN
 	COPY ~scales_of_balance/profs/profsmax_i.2da~ ~override/profsmax.2da~
 END
-ACTION_IF GAME_IS ~bgee bg2ee~ BEGIN
+ACTION_IF GAME_IS ~bgee sod bg2ee eet~ BEGIN
 	COPY ~scales_of_balance/profs/profsmax.2da~ ~override~
 END
 COPY ~scales_of_balance/profs/profs.2da~ ~override~
@@ -1885,7 +1911,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 
 //CLERIC WEAPON USABILITY___________________________________________________________
 //
-//ACTION_IF NOT MOD_IS_INSTALLED "faiths_and_powers.tp2" "___"
+//ACTION_IF NOT MOD_IS_INSTALLED "faiths_and_powers.tp2" "101" "skipping"
+// ACTION_IF NOT MOD_IS_INSTALLED "faiths_and_powers.tp2" "105" "skipping"
 
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
@@ -2046,13 +2073,14 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
 	END
 BUT_ONLY
 */
+// END
 //END
 //__________________________________________________________________________________
 
 
 //DELETE NPCS' PROFICIENCIES________________________________________________________
 //
-ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee sod tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%ajanti.cre~ ~override~
 				~%tutu_var%ajanti4.cre~ ~override~
 				~%tutu_var%ajanti6.cre~ ~override~
@@ -2148,7 +2176,7 @@ ACTION_IF GAME_IS ~bgt~ THEN BEGIN
 END
 */
 
-ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee sod eet~ THEN BEGIN
 	COPY_EXISTING ~dorn.cre~ ~override~
 				~dorn2.cre~ ~override~
 				~dorn4.cre~ ~override~
@@ -2350,7 +2378,7 @@ thief:
 
 //ADD PROFICIENCIES TO BG1 NPCS_____________________________________________________
 //
-ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee sod tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%ajanti.cre~ ~override~
 				~%tutu_var%ajanti4.cre~ ~override~
 				~%tutu_var%ajanti6.cre~ ~override~
@@ -2871,7 +2899,7 @@ ACTION_IF GAME_IS ~bgt~ THEN BEGIN
 		BUT_ONLY
 END
 */
-ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee sod eet~ THEN BEGIN
 	COPY_EXISTING ~dorn.cre~ ~override~
 				~dorn2.cre~ ~override~
 				~dorn4.cre~ ~override~
@@ -5858,14 +5886,18 @@ ACTION_IF FILE_EXISTS_IN_GAME ~d5_kensai.d5~ BEGIN
 		LPM remove_blank_lines
 		APPEND_FILE ~scales_of_balance/profs/kensai_focus.txt~
 
-  ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-	STRING_SET 25362 @2648
+  ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
+	COPY_EXISTING ~clastext.2da~ ~override~
+		SET_2DA_ENTRY 6 4 1 RESOLVE_STR_REF (@2648)
+	BUT_ONLY
   END
-  ACTION_IF ENGINE_IS ~tob bg2ee eet~ THEN BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~sodcltxt.2da~) BEGIN
+	COPY_EXISTING ~sodcltxt.2da~ ~override~
+		SET_2DA_ENTRY 6 4 1 RESOLVE_STR_REF (@2648)
+	BUT_ONLY
+  END
+  ACTION_IF ENGINE_IS ~tob~ BEGIN
 	STRING_SET 25204 @2648
-  END
-  ACTION_IF ENGINE_IS ~iwdee~ THEN BEGIN
-	STRING_SET 37100 @2648
   END
 END
 //__________________________________________________________________________________
