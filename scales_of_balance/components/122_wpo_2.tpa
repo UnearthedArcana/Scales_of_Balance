@@ -92,7 +92,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 BUT_ONLY
 */
 
-ACTION_IF GAME_IS ~bgee sod~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	STRING_SET 25025 @1230
 	STRING_SET 25026 @1231
 	STRING_SET 25027 @1232
@@ -719,7 +719,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRIES_NOW ~#weapprof~ 1
 	REPLACE_TEXTUALLY ~TYPE ~ ~      ~
 
-ACTION_IF GAME_IS ~bgee sod bg2ee eet iwdee~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Blackguard
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 54 4
@@ -786,7 +786,7 @@ ACTION_IF GAME_IS ~bgee sod bg2ee eet iwdee~ THEN BEGIN
 	SET_2DA_ENTRIES_NOW ~EE#weapprof~ 1
 END
 
-ACTION_IF GAME_IS ~bgee sod~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Shaman
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 9 60 3
@@ -1484,7 +1484,7 @@ COPY ~scales_of_balance/profs/thac0.2da~ ~override~
 ACTION_IF GAME_IS ~iwdee tob bgt~ BEGIN
 	COPY ~scales_of_balance/profs/profsmax_i.2da~ ~override/profsmax.2da~
 END
-ACTION_IF GAME_IS ~bgee sod bg2ee eet~ BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee eet~ BEGIN
 	COPY ~scales_of_balance/profs/profsmax.2da~ ~override~
 END
 COPY ~scales_of_balance/profs/profs.2da~ ~override~
@@ -2080,7 +2080,7 @@ BUT_ONLY
 
 //DELETE NPCS' PROFICIENCIES________________________________________________________
 //
-ACTION_IF GAME_IS ~bgee sod tutu bgt eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%ajanti.cre~ ~override~
 				~%tutu_var%ajanti4.cre~ ~override~
 				~%tutu_var%ajanti6.cre~ ~override~
@@ -2176,7 +2176,7 @@ ACTION_IF GAME_IS ~bgt~ THEN BEGIN
 END
 */
 
-ACTION_IF GAME_IS ~bgee sod eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
 	COPY_EXISTING ~dorn.cre~ ~override~
 				~dorn2.cre~ ~override~
 				~dorn4.cre~ ~override~
@@ -2378,7 +2378,7 @@ thief:
 
 //ADD PROFICIENCIES TO BG1 NPCS_____________________________________________________
 //
-ACTION_IF GAME_IS ~bgee sod tutu bgt eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
 	COPY_EXISTING ~%tutu_var%ajanti.cre~ ~override~
 				~%tutu_var%ajanti4.cre~ ~override~
 				~%tutu_var%ajanti6.cre~ ~override~
@@ -2899,7 +2899,7 @@ ACTION_IF GAME_IS ~bgt~ THEN BEGIN
 		BUT_ONLY
 END
 */
-ACTION_IF GAME_IS ~bgee sod eet~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
 	COPY_EXISTING ~dorn.cre~ ~override~
 				~dorn2.cre~ ~override~
 				~dorn4.cre~ ~override~

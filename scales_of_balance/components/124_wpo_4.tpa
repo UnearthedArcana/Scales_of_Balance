@@ -225,7 +225,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	// Wild Mage	
 	SET_2DA_ENTRIES_NOW ~#weapprof~ 1
 
-ACTION_IF GAME_IS ~bgee sod bg2ee eet iwdee~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Blackguard
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 54 1

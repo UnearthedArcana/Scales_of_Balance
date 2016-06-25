@@ -128,7 +128,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 						REPLACE_TEXTUALLY EXACT_MATCH ~Damage: +2~ ~Damage: +4~
 						REPLACE_TEXTUALLY EXACT_MATCH ~Damage: +1~ ~Damage: +3~
 					END
-					PATCH_IF GAME_IS ~bgee sod bg2ee eet iwdee~ AND NOT (~%description%~ STRING_CONTAINS_REGEXP ~Damage:~ = 0) BEGIN
+					PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ AND NOT (~%description%~ STRING_CONTAINS_REGEXP ~Damage:~ = 0) BEGIN
 						INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
 							REPLACE_TEXTUALLY ~Speed Factor:~ ~Damage: +2
 Speed Factor:~
@@ -160,7 +160,7 @@ Weight:~
 
 //NO RANGED STR BONUS_______________________________________________________________
 //
-ACTION_IF GAME_IS ~bgee sod bg2ee eet iwdee~ BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
   COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
 		READ_SHORT 0x1c type

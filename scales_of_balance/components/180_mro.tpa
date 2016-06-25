@@ -709,7 +709,7 @@ ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
 		END
 	BUT_ONLY
 END
-ACTION_IF GAME_IS ~bgee sod bg2ee eet iwdee~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 	COPY_EXISTING ~wa2s1h.itm~ ~override~ // Sword of Balduran (10%)
 //	bonus to movement
 		LPF ALTER_EFFECT INT_VAR match_opcode=166 opcode=126 parameter1=120 parameter2=2 END

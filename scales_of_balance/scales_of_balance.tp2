@@ -21,7 +21,7 @@ ALWAYS
 //	END
 
 // joinable NPC issues for tutu/bgt/eet:
-  ACTION_IF GAME_IS ~bgee sod~ BEGIN
+  ACTION_IF GAME_IS ~bgee~ BEGIN
     OUTER_SPRINT tutu_var ~~
     OUTER_SPRINT imoen6_var ~imoen6~
     OUTER_SPRINT quayle_var ~quayle~
@@ -120,7 +120,7 @@ INCLUDE ~scales_of_balance/components/121_wpo_1.tpa~
 
 BEGIN @122 // change pip values
 DESIGNATED 122
-REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee sod bg2ee eet iwdee~) @1
+REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee eet iwdee~) @1
 REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "121") @1
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
@@ -141,7 +141,7 @@ INCLUDE ~scales_of_balance/components/123_wpo_3.tpa~
 
 BEGIN @124 // change styles
 DESIGNATED 124
-REQUIRE_PREDICATE GAME_IS ~bgee sod bg2ee eet iwdee~ @8
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
@@ -150,7 +150,7 @@ INCLUDE ~scales_of_balance/components/124_wpo_4.tpa~
 
 BEGIN @125 // wspatck for all
 DESIGNATED 125
-REQUIRE_PREDICATE GAME_IS ~bgee sod bg2ee sod iwdee~ @8
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @8
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
