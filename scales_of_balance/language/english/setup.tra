@@ -368,7 +368,7 @@ Prime Requisites For Dual-Classing: Intelligence~
 3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
-@1237   = ~CLUB: This weapon class allows the character to use clubs.
+@1237   = ~CLUB: This weapon class allows the character to use clubs, as well as similar but more advanced weapons derived from clubs.
 
 2 stars: +1 to hit, +1/2 APR
 3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
@@ -629,11 +629,10 @@ Bonuses for clerics and druids:
 @2006   = ~CHARISMA: Charisma measures a character's personal magnetism and strength of spirit. It reflects what some cultures call 'karma,' or 'soul.' High Charisma helps with saving throws and luck. This ability is important to the Druid, Bard, and Paladin.
 
 Bonuses: 
-15: +1 to saving throws
-16: +2 to saving throws
-17: +3 to saving throws
-18: +3 to saving throws and +1 Luck
-19: +3 to saving throws and +2 Luck~
+16: +1 to saving throws
+17: +2 to saving throws
+18: +2 to saving throws and +1 Luck
+19: +2 to saving throws and +2 Luck~
 @2007   = ~CONSTITUTION: Constitution measures a character's fitness, health, and physical resistance to hardship, injury, and disease. This ability is important to the Ranger.
 
 Bonuses:

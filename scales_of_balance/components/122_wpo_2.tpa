@@ -70,7 +70,7 @@ END
 //__________________________________________________________________________________
 
 
-//UPDATE PROFICIENCY STRINGS_________________________________________________________
+//UPDATE PROFICIENCY STRINGS________________________________________________________
 //
 /*
 COPY_EXISTING ~weapprof.2da~ ~override~
@@ -165,7 +165,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 10 6 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 6 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 6 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 6 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 6 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 30 6 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 6 2
@@ -199,7 +199,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 8 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 8 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 8 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 8 3
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 8 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 8 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 8 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 8 3
@@ -219,7 +219,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 9 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 9 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 9 4
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 9 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 9 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 9 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 9 2
@@ -318,7 +318,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 17 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 17 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 17 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 17 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 17 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 17 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 30 17 2
@@ -333,7 +333,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 18 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 18 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 18 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 18 3
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 18 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 18 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 18 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 18 3
@@ -358,7 +358,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 20 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 20 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 20 4
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 20 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 20 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 20 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 20 4
@@ -378,7 +378,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 21 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 21 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 21 4
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 21 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 21 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 21 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 21 4
@@ -411,7 +411,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 15 30 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 30 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 30 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 30 4
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 30 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 30 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 30 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 30 30 1
@@ -430,7 +430,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 31 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 31 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 31 4
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 31 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 31 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 31 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 31 4
@@ -470,7 +470,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 36 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 36 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 36 3
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 36 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 36 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 36 5
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 36 5
@@ -488,7 +488,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 17 37 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 37 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 37 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 37 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 37 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 37 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 37 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 37 4
@@ -521,7 +521,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 17 39 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 39 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 39 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 39 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 39 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 39 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 39 2
@@ -555,7 +555,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 41 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 41 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 41 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 41 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 41 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 41 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 15 41 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 41 0
@@ -575,7 +575,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 42 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 42 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 42 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 42 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 42 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 42 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 15 42 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 42 0
@@ -597,7 +597,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 43 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 43 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 43 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 43 3
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 43 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 43 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 43 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 43 3
@@ -617,7 +617,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 44 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 44 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 44 4
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 44 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 44 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 44 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 44 3
@@ -665,7 +665,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 10 48 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 48 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 48 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 48 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 48 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 48 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 30 48 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 48 2
@@ -679,7 +679,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 10 49 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 49 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 49 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 49 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 49 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 49 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 30 49 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 49 2
@@ -693,7 +693,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 10 50 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 50 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 50 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 50 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 50 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 50 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 30 50 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 50 2
@@ -708,7 +708,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 15 52 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 52 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 52 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 24 52 4
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 52 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 52 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 52 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 52 1
@@ -752,7 +752,7 @@ ACTION_IF GAME_IS ~bgee sod bg2ee eet iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 21 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 23 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 24 56 2
+//		SET_2DA_ENTRY_LATER ~EE#weapprof~ 24 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 25 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 26 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 28 56 0
@@ -774,7 +774,7 @@ ACTION_IF GAME_IS ~bgee sod bg2ee eet iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 10 61 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 19 61 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 23 61 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 24 61 2
+//		SET_2DA_ENTRY_LATER ~EE#weapprof~ 24 61 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 25 61 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 30 61 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 61 2
@@ -832,7 +832,7 @@ ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 10 61 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 19 61 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 23 61 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 24 61 2
+//		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 24 61 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 25 61 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 30 61 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 20 61 2
@@ -848,7 +848,7 @@ ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 10 62 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 19 62 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 23 62 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 24 62 2
+//		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 24 62 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 25 62 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 30 62 2
 		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 20 62 2
@@ -902,7 +902,7 @@ DEFINE_ACTION_FUNCTION mod_cleric_profs BEGIN
 					SET_2DA_ENTRY_LATER C#weapprof 20 (col + 1) 2
 					SET_2DA_ENTRY_LATER C#weapprof 21 (col + 1) 2
 					SET_2DA_ENTRY_LATER C#weapprof 23 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 24 (col + 1) 2
+//					SET_2DA_ENTRY_LATER C#weapprof 24 (col + 1) 2
 					SET_2DA_ENTRY_LATER C#weapprof 25 (col + 1) 2
 					SET_2DA_ENTRY_LATER C#weapprof 26 (col + 1) 2
 					SET_2DA_ENTRY_LATER C#weapprof 30 (col + 1) 2
@@ -1076,7 +1076,7 @@ DEFINE_ACTION_FUNCTION mod_bard_profs BEGIN
 					SET_2DA_ENTRY_LATER B#weapprof 20 (col + 1) 3
 					SET_2DA_ENTRY_LATER B#weapprof 21 (col + 1) 0
 					SET_2DA_ENTRY_LATER B#weapprof 23 (col + 1) 3
-					SET_2DA_ENTRY_LATER B#weapprof 24 (col + 1) 3
+//					SET_2DA_ENTRY_LATER B#weapprof 24 (col + 1) 3
 					SET_2DA_ENTRY_LATER B#weapprof 25 (col + 1) 0
 					SET_2DA_ENTRY_LATER B#weapprof 26 (col + 1) 3
 					SET_2DA_ENTRY_LATER B#weapprof 28 (col + 1) 3
@@ -1268,7 +1268,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 0
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 0
+//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 2
@@ -1284,7 +1284,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 3
+//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 5
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 5
@@ -1301,7 +1301,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 3
+//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 1
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 5
@@ -1318,7 +1318,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 3
+//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 1
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 1
@@ -1344,7 +1344,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 2
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 2
+//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 0
@@ -1363,7 +1363,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 0
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 0
+//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 2

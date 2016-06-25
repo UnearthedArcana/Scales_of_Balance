@@ -211,10 +211,19 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			READ_STRREF 0x54 "desc"
 			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %leather_ac%%WNL%Damage Resistance: %leather_dr%%%WNL%Dexterity Penalty: %leather_dex%%WNL%Arcane Casting Speed: +1%WNL%~
+				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %leather_ac%%WNL%Damage Resistance: %leather_dr%%%WNL%Dexterity Penalty: %leather_dex%%WNL%Arcane Casting Speed: +1 penalty%WNL%~
 			  END
 			END
 			SAY_EVALUATED 0x54 ~%new_desc%~
+		  END
+		  ELSE BEGIN
+			READ_STRREF 0x50 "desc"
+			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %leather_ac%%WNL%Damage Resistance: %leather_dr%%%WNL%Dexterity Penalty: %leather_dex%%WNL%Arcane Casting Speed: +1 penalty%WNL%~
+			  END
+			END
+			SAY_EVALUATED 0x50 ~%new_desc%~
 		  END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~studded leather~) BEGIN
@@ -239,10 +248,19 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			READ_STRREF 0x54 "desc"
 			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %studded_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: %studded_dex%%WNL%Arcane Casting Speed: +2%WNL%~
+				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %studded_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: %studded_dex%%WNL%Arcane Casting Speed: +2 penalty%WNL%~
 			  END
 			END
 			SAY_EVALUATED 0x54 ~%new_desc%~
+		  END
+		  ELSE BEGIN
+			READ_STRREF 0x50 "desc"
+			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %studded_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: %studded_dex%%WNL%Arcane Casting Speed: +2 penalty%WNL%~
+			  END
+			END
+			SAY_EVALUATED 0x50 ~%new_desc%~
 		  END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~hide~) BEGIN
@@ -271,11 +289,20 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  READ_STRREF 0x54 "desc"
 			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %hide_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: %chain_dex%%WNL%Arcane Casting Speed: +3%WNL%Weapon Attack Speed: +1 penalty%WNL%~
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %hide_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: %chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +1 penalty%WNL%~
 				END
 			  END
 			  SAY_EVALUATED 0x54 ~%new_desc%~
 			END
+		    ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
+			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %hide_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: %chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +1 penalty%WNL%~
+			    END
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+		    END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~chain~) BEGIN
 			LPF DELETE_EFFECT INT_VAR opcode = 0 END
@@ -304,11 +331,20 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  READ_STRREF 0x54 "desc"
 			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %chain_ac%%WNL%Damage Resistance: %chain_dr%%%WNL%Dexterity Penalty: %chain_dex%%WNL%Arcane Casting Speed: +3%WNL%Weapon Attack Speed: +2 penalty%WNL%~
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %chain_ac%%WNL%Damage Resistance: %chain_dr%%%WNL%Dexterity Penalty: %chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +2 penalty%WNL%~
 				END
 			  END
 			  SAY_EVALUATED 0x54 ~%new_desc%~
 			END
+		    ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
+			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %chain_ac%%WNL%Damage Resistance: %chain_dr%%%WNL%Dexterity Penalty: %chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +2 penalty%WNL%~
+			    END
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+		    END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~scale~) BEGIN
 			LPF DELETE_EFFECT INT_VAR opcode = 0 END
@@ -337,11 +373,20 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  READ_STRREF 0x54 "desc"
 			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: %chain_dex%%WNL%Arcane Casting Speed: +3%WNL%Weapon Attack Speed: +2 penalty%WNL%~
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: %chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +2 penalty%WNL%~
 				END
 			  END
 			  SAY_EVALUATED 0x54 ~%new_desc%~
 			END
+		    ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
+			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: %chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +2 penalty%WNL%~
+			    END
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+		    END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~splint~) BEGIN
 			LPF DELETE_EFFECT INT_VAR opcode = 0 END
@@ -371,11 +416,20 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  READ_STRREF 0x54 "desc"
 			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: %plate_dex%%WNL%Arcane Casting Speed: +4%WNL%Weapon Attack Speed: +3 penalty%WNL%~
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: %plate_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
 				END
 			  END
 			  SAY_EVALUATED 0x54 ~%new_desc%~
 			END
+		    ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
+			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: %plate_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
+			    END
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+		    END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~plate~) BEGIN
 		  LPF DELETE_EFFECT INT_VAR opcode = 0 END
@@ -405,10 +459,19 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			READ_STRREF 0x54 "desc"
 			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %plate_ac%%WNL%Damage Resistance: %plate_dr%%%WNL%Dexterity Penalty: %plate_dex%%WNL%Arcane Casting Speed: +4%WNL%Weapon Attack Speed: +3 penalty%WNL%~
+				REPLACE_TEXTUALLY ~^Armor Class.+$~  ~Armor Class: %plate_ac%%WNL%Damage Resistance: %plate_dr%%%WNL%Dexterity Penalty: %plate_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
 			  END
 			END
 			SAY_EVALUATED 0x54 ~%new_desc%~
+		  END
+		  ELSE BEGIN
+			READ_STRREF 0x50 "desc"
+			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~^Armor Class.+$~  ~Armor Class: %plate_ac%%WNL%Damage Resistance: %plate_dr%%%WNL%Dexterity Penalty: %plate_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
+			  END
+			END
+			SAY_EVALUATED 0x50 ~%new_desc%~
 		  END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~full plate~) BEGIN
@@ -419,7 +482,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - 3) parameter2 = 0 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 30) parameter2 = 0 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - 30) parameter2 = 0 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 4 timing = 2 END
@@ -429,7 +491,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  PATCH_IF (%enchantment% = 0) BEGIN
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - 4) parameter2 = 0 timing = 2 END
 		  END
-		  PATCH_IF (%enchantment% = 1) BEGIN
+		  PATCH_IF (%enchantment% >= 1) BEGIN
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - 3) parameter2 = 0 timing = 2 END
 		  END
 		  READ_LONG 0x54 valid
@@ -437,10 +499,19 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			READ_STRREF 0x54 "desc"
 			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %fullplate_ac%%WNL%Damage Resistance: %fullplate_dr%%%WNL%Dexterity Penalty: %fullplate_dex%%WNL%Arcane Casting Speed: +5%WNL%Weapon Attack Speed: +4 penalty%WNL%~
+				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %fullplate_ac%%WNL%Damage Resistance: %fullplate_dr%%%WNL%Dexterity Penalty: %fullplate_dex%%WNL%Arcane Casting Speed: +5 penalty%WNL%Weapon Attack Speed: +4 penalty%WNL%~
 			  END
 			END
 			SAY_EVALUATED 0x54 ~%new_desc%~
+		  END
+		  ELSE BEGIN
+			READ_STRREF 0x50 "desc"
+			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %fullplate_ac%%WNL%Damage Resistance: %fullplate_dr%%%WNL%Dexterity Penalty: %fullplate_dex%%WNL%Arcane Casting Speed: +5 penalty%WNL%Weapon Attack Speed: +4 penalty%WNL%~
+			  END
+			END
+			SAY_EVALUATED 0x50 ~%new_desc%~
 		  END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~elven~) BEGIN
@@ -465,7 +536,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  READ_STRREF 0x54 "desc"
 			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %chain_dr%%%WNL%Dexterity Penalty: %leather_dex%%WNL%Arcane Casting Speed: +1%WNL%~
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %chain_dr%%%WNL%Dexterity Penalty: %leather_dex%%WNL%Arcane Casting Speed: +1 penalty%WNL%~
 				END
 			  END
 			  SAY_EVALUATED 0x54 ~%new_desc%~
@@ -531,7 +602,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			READ_STRREF 0x54 "desc"
 			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %hide_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: %studded_dex%%WNL%Arcane Casting Speed: +2%WNL%Weapon Attack Speed: +1 penalty%WNL%~
+				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %hide_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: %studded_dex%%WNL%Arcane Casting Speed: +2 penalty%WNL%Weapon Attack Speed: +1 penalty%WNL%~
 			  END
 			END
 			SAY_EVALUATED 0x54 ~%new_desc%~
@@ -565,7 +636,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  READ_STRREF 0x54 "desc"
 			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: %plate_dex%%WNL%Arcane Casting Speed: +4%WNL%Weapon Attack Speed: +3 penalty%WNL%~
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: %plate_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
 				END
 			  END
 			  SAY_EVALUATED 0x54 ~%new_desc%~
@@ -599,7 +670,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  READ_STRREF 0x54 "desc"
 			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
 				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: %plate_dex%%WNL%Arcane Casting Speed: +4%WNL%Weapon Attack Speed: +3 penalty%WNL%~
+				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: %plate_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
 				END
 			  END
 			  SAY_EVALUATED 0x54 ~%new_desc%~

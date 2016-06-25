@@ -2,7 +2,7 @@ BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
 VERSION ~v5.2~
-README ~scales_of_balance/readme-SoB.html~
+//README ~scales_of_balance/readme-SoB.html~
 
 ALWAYS
 

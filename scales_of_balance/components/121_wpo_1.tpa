@@ -15,10 +15,10 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY 16 2 1 RESOLVE_STR_REF (@1225)
 	SET_2DA_ENTRY 17 2 1 RESOLVE_STR_REF (@1226)
 	SET_2DA_ENTRY 18 2 1 RESOLVE_STR_REF (@1227)
-	SET_2DA_ENTRY 20 2 1 RESOLVE_STR_REF (@1225)
+	SET_2DA_ENTRY 20 2 1 RESOLVE_STR_REF (@1223)
 	SET_2DA_ENTRY 21 2 1 RESOLVE_STR_REF (@1228)
 	SET_2DA_ENTRY 22 2 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 24 2 1 RESOLVE_STR_REF (@1223)
+	SET_2DA_ENTRY 24 2 1 RESOLVE_STR_REF (@1225)
 	SET_2DA_ENTRY 27 2 1 RESOLVE_STR_REF (@1225)
 	SET_2DA_ENTRY 28 2 1 RESOLVE_STR_REF (@1229)
 	SET_2DA_ENTRY 29 2 1 RESOLVE_STR_REF (@1225)
@@ -92,20 +92,20 @@ END
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
-		PATCH_IF prof = 115 BEGIN
-			WRITE_BYTE 0x31 101
+		PATCH_IF prof = 101 BEGIN
+			WRITE_BYTE 0x31 115
 		END
 	END
 BUT_ONLY
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
-	LPF ALTER_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 115 parameter2 = 101 END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 101 parameter2 = 115 END
 	BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
 	COUNT_2DA_COLS weapcols
 	FOR (col = 4; col < weapcols; col += 1) BEGIN
-	    SET_2DA_ENTRY 17 col weapcols ~0~
+	    SET_2DA_ENTRY 21 col weapcols ~0~
 	END
 //__________________________________________________________________________________
 
