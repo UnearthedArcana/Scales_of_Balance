@@ -157,6 +157,12 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	  	PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Beetle~) BEGIN
 		  SPRINT armor_type ~beetle~
 		END
+	  	PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Robe~) BEGIN
+		  SPRINT armor_type ~robes~
+		END
+	  	PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Cloak~) BEGIN
+		  SPRINT armor_type ~robes~
+		END
 		READ_LONG 0x60 enchantment
 		SET leather_ac = (8 - %enchantment%)
 		SET studded_ac = (7 - %enchantment%)
