@@ -253,7 +253,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 		SET_2DA_ENTRIES_NOW ~EE#weapprof~ 1
 END
 	
-ACTION_IF GAME_IS ~bgee sod~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Shaman
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 31 60 1
