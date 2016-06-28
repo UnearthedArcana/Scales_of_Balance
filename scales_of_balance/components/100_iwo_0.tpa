@@ -199,8 +199,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  SPRINT ~fullplate_dex~ ~-3~
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~leather~) BEGIN
-		  LPF DELETE_EFFECT INT_VAR opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR opcode = 145 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %leather_ac% parameter2 = 16 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
@@ -233,8 +233,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~studded leather~) BEGIN
-		  LPF DELETE_EFFECT INT_VAR opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR opcode = 145 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %studded_ac% parameter2 = 16 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
@@ -270,8 +270,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~hide~) BEGIN
-			LPF DELETE_EFFECT INT_VAR opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR opcode = 145 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %hide_ac% parameter2 = 16 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
@@ -311,8 +311,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		    END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~chain~) BEGIN
-			LPF DELETE_EFFECT INT_VAR opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR opcode = 145 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %chain_ac% parameter2 = 16 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
@@ -353,8 +353,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		    END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~scale~) BEGIN
-			LPF DELETE_EFFECT INT_VAR opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR opcode = 145 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
@@ -395,8 +395,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		    END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~splint~) BEGIN
-			LPF DELETE_EFFECT INT_VAR opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR opcode = 145 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
@@ -438,8 +438,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		    END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~plate~) BEGIN
-		  LPF DELETE_EFFECT INT_VAR opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR opcode = 145 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %plate_ac% parameter2 = 16 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %plate_dr% parameter2 = 1 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %plate_dr% parameter2 = 1 timing = 2 END
@@ -481,8 +481,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~full plate~) BEGIN
-		  LPF DELETE_EFFECT INT_VAR opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR opcode = 145 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %fullplate_ac% parameter2 = 16 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
@@ -521,8 +521,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~elven~) BEGIN
-			LPF DELETE_EFFECT INT_VAR opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR opcode = 145 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
@@ -550,8 +550,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			WRITE_BYTE 0x2d ("0x00") // blocked: none
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~dragon~) BEGIN
-			LPF DELETE_EFFECT INT_VAR opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR opcode = 145 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
@@ -583,8 +583,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~shadow dragon~) BEGIN
-		  LPF DELETE_EFFECT INT_VAR opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR opcode = 145 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %hide_ac% parameter2 = 16 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
 		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
@@ -615,8 +615,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~ankheg~) BEGIN
-			LPF DELETE_EFFECT INT_VAR opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR opcode = 145 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
@@ -649,8 +649,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			END
 		END
 		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~beetle~) BEGIN
-			LPF DELETE_EFFECT INT_VAR opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR opcode = 145 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
