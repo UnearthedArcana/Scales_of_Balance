@@ -19,12 +19,12 @@ COPY ~scales_of_balance/misc/d5_stats.d5~ ~override~
 //EDIT STAT BONUSES__________________________________________________________________
 //
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_yaras.d5~ BEGIN
-  COPY ~scales_of_balance/misc/dexmod.2da~ ~override~
+  COPY ~scales_of_balance/stats/dexmod.2da~ ~override~
 END
-COPY ~scales_of_balance/misc/strmod.2da~ ~override~
-COPY ~scales_of_balance/misc/strmodex.2da~ ~override~
+COPY ~scales_of_balance/stats/strmod.2da~ ~override~
+COPY ~scales_of_balance/stats/strmodex.2da~ ~override~
 COPY ~scales_of_balance/misc/mxsplwis.2da~ ~override~
-//COPY ~scales_of_balance/misc/intmod.2da~ ~override~
+//COPY ~scales_of_balance/stats/intmod.2da~ ~override~
 COPY_EXISTING ~abclasrq.2da~ ~override~
 	REPLACE_TEXTUALLY ~ 0~ ~ 7~
 	BUT_ONLY
@@ -74,21 +74,27 @@ END
 //___________________________________________________________________________________
 
 
-//ACTION_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
-
-
 //CHARISMA BONUSES___________________________________________________________________
 //
-COPY ~scales_of_balance/misc/d5_palch.spl~ ~override~
-COPY ~scales_of_balance/misc/savecndh.2da~ ~override~
-COPY ~scales_of_balance/misc/savecng.2da~ ~override~
-COPY ~scales_of_balance/misc/d5_cha16.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_cha17.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_cha18.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_cha19.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_chari.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_chari.cre~ ~override~
-COMPILE ~scales_of_balance/misc/d5_chari.baf~
+COPY ~scales_of_balance/stats/savecndh.2da~ ~override~
+COPY ~scales_of_balance/stats/savecng.2da~ ~override~
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	COPY ~scales_of_balance/stats/old/d5_palch.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_cha16.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_cha17.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_cha18.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_cha19.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_chari.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_chari.cre~ ~override~
+	COMPILE ~scales_of_balance/stats/old/d5_chari.baf~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	COPY ~scales_of_balance/stats/new/d5_chari.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_palch.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_savch.spl~ ~override~
+	COPY ~scales_of_balance/misc/d5_luckp.spl~ ~override~
+END
 //___________________________________________________________________________________
 
 //EXCLUDE PALADINS___________________________________________________________________
@@ -105,7 +111,7 @@ ACTION_PHP_EACH d5_intel_array AS boo => zoo BEGIN
 	ACTION_IF (%zoo% = 6) AND (FILE_EXISTS_IN_GAME ~%boo%.2da~) THEN BEGIN
 		COPY_EXISTING ~%boo%.2da~ ~override~
 			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/misc/charisma_paladin.txt~
+			APPEND_FILE ~scales_of_balance/stats/charisma_paladin.txt~
 			BUT_ONLY
 	END
 END
@@ -122,7 +128,7 @@ COPY_EXISTING ~clabpr01.2da~ ~override~
 			~clabba01.2da~ ~override~
 			~clabmo01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 COPY_EXISTING ~kitlist.2da~ ~override~
 	COUNT_2DA_ROWS ~9~ "rows"
 	FOR ( index = 1 ; index < rows ; index = index + 1 ) BEGIN
@@ -135,65 +141,59 @@ ACTION_PHP_EACH d5_char_array AS pu => poo BEGIN
 	ACTION_IF (FILE_EXISTS_IN_GAME ~%pu%.2da~) THEN BEGIN
 		COPY_EXISTING ~%pu%.2da~ ~override~
 			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+			APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 		BUT_ONLY
 	END
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma01.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma02.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma02.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma03.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma03.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma04.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma04.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma05.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma05.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma06.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma06.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma07.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma07.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma08.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma08.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma09.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma09.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/charisma_bonuses.txt~
+		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
 END
 //__________________________________________________________________________________
 
 //INTELLIGENCE BONUSES______________________________________________________________
 //
-COPY ~scales_of_balance/misc/d5_intcr.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_intcr.cre~ ~override~
-COPY ~scales_of_balance/misc/d5_crit1.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_crit2.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_crit3.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_crit0.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp1.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp2.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp3.spl~ ~override~
@@ -203,44 +203,72 @@ COPY ~scales_of_balance/misc/d5_wisp6.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp7.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp8.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp9.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_int12.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_int13.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_int14.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_int15.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_int16.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_int17.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_int18.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_int19.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_int20.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_int12.cre~ ~override~
-COPY ~scales_of_balance/misc/d5_int13.cre~ ~override~
-COPY ~scales_of_balance/misc/d5_int14.cre~ ~override~
-COPY ~scales_of_balance/misc/d5_int15.cre~ ~override~
-COPY ~scales_of_balance/misc/d5_int16.cre~ ~override~
-COPY ~scales_of_balance/misc/d5_int17.cre~ ~override~
-COPY ~scales_of_balance/misc/d5_int18.cre~ ~override~
-COPY ~scales_of_balance/misc/d5_int19.cre~ ~override~
-COPY ~scales_of_balance/misc/d5_int20.cre~ ~override~
-COMPILE ~scales_of_balance/misc/d5_intcr.baf~
-COMPILE ~scales_of_balance/misc/d5_int12.baf~
-COMPILE ~scales_of_balance/misc/d5_int13.baf~
-COMPILE ~scales_of_balance/misc/d5_int14.baf~
-COMPILE ~scales_of_balance/misc/d5_int15.baf~
-COMPILE ~scales_of_balance/misc/d5_int16.baf~
-COMPILE ~scales_of_balance/misc/d5_int17.baf~
-COMPILE ~scales_of_balance/misc/d5_int18.baf~
-COMPILE ~scales_of_balance/misc/d5_int19.baf~
-COMPILE ~scales_of_balance/misc/d5_int20.baf~
-COPY ~scales_of_balance/misc/d5_noint.spl~ ~override~
-COPY ~scales_of_balance/misc/d5_nint2.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_nint3.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_nint4.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_nint5.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_nint6.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_nint7.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_nint8.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_nint9.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_nint0.eff~ ~override~
+COPY ~scales_of_balance/stats/d5_noint.spl~ ~override~
+COPY ~scales_of_balance/stats/d5_nint2.eff~ ~override~
+COPY ~scales_of_balance/stats/d5_nint3.eff~ ~override~
+COPY ~scales_of_balance/stats/d5_nint4.eff~ ~override~
+COPY ~scales_of_balance/stats/d5_nint5.eff~ ~override~
+COPY ~scales_of_balance/stats/d5_nint6.eff~ ~override~
+COPY ~scales_of_balance/stats/d5_nint7.eff~ ~override~
+COPY ~scales_of_balance/stats/d5_nint8.eff~ ~override~
+COPY ~scales_of_balance/stats/d5_nint9.eff~ ~override~
+COPY ~scales_of_balance/stats/d5_nint0.eff~ ~override~
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	COPY ~scales_of_balance/stats/old/d5_intcr.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_intcr.cre~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_crit1.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_crit2.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_crit3.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_crit0.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int12.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int13.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int14.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int15.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int16.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int17.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int18.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int19.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int20.spl~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int12.cre~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int13.cre~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int14.cre~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int15.cre~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int16.cre~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int17.cre~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int18.cre~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int19.cre~ ~override~
+	COPY ~scales_of_balance/stats/old/d5_int20.cre~ ~override~
+	COMPILE ~scales_of_balance/stats/old/d5_intcr.baf~
+	COMPILE ~scales_of_balance/stats/old/d5_int12.baf~
+	COMPILE ~scales_of_balance/stats/old/d5_int13.baf~
+	COMPILE ~scales_of_balance/stats/old/d5_int14.baf~
+	COMPILE ~scales_of_balance/stats/old/d5_int15.baf~
+	COMPILE ~scales_of_balance/stats/old/d5_int16.baf~
+	COMPILE ~scales_of_balance/stats/old/d5_int17.baf~
+	COMPILE ~scales_of_balance/stats/old/d5_int18.baf~
+	COMPILE ~scales_of_balance/stats/old/d5_int19.baf~
+	COMPILE ~scales_of_balance/stats/old/d5_int20.baf~
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+	COPY ~scales_of_balance/stats/new/d5_intcr.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_crit0.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_critb.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_crit2.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_crit3.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_crit0.eff~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_crit2.eff~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_crit3.eff~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_int12.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_int13.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_int14.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_int15.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_int16.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_int17.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_int18.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_int19.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5_int20.spl~ ~override~
+END
 //___________________________________________________________________________________
 
 //ADD CRIT PENALTIES________________________________________________________________
@@ -254,7 +282,12 @@ COPY_EXISTING ~clabpr01.2da~ ~override~
 			~clabba01.2da~ ~override~
 			~clabmo01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+		PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+		END
+		PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+		END
 COPY_EXISTING ~kitlist.2da~ ~override~
 	COUNT_2DA_ROWS ~9~ "rows"
 	FOR ( index = 1 ; index < rows ; index = index + 1 ) BEGIN
@@ -267,54 +300,104 @@ ACTION_PHP_EACH d5_char_array AS pu => poo BEGIN
 	ACTION_IF (FILE_EXISTS_IN_GAME ~%pu%.2da~) THEN BEGIN
 		COPY_EXISTING ~%pu%.2da~ ~override~
 			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+			PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+				APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+			END
+			PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+				APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+			END
 		BUT_ONLY
 	END
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma01.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+		PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+		END
+		PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+		END
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma02.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma02.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+		PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+		END
+		PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+		END
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma03.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma03.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+		PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+		END
+		PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+		END
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma04.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma04.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+		PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+		END
+		PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+		END
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma05.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma05.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+		PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+		END
+		PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+		END
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma06.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma06.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+		PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+		END
+		PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+		END
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma07.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma07.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+		PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+		END
+		PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+		END
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma08.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma08.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+		PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+		END
+		PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+		END
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma09.2da~) THEN BEGIN
 	COPY ~scales_of_balance/misc/clabma09.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/crit_changes.txt~
+		PATCH_IF NOT FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
+		END
+		PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
+			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
+		END
 END
 //__________________________________________________________________________________
 
@@ -332,71 +415,71 @@ ACTION_PHP_EACH d5_intel_array AS boo => zoo BEGIN
 	ACTION_IF (%zoo% = 5) AND (FILE_EXISTS_IN_GAME ~%boo%.2da~) BEGIN
 		COPY_EXISTING ~%boo%.2da~ ~override~
 			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/misc/intelligence_bards.txt~
+			APPEND_FILE ~scales_of_balance/stats/intelligence_bards.txt~
 	END
 	ACTION_IF (%zoo% = 1) AND (FILE_EXISTS_IN_GAME ~%boo%.2da~) BEGIN
 		COPY_EXISTING ~%boo%.2da~ ~override~
 			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+			APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 	END
 	ACTION_IF (%zoo% = 19) AND (FILE_EXISTS_IN_GAME ~%boo%.2da~) BEGIN
 		COPY_EXISTING ~%boo%.2da~ ~override~
 			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/misc/intelligence_sorcerers.txt~
+			APPEND_FILE ~scales_of_balance/stats/intelligence_sorcerers.txt~
 	END
 END
 COPY_EXISTING ~clabba01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_bards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_bards.txt~
 ACTION_IF (FILE_EXISTS_IN_GAME ~clabma01.2da~) BEGIN
 	COPY_EXISTING ~clabma01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma01.2da~) BEGIN
 	COPY ~scales_of_balance/misc/clabma01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma02.2da~) BEGIN
 	COPY ~scales_of_balance/misc/clabma02.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma03.2da~) BEGIN
 	COPY ~scales_of_balance/misc/clabma03.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma04.2da~) BEGIN
 	COPY ~scales_of_balance/misc/clabma04.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma05.2da~) BEGIN
 	COPY ~scales_of_balance/misc/clabma05.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma06.2da~) BEGIN
 	COPY ~scales_of_balance/misc/clabma06.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma07.2da~) BEGIN
 	COPY ~scales_of_balance/misc/clabma07.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma08.2da~) BEGIN
 	COPY ~scales_of_balance/misc/clabma08.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 END
 ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma09.2da~) BEGIN
 	COPY ~scales_of_balance/misc/clabma09.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/misc/intelligence_wizards.txt~
+		APPEND_FILE ~scales_of_balance/stats/intelligence_wizards.txt~
 END
 //__________________________________________________________________________________
 

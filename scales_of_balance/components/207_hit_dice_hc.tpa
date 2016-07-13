@@ -9,20 +9,20 @@
 
 //CHANGE HIT DICE TABLES_______________________________________________________________
 //
-COPY ~scales_of_balance/misc/hpconbon_hc.2da~ ~override/hpconbon.2da~
-COPY ~scales_of_balance/misc/hpbarb.2da~ ~override~
-COPY ~scales_of_balance/misc/hpcm.2da~ ~override~
-COPY ~scales_of_balance/misc/hpct.2da~ ~override~
-COPY ~scales_of_balance/misc/hpfc.2da~ ~override~
-COPY ~scales_of_balance/misc/hpfm.2da~ ~override~
-COPY ~scales_of_balance/misc/hpfmt.2da~ ~override~
-COPY ~scales_of_balance/misc/hpft.2da~ ~override~
-COPY ~scales_of_balance/misc/hpmt.2da~ ~override~
-COPY ~scales_of_balance/misc/hpmonk.2da~ ~override~
-COPY ~scales_of_balance/misc/hpprs.2da~ ~override~
-COPY ~scales_of_balance/misc/hprog.2da~ ~override~
-COPY ~scales_of_balance/misc/hpwar.2da~ ~override~
-COPY ~scales_of_balance/misc/hpwiz.2da~ ~override~
+COPY ~scales_of_balance/stats/hpconbon_hc.2da~ ~override/hpconbon.2da~
+COPY ~scales_of_balance/stats/hpbarb.2da~ ~override~
+COPY ~scales_of_balance/stats/hpcm.2da~ ~override~
+COPY ~scales_of_balance/stats/hpct.2da~ ~override~
+COPY ~scales_of_balance/stats/hpfc.2da~ ~override~
+COPY ~scales_of_balance/stats/hpfm.2da~ ~override~
+COPY ~scales_of_balance/stats/hpfmt.2da~ ~override~
+COPY ~scales_of_balance/stats/hpft.2da~ ~override~
+COPY ~scales_of_balance/stats/hpmt.2da~ ~override~
+COPY ~scales_of_balance/stats/hpmonk.2da~ ~override~
+COPY ~scales_of_balance/stats/hpprs.2da~ ~override~
+COPY ~scales_of_balance/stats/hprog.2da~ ~override~
+COPY ~scales_of_balance/stats/hpwar.2da~ ~override~
+COPY ~scales_of_balance/stats/hpwiz.2da~ ~override~
 //___________________________________________________________________________________
 
 
