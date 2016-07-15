@@ -38,11 +38,12 @@
 @150   = ~WCO (Wizard Class Overhaul)~
 @160   = ~STO - Saving Throw Overhaul~
 @180   = ~MRO - Magic Resistance Overhaul~
-@200   = ~Revised Stat Bonuses~
-@205   = ~Revised Hit Point Tables~
+@200   = ~SBO - Stat Bonus Overhaul~
+@205   = ~HDO - Hit Dice Overhaul~
 @206   = ~Generous (above-average) hit points~
 @207   = ~Hardcore (closer to average) hit points~
-@210   = ~Revised XP Tables~
+@210   = ~XPO - Standardized XP Tables~
+@212   = ~XPO - No Murder XP~
 @215   = ~Revised Spellcasting Tables~
 @1000   = ~100: Item Tweaks~
 @1001   = ~Mastercraft Arrows~

@@ -58,7 +58,7 @@
 	 chain mail: 	AC 6 	-3 Dex 	18% DR	+3 casting time
 	 scale armor: 	AC 5 	-3 Dex 	12% DR	+3 casting time
 	 splint mail: 	AC 5 	-4 Dex 	21% DR	+4 casting time
-	 plate mail: 	AC 4 	-4 Dex 	25% DR	+4 casting time
+	 plate mail: 	AC 4 	-5 Dex 	25% DR	+4 casting time
 	 full plate*: 	(AC 3 	-5 Dex	30% DR	+5 casting time)<br />
     Enchantment:
 	 +1:	 	-1 AC	+1 Dex	+1% DR

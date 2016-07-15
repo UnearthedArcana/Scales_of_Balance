@@ -72,33 +72,33 @@ LANGUAGE
 BEGIN @100 // revised armor
 DESIGNATED 100
 
-INCLUDE ~scales_of_balance/components/100_iwo_0.tpa~
+INCLUDE ~scales_of_balance/components/100_IWO_YARAS.tpa~
 //__________________________________________________________________________________
 
 BEGIN @101 // aesthetic/enchantment tweaks
 DESIGNATED 101
 REQUIRE_PREDICATE NOT GAME_IS ~iwdee~ @8
 
-INCLUDE ~scales_of_balance/components/101_iwo_1.tpa~
+INCLUDE ~scales_of_balance/components/101_IWO_enchantments.tpa~
 //__________________________________________________________________________________
 
 BEGIN @102 // functional tweaks
 DESIGNATED 102
 
-INCLUDE ~scales_of_balance/components/102_iwo_2.tpa~
+INCLUDE ~scales_of_balance/components/102_IWO_weapons.tpa~
 //__________________________________________________________________________________
 
 BEGIN @103 // light/heavy weapon differences
 DESIGNATED 103
 
-INCLUDE ~scales_of_balance/components/103_iwo_3.tpa~
+INCLUDE ~scales_of_balance/components/103_IWO_light_heavy.tpa~
 //__________________________________________________________________________________
 
 BEGIN @104 // IWDEE tweaks
 DESIGNATED 104
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @8
 
-INCLUDE ~scales_of_balance/components/104_iwo_4.tpa~
+INCLUDE ~scales_of_balance/components/104_IWO_IWDEE.tpa~
 //__________________________________________________________________________________
 
 
@@ -115,7 +115,7 @@ DESIGNATED 121
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
-INCLUDE ~scales_of_balance/components/121_wpo_1.tpa~
+INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
 //__________________________________________________________________________________
 
 BEGIN @122 // change pip values
@@ -125,7 +125,7 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "121") @1
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
-INCLUDE ~scales_of_balance/components/122_wpo_2.tpa~
+INCLUDE ~scales_of_balance/components/122_WPO_proficiency.tpa~
 //__________________________________________________________________________________
 
 /*
@@ -135,7 +135,7 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "122") @1 // ??? or 
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
-INCLUDE ~scales_of_balance/components/123_wpo_3.tpa~
+INCLUDE ~scales_of_balance/components/123_WPO_dual_class.tpa~
 //__________________________________________________________________________________
 */
 
@@ -145,7 +145,7 @@ REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
-INCLUDE ~scales_of_balance/components/124_wpo_4.tpa~
+INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
 //__________________________________________________________________________________
 
 BEGIN @125 // wspatck for all
@@ -154,7 +154,7 @@ REQUIRE_PREDICATE GAME_IS ~bgee bg2ee iwdee~ @8
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
-INCLUDE ~scales_of_balance/components/125_wpo_5.tpa~
+INCLUDE ~scales_of_balance/components/125_WPO_apr.tpa~
 //__________________________________________________________________________________
 
 
@@ -173,7 +173,7 @@ DESIGNATED 160
 
 INCLUDE ~scales_of_balance/spells/save_list_base.tpa~
 
-INCLUDE ~scales_of_balance/components/160_sto.tpa~
+INCLUDE ~scales_of_balance/components/160_STO.tpa~
 //__________________________________________________________________________________
 
 
@@ -193,7 +193,7 @@ DESIGNATED 180
 
 INCLUDE ~scales_of_balance/spells/mr_list_base.tpa~
 
-INCLUDE ~scales_of_balance/components/180_mro.tpa~
+INCLUDE ~scales_of_balance/components/180_MRO.tpa~
 //__________________________________________________________________________________
 
 
@@ -210,7 +210,7 @@ DESIGNATED 200
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "20") @4
 //GROUP @22
 
-INCLUDE ~scales_of_balance/components/200_stats.tpa~
+INCLUDE ~scales_of_balance/components/200_SBO.tpa~
 //__________________________________________________________________________________
 
 
@@ -228,7 +228,7 @@ SUBCOMPONENT @205
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "20") @4
 //GROUP @22
 
-INCLUDE ~scales_of_balance/components/206_hit_dice.tpa~
+INCLUDE ~scales_of_balance/components/206_HDO.tpa~
 //__________________________________________________________________________________
 
 BEGIN @207
@@ -237,7 +237,7 @@ SUBCOMPONENT @205
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "20") @4
 //GROUP @22
 
-INCLUDE ~scales_of_balance/components/207_hit_dice_hc.tpa~
+INCLUDE ~scales_of_balance/components/207_HDO_hc.tpa~
 //__________________________________________________________________________________
 
 
@@ -254,6 +254,6 @@ DESIGNATED 210
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "20") @4
 //GROUP @22
 
-INCLUDE ~scales_of_balance/components/210_xp_tables.tpa~
+INCLUDE ~scales_of_balance/components/210_XPO_tables.tpa~
 //__________________________________________________________________________________
 
