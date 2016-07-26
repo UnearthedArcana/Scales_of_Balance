@@ -38,8 +38,8 @@ COPY ~scales_of_balance/misc/abracead.2da~ ~override~
 
 //EDIT RACE STRINGS__________________________________________________________________
 //
-ACTION_IF (FILE_EXISTS_IN_GAME ~racetext.2da~) BEGIN
-	COPY_EXISTING ~clastext.2da~ ~override~
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+	COPY_EXISTING ~racetext.2da~ ~override~
 		SET_2DA_ENTRY 3 3 1 RESOLVE_STR_REF (@2011)
 		SET_2DA_ENTRY 4 3 1 RESOLVE_STR_REF (@2013)
 		SET_2DA_ENTRY 5 3 1 RESOLVE_STR_REF (@2016)
@@ -48,9 +48,8 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~racetext.2da~) BEGIN
 		SET_2DA_ENTRY 8 3 1 RESOLVE_STR_REF (@2014)
 		SET_2DA_ENTRY 9 3 1 RESOLVE_STR_REF (@2017)
 	BUT_ONLY
-END
-ACTION_IF (FILE_EXISTS_IN_GAME ~sodrace.2da~) BEGIN
-	COPY_EXISTING ~sodcltxt.2da~ ~override~
+  ACTION_IF (FILE_EXISTS_IN_GAME ~sodrace.2da~) BEGIN
+	COPY_EXISTING ~sodrace.2da~ ~override~
 		SET_2DA_ENTRY 3 3 1 RESOLVE_STR_REF (@2011)
 		SET_2DA_ENTRY 4 3 1 RESOLVE_STR_REF (@2013)
 		SET_2DA_ENTRY 5 3 1 RESOLVE_STR_REF (@2016)
@@ -59,6 +58,7 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~sodrace.2da~) BEGIN
 		SET_2DA_ENTRY 8 3 1 RESOLVE_STR_REF (@2014)
 		SET_2DA_ENTRY 9 3 1 RESOLVE_STR_REF (@2017)
 	BUT_ONLY
+  END
 END
 //___________________________________________________________________________________
 

@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.2 </strong><br />
+  <p><strong> Version 5.3 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -42,24 +42,24 @@
   </ul></p>
   <p>See the component descriptions below for more specific information about compatibility.</p>
   <p><strong>Load Order:</strong><br />
-    Scales of Balance should be installed <strong>after</strong> all other mods that add or change creatures, items or kits. It should be installed <strong>after</strong> the "WSPATCK for All" component of <u>tb#Tweaks</u>.  It should be just about the last thing you install, with the exception of something like Generalized Biffing, Level1NPCs, NPC_EE, lolfixer, etc.</p>
+    Scales of Balance should be installed <strong>after</strong> all other mods that add or change creatures, items or kits. It should be installed <strong>after</strong> the "WSPATCK for All" component of <u>tb#Tweaks</u>.  Most of it should slot nicely in immediately before SCS... *except* the MRO: if you install aTweaks, the MRO component should be installed after that. (That's why I moved the MRO to the end as of v5.3.)</p>
 </div>
 <h2>Contents</h2>
 <div class="section">
   <h4 class="subheader">Component 101: </h4>
   <div class="section">
-    <p><strong><em>Item & Weapon Overhaul ("IWO"): Yet Another Revised Armor System</em></strong></p>
+    <p><strong><em>Item & Weapon Overhaul (IWO): Yet Another Revised Armor System</em></strong></p>
     <p>This component changes armor to give the wearer a mix of Armor Class and Damage Resistance bonuses. The values are listed below:</p>
       <pre>
     Armor:
-	 leather:	AC 8 	-1 Dex 	6% DR 	+1 casting time
-	 studded:	AC 7 	-2 Dex 	12% DR 	+2 casting time
-	 hide armor: 	AC 6 	-3 Dex 	21% DR	+3 casting time
-	 chain mail: 	AC 6 	-3 Dex 	18% DR	+3 casting time
-	 scale armor: 	AC 5 	-3 Dex 	12% DR	+3 casting time
-	 splint mail: 	AC 5 	-4 Dex 	21% DR	+4 casting time
-	 plate mail: 	AC 4 	-5 Dex 	25% DR	+4 casting time
-	 full plate*: 	(AC 3 	-5 Dex	30% DR	+5 casting time)<br />
+	 leather:	AC 7 	-1 Dex 	5% DR 	+1 casting time
+	 studded:	AC 6 	-2 Dex 	10% DR 	+2 casting time
+	 hide armor: 	AC 5 	-3 Dex 	21% DR	+3 casting time
+	 chain mail: 	AC 5 	-3 Dex 	18% DR	+3 casting time
+	 scale armor: 	AC 4 	-3 Dex 	12% DR	+3 casting time
+	 splint mail: 	AC 4 	-4 Dex 	21% DR	+4 casting time
+	 plate mail: 	AC 3 	-5 Dex 	25% DR	+4 casting time
+	 full plate*: 	(AC 2 	-5 Dex	30% DR	+5 casting time)<br />
     Enchantment:
 	 +1:	 	-1 AC	+1 Dex	+1% DR
 	 +2: 		-2 AC 	+2 Dex	+2% DR
@@ -126,7 +126,7 @@
   </div>
   <h4 class="subheader">Component 121: </h4>
   <div class="section">
-    <p><strong><em>Weapon Proficiency Overhaul ("WPO"): Weapon Category Combination</em></strong></p>
+    <p><strong><em>Weapon Proficiency Overhaul (WPO): Weapon Category Combination</em></strong></p>
       <p>This component groups certain proficiencies together:</p>
       <ul>
         <li> Two-handed swords and bastard swords are combined into a "greatswords" proficiency.</li>
@@ -207,28 +207,29 @@
       <p>(NB if you install component 122 without this one, only warriors will get the benefit of the APR bonus for basic proficiency.)</p>
     <p><b>Compatibility:</b> this component is not compatible with the APR on Spec component of Tweaks Anthology (which I wrote, and is based on this one). The other version is specifically designed for the vanilla proficiency system; this one is specifically designed for the WPO proficiency system. Use If you installed the "WPO Part 2," use this version.</p>
   </div>
-  <h4 class="subheader">Component 180: </h4>
+  <h4 class="subheader">Component 160: </h4>
   <div class="section">
-    <p><strong><em>Magic Resistance Overhaul ("MRO")</em></strong></p>
-    <p>WARNING: This component makes very severe changes to the way the game works, and has not been extensively tested for its effects on game balance. It should be considered as 'beta' quality. Its purpose is to largely (but not completely) remove the probability-based "magic resistance" mechanic from the game. It makes the following changes:</p>
+    <p><strong><em>Saving Throw Overhaul (STO)</em></strong></p>
+    <p>This component changes all spells such that the saving throws they offer target follow these guidelines:<br />
     <ul>
-      <li>All creatures in the game, such as drow, dragons, skeleton warriors, etc., will have their MR set to zero. Instead, they will receive +3 bonuses to saving throws vs. Breath, Petrification, and Wands, and a +6 bonus to saving throws vs. Spells. (No bonus to saves vs. Death - this should make necromancy magic a little stronger and more special.)</li>
-      <li>Monks and Wizard Slayers will not get MR; instead, they will get a +1 bonus to all saving throws at level 1, and at every 4th level thereafter (5th, 9th, 13th, etc. up to 25th).</li>
-      <li>Almost all items in the game that grant MR have been changed. Some, like the Amulet of Magic Resistance, have their MR converted into resistance to all elemental and magic damage. Others, like Carsomyr, instead get large bonuses to saving throws. Some are very different, like the Sword of Balduran which now grants a movement rate bonus.</li>
-      <li>It is still possible to get *some* MR, from the Hell Trials and the Machine of Lum the Mad. That's okay, 15% MR isn't game-breaking... it's only when it is stacked that it causes problems.</li>
-      <li>Likewise, the "Magic Resistance" spell is left untouched, it can be used as another form of magic protection along with the likes of Spell Deflections and Globes of Invulnerability. Lower Resistance, Pierce Magic, and Pierce Shield are still effective against this spell, and SCS enemies will use them against you.</li>
+      <li>Direct magical and mental effects like Charms and Illusions offer saves vs. Spells. This includes spells like Blindness and Confusion.</li>
+      <li>Area effects and physical that can be dodged offer saves vs. Breath Weapon. This includes spells like Fireball, Web, and Entangle.</li>
+      <li>Necromantic effects and those that affect the subject's life and health offer saves vs. Poison/Death. This includes all Necromancy effects (including vampire Level Drain), fog spells like Cloudkill, and all poisons.</li>
+      <li>Spells that affect the subject's physical form or movement offer saves vs. Petrification/Polymorph. This includes spells like Flesh to Stone and Polymorph Other, as well as Hold and Slow.</li>
+      <li>Saving throws vs. Rod/Staff/Wands are basically unused. (If you install psionics from Might & Guile or Faiths & Powers, psionic powers will use saves vs. Wands.)</li>
     </ul></p> 
+    <p>Additionally, saving throw tables are made more sensible.  No earth-shaking changes, just sensible progression: wizards save well against spells, priests save well against death, rogues save well against breath, and warriors save well against almost everything.</p>
   </div>
   <h4 class="subheader">Component 200: </h4>
   <div class="section">
-    <p><strong><em>Revised Stat Bonuses</em></strong></p>
+    <p><strong><em>Stat Bonus Overhaul (SBO)</em></strong></p>
       <p>STR, DEX, and WIS bonuses are modified so that every point added above 13 (or so) results in a tangible benefit:<br />
       <ul>
       	<li>The 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same.  Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</li><br />
-      	<li>Dexterity bonuses are also pushed lower and spread out a bit more. 14 DEX gives -1 AC; 15 gives +1 missile thac0; 16 gives another -1 AC; 17 gives another +1 to missile thac0; etc.</p>
+      	<li>Dexterity bonuses are also pushed lower and spread out a bit more. 14 DEX gives -1 AC; 15 gives +1 missile thac0; 16 gives another -1 AC; 17 gives another +1 to missile thac0; etc. (Note, if YARAS is installed that DEX table will be used instead of this one.)</p>
       	<li>Intelligence is no longer a dump-stat. Bards and wizards get an extra spell of each level for as many points of intelligence they have above 12 - so, an extra 1st-level spell for 13 INT, and an extra spell of level 1 through 9 at 21 INT. (This is only measured once, however - drinking a potion for bonus INT points will not give you extra spells.) In addition, at 15 INT the player has a +1 bonus rolling for critical hits; at 17 INT this is a +2 bonus, and at 19 INT it is a +3 bonus to crit. (To make up for this, *everyone* will have a -1 penalty to crit rolls.  So the only way to score critical hits is to have 15 or greater INT, or to have points in Single-Weapon Style or Two-Handed Style.)</p>
-      	<li>Wisdom now grants an extra 1st-level priest spell at 13 and at 14; and extra 2nd-level spell at 15 and at 16; an extra 3rd-level spell at 17 and at 18; et cetera, up to 2 extra spells of every level at 25 WIS</p>
-      	<li>Charisma is not a dump stat either! Charisma now measures something like 'spirit' or 'karma' at the beginning of a character's career. Upon creating a character, 16 CHA will grant a +1 bonus to saves. At 17 CHA this bonus will be +2. At 18 CHA the character is also granted a permanent +1 Luck, and at 19 CHA this grows to +2 Luck. (Note, this takes the place of so-called "shorty save bonuses" associated with CON, which are removed. Note also, this will not apply to paladins, who get save bonuses automatically, to reflect the strength of their spirit.)</p>
+      	<li>Wisdom now grants an extra 1st-level priest spell at both 13 and at 14; and extra 2nd-level spell at 15 and at 16; an extra 3rd-level spell at 17 and at 18; et cetera, up to 2 extra spells of every level at 25 WIS</p>
+      	<li>Charisma is not a dump stat either! Charisma now measures something like 'spirit' or 'karma' at the beginning of a character's career. Upon creating a character, 16 CHA will grant a +1 bonus to saves. At 17 CHA this bonus will be +2. At 18 CHA the character is also granted a permanent +1 Luck, and at 19 CHA this grows to +2 Luck. (Note, this takes the place of so-called "shorty save bonuses" associated with CON, which are removed!)</p>
       	<li>Constitution bonuses are folded into Component #210, Modified Hit Points, below.</p>
       </ul>
       <p>Finally, to make more meaningful differences between races, demihumans will have more stat bonuses and penalties.  The racial maximums are now:</p>
@@ -243,7 +244,7 @@
   </div>
   <h4 class="subheader">Component 205: </h4>
   <div class="section">
-    <p><strong><em>Revised Hit Point Tables</em></strong></p>
+    <p><strong><em>Hit Dice Overhaul (HDO): Revised Hit Point Progression</em></strong></p>
       <p>This component takes some of the randomness out of hit point rolls. In the vanilla system, a warrior with 16 CON can actually get *fewer* hit points at level-up than a mage with 8 CON. That only leads to annoying reloads or constant moving of the difficulty bar to get max hp (which is just too cheaty, and perverts various game mechanics). With this component, there are still rolls, but the roll will always seem fair and should never cause you to feel you need to reload or go below Core difficulty. That 16 CON warrior will get between 9 and 12 hit points per level, instead of from 3 to 12. Higher average rolls, and more satisfying numbers, but not overpowered.<br />
       <ul>
       	<li>Wizard hit dice is now 1d3+1. Rogue and priest hit dice is 2d3+1. And warrior hit dice is 3d3+1 (3d4+1 for barbarians).</li>
@@ -261,9 +262,27 @@
   </div>
   <h4 class="subheader">Component 210: </h4>
   <div class="section">
-    <p><strong><em>Revised XP Tables</em></strong></p>
+    <p><strong><em>Experience Point Overhaul (XPO): Revised Tables</em></strong></p>
       <p>XP advancement and thac0/spell/skill advancement are two ends of the same rope; you only need to pull on one end to get the desired effect, but for some reason the 2e rules pull both. I've streamlined it to a fast path and a slow path. Fighters, thieves, bards, and clerics are on the faster table; paladins, rangers, druids and wizards are on the slower table. (No more thieves with more hp than fighters with the same XP!) Advancement is a bit faster than vanilla in the middle levels, and then gets progressively slower at epic levels. You'll be at or near level 20 with 3 million XP, like in vanilla; but won't hit level 30 until 8 million XP. HLAs will be rarer with this component, so choose wisely!</p>
       <p>This component also switches the druid spellcasting table to match the priest one (since the PnP druid XP and spell tables were only for Grand/Hierophant Druids who settle down in a grove and stop adventuring).</p>
+  </div>
+  <h4 class="subheader">Component 212: </h4>
+  <div class="section">
+    <p><strong><em>XPO: No Murder XP</em></strong></p>
+      <p>This component very simply divides the XP reward for killing creatures by 5, making quest XP derived from role-playing relatively more important, compared to combat experience. Quest XP is not increased; so this component will result in a substantial reduction in total XP available over the course of the game.</p>
+      <p>Do not install this unless you are looking for more of a challenge!</p>
+  </div>
+  <h4 class="subheader">Component 180: </h4>
+  <div class="section">
+    <p><strong><em>Magic Resistance Overhaul (MRO): Eliminate MR</em></strong></p>
+    <p>WARNING: This component makes very severe changes to the way the game works, and should be considered as 'beta' quality. Its purpose is to largely (but not completely) remove the probability-based "magic resistance" mechanic from the game. It makes the following changes:</p>
+    <ul>
+      <li>All creatures in the game, such as drow, dragons, skeleton warriors, etc., will have their MR set to zero. Instead, they will receive +3 bonuses to saving throws vs. Breath, Petrification, and Wands, and a +6 bonus to saving throws vs. Spells. (No bonus to saves vs. Death - this should make necromancy magic a little stronger and more special.)</li>
+      <li>Monks and Wizard Slayers will not get MR; instead, they will get a +1 bonus to all saving throws at level 1, and at every 4th level thereafter (5th, 9th, 13th, etc. up to 25th).</li>
+      <li>Almost all items in the game that grant MR have been changed. Some, like the Amulet of Magic Resistance, have their MR converted into resistance to all elemental and magic damage. Others, like Carsomyr, instead get large bonuses to saving throws. Some are very different, like the Sword of Balduran which now grants a movement rate bonus.</li>
+      <li>It is still possible to get *some* MR, from the Hell Trials and the Machine of Lum the Mad. That's okay, 15% MR isn't game-breaking... it only gets stupid when it is stacked to high levels.</li>
+      <li>Likewise, the "Magic Resistance" spell is left untouched. It can be used as another form of magic protection along with the likes of Spell Deflections and Globes of Invulnerability. Lower Resistance, Pierce Magic, and Pierce Shield are still effective against this spell, and SCS enemies will use them against you.</li>
+    </ul></p> 
   </div>
 </div>
 <h2>Contact Information</h2>
@@ -289,6 +308,11 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.3 - April 2016</strong></p>
+  <ul>
+    <li>added No Murder XP</li>
+    <li>moved the MRO to the end</li>
+  </ul>
   <p><strong>Version 5.2 - April 2016</strong></p>
   <ul>
     <li>SoD and EE 2.1 compatibility</li>
