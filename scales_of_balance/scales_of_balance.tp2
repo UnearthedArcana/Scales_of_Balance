@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.3~
+VERSION ~v5.3.1~
 //README ~scales_of_balance/readme-SoB.html~
 
 ALWAYS
@@ -15,10 +15,6 @@ ALWAYS
 	INCLUDE ~scales_of_balance/lib/spell_to_innate.tpa~
 
 	INCLUDE ~scales_of_balance/lib/fl#add_kit_ee.tpa~
-
-//	ACTION_IF GAME_IS ~bgee~ BEGIN
-//		COPY ~scales_of_balance/compatibility/25stweap.2da~ ~override~
-//	END
 
 // joinable NPC issues for tutu/bgt/eet:
   ACTION_IF GAME_IS ~bgee~ BEGIN
@@ -128,16 +124,15 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "121") @1
 INCLUDE ~scales_of_balance/components/122_WPO_proficiency.tpa~
 //__________________________________________________________________________________
 
-/*
 BEGIN @123 // hardcore dual
+DEPRECATED @6
 DESIGNATED 123
-REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "122") @1 // ??? or else add alternative for 
+//REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "122") @1 // ??? or else add alternative for 
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
 INCLUDE ~scales_of_balance/components/123_WPO_dual_class.tpa~
 //__________________________________________________________________________________
-*/
 
 BEGIN @124 // change styles
 DESIGNATED 124
