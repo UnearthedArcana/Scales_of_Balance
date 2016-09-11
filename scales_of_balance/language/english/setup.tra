@@ -39,6 +39,7 @@
 @160   = ~STO - Saving Throw Overhaul~
 @180   = ~MRO - Magic Resistance Overhaul (install after aTweaks!)~
 @200   = ~SBO - Stat Bonus Overhaul~
+@202   = ~SBO - Full Strength for 2-Hand Weapons Only~
 @205   = ~HDO - Hit Dice Overhaul~
 @206   = ~Generous (above-average) hit points~
 @207   = ~Hardcore (closer to average) hit points~
@@ -314,9 +315,9 @@ Prime Requisites For Dual-Classing: Intelligence~
 
 2 stars: +1 to hit, +1/2 APR
 
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
 
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15
 ~
@@ -330,121 +331,117 @@ Prime Requisites For Dual-Classing: Intelligence~
 @1230   = ~LONG SWORD: The long sword is perhaps one of the most common weapons in Faerûn. Skill with the long sword will allow your character to have access to a widely available and cheap weapon.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1231   = ~SHORT SWORD: The preferred weapon of many a thief and halfling, the short sword is a light but useful weapon.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1232   = ~AXE: There are two varieties of axes: throwing axes and battle axes. This proficiency class allows your character to use either.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1233   = ~HEAVY SWORDS: The hallmark of the traditional muscle bound warrior is the greatsword: claymores, bastard swords, and other double-edge blades large enough to be used with two hands.  This proficiency class allows you to use these heavy swords to mangle your opponents.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1234   = ~CURVED SWORDS:  This weapon class allows the character to use various single-edged blades, including the Scimitar, the katana, and the Wakazashi.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1235   = ~DAGGERS: This weapon class covers daggers, dirks, knives and darts - any small blades used for stabbing or hurling at enemies.  While small, daggers are still extremely useful and many warriors carry them in case their larger weapons are stolen or destroyed.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1236   = ~WAR HAMMER: This weapon class allows the character to use throwing hammers and war hammers. Both of these weapons are often associated with dwarven warriors, and it is the dwarven people who make the finest quality hammers.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1237   = ~CLUB: This weapon class allows the character to use clubs, as well as similar but more advanced weapons derived from clubs.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1238   = ~POLEARMS: This weapon class includes long spears, pikes, halberds and other polearms.  Their long 'reach' makes them very useful against most opponents.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1239   = ~FLAIL: The flail is a blunt weapon used to knock your enemies senseless. They are difficult to use but with skill and practice these weapons are very useful.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1240   = ~MACE: The mace is most often associated with Clerics. It is a powerful blunt weapon, similar to the club but designed to do more damage.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1241   = ~QUARTERSTAFF: A simple weapon, but in the hands of a skilled warrior, whether Mage or Paladin, the quarterstaff can lay flat any foe.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1242   = ~CROSSBOW: The crossbow, although smaller and easier to use than the longbow, is just as deadly in the hands of a skilled shot.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1243   = ~BOWS: This proficiency allows a character to skillfully wield various bows, which are easy to use and have a high rate of fire.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1244   = ~SLING: Although the sling is commonly thought of as a toy weapon, its lethality should not be underestimated. A strong bullet thrown from a sling by an experienced user can tear a hole through a man's skull.
 
 2 stars: +1 to hit, +1/2 APR
-3 stars: +1 to hit, +1 damage, +1/2 APR from level 11
-4 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+3 stars: +1 to hit, +1 damage, +1/2 APR from level 7
+4 stars: +1 to hit, +1 damage, +1/2 APR from level 11
 5 stars: +1 to hit, +2 damage, +1/2 APR from level 15~
 @1245   = ~TWO-HAND STYLE: Investing in this fighting style allows the character to make the best use of two-handed melee weapons, handling them more deftly and inflicting more grievous blows.
 
-Proficient (1 slot): The wielder gets a -1 bonus to thac0, a +2 bonus to damage rolls, and a -1 bonus to weapon speed factor.
+Proficient (1 slot): The wielder gets a +1 bonus to thac0 and damage rolls, a -1 bonus to weapon speed factor, and critical hits occur on a roll of 19 or 20 (instead of just 20).
 
-Specialized (2 slots): The bonuses increase to -2 to thac0 and +4 to damage rolls.~
+Specialized (2 slots): The wielder's damage bonus increases to +3, and and critical hits occur on a roll of 18 or higher.~
 @1246   = ~SHIELD-FIGHTING: By spending slots on this fighting style, a character maximizes the protection afforded by a shield and overcomes the difficulty coordinating the use of both weapon and shield. With further specialization, use of a shield can affect enemies' balance and expose weak points in their defenses.
 
-Proficient (1 slot): The wielder gets a -1 bonus to thac0 and AC when using a shield.
+Proficient (1 slot): The wielder gets a +1 bonus to thac0 and melee AC when using a shield, and a +2 bonus to AC vs. missile attacks
 
-Specialized (2 slots): The thac0 and AC bonuses increase to -2 overall, and critical hits occur on a roll of 19 or 20 (instead of just 20).
+Specialized (2 slots): The wielder attempts a Shield Bash attack against a nearby opponent once per round. There is a 20% chance of a successful shield bash, in which case the victim takes 1d4+1 damage and must save vs. Breath or be knocked 5 feet back and fall down.~
+@1247   = ~FENCING: Investing in this fighting style allows characters to be especially quick and accurate when wielding a single weapon in one hand. 
 
-NOTE: Despite the name of this style, any one-handed melee weapon in combination with a shield will receive the aforementioned bonuses.~
-@1247   = ~FINESSE: Investing in this fighting style allows characters to be especially quick and accurate when wielding a single weapon in one hand. 
+Proficient (1 slot): The wielder gets a +1 bonus to thac0, AC vs. melee attacks, and weapon speed factor.
 
-Proficient (1 slot): The wielder gets a -1 bonus to thac0, AC, and weapon speed factor, and critical hits occur on a roll of 19 or 20 (instead of just 20).
-
-Specialized (2 slots): The bonuses to thac0, AC, and weapon speed factor increase to -2, and critical hits occur on a roll of 18 or higher.~
+Specialized (2 slots): The AC bonus increases to +2 and the wielder's base attack rate is increased to 3 attacks per 2 rounds.~
 @1248   = ~proficiencies~
-@1249   = ~DUAL-WIELDING: This fighting style involves attacking opponents with two melee weapons at the same time. It is very difficult to coordinate; main-hand attacks suffer from severely decreased accuracy (though opponents often lose track of the character's off-hand weapon, making for a higher chance of a successful strike with it). Without any skill in this style, characters suffer a +5 penalty to thac0 with the main weapon, and a +3 penalty with the off-hand weapon. 
+@1249   = ~DUAL-WIELDING: This fighting style involves attacking opponents with two melee weapons at the same time. It is very difficult to coordinate; main-hand attacks suffer from severely decreased accuracy (though opponents often lose track of the character's off-hand weapon, making for a higher chance of a successful strike with it). Without any skill in this style, characters suffer a -4 penalty to thac0 with both the main weapon and the off-hand weapon.
 
-Proficient (1 slot): The thac0 penalties are reduced to +4 with the main weapon and +2 with the off-hand weapon.
+Proficient (1 slot): The thac0 penalties are reduced to -3 with the main weapon and -2 with the off-hand weapon.
 
-Specialized (2 slots): The thac0 penalties are reduced to +3 with the main weapon and +1 with the off-hand weapon.
-
-Master (3 slots): The thac0 penalties are reduced to +2 with the main weapon and 0 with the off-hand weapon.~
+Specialized (2 slots): The thac0 penalties are reduced to -2 with the main weapon and no penalty with the off-hand weapon.~
 @1250   = ~Two-Hand Style~
 @1251   = ~Shield-Fighting~
-@1252   = ~Finesse~
+@1252   = ~Fencing~
 @1253   = ~Dual-Wielding~
 @1254   = ~Anomen's proficiencies~
 @1255   = ~Use this book to give Anomen the correct proficiencies.~

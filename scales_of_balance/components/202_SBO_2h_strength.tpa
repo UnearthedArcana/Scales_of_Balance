@@ -1,0 +1,34 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//						SBO - FULL STR FOR 2-HAND WEAPONS
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+//STR PENALTY_______________________________________________________________________
+//
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
+	READ_BYTE 0x18 handed
+	PATCH_IF ((%handed% BOR 0b11111101) = 0b11111101) BEGIN 	//	1-handed
+	  READ_BYTE 0x31 prof
+	  PATCH_IF (%prof% = 92) OR	// axe
+			(%prof% = 89) OR	// bastard sword
+			(%prof% = 115) OR	// club
+			(%prof% = 96) OR	// dagger
+			(%prof% = 100) OR	// flail
+			(%prof% = 94) OR	// katana
+			(%prof% = 90) OR	// long sword
+			(%prof% = 101) OR	// mace
+			(%prof% = 95) OR	// scimitar
+			(%prof% = 91) OR	// short sword
+			(%prof% = 97) BEGIN	 // hammer
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 44 target = 1 parameter1 = (0 - 1) parameter2 = 0 timing = 2 resist_dispel = 0 END
+	  END
+	END
+  END
+BUT_ONLY
+//__________________________________________________________________________________
+

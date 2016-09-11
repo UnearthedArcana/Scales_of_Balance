@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.3 </strong><br />
+  <p><strong> Version 5.4 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -46,7 +46,7 @@
 </div>
 <h2>Contents</h2>
 <div class="section">
-  <h4 class="subheader">Component 101: </h4>
+  <h4 class="subheader">Component 100: </h4>
   <div class="section">
     <p><strong><em>Item & Weapon Overhaul (IWO): Yet Another Revised Armor System</em></strong></p>
     <p>This component changes armor to give the wearer a mix of Armor Class and Damage Resistance bonuses. The values are listed below:</p>
@@ -57,9 +57,9 @@
 	 hide armor: 	AC 5 	-3 Dex 	21% DR	+3 casting time
 	 chain mail: 	AC 5 	-3 Dex 	18% DR	+3 casting time
 	 scale armor: 	AC 4 	-3 Dex 	12% DR	+3 casting time
-	 splint mail: 	AC 4 	-4 Dex 	21% DR	+4 casting time
-	 plate mail: 	AC 3 	-5 Dex 	25% DR	+4 casting time
-	 full plate*: 	(AC 2 	-5 Dex	30% DR	+5 casting time)<br />
+	 splint mail: 	AC 4 	-4 Dex 	22% DR	+4 casting time
+	 plate mail: 	AC 3 	-5 Dex 	27% DR	+4 casting time
+	 full plate*: 	(AC 2 	-5 Dex	33% DR	+5 casting time)<br />
     Enchantment:
 	 +1:	 	-1 AC	+1 Dex	+1% DR
 	 +2: 		-2 AC 	+2 Dex	+2% DR
@@ -75,6 +75,7 @@
     <p>This also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>Finally, this alters the Armor of Faith spell to only give a flat 10% DR bonus, at all levels; and reduces the DR bonus from Hardiness and Defensive Stance form 40% to 20%; and reduces the price of the Defender of Easthaven while reducing its DR bonus from 20% to 5%.</p>
     <p><b>Compatibility:</b> this component covers the same ground as the IR component "Revised Armors" as well as the "Spellcasting in Armor" component.  Ditto for the Full Plate and Packing Steel mod. Choose one armor system mod and stick with it.</p>
+    <p><b>This component only functions if your game language is English. For now.</b></p>
   </div>
   <h4 class="subheader">Component 101: </h4>
   <div class="section">
@@ -141,7 +142,7 @@
   <h4 class="subheader">Component 122: </h4>
   <div class="section">
     <p><strong><em>WPO: Proficiency System Overhaul</em></strong></p>
-      <p><strong>Please note, this component can only be installed on an EE or TobEx game.  And you <u>must</u> install the "Category Combination" component first.</strong></p>
+      <p><strong>Please note, this component can only be installed on an EE or TobEx game.  And it requires Component #121 "Weapon Category Combination."</strong></p>
       <p>This component can be considered a convenience tweak; it will give most classes substantially more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
       <p>Clubs are truly universal, simple weapons: everyone can use them.  Crossbows are usable by everyone except druids and Beastmasters.</p>
@@ -184,21 +185,19 @@
       <p>This component <b>(which is EE-only)</b> rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  All style get thac0 bonuses in addition to other benefits.  So especially at low levels, it might be worth investing in a style for benefits that work for all weapons, rather than progressing in a single weapon proficiency.  The benefits of each style are listed below (cumulative totals):</p>
       <div class="kit_description">
         <p>Single-Weapon Style: now called <b>"Finesse"</b><br />
-        &ndash; (+) = +1 thac0, -1 AC, +5% crit chance<br />
-        &ndash; (++) = +2 thac0, -2 AC, +10% crit chance</p>
+        &ndash; (+) = +1 thac0, -1 melee AC, -1 weapon speed<br />
+        &ndash; (++) = +1 thac0, -2 melee AC, base APR increased to 3/2</p>
         <p>Sword & Shield Style: now called <b>"Shield-Fighting"</b><br />
-        &ndash; (+) = +1 thac0, -1 AC<br />
-        &ndash; (++) = +2 thac0, -2 AC</p>
+        &ndash; (+) = +1 thac0, -1 melee AC, -2 missile AC<br />
+        &ndash; (++) = +1 thac0, -1 melee AC, -2 missile AC, chance to perform shield bash</p>
         <p>Two-Handed Weapon Style: now called <b>"Two-Hand Style"</b><br />
-        &ndash; (+) = +1 thac0, +2 damage<br />
-        &ndash; (++) = +2 thac0, +4 damage</p>
+        &ndash; (+) = +1 thac0, +1 damage, +5% crit chance<br />
+        &ndash; (++) = +1 thac0, +3 damage, +10% crit chance</p>
         <p>Two-Weapon Style: now called <b>"Dual-Wielding"</b><br />
-        &ndash; ( ) = -5 main-hand thac0, and -3 off-hand thac0<br />
-        &ndash; (+) = -4 main-hand thac0, and -2 off-hand thac0<br />
-        &ndash; (++) = -3 main-hand thac0, and -1 off-hand thac0<br />
-        &ndash; (+++) = -2 main-hand thac0, and no penalty to off-hand thac0<br />.</p>
+        &ndash; ( ) = -4 main-hand thac0, and -4 off-hand thac0<br />
+        &ndash; (+) = -3 main-hand thac0, and -2 off-hand thac0<br />
+        &ndash; (++) = -2 main-hand thac0, and -0 off-hand thac0<br />.</p>
       </div>
-      <p>If you have installed the "IWO part 3: Distinctions between Light and Heavy Weapons," then the penalties for dual-wielding will be increased by 1 point, to offset the doubled thac0 bonuses for light weapons in that component.</p>
   </div>
   <h4 class="subheader">Component 125: </h4>
   <div class="section">
@@ -216,7 +215,7 @@
       <li>Area effects and physical that can be dodged offer saves vs. Breath Weapon. This includes spells like Fireball, Web, and Entangle.</li>
       <li>Necromantic effects and those that affect the subject's life and health offer saves vs. Poison/Death. This includes all Necromancy effects (including vampire Level Drain), fog spells like Cloudkill, and all poisons.</li>
       <li>Spells that affect the subject's physical form or movement offer saves vs. Petrification/Polymorph. This includes spells like Flesh to Stone and Polymorph Other, as well as Hold and Slow.</li>
-      <li>Saving throws vs. Rod/Staff/Wands are basically unused. (If you install psionics from Might & Guile or Faiths & Powers, psionic powers will use saves vs. Wands.)</li>
+      <li>Saving throws vs. Rod/Staff/Wands are basically unused. (If you install psionics from Might & Guile, psionic powers will use saves vs. Wands.)</li>
     </ul></p> 
     <p>Additionally, saving throw tables are made more sensible.  No earth-shaking changes, just sensible progression: wizards save well against spells, priests save well against death, rogues save well against breath, and warriors save well against almost everything.</p>
   </div>
@@ -230,7 +229,7 @@
       	<li>Intelligence is no longer a dump-stat. Bards and wizards get an extra spell of each level for as many points of intelligence they have above 12 - so, an extra 1st-level spell for 13 INT, and an extra spell of level 1 through 9 at 21 INT. (This is only measured once, however - drinking a potion for bonus INT points will not give you extra spells.) In addition, at 15 INT the player has a +1 bonus rolling for critical hits; at 17 INT this is a +2 bonus, and at 19 INT it is a +3 bonus to crit. (To make up for this, *everyone* will have a -1 penalty to crit rolls.  So the only way to score critical hits is to have 15 or greater INT, or to have points in Single-Weapon Style or Two-Handed Style.)</p>
       	<li>Wisdom now grants an extra 1st-level priest spell at both 13 and at 14; and extra 2nd-level spell at 15 and at 16; an extra 3rd-level spell at 17 and at 18; et cetera, up to 2 extra spells of every level at 25 WIS</p>
       	<li>Charisma is not a dump stat either! Charisma now measures something like 'spirit' or 'karma' at the beginning of a character's career. Upon creating a character, 16 CHA will grant a +1 bonus to saves. At 17 CHA this bonus will be +2. At 18 CHA the character is also granted a permanent +1 Luck, and at 19 CHA this grows to +2 Luck. (Note, this takes the place of so-called "shorty save bonuses" associated with CON, which are removed!)</p>
-      	<li>Constitution bonuses are folded into Component #210, Modified Hit Points, below.</p>
+      	<li>Constitution bonuses are folded into Component #205, Hit Dice Overhaul, below.</p>
       </ul>
       <p>Finally, to make more meaningful differences between races, demihumans will have more stat bonuses and penalties.  The racial maximums are now:</p>
       <ul>
@@ -241,6 +240,12 @@
         <li> Gnome: 19 Int, 19 Con, 17 Str, 16 Wis</li>
         <li> Half-orc: 19 Str, 17 Int, 16 Cha</li>
       </ul>
+  </div>
+  <h4 class="subheader">Component 202: </h4>
+  <div class="section">
+    <p><strong><em>SBO: Full Strength form 2-Hand Weapons Only</em></strong></p>
+      <p>This small component simply adds a -1 STR penalty to every 1-handed weapon.  The idea behind it is, your "STR" score measures your total bodily strength. If you attempt a feat of strength one-handed, naturally the result will not be as effective as if you used both arms. </p>
+      <p>Note: this penalty stacks, so you will have a -2 penalty when dual-wielding. That weapon style is all about speed and technique - not power! </p>
   </div>
   <h4 class="subheader">Component 205: </h4>
   <div class="section">
@@ -308,6 +313,11 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.4 - September 2016</strong></p>
+  <ul>
+    <li>added Full STR From 2-Hand Weapons</li>
+    <li>overhauled the weapon style revisions</li>
+  </ul>
   <p><strong>Version 5.3 - April 2016</strong></p>
   <ul>
     <li>added No Murder XP</li>

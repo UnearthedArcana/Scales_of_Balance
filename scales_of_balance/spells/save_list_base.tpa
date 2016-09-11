@@ -139,6 +139,10 @@ SPWI913 => 3  // Wail of the Banshee
 //SPWI914 => 3  // Energy Drain 
 SPWI918 => 5  // Bigby's Crushing Hand 
 
+// game spells requiring saving throws
+
+
+
 END
 
 // This code is copied from Mike1072's armor_list.tpa file. 
