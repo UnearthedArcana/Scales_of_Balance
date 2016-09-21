@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.3~
+VERSION ~v5.4.1~
 //README ~scales_of_balance/readme-SoB.html~
 
 ALWAYS
@@ -59,6 +59,11 @@ LANGUAGE
   ~English~
   ~english~
   ~scales_of_balance/language/english/setup.tra~
+LANGUAGE
+  ~Polski (Translation by etamin with help from Cahir)~
+  ~polish~
+  ~scales_of_balance/language/english/setup.tra~
+  ~scales_of_balance/language/polish/setup.tra~
 
 
 

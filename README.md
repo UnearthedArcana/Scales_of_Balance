@@ -184,12 +184,12 @@
     <p><strong><em>WPO: Weapon Style Overhaul</em></strong></p>
       <p>This component <b>(which is EE-only)</b> rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  All style get thac0 bonuses in addition to other benefits.  So especially at low levels, it might be worth investing in a style for benefits that work for all weapons, rather than progressing in a single weapon proficiency.  The benefits of each style are listed below (cumulative totals):</p>
       <div class="kit_description">
-        <p>Single-Weapon Style: now called <b>"Finesse"</b><br />
+        <p>Single-Weapon Style: now called <b>"Fencing"</b><br />
         &ndash; (+) = +1 thac0, -1 melee AC, -1 weapon speed<br />
         &ndash; (++) = +1 thac0, -2 melee AC, base APR increased to 3/2</p>
         <p>Sword & Shield Style: now called <b>"Shield-Fighting"</b><br />
         &ndash; (+) = +1 thac0, -1 melee AC, -2 missile AC<br />
-        &ndash; (++) = +1 thac0, -1 melee AC, -2 missile AC, chance to perform shield bash</p>
+        &ndash; (++) = +1 thac0, -1 melee AC, -2 missile AC, chance to perform shield bash when struck</p>
         <p>Two-Handed Weapon Style: now called <b>"Two-Hand Style"</b><br />
         &ndash; (+) = +1 thac0, +1 damage, +5% crit chance<br />
         &ndash; (++) = +1 thac0, +3 damage, +10% crit chance</p>
@@ -228,8 +228,8 @@
       	<li>Dexterity bonuses are also pushed lower and spread out a bit more. 14 DEX gives -1 AC; 15 gives +1 missile thac0; 16 gives another -1 AC; 17 gives another +1 to missile thac0; etc. (Note, if YARAS is installed that DEX table will be used instead of this one.)</p>
       	<li>Intelligence is no longer a dump-stat. Bards and wizards get an extra spell of each level for as many points of intelligence they have above 12 - so, an extra 1st-level spell for 13 INT, and an extra spell of level 1 through 9 at 21 INT. (This is only measured once, however - drinking a potion for bonus INT points will not give you extra spells.) In addition, at 15 INT the player has a +1 bonus rolling for critical hits; at 17 INT this is a +2 bonus, and at 19 INT it is a +3 bonus to crit. (To make up for this, *everyone* will have a -1 penalty to crit rolls.  So the only way to score critical hits is to have 15 or greater INT, or to have points in Single-Weapon Style or Two-Handed Style.)</p>
       	<li>Wisdom now grants an extra 1st-level priest spell at both 13 and at 14; and extra 2nd-level spell at 15 and at 16; an extra 3rd-level spell at 17 and at 18; et cetera, up to 2 extra spells of every level at 25 WIS</p>
-      	<li>Charisma is not a dump stat either! Charisma now measures something like 'spirit' or 'karma' at the beginning of a character's career. Upon creating a character, 16 CHA will grant a +1 bonus to saves. At 17 CHA this bonus will be +2. At 18 CHA the character is also granted a permanent +1 Luck, and at 19 CHA this grows to +2 Luck. (Note, this takes the place of so-called "shorty save bonuses" associated with CON, which are removed!)</p>
-      	<li>Constitution bonuses are folded into Component #205, Hit Dice Overhaul, below.</p>
+      	<li>Charisma is not a dump stat either! Charisma now measures something like 'spirit' or 'karma' at the beginning of a character's career. Upon creating a character, 16 CHA will grant a +1 bonus to saves vs. spells and wands. At 17 CHA this bonus will be +2. At 18 CHA the character is also granted a permanent +1 Luck, and at 19 CHA this grows to +2 Luck. (Note, this takes the place of so-called "shorty save bonuses" associated with CON, which are removed!)</p>
+      	<li>Constitution bonuses are folded into Component #205, Hit Dice Overhaul, below. The only change wrought by this component is to change the "shorty save bonuses" for halflings, dwarves, and gnomes to affect saves vs. death/poison and polymorph/petrification, and to cap the bonuses at +3 (at 19 CON).</p>
       </ul>
       <p>Finally, to make more meaningful differences between races, demihumans will have more stat bonuses and penalties.  The racial maximums are now:</p>
       <ul>

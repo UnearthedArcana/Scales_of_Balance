@@ -427,7 +427,7 @@ Specialized (2 slots): The wielder's damage bonus increases to +3, and and criti
 
 Proficient (1 slot): The wielder gets a +1 bonus to thac0 and melee AC when using a shield, and a +2 bonus to AC vs. missile attacks
 
-Specialized (2 slots): The wielder attempts a Shield Bash attack against a nearby opponent once per round. There is a 20% chance of a successful shield bash, in which case the victim takes 1d4+1 damage and must save vs. Breath or be knocked 5 feet back and fall down.~
+Specialized (2 slots): When struck by a melee attack, there is a 25% chance of performing a Shield Bash, causing that attacker to be knocked back 5 feet and stunned for 2 seconds on a failed save vs. Breath Weapon.~
 @1247   = ~FENCING: Investing in this fighting style allows characters to be especially quick and accurate when wielding a single weapon in one hand. 
 
 Proficient (1 slot): The wielder gets a +1 bonus to thac0, AC vs. melee attacks, and weapon speed factor.
@@ -580,6 +580,10 @@ Bonuses:
 19: -4 to AC, +3 to missile thac0
 20: -5 to AC, +3 to missile thac0
 21: -5 to AC, +4 to missile thac0
+22: -6 to AC, +4 to missile thac0
+23: -6 to AC, +5 to missile thac0
+24: -7 to AC, +5 to missile thac0
+25: -7 to AC, +6 to missile thac0
 ~
 @2003   = ~CONSTITUTION: Constitution measures a character's fitness, health, and physical resistance to hardship, injury, and disease. This ability is important to the Ranger.
 
@@ -588,15 +592,15 @@ Bonuses:
 16: +2 hit points per level
 17: +3 hit points per level (warriors only)
 18: +4 hit points per level (warriors only)
-19: +5 hit points per level (warriors only) and regeneration~
+19+: +5 hit points per level (warriors only) and regeneration~
 @2004   = ~INTELLIGENCE: Intelligence measures a character's memory, reasoning, and learning ability. High Intelligence gives an increased chance to find weaknesses in opponents' defenses and score critical hits, and extra spells for arcane spellcasters. It is the prime requisite of the Mage.
 
 Note: A character with an Intelligence score of 8 or less is illiterate and cannot use scrolls or most wands.
 
 General bonuses:
-15: +1 to critical hit determination
-17: +2 to critical hit determination
-19: +3 to critical hit determination
+15: 5% chance to score a critical hit
+17: 10% chance to score a critical hit
+19: 15% chance to score a critical hit
 
 Bonuses for mages and bards:
 13: +1 1st-level spell
@@ -627,62 +631,67 @@ Bonuses for clerics and druids:
 @2006   = ~CHARISMA: Charisma measures a character's personal magnetism and strength of spirit. It reflects what some cultures call 'karma,' or 'soul.' High Charisma helps with saving throws and luck. This ability is important to the Druid, Bard, and Paladin.
 
 Bonuses: 
-16: +1 to saving throws
-17: +2 to saving throws
-18: +2 to saving throws and +1 Luck
-19: +2 to saving throws and +2 Luck~
+16: +1 to saves vs. Spells and Wands
+17: +2 to saves vs. Spells and Wands
+18: +2 to saves vs. Spells and Wands, and +1 Luck
+19+: +2 to saves vs. Spells and Wands, and +2 Luck~
 @2007   = ~CONSTITUTION: Constitution measures a character's fitness, health, and physical resistance to hardship, injury, and disease. This ability is important to the Ranger.
 
 Bonuses:
-14: minimum roll is 2
-15: +1 hit point per level
+12: minimum 2 on each d3 roll
+14: +1 hit point per level
 16: +2 hit points per level
-17: slow regeneration (2 hp per hour)
-18: max hit points per level
-19: +3 hp/level (warriors only) and faster regeneration (1/turn)
-20: faster regeneration (2/turn)~
+17: max hit points per level
+18: +3 hp/level (warriors only)
+19: slow regeneration (2 hp per hour)
+20: +3 hp/level (warriors +4), regen 1 hp/turn
+21: +3 hp/level (warriors +4), regen 2 hp/turn
+22: +4 hp/level (warriors +5), regen 1 hp/2 rounds
+23: +4 hp/level (warriors +5), regen 1 hp/round
+24: +5 hp/level (warriors +6), regen 2 hp/round
+25: +5 hp/level (warriors +6), regen 1 hp/second~
 @2011   = ~HUMANS: Humans are the predominant race in Faerun. Humans rule most of the significant empires and kingdoms in the Forgotten Realms. They are the most social and tolerant of races, excepting perhaps the halflings. Humans may advance as any class. Their stat scores can range from 7 to 18.~
 @2012   = ~DWARVES: Dwarves are short and stocky, easily identifiable by their size and shape. They have ruddy cheeks, dark eyes, and dark hair. Dwarves tend to be dour and taciturn. They are given to hard work, and care little for most humor. They enjoy beer, ale, mead, but most of all, they love gold. There are four racial divisions of dwarves within the Realms: shield dwarves, gold dwarves, wild dwarves, and duergar.
 
 Dwarves have the following traits:
-- +2 bonus to Saving Throws vs. Paralysis/Poison/Death, vs. Rod/Staff/Wand, and vs. Spell.
+- +1 Constitution, –1 Dexterity, –2 Charisma.
 - Infravision.
 - +10% Open Locks, +15% Find Traps, +5% Detect Illusion, +10% Set Traps.
-- +1 Constitution, –1 Dexterity, –2 Charisma.~
+- Up to a +3 bonus to Saving Throws vs. Poison/Death and Polymorph/Petrification (dependent on CON score).~
 @2013   = ~ELVES: Elves tend to be shorter and slimmer than humans. Their features are finely chiseled and delicate, and they speak in melodic tones. Elves are looked upon as being frivolous and aloof. They concern themselves with natural beauty, dancing, frolicking, and other similar pursuits. Their humor is clever, as are their songs and poetry. There are six racial divisions of elves within the Realms: gold elves, moon elves, wild elves, sea elves, dark elves (drow), and winged elves (avariel).
 
 Elves have the following traits:
+- +1 Dexterity, +1 Intelligence, –1 Strength, -2 Constitution.
+- +1 THAC0 bonus with bows, short swords, and long swords.
 - 90% resistance against charm and sleep magics.
 - Infravision.
-- +1 THAC0 bonus with bows, short swords, and long swords.
-- -5% Open Locks, +5% Pick Pockets, +5% Move Silently, +10% Hide in Shadows.
-- +1 Dexterity, +1 Intelligence, –1 Strength, -2 Constitution.~
+- -5% Open Locks, +5% Pick Pockets, +5% Move Silently, +10% Hide in Shadows.~
 @2014   = ~GNOMES: Kin to dwarves, gnomes are noticeably smaller than their distant cousins. Gnomes, as they proudly maintain, are also less rotund than dwarves. Most have dark tan or brown skin, white hair, and rather large noses. Gnomes have lively and sly senses of humor, especially for practical jokes. They have a love for nature that is only matched by their love for gems and jewelry. There are two racial divisions of gnomes within the Realms: rock gnomes and deep gnomes (svirfneblin).
 
 Gnomes have the following traits:
-- +2 bonus to Saving Throws vs. Rod/Staff/Wand and vs. Spell.
+- +1 Intelligence, +1 Constitution, -1 Strength, -2 Wisdom.
 - Infravision.
 - +5% Open Locks, +10% Find Traps, +5% Move Silently, +5% Hide in Shadows, +10% Detect Illusion, +5% Set Traps.
-- +1 Intelligence, +1 Constitution, -1 Strength, -2 Wisdom.~
+- Up to a +3 bonus to Saving Throws vs. Spells, Poison/Death, and Polymorph/Petrification (dependent on CON score).~
 @2015   = ~HALFLINGS: Halflings are short, generally plump people, very much like small humans. Their faces are round and broad, and often quite florid. Their hair is typically curly, and the tops of their feet are covered with coarse hair. Overall they prefer the comforts of home to dangerous adventuring. They enjoy good living, rough humor, and homespun tales. There are three racial divisions of halflings within the Realms: the hairfoot, tallfellow, and stout.
 
 Halflings have the following traits:
-- +2 bonus to Saving Throws vs. Paralysis/Poison/Death, vs. Rod/Staff/Wand, and vs. Spell.
+- +1 Dexterity, +1 Charisma –1 Intelligence, -2 Strength.
 - +1 THAC0 bonus with slings.
 - +5% Open Locks, +5% Find Traps, +5% Pick Pockets, +10% Move Silently, +15% Hide in Shadows.
-- +1 Dexterity, +1 Charisma –1 Intelligence, -2 Strength.~
+- Up to a +3 bonus to Saving Throws vs. Poison/Death and Polymorph/Petrification (dependent on CON score).~
 @2016   = ~HALF-ELVES: Half-elves are a mix of human and elven blood. They are handsome folk, with good features from each of their parent races. A half-elf has the curiosity, inventiveness, and ambition of their human ancestors and the refined senses, love of nature, and artistic tastes of their elven ancestors.
 
 Half-elves have the following traits:
+- +1 Charisma, -1 Wisdom.
 - 30% resistance against charm and sleep magics.
 - Infravision.
-- +10% Pick Pockets, +5% Hide in Shadows.
-- +1 Charisma, -1 Wisdom.~
+- +10% Pick Pockets, +5% Hide in Shadows.~
 @2017   = ~HALF-ORCS: Half-orcs are born from the union of human and orc parents. They are as tall as humans, but a little heavier due to their muscular builds. Their greenish pigmentation, sloping forehead, jutting jaw, prominent teeth, and coarse body hair make their lineage plain for all to see. In the lands of Amn, half-orcs are tolerated, as unlike in the north the people of Amn haven't had centuries of warfare with orc kind. Half-orcs are known for their great strength.
 
 Half-orcs have the following traits:
-- Infravision.
-- +1 Strength, -1 Intelligence, -2 Charisma.~
+- +1 Strength, -1 Intelligence, -2 Charisma.
+- Infravision.~
 @2021   = ~~
 @2022   = ~~
 @2023   = ~~

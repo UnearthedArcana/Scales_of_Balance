@@ -685,7 +685,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	READ_SHORT 0x1c type
 	PATCH_IF (%type% = 12) BEGIN
 	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter2 = 2 timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sns2~ END
-	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 232 target = 1 parameter1 = 2 parameter2 = 14 special = 2 timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sns2b~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 232 target = 1 parameter1 = 1 parameter2 = 0 timing = 2 resist_dispel = 0 probability1 = 25 STR_VAR resource = ~d5_sns2b~ END
 	END
   END
 BUT_ONLY
