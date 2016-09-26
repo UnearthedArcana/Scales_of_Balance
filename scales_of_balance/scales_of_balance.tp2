@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.4.1~
+VERSION ~v5.4.2~
 //README ~scales_of_balance/readme-SoB.html~
 
 ALWAYS
@@ -145,7 +145,7 @@ INCLUDE ~scales_of_balance/components/123_WPO_dual_class.tpa~
 
 BEGIN @124 // change styles
 DESIGNATED 124
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME "enginest.2da") @8
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 

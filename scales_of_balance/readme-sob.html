@@ -179,7 +179,7 @@
       <p>This component aims to fix a longstanding bug in the games: when you dual-class, your weapon proficiency advancement is supposed to be capped by your <strong>new</strong> class, not your old one. In BG you can start with a fighter, dual to thief at level 2, and still proceed to Grandmastery with bastard swords.  No more!  Now, when you dual-class from one of the eight base warrior kits (Fighter, Wizard Slayer, Berserker, Kensai, Ranger, Archer, Beastmaster, or Stalker) you will be limited to Mastery (+++) in any future advancement.</p>
       <p>If you install this component <i>without</i> having first installed component 122, it will cap advancement at specialization (++).</p>
   </div>
-  <h4 class="subheader">Component 124: </h4>
+  <h4 class="subheader">Component 124 (only for EE 2.0+): </h4>
   <div class="section">
     <p><strong><em>WPO: Weapon Style Overhaul</em></strong></p>
       <p>This component <b>(which is EE-only)</b> rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  All style get thac0 bonuses in addition to other benefits.  So especially at low levels, it might be worth investing in a style for benefits that work for all weapons, rather than progressing in a single weapon proficiency.  The benefits of each style are listed below (cumulative totals):</p>
