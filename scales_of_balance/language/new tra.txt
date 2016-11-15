@@ -1,0 +1,35 @@
+@2121  = ~kills give 1/10th XP~
+@2122  = ~kills give 1/5th XP~
+@2123  = ~kills give half XP~
+
+@10001  = ~^Armor Class:.+$~
+@10002  = ~Armor Class: ~
+@10003  = ~Damage Resistance: ~
+@10004  = ~Dexterity Penalty: -~
+@10005  = ~Arcane Casting Speed Penalty: +~
+@10006  = ~Weapon Attack Speed Penalty: +~
+
+@10011  = ~dragon~
+@10012  = ~elven~
+@10013  = ~elvish~
+@10014  = ~sylvan~
+@10015  = ~bladesinger~
+@10018  = ~robe~
+@10019  = ~cloak~
+
+@10021  = ~Stealth, Pick Pockets: -~
+@10022  = ~Open Locks, Set Traps: -~
+@10023  = ~Find Traps, Detect Illusion: -~
+
+@10030  = ~Armor of Faith
+
+Level: 1
+Sphere: Protection
+Range: 0
+Duration: 3 rounds + 1 round/level 
+Casting Time: 1
+Area of Effect: The caster
+Saving Throw: None 
+
+The caster of the Armor of Faith receives significant protection against melee and magical attacks. This magical armor-like force surrounds the caster and absorbs a portion of any damage taken. This amounts to an effect 10% boost to damage resistance against all damage types.~
+

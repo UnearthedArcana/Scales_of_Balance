@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.4 </strong><br />
+  <p><strong> Version 5.5 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -52,14 +52,13 @@
     <p>This component changes armor to give the wearer a mix of Armor Class and Damage Resistance bonuses. The values are listed below:</p>
       <pre>
     Armor:
-	 leather:	AC 7 	-1 Dex 	5% DR 	+1 casting time
-	 studded:	AC 6 	-2 Dex 	10% DR 	+2 casting time
-	 hide armor: 	AC 5 	-3 Dex 	21% DR	+3 casting time
+	 leather:	AC 8 	-1 Dex 	5% DR 	+1 casting time
+	 studded:	AC 7 	-2 Dex 	10% DR 	+2 casting time
+	 hide armor: 	AC 6 	-3 Dex 	21% DR	+3 casting time
 	 chain mail: 	AC 5 	-3 Dex 	18% DR	+3 casting time
-	 scale armor: 	AC 4 	-3 Dex 	12% DR	+3 casting time
-	 splint mail: 	AC 4 	-4 Dex 	22% DR	+4 casting time
-	 plate mail: 	AC 3 	-5 Dex 	27% DR	+4 casting time
-	 full plate*: 	(AC 2 	-5 Dex	33% DR	+5 casting time)<br />
+	 splint mail: 	AC 5 	-4 Dex 	22% DR	+4 casting time
+	 plate mail: 	AC 4 	-5 Dex 	27% DR	+4 casting time
+	 full plate*:   AC 3 	-4 Dex	33% DR	+5 casting time<br />
     Enchantment:
 	 +1:	 	-1 AC	+1 Dex	+1% DR
 	 +2: 		-2 AC 	+2 Dex	+2% DR
@@ -67,11 +66,10 @@
 	 +4:		-4 AC 	    "	+4% DR
 	 +5:		-5 AC 	    "	+5% DR
 	 +6:		-6 AC 	    "	+6% DR<br />
-  *Full plate: acts like one level of enchantment higher than indicated
-  *Bardic armor:	-2 casting time
-  *Elven armor: +1 DEX, -2 casting time, acts like one level of enchantment higher than indicated
+  * "Caster" armors: no casting speed penalty
+  * Elven armors: dexterity penalty equal to leather armor
       </pre>
-    <p>This component allows casting arcane spells in armor, but with steep casting time penalties. (As of now, these penalties do not affect divine casters.) also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
+    <p>This component allows casting arcane spells in armor, but with steep casting time penalties. (As of now, these penalties do not affect divine casters.) It also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>This also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>Finally, this alters the Armor of Faith spell to only give a flat 10% DR bonus, at all levels; and reduces the DR bonus from Hardiness and Defensive Stance form 40% to 20%; and reduces the price of the Defender of Easthaven while reducing its DR bonus from 20% to 5%.</p>
     <p><b>Compatibility:</b> this component covers the same ground as the IR component "Revised Armors" as well as the "Spellcasting in Armor" component.  Ditto for the Full Plate and Packing Steel mod. Choose one armor system mod and stick with it.</p>
@@ -179,9 +177,9 @@
       <p>This component aims to fix a longstanding bug in the games: when you dual-class, your weapon proficiency advancement is supposed to be capped by your <strong>new</strong> class, not your old one. In BG you can start with a fighter, dual to thief at level 2, and still proceed to Grandmastery with bastard swords.  No more!  Now, when you dual-class from one of the eight base warrior kits (Fighter, Wizard Slayer, Berserker, Kensai, Ranger, Archer, Beastmaster, or Stalker) you will be limited to Mastery (+++) in any future advancement.</p>
       <p>If you install this component <i>without</i> having first installed component 122, it will cap advancement at specialization (++).</p>
   </div>
-  <h4 class="subheader">Component 124 (only for EE 2.0+): </h4>
+  <h4 class="subheader">Component 124: </h4>
   <div class="section">
-    <p><strong><em>WPO: Weapon Style Overhaul</em></strong></p>
+    <p><strong><em>WPO: Fighting Style Overhaul</em></strong></p>
       <p>This component <b>(which is EE-only)</b> rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  All style get thac0 bonuses in addition to other benefits.  So especially at low levels, it might be worth investing in a style for benefits that work for all weapons, rather than progressing in a single weapon proficiency.  The benefits of each style are listed below (cumulative totals):</p>
       <div class="kit_description">
         <p>Single-Weapon Style: now called <b>"Fencing"</b><br />
@@ -253,7 +251,7 @@
       <p>This component takes some of the randomness out of hit point rolls. In the vanilla system, a warrior with 16 CON can actually get *fewer* hit points at level-up than a mage with 8 CON. That only leads to annoying reloads or constant moving of the difficulty bar to get max hp (which is just too cheaty, and perverts various game mechanics). With this component, there are still rolls, but the roll will always seem fair and should never cause you to feel you need to reload or go below Core difficulty. That 16 CON warrior will get between 9 and 12 hit points per level, instead of from 3 to 12. Higher average rolls, and more satisfying numbers, but not overpowered.<br />
       <ul>
       	<li>Wizard hit dice is now 1d3+1. Rogue and priest hit dice is 2d3+1. And warrior hit dice is 3d3+1 (3d4+1 for barbarians).</li>
-      	<li>Everyone gets an extra hit point at 15 CON and 16 CON (like vanilla), plus an extra hit point at 21, 23, and 25 CON (so stat-boosting spells and effects can actually increase your hit points). Warriors also get a bonus hit point at 18 CON.</li>
+      	<li>Everyone gets an extra hit point at 15 CON and 16 CON (like vanilla), and warriors get an extra hit point at 18 CON.  Everyone also gets an extra hit point at 20, 22, and 24 CON (so stat-boosting spells and effects can actually increase non-warriors' hit points).</li>
       	<li>The minimum roll for those d3 rolls is 2 at 14 CON, and 3 at 17 CON. (So 17 CON means max hit points.)</li>
       	<li>Everyone gets very slow hit point regeneration (1 hp per 2 turns) at 19 CON. The regeneration speeds up a bit at 20 CON (1 per turn), 21 CON (1 per 4 rounds), 22 CON (1 per 2 rounds), 23 CON (1 per round), 24 CON (2 per round), and 25 CON (1 per second).</li>
       </ul>
@@ -274,7 +272,7 @@
   <h4 class="subheader">Component 212: </h4>
   <div class="section">
     <p><strong><em>XPO: No Murder XP</em></strong></p>
-      <p>This component very simply divides the XP reward for killing creatures by 5, making quest XP derived from role-playing relatively more important, compared to combat experience. Quest XP is not increased; so this component will result in a substantial reduction in total XP available over the course of the game.</p>
+      <p>This component very simply divides the XP reward for killing creatures by 2, 5, or 10.  The aim is to make quest XP derived from role-playing relatively more important, compared to combat experience. Quest XP is not changed at all; so this component will result in a substantial reduction in total XP available over the course of the game.</p>
       <p>Do not install this unless you are looking for more of a challenge!</p>
   </div>
   <h4 class="subheader">Component 180: </h4>
@@ -313,6 +311,11 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.5 - November 2016</strong></p>
+  <ul>
+    <li>re-wrote YARAS</li>
+    <li>multiple subcomponents for NMX</li>
+  </ul>
   <p><strong>Version 5.4 - September 2016</strong></p>
   <ul>
     <li>added Full STR From 2-Hand Weapons</li>

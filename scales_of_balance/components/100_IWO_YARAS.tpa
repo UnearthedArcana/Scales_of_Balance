@@ -14,6 +14,88 @@ COPY ~scales_of_balance/misc/d5_yaras.d5~ ~override~
 
 
 //__________________________________________________________________________________
+
+COPY ~scales_of_balance/misc/d5_cstp1.eff~ ~override~
+COPY ~scales_of_balance/misc/d5_cstp2.eff~ ~override~
+COPY ~scales_of_balance/misc/d5_cstp3.eff~ ~override~
+COPY ~scales_of_balance/misc/d5_cstp4.eff~ ~override~
+COPY ~scales_of_balance/misc/d5_cstp5.eff~ ~override~
+COPY ~scales_of_balance/misc/dexmo2.2da~ ~override/dexmod.2da~
+COPY ~scales_of_balance/misc/skilldex.2da~ ~override~
+
+	OUTER_SPRINT catch_ac @10001
+	OUTER_SPRINT new_ac @10002
+	OUTER_SPRINT new_dr @10003
+	OUTER_SPRINT new_dex @10004
+	OUTER_SPRINT new_cast @10005
+
+	OUTER_SPRINT dragon_tra @10011
+	OUTER_SPRINT elven_tra @10012
+	OUTER_SPRINT elvish_tra @10013
+	OUTER_SPRINT sylvan_tra @10014
+	OUTER_SPRINT bladesinger_tra @10015
+	OUTER_SPRINT robe_tra @10018
+	OUTER_SPRINT cloak_tra @10019
+
+	OUTER_SPRINT thief_stealth @10021
+	OUTER_SPRINT thief_mech @10022
+	OUTER_SPRINT thief_detect @10023
+
+COPY_EXISTING ~leat01.itm~ ~override~
+	READ_LONG 0x08 leather_strref
+COPY_EXISTING ~leat04.itm~ ~override~
+	READ_LONG 0x08 studded_strref
+COPY_EXISTING ~leat10.itm~ ~override~
+	READ_LONG 0x08 hide_strref
+COPY_EXISTING ~chan01.itm~ ~override~
+	READ_LONG 0x08 chain_strref
+COPY_EXISTING ~chan04.itm~ ~override~
+	READ_LONG 0x08 splint_strref
+COPY_EXISTING ~plat01.itm~ ~override~
+	READ_LONG 0x08 plate_strref
+COPY_EXISTING ~plat05.itm~ ~override~
+	READ_LONG 0x08 fullplate_strref
+ACTION_IF FILE_EXISTS_IN_GAME ~plat18.itm~ BEGIN
+	COPY_EXISTING ~plat18.itm~ ~override~
+	  READ_LONG 0x08 scale_strref
+END
+
+ACTION_FOR_EACH leather_armor IN ~bdleat06~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%leather_armor%.itm~ BEGIN
+	COPY_EXISTING ~%leather_armor%.itm~ ~override~
+	  WRITE_LONG 0x08 %leather_strref%
+	BUT_ONLY
+  END
+END
+ACTION_FOR_EACH studded_armor IN ~bdchan01~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%studded_armor%.itm~ BEGIN
+	COPY_EXISTING ~%studded_armor%.itm~ ~override~
+	  WRITE_LONG 0x08 %studded_strref%
+	BUT_ONLY
+  END
+END
+ACTION_FOR_EACH chain_armor IN ~bdcha05~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%chain_armor%.itm~ BEGIN
+	COPY_EXISTING ~%chain_armor%.itm~ ~override~
+	  WRITE_LONG 0x08 %chain_strref%
+	BUT_ONLY
+  END
+END
+ACTION_FOR_EACH plate_armor IN ~plat06~ ~plat06_~ ~bdplat04~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%plate_armor%.itm~ BEGIN
+	COPY_EXISTING ~%plate_armor%.itm~ ~override~
+	  WRITE_LONG 0x08 %plate_strref%
+	BUT_ONLY
+  END
+END
+ACTION_FOR_EACH fullplate_armor IN ~npplat~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%fullplate_armor%.itm~ BEGIN
+	COPY_EXISTING ~%fullplate_armor%.itm~ ~override~
+	  WRITE_LONG 0x08 %fullplate_strref%
+	BUT_ONLY
+  END
+END
+
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_SHORT 0x1c type
@@ -39,602 +121,19 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~+6~) BEGIN
 		  WRITE_LONG 0x60 6
 		END
-		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Dragon~) BEGIN
-//		  PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Shadow~) BEGIN
-//			WRITE_LONG 0x60 5
-//		  END
-		  PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Red~) BEGIN
-			WRITE_LONG 0x60 5
-		  END
-		  PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Silver~) BEGIN
-			WRITE_LONG 0x60 5
-		  END
-		  PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Blue~) BEGIN
-			WRITE_LONG 0x60 4
-		  END
-		  ELSE BEGIN
-			WRITE_LONG 0x60 3
-		  END		  
-		END
-		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Ankheg~) BEGIN
-		  WRITE_LONG 0x60 2
-		END
-		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Beetle~) BEGIN
-		  WRITE_LONG 0x60 2
+		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~%dragon_tra%~) BEGIN
+		  WRITE_LONG 0x60 4
 		END
 	  END
 	END
   END
 BUT_ONLY
 
-COPY ~scales_of_balance/misc/d5_cstp1.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_cstp2.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_cstp3.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_cstp4.eff~ ~override~
-COPY ~scales_of_balance/misc/d5_cstp5.eff~ ~override~
-COPY ~scales_of_balance/misc/dexmo2.2da~ ~override/dexmod.2da~
-COPY ~scales_of_balance/misc/skilldex.2da~ ~override~
-
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	  READ_SHORT 0x1c type
 	  PATCH_IF (type = 2) BEGIN
-		READ_LONG 0x08 gen_name_strref
-		PATCH_IF (gen_name_strref >= 0 && gen_name_strref < 2147483646) BEGIN
-		  READ_STRREF 0x08 ~gen_name~
-		END
-		READ_LONG 0x0c id_name_strref
-		PATCH_IF (id_name_strref >= 0 && id_name_strref < 2147483646) BEGIN
-		  READ_STRREF 0x0c ~id_name~
-		END
-		READ_LONG 0x22 appearance
-		PATCH_IF (%appearance% = 16690) BEGIN // leather appearance
-  		  PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Hide~) BEGIN
-			SPRINT armor_type ~hide~
-		  END
-		  PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Leather~) BEGIN
-			PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Studded~) BEGIN
-			  SPRINT armor_type ~studded leather~
-			END
-			ELSE BEGIN
-			  SPRINT armor_type ~leather~
-			END
-		  END
-		END
-		PATCH_IF (%appearance% = 16691) BEGIN // chain appearance
-	  	  PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Chain~) BEGIN
-			SPRINT armor_type ~chain~
-		  END
-		  PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Scale~) BEGIN
-			SPRINT armor_type ~scale~
-		  END
-		  PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Splint~) BEGIN
-			SPRINT armor_type ~splint~
-		  END
-	  	  PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Elven~) BEGIN
-			SPRINT armor_type ~elven~
-		  END
-	  	  PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Sylvan~) BEGIN
-			SPRINT armor_type ~elven~
-		  END
-	  	  PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Mithril~) BEGIN
-			SPRINT armor_type ~elven~
-		  END
-	  	  PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Mithral~) BEGIN
-			SPRINT armor_type ~elven~
-		  END
-	  	  PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Bladesinger~) BEGIN
-			SPRINT armor_type ~elven~
-		  END
-		END
-		PATCH_IF (%appearance% = 16692) BEGIN // plate appearance
-		  PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Plate~) BEGIN
-			PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Full~) BEGIN
-			  SPRINT armor_type ~full plate~
-			END
-			ELSE BEGIN
-			  SPRINT armor_type ~plate~
-			END
-		  END
-		  ELSE BEGIN
-			SPRINT armor_type ~plate~
-		  END
-		END
-		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Dragon~) BEGIN
-		  PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Shadow~) BEGIN
-			SPRINT armor_type ~shadow dragon~
-		  END
-		  ELSE BEGIN
-			SPRINT armor_type ~dragon~
-		  END
-		END
-	  	PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Ankheg~) BEGIN
-		  SPRINT armor_type ~ankheg~
-		END
-	  	PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~Beetle~) BEGIN
-		  SPRINT armor_type ~beetle~
-		END
-	  	PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Robe~) BEGIN
-		  SPRINT armor_type ~robes~
-		END
-	  	PATCH_IF NOT (~%gen_name%~ STRING_CONTAINS_REGEXP ~Cloak~) BEGIN
-		  SPRINT armor_type ~robes~
-		END
-
-		PATCH_INCLUDE ~scales_of_balance/lib/YARAS.ini~
-
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~leather~) BEGIN 	// 		LEATHER
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %leather_ac% parameter2 = 16 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
-		  PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp1~ END
-		  END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %leather_dex%) parameter2 = 0 timing = 2 END
-		  READ_LONG 0x54 valid
-		  PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			READ_STRREF 0x54 "desc"
-			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %leather_ac%%WNL%Damage Resistance: %leather_dr%%%WNL%Dexterity Penalty: -%leather_dex%%WNL%Arcane Casting Speed: +1 penalty%WNL%~
-			  END
-			END
-			SAY_EVALUATED 0x54 ~%new_desc%~
-		  END
-		  ELSE BEGIN
-			READ_STRREF 0x50 "desc"
-			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %leather_ac%%WNL%Damage Resistance: %leather_dr%%%WNL%Dexterity Penalty: -%leather_dex%%WNL%Arcane Casting Speed: +1 penalty%WNL%~
-			  END
-			END
-			SAY_EVALUATED 0x50 ~%new_desc%~
-		  END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~studded leather~) BEGIN 	// 		STUDDED
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %studded_ac% parameter2 = 16 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - 20) parameter2 = 0 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 20) parameter2 = 0 timing = 2 END
-		  PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp2~ END
-		  END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %studded_dex%) parameter2 = 0 timing = 2 END
-		  READ_LONG 0x54 valid
-		  PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			READ_STRREF 0x54 "desc"
-			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %studded_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: -%studded_dex%%WNL%Arcane Casting Speed: +2 penalty%WNL%~
-			  END
-			END
-			SAY_EVALUATED 0x54 ~%new_desc%~
-		  END
-		  ELSE BEGIN
-			READ_STRREF 0x50 "desc"
-			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %studded_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: -%studded_dex%%WNL%Arcane Casting Speed: +2 penalty%WNL%~
-			  END
-			END
-			SAY_EVALUATED 0x50 ~%new_desc%~
-		  END
-  		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~hide~) BEGIN 		// 		HIDE ARMOR
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %studded_ac% parameter2 = 16 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - 30) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 30) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 1 timing = 2 END
-			PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp3~ END
-			END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %chain_dex%) parameter2 = 0 timing = 2 END
-			READ_LONG 0x54 valid
-			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			  READ_STRREF 0x54 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %studded_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: -%chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +1 penalty%WNL%~
-				END
-			  END
-			  SAY_EVALUATED 0x54 ~%new_desc%~
-			END
-		    ELSE BEGIN
-			  READ_STRREF 0x50 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %studded_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: -%chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +1 penalty%WNL%~
-			    END
-			  END
-			  SAY_EVALUATED 0x50 ~%new_desc%~
-		    END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~chain~) BEGIN 		// 		CHAIN MAIL
-			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %chain_ac% parameter2 = 16 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 2 timing = 2 END
-			PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp3~ END
-			END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %chain_dex%) parameter2 = 0 timing = 2 END
-			READ_LONG 0x54 valid
-			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			  READ_STRREF 0x54 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %chain_ac%%WNL%Damage Resistance: %chain_dr%%%WNL%Dexterity Penalty: -%chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +2 penalty%WNL%~
-				END
-			  END
-			  SAY_EVALUATED 0x54 ~%new_desc%~
-			END
-		    ELSE BEGIN
-			  READ_STRREF 0x50 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %chain_ac%%WNL%Damage Resistance: %chain_dr%%%WNL%Dexterity Penalty: -%chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +2 penalty%WNL%~
-			    END
-			  END
-			  SAY_EVALUATED 0x50 ~%new_desc%~
-		    END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~scale~) BEGIN 		// 		SCALE
-			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 2 timing = 2 END
-			PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp3~ END
-			END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %chain_dex%) parameter2 = 0 timing = 2 END
-			READ_LONG 0x54 valid
-			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			  READ_STRREF 0x54 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: -%chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +2 penalty%WNL%~
-				END
-			  END
-			  SAY_EVALUATED 0x54 ~%new_desc%~
-			END
-		    ELSE BEGIN
-			  READ_STRREF 0x50 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: -%chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +2 penalty%WNL%~
-			    END
-			  END
-			  SAY_EVALUATED 0x50 ~%new_desc%~
-		    END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~splint~) BEGIN 		// 		SPLINT
-			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 3 timing = 2 END
-			PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp4~ END
-			END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %splint_dex%) parameter2 = 0 timing = 2 END
-			READ_LONG 0x54 valid
-			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			  READ_STRREF 0x54 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: -%splint_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
-				END
-			  END
-			  SAY_EVALUATED 0x54 ~%new_desc%~
-			END
-		    ELSE BEGIN
-			  READ_STRREF 0x50 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: -%splint_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
-			    END
-			  END
-			  SAY_EVALUATED 0x50 ~%new_desc%~
-		    END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~plate~) BEGIN 		// 		PLATE
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %plate_ac% parameter2 = 16 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %plate_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %plate_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %plate_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %plate_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - 50) parameter2 = 0 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 50) parameter2 = 0 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - 50) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 3 timing = 2 END
-		  PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp4~ END
-		  END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %plate_dex%) parameter2 = 0 timing = 2 END
-		  READ_LONG 0x54 valid
-		  PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			READ_STRREF 0x54 "desc"
-			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class.+$~  ~Armor Class: %plate_ac%%WNL%Damage Resistance: %plate_dr%%%WNL%Dexterity Penalty: -%plate_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
-			  END
-			END
-			SAY_EVALUATED 0x54 ~%new_desc%~
-		  END
-		  ELSE BEGIN
-			READ_STRREF 0x50 "desc"
-			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class.+$~  ~Armor Class: %plate_ac%%WNL%Damage Resistance: %plate_dr%%%WNL%Dexterity Penalty: -%plate_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
-			  END
-			END
-			SAY_EVALUATED 0x50 ~%new_desc%~
-		  END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~full plate~) BEGIN 	// 		FULL PLATE
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %fullplate_ac% parameter2 = 16 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - 50) parameter2 = 0 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 50) parameter2 = 0 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - 50) parameter2 = 0 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 4 timing = 2 END
-		  PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp5~ END
-		  END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %fullplate_dex%) parameter2 = 0 timing = 2 END
-		  READ_LONG 0x54 valid
-		  PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			READ_STRREF 0x54 "desc"
-			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %fullplate_ac%%WNL%Damage Resistance: %fullplate_dr%%%WNL%Dexterity Penalty: -%fullplate_dex%%WNL%Arcane Casting Speed: +5 penalty%WNL%Weapon Attack Speed: +4 penalty%WNL%~
-			  END
-			END
-			SAY_EVALUATED 0x54 ~%new_desc%~
-		  END
-		  ELSE BEGIN
-			READ_STRREF 0x50 "desc"
-			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %fullplate_ac%%WNL%Damage Resistance: %fullplate_dr%%%WNL%Dexterity Penalty: -%fullplate_dex%%WNL%Arcane Casting Speed: +5 penalty%WNL%Weapon Attack Speed: +4 penalty%WNL%~
-			  END
-			END
-			SAY_EVALUATED 0x50 ~%new_desc%~
-		  END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~elven~) BEGIN 	// 		ELVEN ARMORS
-			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 20) parameter2 = 0 timing = 2 END
-			PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp1~ END
-			END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %leather_dex%) parameter2 = 0 timing = 2 END
-			READ_LONG 0x54 valid
-			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			  READ_STRREF 0x54 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %chain_dr%%%WNL%Dexterity Penalty: -%leather_dex%%WNL%Arcane Casting Speed: +1 penalty%WNL%~
-				END
-			  END
-			  SAY_EVALUATED 0x54 ~%new_desc%~
-			END
-			WRITE_BYTE 0x2d ("0x00") // blocked: none
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~dragon~) BEGIN 		// 		DRAGON SCALE
-			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 30) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 2 timing = 2 END
-			PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp3~ END
-			END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %chain_dex%) parameter2 = 0 timing = 2 END
-			READ_LONG 0x54 valid
-			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			  READ_STRREF 0x54 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %chain_dr%%%WNL%Dexterity Penalty: -%chain_dex%%WNL%Arcane Casting Speed: +3 penalty%WNL%Weapon Attack Speed: +2 penalty%WNL%~
-				END
-			  END
-			  SAY_EVALUATED 0x54 ~%new_desc%~
-			END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~shadow dragon~) BEGIN 	// 		DRAGON LEATHER
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %chain_ac% parameter2 = 16 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 1 timing = 2 END
-		  PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp2~ END
-		  END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %studded_dex%) parameter2 = 0 timing = 2 END
-		  READ_LONG 0x54 valid
-		  PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			READ_STRREF 0x54 "desc"
-			PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %chain_ac%%WNL%Damage Resistance: %studded_dr%%%WNL%Dexterity Penalty: -%studded_dex%%WNL%Arcane Casting Speed: +2 penalty%WNL%Weapon Attack Speed: +1 penalty%WNL%~
-			  END
-			END
-			SAY_EVALUATED 0x54 ~%new_desc%~
-		  END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~ankheg~) BEGIN 		// 		ANKHEG ARMOR
-			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 3 timing = 2 END
-			PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp4~ END
-			END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %plate_dex%) parameter2 = 0 timing = 2 END
-			READ_LONG 0x54 valid
-			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			  READ_STRREF 0x54 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: -%plate_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
-				END
-			  END
-			  SAY_EVALUATED 0x54 ~%new_desc%~
-			END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
-		PATCH_IF (~%armor_type%~ STRING_EQUAL_CASE ~beetle~) BEGIN 		// 		BEETLE PLATE
-			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
-			LPF DELETE_EFFECT INT_VAR match_opcode = 145 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 59 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 90 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 91 END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 92 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
-		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - 40) parameter2 = 0 timing = 2 END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = 3 timing = 2 END
-			PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = ~d5_cstp4~ END
-			END
-			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %plate_dex%) parameter2 = 0 timing = 2 END
-			READ_LONG 0x54 valid
-			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			  READ_STRREF 0x54 "desc"
-			  PATCH_IF NOT (~%desc%~ STRING_CONTAINS_REGEXP ~Armor Class:~) BEGIN
-				INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				  REPLACE_TEXTUALLY ~^Armor Class:.+$~  ~Armor Class: %splint_ac%%WNL%Damage Resistance: %splint_dr%%%WNL%Dexterity Penalty: -%plate_dex%%WNL%Arcane Casting Speed: +4 penalty%WNL%Weapon Attack Speed: +3 penalty%WNL%~
-				END
-			  END
-			  SAY_EVALUATED 0x54 ~%new_desc%~
-			END
-		  PATCH_PRINT ~%SOURCE_RES% = %armor_type%~
-		END
+	  
 		PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
 		  READ_BYTE    ~0x1f~ ~fight~ //reads the byte containing the fighter usability flag
 		  PATCH_IF ((~%fight%~ BAND ~0b00100000~) = ~0b00000000~) BEGIN // if *usable* by fighter/mages (excluding scrolls and wands for now)
@@ -659,32 +158,487 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			WRITE_BYTE    ~0x20~ (~%class3%~ BAND ~0b10000000~) // others
 		  END
 		END
+
+		SET elven = 0
+		SET no_cast = 0
+
+		READ_LONG 0x08 gen_name_strref
+		READ_LONG 0x0c id_name_strref
+		READ_LONG 0x22 appearance
+		PATCH_IF (gen_name_strref >= 0 && gen_name_strref < 2147483646) BEGIN
+		  READ_STRREF 0x08 ~gen_name~
+		END
+		PATCH_IF (id_name_strref >= 0 && id_name_strref < 2147483646) BEGIN
+		  READ_STRREF 0x0c ~id_name~
+		END
+
+		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~%elven_tra%~) BEGIN
+		  SET elven = 1
+		END
+		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~%elvish_tra%~) BEGIN
+		  SET elven = 1
+		END
+		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~%sylvan_tra%~) BEGIN
+		  SET elven = 1
+		END
+		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~%bladesinger_tra%~) BEGIN
+		  SET elven = 1
+		END
+		
+		PATCH_INCLUDE ~scales_of_balance/lib/YARAS.ini~
+		
+		PATCH_IF (appearance = 16690) BEGIN // leather appearance
+		  READ_LONG 0x08 gen_name_strref
+//	leather armor
+		  PATCH_IF (gen_name_strref = %leather_strref%) BEGIN
+//			SPRINT armor_type ~leather~
+			PATCH_PRINT ~%SOURCE_RES% = leather armor~
+			READ_LONG 0x6a eff_offset
+			READ_SHORT 0x70 num_effects
+			FOR (cnt = 0; cnt < %num_effects%; cnt = cnt+1) BEGIN
+			  READ_SHORT (%eff_offset% + 0x30*cnt) eff_type
+			  PATCH_IF (eff_type = 145) BEGIN
+				SET no_cast = 1
+			  END
+			END
+			PATCH_IF (no_cast = 0) BEGIN
+			  SET leather_cast = 0
+			END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %leather_ac% parameter2 = 16 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %leather_dex%) parameter2 = 0 timing = 2 END
+			LPF ALTER_EFFECT INT_VAR match_opcode = 145  opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%leather_cast%~ END
+			PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%leather_cast%~ END
+			END
+			READ_LONG 0x54 valid
+			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+			  READ_STRREF 0x54 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%leather_ac%%WNL%%new_dr%%leather_dr%%%WNL%%new_dex%%leather_dex%%WNL%%new_cast%%leather_cast%%WNL%~
+			  END
+			  SAY_EVALUATED 0x54 ~%new_desc%~
+			END
+			ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%leather_ac%%WNL%%new_dr%%leather_dr%%%WNL%%new_dex%%leather_dex%%WNL%%new_cast%%leather_cast%%WNL%~
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+			END
+		  END
+//	hide armor
+		  ELSE PATCH_IF (gen_name_strref = %hide_strref%) BEGIN 
+//			SPRINT armor_type ~hide~
+			PATCH_PRINT ~%SOURCE_RES% = hide armor~
+			READ_LONG 0x6a eff_offset
+			READ_SHORT 0x70 num_effects
+			FOR (cnt = 0; cnt < %num_effects%; cnt = cnt+1) BEGIN
+			  READ_SHORT (%eff_offset% + 0x30*cnt) eff_type
+			  PATCH_IF (eff_type = 145) BEGIN
+				SET no_cast = 1
+			  END
+			END
+			PATCH_IF (no_cast = 0) BEGIN
+			  SET chain_cast = 0
+			END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %studded_ac% parameter2 = 16 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %chain_dex%) parameter2 = 0 timing = 2 END
+			LPF ALTER_EFFECT INT_VAR match_opcode = 145  opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%chain_cast%~ END
+			PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%chain_cast%~ END
+			END
+			READ_LONG 0x54 valid
+			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+			  READ_STRREF 0x54 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%studded_ac%%WNL%%new_dr%%chain_dr%%%WNL%%new_dex%%chain_dex%%WNL%%new_cast%%chain_cast%%WNL%~
+			  END
+			  SAY_EVALUATED 0x54 ~%new_desc%~
+			END
+		    ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%studded_ac%%WNL%%new_dr%%chain_dr%%%WNL%%new_dex%%chain_dex%%WNL%%new_cast%%chain_cast%%WNL%~
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+		    END
+		  END
+//	studded leather is default
+		  ELSE BEGIN 		
+//			SPRINT armor_type ~studded~
+  		 	PATCH_PRINT ~%SOURCE_RES% = studded leather~
+			READ_LONG 0x6a eff_offset
+			READ_SHORT 0x70 num_effects
+			FOR (cnt = 0; cnt < %num_effects%; cnt = cnt+1) BEGIN
+			  READ_SHORT (%eff_offset% + 0x30*cnt) eff_type
+			  PATCH_IF (eff_type = 145) BEGIN
+				SET no_cast = 1
+			  END
+			END
+			PATCH_IF (no_cast = 0) BEGIN
+			  SET studded_cast = 0
+			END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %studded_ac% parameter2 = 16 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %studded_dex%) parameter2 = 0 timing = 2 END
+			LPF ALTER_EFFECT INT_VAR match_opcode = 145  opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%studded_cast%~ END
+			PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%studded_cast%~ END
+			END
+			READ_LONG 0x54 valid
+			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+			  READ_STRREF 0x54 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%studded_ac%%WNL%%new_dr%%studded_dr%%%WNL%%new_dex%%studded_dex%%WNL%%new_cast%%studded_cast%%WNL%~
+			  END
+			  SAY_EVALUATED 0x54 ~%new_desc%~
+			END
+			ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%studded_ac%%WNL%%new_dr%%studded_dr%%%WNL%%new_dex%%studded_dex%%WNL%%new_cast%%studded_cast%%WNL%~
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+			END
+		  END
+		END
+		PATCH_IF (appearance = 16691) BEGIN // chain appearance
+		  READ_LONG 0x08 gen_name_strref
+//	splint armor
+		  PATCH_IF (gen_name_strref = splint_strref) BEGIN 
+//			SPRINT armor_type ~splint~
+			PATCH_PRINT ~%SOURCE_RES% = splint armor~
+			READ_LONG 0x6a eff_offset
+			READ_SHORT 0x70 num_effects
+			FOR (cnt = 0; cnt < %num_effects%; cnt = cnt+1) BEGIN
+			  READ_SHORT (%eff_offset% + 0x30*cnt) eff_type
+			  PATCH_IF (eff_type = 145) BEGIN
+				SET no_cast = 1
+			  END
+			END
+			PATCH_IF (no_cast = 0) BEGIN
+			  SET splint_cast = 0
+			END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 144 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
+			LPF DELETE_EFFECT INT_VAR match_opcode = 90 END 	// OL
+			LPF DELETE_EFFECT INT_VAR match_opcode = 277 END 	// ST
+			LPF DELETE_EFFECT INT_VAR match_opcode = 91 END 	// FT
+			LPF DELETE_EFFECT INT_VAR match_opcode = 276 END 	// DI
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %splint_ac% parameter2 = 16 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - %splint_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - %splint_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - %splint_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 90 target = 1 parameter1 = (0 - %splint_mech%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 277 target = 1 parameter1 = (0 - %splint_mech%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 91 target = 1 parameter1 = (0 - %splint_detect%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 276 target = 1 parameter1 = (0 - %splint_detect%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %splint_dex%) parameter2 = 0 timing = 2 END
+			LPF ALTER_EFFECT INT_VAR match_opcode = 145  opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%splint_cast%~ END
+			PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%splint_cast%~ END
+			END
+			READ_LONG 0x54 valid
+			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+			  READ_STRREF 0x54 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%splint_ac%%WNL%%new_dr%%splint_dr%%%WNL%%new_dex%%splint_dex%%WNL%%new_cast%%splint_cast%%WNL%%thief_stealth%%splint_stealth%%WNL%%thief_mech%%splint_mech%%WNL%%thief_detect%%splint_detect%%WNL%~
+			  END
+			  SAY_EVALUATED 0x54 ~%new_desc%~
+			END
+		    ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%splint_ac%%WNL%%new_dr%%splint_dr%%%WNL%%new_dex%%splint_dex%%WNL%%new_cast%%splint_cast%%WNL%%thief_stealth%%splint_stealth%%WNL%%thief_mech%%splint_mech%%WNL%%thief_detect%%splint_detect%%WNL%~
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+		    END
+		  END
+//	chain is default
+		  ELSE BEGIN 
+//			SPRINT armor_type ~chain~
+			READ_LONG 0x6a eff_offset
+			READ_SHORT 0x70 num_effects
+			FOR (cnt = 0; cnt < %num_effects%; cnt = cnt+1) BEGIN
+			  READ_SHORT (%eff_offset% + 0x30*cnt) eff_type
+			  PATCH_IF (eff_type = 145) BEGIN
+				SET no_cast = 1
+			  END
+			END
+			PATCH_IF (no_cast = 0) BEGIN
+			  SET leather_cast = 0
+			  SET chain_cast = 0
+			END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 144 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
+			LPF DELETE_EFFECT INT_VAR match_opcode = 90 END 	// OL
+			LPF DELETE_EFFECT INT_VAR match_opcode = 277 END 	// ST
+			LPF DELETE_EFFECT INT_VAR match_opcode = 91 END 	// FT
+			LPF DELETE_EFFECT INT_VAR match_opcode = 276 END 	// DI
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %chain_ac% parameter2 = 16 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %chain_dr% parameter2 = 1 timing = 2 END
+			PATCH_IF (elven = 1) BEGIN 
+				PATCH_PRINT ~%SOURCE_RES% = elven chain~
+				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %leather_dex%) parameter2 = 0 timing = 2 END
+				LPF ALTER_EFFECT INT_VAR match_opcode = 145  opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%leather_cast%~ END
+				PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+				  LPF CLONE_EFFECT INT_VAR match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%leather_cast%~ END
+				END
+				READ_LONG 0x54 valid
+				PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+				  READ_STRREF 0x54 "desc"
+				  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+					REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%chain_ac%%WNL%%new_dr%%chain_dr%%%WNL%%new_dex%%leather_dex%%WNL%%new_cast%%leather_cast%%WNL%~
+				  END
+				  SAY_EVALUATED 0x54 ~%new_desc%~
+				END
+			    ELSE BEGIN
+				  READ_STRREF 0x50 "desc"
+				  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+					REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%chain_ac%%WNL%%new_dr%%chain_dr%%%WNL%%new_dex%%leather_dex%%WNL%%new_cast%%leather_cast%%WNL%~
+				  END
+				  SAY_EVALUATED 0x50 ~%new_desc%~
+			    END
+			END 
+			ELSE BEGIN
+				PATCH_PRINT ~%SOURCE_RES% = chain mail~
+				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - %chain_stealth%) parameter2 = 0 timing = 2 END
+				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - %chain_stealth%) parameter2 = 0 timing = 2 END
+				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - %chain_stealth%) parameter2 = 0 timing = 2 END
+				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 90 target = 1 parameter1 = (0 - %chain_mech%) parameter2 = 0 timing = 2 END
+				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 277 target = 1 parameter1 = (0 - %chain_mech%) parameter2 = 0 timing = 2 END
+				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 91 target = 1 parameter1 = (0 - %chain_detect%) parameter2 = 0 timing = 2 END
+				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 276 target = 1 parameter1 = (0 - %chain_detect%) parameter2 = 0 timing = 2 END
+				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %chain_dex%) parameter2 = 0 timing = 2 END
+				LPF ALTER_EFFECT INT_VAR match_opcode = 145  opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%chain_cast%~ END
+				PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+				  LPF CLONE_EFFECT INT_VAR match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%chain_cast%~ END
+				END
+				READ_LONG 0x54 valid
+				PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+				  READ_STRREF 0x54 "desc"
+				  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+					REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%chain_ac%%WNL%%new_dr%%chain_dr%%%WNL%%new_dex%%chain_dex%%WNL%%new_cast%%chain_cast%%WNL%%thief_stealth%%chain_stealth%%WNL%%thief_mech%%chain_mech%%WNL%%thief_detect%%chain_detect%%WNL%~
+				  END
+				  SAY_EVALUATED 0x54 ~%new_desc%~
+				END
+			    ELSE BEGIN
+				  READ_STRREF 0x50 "desc"
+				  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+					REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%chain_ac%%WNL%%new_dr%%chain_dr%%%WNL%%new_dex%%chain_dex%%WNL%%new_cast%%chain_cast%%WNL%%thief_stealth%%chain_stealth%%WNL%%thief_mech%%chain_mech%%WNL%%thief_detect%%chain_detect%%WNL%~
+				  END
+				  SAY_EVALUATED 0x50 ~%new_desc%~
+			    END
+			END
+		  END
+		END
+		ELSE PATCH_IF (appearance = 16692) BEGIN // plate appearance
+		  READ_LONG 0x08 gen_name_strref
+//	full plate armor
+		  PATCH_IF (gen_name_strref = fullplate_strref) BEGIN 
+//			SPRINT armor_type ~fullplate~
+			PATCH_PRINT ~%SOURCE_RES% = full plate~
+			READ_LONG 0x6a eff_offset
+			READ_SHORT 0x70 num_effects
+			FOR (cnt = 0; cnt < %num_effects%; cnt = cnt+1) BEGIN
+			  READ_SHORT (%eff_offset% + 0x30*cnt) eff_type
+			  PATCH_IF (eff_type = 145) BEGIN
+				SET no_cast = 1
+			  END
+			END
+			PATCH_IF (no_cast = 0) BEGIN
+			  SET fullplate_cast = 0
+			END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 144 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
+			LPF DELETE_EFFECT INT_VAR match_opcode = 90 END 	// OL
+			LPF DELETE_EFFECT INT_VAR match_opcode = 277 END 	// ST
+			LPF DELETE_EFFECT INT_VAR match_opcode = 91 END 	// FT
+			LPF DELETE_EFFECT INT_VAR match_opcode = 276 END 	// DI
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %fullplate_ac% parameter2 = 16 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %fullplate_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - %fullplate_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - %fullplate_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - %fullplate_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 90 target = 1 parameter1 = (0 - %fullplate_mech%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 277 target = 1 parameter1 = (0 - %fullplate_mech%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 91 target = 1 parameter1 = (0 - %fullplate_detect%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 276 target = 1 parameter1 = (0 - %fullplate_detect%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %fullplate_dex%) parameter2 = 0 timing = 2 END
+			LPF ALTER_EFFECT INT_VAR match_opcode = 145  opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%fullplate_cast%~ END
+			PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%fullplate_cast%~ END
+			END
+			READ_LONG 0x54 valid
+			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+			  READ_STRREF 0x54 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%fullplate_ac%%WNL%%new_dr%%fullplate_dr%%%WNL%%new_dex%%fullplate_dex%%WNL%%new_cast%%fullplate_cast%%WNL%%thief_stealth%%fullplate_stealth%%WNL%%thief_mech%%fullplate_mech%%WNL%%thief_detect%%fullplate_detect%%WNL%~
+			  END
+			  SAY_EVALUATED 0x54 ~%new_desc%~
+			END
+			ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%fullplate_ac%%WNL%%new_dr%%fullplate_dr%%%WNL%%new_dex%%fullplate_dex%%WNL%%new_cast%%fullplate_cast%%WNL%%thief_stealth%%fullplate_stealth%%WNL%%thief_mech%%fullplate_mech%%WNL%%thief_detect%%fullplate_detect%%WNL%~
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+			END
+		  END
+//	scale armor
+		  ELSE PATCH_IF VARIABLE_IS_SET %scale_strref% BEGIN
+		   PATCH_IF (gen_name_strref = scale_strref) BEGIN 
+//			SPRINT armor_type ~scale~
+			PATCH_PRINT ~%SOURCE_RES% = scale armor~
+			READ_LONG 0x6a eff_offset
+			READ_SHORT 0x70 num_effects
+			FOR (cnt = 0; cnt < %num_effects%; cnt = cnt+1) BEGIN
+			  READ_SHORT (%eff_offset% + 0x30*cnt) eff_type
+			  PATCH_IF (eff_type = 145) BEGIN
+				SET no_cast = 1
+			  END
+			END
+			PATCH_IF (no_cast = 0) BEGIN
+			  SET chain_cast = 0
+			END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 144 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
+			LPF DELETE_EFFECT INT_VAR match_opcode = 90 END 	// OL
+			LPF DELETE_EFFECT INT_VAR match_opcode = 277 END 	// ST
+			LPF DELETE_EFFECT INT_VAR match_opcode = 91 END 	// FT
+			LPF DELETE_EFFECT INT_VAR match_opcode = 276 END 	// DI
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %plate_ac% parameter2 = 16 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %splint_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - %splint_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - %splint_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - %splint_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 90 target = 1 parameter1 = (0 - %splint_mech%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 277 target = 1 parameter1 = (0 - %splint_mech%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 91 target = 1 parameter1 = (0 - %splint_detect%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 276 target = 1 parameter1 = (0 - %splint_detect%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %splint_dex%) parameter2 = 0 timing = 2 END
+			LPF ALTER_EFFECT INT_VAR match_opcode = 145  opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%chain_cast%~ END
+			PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%chain_cast%~ END
+			END
+			READ_LONG 0x54 valid
+			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+			  READ_STRREF 0x54 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%plate_ac%%WNL%%new_dr%%splint_dr%%%WNL%%new_dex%%splint_dex%%WNL%%new_cast%%chain_cast%%WNL%%thief_stealth%%splint_stealth%%WNL%%thief_mech%%splint_mech%%WNL%%thief_detect%%splint_detect%%WNL%~
+			  END
+			  SAY_EVALUATED 0x54 ~%new_desc%~
+			END
+			ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%plate_ac%%WNL%%new_dr%%splint_dr%%%WNL%%new_dex%%splint_dex%%WNL%%new_cast%%chain_cast%%WNL%%thief_stealth%%splint_stealth%%WNL%%thief_mech%%splint_mech%%WNL%%thief_detect%%splint_detect%%WNL%~
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+			END
+		   END
+		  END
+//	plate is default
+		  ELSE BEGIN 
+//			SPRINT armor_type ~plate~
+			PATCH_PRINT ~%SOURCE_RES% = plate mail~
+			READ_LONG 0x6a eff_offset
+			READ_SHORT 0x70 num_effects
+			FOR (cnt = 0; cnt < %num_effects%; cnt = cnt+1) BEGIN
+			  READ_SHORT (%eff_offset% + 0x30*cnt) eff_type
+			  PATCH_IF (eff_type = 145) BEGIN
+				SET no_cast = 1
+			  END
+			END
+			PATCH_IF (no_cast = 0) BEGIN
+			  SET plate_cast = 0
+			END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 144 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
+			LPF DELETE_EFFECT INT_VAR match_opcode = 90 END 	// OL
+			LPF DELETE_EFFECT INT_VAR match_opcode = 277 END 	// ST
+			LPF DELETE_EFFECT INT_VAR match_opcode = 91 END 	// FT
+			LPF DELETE_EFFECT INT_VAR match_opcode = 276 END 	// DI
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %plate_ac% parameter2 = 16 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %plate_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %plate_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %plate_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %plate_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - %plate_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - %plate_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - %plate_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 90 target = 1 parameter1 = (0 - %plate_mech%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 277 target = 1 parameter1 = (0 - %plate_mech%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 91 target = 1 parameter1 = (0 - %plate_detect%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 276 target = 1 parameter1 = (0 - %plate_detect%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %plate_dex%) parameter2 = 0 timing = 2 END
+			LPF ALTER_EFFECT INT_VAR match_opcode = 145  opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%plate_cast%~ END
+			PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+			  LPF CLONE_EFFECT INT_VAR match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%plate_cast%~ END
+			END
+			READ_LONG 0x54 valid
+			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+			  READ_STRREF 0x54 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%plate_ac%%WNL%%new_dr%%plate_dr%%%WNL%%new_dex%%plate_dex%%WNL%%new_cast%%plate_cast%%WNL%%thief_stealth%%plate_stealth%%WNL%%thief_mech%%plate_mech%%WNL%%thief_detect%%plate_detect%%WNL%~
+			  END
+			  SAY_EVALUATED 0x54 ~%new_desc%~
+			END
+			ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%plate_ac%%WNL%%new_dr%%plate_dr%%%WNL%%new_dex%%plate_dex%%WNL%%new_cast%%plate_cast%%WNL%%thief_stealth%%plate_stealth%%WNL%%thief_mech%%plate_mech%%WNL%%thief_detect%%plate_detect%%WNL%~
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+			END
+		  END
+		END
 	  END
 	END
 BUT_ONLY
 
-// bard armor:
-//
-ACTION_FOR_EACH bard_armor IN 
-			~chan10~
-			~chan15~
-			~bdleat03~ 
-			~a!bchan1~
-			~a!bleat1~
-			~a!bleat2~		BEGIN
-	ACTION_IF FILE_EXISTS_IN_GAME ~%bard_armor%.itm~ BEGIN
-	  COPY_EXISTING ~%bard_armor%.itm~ ~override~
-		READ_LONG 0x22 appearance
-		PATCH_IF (%appearance% = 16690) BEGIN
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~D5_CSTP1~ END
-		  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~D5_CSTP2~ END
-		END
-		PATCH_IF (%appearance% = 16691) BEGIN // chain appearance
-		  LPF ALTER_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~D5_CSTP3~ resource = ~d5_cstp1~ END
-		END
-	  BUT_ONLY
-	END
-END
 
 // spells & items:
 //
@@ -701,19 +655,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~sppr111.spl~ BEGIN
 	LPF ALTER_EFFECT INT_VAR match_opcode = 31 parameter1 = 10 END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 84 parameter1 = 10 END
 	LPF ALTER_EFFECT INT_VAR match_opcode = 85 parameter1 = 10 END
-	SAY UNIDENTIFIED_DESC ~Armor of Faith
-(Abjuration)
-
-Level: 1
-Sphere: Protection
-Range: 0
-Duration: 3 rounds + 1 round/level 
-Casting Time: 1
-Area of Effect: The caster
-Saving Throw: None 
-
-The caster of the Armor of Faith receives significant protection against melee and magical attacks. This magical armor-like force surrounds the caster and absorbs a portion of any damage taken. This amounts to an effect 10% boost to damage resistance against all damage types.
-~
+	SAY UNIDENTIFIED_DESC @10030
   BUT_ONLY
 END
 ACTION_IF FILE_EXISTS_IN_GAME ~spdwd02.spl~ BEGIN

@@ -18,9 +18,9 @@ COPY ~scales_of_balance/misc/d5_nmx.d5~ ~override~
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 		READ_LONG 0x14 xp
-		PATCH_IF (%xp% > 5) BEGIN
-			SET new_xp = (%xp% / 5)
-			WRITE_LONG 0x14 %new_xp%
+		PATCH_IF (xp > 10) BEGIN
+			SET new_xp = (xp / xp_divisor)
+			WRITE_LONG 0x14 new_xp
 		END
 	END
 BUT_ONLY
