@@ -28,6 +28,18 @@ END
 COPY ~scales_of_balance/profs/wspat3.2da~ ~override/wspatck.2da~
 
 COPY ~scales_of_balance/profs/wspecial2.2da~ ~override/wspecial.2da~
+
+COPY ~scales_of_balance/profs/thac0.2da~ ~override~
+ACTION_IF GAME_IS ~iwdee tob bgt~ BEGIN
+	COPY ~scales_of_balance/profs/profsmax_i.2da~ ~override/profsmax.2da~
+END
+ACTION_IF GAME_IS ~bgee bg2ee eet~ BEGIN
+	COPY ~scales_of_balance/profs/profsmax.2da~ ~override~
+END
+
+COPY ~scales_of_balance/profs/profs.2da~ ~override~
+
+COPY ~scales_of_balance/misc/d5_numat.spl~ ~override~
 //__________________________________________________________________________________
 	
 
@@ -150,10 +162,10 @@ END
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
 	REPLACE_TEXTUALLY ~ ID ~ ~ TYPE ID ~
-	REPLACE_TEXTUALLY ~ 2 ~ ~ 4 ~
-	REPLACE_TEXTUALLY ~ 3 ~ ~ 4 ~
+	REPLACE_TEXTUALLY ~ 2 ~ ~ 3 ~
+	REPLACE_TEXTUALLY ~ 5 ~ ~ 4 ~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 5 1 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 8 1 5
+	SET_2DA_ENTRY_LATER ~#weapprof~ 8 1 4
 	// Fighter
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 5 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 5 2
@@ -175,76 +187,76 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 6 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 6 0
 	// Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 7 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 7 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 7 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 7 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 7 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 7 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 7 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 7 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 7 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 7 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 7 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 7 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 7 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 7 3
 	// Bard
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 8 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 8 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 8 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 8 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 15 8 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 8 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 8 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 8 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 8 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 8 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 8 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 8 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 8 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 8 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 8 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 8 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 8 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 8 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 8 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 8 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 8 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 8 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 8 3
 	// Paladin
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 9 4
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 9 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 9 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 15 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 9 3
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 9 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 9 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 9 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 9 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 9 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 9 3
 	// Druid
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 10 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 10 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 10 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 10 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 10 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 10 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 10 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 10 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 10 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 10 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 10 0
 	// Ranger
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 11 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 11 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 11 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 11 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 11 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 11 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 11 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 11 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 11 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 11 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 11 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 11 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 11 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 11 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 11 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 11 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 11 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 11 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 11 2
@@ -300,15 +312,15 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 15 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 15 3
 	// Mage/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 16 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 16 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 16 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 16 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 16 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 16 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 16 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 16 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 16 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 16 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 16 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 16 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 16 2
@@ -327,17 +339,17 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 17 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 17 0
 	// Cleric/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 18 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 18 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 18 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 18 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 18 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 18 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 18 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 18 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 18 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 18 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 18 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 18 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 18 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 18 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 18 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 18 2
@@ -348,41 +360,41 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 19 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 19 3
 	// Fighter/Mage/Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 20 4
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 20 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 20 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 15 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 20 3
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 20 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 20 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 20 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 20 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 20 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 20 0
 	// Ranger/Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 21 4
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 21 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 21 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 15 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 21 3
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 21 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 21 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 21 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 21 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 21 2
@@ -420,21 +432,21 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 30 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 30 3
 	// Wizard Slayer
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 31 4
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 31 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 31 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 15 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 31 3
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 31 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 31 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 31 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 31 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 31 2
@@ -448,41 +460,41 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 33 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 33 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 33 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 33 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 33 3
 	// Inquisitor
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 34 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 34 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 34 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 34 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 34 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 34 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 34 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 34 3
 	// Undead Hunter
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 35 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 35 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 35 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 35 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 35 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 35 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 35 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 35 3
 	// Archer
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 36 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 36 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 36 5
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 36 5
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 15 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 36 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 36 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 36 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 36 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 30 36 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 36 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 36 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 36 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 36 2
 	// Stalker
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 37 5
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 37 5
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 37 5
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 37 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 37 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 37 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 12 37 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 14 37 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 17 37 2
@@ -513,9 +525,9 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 38 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 38 3
 	// Assassin
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 39 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 39 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 39 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 39 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 39 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 39 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 12 39 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 14 39 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 17 39 2
@@ -533,24 +545,24 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 39 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 39 3
 	// Bounty Hunter
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 40 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 40 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 40 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 40 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 40 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 40 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 40 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 40 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 40 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 40 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 40 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 40 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 40 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 40 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 40 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 40 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 40 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 40 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 40 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 40 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 40 3
 	// Swashbuckler
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 41 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 41 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 41 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 41 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 41 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 41 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 41 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 41 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 14 41 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 41 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 41 2
@@ -559,18 +571,18 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 41 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 15 41 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 41 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 41 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 41 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 41 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 41 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 41 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 41 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 41 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 41 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 41 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 41 3
 	// Blade
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 42 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 42 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 42 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 42 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 42 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 42 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 42 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 42 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 14 42 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 19 42 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 42 2
@@ -579,53 +591,53 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 42 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 15 42 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 42 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 42 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 42 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 42 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 42 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 42 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 42 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 42 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 42 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 42 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 42 3
 	// Jester
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 43 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 43 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 43 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 43 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 43 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 43 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 15 43 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 43 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 43 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 43 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 43 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 43 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 43 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 43 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 43 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 43 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 43 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 43 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 43 2
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 43 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 43 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 43 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 43 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 43 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 43 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 43 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 43 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 43 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 43 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 43 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 43 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 43 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 43 3
 	// Skald
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 44 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 44 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 44 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 44 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 44 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 12 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 13 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 44 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 15 44 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 19 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 44 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 44 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 23 44 2
 //	SET_2DA_ENTRY_LATER ~#weapprof~ 24 44 4
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 44 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 44 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 26 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 28 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 44 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 44 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 44 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 44 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 44 3
 	// Totemic Driud
 	SET_2DA_ENTRY_LATER ~#weapprof~ 17 45 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 18 45 3
@@ -638,23 +650,23 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 45 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 45 2
 	// Shapeshifter
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 46 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 46 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 46 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 46 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 46 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 46 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 46 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 46 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 46 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 46 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 46 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 46 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 46 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 46 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 46 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 46 2
 	// Avenger
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 47 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 47 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 47 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 47 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 47 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 47 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 17 47 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 47 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 47 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 47 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 47 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 47 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 47 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 47 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 47 1
@@ -704,15 +716,15 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	// Monk
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 51 1
 	// Barbarian
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 52 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 52 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 52 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 52 4
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 52 4
+	SET_2DA_ENTRY_LATER ~#weapprof~ 14 52 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 15 52 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 20 52 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 21 52 3
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 52 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 52 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 52 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 52 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 52 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 52 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 52 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 52 3
 	// Wild Mage	
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 53 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 53 1
@@ -722,21 +734,21 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Blackguard
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 54 4
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 54 1
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 54 1
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 54 1
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 54 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 54 3
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 54 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 54 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 54 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 54 3
 		// Shadowdancer
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 12 55 3
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 13 55 3
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 17 55 3
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 18 55 3
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 55 3
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 25 55 3
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 26 55 3
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 28 55 3
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 30 55 3
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 12 55 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 13 55 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 17 55 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 18 55 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 55 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 25 55 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 26 55 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 28 55 2
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 30 55 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 55 0
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 55 0
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 55 2
@@ -744,11 +756,11 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 		// Dwarven Defender
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 12 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 13 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 14 56 5
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 14 56 4
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 15 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 17 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 18 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 19 56 5
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 19 56 4
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 21 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 23 56 2
@@ -759,7 +771,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 30 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 56 0
+		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 56 2
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 56 3
 		// Dragon Disciple
 		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 57 1
@@ -789,15 +801,15 @@ END
 ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Shaman
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 9 60 3
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 14 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 9 60 2
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 14 60 2
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 17 60 0
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 18 60 3
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 20 60 3
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 21 60 3
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 25 60 3
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 28 60 3
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 30 60 3
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 18 60 2
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 20 60 2
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 21 60 2
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 25 60 2
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 28 60 2
+		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 30 60 2
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 31 60 1
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 32 60 0
 		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 33 60 1
@@ -807,15 +819,15 @@ END
 ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
 	COPY_EXISTING ~weapprof.2da~ ~override~
 		// Shaman
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 9 62 3
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 14 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 9 62 2
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 14 62 2
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 17 62 0
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 18 62 3
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 20 62 3
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 21 62 3
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 25 62 3
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 28 62 3
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 30 62 3
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 18 62 2
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 20 62 2
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 21 62 2
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 25 62 2
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 28 62 2
+		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 30 62 2
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 31 62 1
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 32 62 0
 		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 33 62 1
@@ -954,13 +966,13 @@ DEFINE_ACTION_FUNCTION mod_druid_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER D#weapprof 17 (col + 1) 3
-					SET_2DA_ENTRY_LATER D#weapprof 18 (col + 1) 3
-					SET_2DA_ENTRY_LATER D#weapprof 20 (col + 1) 3
-					SET_2DA_ENTRY_LATER D#weapprof 21 (col + 1) 3
-					SET_2DA_ENTRY_LATER D#weapprof 25 (col + 1) 3
-					SET_2DA_ENTRY_LATER D#weapprof 28 (col + 1) 3
-					SET_2DA_ENTRY_LATER D#weapprof 30 (col + 1) 3
+					SET_2DA_ENTRY_LATER D#weapprof 17 (col + 1) 2
+					SET_2DA_ENTRY_LATER D#weapprof 18 (col + 1) 2
+					SET_2DA_ENTRY_LATER D#weapprof 20 (col + 1) 2
+					SET_2DA_ENTRY_LATER D#weapprof 21 (col + 1) 2
+					SET_2DA_ENTRY_LATER D#weapprof 25 (col + 1) 2
+					SET_2DA_ENTRY_LATER D#weapprof 28 (col + 1) 2
+					SET_2DA_ENTRY_LATER D#weapprof 30 (col + 1) 2
 					SET_2DA_ENTRY_LATER D#weapprof 31 (col + 1) 2
 					SET_2DA_ENTRY_LATER D#weapprof 32 (col + 1) 0
 					SET_2DA_ENTRY_LATER D#weapprof 33 (col + 1) 2
@@ -1009,15 +1021,15 @@ DEFINE_ACTION_FUNCTION mod_thief_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER T#weapprof 12 (col + 1) 3
-					SET_2DA_ENTRY_LATER T#weapprof 13 (col + 1) 3
-					SET_2DA_ENTRY_LATER T#weapprof 17 (col + 1) 3
-					SET_2DA_ENTRY_LATER T#weapprof 18 (col + 1) 3
-					SET_2DA_ENTRY_LATER T#weapprof 20 (col + 1) 3
-					SET_2DA_ENTRY_LATER T#weapprof 25 (col + 1) 3
-					SET_2DA_ENTRY_LATER T#weapprof 26 (col + 1) 3
-					SET_2DA_ENTRY_LATER T#weapprof 28 (col + 1) 3
-					SET_2DA_ENTRY_LATER T#weapprof 30 (col + 1) 3
+					SET_2DA_ENTRY_LATER T#weapprof 12 (col + 1) 2
+					SET_2DA_ENTRY_LATER T#weapprof 13 (col + 1) 2
+					SET_2DA_ENTRY_LATER T#weapprof 17 (col + 1) 2
+					SET_2DA_ENTRY_LATER T#weapprof 18 (col + 1) 2
+					SET_2DA_ENTRY_LATER T#weapprof 20 (col + 1) 2
+					SET_2DA_ENTRY_LATER T#weapprof 25 (col + 1) 2
+					SET_2DA_ENTRY_LATER T#weapprof 26 (col + 1) 2
+					SET_2DA_ENTRY_LATER T#weapprof 28 (col + 1) 2
+					SET_2DA_ENTRY_LATER T#weapprof 30 (col + 1) 2
 					SET_2DA_ENTRY_LATER T#weapprof 31 (col + 1) 0
 					SET_2DA_ENTRY_LATER T#weapprof 32 (col + 1) 0
 					SET_2DA_ENTRY_LATER T#weapprof 33 (col + 1) 2
@@ -1066,25 +1078,25 @@ DEFINE_ACTION_FUNCTION mod_bard_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER B#weapprof 12 (col + 1) 3
-					SET_2DA_ENTRY_LATER B#weapprof 13 (col + 1) 3
-					SET_2DA_ENTRY_LATER B#weapprof 14 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 12 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 13 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 14 (col + 1) 2
 					SET_2DA_ENTRY_LATER B#weapprof 15 (col + 1) 0
-					SET_2DA_ENTRY_LATER B#weapprof 17 (col + 1) 3
-					SET_2DA_ENTRY_LATER B#weapprof 18 (col + 1) 3
-					SET_2DA_ENTRY_LATER B#weapprof 19 (col + 1) 3
-					SET_2DA_ENTRY_LATER B#weapprof 20 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 17 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 18 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 19 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 20 (col + 1) 2
 					SET_2DA_ENTRY_LATER B#weapprof 21 (col + 1) 0
-					SET_2DA_ENTRY_LATER B#weapprof 23 (col + 1) 3
-//					SET_2DA_ENTRY_LATER B#weapprof 24 (col + 1) 3
+					SET_2DA_ENTRY_LATER B#weapprof 23 (col + 1) 2
+//					SET_2DA_ENTRY_LATER B#weapprof 24 (col + 1) 2
 					SET_2DA_ENTRY_LATER B#weapprof 25 (col + 1) 0
-					SET_2DA_ENTRY_LATER B#weapprof 26 (col + 1) 3
-					SET_2DA_ENTRY_LATER B#weapprof 28 (col + 1) 3
-					SET_2DA_ENTRY_LATER B#weapprof 30 (col + 1) 3
-					SET_2DA_ENTRY_LATER B#weapprof 31 (col + 1) 1
-					SET_2DA_ENTRY_LATER B#weapprof 32 (col + 1) 1
-					SET_2DA_ENTRY_LATER B#weapprof 33 (col + 1) 1
-					SET_2DA_ENTRY_LATER B#weapprof 34 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 26 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 28 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 30 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 31 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 32 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 33 (col + 1) 2
+					SET_2DA_ENTRY_LATER B#weapprof 34 (col + 1) 3
 				END
 			END
 		END
@@ -1129,14 +1141,14 @@ DEFINE_ACTION_FUNCTION mod_ranger_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER R#weapprof 12 (col + 1) 4
-					SET_2DA_ENTRY_LATER R#weapprof 13 (col + 1) 4
-					SET_2DA_ENTRY_LATER R#weapprof 14 (col + 1) 4
-					SET_2DA_ENTRY_LATER R#weapprof 17 (col + 1) 4
-					SET_2DA_ENTRY_LATER R#weapprof 18 (col + 1) 4
-					SET_2DA_ENTRY_LATER R#weapprof 21 (col + 1) 4
-					SET_2DA_ENTRY_LATER R#weapprof 25 (col + 1) 4
-					SET_2DA_ENTRY_LATER R#weapprof 28 (col + 1) 4
+					SET_2DA_ENTRY_LATER R#weapprof 12 (col + 1) 3
+					SET_2DA_ENTRY_LATER R#weapprof 13 (col + 1) 3
+					SET_2DA_ENTRY_LATER R#weapprof 14 (col + 1) 3
+					SET_2DA_ENTRY_LATER R#weapprof 17 (col + 1) 3
+					SET_2DA_ENTRY_LATER R#weapprof 18 (col + 1) 3
+					SET_2DA_ENTRY_LATER R#weapprof 21 (col + 1) 3
+					SET_2DA_ENTRY_LATER R#weapprof 25 (col + 1) 3
+					SET_2DA_ENTRY_LATER R#weapprof 28 (col + 1) 3
 					SET_2DA_ENTRY_LATER R#weapprof 31 (col + 1) 2
 					SET_2DA_ENTRY_LATER R#weapprof 32 (col + 1) 0
 					SET_2DA_ENTRY_LATER R#weapprof 33 (col + 1) 2
@@ -1185,10 +1197,10 @@ DEFINE_ACTION_FUNCTION mod_paladin_profs BEGIN
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER P#weapprof 31 (col + 1) 1
-					SET_2DA_ENTRY_LATER P#weapprof 32 (col + 1) 1
-					SET_2DA_ENTRY_LATER P#weapprof 33 (col + 1) 1
-					SET_2DA_ENTRY_LATER P#weapprof 34 (col + 1) 2
+					SET_2DA_ENTRY_LATER P#weapprof 31 (col + 1) 2
+					SET_2DA_ENTRY_LATER P#weapprof 32 (col + 1) 2
+					SET_2DA_ENTRY_LATER P#weapprof 33 (col + 1) 2
+					SET_2DA_ENTRY_LATER P#weapprof 34 (col + 1) 3
 				END
 			END
 		END
@@ -1257,10 +1269,10 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	FOR (col = 3; col < (num_cols - 1); col += 1) BEGIN
 		READ_2DA_ENTRY_FORMER ~r2en_mng~ 0 col kitname
 		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5CORSA~) BEGIN
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 5
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 5
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 5
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 5
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 4
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 4
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 4
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 4
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 14 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 3
@@ -1274,72 +1286,72 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 2
 		END
 		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5MARKS~) BEGIN
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 14 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 3
-//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 5
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 5
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 14 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 2
+//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 4
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 4
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 1
 		END
 		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5EARCH~) BEGIN
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 14 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 3
-//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 3
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 14 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 2
+//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 1
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 5
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 4
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 1
 		END
 		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5SLING~) BEGIN
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 14 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 3
-//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 3
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 14 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 2
+//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 1
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 1
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 5
 		END
 		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5SNIPE~) BEGIN
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 2
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 2
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 2
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 2
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 1
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 1
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 1
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 1
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 1
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 1
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 4
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 4
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 4
 		END
 		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5SWASH~) BEGIN
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 4
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 4
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 4
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 4
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 3
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 3
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 3
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 3
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 14 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
@@ -1348,9 +1360,9 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 0
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 3
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 3
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 2
 		END
 		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5JONGL~) BEGIN
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 0
@@ -1358,7 +1370,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 14 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 2
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 5
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 4
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 0
@@ -1480,19 +1492,10 @@ COPY ~scales_of_balance/profs/d5_pimo.spl~ ~override~
 	SAY NAME1 @1248
 COPY ~scales_of_balance/profs/d5_pnal.spl~ ~override~
 	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/thac0.2da~ ~override~
-ACTION_IF GAME_IS ~iwdee tob bgt~ BEGIN
-	COPY ~scales_of_balance/profs/profsmax_i.2da~ ~override/profsmax.2da~
-END
-ACTION_IF GAME_IS ~bgee bg2ee eet~ BEGIN
-	COPY ~scales_of_balance/profs/profsmax.2da~ ~override~
-END
-COPY ~scales_of_balance/profs/profs.2da~ ~override~
-COPY ~scales_of_balance/misc/d5_numat.spl~ ~override~
 //__________________________________________________________________________________
 
 
-//AMEND CLAB FILES___________________________________________________________________
+//AMEND WARRIOR CLAB FILES__________________________________________________________
 //
 COPY_EXISTING ~clabfi01.2da~ ~override~
 	REPLACE_TEXTUALLY ~AP_TB#TATT~ ~****      ~
@@ -1567,6 +1570,9 @@ COPY_EXISTING ~clabrn05.2da~ ~override~
 	REPLACE_TEXTUALLY ~AP_d5_NUMAT~ ~****       ~
 	BUT_ONLY
 
+/*
+//AMEND CLERIC CLAB FILES____________________________________________________________
+//
 COPY_EXISTING ~clabpr02.2da~ ~override~
 	LPM remove_blank_lines
 	APPEND_FILE ~scales_of_balance/profs/pcspea.txt~
@@ -1724,7 +1730,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~d5_acsha.2da~ THEN BEGIN
 		BUT_ONLY
 END
 //__________________________________________________________________________________
-
+*/
 
 //UNIVERSAL CLUBS___________________________________________________________________
 //
@@ -2080,3765 +2086,650 @@ BUT_ONLY
 
 //DELETE NPCS' PROFICIENCIES________________________________________________________
 //
-ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
-	COPY_EXISTING ~%tutu_var%ajanti.cre~ ~override~
-				~%tutu_var%ajanti4.cre~ ~override~
-				~%tutu_var%ajanti6.cre~ ~override~
-				~%tutu_var%alora.cre~ ~override~
-				~%tutu_var%alora6.cre~ ~override~
-				~%tutu_var%imoen1.cre~ ~override~
-				~%tutu_var%imoen2.cre~ ~override~
-				~%tutu_var%imoen4.cre~ ~override~
-				~%tutu_var%%imoen6_var%.cre~ ~override~
-				~%tutu_var%safana.cre~ ~override~
-				~%tutu_var%safana4.cre~ ~override~
-				~%tutu_var%safana6.cre~ ~override~
-				~%tutu_var%coran.cre~ ~override~
-				~%tutu_var%coran5.cre~ ~override~
-				~%tutu_var%skie.cre~ ~override~
-				~%tutu_var%skie6.cre~ ~override~
-				~%tutu_var%montar.cre~ ~override~
-				~%tutu_var%montar2.cre~ ~override~
-				~%tutu_var%montar4.cre~ ~override~
-				~%tutu_var%montar6.cre~ ~override~
-				~%tutu_var%garric.cre~ ~override~
-				~%tutu_var%garric2.cre~ ~override~
-				~%tutu_var%garric4.cre~ ~override~
-				~%tutu_var%garric6.cre~ ~override~
-				~%tutu_var%eldoth.cre~ ~override~
-				~%tutu_var%eldoth5.cre~ ~override~
-				~%tutu_var%dynahe.cre~ ~override~
-				~%tutu_var%dynahe2.cre~ ~override~
-				~%tutu_var%dynahe4.cre~ ~override~
-				~%tutu_var%dynahe6.cre~ ~override~
-				~%tutu_var%edwin.cre~ ~override~
-				~%tutu_var%edwin2.cre~ ~override~
-				~%tutu_var%edwin4.cre~ ~override~
-				~%tutu_var%edwin6.cre~ ~override~
-				~%tutu_var%%xan_var%.cre~ ~override~
-				~%tutu_var%xan4.cre~ ~override~
-				~%tutu_var%xan6.cre~ ~override~
-				~%tutu_var%%xzar_var%.cre~ ~override~
-				~%tutu_var%xzar2.cre~ ~override~
-				~%tutu_var%xzar4.cre~ ~override~
-				~%tutu_var%xzar6.cre~ ~override~
-				~%tutu_var%jaheir.cre~ ~override~
-				~%tutu_var%jaheir2.cre~ ~override~
-				~%tutu_var%jaheir4.cre~ ~override~
-				~%tutu_var%jaheir6.cre~ ~override~
-				~%tutu_var%faldor.cre~ ~override~
-				~%tutu_var%faldor5.cre~ ~override~
-				~%tutu_var%yeslic.cre~ ~override~
-				~%tutu_var%yeslic5.cre~ ~override~
-				~%tutu_var%branwe.cre~ ~override~
-				~%tutu_var%branwe5.cre~ ~override~
-				~%tutu_var%%quayle_var%.cre~ ~override~
-				~%tutu_var%quayle4.cre~ ~override~
-				~%tutu_var%quayle6.cre~ ~override~
-				~%tutu_var%viconi.cre~ ~override~
-				~%tutu_var%viconi4.cre~ ~override~
-				~%tutu_var%%viconi6_var%.cre~ ~override~
-				~%tutu_var%tiax.cre~ ~override~
-				~%tutu_var%tiax4.cre~ ~override~
-				~%tutu_var%tiax6.cre~ ~override~
-				~%tutu_var%minsc.cre~ ~override~
-				~%tutu_var%minsc2.cre~ ~override~
-				~%tutu_var%minsc4.cre~ ~override~
-				~%tutu_var%minsc6.cre~ ~override~
-				~%tutu_var%kivan.cre~ ~override~
-				~%tutu_var%kivan4.cre~ ~override~
-				~%tutu_var%kivan6.cre~ ~override~
-				~%tutu_var%khalid.cre~ ~override~
-				~%tutu_var%khalid2.cre~ ~override~
-				~%tutu_var%khalid4.cre~ ~override~
-				~%tutu_var%khalid6.cre~ ~override~
-				~%tutu_var%kagain.cre~ ~override~
-				~%tutu_var%kagain2.cre~ ~override~
-				~%tutu_var%kagain4.cre~ ~override~
-				~%tutu_var%kagain6.cre~ ~override~
-				~%tutu_var%sharte.cre~ ~override~
-				~%tutu_var%sharte4.cre~ ~override~
-				~%tutu_var%sharte6.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-		BUT_ONLY
-END
-
-/*
-ACTION_IF FILE_EXISTS_IN_GAME ~xan.cre~ THEN BEGIN
-	COPY_EXISTING ~xan.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-		BUT_ONLY
-END
-ACTION_IF GAME_IS ~bgt~ THEN BEGIN
-	COPY_EXISTING ~viconi61.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-		BUT_ONLY
-END
-*/
-
-ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
-	COPY_EXISTING ~dorn.cre~ ~override~
-				~dorn2.cre~ ~override~
-				~dorn4.cre~ ~override~
-				~dorn6.cre~ ~override~
-				~baeloth.cre~ ~override~
-				~neera.cre~ ~override~
-				~neera2.cre~ ~override~
-				~neera4.cre~ ~override~
-				~neera6.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-		BUT_ONLY
-END
-
-ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
-	COPY_EXISTING ~keldor8.cre~ ~override~
-				~keldor9.cre~ ~override~
-				~keldor10.cre~ ~override~
-				~keldor12.cre~ ~override~
-				~keldor14.cre~ ~override~
-				~yoshi7.cre~ ~override~
-				~yoshi8.cre~ ~override~
-				~yoshi10.cre~ ~override~
-				~yoshi11.cre~ ~override~
-				~yoshi12.cre~ ~override~
-				~jan8.cre~ ~override~
-				~jan10.cre~ ~override~
-				~jan11.cre~ ~override~
-				~jan12.cre~ ~override~
-				~jan15.cre~ ~override~
-				~haer10.cre~ ~override~
-				~haer11.cre~ ~override~
-				~haer13.cre~ ~override~
-				~haer15.cre~ ~override~
-				~haer19.cre~ ~override~
-				~edwin7.cre~ ~override~
-				~edwin9.cre~ ~override~
-				~edwin11.cre~ ~override~
-				~edwin12.cre~ ~override~
-				~edwin13.cre~ ~override~
-				~edwin15.cre~ ~override~
-				~aerie6.cre~ ~override~
-				~aerie7.cre~ ~override~
-				~aerie9.cre~ ~override~
-				~aerie10.cre~ ~override~
-				~aerie11.cre~ ~override~
-				~aerie12.cre~ ~override~
-				~viconi6.cre~ ~override~
-				~viconi8.cre~ ~override~
-				~viconi9.cre~ ~override~
-				~viconi11.cre~ ~override~
-				~viconi13.cre~ ~override~
-				~viconi16.cre~ ~override~
-				~jaheir7.cre~ ~override~
-				~jaheir8.cre~ ~override~
-				~jaheir11.cre~ ~override~
-				~jaheir12.cre~ ~override~
-				~jahei12b.cre~ ~override~
-				~jahei14.cre~ ~override~
-				~cernd10.cre~ ~override~
-				~cernd12.cre~ ~override~
-				~cernd13.cre~ ~override~
-				~cernd13b.cre~ ~override~
-				~cernd14.cre~ ~override~
-				~minsc7.cre~ ~override~
-				~minsc8.cre~ ~override~
-				~minsc9.cre~ ~override~
-				~minsc10.cre~ ~override~
-				~minsc12.cre~ ~override~
-				~minsc14.cre~ ~override~
-				~valyg8.cre~ ~override~
-				~valyg9.cre~ ~override~
-				~valyg11.cre~ ~override~
-				~valyg12.cre~ ~override~
-				~valyg14.cre~ ~override~
-				~korgan8.cre~ ~override~
-				~korgan9.cre~ ~override~
-				~korgan11.cre~ ~override~
-				~korgan12.cre~ ~override~
-				~korgan15.cre~ ~override~
-				~sarevok.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-		BUT_ONLY
-END
-
-ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
-	COPY_EXISTING ~dorn8.cre~ ~override~
-				~dorn9.cre~ ~override~
-				~dorn10.cre~ ~override~
-				~dorn12.cre~ ~override~
-				~dorn14.cre~ ~override~
-				~neera8.cre~ ~override~
-				~neera10.cre~ ~override~
-				~neera15.cre~ ~override~
-				~OHHEX8.cre~ ~override~
-				~OHHEX9.cre~ ~override~
-				~OHHEX10.cre~ ~override~
-				~OHHEX11.cre~ ~override~
-				~OHHEX13.cre~ ~override~
-				~OHHEX15.cre~ ~override~
-				~OHHEX25.cre~ ~override~
-				~OHHFAK8.cre~ ~override~
-				~OHHFAK9.cre~ ~override~
-				~OHHFAK10.cre~ ~override~
-				~OHHFAK11.cre~ ~override~
-				~OHHFAK13.cre~ ~override~
-				~OHHFAK15.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-		BUT_ONLY
-END
-//__________________________________________________________________________________
-
-/*
-wizard:
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-fighter/mage:
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-fighter:
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 112 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 1
-paladin:
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-ranger:
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 2
-stalker:
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 2
-druid:
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 107 1
-cleric:
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-bard:
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-thief:
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-*/
-
-
-//ADD PROFICIENCIES TO BG1 NPCS_____________________________________________________
-//
-ACTION_IF GAME_IS ~bgee tutu bgt eet~ THEN BEGIN
-	COPY_EXISTING ~%tutu_var%ajanti.cre~ ~override~
-				~%tutu_var%ajanti4.cre~ ~override~
-				~%tutu_var%ajanti6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%alora.cre~ ~override~
-				~%tutu_var%alora6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 114 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%imoen1.cre~ ~override~
-				~%tutu_var%imoen2.cre~ ~override~
-				~%tutu_var%imoen4.cre~ ~override~
-				~%tutu_var%%imoen6_var%.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 113 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%safana.cre~ ~override~
-				~%tutu_var%safana4.cre~ ~override~
-				~%tutu_var%safana6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 114 1
-		SET_BG2_PROFICIENCY 113 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%coran.cre~ ~override~
-				~%tutu_var%coran5.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 105 2
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 114 1
-		SET_BG2_PROFICIENCY 113 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%skie.cre~ ~override~
-				~%tutu_var%skie6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 114 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%montar.cre~ ~override~
-				~%tutu_var%montar2.cre~ ~override~
-				~%tutu_var%montar4.cre~ ~override~
-				~%tutu_var%montar6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 114 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%garric.cre~ ~override~
-				~%tutu_var%garric2.cre~ ~override~
-				~%tutu_var%garric4.cre~ ~override~
-				~%tutu_var%garric6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%eldoth.cre~ ~override~
-				~%tutu_var%eldoth5.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%dynahe.cre~ ~override~
-				~%tutu_var%dynahe2.cre~ ~override~
-				~%tutu_var%dynahe4.cre~ ~override~
-				~%tutu_var%dynahe6.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%edwin.cre~ ~override~
-				~%tutu_var%edwin2.cre~ ~override~
-				~%tutu_var%edwin4.cre~ ~override~
-				~%tutu_var%edwin6.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%%xan_var%.cre~ ~override~
-				~%tutu_var%xan4.cre~ ~override~
-				~%tutu_var%xan6.cre~ ~override~
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~sw1h13.itm~ ~override~
-		PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-			READ_BYTE 0x31 prof
-			PATCH_IF prof = 96 BEGIN
-				WRITE_BYTE 0x31 90
-				READ_LONG 0x54 "valid"
-				PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-					READ_STRREF 0x54 "desc"
-					INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-						REPLACE_TEXTUALLY ~Small Sword~ ~Longsword~
-					END
-					SAY_EVALUATED 0x54 ~%new_desc%~
-				END
-			END
-		END
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%%xzar_var%.cre~ ~override~
-				~%tutu_var%xzar2.cre~ ~override~
-				~%tutu_var%xzar4.cre~ ~override~
-				~%tutu_var%xzar6.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%jaheir.cre~ ~override~
-				~%tutu_var%jaheir2.cre~ ~override~
-				~%tutu_var%jaheir4.cre~ ~override~
-				~%tutu_var%jaheir6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 111 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%faldor.cre~ ~override~
-				~%tutu_var%faldor5.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%yeslic.cre~ ~override~
-				~%tutu_var%yeslic5.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%branwe.cre~ ~override~
-				~%tutu_var%branwe5.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%%quayle_var%.cre~ ~override~
-				~%tutu_var%quayle4.cre~ ~override~
-				~%tutu_var%quayle6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 5
-		WRITE_SHORT 0x0026 5
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 102 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%viconi.cre~ ~override~
-				~%tutu_var%viconi4.cre~ ~override~
-				~%tutu_var%%viconi6_var%.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%tiax.cre~ ~override~
-				~%tutu_var%tiax4.cre~ ~override~
-				~%tutu_var%tiax6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 6
-		WRITE_SHORT 0x0026 6
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%minsc.cre~ ~override~
-				~%tutu_var%minsc2.cre~ ~override~
-				~%tutu_var%minsc4.cre~ ~override~
-				~%tutu_var%minsc6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 114 2
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 103 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%kivan.cre~ ~override~
-				~%tutu_var%kivan4.cre~ ~override~
-				~%tutu_var%kivan6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 114 2
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%khalid.cre~ ~override~
-				~%tutu_var%khalid2.cre~ ~override~
-				~%tutu_var%khalid4.cre~ ~override~
-				~%tutu_var%khalid6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 112 1
-		SET_BG2_PROFICIENCY 113 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%kagain.cre~ ~override~
-				~%tutu_var%kagain2.cre~ ~override~
-				~%tutu_var%kagain4.cre~ ~override~
-				~%tutu_var%kagain6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 11
-		WRITE_SHORT 0x0026 11
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 114 1
-		BUT_ONLY
-	COPY_EXISTING ~%tutu_var%sharte.cre~ ~override~
-				~%tutu_var%sharte4.cre~ ~override~
-				~%tutu_var%sharte6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-		BUT_ONLY
-END
-/*
-ACTION_IF FILE_EXISTS_IN_GAME ~xan.cre~ THEN BEGIN
-	COPY_EXISTING ~xan.cre~ ~override~
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+	READ_LONG 0x1cc biography
+	PATCH_IF (biography > 0 && biography < 2147483647) BEGIN // party-joinable NPC
+	  LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
 	END
-ACTION_IF GAME_IS ~bgt~ THEN BEGIN
-	COPY_EXISTING ~imoen61.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 113 1
-		BUT_ONLY
-	COPY_EXISTING ~viconi61.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		BUT_ONLY
-END
-*/
-ACTION_IF GAME_IS ~bgee eet~ THEN BEGIN
-	COPY_EXISTING ~dorn.cre~ ~override~
-				~dorn2.cre~ ~override~
-				~dorn4.cre~ ~override~
-				~dorn6.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-		BUT_ONLY
-	COPY_EXISTING ~baeloth.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~neera.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 96 1
-		BUT_ONLY
-	COPY_EXISTING ~neera2.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 96 1
-		BUT_ONLY
-	COPY_EXISTING ~neera4.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 96 1
-		BUT_ONLY
-	COPY_EXISTING ~neera6.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 96 1
-		BUT_ONLY
-END
-//__________________________________________________________________________________
-
-//ADD PROFICIENCIES TO BG2 NPCS______________________________________________________
-//
-ACTION_IF GAME_IS ~tob bgt bg2ee eet~ THEN BEGIN
-	COPY_EXISTING ~edwin7.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~edwin9.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~edwin11.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~edwin12.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		BUT_ONLY
-	COPY_EXISTING ~edwin13.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		BUT_ONLY
-	COPY_EXISTING ~edwin15.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		BUT_ONLY
-	COPY_EXISTING ~korgan8.cre~ ~override~
-				~korgan9.cre~ ~override~
-				~korgan11.cre~ ~override~
-				~korgan12.cre~ ~override~
-				~korgan15.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 11
-		WRITE_SHORT 0x0026 11
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 112 1
-		SET_BG2_PROFICIENCY 114 1
-		BUT_ONLY
-	COPY_EXISTING ~sarevok.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 11
-		WRITE_SHORT 0x0026 11
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-		BUT_ONLY
-	COPY_EXISTING ~keldor8.cre~ ~override~
-				~keldor9.cre~ ~override~
-				~keldor10.cre~ ~override~
-				~keldor12.cre~ ~override~
-				~keldor14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-		BUT_ONLY
-	COPY_EXISTING ~minsc7.cre~ ~override~
-				~minsc8.cre~ ~override~
-				~minsc9.cre~ ~override~
-				~minsc10.cre~ ~override~
-				~minsc12.cre~ ~override~
-				~minsc14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 114 2
-		BUT_ONLY
-	COPY_EXISTING ~valyg8.cre~ ~override~
-				~valyg9.cre~ ~override~
-				~valyg11.cre~ ~override~
-				~valyg12.cre~ ~override~
-				~valyg14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 2
-		BUT_ONLY
-	COPY_EXISTING ~anomen6.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 97 2
-		SET_BG2_PROFICIENCY 100 2
-		SET_BG2_PROFICIENCY 101 2
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-		ADD_CRE_ITEM ~d5_pano.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~anomen7.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 97 2
-		SET_BG2_PROFICIENCY 100 2
-		SET_BG2_PROFICIENCY 101 2
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-		ADD_CRE_ITEM ~d5_pano.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~anomen8.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 97 2
-		SET_BG2_PROFICIENCY 100 2
-		SET_BG2_PROFICIENCY 101 2
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-		ADD_CRE_ITEM ~d5_pano.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~anomen9.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 97 2
-		SET_BG2_PROFICIENCY 100 2
-		SET_BG2_PROFICIENCY 101 2
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-		ADD_CRE_ITEM ~d5_pano.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~anomen10.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 97 2
-		SET_BG2_PROFICIENCY 100 2
-		SET_BG2_PROFICIENCY 101 2
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-		ADD_CRE_ITEM ~d5_pano.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~anomen12.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 97 2
-		SET_BG2_PROFICIENCY 100 2
-		SET_BG2_PROFICIENCY 101 2
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-		ADD_CRE_ITEM ~d5_pano.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~viconi6.cre~ ~override~
-				~viconi8.cre~ ~override~
-				~viconi9.cre~ ~override~
-				~viconi11.cre~ ~override~
-				~viconi13.cre~ ~override~
-				~viconi16.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-		BUT_ONLY
-	COPY_EXISTING ~aerie6.cre~ ~override~
-				~aerie7.cre~ ~override~
-				~aerie9.cre~ ~override~
-				~aerie10.cre~ ~override~
-				~aerie11.cre~ ~override~
-				~aerie12.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-		BUT_ONLY
-	COPY_EXISTING ~jaheir7.cre~ ~override~
-				~jaheir8.cre~ ~override~
-				~jaheir11.cre~ ~override~
-				~jaheir12.cre~ ~override~
-				~jahei12b.cre~ ~override~
-				~jahei14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~cernd10.cre~ ~override~
-				~cernd12.cre~ ~override~
-				~cernd13.cre~ ~override~
-				~cernd13b.cre~ ~override~
-				~cernd14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 107 1
-		BUT_ONLY
-	COPY_EXISTING ~imoen6.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 2
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 2
-		SET_BG2_PROFICIENCY 114 1		
-		ADD_CRE_ITEM ~d5_pimo.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~imoen10.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 2
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 2
-		SET_BG2_PROFICIENCY 114 1		
-		ADD_CRE_ITEM ~d5_pimo.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~imoen15.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 2
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 2
-		SET_BG2_PROFICIENCY 114 1		
-		ADD_CRE_ITEM ~d5_pimo.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~imoen211.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 2
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 2
-		SET_BG2_PROFICIENCY 114 1		
-		ADD_CRE_ITEM ~d5_pimo.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~imoen213.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 2
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 2
-		SET_BG2_PROFICIENCY 114 1		
-		ADD_CRE_ITEM ~d5_pimo.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~nalia8.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 2
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-		ADD_CRE_ITEM ~d5_pnal.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~nalia10.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 2
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-		ADD_CRE_ITEM ~d5_pnal.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~nalia11.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 2
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-		ADD_CRE_ITEM ~d5_pnal.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~nalia13.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 2
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-		ADD_CRE_ITEM ~d5_pnal.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~nalia15.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 2
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-		ADD_CRE_ITEM ~d5_pnal.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~nalia18.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 2
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-		ADD_CRE_ITEM ~d5_pnal.itm~ #0 #0 #0 ~IDENTIFIED~ ~INV~
-		BUT_ONLY
-	COPY_EXISTING ~jan8.cre~ ~override~
-				~jan10.cre~ ~override~
-				~jan11.cre~ ~override~
-				~jan12.cre~ ~override~
-				~jan15.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 6
-		WRITE_SHORT 0x0026 6
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 114 1
-		BUT_ONLY
-	COPY_EXISTING ~yoshi7.cre~ ~override~
-				~yoshi8.cre~ ~override~
-				~yoshi10.cre~ ~override~
-				~yoshi11.cre~ ~override~
-				~yoshi12.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 1
-		BUT_ONLY
-	COPY_EXISTING ~haer10.cre~ ~override~
-				~haer11.cre~ ~override~
-				~haer13.cre~ ~override~
-				~haer15.cre~ ~override~
-				~haer19.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 1
-		BUT_ONLY
-END
-ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
-	COPY_EXISTING ~dorn8.cre~ ~override~
-				~dorn9.cre~ ~override~
-				~dorn10.cre~ ~override~
-				~dorn12.cre~ ~override~
-				~dorn14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-		BUT_ONLY
-	COPY_EXISTING ~neera8.cre~ ~override~
-				~neera10.cre~ ~override~
-				~neera11.cre~ ~override~
-				~neera12.cre~ ~override~
-				~neera13.cre~ ~override~
-				~neera15.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-	COPY_EXISTING ~ohhex8.cre~ ~override~
-				~ohhex9.cre~ ~override~
-				~ohhex10.cre~ ~override~
-				~ohhex11.cre~ ~override~
-				~ohhex13.cre~ ~override~
-				~ohhex15.cre~ ~override~
-				~ohhex25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 2
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-	COPY_EXISTING ~ohhfak8.cre~ ~override~
-				~ohhfak9.cre~ ~override~
-				~ohhfak10.cre~ ~override~
-				~ohhfak11.cre~ ~override~
-				~ohhfak13.cre~ ~override~
-				~ohhfak15.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 2
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END
+  END
+BUT_ONLY
 //__________________________________________________________________________________
 
 
-//ADD PROFICIENCIES TO MOD NPCS______________________________________________________
+//SET NPCS TO LEVEL 1_______________________________________________________________
 //
-ACTION_IF FILE_EXISTS_IN_GAME ~lk#arath.cre~ THEN BEGIN
-	COPY_EXISTING ~lk#arath.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~lk#arath.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 2
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~chloe7.cre~ THEN BEGIN
-	COPY_EXISTING ~chloe7.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~chloe7.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~chloe9.cre~ THEN BEGIN
-	COPY_EXISTING ~chloe9.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~chloe9.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~chloe13.cre~ THEN BEGIN
-	COPY_EXISTING ~chloe13.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~chloe13.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~chloe15.cre~ THEN BEGIN
-	COPY_EXISTING ~chloe15.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~chloe15.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 3
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~nath07.cre~ THEN BEGIN
-	COPY_EXISTING ~nath07.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~nath07.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~nath08.cre~ THEN BEGIN
-	COPY_EXISTING ~nath08.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~nath08.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~nath10.cre~ THEN BEGIN
-	COPY_EXISTING ~nath10.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~nath10.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~nath25.cre~ THEN BEGIN
-	COPY_EXISTING ~nath25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~nath25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rh#adr1.cre~ THEN BEGIN
-	COPY_EXISTING ~rh#adr1.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rh#adr1.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rh#adr2.cre~ THEN BEGIN
-	COPY_EXISTING ~rh#adr2.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rh#adr2.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rh#adr25.cre~ THEN BEGIN
-	COPY_EXISTING ~rh#adr25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rh#adr25.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~p#deher.cre~ THEN BEGIN
-	COPY_EXISTING ~p#deher.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~p#deher.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~p#dehdiv.cre~ THEN BEGIN
-	COPY_EXISTING ~p#dehdiv.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~p#dehdiv.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~p#dehenc.cre~ THEN BEGIN
-	COPY_EXISTING ~p#dehenc.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~p#dehenc.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~lk#nind.cre~ THEN BEGIN
-	COPY_EXISTING ~lk#nind.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~lk#nind.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~lk#ni25.cre~ THEN BEGIN
-	COPY_EXISTING ~lk#ni25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~lk#ni25.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~j#klsy09.cre~ THEN BEGIN
-	COPY_EXISTING ~j#klsy09.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~j#klsy09.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~j#klsy09.cre~ THEN BEGIN
-	COPY_EXISTING ~j#klsy09.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~j#klsy09.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~j#klsy11.cre~ THEN BEGIN
-	COPY_EXISTING ~j#klsy11.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~j#klsy11.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~j#klsy13.cre~ THEN BEGIN
-	COPY_EXISTING ~j#klsy13.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~j#klsy13.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~j#klsy25.cre~ THEN BEGIN
-	COPY_EXISTING ~j#klsy25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~j#klsy25.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~vxvar01.cre~ THEN BEGIN
-	COPY_EXISTING ~vxvar01.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~vxvar01.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 96 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~vxvar25.cre~ THEN BEGIN
-	COPY_EXISTING ~vxvar25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~VXvar25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 96 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~tashia.cre~ THEN BEGIN
-	COPY_EXISTING ~tashia.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~tashia.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~tsujath.cre~ THEN BEGIN
-	COPY_EXISTING ~tsujath.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~tsujath.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~t2val.cre~ THEN BEGIN
-	COPY_EXISTING ~t2val.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~t2val.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xan09.cre~ THEN BEGIN
-	COPY_EXISTING ~o#xan09.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#xan09.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xan25.cre~ THEN BEGIN
-	COPY_EXISTING ~o#xan25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#xan25.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xanm9.cre~ THEN BEGIN
-	COPY_EXISTING ~o#xanm9.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#xanm9.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xan25m.cre~ THEN BEGIN
-	COPY_EXISTING ~o#xan25m.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#xan25m.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xanw9.cre~ THEN BEGIN
-	COPY_EXISTING ~o#xanw9.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#xanw9.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xan25w.cre~ THEN BEGIN
-	COPY_EXISTING ~o#xan25w.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#xan25w.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xans9.cre~ THEN BEGIN
-	COPY_EXISTING ~o#xans9.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#xans9.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xan25s.cre~ THEN BEGIN
-	COPY_EXISTING ~o#xan25s.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#xan25s.cre~ ~override~
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xanf9.cre~ THEN BEGIN
-	COPY_EXISTING ~o#xanf9.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#xanf9.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#xan25f.cre~ THEN BEGIN
-	COPY_EXISTING ~o#xan25f.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#xan25f.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~adangel.cre~ THEN BEGIN
-	COPY_EXISTING ~adangel.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~adangel.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~adang25.cre~ THEN BEGIN
-	COPY_EXISTING ~adang25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~adang25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~j#indi01.cre~ THEN BEGIN
-	COPY_EXISTING ~j#indi01.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~J#indi01.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~j#indi03.cre~ THEN BEGIN
-	COPY_EXISTING ~j#indi03.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~j#indi03.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~j#indi04.cre~ THEN BEGIN
-	COPY_EXISTING ~j#indi04.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~j#indi04.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~kiyone.cre~ THEN BEGIN
-	COPY_EXISTING ~kiyone.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~kiyone.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~z#kywed.cre~ THEN BEGIN
-	COPY_EXISTING ~z#kywed.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~z#kywed.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~zikhalidm.cre~ THEN BEGIN
-	COPY_EXISTING ~zikhalidm.cre~ ~override~
-				~zikhalid25m.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~zikhalidm.cre~ ~override~
-				~zikhalid25m.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~zikhalid.cre~ THEN BEGIN
-	COPY_EXISTING ~zikhalid.cre~ ~override~
-				~zikhalid25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~zikhalid.cre~ ~override~
-				~zikhalid25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 112 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~auren.cre~ THEN BEGIN
-	COPY_EXISTING ~auren.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~auren.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~auren1.cre~ THEN BEGIN
-	COPY_EXISTING ~auren1.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~auren1.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~b!hal.cre~ THEN BEGIN
-	COPY_EXISTING ~b!hal.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~b!hal.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~g#tyrs8.cre~ THEN BEGIN
-	COPY_EXISTING ~g#tyrs8.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~g#tyrs8.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~g#tyrs10.cre~ THEN BEGIN
-	COPY_EXISTING ~g#tyrs10.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~g#tyrs10.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~g#tyrs11.cre~ THEN BEGIN
-	COPY_EXISTING ~g#tyrs11.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~g#tyrs11.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~g#tyrs13.cre~ THEN BEGIN
-	COPY_EXISTING ~g#tyrs13.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~g#tyrs13.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~g#tyrs16.cre~ THEN BEGIN
-	COPY_EXISTING ~g#tyrs16.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~g#tyrs16.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan08.cre~ THEN BEGIN
-	COPY_EXISTING ~c#ajan08.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~c#ajan08.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan09.cre~ THEN BEGIN
-	COPY_EXISTING ~c#ajan09.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~C#ajan09.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan10.cre~ THEN BEGIN
-	COPY_EXISTING ~c#ajan10.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~c#ajan10.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan12.cre~ THEN BEGIN
-	COPY_EXISTING ~c#ajan12.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~c#ajan12.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan14.cre~ THEN BEGIN
-	COPY_EXISTING ~c#ajan14.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~c#ajan14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~c#ajan16.cre~ THEN BEGIN
-	COPY_EXISTING ~c#ajan16.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~c#ajan16.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~c#ajatob.cre~ THEN BEGIN
-	COPY_EXISTING ~c#ajatob.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~c#ajatob.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rh#isra.cre~ THEN BEGIN
-	COPY_EXISTING ~rh#isra.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rh#isra.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rh#isr.cre~ THEN BEGIN
-	COPY_EXISTING ~rh#isr.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rh#isr.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rh#is25.cre~ THEN BEGIN
-	COPY_EXISTING ~rh#is25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rh#is25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~saerilet.cre~ THEN BEGIN
-	COPY_EXISTING ~saerilet.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~saerilet.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~p#kivan.cre~ THEN BEGIN
-	COPY_EXISTING ~p#kivan.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~p#kivan.cre~ ~override~
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~k#sarah.cre~ THEN BEGIN
-	COPY_EXISTING ~k#sarah.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~k#sarah.cre~ ~override~
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+	READ_LONG 0x1cc biography
+	PATCH_IF (biography > 0 && biography < 2147483647) BEGIN // party-joinable NPC
+	  READ_BYTE 0x23d npc_con
+	  READ_BYTE 0x273 npc_class
+	  PATCH_IF (npc_class = 2) BEGIN 	//	fighter
 		WRITE_BYTE 0x0234 1 //sets level to 1
 		WRITE_BYTE 0x0235 1
 		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 115 1
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 12
+		  WRITE_SHORT 0x0026 12
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 13
+		  WRITE_SHORT 0x0026 13
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 14
+		  WRITE_SHORT 0x0026 14
+		END
 		SET_BG2_PROFICIENCY 90 1
 		SET_BG2_PROFICIENCY 91 1
 		SET_BG2_PROFICIENCY 92 1
+		SET_BG2_PROFICIENCY 93 1
 		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 103 1
 		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~k#sarah1.cre~ THEN BEGIN
-	COPY_EXISTING ~k#sarah1.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~k#sarah1.cre~ ~override~
+		SET_BG2_PROFICIENCY 111 1
+		SET_BG2_PROFICIENCY 113 1
+		SET_BG2_PROFICIENCY 114 1
+	  END
+	  PATCH_IF (npc_class = 6) BEGIN 	//	paladin
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x006a 5
+		WRITE_SHORT 0x0024 10
+		WRITE_SHORT 0x0026 10
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 12
+		  WRITE_SHORT 0x0026 12
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 13
+		  WRITE_SHORT 0x0026 13
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 14
+		  WRITE_SHORT 0x0026 14
+		END
+		SET_BG2_PROFICIENCY 90 1
+		SET_BG2_PROFICIENCY 93 1
+		SET_BG2_PROFICIENCY 97 1
+		SET_BG2_PROFICIENCY 98 1
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 111 1
+		SET_BG2_PROFICIENCY 112 1
+	  END
+	  PATCH_IF (npc_class = 12) BEGIN 	//	ranger
 		WRITE_BYTE 0x0234 1 //sets level to 1
 		WRITE_BYTE 0x0235 1
 		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0045 15
 		WRITE_BYTE 0x0066 10
 		WRITE_BYTE 0x0068 15
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 12
+		  WRITE_SHORT 0x0026 12
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 13
+		  WRITE_SHORT 0x0026 13
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 14
+		  WRITE_SHORT 0x0026 14
+		END
 		SET_BG2_PROFICIENCY 115 1
 		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
 		SET_BG2_PROFICIENCY 92 1
 		SET_BG2_PROFICIENCY 98 1
 		SET_BG2_PROFICIENCY 102 1
 		SET_BG2_PROFICIENCY 105 1
 		SET_BG2_PROFICIENCY 114 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~t1dar.cre~ THEN BEGIN
-	COPY_EXISTING ~t1dar.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~t1dar.cre~ ~override~
+	  END
+	  PATCH_IF (npc_class = 4) BEGIN 	//	thief
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0045 10
+		WRITE_BYTE 0x0064 5
+		WRITE_BYTE 0x0065 5
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x0067 5
+		WRITE_BYTE 0x0068 10
+		WRITE_BYTE 0x0069 5
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 6
+		  WRITE_SHORT 0x0026 6
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 7
+		  WRITE_SHORT 0x0026 7
+		END
+		PATCH_IF (npc_con > 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 91 1
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 105 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (npc_class = 5) BEGIN 	//	bard
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 6
+		  WRITE_SHORT 0x0026 6
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 7
+		  WRITE_SHORT 0x0026 7
+		END
+		PATCH_IF (npc_con > 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		SET_BG2_PROFICIENCY 90 1
+		SET_BG2_PROFICIENCY 95 1
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 105 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (npc_class = 3) BEGIN 	//	cleric
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con > 15) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		SET_BG2_PROFICIENCY 97 1
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 107 1
+		SET_BG2_PROFICIENCY 112 1
+	  END
+	  PATCH_IF (npc_class = 11) BEGIN 	//	druid
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con > 15) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 98 1
+		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 107 1
+		SET_BG2_PROFICIENCY 111 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (npc_class = 20) BEGIN 	//	monk
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0045 15
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x0068 15
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 12
+		  WRITE_SHORT 0x0026 12
+		END
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 91 1
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 90 1
+		SET_BG2_PROFICIENCY 95 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (npc_class = 1) BEGIN 	// 	mage
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 107 1
+	  END
+	  PATCH_IF (npc_class = 19) BEGIN 	//	sorcerer
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 107 1
+	  END
+	  PATCH_IF (npc_class = 21) BEGIN 	//	shaman
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con > 15) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 92 1
+		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 107 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (%npc_class% = 7) BEGIN 	//	fighter/mage
 		WRITE_BYTE 0x0234 1 // sets level to 1
 		WRITE_BYTE 0x0235 1
 		WRITE_BYTE 0x0236 1
 		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 7
+		  WRITE_SHORT 0x0026 7
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		SET_BG2_PROFICIENCY 90 1
+		SET_BG2_PROFICIENCY 95 1
+		SET_BG2_PROFICIENCY 96 1
 		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 105 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (%npc_class% = 8) BEGIN 	//	fighter/cleric
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 12
+		  WRITE_SHORT 0x0026 12
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 13
+		  WRITE_SHORT 0x0026 13
+		END
 		SET_BG2_PROFICIENCY 90 1
 		SET_BG2_PROFICIENCY 91 1
+		SET_BG2_PROFICIENCY 97 1
+		SET_BG2_PROFICIENCY 98 1
+		SET_BG2_PROFICIENCY 100 1
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 111 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (%npc_class% = 9) BEGIN 	//	fighter/thief
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0045 10
+		WRITE_BYTE 0x0064 5
+		WRITE_BYTE 0x0065 5
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x0067 5
+		WRITE_BYTE 0x0068 10
+		WRITE_BYTE 0x0069 5
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 12
+		  WRITE_SHORT 0x0026 12
+		END
+		SET_BG2_PROFICIENCY 90 1
+		SET_BG2_PROFICIENCY 95 1
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 105 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (%npc_class% = 10) BEGIN	//	fighter/mage/thief
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0045 10
+		WRITE_BYTE 0x0064 5
+		WRITE_BYTE 0x0065 5
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x0067 5
+		WRITE_BYTE 0x0068 10
+		WRITE_BYTE 0x0069 5
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 7
+		  WRITE_SHORT 0x0026 7
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 91 1
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 105 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (%npc_class% = 13) BEGIN	//	mage/thief
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0045 10
+		WRITE_BYTE 0x0064 5
+		WRITE_BYTE 0x0065 5
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x0067 5
+		WRITE_BYTE 0x0068 10
+		WRITE_BYTE 0x0069 5
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 6
+		  WRITE_SHORT 0x0026 6
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 7
+		  WRITE_SHORT 0x0026 7
+		END
+		PATCH_IF (npc_con > 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 91 1
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 105 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (%npc_class% = 14) BEGIN	//	cleric/mage
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 6
+		  WRITE_SHORT 0x0026 6
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 7
+		  WRITE_SHORT 0x0026 7
+		END
+		PATCH_IF (npc_con > 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 97 1
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 107 1
+	  END
+	  PATCH_IF (%npc_class% = 15) BEGIN	//	cleric/thief
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 7
+		  WRITE_SHORT 0x0026 7
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		PATCH_IF (npc_con > 15) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 91 1
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 105 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (%npc_class% = 16) BEGIN	//	fighter/druid
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 12
+		  WRITE_SHORT 0x0026 12
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 13
+		  WRITE_SHORT 0x0026 13
+		END
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 96 1
+		SET_BG2_PROFICIENCY 98 1
+		SET_BG2_PROFICIENCY 102 1
+		SET_BG2_PROFICIENCY 107 1
+		SET_BG2_PROFICIENCY 111 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (%npc_class% = 17) BEGIN	//	fighter/mage/cleric
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x006a 5
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 7
+		  WRITE_SHORT 0x0026 7
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 8
+		  WRITE_SHORT 0x0026 8
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		SET_BG2_PROFICIENCY 90 1
+		SET_BG2_PROFICIENCY 91 1
+		SET_BG2_PROFICIENCY 97 1
+		SET_BG2_PROFICIENCY 98 1
+		SET_BG2_PROFICIENCY 100 1
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 103 1
+		SET_BG2_PROFICIENCY 113 1
+	  END
+	  PATCH_IF (%npc_class% = 18) BEGIN	//	cleric/ranger
+		WRITE_BYTE 0x0234 1 //sets level to 1
+		WRITE_BYTE 0x0235 1
+		WRITE_BYTE 0x0236 1
+		WRITE_BYTE 0x0045 15
+		WRITE_BYTE 0x0066 10
+		WRITE_BYTE 0x0068 15
+		PATCH_IF (npc_con < 15) BEGIN
+		  WRITE_SHORT 0x0024 9
+		  WRITE_SHORT 0x0026 9
+		END
+		PATCH_IF (npc_con = 15) BEGIN
+		  WRITE_SHORT 0x0024 10
+		  WRITE_SHORT 0x0026 10
+		END
+		PATCH_IF (npc_con = 16) BEGIN
+		  WRITE_SHORT 0x0024 11
+		  WRITE_SHORT 0x0026 11
+		END
+		PATCH_IF (npc_con = 17) BEGIN
+		  WRITE_SHORT 0x0024 12
+		  WRITE_SHORT 0x0026 12
+		END
+		PATCH_IF (npc_con > 17) BEGIN
+		  WRITE_SHORT 0x0024 13
+		  WRITE_SHORT 0x0026 13
+		END
+		SET_BG2_PROFICIENCY 115 1
+		SET_BG2_PROFICIENCY 90 1
 		SET_BG2_PROFICIENCY 92 1
 		SET_BG2_PROFICIENCY 98 1
 		SET_BG2_PROFICIENCY 102 1
 		SET_BG2_PROFICIENCY 105 1
 		SET_BG2_PROFICIENCY 114 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~t1dar1.cre~ THEN BEGIN
-	COPY_EXISTING ~t1dar1.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~t1dar1.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~t1dar2.cre~ THEN BEGIN
-	COPY_EXISTING ~t1dar2.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~t1dar2.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~t1dar3.cre~ THEN BEGIN
-	COPY_EXISTING ~t1dar3.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~t1dar3.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 9
-		WRITE_SHORT 0x0026 9
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 2
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~v#1whi.cre~ THEN BEGIN
-	COPY_EXISTING ~v#1whi.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~v#1whi.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 107 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#bran.cre~ THEN BEGIN
-	COPY_EXISTING ~o#bran.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#bran.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#bran25.cre~ THEN BEGIN
-	COPY_EXISTING ~o#bran25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#bran25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~b!gavin.cre~ THEN BEGIN
-	COPY_EXISTING ~b!gavin.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~b!gavin.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~b!gavin2.cre~ THEN BEGIN
-	COPY_EXISTING ~b!gavin2.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~b!gavin2.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~b!gav08.cre~ THEN BEGIN
-	COPY_EXISTING ~b!gav08.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~b!gav08.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~b!gav13.cre~ THEN BEGIN
-	COPY_EXISTING ~b!gav13.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~b!gav13.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~tenya.cre~ THEN BEGIN
-	COPY_EXISTING ~tenya.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~tenya.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~lk#neph.cre~ THEN BEGIN
-	COPY_EXISTING ~lk#neph.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~lk#neph.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~lk#yesl.cre~ THEN BEGIN
-	COPY_EXISTING ~lk#yesl.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~lk#yesl.cre~ ~override~
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~k-rose.cre~ THEN BEGIN
-	COPY_EXISTING ~k-rose.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~k-rose.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~keto08.cre~ THEN BEGIN
-	COPY_EXISTING ~keto08.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~keto08.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~keto10.cre~ THEN BEGIN
-	COPY_EXISTING ~keto10.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~keto10.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~keto12.cre~ THEN BEGIN
-	COPY_EXISTING ~keto12.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~keto12.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 101 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~alora09.cre~ THEN BEGIN
-	COPY_EXISTING ~alora09.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~alora09.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~alora25.cre~ THEN BEGIN
-	COPY_EXISTING ~alora25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~alora25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#coran.cre~ THEN BEGIN
-	COPY_EXISTING ~o#coran.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#coran.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#cor25.cre~ THEN BEGIN
-	COPY_EXISTING ~o#cor25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#cor25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~t#dace8.cre~ THEN BEGIN
-	COPY_EXISTING ~t#dace8.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~t#dace8.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~t#dace12.cre~ THEN BEGIN
-	COPY_EXISTING ~t#dace12.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~t#dace12.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~t#dace14.cre~ THEN BEGIN
-	COPY_EXISTING ~t#dace14.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~t#dace14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~e3fade13.cre~ THEN BEGIN
-	COPY_EXISTING ~e3fade13.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~e3fade13.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~e3fade25.cre~ THEN BEGIN
-	COPY_EXISTING ~e3fade25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~e3fade25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~m#ambr10.cre~ THEN BEGIN
-	COPY_EXISTING ~m#ambr10.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~m#ambr10.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~m#ambr12.cre~ THEN BEGIN
-	COPY_EXISTING ~m#ambr12.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~m#ambr12.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~m#ambr14.cre~ THEN BEGIN
-	COPY_EXISTING ~m#ambr14.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~m#ambr14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~m#ambr15.cre~ THEN BEGIN
-	COPY_EXISTING ~m#ambr15.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~m#ambr15.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~mfrn09.cre~ THEN BEGIN
-	COPY_EXISTING ~mfrn09.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~mfrn09.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~mfrn11.cre~ THEN BEGIN
-	COPY_EXISTING ~mfrn11.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~mfrn11.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~mfrn12.cre~ THEN BEGIN
-	COPY_EXISTING ~mfrn12.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~mfrn12.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~mfrn13.cre~ THEN BEGIN
-	COPY_EXISTING ~mfrn13.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~mfrn13.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~mfrn14.cre~ THEN BEGIN
-	COPY_EXISTING ~mfrn14.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~mfrn14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~mfrn25.cre~ THEN BEGIN
-	COPY_EXISTING ~mfrn25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~mfrn25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rofrn09.cre~ THEN BEGIN
-	COPY_EXISTING ~rofrn09.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rofrn09.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rofrn11.cre~ THEN BEGIN
-	COPY_EXISTING ~rofrn11.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rofrn11.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rofrn12.cre~ THEN BEGIN
-	COPY_EXISTING ~rofrn12.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rofrn12.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rofrn13.cre~ THEN BEGIN
-	COPY_EXISTING ~rofrn13.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rofrn13.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rofrn14.cre~ THEN BEGIN
-	COPY_EXISTING ~rofrn14.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rofrn14.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~rofrn25.cre~ THEN BEGIN
-	COPY_EXISTING ~rofrn25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~rofrn25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~kova.cre~ THEN BEGIN
-	COPY_EXISTING ~kova.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~kova.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~z#kvwed.cre~ THEN BEGIN
-	COPY_EXISTING ~z#kvwed.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~z#kvwed.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~l3petsy.cre~ THEN BEGIN
-	COPY_EXISTING ~l3petsy.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~l3petsy.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~l3pet25.cre~ THEN BEGIN
-	COPY_EXISTING ~l3pet25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~l3pet25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 8
-		WRITE_SHORT 0x0026 8
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~1xskie2.cre~ THEN BEGIN
-	COPY_EXISTING ~1xskie2.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~1xskie2.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~1xskie3.cre~ THEN BEGIN
-	COPY_EXISTING ~1xskie3.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~1xskie3.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~gv#vynd.cre~ THEN BEGIN
-	COPY_EXISTING ~gv#vynd.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~gv#vynd.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#tiax.cre~ THEN BEGIN
-	COPY_EXISTING ~o#tiax.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#tiax.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
-
-ACTION_IF FILE_EXISTS_IN_GAME ~o#tiax25.cre~ THEN BEGIN
-	COPY_EXISTING ~o#tiax25.cre~ ~override~
-		LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
-	COPY_EXISTING ~o#tiax25.cre~ ~override~
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 7
-		WRITE_SHORT 0x0026 7
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 1
-END	
+	  END
+	END
+  END
+BUT_ONLY
 //__________________________________________________________________________________
 
 
@@ -5901,6 +2792,167 @@ ACTION_IF FILE_EXISTS_IN_GAME ~d5_kensai.d5~ BEGIN
   END
 END
 //__________________________________________________________________________________
+
+
+//WEAPONS OF FOCUS__________________________________________________________________
+// 
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+
+  INCLUDE ~scales_of_balance/ini/stats.ini~
+
+  COPY ~scales_of_balance/profs/d5_lswo.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_sswo.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_dagg.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_scim.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_2swo.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_spea.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_staf.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_club.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_flai.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_hamm.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_baxe.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_bows.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_slin.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5_xbow.spl~ ~override~
+
+  COPY ~scales_of_balance/profs/d5wepf1.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5wepf1.eff~ ~override~
+  COPY ~scales_of_balance/profs/d5wepfa.spl~ ~override~
+	SAY NAME1 @12300
+	SAY UNIDENTIFIED_DESC @12300
+	WRITE_ASCII 0x3a ~d5_wepfo~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
+  COPY ~scales_of_balance/profs/d5wepf2.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5wepf2.eff~ ~override~
+  COPY ~scales_of_balance/profs/d5wepfb.spl~ ~override~
+	SAY NAME1 @12300
+	SAY UNIDENTIFIED_DESC @12300
+	WRITE_ASCII 0x3a ~d5_wepfo~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
+  COPY ~scales_of_balance/profs/d5wepf3.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5wepf3.eff~ ~override~
+  COPY ~scales_of_balance/profs/d5wepfc.spl~ ~override~
+	SAY NAME1 @12300
+	SAY UNIDENTIFIED_DESC @12300
+	WRITE_ASCII 0x3a ~d5_wepfo~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
+  COPY ~scales_of_balance/profs/d5wepf4.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5wepf4.eff~ ~override~
+  COPY ~scales_of_balance/profs/d5wepfd.spl~ ~override~
+	SAY NAME1 @12300
+	SAY UNIDENTIFIED_DESC @12300
+	WRITE_ASCII 0x3a ~d5_wepfo~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
+  COPY ~scales_of_balance/profs/d5wepf5.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5wepf5.eff~ ~override~
+  COPY ~scales_of_balance/profs/d5wepfe.spl~ ~override~
+	SAY NAME1 @12300
+	SAY UNIDENTIFIED_DESC @12300
+	WRITE_ASCII 0x3a ~d5_wepfo~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
+  COPY ~scales_of_balance/profs/d5_wepfo.bam~ ~override~
+  COPY ~scales_of_balance/profs/d5_wepfo.eff~ ~override~
+  COPY ~scales_of_balance/profs/d5_wepfo.cre~ ~override~
+  COMPILE ~scales_of_balance/profs/d5_wepfo.baf~
+  COMPILE ~scales_of_balance/profs/d5_wepfo.d~
+
+  APPEND ~splprot.2da~ ~D5_INT_GTEQ%TAB%38%TAB%-1%TAB%4~
+
+  COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols // amount of columns
+	COUNT_2DA_ROWS cols rows // amount of rows
+	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
+	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
+      READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+      PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_GTEQ~ BEGIN
+    	SET int_gteq_row = %row%
+      END
+	END
+  BUT_ONLY
+
+  COPY ~scales_of_balance/profs/d5iprf5.spl~ ~override~
+    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_prof_1% parameter2 = %int_gteq_row% END
+  COPY ~scales_of_balance/profs/d5iprf4.spl~ ~override~
+    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_prof_2% parameter2 = %int_gteq_row% END
+
+
+  ACTION_IF FILE_EXISTS_IN_GAME ~clabfi01.2da~ BEGIN
+	COPY_EXISTING ~clabfi01.2da~ ~override~
+		APPEND_FILE ~scales_of_balance/profs/fighter_focus_2.txt~
+		APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
+		APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
+	BUT_ONLY
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~clabrn01.2da~ BEGIN
+	COPY_EXISTING ~clabfi01.2da~ ~override~
+		APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
+		APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
+	BUT_ONLY
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~clabpa01.2da~ BEGIN
+	COPY_EXISTING ~clabfi01.2da~ ~override~
+		APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
+		APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
+	BUT_ONLY
+  END
+
+  COPY_EXISTING ~kitlist.2da~ ~override~
+	COUNT_2DA_ROWS ~9~ "rows"
+	FOR ( index = 2 ; index < rows ; index = index + 1 ) BEGIN
+		READ_2DA_ENTRY %index% 5 9 modclab
+		READ_2DA_ENTRY %index% 8 9 modclass
+		DEFINE_ASSOCIATIVE_ARRAY d5_feat_array BEGIN "%modclab%" => "%modclass%" END
+	END
+  BUT_ONLY
+/*
+  ACTION_PHP_EACH d5_feat_array AS hu => lu BEGIN
+	ACTION_IF (%lu% = 2) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
+		COPY_EXISTING ~%hu%.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
+			APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
+		BUT_ONLY
+	END
+	ACTION_IF (%lu% = 6) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
+		COPY_EXISTING ~%hu%.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
+			APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
+		BUT_ONLY
+	END
+	ACTION_IF (%lu% = 12) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
+		COPY_EXISTING ~%hu%.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
+			APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
+		BUT_ONLY
+	END
+  END
+*/
+  ACTION_IF FILE_EXISTS_IN_GAME ~d5_marks.2da~ BEGIN
+	COPY_EXISTING ~d5_marks.2da~ ~override~
+		APPEND_FILE ~scales_of_balance/profs/warrior_focus.txt~
+		REPLACE_TEXTUALLY ~AP_D5WEPF1~ ~AP_D5_XBOW~
+		APPEND_FILE ~scales_of_balance/profs/warrior_focus.txt~
+		REPLACE_TEXTUALLY ~AP_D5WEPF1~ ~AP_D5_BOWS~
+	BUT_ONLY
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~d5_earch.2da~ BEGIN
+	COPY_EXISTING ~d5_earch.2da~ ~override~
+		APPEND_FILE ~scales_of_balance/profs/warrior_focus.txt~
+		REPLACE_TEXTUALLY ~AP_D5WEPF1~ ~AP_D5_BOWS~
+	BUT_ONLY
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~d5_sling.2da~ BEGIN
+	COPY_EXISTING ~d5_sling.2da~ ~override~
+		APPEND_FILE ~scales_of_balance/profs/warrior_focus.txt~
+		REPLACE_TEXTUALLY ~AP_D5WEPF1~ ~AP_D5_SLIN~
+	BUT_ONLY
+  END
+
+END
+//__________________________________________________________________________________
+
 
 
 //UPDATE SoA STARTING XP____________________________________________________________

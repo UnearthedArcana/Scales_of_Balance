@@ -1,0 +1,3 @@
+@10001  = ~^Armor Class:.+$~
+@10011  = ~dragon~
+@10012  = ~elven~

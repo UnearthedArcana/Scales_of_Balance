@@ -33,3 +33,205 @@ Saving Throw: None
 
 The caster of the Armor of Faith receives significant protection against melee and magical attacks. This magical armor-like force surrounds the caster and absorbs a portion of any damage taken. This amounts to an effect 10% boost to damage resistance against all damage types.~
 
+@12300  = ~Choose a weapon of focus:~
+@12301  = ~Greatsword~
+@12302  = ~Choose Greatswords as your weapon of focus?~
+@12303  = ~Long Sword~
+@12304  = ~Choose Long Sword as your weapon of focus?~
+@12305  = ~Curved Swords~
+@12306  = ~Choose Curved Swords as your weapon of focus?~
+@12307  = ~Short Sword~
+@12308  = ~Choose Short Sword as your weapon of focus?~
+@12309  = ~Daggers~
+@12310  = ~Choose Daggers as your weapon of focus?~
+@12311  = ~Spears~
+@12312  = ~Choose Spears as your weapon of focus?~
+@12313  = ~Quarterstaff~
+@12314  = ~Choose Quarterstaff as your weapon of focus?~
+@12315  = ~Club/Mace~
+@12316  = ~Choose Club/Mace as your weapon of focus?~
+@12317  = ~War Hammer~
+@12318  = ~Choose War Hammer as your weapon of focus?~
+@12319  = ~Flail~
+@12320  = ~Choose Flail as your weapon of focus?~
+@12321  = ~Battle Axe~
+@12322  = ~Choose Battle Axe as your weapon of focus?~
+@12323  = ~Bows~
+@12324  = ~Choose Bows as your weapon of focus?~
+@12325  = ~Crossbow~
+@12326  = ~Choose Crossbow as your weapon of focus?~
+@12327  = ~Sling~
+@12328  = ~Choose Sling as your weapon of focus?~
+@12329  = ~Yes.~
+@12330  = ~Choose a different weapon~
+
+@1214   = ~FIGHTER: The Fighter is a champion, soldier, and brawler who lives or dies by knowledge of weapons and tactics. Fighters can be found at the front of any battle, contesting toe-to-toe with monsters and villains. A good Fighter needs to be strong and healthy if he hopes to survive.
+CLASS FEATURES:
+- May wear helmets.
+- May wear any armor and use any weapon.
+***- May achieve High Mastery (++++) with any weapon. 
+- May achieve Specialization in any fighting style, and Mastery (+++) in two-weapon style.
+
+Prime Requisites For Dual-Classing: Strength~
+@1215   = ~RANGER: The Ranger is a warrior and a woodsman who is skilled with weapons and is knowledgeable in the ways of the forest. The Ranger often protects and guides lost travelers and honest peasant-folk. A Ranger needs to be strong and wise to the ways of nature to live a full life.
+CLASS FEATURES:
+- May wear helmets.
+- May wear any armor and use any weapon.
+***- May achieve Mastery (+++) with any weapon. 
+***- May achieve Specialization (++) in the single-weapon and two-handed styles, and Mastery (+++) in two-weapon style.
+- Begins Specialized (++) in two-weapon style.
+- May select a racial enemy, which grants a +4 bonus to hit and damage rolls against the selected enemy race.
+- May use the Charm Animal ability once per day. Gains one use at level 1 and an additional use every 2 levels thereafter.
+- May use the Hide In Shadows ability while wearing no armor, leather armor, or studded leather armor.
+- May cast druidic spells starting at level 8.
+- Alignment restricted to good.
+
+Prime Requisites For Dual-Classing: Strength, Dexterity, Wisdom~
+@1216   = ~PALADIN: A Paladin is a warrior bold and pure, the exemplar of everything good and true. Like the Fighter, the Paladin is a person of action and combat. However, the Paladin lives for the ideals of justice, honesty, piety, and chivalry, striving to be a living example of these virtues so that others may learn from, as well as gain by, the paladin's actions.
+
+CLASS FEATURES:
+- May wear helmets.
+- May wear any armor and use any weapon.
+***- May achieve Mastery (+++) with any weapon. 
+- May achieve Specialization (++) in any fighting style.
+- May use Lay On Hands ability once per day to heal a target for 2 Hit Points per level of the Paladin.
+- May cast Detect Evil once per day per level (starts at 1st level with 3 uses).
+- May cast Protection From Evil once per day per level (starts at 1st level with one use).
+- May Turn Undead as a Cleric two levels lower, starting at level 3.
+- May cast priest spells starting at level 9.
+- Receives a +2 bonus to all Saving Throws.
+- Alignment restricted to lawful good.
+~
+@1218   = ~DRUID: The Druid serves the cause of nature and balance; most comfortable in the wilderness, Druids use their special powers to protect it and to preserve balance in the world.
+
+CLASS FEATURES:
+- May not wear armor heavier than studded leather or equip shields larger than bucklers.
+***- May achieve Specialization (++) with permitted weapons. 
+***- May become Specialized (++) in the single-weapon and two-handed fighting styles.
+- 7th level: May Shapeshift into a wolf, black bear, or brown bear once per day.
+- 15th level: Becomes immune to poison.
+- 18th level: Gains 10% resistance to cold, fire, electricity, and acid; gains a further 10% resistance at levels 21 and 24.
+- Alignment restricted to true neutral.
+
+Prime Requisites For Dual-Classing: Wisdom, Charisma~
+@1219   = ~THIEF: To accomplish his goals, for good or ill, the Thief is a skilled pilferer. Cunning, nimbleness, and stealth are the Thief's hallmarks. Whether to turn such talents against innocent passersby and wealthy merchants, or oppressors and monsters, is a choice for the Thief to make.
+
+CLASS FEATURES:
+- May not wear armor heavier than studded leather, or equip shields larger than bucklers.
+***- May achieve Specialization (++) with permitted weapons.
+***- May achieve Specialization (++) in single-weapon style and Mastery (+++) in two-weapon style.
+- May distribute 25 points per level (40 at level 1) in thieving abilities: Open Locks, Pick Pockets, Find Traps, Move Silently, Hide In Shadows, Detect Illusion, Set Traps.
+- May backstab for increased damage:
+  Level 1-4: x2
+  Level 5-8: x3
+  Level 9-12: x4
+  Level 13+: x5
+- May use the Set Snare ability once per day. Gains one use at level 1 and an additional use every 5 levels thereafter.
+
+SET SNARE: Set a trap in the chosen location when no hostile creatures are in sight. Traps grow more powerful with the Thief's level and can only be triggered by enemies.
+  1st level: Deals 2d8+5 missile damage.
+  11th level: Deals 2d8+5 missile damage and additionally deals 2d6 poison damage per round for the next 3 rounds.
+  16th level: Deals 3d8+5 missile damage and 4d8+2 fire damage.
+  21st level: Deals 3d8+5 missile damage and 20 poison damage with no save; slays target if a Save vs. Death with a +4 bonus is failed.
+
+- Alignment restricted to any except lawful good.
+
+Prime Requisites For Dual-Classing: Dexterity~
+@1220   = ~BARD: The Bard is a rogue, but quite different from the Thief. The Bard's main strength is a pleasant and charming personality. Bards are talented musicians and walking storehouses of gossip, tall tales, and lore; they learn a little bit about everything that crosses their path, becoming a jack-of-all-trades but master of none. While many Bards are scoundrels, their stories and songs are welcome almost everywhere.
+
+CLASS FEATURES:
+- May not wear armor heavier than chain mail, or equip shields larger than bucklers. (Spells cannot be cast while wearing armor.)
+***- May achieve Specialization (++) in any one-handed weapons.
+***- May become Specialized (++) in any fighting style.
+- Thieving abilities: Pick Pockets.
+- Increased Lore.
+- May cast arcane spells starting at 2nd level.
+- May use Bard Song ability. While active, the Bard Song has the following effects:
+  Restore morale to its average value; remove Fear; protection from Fear
+- Alignment restricted to any neutral.
+~
+@1222   = ~Proficiency Slot Table:
+
+1 star: basic proficiency
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+
+3 stars: +2 to hit, +2 damage, +1 APR
+
+4 stars: +4 to hit, +4 damage, +1.5 APR
+~
+@1230   = ~LONG SWORD: The long sword is perhaps one of the most common weapons in Faerûn. Skill with the long sword will allow your character to have access to a widely available and cheap weapon.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1231   = ~SHORT SWORD: The preferred weapon of many a thief and halfling, the short sword is a light but useful weapon.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1232   = ~AXE: There are two varieties of axes: throwing axes and battle axes. This proficiency class allows your character to use either.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1233   = ~HEAVY SWORDS: The hallmark of the traditional muscle bound warrior is the greatsword: claymores, bastard swords, and other double-edge blades large enough to be used with two hands.  This proficiency class allows you to use these heavy swords to mangle your opponents.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1234   = ~CURVED SWORDS:  This weapon class allows the character to use various single-edged blades, including the Scimitar, the katana, and the Wakazashi.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1235   = ~DAGGERS: This weapon class covers daggers, dirks, knives and darts - any small blades used for stabbing or hurling at enemies.  While small, daggers are still extremely useful and many warriors carry them in case their larger weapons are stolen or destroyed.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1236   = ~WAR HAMMER: This weapon class allows the character to use throwing hammers and war hammers. Both of these weapons are often associated with dwarven warriors, and it is the dwarven people who make the finest quality hammers.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1237   = ~CLUB: This weapon class allows the character to use clubs, as well as similar but more advanced weapons derived from clubs.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1238   = ~POLEARMS: This weapon class includes long spears, pikes, halberds and other polearms.  Their long 'reach' makes them very useful against most opponents.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1239   = ~FLAIL: The flail is a blunt weapon used to knock your enemies senseless. They are difficult to use but with skill and practice these weapons are very useful.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1240   = ~MACE: The mace is most often associated with Clerics. It is a powerful blunt weapon, similar to the club but designed to do more damage.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1241   = ~QUARTERSTAFF: A simple weapon, but in the hands of a skilled warrior, whether Mage or Paladin, the quarterstaff can lay flat any foe.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1242   = ~CROSSBOW: The crossbow, although smaller and easier to use than the longbow, is just as deadly in the hands of a skilled shot.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1243   = ~BOWS: This proficiency allows a character to skillfully wield various bows, which are easy to use and have a high rate of fire.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~
+@1244   = ~SLING: Although the sling is commonly thought of as a toy weapon, its lethality should not be underestimated. A strong bullet thrown from a sling by an experienced user can tear a hole through a man's skull.
+
+2 stars: +1 to hit, +1 damage, +.5 APR
+3 stars: +3 to hit, +2 damage, +1 APR
+4 stars: +4 to hit, +4 damage, +1.5 APR~

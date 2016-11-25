@@ -1,0 +1,3 @@
+@10001  = ~^Classe d'Armure:.+$~
+@10011  = ~dragon~
+@10012  = ~Elfe~

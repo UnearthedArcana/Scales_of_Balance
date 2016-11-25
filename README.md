@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.4 </strong><br />
+  <p><strong> Version 5.5 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -52,14 +52,13 @@
     <p>This component changes armor to give the wearer a mix of Armor Class and Damage Resistance bonuses. The values are listed below:</p>
       <pre>
     Armor:
-	 leather:	AC 7 	-1 Dex 	5% DR 	+1 casting time
-	 studded:	AC 6 	-2 Dex 	10% DR 	+2 casting time
-	 hide armor: 	AC 5 	-3 Dex 	21% DR	+3 casting time
-	 chain mail: 	AC 5 	-3 Dex 	18% DR	+3 casting time
-	 scale armor: 	AC 4 	-3 Dex 	12% DR	+3 casting time
-	 splint mail: 	AC 4 	-4 Dex 	22% DR	+4 casting time
-	 plate mail: 	AC 3 	-5 Dex 	27% DR	+4 casting time
-	 full plate*: 	(AC 2 	-5 Dex	33% DR	+5 casting time)<br />
+	 leather:	AC 8 	-1 Dex 	5% DR 	+2 casting time
+	 studded:	AC 7 	-2 Dex 	10% DR 	+3 casting time
+	 hide armor: 	AC 6 	-3 Dex 	21% DR	+4 casting time
+	 chain mail: 	AC 5 	-3 Dex 	18% DR	+4 casting time
+	 splint mail: 	AC 5 	-4 Dex 	22% DR	+5 casting time
+	 plate mail: 	AC 4 	-5 Dex 	27% DR	+5 casting time
+	 full plate*:   AC 3 	-4 Dex	33% DR	+6 casting time<br />
     Enchantment:
 	 +1:	 	-1 AC	+1 Dex	+1% DR
 	 +2: 		-2 AC 	+2 Dex	+2% DR
@@ -67,11 +66,11 @@
 	 +4:		-4 AC 	    "	+4% DR
 	 +5:		-5 AC 	    "	+5% DR
 	 +6:		-6 AC 	    "	+6% DR<br />
-  *Full plate: acts like one level of enchantment higher than indicated
-  *Bardic armor:	-2 casting time
-  *Elven armor: +1 DEX, -2 casting time, acts like one level of enchantment higher than indicated
+  * "Caster" armors: no casting speed penalty
+  * Elven armors: dexterity penalty equal to leather armor
       </pre>
-    <p>This component allows casting arcane spells in armor, but with steep casting time penalties. (As of now, these penalties do not affect divine casters.) also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
+    <p><b>NOTE:</b> you can change many of these values by editing them in /Scales_of_Balance/ini/YARAS.ini.</p>
+    <p>This component allows casting arcane spells in armor, but with steep casting time penalties. (As of now, these penalties do not affect divine casters.) It also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>This also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>Finally, this alters the Armor of Faith spell to only give a flat 10% DR bonus, at all levels; and reduces the DR bonus from Hardiness and Defensive Stance form 40% to 20%; and reduces the price of the Defender of Easthaven while reducing its DR bonus from 20% to 5%.</p>
     <p><b>Compatibility:</b> this component covers the same ground as the IR component "Revised Armors" as well as the "Spellcasting in Armor" component.  Ditto for the Full Plate and Packing Steel mod. Choose one armor system mod and stick with it.</p>
@@ -102,7 +101,7 @@
       <li> Crossbow bolts do 2d4 damage.</li>
       <li> Arrows do 1d5 damage from shortbows; longbows and composite bows have their base APR reduced to 3/2 but do an extra +2 damage.</li>
       <li> Sling bullets do blunt damage.</li>
-      <li> Darts have 5/2 APR instead of 3.</li>
+      <li> Darts have 2 APR instead of 3.</li>
       <li> In the EE games, strength damage bonuses are removed from all thrown/launched weapons.</li>
     </ul>
     <p><b>Compatibility:</b> this component covers some of the same ground as the "Weapon Changes" component of Item Revisions. I, for one, use both together. But be aware that this might compound or override some of the IR component's effects.</p>
@@ -146,28 +145,23 @@
       <p>This component can be considered a convenience tweak; it will give most classes substantially more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
       <p>Clubs are truly universal, simple weapons: everyone can use them.  Crossbows are usable by everyone except druids and Beastmasters.</p>
-      <p>Fighters start with 9 proficiency points and gain a new one every other level. But they cannot place more than one point in any weapon or style at first level; they cannot reach specialization (++) until 2nd level. Paladins, rangers, barbarians and rogues begin with 6 proficiency points, and gain a new one every 3 levels. Druids and clerics begin with 5 proficiency points, and gain a new one every 5 levels. Wizards begin with 4 proficiency points, and can never move past their initial proficiencies (NB - dual-classing into a mage means no more weapon advancement <strong>at all!</strong>).  All multiclasses gain a new point every 3 levels, except cleric/mages, who gain a new point every 5 levels.</p>
+      <p>Fighters start with 7 proficiency points and other warriors start with 6, but they cannot place more than one point in any weapon or style at first level, so they must spread those proficiencies among many weapons. They can specialize in a weapon when they get their next point to spend, at 3rd level; however, unusually intelligent warriors receive a "focus training" ability allowing them to specialize in 1 or 2 weapons immediately. (<b>NOTE</b> - this ability will only appear in EE games of version 1.4 or higher. This component generally works much better on EE 1.4+ games.) The default INT scores to receive these two opportunities for early specialization are 13 and 15, <b>BUT</b> you can change them by editing /Scales_of_Balance/ini/stats.ini.  Trueclass fighters, alone among warriors, can specialize in two weapons automatically, or up to four if they have high intelligence.</p>
+      <p>Rogues begin with 5 proficiency points, and gain a new one every 4 levels. Druids, clerics and shamans begin with 5 proficiency points, and gain a new one every 5 levels. Wizards and sorcerers begin with 4 proficiency points, and can never move past their initial proficiencies (<b>NOTE</b> - this means dual-classing into a mage means no more weapon advancement <strong>at all!</strong>).</p>
       <ul>
-        <li> Trueclass fighters and Kensai can attain Grandmastery (+++++) in any weapons they focus on. </li>
-        <li> Other kitted fighters, plus barbarians, paladins, and rangers can attain High Mastery (++++). </li>
-        <li> Thieves, bards, and druids can attain Mastery (+++) with any weapons they can normally use. </li>
-        <li> Clerics can attain specialization (++) with most weapons, but kitted clerics will gain Mastery (+++) with their deity's chosen weapon. </li>
-        <li> Multiclass fighter/mages can attain High Mastery (++++) in any weapon but the only available style is Single-Weapon Style. </li>
-        <li> Fighter/clerics and Fighter/thieves can attain High Mastery (++++) in any weapon they can use. </li>
-        <li> Mage/thieves and cleric/thieves can attain Mastery (+++) with any weapon they can use. </li>
-        <li> Cleric/Mages can attain Specialization (++) with any weapon they can use. </li>
+        <li> Trueclass fighters and Kensai can attain Mastery (+++) at 6th level, and High Mastery (++++) at 9th level, in any weapons they focus on. </li>
+        <li> Other kitted fighters plus barbarians, paladins, and rangers can attain Mastery (+++) at 6th level. </li>
+        <li> Rogues, clerics and druids, as well as mage/thieves, cleric/thieves and cleric/mages, can attain Specialization (++) with any weapons they can normally use. </li>
+        <li> Multiclass fighter/mages can attain Mastery (+++) in any weapon but the only available style is Single-Weapon Style. </li>
+        <li> Fighter/clerics and Fighter/thieves can attain Mastery (+++) in any weapon they can use. </li>
       </ul>
-      <p>Beyond that, certain kits will be able to reach 1 point higher or lower in certain weapons (e.g. Archers can reach (+++++) with missile weapons, and only (+++) with melee weapons). </p>
+      <p>Beyond that, certain kits will be able to reach 1 point higher or lower in certain weapons (e.g. Archers can reach (++++) with missile weapons, and only (++) with melee weapons). </p>
       <div class="kit_description">
         <p>Proficiency benefits (cumulative totals)<br />
-        &ndash; * = +0.5 APR from leve 7<br />
-        &ndash; ** = +1 thac0; +2 damage; +0.5 APR from level 1<br />
-        &ndash; *** = +2 thac0; +2 damage; +0.5 APR from level 1, +1 APR at level 7<br />
-        &ndash; **** = +3 thac0; +3 damage; +0.5 APR from level 1, +1 APR at level 7, +1.5 APR at level 11<br />
-        &ndash; ***** = +4 thac0; +5 damage; +0.5 APR from level 1, +1 APR at level 7, +1.5 APR at level 11, +2 APR at level 15<br />.</p>
+        &ndash; ** = +1 thac0; +1 damage; +0.5 APR<br />
+        &ndash; *** = +3 thac0; +2 damage; +1 APR<br />
+        &ndash; **** = +4 thac0; +4 damage; +1.5 APR<br />.</p>
       </div>
-        So fighters can reach (+++++) by level 8, but it will only grant them +1 total APR bonus at that point.  Players might choose to spend those point on other weapons instead, to gain immediate APR bonuses with a more diverse set of weapons.</p>
-        <p>(These APR bonuses will only affect warriors, unless you also install the WPO part 5, "APR on Spec.")
+      <p>(The APR bonuses will only affect warriors, unless you also install the WPO part 5, "APR on Spec.")
       <p>This component also tweaks the thac0 tables: Rogues' thac0 is buffed, making it equal to clerics. Their progression is smoothed out, no more jumping by 2. Warriors start at thac0 20, and non-warriors start at thac0 21.</p>
       <p>This component makes serious changes and it has been extremely hard to get various game mechanisms to work with it, especially dual-classing and NPCs. As a result, <b>ALL</b> NPCs you meet except dual-classed ones will be dropped to level 1, TOB-style, and start with selected base proficiencies. They will have the normal amount of XP however, so you can immediately level them up and direct their advancement.  Because this method doesn't work well for dual-classed NPCs, Imoen, Anomen, and Nalia, will instead receive a special "Proficiency Tome" that you can use to set their proficiencies.</p>
     <p><b>Compatibility:</b> this component is probably not compatible with stuff like the weapon proficiency changes in Tweaks Anthology. Choose one proficiency system mod and stick with it.</p>
@@ -175,13 +169,13 @@
   <h4 class="subheader">Component 123: </h4>
   <div class="section">
     <p><strong><em>WPO: Hardcore Dual-Classing Rules</em></strong></p>
-      <p>PLEASE NOTE, THIS COMPONENT HAS BEEN DISABLED WHILE I FIX AND EXTEND IT. APOLOGIES.</p>
+      <p>PLEASE NOTE, THIS COMPONENT HAS BEEN DISABLED. APOLOGIES.</p>
       <p>This component aims to fix a longstanding bug in the games: when you dual-class, your weapon proficiency advancement is supposed to be capped by your <strong>new</strong> class, not your old one. In BG you can start with a fighter, dual to thief at level 2, and still proceed to Grandmastery with bastard swords.  No more!  Now, when you dual-class from one of the eight base warrior kits (Fighter, Wizard Slayer, Berserker, Kensai, Ranger, Archer, Beastmaster, or Stalker) you will be limited to Mastery (+++) in any future advancement.</p>
       <p>If you install this component <i>without</i> having first installed component 122, it will cap advancement at specialization (++).</p>
   </div>
-  <h4 class="subheader">Component 124 (only for EE 2.0+): </h4>
+  <h4 class="subheader">Component 124: </h4>
   <div class="section">
-    <p><strong><em>WPO: Weapon Style Overhaul</em></strong></p>
+    <p><strong><em>WPO: Fighting Style Overhaul</em></strong></p>
       <p>This component <b>(which is EE-only)</b> rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  All style get thac0 bonuses in addition to other benefits.  So especially at low levels, it might be worth investing in a style for benefits that work for all weapons, rather than progressing in a single weapon proficiency.  The benefits of each style are listed below (cumulative totals):</p>
       <div class="kit_description">
         <p>Single-Weapon Style: now called <b>"Fencing"</b><br />
@@ -226,7 +220,7 @@
       <ul>
       	<li>The 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same.  Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</li><br />
       	<li>Dexterity bonuses are also pushed lower and spread out a bit more. 14 DEX gives -1 AC; 15 gives +1 missile thac0; 16 gives another -1 AC; 17 gives another +1 to missile thac0; etc. (Note, if YARAS is installed that DEX table will be used instead of this one.)</p>
-      	<li>Intelligence is no longer a dump-stat. Bards and wizards get an extra spell of each level for as many points of intelligence they have above 12 - so, an extra 1st-level spell for 13 INT, and an extra spell of level 1 through 9 at 21 INT. (This is only measured once, however - drinking a potion for bonus INT points will not give you extra spells.) In addition, at 15 INT the player has a +1 bonus rolling for critical hits; at 17 INT this is a +2 bonus, and at 19 INT it is a +3 bonus to crit. (To make up for this, *everyone* will have a -1 penalty to crit rolls.  So the only way to score critical hits is to have 15 or greater INT, or to have points in Single-Weapon Style or Two-Handed Style.)</p>
+      	<li>Intelligence is no longer a dump-stat. Bards and wizards get an extra spell of each level for as many points of intelligence they have above 12 - so, an extra 1st-level spell for 13 INT, and an extra spell of level 1 through 9 at 21 INT. (This is only measured once, however - drinking a potion for bonus INT points will not give you extra spells.) In addition, this component disables critical hits for anyone with INT less than 14, by applying a -5% penalty. At 14 INT you have the normal 5% chance for crits, at 16 INT you have a 10% chance, and at 18 INT you have a 15% chance.  (<b>NOTE:</b> you can change these values by editing /Scales_of_Balance/ini/stats.ini.)</p>
       	<li>Wisdom now grants an extra 1st-level priest spell at both 13 and at 14; and extra 2nd-level spell at 15 and at 16; an extra 3rd-level spell at 17 and at 18; et cetera, up to 2 extra spells of every level at 25 WIS</p>
       	<li>Charisma is not a dump stat either! Charisma now measures something like 'spirit' or 'karma' at the beginning of a character's career. Upon creating a character, 16 CHA will grant a +1 bonus to saves vs. spells and wands. At 17 CHA this bonus will be +2. At 18 CHA the character is also granted a permanent +1 Luck, and at 19 CHA this grows to +2 Luck. (Note, this takes the place of so-called "shorty save bonuses" associated with CON, which are removed!)</p>
       	<li>Constitution bonuses are folded into Component #205, Hit Dice Overhaul, below. The only change wrought by this component is to change the "shorty save bonuses" for halflings, dwarves, and gnomes to affect saves vs. death/poison and polymorph/petrification, and to cap the bonuses at +3 (at 19 CON).</p>
@@ -253,7 +247,7 @@
       <p>This component takes some of the randomness out of hit point rolls. In the vanilla system, a warrior with 16 CON can actually get *fewer* hit points at level-up than a mage with 8 CON. That only leads to annoying reloads or constant moving of the difficulty bar to get max hp (which is just too cheaty, and perverts various game mechanics). With this component, there are still rolls, but the roll will always seem fair and should never cause you to feel you need to reload or go below Core difficulty. That 16 CON warrior will get between 9 and 12 hit points per level, instead of from 3 to 12. Higher average rolls, and more satisfying numbers, but not overpowered.<br />
       <ul>
       	<li>Wizard hit dice is now 1d3+1. Rogue and priest hit dice is 2d3+1. And warrior hit dice is 3d3+1 (3d4+1 for barbarians).</li>
-      	<li>Everyone gets an extra hit point at 15 CON and 16 CON (like vanilla), plus an extra hit point at 21, 23, and 25 CON (so stat-boosting spells and effects can actually increase your hit points). Warriors also get a bonus hit point at 18 CON.</li>
+      	<li>Everyone gets an extra hit point at 15 CON and 16 CON (like vanilla), and warriors get an extra hit point at 18 CON.  Everyone also gets an extra hit point at 20, 22, and 24 CON (so stat-boosting spells and effects can actually increase non-warriors' hit points).</li>
       	<li>The minimum roll for those d3 rolls is 2 at 14 CON, and 3 at 17 CON. (So 17 CON means max hit points.)</li>
       	<li>Everyone gets very slow hit point regeneration (1 hp per 2 turns) at 19 CON. The regeneration speeds up a bit at 20 CON (1 per turn), 21 CON (1 per 4 rounds), 22 CON (1 per 2 rounds), 23 CON (1 per round), 24 CON (2 per round), and 25 CON (1 per second).</li>
       </ul>
@@ -274,7 +268,7 @@
   <h4 class="subheader">Component 212: </h4>
   <div class="section">
     <p><strong><em>XPO: No Murder XP</em></strong></p>
-      <p>This component very simply divides the XP reward for killing creatures by 5, making quest XP derived from role-playing relatively more important, compared to combat experience. Quest XP is not increased; so this component will result in a substantial reduction in total XP available over the course of the game.</p>
+      <p>This component very simply divides the XP reward for killing creatures by 2, 5, or 10.  The aim is to make quest XP derived from role-playing relatively more important, compared to combat experience. Quest XP is not changed at all; so this component will result in a substantial reduction in total XP available over the course of the game.</p>
       <p>Do not install this unless you are looking for more of a challenge!</p>
   </div>
   <h4 class="subheader">Component 180: </h4>
@@ -313,6 +307,12 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.5 - November 2016</strong></p>
+  <ul>
+    <li>re-wrote YARAS</li>
+    <li>re-wrote portions of the WPO</li>
+    <li>aaded multiple subcomponents for NMX</li>
+  </ul>
   <p><strong>Version 5.4 - September 2016</strong></p>
   <ul>
     <li>added Full STR From 2-Hand Weapons</li>
