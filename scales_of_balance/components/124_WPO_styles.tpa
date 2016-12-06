@@ -662,7 +662,7 @@ BUT_ONLY
 
 //SHIELD BASH_______________________________________________________________________
 //
-APPEND ~splprot.2da~ ~PROF_SNS%TAB%112%TAB%2%TAB%9~
+APPEND ~splprot.2da~ ~PROF_SNS%TAB%112%TAB%2%TAB%4~
 
 COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols // amount of columns
@@ -675,17 +675,15 @@ COPY_EXISTING ~splprot.2da~ ~override~
 	END
 BUT_ONLY
 
-COPY ~scales_of_balance/profs/d5_sns2.eff~ ~override~	
+COPY ~scales_of_balance/profs/d5_sns2.spl~ ~override~	
+	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter2 = %sns_row% END
 COPY ~scales_of_balance/profs/d5_sns2a.spl~ ~override~
-COPY ~scales_of_balance/profs/d5_sns2b.spl~ ~override~
-	LPF ALTER_EFFECT INT_VAR match_opcode = 318 target = 9 parameter2 = %sns_row% END
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
 	READ_SHORT 0x1c type
 	PATCH_IF (%type% = 12) BEGIN
-	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter2 = 2 timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sns2~ END
-	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 232 target = 1 parameter1 = 1 parameter2 = 0 timing = 2 resist_dispel = 0 probability1 = 25 STR_VAR resource = ~d5_sns2b~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 232 target = 1 parameter1 = 1 parameter2 = 0 timing = 2 resist_dispel = 0 probability1 = 100 STR_VAR resource = ~d5_sns2~ END
 	END
   END
 BUT_ONLY

@@ -80,12 +80,12 @@ Rzut obronny: Brak
 
 Rzucający Zbroję Wiary otrzymuje znaczną ochronę przeciwko atakom wręcz i pociskom. Ta magiczna, przypominająca zbroję osłona, otacza rzucającego i pochłania część przyjętych obrażeń. Dodatkowo zwiększa odporność na obrażenia wszelkiego typu o 10%.~
 @1000 = ~100: Ulepszenia przedmiotow~
-@1001 = ~Mistrzowskie strzały~
-@1002 = ~Magiczne strzały~
-@1003 = ~Mistrzowskie bełty~
-@1004 = ~Magiczne bełty~
-@1005 = ~Mistrzowskie pociski do procy~
-@1006 = ~Magiczne pociski do procy~
+@1001 = ~Mistrzowska strzała~
+@1002 = ~Magiczna strzała~
+@1003 = ~Mistrzowski bełt~
+@1004 = ~Magiczny bełt~
+@1005 = ~Mistrzowski pocisk~
+@1006 = ~Magiczny pociski~
 @1007 = ~Mistrzowski topór bojowy~
 @1008 = ~Magiczny toporek~
 @1009 = ~Mistrzowski cep bojowy~
@@ -100,10 +100,10 @@ Rzucający Zbroję Wiary otrzymuje znaczną ochronę przeciwko atakom wręcz i p
 @1018 = ~Magiczny długi łuk~
 @1019 = ~Magiczny krótki łuk~
 @1020 = ~Mistrzowski sztylet~
-@1021 = ~Mistrzowskie strzałki~
+@1021 = ~Mistrzowska strzałka~
 @1022 = ~Mistrzowska halabarda~
 @1023 = ~Mistrzowski młot bojowy~
-@1024 = ~Mistrzowska strzałka~
+@1024 = ~Mistrzowska proca~
 @1025 = ~Mistrzowska włócznia~
 @1026 = ~Magiczna włócznia~
 @1027 = ~Mistrzowski kij~
@@ -160,12 +160,12 @@ Waga: 0~
 @1062 = ~Mistrzowska maczuga~
 @1063 = ~Torba obfitości~
 @1064 = ~Torba obfitości
-Choć ta torba na pociski do procy, wyprodukowana z miękkiej tkaniny, jest teraz pusta, to wciąż otacza ją potężna magiczna aura.
+Choć ta torba na pociski wyprodukowana z miękkiej tkaniny, jest teraz pusta, to wciąż otacza ją potężna magiczna aura.
 
 PARAMETRY:
 
 Specjalne:
-– Nieograniczona liczba mistrzowskich pocisków do procy
+– Nieograniczona liczba mistrzowskich pocisków
 
 Waga: 0~
 @1065 = ~Magiczny topór bojowy~
@@ -185,7 +185,7 @@ Waga: 0~
 @1079 = ~Ostrze wody~
 @1080 = ~Magiczna wekiera~
 @1081 = ~Magiczna maczuga~
-@1082 = ~Bełty do kuszy drowow~
+@1082 = ~Bełt do kuszy drowow~
 @1083 = ~Magiczny ceb bojowy drowów~
 @1084 = ~Magiczna halabarda drowów~
 @1085 = ~Magiczna włócznia drowów~
@@ -214,12 +214,12 @@ Specjalne:
 
 Waga: 0~
 @1094 = ~Torba obfitości
-Choć ta torba na pociski do procy, wyprodukowana z miękkiej tkaniny, jest teraz pusta, to wciąż otacza ją potężna magiczna aura.
+Choć ta torba na pociski wyprodukowana z miękkiej tkaniny, jest teraz pusta, to wciąż otacza ją potężna magiczna aura.
 
 PARAMETRY:
 
 Specjalne:
-– Nieograniczona liczba magicznych pocisków do procy
+– Nieograniczona liczba magicznych pocisków
 
 Waga: 0~
 @1095 = ~Kościana maczuga~
@@ -350,7 +350,7 @@ Podstawowa cecha potrzebna przy dwuklasowości: Inteligencja~
 4 punkty biegłości: +4 do testów trafienia, +4 do obrażeń, +1.5 ataku na rundę
 ~
 @1223 = ~Maczuga / wekiera~
-@1224 = ~Wielkie miecze~
+@1224 = ~Miecze wielkie~
 @1225 = ~...~
 @1226 = ~Sejmitar / katana~
 @1227 = ~Sztylet / strzałka~
@@ -366,12 +366,12 @@ Podstawowa cecha potrzebna przy dwuklasowości: Inteligencja~
 2 gwiazdki: +1 do testów trafienia, +1 do obrażeń, +1/2 ataku na rundę.
 3 gwiazdki: +3 do testów trafienia, +2 do obrażeń, +1 atak na rundę.
 4 gwiazdki: +4 do testów trafienia, +4 do obrażeń, +1.5 ataku na rundę ~
-@1232 = ~TOPÓR: Istnieją dwa rodzaje toporów: rzucane i bojowe. Biegłość we władaniu tą bronią pozwoli postaci na korzystanie z obu.
+@1232 = ~TOPÓR BOJOWY: Istnieją dwa rodzaje toporów: rzucane i bojowe. Biegłość we władaniu tą bronią pozwoli postaci na korzystanie z obu.
 
 2 gwiazdki: +1 do testów trafienia, +1 do obrażeń, +1/2 ataku na rundę.
 3 gwiazdki: +3 do testów trafienia, +2 do obrażeń, +1 atak na rundę.
 4 gwiazdki: +4 do testów trafienia, +4 do obrażeń, +1.5 ataku na rundę ~
-@1233 = ~MIECZ CIĘŻKI: Znakiem rozpoznawczym stereotypowego, napakowanego wojownika są ciężkie miecze: claymory, miecze półtoraręczne oraz inne bronie obusieczne na tyle duże, by wymagały użycia obu rąk. Ten rodzaj biegłości pozwoli postaci rozłupywać swoich wrogów przy ich pomocy.
+@1233 = ~MIECZE WIELKIE: Znakiem rozpoznawczym stereotypowego, napakowanego wojownika są wielkie miecze: claymory, miecze półtoraręczne oraz inne bronie obusieczne na tyle duże, by wymagały użycia obu rąk. Ten rodzaj biegłości pozwoli postaci rozłupywać swoich wrogów przy ich pomocy.
 
 2 gwiazdki: +1 do testów trafienia, +1 do obrażeń, +1/2 ataku na rundę.
 3 gwiazdki: +3 do testów trafienia, +2 do obrażeń, +1 atak na rundę.
