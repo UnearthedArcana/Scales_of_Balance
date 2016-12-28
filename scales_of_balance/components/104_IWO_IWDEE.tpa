@@ -9,7 +9,7 @@
 
 //IWDEE-specific stuff______________________________________________________________
 
-ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+//ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 
 	COPY ~scales_of_balance/misc/iwdee/bknight.itm~ ~override~
 	COPY ~scales_of_balance/misc/iwdee/bishop.itm~ ~override~
@@ -177,5 +177,20 @@ END
 		LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter2=1 parameter1=8 END
 //__________________________________________________________________________________
 
-END 
+
+//wizard stuff usable by bards______________________________________________________
+//
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+  PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
+	READ_BYTE 0x1f fm //reads the byte containing the fighter usability flag
+	PATCH_IF ((~%fm%~ BAND ~0b00100000~) = ~0b00000000~) BEGIN // if *usable* by fighter/mages
+	  READ_BYTE  0x1e bards
+	  WRITE_BYTE  0x1e (~%bards%~ BAND ~0b10111111~) // make usable by bards
+	END
+  END
+BUT_ONLY
+//__________________________________________________________________________________
+
+
+//END 
 //__________________________________________________________________________________

@@ -642,8 +642,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			(%prof% = 91) OR	// short sword
 			(%prof% = 97) BEGIN	 // hammer
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 272 target = 1 parameter1 = 6 parameter2 = 3 timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws2~ END
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 2 parameter2 = %nosws_row% timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws2~ END
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (134 + (0x10000 * 1)) timing = 2 resist_dispel = 0 END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 4 parameter2 = %nosws_row% timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws2~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = 2 parameter2 = (134 + (0x10000 * 1)) timing = 2 resist_dispel = 0 END
 	  END
 	END
   END

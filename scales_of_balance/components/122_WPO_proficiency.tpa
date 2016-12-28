@@ -629,7 +629,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 44 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 21 44 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 23 44 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 44 4
+//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 44 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 25 44 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 44 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 44 2
