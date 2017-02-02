@@ -96,13 +96,16 @@
     <ul>
       <li> Spears do 1d8+1 damage, since in BG games they are of the 2-handed variety (this is per PnP).</li>
       <li> Quarterstaves seem better suited to defensive parrying than many other weapons, so they get an inherent -1 AC bonus.</li>
-      <li> Daggers get 1.5 base APR. (A thief with Rogue Rebalancing, dual-wielding daggers, should be a reasonable and interesting choice.)</li>
       <li> Flails do 1d8+1 damage.</li>
-      <li> Crossbow bolts do 2d4 damage.</li>
-      <li> Arrows do 1d5 damage from shortbows; longbows and composite bows have their base APR reduced to 3/2 but do an extra +2 damage.</li>
+      <li> Daggers get 1.5 base APR. (This includes throwing daggers.)</li>
+      <li> Light crossbows are changed to hand crossbows; they can be used 1-handed, with shields. Heavy crossbows have an overall +3 damage bonus to compensate.</li>
+      <li> Bolts do 1d6 damage (from light crossbows - they do 1d6+3 from heavy crossbows).</li>
+      <li> Longbows and composite bows have their base APR reduced to 3/2 but do an extra +2 damage.</li>
+      <li> Arrows do 1d5 damage (from shortbows - the above means 1d5+2 from longbows).</li>
       <li> Sling bullets do blunt damage.</li>
       <li> Darts have 2 APR instead of 3.</li>
-      <li> In the EE games, strength damage bonuses are removed from all thrown/launched weapons.</li>
+      <li> In the EE games, strength damage bonuses are removed from thrown daggers, darts, and slings.</li>
+      <li> Archers (and thus, any kits with the Archer usability flag) can use Elven Chain armor.</li>
     </ul>
     <p><b>Compatibility:</b> this component covers some of the same ground as the "Weapon Changes" component of Item Revisions. I, for one, use both together. But be aware that this might compound or override some of the IR component's effects.</p>
   </div>
@@ -166,27 +169,20 @@
       <p>This component makes serious changes and it has been extremely hard to get various game mechanisms to work with it, especially dual-classing and NPCs. As a result, <b>ALL</b> NPCs you meet except dual-classed ones will be dropped to level 1, TOB-style, and start with selected base proficiencies. They will have the normal amount of XP however, so you can immediately level them up and direct their advancement.  Because this method doesn't work well for dual-classed NPCs, Imoen, Anomen, and Nalia, will instead receive a special "Proficiency Tome" that you can use to set their proficiencies.</p>
     <p><b>Compatibility:</b> this component is probably not compatible with stuff like the weapon proficiency changes in Tweaks Anthology. Choose one proficiency system mod and stick with it.</p>
   </div>
-  <h4 class="subheader">Component 123: </h4>
-  <div class="section">
-    <p><strong><em>WPO: Hardcore Dual-Classing Rules</em></strong></p>
-      <p>PLEASE NOTE, THIS COMPONENT HAS BEEN DISABLED. APOLOGIES.</p>
-      <p>This component aims to fix a longstanding bug in the games: when you dual-class, your weapon proficiency advancement is supposed to be capped by your <strong>new</strong> class, not your old one. In BG you can start with a fighter, dual to thief at level 2, and still proceed to Grandmastery with bastard swords.  No more!  Now, when you dual-class from one of the eight base warrior kits (Fighter, Wizard Slayer, Berserker, Kensai, Ranger, Archer, Beastmaster, or Stalker) you will be limited to Mastery (+++) in any future advancement.</p>
-      <p>If you install this component <i>without</i> having first installed component 122, it will cap advancement at specialization (++).</p>
-  </div>
   <h4 class="subheader">Component 124: </h4>
   <div class="section">
     <p><strong><em>WPO: Fighting Style Overhaul</em></strong></p>
-      <p>This component <b>(which is EE-only)</b> rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  All style get thac0 bonuses in addition to other benefits.  So especially at low levels, it might be worth investing in a style for benefits that work for all weapons, rather than progressing in a single weapon proficiency.  The benefits of each style are listed below (cumulative totals):</p>
+      <p>This component <b>(which is EE-only)</b> rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  All styles get thac0 bonuses in addition to other benefits.  So especially at low levels, it might be worth investing in a style for benefits that work for all weapons, rather than progressing in a single weapon proficiency.  The benefits of each style are listed below (cumulative totals):</p>
       <div class="kit_description">
         <p>Single-Weapon Style: now called <b>"Fencing"</b><br />
         &ndash; (+) = +1 thac0, -1 melee AC, -1 weapon speed<br />
-        &ndash; (++) = +1 thac0, -2 melee AC, base APR increased to 3/2</p>
+        &ndash; (++) = +1 thac0, -2 melee AC, base APR increased to 3/2 (NOTE: the APR increase take 6 seconds to kick in after you equip a 1-handed weapon)</p>
         <p>Sword & Shield Style: now called <b>"Shield-Fighting"</b><br />
         &ndash; (+) = +1 thac0, -1 melee AC, -2 missile AC<br />
         &ndash; (++) = +1 thac0, -1 melee AC, -2 missile AC, chance to perform shield bash when struck</p>
         <p>Two-Handed Weapon Style: now called <b>"Two-Hand Style"</b><br />
         &ndash; (+) = +1 thac0, +1 damage, +5% crit chance<br />
-        &ndash; (++) = +1 thac0, +3 damage, +10% crit chance</p>
+        &ndash; (++) = +2 thac0, +2 damage, +10% crit chance</p>
         <p>Two-Weapon Style: now called <b>"Dual-Wielding"</b><br />
         &ndash; ( ) = -4 main-hand thac0, and -4 off-hand thac0<br />
         &ndash; (+) = -3 main-hand thac0, and -2 off-hand thac0<br />
@@ -237,9 +233,9 @@
   </div>
   <h4 class="subheader">Component 202: </h4>
   <div class="section">
-    <p><strong><em>SBO: Full Strength form 2-Hand Weapons Only</em></strong></p>
+    <p><strong><em>SBO: Full Strength from 2-Hand Weapons Only</em></strong></p>
       <p>This small component simply adds a -1 STR penalty to every 1-handed weapon.  The idea behind it is, your "STR" score measures your total bodily strength. If you attempt a feat of strength one-handed, naturally the result will not be as effective as if you used both arms. </p>
-      <p>Note: this penalty stacks, so you will have a -2 penalty when dual-wielding. That weapon style is all about speed and technique - not power! </p>
+      <p>Note: this penalty stacks, so you will have a -2 penalty when dual-wielding. That weapon style is all about speed - not power! </p>
   </div>
   <h4 class="subheader">Component 205: </h4>
   <div class="section">
@@ -253,11 +249,11 @@
       </ul>
       <p>Additionally, this smooths out the decline in added hp. Everyone stops getting hit dice after 8th level. After that:
       <ul>
-      	<li>Warriors get 4/level from 10 to 15, then 3/level from 16 to 25, and 2/level after that. </li>
-      	<li>Rogues and priests get 3/level from 10 to 15, 2/level from 16 to 25, and 1 per level after that. </li>
-      	<li>Wizards get 2/level from 10 to 15, and 1/level after that. </li>
+      	<li>Warriors get 4/level from 9 to 15, then 3/level from 16 to 25, and 2/level after that. </li>
+      	<li>Rogues and priests get 3/level from 9 to 15, 2/level from 16 to 25, and 1 per level after that. </li>
+      	<li>Wizards get 2/level from 9 to 15, and 1/level after that. </li>
       </ul>
-      <p>Finally, I have added an alternate hardcore version of this component, which eliminates 1 hp from each class (so wizards are 1d3, rogues/priests are 2d3, and warriors are 3d3). The regular component should give hit points somewhere between the vanilla game's mean and max values; the hardcore variant should result in hit points closer to the mean. </p>
+      <p>Finally, I have added an alternate hardcore version of this component, which eliminates 1 hp from each class (so wizards are 1d3, rogues/priests are 2d3, and warriors are 3d3). The regular component should give hit points somewhere between the vanilla game's mean and max values; the hardcore variant should result in hit points closer to vanilla's mean. </p>
   </div>
   <h4 class="subheader">Component 210: </h4>
   <div class="section">

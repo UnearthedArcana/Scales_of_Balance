@@ -1,5 +1,13 @@
 IF
 	NumTimesTalkedTo(0)
+	Class(LastSummonerOf(Myself),BARD)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_BARD","GLOBAL",1)
+END
+
+IF
+	NumTimesTalkedTo(0)
 	Kit(LastSummonerOf(Myself),FERALAN)
 THEN
 	RESPONSE #100
@@ -54,6 +62,7 @@ THEN
 	SetGlobal("D5_WEPFO","GLOBAL",0)
 	SetGlobal("D5_ARCHER","GLOBAL",0)
 	SetGlobal("D5_MELEE","GLOBAL",0)
+	SetGlobal("D5_BARD","GLOBAL",0)
 	SetNumTimesTalkedTo(0)
 	DestroySelf()               // reset global variables, then destroy self
 END
