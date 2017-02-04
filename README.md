@@ -74,7 +74,6 @@
     <p>This also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>Finally, this alters the Armor of Faith spell to only give a flat 10% DR bonus, at all levels; and reduces the DR bonus from Hardiness and Defensive Stance form 40% to 20%; and reduces the price of the Defender of Easthaven while reducing its DR bonus from 20% to 5%.</p>
     <p><b>Compatibility:</b> this component covers the same ground as the IR component "Revised Armors" as well as the "Spellcasting in Armor" component.  Ditto for the Full Plate and Packing Steel mod. Choose one armor system mod and stick with it.</p>
-    <p><b>This component only functions if your game language is English. For now.</b></p>
   </div>
   <h4 class="subheader">Component 101: </h4>
   <div class="section">
@@ -95,10 +94,10 @@
     <p>This component makes tweaks to the base characteristics of various items:</p>
     <ul>
       <li> Spears do 1d8+1 damage, since in BG games they are of the 2-handed variety (this is per PnP).</li>
-      <li> Quarterstaves seem better suited to defensive parrying than many other weapons, so they get an inherent -1 AC bonus.</li>
+      <li> Quarterstaves get an inherent -1 AC bonus.</li>
       <li> Flails do 1d8+1 damage.</li>
       <li> Daggers get 1.5 base APR. (This includes throwing daggers.)</li>
-      <li> Light crossbows are changed to hand crossbows; they can be used 1-handed, with shields. Heavy crossbows have an overall +3 damage bonus to compensate.</li>
+      <li> Light crossbows can be used 1-handed, with shields. Heavy crossbows have an overall +3 damage bonus to compensate.</li>
       <li> Bolts do 1d6 damage (from light crossbows - they do 1d6+3 from heavy crossbows).</li>
       <li> Longbows and composite bows have their base APR reduced to 3/2 but do an extra +2 damage.</li>
       <li> Arrows do 1d5 damage (from shortbows - the above means 1d5+2 from longbows).</li>
@@ -112,7 +111,7 @@
   <h4 class="subheader">Component 103: </h4>
   <div class="section">
     <p><strong><em>IWO: Distinctions between Light and Heavy Weapons</em></strong></p>
-    <p>Light, low-damage weapons get a +1 thac0 bonus. So beginning adventurers will be better off using light, simple weapons until they gain experience and their thac0 improves - unless they are strong enough to wield the heavy weapons comfortably, or they are skilled in a weapon style that grants thac0 bonuses. These weapons include short swords, daggers, clubs, war hammers, spears, and quarterstaves.</p>
+    <p>Light, low-damage weapons get a +1 off-hand thac0 bonus.  These weapons include short swords, and daggers.  Light two-handed weapons - spears and quarterstaves - get an overall +1 thac0 bonus.</p>
     <p>Heavy weapons that are inappropriate for dual-wielding get a -1 penalty to off-hand thac0. These include bastard swords, katanas, and flails.</p>
     <p><b>Compatibility:</b> this component covers the same ground as the "Dual-Wielding Changes for Light and Heavy Weapons" component of Item Revisions. You can probably use both together, but the effects will be compounded and will likely be somewhat extreme. Best to choose one or the other.</p>
   </div>
@@ -148,8 +147,8 @@
       <p>This component can be considered a convenience tweak; it will give most classes substantially more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
       <p>Clubs are truly universal, simple weapons: everyone can use them.  Crossbows are usable by everyone except druids and Beastmasters.</p>
-      <p>Fighters start with 7 proficiency points and other warriors start with 6, but they cannot place more than one point in any weapon or style at first level, so they must spread those proficiencies among many weapons. They can specialize in a weapon when they get their next point to spend, at 3rd level; however, unusually intelligent warriors receive a "focus training" ability allowing them to specialize in 1 or 2 weapons immediately. (<b>NOTE</b> - this ability will only appear in EE games of version 1.4 or higher. This component generally works much better on EE 1.4+ games.) The default INT scores to receive these two opportunities for early specialization are 13 and 15, <b>BUT</b> you can change them by editing /Scales_of_Balance/ini/stats.ini.  Trueclass fighters, alone among warriors, can specialize in two weapons automatically, or up to four if they have high intelligence.</p>
-      <p>Rogues begin with 5 proficiency points, and gain a new one every 4 levels. Druids, clerics and shamans begin with 5 proficiency points, and gain a new one every 5 levels. Wizards and sorcerers begin with 4 proficiency points, and can never move past their initial proficiencies (<b>NOTE</b> - this means dual-classing into a mage means no more weapon advancement <strong>at all!</strong>).</p>
+      <p>Fighters start with 7 proficiency points and other warriors start with 6, but they cannot place more than one point in any weapon or style at first level, so they must spread those proficiencies among many weapons. However, unusually intelligent warriors receive a "focus training" ability allowing them to specialize in 1 or 2 weapons immediately. (<b>NOTE</b> - the focus weapon ability will only appear in EE games of version 1.4 or higher.) The default INT scores to receive these two opportunities for early specialization are 13 and 15, <b>BUT</b> you can change them by editing /Scales_of_Balance/ini/stats.ini.  Trueclass fighters, alone among warriors, can specialize in two weapons automatically - or up to four if they have high intelligence.</p>
+      <p>Rogues begin with 5 proficiency points, and gain a new one every 4 levels. Druids, clerics and shamans begin with 5 proficiency points, and gain a new one every 5 levels. Wizards and sorcerers begin with 4 proficiency points, and can never move past their initial proficiencies (<b>NOTE</b> - this means dual-classing into a mage means no more weapon advancement <b>at all!</b>).</p>
       <ul>
         <li> Trueclass fighters and Kensai can attain Mastery (+++) at 6th level, and High Mastery (++++) at 9th level, in any weapons they focus on. </li>
         <li> Other kitted fighters plus barbarians, paladins, and rangers can attain Mastery (+++) at 6th level. </li>
@@ -176,7 +175,7 @@
       <div class="kit_description">
         <p>Single-Weapon Style: now called <b>"Fencing"</b><br />
         &ndash; (+) = +1 thac0, -1 melee AC, -1 weapon speed<br />
-        &ndash; (++) = +1 thac0, -2 melee AC, base APR increased to 3/2 (NOTE: the APR increase take 6 seconds to kick in after you equip a 1-handed weapon)</p>
+        &ndash; (++) = +1 thac0, -2 melee AC, APR increased by .5</p>
         <p>Sword & Shield Style: now called <b>"Shield-Fighting"</b><br />
         &ndash; (+) = +1 thac0, -1 melee AC, -2 missile AC<br />
         &ndash; (++) = +1 thac0, -1 melee AC, -2 missile AC, chance to perform shield bash when struck</p>
@@ -188,6 +187,7 @@
         &ndash; (+) = -3 main-hand thac0, and -2 off-hand thac0<br />
         &ndash; (++) = -2 main-hand thac0, and -0 off-hand thac0<br />.</p>
       </div>
+      <p>If you have installed the "Distinctions Between Light/Heavy Weapons" IWO component (#103), the off-hand thac0 bonus for daggers, short swords and clubs becomes a main-hand thac0 bonus instead.  Thus, with two pips in dual-wielding and two short swords you will have <b>no</b> thac0 penalty.  With two pips in dual-wielding and two bastard swords, you will have a -2 penalty with both hands.</p>
   </div>
   <h4 class="subheader">Component 125: </h4>
   <div class="section">
