@@ -598,16 +598,18 @@ DRŻĄCA DŁOŃ: Zdolność ta zapewnia mnichowi jeden atak, który zabija przec
 @2001 = ~SIŁA: Opisuje siłę mięśni bohatera, jego wytrzymałość i wytrwałość. Wysoka siła wpływa na zadawane obrażenia, szansę na trafienie oraz maksymalny udźwig. Jest podstawową cechą wojowników.
 
 Premie do walki wręcz:
+13: +1 do obrażeń
 14: +1 do obrażeń
 15: +2 do obrażeń
 16: +1 TraK0, +2 do obrażeń
 17: +1 TraK0, +3 do obrażeń
 18: +2 TraK0, +3 do obrażeń
-19: +2 TraK0, +4 do obrażeń
+18/01:  +2 TraK0, +4 do obrażeń
+19: +2 TraK0, +5 do obrażeń
 20: +3 TraK0, +5 do obrażeń
-21: +3 TraK0, +6 do obrażeń
+21: +4 TraK0, +6 do obrażeń
 22: +4 TraK0, +7 do obrażeń
-23: +4 TraK0, +8 do obrażeń
+23: +5 TraK0, +8 do obrażeń
 24: +5 TraK0, +9 do obrażeń
 25: +6 TraK0, +10 do obrażeń~
 @2002 = ~ZRĘCZNOŚĆ: Opisuje zwinność, refleks, koordynację i umiejętność zachowania równowagi. Wysoka zręczność wpływa na klasę pancerza postaci oraz szansę na trafienie bronią dystansową. Jest podstawową cechą złodziei. 
@@ -688,6 +690,22 @@ Premie:
 18: maksymalna ilość punktów życia na poziom
 19: +3 punkty życia na poziom (tylko wojownicy) i szybsza regeneracja (1 punkt życia na turę)
 20: szybsza regeneracja (2 punkty życia na turę)~
+@2008 = ~ZRĘCZNOŚĆ: Opisuje zwinność, refleks, koordynację i umiejętność zachowania równowagi. Wysoka zręczność wpływa na klasę pancerza postaci oraz szansę na trafienie bronią dystansową. Jest podstawową cechą złodziei. 
+
+Premie:
+14: -1 do KP
+15: -2 do KP, +1 do TraK0 dla broni dystansowej
+16: -3 do KP, +1 do TraK0 dla broni dystansowej
+17: -4 do KP, +2 do TraK0 dla broni dystansowej
+18: -5 do KP, +2 do TraK0 dla broni dystansowej
+19: -6 do KP, +3 do TraK0 dla broni dystansowej
+20: -7 do KP, +3 do TraK0 dla broni dystansowej
+21: -7 do KP, +4 do TraK0 dla broni dystansowej
+22: -8 do KP, +4 do TraK0 dla broni dystansowej
+23: -8 do KP, +5 do TraK0 dla broni dystansowej
+24: -9 do KP, +5 do TraK0 dla broni dystansowej
+25: -9 do KP, +6 do TraK0 dla broni dystansowej
+~
 @2011 = ~LUDZIE: Ludzie są dominującą rasą Faerûnu. Przewodzą najznaczniejszym imperiom i królestwom Zapomnianych Krain. Są chyba najbardziej tolerancyjną i towarzyską ze wszystkich ras, z wyjątkiem może niziołków. Ludzie mają tylko jedną zdolność specjalną – mogą należeć do dowolnej klasy. Ich statystyki mogą wynosić od 7 do 18.~
 @2012 = ~KRASNOLUDY: Krasnoludy są niskimi, krępymi osobnikami, łatwymi do rozpoznania po wzroście i posturze. Mają czerstwe policzki, ciemne oczy i takież włosy. Zazwyczaj są uparte i małomówne. Z chęcią oddają się ciężkiej pracy, nie posiadają za to za grosz poczucia humoru. Lubują się w piwie i miodzie, ale nade wszystko kochają złoto. W Krainach żyją cztery różne odłamy tej rasy: krasnoludy tarczowe, złote, dzikie i duergarowie.
 

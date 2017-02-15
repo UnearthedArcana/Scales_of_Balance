@@ -143,12 +143,12 @@ ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 	STRING_SET 36804 @1231 // short sw
 	STRING_SET 36806 @1232 // axe
 	STRING_SET 36808 @1233 // 2-H sw
-	STRING_SET 36812 @1234 // scimitar
+	STRING_SET 47968 @1234 // scimitar
 	STRING_SET 36814 @1235 // dagger
 	STRING_SET 36816 @1236 // hammer
 	STRING_SET 36818 @1237 // club
 	STRING_SET 36820 @1238 // spear
-	STRING_SET 37712 @1239 // flail
+	STRING_SET 47969 @1239 // flail
 	STRING_SET 37714 @1240 // mace
 	STRING_SET 37716 @1241 // staff
 	STRING_SET 37718 @1242 // xbow
@@ -216,10 +216,10 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 8 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 28 8 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 30 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 8 2 // 2-hand weapon
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 8 2 // sword/shield
+	SET_2DA_ENTRY_LATER ~#weapprof~ 33 8 2 // single-weapon
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 8 2 // dual-wielding
 	// Paladin
 	SET_2DA_ENTRY_LATER ~#weapprof~ 12 9 3
 	SET_2DA_ENTRY_LATER ~#weapprof~ 13 9 3
@@ -236,7 +236,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 9 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 9 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 9 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 9 3
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 9 2
 	// Druid
 	SET_2DA_ENTRY_LATER ~#weapprof~ 17 10 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 18 10 2
@@ -277,7 +277,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 //	SET_2DA_ENTRY_LATER ~#weapprof~ 26 12 3
 //	SET_2DA_ENTRY_LATER ~#weapprof~ 28 12 3
 //	SET_2DA_ENTRY_LATER ~#weapprof~ 30 12 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 12 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 12 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 12 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 12 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 12 0
@@ -1071,7 +1071,7 @@ DEFINE_ACTION_FUNCTION mod_bard_profs BEGIN
 					SET_2DA_ENTRY_LATER B#weapprof 21 (col + 1) 0
 					SET_2DA_ENTRY_LATER B#weapprof 23 (col + 1) 2
 //					SET_2DA_ENTRY_LATER B#weapprof 24 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 25 (col + 1) 0
+					SET_2DA_ENTRY_LATER B#weapprof 25 (col + 1) 2
 					SET_2DA_ENTRY_LATER B#weapprof 26 (col + 1) 2
 					SET_2DA_ENTRY_LATER B#weapprof 28 (col + 1) 2
 					SET_2DA_ENTRY_LATER B#weapprof 30 (col + 1) 2
@@ -1142,7 +1142,7 @@ LAF mod_ranger_profs END
 //__________________________________________________________________________________
 
 
-/*
+
 //PROFICIENCIES FOR MOD PALADINS____________________________________________________
 //
 DEFINE_ACTION_FUNCTION mod_paladin_profs BEGIN
@@ -1217,7 +1217,7 @@ DEFINE_ACTION_FUNCTION mod_fighter_profs BEGIN
 					SET_2DA_ENTRY_LATER F#weapprof 31 (col + 1) 2
 					SET_2DA_ENTRY_LATER F#weapprof 32 (col + 1) 2
 					SET_2DA_ENTRY_LATER F#weapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER F#weapprof 34 (col + 1) 3
+					SET_2DA_ENTRY_LATER F#weapprof 34 (col + 1) 2
 				END
 			END
 		END
@@ -1228,7 +1228,7 @@ END
 
 LAF mod_fighter_profs END
 //__________________________________________________________________________________
-*/
+
 
 //MIGHT & GUILE KITS________________________________________________________________
 //
@@ -1352,7 +1352,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 31 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 32 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 33 (col + 1) 2
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 34 (col + 1) 3
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 34 (col + 1) 2
 		END
 	END
 	SET_2DA_ENTRIES_NOW ~s2el_mng~ 1

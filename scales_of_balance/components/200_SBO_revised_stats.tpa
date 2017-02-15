@@ -68,7 +68,12 @@ END
 //
   STRING_SET 9582 @2001 
   STRING_SET 9583 @2003 
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_yaras.d5~ BEGIN
   STRING_SET 9584 @2002 
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~d5_yaras.d5~ BEGIN
+  STRING_SET 9584 @2008 
+END
   STRING_SET 9585 @2004 
   STRING_SET 9586 @2005 
   STRING_SET 9587 @2006 
@@ -427,6 +432,9 @@ ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma09.2da~) THEN BEGIN
 END
 //__________________________________________________________________________________
 
+
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
+
 //ADD INTELLIGENCE BONUS SPELLS_____________________________________________________
 //
 COPY_EXISTING ~kitlist.2da~ ~override~
@@ -509,14 +517,7 @@ ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma09.2da~) BEGIN
 END
 //__________________________________________________________________________________
 
-/*
 END
 
-ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-
-  APPEND ~splprot.2da~ ~STR_EQ%TAB%36%TAB%-1%TAB%1%WNL%DEX_EQ%TAB%40%TAB%-1%TAB%1%WNL%CON_EQ%TAB%41%TAB%-1%TAB%1%WNL%INT_EQ%TAB%38%TAB%-1%TAB%1%WNL%WIS_EQ%TAB%39%TAB%-1%TAB%1%WNL%CHR_EQ%TAB%42%TAB%-1%TAB%1~
-
-END
-*/
 
 CLEAR_ARRAYS

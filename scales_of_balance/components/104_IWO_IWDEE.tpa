@@ -9,10 +9,17 @@
 
 //IWDEE-specific stuff______________________________________________________________
 
-//ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+//random little stuff_______________________________________________________________
+//
+COPY ~scales_of_balance/misc/iwdee/bknight.itm~ ~override~
+COPY ~scales_of_balance/misc/iwdee/bishop.itm~ ~override~
 
-	COPY ~scales_of_balance/misc/iwdee/bknight.itm~ ~override~
-	COPY ~scales_of_balance/misc/iwdee/bishop.itm~ ~override~
+COPY_EXISTING ~quost.itm~ ~override~
+  READ_BYTE 0x21 druid_usability
+  WRITE_BYTE 0x21 (%druid_usability% BAND 0x10111111) 	// make usable by druids
+//__________________________________________________________________________________
+
+
 
 //less-ramdomized loot______________________________________________________________
 //
