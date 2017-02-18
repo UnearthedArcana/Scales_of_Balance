@@ -4,6 +4,8 @@ AUTHOR ~SubtleD~
 VERSION ~v5.5.6~
 //README ~scales_of_balance/readme-SoB.html~
 
+// updated
+
 ALWAYS
 
 	INCLUDE ~scales_of_balance/lib/alter_effect.tpa~
