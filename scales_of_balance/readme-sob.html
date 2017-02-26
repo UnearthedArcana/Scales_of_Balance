@@ -112,7 +112,7 @@
   <div class="section">
     <p><strong><em>IWO: Distinctions between Light and Heavy Weapons</em></strong></p>
     <p>Light, low-damage weapons get a +1 off-hand thac0 bonus.  These weapons include short swords, and daggers.  Light two-handed weapons - spears and quarterstaves - get an overall +1 thac0 bonus.</p>
-    <p>Heavy weapons that are inappropriate for dual-wielding get a -1 penalty to off-hand thac0. These include bastard swords, katanas, and flails.</p>
+    <p>Heavy weapons that are inappropriate for dual-wielding get a -2 penalty to off-hand thac0. These include bastard swords, katanas, and flails.</p>
     <p><b>Compatibility:</b> this component covers the same ground as the "Dual-Wielding Changes for Light and Heavy Weapons" component of Item Revisions. You can probably use both together, but the effects will be compounded and will likely be somewhat extreme. Best to choose one or the other.</p>
   </div>
   <h4 class="subheader">Component 104: </h4>
@@ -178,7 +178,7 @@
         &ndash; (++) = +1 thac0, -2 melee AC, APR increased by .5</p>
         <p>Sword & Shield Style: now called <b>"Shield-Fighting"</b><br />
         &ndash; (+) = +1 thac0, -1 melee AC, -2 missile AC<br />
-        &ndash; (++) = +1 thac0, -1 melee AC, -2 missile AC, chance to perform shield bash when struck</p>
+        &ndash; (++) = +1 thac0, -1 melee AC, -2 missile AC, perform shield bash when struck (1d4 damage and 3-second stun on failed save vs. petrification)</p>
         <p>Two-Handed Weapon Style: now called <b>"Two-Hand Style"</b><br />
         &ndash; (+) = +1 thac0, +1 damage, +5% crit chance<br />
         &ndash; (++) = +2 thac0, +2 damage, +10% crit chance</p>
@@ -187,7 +187,7 @@
         &ndash; (+) = -3 main-hand thac0, and -2 off-hand thac0<br />
         &ndash; (++) = -2 main-hand thac0, and -0 off-hand thac0<br />.</p>
       </div>
-      <p>If you have installed the "Distinctions Between Light/Heavy Weapons" IWO component (#103), the off-hand thac0 bonus for daggers, short swords and clubs becomes a main-hand thac0 bonus instead.  Thus, with two pips in dual-wielding and two short swords you will have <b>no</b> thac0 penalty.  With two pips in dual-wielding and two bastard swords, you will have a -2 penalty with both hands.</p>
+      <p>If you have installed the "Distinctions Between Light/Heavy Weapons" IWO component (#103), the off-hand thac0 bonus for daggers, short swords and clubs becomes a main-hand thac0 bonus instead.  Thus, with two pips in dual-wielding and two short swords you will have <b>no</b> thac0 penalty at all.  With two pips in dual-wielding and two bastard swords, you will have a -2 penalty with main-hand and a -4 penalty with off-hand.</p>
   </div>
   <h4 class="subheader">Component 125: </h4>
   <div class="section">

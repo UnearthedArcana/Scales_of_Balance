@@ -603,9 +603,12 @@ BUT_ONLY
 //SWS APR___________________________________________________________________________
 //
 APPEND ~splprot.2da~ ~D5_SWS%TAB%113%TAB%-1%TAB%4~
-APPEND ~splprot.2da~ ~D5_134_OVER1%TAB%134%TAB%1%TAB%3~
-APPEND ~splprot.2da~ ~D5_134_UNDER4%TAB%134%TAB%4%TAB%2~
-APPEND ~splprot.2da~ ~D5_134_OVER3%TAB%134%TAB%4%TAB%4~
+APPEND ~splprot.2da~ ~D5_134_BIT%TAB%134%TAB%-1%TAB%8~
+APPEND ~splprot.2da~ ~D5_134_NOT%TAB%134%TAB%-1%TAB%9~
+
+//APPEND ~splprot.2da~ ~D5_134_OVER1%TAB%134%TAB%1%TAB%3~
+//APPEND ~splprot.2da~ ~D5_134_UNDER4%TAB%134%TAB%4%TAB%2~
+//APPEND ~splprot.2da~ ~D5_134_OVER3%TAB%134%TAB%4%TAB%4~
 
 COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols // amount of columns
@@ -615,15 +618,17 @@ COPY_EXISTING ~splprot.2da~ ~override~
 	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_SWS~ BEGIN
 	    SET sws_row = %row%
 	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_134_OVER1~ BEGIN
-	    SET 134_over1 = %row%
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_134_BIT~ BEGIN
+	    SET 134_bit = %row%
 	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_134_UNDER4~ BEGIN
-	    SET 134_under4 = %row%
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_134_NOT~ BEGIN
+	    SET 134_not = %row%
 	  END
+/*
 	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_134_OVER3~ BEGIN
 	    SET 134_over3 = %row%
 	  END
+*/
 	END
 BUT_ONLY
 
@@ -631,7 +636,7 @@ COPY ~scales_of_balance/profs/d5_sws1.spl~ ~override~
 	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = 2 parameter2 = %sws_row% END
 COPY ~scales_of_balance/profs/d5_sws2.spl~ ~override~
 COPY ~scales_of_balance/profs/d5_sws3.spl~ ~override~
-	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter2 = %134_over1% END
+	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = 2 parameter2 = %134_bit% END
 COPY ~scales_of_balance/profs/d5_swsn.spl~ ~override~
 	
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
@@ -651,8 +656,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			(%prof% = 91) OR	// short sword
 			(%prof% = 97) BEGIN	 // hammer
 	  PATCH_IF ((%handed% BOR 0b11111101) = 0b11111101) BEGIN 	//	1-handed
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 326 target = 1 parameter2 = %134_under4% timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws1~ END
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter2 = %134_over3% timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws2~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 326 target = 1 parameter1 = 4 parameter2 = %134_not% timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws1~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 4 parameter2 = %134_bit% timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws2~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 resist_dispel = 0 STR_VAR resource = ~d5_sws2~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = 2 parameter2 = (134 + (0x10000 * 1)) timing = 2 resist_dispel = 0 END
 	  END
@@ -712,28 +717,39 @@ END
 
 //SHIELD BASH_______________________________________________________________________
 //
-APPEND ~splprot.2da~ ~PROF_SNS%TAB%112%TAB%2%TAB%4~
+APPEND ~splprot.2da~ ~D5_PROF_SNS%TAB%112%TAB%2%TAB%4~
+//APPEND ~splprot.2da~ ~D5_134_BIT%TAB%134%TAB%-1%TAB%8~		//	already done in SWS above!
+//APPEND ~splprot.2da~ ~D5_134_NOT%TAB%134%TAB%-1%TAB%9~		//	already done in SWS above!
 
 COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols // amount of columns
 	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
 	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~PROF_SNS~ BEGIN
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_PROF_SNS~ BEGIN
 	    SET sns_row = %row%
 	  END
 	END
 BUT_ONLY
 
-COPY ~scales_of_balance/profs/d5_sns2.spl~ ~override~	
+COPY ~scales_of_balance/profs/d5_sns1.spl~ ~override~	
+	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter2 = %sns_row% END
+COPY ~scales_of_balance/profs/d5_sns1a.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = 8 parameter2 = %134_bit% END
+	LPF CLONE_EFFECT INT_VAR multi_match = 1 match_opcode = 326 parameter1 = 8 parameter2 = %134_not% STR_VAR resource = ~d5_snsn~ END
+COPY ~scales_of_balance/profs/d5_sns2.spl~ ~override~
 	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter2 = %sns_row% END
 COPY ~scales_of_balance/profs/d5_sns2a.spl~ ~override~
+COPY ~scales_of_balance/profs/d5_sns2b.spl~ ~override~
+COPY ~scales_of_balance/profs/d5_snsn.spl~ ~override~
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
 	READ_SHORT 0x1c type
 	PATCH_IF (%type% = 12) BEGIN
-	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 232 target = 1 parameter1 = 1 parameter2 = 0 timing = 2 resist_dispel = 0 probability1 = 100 STR_VAR resource = ~d5_sns2~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 2 resist_dispel = 0 probability1 = 100 STR_VAR resource = ~d5_sns1~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 2 resist_dispel = 0 probability1 = 100 STR_VAR resource = ~d5_sns2~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = 8 parameter2 = (134 + (0x10000 * 1)) timing = 2 resist_dispel = 0 END
 	END
   END
 BUT_ONLY
