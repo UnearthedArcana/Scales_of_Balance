@@ -1,0 +1,8 @@
+
+IF
+	NumTimesTalkedTo(0)
+	Kit(LastSummonerOf(Myself),D5MARKS)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_ARCHER","GLOBAL",1)
+END

@@ -467,7 +467,6 @@ Specjalizacja (2 punkty): Kara do TraK0 zostaje zniesiona dla drugiej broni, a d
 @1291 = ~Wojownik ~
 @1292 = ~WOJOWNIK: Wojownik to rycerz, fechmistrz, żołnierz i miłośnik bójek. Jego życie wypełnia poznawanie broni i taktyki. Można go spotkać nie tylko na polu bitwy, ale również walczącego twarzą w twarz z potworami. Dobry wojownik musi być silny i zdrowy – inaczej ma nikłe szanse na przetrwanie.~
 @1294 = ~ŁOWCA: Łowca to wojownik, myśliwy i leśnik. Biegle posługuje się bronią i jest wytrawnym znawcą lasu. Często chroni i pomaga zagubionym wędrowcom i uczciwym wieśniakom. Łowca musi być silny, mądry i znać naturę, by żyć pełnią życia.~
-@12300 = ~Wybierz broń, w której chcesz się szkolić:~
 @12301 = ~Miecze wielkie~
 @12302 = ~Chcesz się szkolić w mieczach wielkich?~
 @12303 = ~Miecze długie~
@@ -498,6 +497,8 @@ Specjalizacja (2 punkty): Kara do TraK0 zostaje zniesiona dla drugiej broni, a d
 @12328 = ~ Chcesz się szkolić w procach?~
 @12329 = ~Tak.~
 @12330 = ~Wybierz inną broń~
+@12351 = ~Wybierz broń, w której chcesz się szkolić:~
+@12352  = ~Choose a weapon proficiency:~
 @1400 = ~Ujednolicone rzuty obronne przeciw czarom~
 @1401 = ~Osłona przed śmiercią~
 @1402 = ~Osłona przed śmiercią

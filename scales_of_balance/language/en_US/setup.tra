@@ -466,7 +466,6 @@ Specialized (2 slots): The thac0 penalties are reduced to -2 with the main weapo
 @1292   = ~FIGHTER:  The fighter is a champion, swordsman, soldier, and brawler.  He lives or dies by his knowledge of weapons and tactics.  Fighters can be found at the front of any battle, contesting toe-to-toe with monsters and villains.  A good fighter needs to be strong and healthy if he hopes to survive.~
 @1293   = ~Ranger~
 @1294   = ~RANGER: The ranger is a warrior and a woodsman. He is skilled with weapons and is knowledgeable in the ways of the forest. The ranger often protects and guides lost travelers and honest peasant-folk.  A ranger needs to be strong and wise to the ways of nature to live a full life. ~
-@12300  = ~Choose a weapon of focus:~
 @12301  = ~Greatsword~
 @12302  = ~Choose Greatswords as your weapon of focus?~
 @12303  = ~Long Sword~
@@ -497,6 +496,8 @@ Specialized (2 slots): The thac0 penalties are reduced to -2 with the main weapo
 @12328  = ~Choose Sling as your weapon of focus?~
 @12329  = ~Yes.~
 @12330  = ~Choose a different weapon~
+@12351  = ~Choose a weapon specialization:~
+@12352  = ~Choose a weapon proficiency:~
 @1400   = ~Spell Saving Throw Standardization~
 @1401   = ~Death Ward~
 @1402   = ~Death Ward
@@ -598,36 +599,48 @@ QUIVERING PALM: The next successful attack forces the opponent to save vs. Spell
 ~
 @2001   = ~STRENGTH: Strength measures a character's muscle, endurance, and stamina. High Strength scores result in bonuses to damage rolls, to-hit rolls, and a character's maximum encumbrance. It is the prime requisite of Fighters.
 
-Melee combat bonuses:
-13: +1 damage
+Melee bonuses/penalties:
+5: -2 thac0, -3 damage, -3 save vs. polymorph
+6: -1 thac0, -2 damage, -2 save vs. polymorph
+7: -1 damage, -2 save vs. polymorph
+8: -1 save vs. polymorph
+9: -1 save vs. polymorph
+...
 14: +1 damage
 15: +2 damage
 16: +1 thac0, +2 damage
 17: +1 thac0, +3 damage
-18: +2 thac0, +3 damage
+18: +1 thac0, +4 damage
 18/xx: +2 thac0, +4 damage (warriors only)
 19: +2 thac0, +5 damage
-20: +3 thac0, +5 damage
-21: +4 thac0, +6 damage
-22: +4 thac0, +7 damage
-23: +5 thac0, +8 damage
-24: +5 thac0, +9 damage
-25: +6 thac0, +10 damage~
+20: +2 thac0, +6 damage
+21: +3 thac0, +6 damage
+22: +3 thac0, +7 damage
+23: +3 thac0, +8 damage
+24: +4 thac0, +8 damage
+25: +4 thac0, +9 damage~
 @2002   = ~DEXTERITY: Dexterity measures a character's hand-eye coordination, agility, reflexes, and balance. A high Dexterity score improves a character's armor class, and to-hit rolls with ranged weapons. It is the prime requisite of the Thief.
 
-Bonuses:
-14: -1 to AC
-15: -1 to AC, +1 to missile thac0
-16: -2 to AC, +1 to missile thac0
-17: -2 to AC, +2 to missile thac0
-18: -3 to AC, +2 to missile thac0
-19: -4 to AC, +3 to missile thac0
-20: -5 to AC, +3 to missile thac0
-21: -5 to AC, +4 to missile thac0
-22: -6 to AC, +4 to missile thac0
-23: -6 to AC, +5 to missile thac0
-24: -7 to AC, +5 to missile thac0
-25: -7 to AC, +6 to missile thac0
+Bonuses/penalties:
+5:  +3 to AC, -3 ranged thac0, -3 save vs. breath weapon
+6:  +2 to AC, -2 ranged thac0, -2 save vs. breath weapon
+7:  +1 to AC, -1 ranged thac0, -2 save vs. breath weapon
+8:  -1 ranged thac0, -1 save vs. breath weapon
+9:  -1 save vs. breath weapon
+...
+13: -1 ranged thac0
+14: -1 to AC, +1 ranged thac0
+15: -2 to AC, +1 ranged thac0
+16: -2 to AC, +2 ranged thac0, +1 melee thac0
+17: -3 to AC, +2 ranged thac0, +1 melee thac0
+18: -4 to AC, +2 ranged thac0, +1 melee thac0
+19: -5 to AC, +3 ranged thac0, +1 melee thac0
+20: -5 to AC, +3 ranged thac0, +2 melee thac0
+21: -6 to AC, +3 ranged thac0, +2 melee thac0
+22: -6 to AC, +4 ranged thac0, +2 melee thac0
+23: -7 to AC, +4 ranged thac0, +2 melee thac0
+24: -7 to AC, +4 ranged thac0, +3 melee thac0
+25: -8 to AC, +5 ranged thac0, +3 melee thac0
 ~
 @2003   = ~CONSTITUTION: Constitution measures a character's fitness, health, and physical resistance to hardship, injury, and disease. This ability is important to the Ranger.
 
@@ -636,26 +649,64 @@ Bonuses:
 16: +2 hit points per level
 17: +3 hit points per level (warriors only)
 18: +4 hit points per level (warriors only)
-19+: +5 hit points per level (warriors only) and regeneration~
-@2004   = ~INTELLIGENCE: Intelligence measures a character's memory, reasoning, and learning ability. High Intelligence gives an increased chance to find weaknesses in opponents' defenses and score critical hits, and extra spells for arcane spellcasters. It is the prime requisite of the Mage.
+19+: +5 hit points per level (warriors only) and regeneration
+~
+@2004   = ~INTELLIGENCE: Intelligence measures a character's memory, reasoning, and learning ability. High Intelligence gives an increased chance to make saving throws against enchantments and illusion magic, and more powerful spellcasting. It is the prime requisite of the Mage.
 
 Note: A character with an Intelligence score of 8 or less is illiterate and cannot use scrolls or most wands.
 
-General bonuses:
-15: 5% chance to score a critical hit
-17: 10% chance to score a critical hit
-19: 15% chance to score a critical hit
+General bonuses/penalties:
+5:  -5 save vs. spells
+6:  -4 save vs. spells
+7:  -3 save vs. spells
+8:  -2 save vs. spells
+9:  -1 save vs. spells
+...
+16: +1 caster level
+17: +1 caster level, +1 save vs. spells
+18: +2 caster level, +1 save vs. spells
+19: +2 caster level, +2 save vs. spells
+20: +3 caster level, +2 save vs. spells
+21: +3 caster level, +3 save vs. spells
+22: +4 caster level, +3 save vs. spells
+23: +4 caster level, +4 save vs. spells
+24: +5 caster level, +4 save vs. spells
+25: +5 caster level, +5 save vs. spells
 
 Bonuses for mages and bards:
-13: +1 1st-level spell
-14: +1 2nd-level spell
-15: +1 3rd-level spell
-16: +1 4th-level spell
-17: +1 5th-level spell
-18: +1 6th-level spell
-19: +1 7th-level spell
-20: +1 8th-level spell~
+13: +1 1st-level spell slot
+14: +1 2nd-level spell slot
+15: +1 3rd-level spell slot
+16: +1 4th-level spell slot
+17: +1 5th-level spell slot
+18: +1 6th-level spell slot
+19: +1 7th-level spell slot
+20: +1 8th-level spell slot
+21: +1 9th-level spell slot
+~
 @2005   = ~WISDOM: Wisdom measures a character's enlightenment, judgment, and common sense. It is the prime requisite of priests, who gain extra spells from high Wisdom scores.
+
+General bonuses/penalties:
+5:  -20% XP progression, -3 save vs. polymorph
+6:  -15% XP progression, -2 save vs. polymorph
+7:  -10% XP progression, -2 save vs. polymorph
+8:  -6% XP progression, -1 save vs. polymorph
+9:  -4% XP progression, -1 save vs. polymorph
+10: -2% XP progression
+...
+13: +2% XP progression
+14: +4% XP progression
+15: +6% XP progression
+16: +8% XP progression
+17: +10% XP progression
+18: +12% XP progression, +1 save vs. polymorph
+19: +14% XP progression, +1 save vs. polymorph
+20: +15% XP progression, +2 save vs. polymorph
+21: +16% XP progression, +2 save vs. polymorph
+22: +17% XP progression, +3 save vs. polymorph
+23: +18% XP progression, +3 save vs. polymorph
+24: +19% XP progression, +4 save vs. polymorph
+25: +20% XP progression, +4 save vs. polymorph
 
 Bonuses for clerics and druids:
 13: +1 1st-level spell
@@ -674,10 +725,24 @@ Bonuses for clerics and druids:
 @2006   = ~CHARISMA: Charisma measures a character's personal magnetism and strength of spirit. It reflects what some cultures call 'karma,' or 'soul.' High Charisma helps with saving throws and luck. This ability is important to the Druid, Bard, and Paladin.
 
 Bonuses: 
-16: +1 to saves vs. Spells and Wands
-17: +2 to saves vs. Spells and Wands
-18: +2 to saves vs. Spells and Wands, and +1 Luck
-19+: +2 to saves vs. Spells and Wands, and +2 Luck~
+5:  -3 Luck, -3 save vs. breath/death/wands
+6:  -2 Luck, -2 save vs. breath/death/wands
+7:  -1 Luck, -2 save vs. breath/death/wands
+8:  -1 Luck, -1 save vs. breath/death/wands
+9:  -1 save vs. breath/death/wands
+14: +1 to saves vs. breath/death
+15: +1 to saves vs. breath/death/spells
+16: +1 to all saving throws
+17: +1 Luck, +2 saves vs. breath/death, +1 vs. spells/wands/polymorph
+18: +1 Luck, +2 saves vs. breath/death, +1 vs. spells/wands/polymorph
+19: +2 Luck, +2 saves vs. breath/death, +1 vs. spells/wands/polymorph
+20: +2 Luck, +2 saves vs. breath/death/spells, +1 vs. wands/polymorph
+21: +2 Luck, +2 to all saving throws
+22: +2 Luck, +3 saves vs. breath/death, +1 vs. spells/wands/polymorph
+23: +2 Luck, +3 saves vs. breath/death/spells, +2 vs. wands/polymorph
+24: +2 Luck, +3 to all saving throws
+25: +3 Luck, +3 to all saving throws
+~
 @2007   = ~CONSTITUTION: Constitution measures a character's fitness, health, and physical resistance to hardship, injury, and disease. This ability is important to the Ranger.
 
 Bonuses:
@@ -692,22 +757,30 @@ Bonuses:
 22: +4 hp/level (warriors +5), regen 1 hp/2 rounds
 23: +4 hp/level (warriors +5), regen 1 hp/round
 24: +5 hp/level (warriors +6), regen 2 hp/round
-25: +5 hp/level (warriors +6), regen 1 hp/second~
+25: +5 hp/level (warriors +6), regen 1 hp/second
+~
 @2008   = ~DEXTERITY: Dexterity measures a character's hand-eye coordination, agility, reflexes, and balance. A high Dexterity score improves a character's armor class, and to-hit rolls with ranged weapons. It is the prime requisite of the Thief.
 
-Bonuses:
-14: -1 to AC
-15: -2 to AC, +1 to missile thac0
-16: -3 to AC, +1 to missile thac0
-17: -4 to AC, +2 to missile thac0
-18: -5 to AC, +2 to missile thac0
-19: -6 to AC, +3 to missile thac0
-20: -7 to AC, +3 to missile thac0
-21: -7 to AC, +4 to missile thac0
-22: -8 to AC, +4 to missile thac0
-23: -8 to AC, +5 to missile thac0
-24: -9 to AC, +5 to missile thac0
-25: -9 to AC, +6 to missile thac0
+Bonuses/penalties:
+5:  +3 to AC, -3 ranged thac0, -3 save vs. breath weapon
+6:  +2 to AC, -2 ranged thac0, -2 save vs. breath weapon
+7:  +1 to AC, -1 ranged thac0, -2 save vs. breath weapon
+8:  -1 ranged thac0, -1 save vs. breath weapon
+9:  -1 save vs. breath weapon
+...
+13: -1 to AC
+14: -1 to AC, +1 ranged thac0
+15: -2 to AC, +1 ranged thac0
+16: -3 to AC, +1 ranged thac0, +1 melee thac0
+17: -4 to AC, +2 ranged thac0, +1 melee thac0
+18: -5 to AC, +2 ranged thac0, +1 melee thac0
+19: -6 to AC, +3 ranged thac0, +1 melee thac0
+20: -6 to AC, +3 ranged thac0, +2 melee thac0
+21: -7 to AC, +3 ranged thac0, +2 melee thac0
+22: -7 to AC, +4 ranged thac0, +2 melee thac0
+23: -8 to AC, +4 ranged thac0, +2 melee thac0
+24: -8 to AC, +4 ranged thac0, +3 melee thac0
+25: -9 to AC, +5 ranged thac0, +3 melee thac0
 ~
 @2011   = ~HUMANS: Humans are the predominant race in Faerun. Humans rule most of the significant empires and kingdoms in the Forgotten Realms. They are the most social and tolerant of races, excepting perhaps the halflings. Humans may advance as any class. Their stat scores can range from 7 to 18.~
 @2012   = ~DWARVES: Dwarves are short and stocky, easily identifiable by their size and shape. They have ruddy cheeks, dark eyes, and dark hair. Dwarves tend to be dour and taciturn. They are given to hard work, and care little for most humor. They enjoy beer, ale, mead, but most of all, they love gold. There are four racial divisions of dwarves within the Realms: shield dwarves, gold dwarves, wild dwarves, and duergar.

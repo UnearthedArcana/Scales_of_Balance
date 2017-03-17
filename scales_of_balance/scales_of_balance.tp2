@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.5.7~
+VERSION ~v5.6a~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -114,22 +114,26 @@ INCLUDE ~scales_of_balance/components/104_IWO_IWDEE.tpa~
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-BEGIN @121 // combine profs
-DESIGNATED 121
+BEGIN @122 // change pip values
+DESIGNATED 122
+REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee eet iwdee~) @1
+//REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "121") @1
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
 INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
+INCLUDE ~scales_of_balance/components/122_WPO_proficiency.tpa~
 //__________________________________________________________________________________
 
-BEGIN @122 // change pip values
-DESIGNATED 122
-REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee eet iwdee~) @1
-REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "121") @1
+BEGIN @121 // combine profs
+DESIGNATED 121
+FORBID_COMPONENT ~scales_of_balance.tp2~ ~122~ @3
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "10") @3
 //GROUP @21
 
-INCLUDE ~scales_of_balance/components/122_WPO_proficiency.tpa~
+ACTION_IF NOT MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~122~ BEGIN
+  INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
+END
 //__________________________________________________________________________________
 
 BEGIN @123 // hardcore dual

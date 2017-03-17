@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.5 </strong><br />
+  <p><strong> Version 5.6 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -138,25 +138,26 @@
         <li> Daggers and darts are combined into a "dagger/dart" proficiency.</li>
         <li> Long bows and short bows are combined into a "bows" proficiency.</li>
       </ul>
-    <p><b>Compatibility:</b> this component is probably not compatible with stuff like the weapon proficiency changes in Tweaks Anthology. Choose one proficiency system mod and stick with it.</p>
+    <p><b>Compatibility:</b> this component is probably not compatible with most other proficiency system changes. However, it <b>IS</b> compatible with the <i>first subcomponent</i> of the "Revised Proficiencies" options in Tweaks Anthology - the one that basically just merges maces and morning stars. If you install that first, then clubs maces & morning stars will all share a proficiency.</p>
   </div>
   <h4 class="subheader">Component 122: </h4>
   <div class="section">
     <p><strong><em>WPO: Proficiency System Overhaul</em></strong></p>
-      <p><strong>Please note, this component can only be installed on an EE or TobEx game.  And it requires Component #121 "Weapon Category Combination."</strong></p>
+      <p><strong>Please note, this component can only be installed on an EE or TobEx game.  And it requires/will automatically install Component #121 "Weapon Category Combination."</strong></p>
       <p>This component can be considered a convenience tweak; it will give most classes substantially more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
-      <p>Clubs are truly universal, simple weapons: everyone can use them.  Crossbows are usable by everyone except druids and Beastmasters.</p>
-      <p>Fighters start with 7 proficiency points and other warriors start with 6, but they cannot place more than one point in any weapon or style at first level, so they must spread those proficiencies among many weapons. However, unusually intelligent warriors receive a "focus training" ability allowing them to specialize in 1 or 2 weapons immediately. (<b>NOTE</b> - the focus weapon ability will only appear in EE games of version 1.4 or higher.) The default INT scores to receive these two opportunities for early specialization are 13 and 15, <b>BUT</b> you can change them by editing /Scales_of_Balance/ini/stats.ini.  Trueclass fighters, alone among warriors, can specialize in two weapons automatically - or up to four if they have high intelligence.</p>
-      <p>Rogues begin with 5 proficiency points, and gain a new one every 4 levels. Druids, clerics and shamans begin with 5 proficiency points, and gain a new one every 5 levels. Wizards and sorcerers begin with 4 proficiency points, and can never move past their initial proficiencies (<b>NOTE</b> - this means dual-classing into a mage means no more weapon advancement <b>at all!</b>).</p>
+      <p>Clubs are truly universal, simple weapons: everyone can use them. Crossbows are usable by everyone except druids and Beastmasters.</p>
+      <p>Warriors, rogues, and priests start with 4 proficiency points; wizards, sorcerers, and shamans start with 3. Warriors can get up the 3 more proficiencies, chosen by dialogue, if their INT score is 11 (+1), 12 (+2), or 13 (+3).</p> 
+      <p>At 1st level, you may only put one point in any weapon or style, so you must spread those proficiencies among many weapons. However, unusually warriors with an INT score of 14+ receive a "focus training" ability allowing them to specialize in 1 weapon immediately. (<b>NOTE</b> - the focus weapon ability will only appear in EE games of version 1.4 or higher.) And trueclass fighters automatically get an additional weapon of focus, regardless of INT. </p>
+      <p>Warriors gain another proficiency point every 3 levels. Rogues gain a new point every 4 levels. Druids, clerics and shamans gain a new point every 5 levels. Wizards, sorcerers, and monks can never move past their initial proficiencies (<b>NOTE</b> - this means dual-classing into a mage means no more weapon advancement <b>at all!</b>).</p>
       <ul>
         <li> Trueclass fighters and Kensai can attain Mastery (+++) at 6th level, and High Mastery (++++) at 9th level, in any weapons they focus on. </li>
         <li> Other kitted fighters plus barbarians, paladins, and rangers can attain Mastery (+++) at 6th level. </li>
         <li> Rogues, clerics and druids, as well as mage/thieves, cleric/thieves and cleric/mages, can attain Specialization (++) with any weapons they can normally use. </li>
-        <li> Multiclass fighter/mages can attain Mastery (+++) in any weapon but the only available style is Single-Weapon Style. </li>
+        <li> Multiclass fighter/mages can attain Mastery (+++) in any weapon but the only available styles are Single-Weapon and Two-Handed Weapon. </li>
         <li> Fighter/clerics and Fighter/thieves can attain Mastery (+++) in any weapon they can use. </li>
       </ul>
-      <p>Beyond that, certain kits will be able to reach 1 point higher or lower in certain weapons (e.g. Archers can reach (++++) with missile weapons, and only (++) with melee weapons). </p>
+      <p>Beyond that, certain kits will be able to reach 1 point higher or lower in certain weapons (e.g. Archers can reach (++++) with missile weapons, and only (++) with melee weapons; Assassins can reach (+++) with daggers; etc.). </p>
       <div class="kit_description">
         <p>Proficiency benefits (cumulative totals)<br />
         &ndash; ** = +1 thac0; +1 damage; +0.5 APR<br />
@@ -209,23 +210,622 @@
     </ul></p> 
     <p>Additionally, saving throw tables are made more sensible.  No earth-shaking changes, just sensible progression: wizards save well against spells, priests save well against death, rogues save well against breath, and warriors save well against almost everything.</p>
   </div>
-  <h4 class="subheader">Component 200: </h4>
+  <h4 class="subheader">Component 200 (for EE 1.4+): </h4>
   <div class="section">
     <p><strong><em>Stat Bonus Overhaul (SBO)</em></strong></p>
-      <p>STR, DEX, and WIS bonuses are modified so that every point added above 13 (or so) results in a tangible benefit:<br />
-      <ul>
-      	<li>The 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same.  Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</li><br />
-      	<li>Dexterity bonuses are also pushed lower and spread out a bit more. 14 DEX gives -1 AC; 15 gives +1 missile thac0; 16 gives another -1 AC; 17 gives another +1 to missile thac0; etc. (Note, if YARAS is installed that DEX table will be used instead of this one.)</p>
-      	<li>Intelligence is no longer a dump-stat. Bards and wizards get an extra spell of each level for as many points of intelligence they have above 12 - so, an extra 1st-level spell for 13 INT, and an extra spell of level 1 through 9 at 21 INT. (This is only measured once, however - drinking a potion for bonus INT points will not give you extra spells.) In addition, this component disables critical hits for anyone with INT less than 14, by applying a -5% penalty. At 14 INT you have the normal 5% chance for crits, at 16 INT you have a 10% chance, and at 18 INT you have a 15% chance.  (<b>NOTE:</b> you can change these values by editing /Scales_of_Balance/ini/stats.ini.)</p>
-      	<li>Wisdom now grants an extra 1st-level priest spell at both 13 and at 14; and extra 2nd-level spell at 15 and at 16; an extra 3rd-level spell at 17 and at 18; et cetera, up to 2 extra spells of every level at 25 WIS</p>
-      	<li>Charisma is not a dump stat either! Charisma now measures something like 'spirit' or 'karma' at the beginning of a character's career. Upon creating a character, 16 CHA will grant a +1 bonus to saves vs. spells and wands. At 17 CHA this bonus will be +2. At 18 CHA the character is also granted a permanent +1 Luck, and at 19 CHA this grows to +2 Luck. (Note, this takes the place of so-called "shorty save bonuses" associated with CON, which are removed!)</p>
-      	<li>Constitution bonuses are folded into Component #205, Hit Dice Overhaul, below. The only change wrought by this component is to change the "shorty save bonuses" for halflings, dwarves, and gnomes to affect saves vs. death/poison and polymorph/petrification, and to cap the bonuses at +3 (at 19 CON).</p>
-      </ul>
+    <p>Stat bonuses are modified so that every point added above 13 (or so) results in a tangible benefit; and scores below ~11 have some tangible penalties (down to 5, which is the new minimum).<br />
+    <div class="kit_description">
+<table style= "width: 40%">
+ <tr>
+  <th>STRENGTH</th>
+  <th> thac0 </th>
+  <th> Damage </th>
+ </tr>
+ <tr>
+  <td><b>14:</b></td>
+  <td>.</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>15:</b></td>
+  <td>.</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>16:</b></td>
+  <td>+1</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>17:</b></td>
+  <td>+1</td>
+  <td>+3</td>
+ </tr>
+ <tr>
+  <td><b>18:</b></td>
+  <td>+1</td>
+  <td>+4</td>
+ </tr>
+ <tr>
+  <td><b>18/51:</b></td>
+  <td>+2</td>
+  <td>+4</td>
+ </tr> <tr>
+  <td><b>19:</b></td>
+  <td>+2</td>
+  <td>+5</td>
+ </tr>
+ <tr>
+  <td><b>20:</b></td>
+  <td>+2</td>
+  <td>+6</td>
+ </tr>
+ <tr>
+  <td><b>21:</b></td>
+  <td>+3</td>
+  <td>+6</td>
+ </tr>
+ <tr>
+  <td><b>22:</b></td>
+  <td>+3</td>
+  <td>+7</td>
+ </tr>
+ <tr>
+  <td><b>23:</b></td>
+  <td>+3</td>
+  <td>+8</td>
+ </tr>
+ <tr>
+  <td><b>24:</b></td>
+  <td>+4</td>
+  <td>+8</td>
+ </tr>
+ <tr>
+  <td><b>25:</b></td>
+  <td>+5</td>
+  <td>+9</td>
+ </tr>
+</table>
+
+<table style= "width: 50%">
+ <tr>
+  <th>DEXTERITY</th>
+  <th>Armor Class</th>
+  <th>Ranged thac0 </th>
+  <th>Melee thac0 </th>
+ </tr>
+ <tr>
+  <td><b>13:</b></td>
+  <td>-1</td>
+  <td>.</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>14:</b></td>
+  <td>-1</td>
+  <td>+1</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>15:</b></td>
+  <td>-2</td>
+  <td>+1</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>16:</b></td>
+  <td>-2</td>
+  <td>+2</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>17:</b></td>
+  <td>-3</td>
+  <td>+2</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>18:</b></td>
+  <td>-4</td>
+  <td>+2</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>19:</b></td>
+  <td>-5</td>
+  <td>+3</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>20:</b></td>
+  <td>-5</td>
+  <td>+3</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>21:</b></td>
+  <td>-6</td>
+  <td>+3</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>22:</b></td>
+  <td>-6</td>
+  <td>+4</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>23:</b></td>
+  <td>-7</td>
+  <td>+4</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>24:</b></td>
+  <td>-7</td>
+  <td>+4</td>
+  <td>+3</td>
+ </tr>
+ <tr>
+  <td><b>25:</b></td>
+  <td>-8</td>
+  <td>+5</td>
+  <td>+3</td>
+ </tr>
+</table>
+
+<table style= "width: 60%">
+ <tr>
+  <th>INTELLIGENCE</th>
+  <th>Bonus Spells</th>
+  <th>Caster Level </th>
+  <th>Save vs. Spells </th>
+  <th>Extra Proficiencies* </th>
+ </tr>
+ <tr>
+  <td><b>5:</b></td>
+  <td>.</td>
+  <td>.</td>
+  <td>-5</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>6:</b></td>
+  <td>.</td>
+  <td>.</td>
+  <td>-4</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>7:</b></td>
+  <td>.</td>
+  <td>.</td>
+  <td>-3</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>8:</b></td>
+  <td>.</td>
+  <td>.</td>
+  <td>-2</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>9:</b></td>
+  <td>.</td>
+  <td>.</td>
+  <td>-1</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>10-12:</b></td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>13:</b></td>
+  <td>1st level</td>
+  <td>.</td>
+  <td>.</td>
+  <td>+3</td>
+ </tr>
+ <tr>
+  <td><b>14:</b></td>
+  <td>2nd level</td>
+  <td>.</td>
+  <td>.</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>15:</b></td>
+  <td>3rd level</td>
+  <td>.</td>
+  <td>.</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>16:</b></td>
+  <td>4th level</td>
+  <td>+1</td>
+  <td>.</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>17:</b></td>
+  <td>5th level</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>18:</b></td>
+  <td>6th level</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>19:</b></td>
+  <td>7th level</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>20:</b></td>
+  <td>8th level</td>
+  <td>+3</td>
+  <td>+2</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>21:</b></td>
+  <td>9th level</td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>22:</b></td>
+  <td>2nd level</td>
+  <td>+4</td>
+  <td>+3</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>23:</b></td>
+  <td>3rd level</td>
+  <td>+4</td>
+  <td>+4</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>24:</b></td>
+  <td>4t level</td>
+  <td>+5</td>
+  <td>+4</td>
+  <td>+3, +1 spec</td>
+ </tr>
+ <tr>
+  <td><b>25:</b></td>
+  <td>5th level</td>
+  <td>+5</td>
+  <td>+5</td>
+  <td>+3, +1 spec</td>
+ </tr>
+</table>
+* <i>(If you have installed component #122 "WPO")</i><br />
+<table style= "width: 50%">
+ <tr>
+  <th>WISDOM </th>
+  <th>Bonus Spells</th>
+  <th>XP Modifier</th>
+  <th>Save vs. Polymorph</th>
+ </tr>
+ <tr>
+  <td><b>5:</b></td>
+  <td>.</td>
+  <td>-20%</td>
+  <td>-3</td>
+ </tr>
+ <tr>
+  <td><b>6:</b></td>
+  <td>.</td>
+  <td>-15%</td>
+  <td>-2</td>
+ </tr>
+ <tr>
+  <td><b>7:</b></td>
+  <td>.</td>
+  <td>-10%</td>
+  <td>-2</td>
+ </tr>
+ <tr>
+  <td><b>8:</b></td>
+  <td>.</td>
+  <td>-6%</td>
+  <td>-1</td>
+ </tr>
+ <tr>
+  <td><b>9:</b></td>
+  <td>.</td>
+  <td>-4%</td>
+  <td>-1</td>
+ </tr>
+ <tr>
+  <td><b>10:</b></td>
+  <td>.</td>
+  <td>-2%</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>11-12:</b></td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>13:</b></td>
+  <td>1st level</td>
+  <td>+2%</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>14:</b></td>
+  <td>2nd level</td>
+  <td>+4%</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>15:</b></td>
+  <td>1st level</td>
+  <td>+6%</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>16:</b></td>
+  <td>3rd level</td>
+  <td>+8%</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>17:</b></td>
+  <td>2nd level</td>
+  <td>+10%</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>18:</b></td>
+  <td>4th level</td>
+  <td>+12%</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>19:</b></td>
+  <td>3rd level</td>
+  <td>+14%</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>20:</b></td>
+  <td>5th level</td>
+  <td>+15%</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>21:</b></td>
+  <td>4th level</td>
+  <td>+16%</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>22:</b></td>
+  <td>6th level</td>
+  <td>+17%</td>
+  <td>+3</td>
+ </tr>
+ <tr>
+  <td><b>23:</b></td>
+  <td>5th level</td>
+  <td>+18%</td>
+  <td>+3</td>
+ </tr>
+ <tr>
+  <td><b>24:</b></td>
+  <td>7th level</td>
+  <td>+19%</td>
+  <td>+4</td>
+ </tr>
+ <tr>
+  <td><b>25:</b></td>
+  <td>6th level</td>
+  <td>+20%</td>
+  <td>+4</td>
+ </tr>
+</table>
+
+<table style= "width: 65%">
+ <tr>
+  <th>CHARISMA</th>
+  <th>save vs. Breath</th>
+  <th>Save vs. Death</th>
+  <th>Save vs. Spells</th>
+  <th>Save vs. Wands</th>
+  <th>Save vs. Polymorph</th>
+  <th>Luck Bonus </th>
+ </tr>
+ <tr>
+  <td><b>5:</b></td>
+  <td>-3</td>
+  <td>-3</td>
+  <td>.</td>
+  <td>-3</td>
+  <td>.</td>
+  <td>-3</td>
+ </tr>
+ <tr>
+  <td><b>6:</b></td>
+  <td>-2</td>
+  <td>-2</td>
+  <td>.</td>
+  <td>-2</td>
+  <td>.</td>
+  <td>-2</td>
+ </tr>
+ <tr>
+  <td><b>7:</b></td>
+  <td>-2</td>
+  <td>-2</td>
+  <td>.</td>
+  <td>-2</td>
+  <td>.</td>
+  <td>-1</td>
+ </tr>
+ <tr>
+  <td><b>8:</b></td>
+  <td>-1</td>
+  <td>-1</td>
+  <td>.</td>
+  <td>-1</td>
+  <td>.</td>
+  <td>-1</td>
+ </tr>
+ <tr>
+  <td><b>9:</b></td>
+  <td>-1</td>
+  <td>-1</td>
+  <td>.</td>
+  <td>-1</td>
+  <td>.</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>10-13:</b></td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>14:</b></td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>.</td>
+  <td>.</td>
+  <td>.</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>15:</b></td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>.</td>
+  <td>.</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>16:</b></td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>17:</b></td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>18:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>19:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>20:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>21:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>22:</b></td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>23:</b></td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>24:</b></td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+2</td>
+ </tr>
+ <tr>
+  <td><b>25:</b></td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+3</td>
+  <td>+3</td>
+ </tr>
+</table>
+    </div>
+      <p(Note: the 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same. Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</p>
       <p>Finally, to make more meaningful differences between races, demihumans will have more stat bonuses and penalties.  The racial maximums are now:</p>
       <ul>
         <li> Elves: 19 Dex, 19 Int, 17 Str, 16 Con</li>
         <li> Half-elf: 19 Cha, 17 Wis</li>
-        <li> Dwarf: 19 Con, 17 Dex, 16 Cha</li>
+        <li> Dwarf: 19 Con, 17 Dex, 17 Cha</li>
         <li> Halfling: 19 Dex, 19 Cha, 17 Int, 16 Str</li>
         <li> Gnome: 19 Int, 19 Con, 17 Str, 16 Wis</li>
         <li> Half-orc: 19 Str, 17 Int, 16 Cha</li>
@@ -299,15 +899,20 @@
 </div>
 <h2>Credits and Copyright Information</h2>
 <div class="section">
-  <p>Copyright 2014-2015. If you want to use or adapt any part of this mod in another mod or similar endeavor, please try to contact me at forums.gibberlings3.net or forum.baldursgate.com to discuss it. As a general rule, I have no problem with that as long as you credit the source of the work. If you cannot get in touch with me, assume that you have my permission to use any of this code for any project that is non-commercial, offered for free, and intended for the greater enjoyment of players of Infinity Engine games. You may NOT use this code for any profit-making or commercial venture, without express permission from me.</p>
+  <p>Copyright 2014-2017. If you want to use or adapt any part of this mod in another mod or similar endeavor, please try to contact me at forums.gibberlings3.net or forum.baldursgate.com to discuss it. As a general rule, I have no problem with that as long as you credit the source of the work. If you cannot get in touch with me, assume that you have my permission to use any of this code for any project that is non-commercial, offered for free, and intended for the greater enjoyment of players of Infinity Engine games. You may NOT use this code for any profit-making or commercial venture, without express permission from me.</p>
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.6 - March 2017</strong></p>
+  <ul>
+    <li>re-wrote SBO - now completely dynamic!</li>
+    <li>new dialogue for initial proficiencies</li>
+  </ul>
   <p><strong>Version 5.5 - November 2016</strong></p>
   <ul>
     <li>re-wrote YARAS</li>
     <li>re-wrote portions of the WPO</li>
-    <li>aaded multiple subcomponents for NMX</li>
+    <li>added multiple subcomponents for NMX</li>
   </ul>
   <p><strong>Version 5.4 - September 2016</strong></p>
   <ul>

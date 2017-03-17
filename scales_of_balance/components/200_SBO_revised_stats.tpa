@@ -23,11 +23,14 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_yaras.d5~ BEGIN
 END
 COPY ~scales_of_balance/stats/strmod.2da~ ~override~
 COPY ~scales_of_balance/stats/strmodex.2da~ ~override~
-COPY ~scales_of_balance/misc/mxsplwis.2da~ ~override~
+COPY ~scales_of_balance/stats/mxsplwis.2da~ ~override~
 //COPY ~scales_of_balance/stats/intmod.2da~ ~override~
+COPY ~scales_of_balance/stats/strmod.2da~ ~override~
+COPY ~scales_of_balance/stats/savecndh.2da~ ~override~
+COPY ~scales_of_balance/stats/savecng.2da~ ~override~
 COPY_EXISTING ~abclasrq.2da~ ~override~
-	REPLACE_TEXTUALLY ~ 0~ ~ 7~
-	REPLACE_TEXTUALLY ~ 17~ ~ 16~
+	REPLACE_TEXTUALLY ~ 0~ ~ 5~
+//	REPLACE_TEXTUALLY ~ 17~ ~ 16~
 	BUT_ONLY
 //___________________________________________________________________________________
 
@@ -80,145 +83,10 @@ END
 //___________________________________________________________________________________
 
 
-//CHARISMA BONUSES___________________________________________________________________
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
+
+//ADD INTELLIGENCE BONUS SPELLS_____________________________________________________
 //
-COPY ~scales_of_balance/stats/savecndh.2da~ ~override~
-COPY ~scales_of_balance/stats/savecng.2da~ ~override~
-
-ACTION_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-	COPY ~scales_of_balance/stats/old/d5_palch.spl~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_cha16.spl~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_cha17.spl~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_cha18.spl~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_cha19.spl~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_chari.spl~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_chari.cre~ ~override~
-	COMPILE ~scales_of_balance/stats/old/d5_chari.baf~
-END
-ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-	COPY ~scales_of_balance/stats/new/d5_chari.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_palch.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_savch.spl~ ~override~
-	COPY ~scales_of_balance/misc/d5_luckp.spl~ ~override~
-END
-//___________________________________________________________________________________
-
-//EXCLUDE PALADINS___________________________________________________________________
-//
-COPY_EXISTING ~kitlist.2da~ ~override~
-	COUNT_2DA_ROWS ~9~ "rows"
-	FOR ( index = 2 ; index < rows ; index = index + 1 ) BEGIN
-		READ_2DA_ENTRY %index% 5 9 modclab
-		READ_2DA_ENTRY %index% 8 9 modclass
-		DEFINE_ASSOCIATIVE_ARRAY d5_intel_array BEGIN "%modclab%" => "%modclass%" END
-	END
-BUT_ONLY
-ACTION_PHP_EACH d5_intel_array AS boo => zoo BEGIN
-	ACTION_IF (%zoo% = 6) AND (FILE_EXISTS_IN_GAME ~%boo%.2da~) THEN BEGIN
-		COPY_EXISTING ~%boo%.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/stats/charisma_paladin.txt~
-			BUT_ONLY
-	END
-END
-//___________________________________________________________________________________
-
-//ADD CHARISMA BONUSES_______________________________________________________________
-//
-COPY_EXISTING ~clabpr01.2da~ ~override~
-			~clabdr01.2da~ ~override~
-//			~clabpa01.2da~ ~override~
-			~clabrn01.2da~ ~override~
-			~clabfi01.2da~ ~override~
-			~clabth01.2da~ ~override~
-			~clabba01.2da~ ~override~
-			~clabmo01.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-COPY_EXISTING ~kitlist.2da~ ~override~
-	COUNT_2DA_ROWS ~9~ "rows"
-	FOR ( index = 1 ; index < rows ; index = index + 1 ) BEGIN
-		READ_2DA_ENTRY %index% 5 9 modclab
-		READ_2DA_ENTRY %index% 8 9 modclass
-		DEFINE_ASSOCIATIVE_ARRAY d5_char_array BEGIN "%modclab%" => "%modclass%" END
-	END
-BUT_ONLY
-ACTION_PHP_EACH d5_char_array AS pu => poo BEGIN
-	ACTION_IF (FILE_EXISTS_IN_GAME ~%pu%.2da~) THEN BEGIN
-		COPY_EXISTING ~%pu%.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-		BUT_ONLY
-	END
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma01.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma01.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma02.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma02.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma03.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma03.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma04.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma04.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma05.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma05.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma06.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma06.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma07.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma07.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma08.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma08.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma09.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma09.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/charisma_bonuses.txt~
-END
-//__________________________________________________________________________________
-
-//INTELLIGENCE BONUSES______________________________________________________________
-//
-INCLUDE ~scales_of_balance/ini/stats.ini~
-
-APPEND ~splprot.2da~ ~D5_CRIT_LT%TAB%38%TAB%-1%TAB%2~
-APPEND ~splprot.2da~ ~D5_CRIT_GTEQ%TAB%38%TAB%-1%TAB%4~
-
-COPY_EXISTING ~splprot.2da~ ~override~
-	COUNT_2DA_COLS cols // amount of columns
-	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
-	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
-    	READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
-		PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CRIT_LT~ BEGIN
-			SET crit_lt_row = %row%
-      	END
-		PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CRIT_GTEQ~ BEGIN
-			SET crit_gteq_row = %row%
-      	END
-	END
-BUT_ONLY
-
 COPY ~scales_of_balance/misc/d5_wisp1.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp2.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp3.spl~ ~override~
@@ -240,12 +108,6 @@ COPY ~scales_of_balance/stats/d5_nint9.eff~ ~override~
 COPY ~scales_of_balance/stats/d5_nint0.eff~ ~override~
 
 ACTION_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-	COPY ~scales_of_balance/stats/old/d5_intcr.spl~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_intcr.cre~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_crit1.spl~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_crit2.spl~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_crit3.spl~ ~override~
-	COPY ~scales_of_balance/stats/old/d5_crit0.spl~ ~override~
 	COPY ~scales_of_balance/stats/old/d5_int12.spl~ ~override~
 	COPY ~scales_of_balance/stats/old/d5_int13.spl~ ~override~
 	COPY ~scales_of_balance/stats/old/d5_int14.spl~ ~override~
@@ -264,7 +126,6 @@ ACTION_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	COPY ~scales_of_balance/stats/old/d5_int18.cre~ ~override~
 	COPY ~scales_of_balance/stats/old/d5_int19.cre~ ~override~
 	COPY ~scales_of_balance/stats/old/d5_int20.cre~ ~override~
-	COMPILE ~scales_of_balance/stats/old/d5_intcr.baf~
 	COMPILE ~scales_of_balance/stats/old/d5_int12.baf~
 	COMPILE ~scales_of_balance/stats/old/d5_int13.baf~
 	COMPILE ~scales_of_balance/stats/old/d5_int14.baf~
@@ -276,167 +137,17 @@ ACTION_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	COMPILE ~scales_of_balance/stats/old/d5_int20.baf~
 END
 ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-	COPY ~scales_of_balance/stats/new/d5_intcr.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_crit0.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_critb.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_crit2.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_crit3.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_crit0.eff~ ~override~
-		WRITE_LONG 0x1c %int_crit_1%
-		WRITE_LONG 0x20 %crit_lt_row%
-	COPY ~scales_of_balance/stats/new/d5_crit2.eff~ ~override~
-		WRITE_LONG 0x1c %int_crit_2%
-		WRITE_LONG 0x20 %crit_gteq_row%
-	COPY ~scales_of_balance/stats/new/d5_crit3.eff~ ~override~
-		WRITE_LONG 0x1c %int_crit_3%
-		WRITE_LONG 0x20 %crit_gteq_row%
-	COPY ~scales_of_balance/stats/new/d5_int12.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_int13.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_int14.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_int15.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_int16.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_int17.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_int18.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_int19.spl~ ~override~
-	COPY ~scales_of_balance/stats/new/d5_int20.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5i13spl.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5i14spl.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5i15spl.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5i16spl.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5i17spl.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5i18spl.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5i19spl.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5i20spl.spl~ ~override~
+	COPY ~scales_of_balance/stats/new/d5i21spl.spl~ ~override~
 END
-//___________________________________________________________________________________
 
-//ADD CRIT PENALTIES________________________________________________________________
-//
-COPY_EXISTING ~clabpr01.2da~ ~override~
-			~clabdr01.2da~ ~override~
-			~clabpa01.2da~ ~override~
-			~clabrn01.2da~ ~override~
-			~clabfi01.2da~ ~override~
-			~clabth01.2da~ ~override~
-			~clabba01.2da~ ~override~
-			~clabmo01.2da~ ~override~
-		LPM remove_blank_lines
-		PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-		END
-		PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-		END
-COPY_EXISTING ~kitlist.2da~ ~override~
-	COUNT_2DA_ROWS ~9~ "rows"
-	FOR ( index = 1 ; index < rows ; index = index + 1 ) BEGIN
-		READ_2DA_ENTRY %index% 5 9 modclab
-		READ_2DA_ENTRY %index% 8 9 modclass
-		DEFINE_ASSOCIATIVE_ARRAY d5_char_array BEGIN "%modclab%" => "%modclass%" END
-	END
-BUT_ONLY
-ACTION_PHP_EACH d5_char_array AS pu => poo BEGIN
-	ACTION_IF (FILE_EXISTS_IN_GAME ~%pu%.2da~) THEN BEGIN
-		COPY_EXISTING ~%pu%.2da~ ~override~
-			LPM remove_blank_lines
-			PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-				APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-			END
-			PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-				APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-			END
-		BUT_ONLY
-	END
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma01.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma01.2da~ ~override~
-		LPM remove_blank_lines
-		PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-		END
-		PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-		END
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma02.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma02.2da~ ~override~
-		LPM remove_blank_lines
-		PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-		END
-		PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-		END
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma03.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma03.2da~ ~override~
-		LPM remove_blank_lines
-		PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-		END
-		PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-		END
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma04.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma04.2da~ ~override~
-		LPM remove_blank_lines
-		PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-		END
-		PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-		END
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma05.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma05.2da~ ~override~
-		LPM remove_blank_lines
-		PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-		END
-		PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-		END
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma06.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma06.2da~ ~override~
-		LPM remove_blank_lines
-		PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-		END
-		PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-		END
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma07.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma07.2da~ ~override~
-		LPM remove_blank_lines
-		PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-		END
-		PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-		END
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma08.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma08.2da~ ~override~
-		LPM remove_blank_lines
-		PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-		END
-		PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-		END
-END
-ACTION_IF NOT (FILE_EXISTS_IN_GAME ~clabma09.2da~) THEN BEGIN
-	COPY ~scales_of_balance/misc/clabma09.2da~ ~override~
-		LPM remove_blank_lines
-		PATCH_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/old/crit_changes.txt~
-		END
-		PATCH_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-			APPEND_FILE ~scales_of_balance/stats/new/crit_changes.txt~
-		END
-END
-//__________________________________________________________________________________
-
-
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
-
-//ADD INTELLIGENCE BONUS SPELLS_____________________________________________________
-//
 COPY_EXISTING ~kitlist.2da~ ~override~
 	COUNT_2DA_ROWS ~9~ "rows"
 	FOR ( index = 2 ; index < rows ; index = index + 1 ) BEGIN
@@ -518,6 +229,785 @@ END
 //__________________________________________________________________________________
 
 END
+
+//ADD NEW DYNAMIC STAT BONUSES______________________________________________________
+//
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+
+  COPY ~scales_of_balance/stats/d5_stat1.spl~ ~override~
+  COPY ~scales_of_balance/stats/d5_stats.spl~ ~override~
+  COPY ~scales_of_balance/stats/d5_stats.eff~ ~override~
+  
+  APPEND ~splprot.2da~ ~D5_STR_5%TAB%36%TAB%5%TAB%1~
+  APPEND ~splprot.2da~ ~D5_STR_6%TAB%36%TAB%6%TAB%1~
+  APPEND ~splprot.2da~ ~D5_STR_7%TAB%36%TAB%7%TAB%1~
+  APPEND ~splprot.2da~ ~D5_STR_8%TAB%36%TAB%8%TAB%1~
+  APPEND ~splprot.2da~ ~D5_STR_9%TAB%36%TAB%9%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CON_5%TAB%41%TAB%5%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CON_6%TAB%41%TAB%6%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CON_7%TAB%41%TAB%7%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CON_8%TAB%41%TAB%8%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CON_9%TAB%41%TAB%9%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_5%TAB%40%TAB%5%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_6%TAB%40%TAB%6%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_7%TAB%40%TAB%7%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_8%TAB%40%TAB%8%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_9%TAB%40%TAB%9%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_16%TAB%40%TAB%16%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_17%TAB%40%TAB%17%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_18%TAB%40%TAB%18%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_19%TAB%40%TAB%19%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_20%TAB%40%TAB%20%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_21%TAB%40%TAB%21%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_22%TAB%40%TAB%22%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_23%TAB%40%TAB%23%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_24%TAB%40%TAB%24%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_25%TAB%40%TAB%25%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_5%TAB%38%TAB%5%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_6%TAB%38%TAB%6%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_7%TAB%38%TAB%7%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_8%TAB%38%TAB%8%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_9%TAB%38%TAB%9%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_16%TAB%38%TAB%16%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_17%TAB%38%TAB%17%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_18%TAB%38%TAB%18%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_19%TAB%38%TAB%19%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_20%TAB%38%TAB%20%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_21%TAB%38%TAB%21%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_22%TAB%38%TAB%22%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_23%TAB%38%TAB%23%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_24%TAB%38%TAB%24%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_25%TAB%38%TAB%25%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_5%TAB%39%TAB%5%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_6%TAB%39%TAB%6%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_7%TAB%39%TAB%7%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_8%TAB%39%TAB%8%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_9%TAB%39%TAB%9%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_10%TAB%39%TAB%10%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_13%TAB%39%TAB%13%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_14%TAB%39%TAB%14%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_15%TAB%39%TAB%15%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_16%TAB%39%TAB%16%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_17%TAB%39%TAB%17%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_18%TAB%39%TAB%18%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_19%TAB%39%TAB%19%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_20%TAB%39%TAB%20%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_21%TAB%39%TAB%21%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_22%TAB%39%TAB%22%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_23%TAB%39%TAB%23%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_24%TAB%39%TAB%24%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_25%TAB%39%TAB%25%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_5%TAB%42%TAB%5%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_6%TAB%42%TAB%6%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_7%TAB%42%TAB%7%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_8%TAB%42%TAB%8%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_9%TAB%42%TAB%9%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_14%TAB%42%TAB%14%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_15%TAB%42%TAB%15%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_16%TAB%42%TAB%16%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_17%TAB%42%TAB%17%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_18%TAB%42%TAB%18%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_19%TAB%42%TAB%19%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_20%TAB%42%TAB%20%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_21%TAB%42%TAB%21%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_22%TAB%42%TAB%22%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_23%TAB%42%TAB%23%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_24%TAB%42%TAB%24%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_25%TAB%42%TAB%25%TAB%1~
+  
+  COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols // amount of columns
+	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
+	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_5~ BEGIN
+	    SET str_5 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_6~ BEGIN
+	    SET str_6 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_7~ BEGIN
+	    SET str_7 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_8~ BEGIN
+	    SET str_8 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_9~ BEGIN
+	    SET str_9 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_5~ BEGIN
+	    SET con_5 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_6~ BEGIN
+	    SET con_6 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_7~ BEGIN
+	    SET con_7 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_8~ BEGIN
+	    SET con_8 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_9~ BEGIN
+	    SET con_9 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_5~ BEGIN
+	    SET dex_5 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_6~ BEGIN
+	    SET dex_6 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_7~ BEGIN
+	    SET dex_7 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_8~ BEGIN
+	    SET dex_8 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_9~ BEGIN
+	    SET dex_9 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_16~ BEGIN
+	    SET dex_16 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_17~ BEGIN
+	    SET dex_17 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_18~ BEGIN
+	    SET dex_18 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_19~ BEGIN
+	    SET dex_19 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_20~ BEGIN
+	    SET dex_20 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_21~ BEGIN
+	    SET dex_21 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_22~ BEGIN
+	    SET dex_22 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_23~ BEGIN
+	    SET dex_23 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_24~ BEGIN
+	    SET dex_24 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_25~ BEGIN
+	    SET dex_25 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_5~ BEGIN
+	    SET int_5 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_6~ BEGIN
+	    SET int_6 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_7~ BEGIN
+	    SET int_7 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_8~ BEGIN
+	    SET int_8 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_9~ BEGIN
+	    SET int_9 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_16~ BEGIN
+	    SET int_16 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_17~ BEGIN
+	    SET int_17 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_18~ BEGIN
+	    SET int_18 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_19~ BEGIN
+	    SET int_19 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_20~ BEGIN
+	    SET int_20 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_21~ BEGIN
+	    SET int_21 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_22~ BEGIN
+	    SET int_22 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_23~ BEGIN
+	    SET int_23 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_24~ BEGIN
+	    SET int_24 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_25~ BEGIN
+	    SET int_25 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_5~ BEGIN
+	    SET wis_5 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_6~ BEGIN
+	    SET wis_6 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_7~ BEGIN
+	    SET wis_7 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_8~ BEGIN
+	    SET wis_8 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_9~ BEGIN
+	    SET wis_9 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_10~ BEGIN
+	    SET wis_10 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_13~ BEGIN
+	    SET wis_13 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_14~ BEGIN
+	    SET wis_14 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_15~ BEGIN
+	    SET wis_15 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_16~ BEGIN
+	    SET wis_16 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_17~ BEGIN
+	    SET wis_17 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_18~ BEGIN
+	    SET wis_18 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_19~ BEGIN
+	    SET wis_19 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_20~ BEGIN
+	    SET wis_20 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_21~ BEGIN
+	    SET wis_21 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_22~ BEGIN
+	    SET wis_22 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_23~ BEGIN
+	    SET wis_23 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_24~ BEGIN
+	    SET wis_24 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_25~ BEGIN
+	    SET wis_25 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_5~ BEGIN
+	    SET cha_5 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_6~ BEGIN
+	    SET cha_6 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_7~ BEGIN
+	    SET cha_7 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_8~ BEGIN
+	    SET cha_8 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_9~ BEGIN
+	    SET cha_9 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_14~ BEGIN
+	    SET cha_14 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_15~ BEGIN
+	    SET cha_15 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_16~ BEGIN
+	    SET cha_16 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_17~ BEGIN
+	    SET cha_17 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_18~ BEGIN
+	    SET cha_18 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_19~ BEGIN
+	    SET cha_19 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_20~ BEGIN
+	    SET cha_20 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_21~ BEGIN
+	    SET cha_21 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_22~ BEGIN
+	    SET cha_22 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_23~ BEGIN
+	    SET cha_23 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_24~ BEGIN
+	    SET cha_24 = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_25~ BEGIN
+	    SET cha_25 = %row%
+	  END
+	END
+  BUT_ONLY
+
+  COPY ~scales_of_balance/stats/d5_stats.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %str_5% target = 1 timing = 1 STR_VAR resource = ~d5str5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %str_6% target = 1 timing = 1 STR_VAR resource = ~d5str6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %str_7% target = 1 timing = 1 STR_VAR resource = ~d5str7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %str_8% target = 1 timing = 1 STR_VAR resource = ~d5str8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %str_9% target = 1 timing = 1 STR_VAR resource = ~d5str9~ END
+
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %con_5% target = 1 timing = 1 STR_VAR resource = ~d5con5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %con_6% target = 1 timing = 1 STR_VAR resource = ~d5con6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %con_7% target = 1 timing = 1 STR_VAR resource = ~d5con7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %con_8% target = 1 timing = 1 STR_VAR resource = ~d5con8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %con_9% target = 1 timing = 1 STR_VAR resource = ~d5con9~ END
+
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_5% target = 1 timing = 1 STR_VAR resource = ~d5dex5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_6% target = 1 timing = 1 STR_VAR resource = ~d5dex6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_7% target = 1 timing = 1 STR_VAR resource = ~d5dex7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_8% target = 1 timing = 1 STR_VAR resource = ~d5dex8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_9% target = 1 timing = 1 STR_VAR resource = ~d5dex9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_16% target = 1 timing = 1 STR_VAR resource = ~d5dex16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_17% target = 1 timing = 1 STR_VAR resource = ~d5dex17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_18% target = 1 timing = 1 STR_VAR resource = ~d5dex18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_19% target = 1 timing = 1 STR_VAR resource = ~d5dex19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_20% target = 1 timing = 1 STR_VAR resource = ~d5dex20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_21% target = 1 timing = 1 STR_VAR resource = ~d5dex21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_22% target = 1 timing = 1 STR_VAR resource = ~d5dex22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_23% target = 1 timing = 1 STR_VAR resource = ~d5dex23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_24% target = 1 timing = 1 STR_VAR resource = ~d5dex24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_25% target = 1 timing = 1 STR_VAR resource = ~d5dex25~ END
+
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_5% target = 1 timing = 1 STR_VAR resource = ~d5int5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_6% target = 1 timing = 1 STR_VAR resource = ~d5int6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_7% target = 1 timing = 1 STR_VAR resource = ~d5int7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_8% target = 1 timing = 1 STR_VAR resource = ~d5int8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_9% target = 1 timing = 1 STR_VAR resource = ~d5int9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_16% target = 1 timing = 1 STR_VAR resource = ~d5int16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_17% target = 1 timing = 1 STR_VAR resource = ~d5int17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_18% target = 1 timing = 1 STR_VAR resource = ~d5int18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_19% target = 1 timing = 1 STR_VAR resource = ~d5int19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_20% target = 1 timing = 1 STR_VAR resource = ~d5int20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_21% target = 1 timing = 1 STR_VAR resource = ~d5int21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_22% target = 1 timing = 1 STR_VAR resource = ~d5int22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_23% target = 1 timing = 1 STR_VAR resource = ~d5int23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_24% target = 1 timing = 1 STR_VAR resource = ~d5int24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_25% target = 1 timing = 1 STR_VAR resource = ~d5int25~ END
+
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_5% target = 1 timing = 1 STR_VAR resource = ~d5wis5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_6% target = 1 timing = 1 STR_VAR resource = ~d5wis6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_7% target = 1 timing = 1 STR_VAR resource = ~d5wis7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_8% target = 1 timing = 1 STR_VAR resource = ~d5wis8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_9% target = 1 timing = 1 STR_VAR resource = ~d5wis9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_10% target = 1 timing = 1 STR_VAR resource = ~d5wis10~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_13% target = 1 timing = 1 STR_VAR resource = ~d5wis13~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_14% target = 1 timing = 1 STR_VAR resource = ~d5wis14~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_15% target = 1 timing = 1 STR_VAR resource = ~d5wis15~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_16% target = 1 timing = 1 STR_VAR resource = ~d5wis16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_17% target = 1 timing = 1 STR_VAR resource = ~d5wis17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_18% target = 1 timing = 1 STR_VAR resource = ~d5wis18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_19% target = 1 timing = 1 STR_VAR resource = ~d5wis19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_20% target = 1 timing = 1 STR_VAR resource = ~d5wis20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_21% target = 1 timing = 1 STR_VAR resource = ~d5wis21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_22% target = 1 timing = 1 STR_VAR resource = ~d5wis22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_23% target = 1 timing = 1 STR_VAR resource = ~d5wis23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_24% target = 1 timing = 1 STR_VAR resource = ~d5wis24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_25% target = 1 timing = 1 STR_VAR resource = ~d5wis25~ END
+
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_5% target = 1 timing = 1 STR_VAR resource = ~d5cha5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_6% target = 1 timing = 1 STR_VAR resource = ~d5cha6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_7% target = 1 timing = 1 STR_VAR resource = ~d5cha7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_8% target = 1 timing = 1 STR_VAR resource = ~d5cha8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_9% target = 1 timing = 1 STR_VAR resource = ~d5cha9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_14% target = 1 timing = 1 STR_VAR resource = ~d5cha14~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_15% target = 1 timing = 1 STR_VAR resource = ~d5cha15~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_16% target = 1 timing = 1 STR_VAR resource = ~d5cha16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_17% target = 1 timing = 1 STR_VAR resource = ~d5cha17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_18% target = 1 timing = 1 STR_VAR resource = ~d5cha18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_19% target = 1 timing = 1 STR_VAR resource = ~d5cha19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_20% target = 1 timing = 1 STR_VAR resource = ~d5cha20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_21% target = 1 timing = 1 STR_VAR resource = ~d5cha21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_22% target = 1 timing = 1 STR_VAR resource = ~d5cha22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_23% target = 1 timing = 1 STR_VAR resource = ~d5cha23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_24% target = 1 timing = 1 STR_VAR resource = ~d5cha24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_25% target = 1 timing = 1 STR_VAR resource = ~d5cha25~ END
+
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5str5.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5str5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 3) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5str6.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5str6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5str7.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5str7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5str8.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5str8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5str9.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5str9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5con5.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5con5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = (0 - 3) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5con6.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5con6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5con7.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5con7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5con8.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5con8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5con9.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5con9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex5.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = (0 - 3) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex6.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex7.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex8.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex9.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex16.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex17.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex18.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex19.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex20.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex21.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex22.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex23.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex24.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex25.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex25~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int5.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = (0 - 5) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int6.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = (0 - 4) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int7.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = (0 - 3) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int8.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int9.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int16.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 1 parameter2 = 1 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int17.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 1 parameter2 = 1 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int18.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 2 parameter2 = 1 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int19.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 2 parameter2 = 1 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int20.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 3 parameter2 = 1 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int21.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 3 parameter2 = 1 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int22.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 4 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 4 parameter2 = 1 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int23.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 4 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 4 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 4 parameter2 = 1 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int24.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 4 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 5 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 5 parameter2 = 1 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int25.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int25~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 5 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 5 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 5 parameter2 = 1 target = 1 timing = 0 duration = 7 END
+
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis5.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 3) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 80 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis6.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 85 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis7.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 90 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis8.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 94 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis9.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 96 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis10.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis10~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 98 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis13.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis13~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 102 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis14.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis14~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 104 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis15.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis15~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 106 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis16.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 108 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis17.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 110 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis18.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 112 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis19.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 114 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis20.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 115 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis21.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 116 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis22.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 117 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis23.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 118 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis24.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 4 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 119 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis25.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis25~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 4 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 120 parameter2 = 2 target = 1 timing = 0 duration = 7 END
+
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha5.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = (0 - 3) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = (0 - 3) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = (0 - 3) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = (0 - 3) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha6.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha7.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha8.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha9.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha14.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha14~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha15.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha15~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha16.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha17.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha18.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha19.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha20.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha21.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha22.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha23.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha24.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+  COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha25.spl~
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha25~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 36 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+
+//ADD STAT BONUS EFFECT TO EVERY CLAB_______________________________________________
+//
+  ACTION_FOR_EACH trueclass IN ~clabba01~ ~clabdr01~ ~clabfi01~ ~clabma01~ ~clabmo01~ ~clabpa01~ ~clabpr01~ ~clabrn01~ ~clabsh01~ ~clabth01~ BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%trueclass%.2da~ BEGIN
+	  COPY_EXISTING ~%trueclass%.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/stats/stat_bonuses.txt~
+	END
+  END
+  COPY_EXISTING ~kitlist.2da~ ~override~
+	COUNT_2DA_ROWS ~9~ "rows"
+	FOR ( index = 2 ; index < rows ; index = index + 1 ) BEGIN
+	  READ_2DA_ENTRY %index% 5 9 modclab
+	  READ_2DA_ENTRY %index% 8 9 modclass
+	  DEFINE_ASSOCIATIVE_ARRAY d5_stat_bonuses BEGIN "%modclab%" => "%modclass%" END
+	END
+  BUT_ONLY
+  ACTION_PHP_EACH d5_stat_bonuses AS yoo => too BEGIN
+	ACTION_IF (%too% > 0) AND (FILE_EXISTS_IN_GAME ~%yoo%.2da~) BEGIN
+	  COPY_EXISTING ~%yoo%.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/stats/stat_bonuses.txt~
+	END
+  END
+
+//NERF RING OF HUMAN INFLUENCE______________________________________________________
+//
+  ACTION_IF FILE_EXISTS_IN_GAME ~ring30.itm~ BEGIN
+	COPY_EXISTING ~ring30.itm~ ~override~
+	  LPF ALTER_EFFECT INT_VAR match_opcode = 6 match_parameter2 = 1 parameter2 = 0 parameter1 = 2 END
+	  READ_LONG 0x54 valid
+	  PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+		READ_STRREF 0x54 "desc"
+		INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+		  REPLACE_TEXTUALLY ~18~  ~+2~
+		END
+		SAY_EVALUATED 0x54 ~%new_desc%~
+	  END
+  END
+
+END
+//__________________________________________________________________________________
 
 
 CLEAR_ARRAYS
