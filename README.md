@@ -820,7 +820,7 @@
  </tr>
 </table>
     </div>
-      <p(Note: the 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same. Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</p>
+      <p>(Note: the 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same. Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</p>
       <p>Finally, to make more meaningful differences between races, demihumans will have more stat bonuses and penalties.  The racial maximums are now:</p>
       <ul>
         <li> Elves: 19 Dex, 19 Int, 17 Str, 16 Con</li>
