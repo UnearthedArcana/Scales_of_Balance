@@ -3058,13 +3058,13 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
   END
 
   ACTION_IF FILE_EXISTS_IN_GAME ~d5_marks.2da~ BEGIN
-    EXTEND_TOP ~d5_wepfo.bcs~ ~might_and_guile/profs/d5wmarks.baf~
+    EXTEND_TOP ~d5_wepfo.bcs~ ~scales_of_balance/profs/d5wmarks.baf~
   END
   ACTION_IF FILE_EXISTS_IN_GAME ~d5_earch.2da~ BEGIN
-    EXTEND_TOP ~d5_wepfo.bcs~ ~might_and_guile/profs/d5wearch.baf~
+    EXTEND_TOP ~d5_wepfo.bcs~ ~scales_of_balance/profs/d5wearch.baf~
   END
   ACTION_IF FILE_EXISTS_IN_GAME ~d5_sling.2da~ BEGIN
-    EXTEND_TOP ~d5_wepfo.bcs~ ~might_and_guile/profs/d5wsling.baf~
+    EXTEND_TOP ~d5_wepfo.bcs~ ~scales_of_balance/profs/d5wsling.baf~
   END
 
 END
