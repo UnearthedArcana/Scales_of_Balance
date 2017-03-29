@@ -993,7 +993,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 
 //NERF RING OF HUMAN INFLUENCE______________________________________________________
 //
- ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ 
+ ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~ring30.itm~ BEGIN
 	COPY_EXISTING ~ring30.itm~ ~override~
 	  LPF ALTER_EFFECT INT_VAR match_opcode = 6 match_parameter2 = 1 parameter2 = 0 parameter1 = 2 END
