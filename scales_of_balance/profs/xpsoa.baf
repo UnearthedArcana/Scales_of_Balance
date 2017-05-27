@@ -1,0 +1,41 @@
+IF
+  XPLT(Player1,159000)
+THEN
+  RESPONSE #100
+    AddXPObject(Player1,40000)
+END
+
+IF
+  XPLT(Player2,159000)
+THEN
+  RESPONSE #100
+    AddXPObject(Player2,40000)
+END
+
+IF
+  XPLT(Player3,159000)
+THEN
+  RESPONSE #100
+    AddXPObject(Player3,40000)
+END
+
+IF
+  XPLT(Player4,159000)
+THEN
+  RESPONSE #100
+    AddXPObject(Player4,40000)
+END
+
+IF
+  XPLT(Player5,159000)
+THEN
+  RESPONSE #100
+    AddXPObject(Player5,40000)
+END
+
+IF
+  XPLT(Player6,159000)
+THEN
+  RESPONSE #100
+    AddXPObject(Player6,40000)
+END

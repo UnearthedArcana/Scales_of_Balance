@@ -14,6 +14,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	READ_BYTE 0x18 handed
 	PATCH_IF ((%handed% BOR 0b11111101) = 0b11111101) BEGIN 	//	1-handed
 	  READ_BYTE 0x31 prof
+	  READ_BYTE 0x18 handed 	// reads item flags
 	  PATCH_IF (%prof% = 92) OR	// axe
 			(%prof% = 89) OR	// bastard sword
 			(%prof% = 115) OR	// club
@@ -26,6 +27,11 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			(%prof% = 91) OR	// short sword
 			(%prof% = 97) BEGIN	 // hammer
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 44 target = 1 parameter1 = (0 - 1) parameter2 = 0 timing = 2 resist_dispel = 0 END
+	  END
+	  PATCH_IF (%prof% = 93) 	// greatsword
+		PATCH_IF ((~%handed%~ BOR ~0b11111101~) = ~0b11111101~) BEGIN // if 2-handed flag not set
+		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 44 target = 1 parameter1 = (0 - 1) parameter2 = 0 timing = 2 resist_dispel = 0 END
+		END
 	  END
 	END
   END

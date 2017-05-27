@@ -2933,6 +2933,17 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
   COPY ~scales_of_balance/profs/d5_wepfo.cre~ ~override~
   COMPILE ~scales_of_balance/profs/d5_wepfo.baf~
   COMPILE ~scales_of_balance/profs/d5_wepfo.d~
+  
+  ACTION_IF GAME_IS ~iwdee~ BEGIN
+	COPY_EXISTING ~d5_wepfo.dlg~ ~override~
+	  DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~PROFICIENCYCLUB~ ~EXTRAPROFICIENCY1~
+	  END
+	COPY_EXISTING ~d5_weppr.dlg~ ~override~
+	  DECOMPILE_AND_PATCH BEGIN
+		REPLACE_TEXTUALLY ~PROFICIENCYCLUB~ ~EXTRAPROFICIENCY1~
+	  END
+  END
 
   COPY ~scales_of_balance/profs/d5weppw.spl~ ~override~
     LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_prof_1% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp1~ END
@@ -2958,6 +2969,12 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_weppr~ END
   COPY ~scales_of_balance/profs/d5wepp3.spl~ ~override~
   COPY ~scales_of_balance/profs/d5weppc.spl~ ~override~
+	SAY NAME1 @12352
+	SAY UNIDENTIFIED_DESC @12352
+	WRITE_ASCII 0x3a ~d5_weppr~
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_weppr~ END
+  COPY ~scales_of_balance/profs/d5wepp4.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5weppd.spl~ ~override~
 	SAY NAME1 @12352
 	SAY UNIDENTIFIED_DESC @12352
 	WRITE_ASCII 0x3a ~d5_weppr~
@@ -3072,7 +3089,7 @@ END
 
 
 
-//UPDATE SoA STARTING XP____________________________________________________________
+//UPDATE STARTING XP________________________________________________________________
 // 
 ACTION_IF GAME_IS ~tob~ AND NOT GAME_IS ~bgt~ THEN BEGIN
 	ACTION_IF FILE_EXISTS ~bgmain.exe~ BEGIN
@@ -3098,7 +3115,21 @@ ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
 	COPY_EXISTING ~startare.2da~ ~override~
 		SET_2DA_ENTRY 12 1 1 ~1000~
 		BUT_ONLY
-	EXTEND_BOTTOM ~ar0602.bcs~ ~scales_of_balance/misc/soaxp.baf~
+	EXTEND_BOTTOM ~ar0602.bcs~ ~scales_of_balance/profs/xpsoa.baf~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~startbp.2da~ THEN BEGIN
+	COPY_EXISTING ~startbp.2da~ ~override~
+		SET_2DA_ENTRY 12 1 1 ~1000~
+		BUT_ONLY
+	EXTEND_BOTTOM ~ohbhub.bcs~ ~scales_of_balance/profs/xpbp2.baf~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~sodstrta.2da~ THEN BEGIN
+	COPY_EXISTING ~sodstrta.2da~ ~override~
+		SET_2DA_ENTRY 12 1 1 ~1000~
+		BUT_ONLY
+	EXTEND_BOTTOM ~bd0120.bcs~ ~scales_of_balance/profs/xpsod.baf~
 END
 //__________________________________________________________________________________
 
