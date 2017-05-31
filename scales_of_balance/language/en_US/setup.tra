@@ -730,18 +730,17 @@ Bonuses:
 7:  -1 Luck, -2 save vs. breath/death/wands
 8:  -1 Luck, -1 save vs. breath/death/wands
 9:  -1 save vs. breath/death/wands
-14: +1 to saves vs. breath/death
-15: +1 to saves vs. breath/death/spells
-16: +1 to all saving throws
-17: +1 Luck, +2 saves vs. breath/death, +1 vs. spells/wands/polymorph
-18: +1 Luck, +2 saves vs. breath/death, +1 vs. spells/wands/polymorph
-19: +2 Luck, +2 saves vs. breath/death, +1 vs. spells/wands/polymorph
-20: +2 Luck, +2 saves vs. breath/death/spells, +1 vs. wands/polymorph
-21: +2 Luck, +2 to all saving throws
-22: +2 Luck, +3 saves vs. breath/death, +1 vs. spells/wands/polymorph
-23: +2 Luck, +3 saves vs. breath/death/spells, +2 vs. wands/polymorph
-24: +2 Luck, +3 to all saving throws
-25: +3 Luck, +3 to all saving throws
+15: +1 to saves vs. breath/death
+16: +1 to saves vs. breath/death/spells
+17: +1 to all saving throws
+18: +1 Luck, +1 to all saving throws
+19: +1 Luck, +2 saves vs. breath/death, +1 vs. spells/wands/polymorph
+20: +1 Luck, +2 saves vs. breath/death/spells, +1 vs. wands/polymorph
+21: +1 Luck, +2 to all saving throws
+22: +2 Luck, +2 to all saving throws
+23: +2 Luck, +3 saves vs. breath/death, +2 vs. spells/wands/polymorph
+24: +2 Luck, +3 saves vs. breath/death/spells, +2 vs. wands/polymorph
+25: +2 Luck, +3 to all saving throws
 ~
 @2007   = ~CONSTITUTION: Constitution measures a character's fitness, health, and physical resistance to hardship, injury, and disease. This ability is important to the Ranger.
 

@@ -739,12 +739,12 @@
  </tr>
  <tr>
   <td><b>18:</b></td>
-  <td>+2</td>
-  <td>+2</td>
   <td>+1</td>
   <td>+1</td>
   <td>+1</td>
-  <td>.</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
