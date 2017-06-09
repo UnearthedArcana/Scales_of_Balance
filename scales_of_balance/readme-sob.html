@@ -188,6 +188,8 @@
         &ndash; (+) = -3 main-hand thac0, and -2 off-hand thac0<br />
         &ndash; (++) = -2 main-hand thac0, and -0 off-hand thac0<br />.</p>
       </div>
+      <p><b>Note:</b> if you are specialized in Fencing/Single-Weapon Style, the APR bonus will take one second to kick in whenever you switch to a one-handed weapon. </p>
+      <p><b>Also note:</b> thrown daggers and darts will have their base APR reduced from 2 to 1.5, and from 3 to 2.5, respectively.  So you will need to be specialized in Fencing/SWS to get the full benefit of those items.</p>
       <p>If you have installed the "Distinctions Between Light/Heavy Weapons" IWO component (#103), the off-hand thac0 bonus for daggers, short swords and clubs becomes a main-hand thac0 bonus instead.  Thus, with two pips in dual-wielding and two short swords you will have <b>no</b> thac0 penalty at all.  With two pips in dual-wielding and two bastard swords, you will have a -2 penalty with main-hand and a -4 penalty with off-hand.</p>
   </div>
   <h4 class="subheader">Component 125: </h4>

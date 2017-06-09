@@ -99,7 +99,9 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
 		PATCH_IF prof = 101 BEGIN
-			WRITE_BYTE 0x31 115
+			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
+				WRITE_BYTE 0x31 115
+			END
 		END
 	END
 BUT_ONLY
@@ -120,8 +122,11 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
+	READ_BYTE 0x1b spell_weapon 
 		PATCH_IF prof = 99 BEGIN
-			WRITE_BYTE 0x31 98
+			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
+				WRITE_BYTE 0x31 98
+			END
 		END
 	END
 BUT_ONLY
@@ -143,7 +148,9 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
 		PATCH_IF prof = 106 BEGIN
-			WRITE_BYTE 0x31 96
+			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
+				WRITE_BYTE 0x31 96
+			END
 		END
 	END
 BUT_ONLY
@@ -165,7 +172,9 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
 		PATCH_IF prof = 94 BEGIN
-			WRITE_BYTE 0x31 95
+			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
+				WRITE_BYTE 0x31 95
+			END
 		END
 	END
 BUT_ONLY
@@ -187,7 +196,9 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
 		PATCH_IF prof = 104 BEGIN
-			WRITE_BYTE 0x31 105
+			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
+				WRITE_BYTE 0x31 105
+			END
 		END
 	END
 BUT_ONLY
@@ -209,12 +220,15 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
 	READ_BYTE 0x18 handed 
+	READ_BYTE 0x1b spell_weapon 
 		PATCH_IF prof = 89 BEGIN
-			PATCH_IF ((~%handed%~ BOR ~0b11111101~) = ~0b11111101~) BEGIN // if 2-handed flag not set
-				WRITE_BYTE 0x31 90
-			END
-			PATCH_IF ((~%handed%~ BOR ~0b11111101~) = ~0b11111111~) BEGIN // if 2-handed flag IS set
-				WRITE_BYTE 0x31 93
+			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
+				PATCH_IF ((~%handed%~ BOR ~0b11111101~) = ~0b11111101~) BEGIN // if 2-handed flag not set
+					WRITE_BYTE 0x31 90
+				END
+				PATCH_IF ((~%handed%~ BOR ~0b11111101~) = ~0b11111111~) BEGIN // if 2-handed flag IS set
+					WRITE_BYTE 0x31 93
+				END
 			END
 		END
 	END
