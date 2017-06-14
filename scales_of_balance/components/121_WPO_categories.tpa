@@ -98,6 +98,7 @@ END
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
+	READ_BYTE 0x1b spell_weapon 
 		PATCH_IF prof = 101 BEGIN
 			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
 				WRITE_BYTE 0x31 115
@@ -147,6 +148,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
+	READ_BYTE 0x1b spell_weapon 
 		PATCH_IF prof = 106 BEGIN
 			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
 				WRITE_BYTE 0x31 96
@@ -171,6 +173,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
+	READ_BYTE 0x1b spell_weapon 
 		PATCH_IF prof = 94 BEGIN
 			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
 				WRITE_BYTE 0x31 95
@@ -195,6 +198,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	READ_BYTE 0x31 prof
+	READ_BYTE 0x1b spell_weapon 
 		PATCH_IF prof = 104 BEGIN
 			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
 				WRITE_BYTE 0x31 105
