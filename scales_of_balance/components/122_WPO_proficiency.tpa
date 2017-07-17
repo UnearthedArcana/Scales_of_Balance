@@ -161,718 +161,35 @@ END
 //AMEND WEAPPROF.2da_______________________________________________________________
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
+	COUNT_2DA_COLS cols
 	REPLACE_TEXTUALLY ~ ID ~ ~ TYPE ID ~
-	REPLACE_TEXTUALLY ~ 2 ~ ~ 3 ~
-	REPLACE_TEXTUALLY ~ 5 ~ ~ 4 ~
+	REPLACE_TEXTUALLY ~[ %TAB%]5 ~ ~ 4 ~
+	REPLACE_TEXTUALLY ~[ %TAB%]2 ~ ~ 3 ~
+	REPLACE_TEXTUALLY ~[ %TAB%]1 ~ ~ 2 ~
+	FOR (row = 3; row < 11; ++row) BEGIN
+	  FOR (col = 4; col < cols; ++col) BEGIN
+		SET_2DA_ENTRY_LATER ~#weapprof~ row col 0
+	  END
+	END
+	SET_2DA_ENTRY_LATER ~#weapprof~ 4 1 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 5 1 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 8 1 4
-	// Fighter
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 5 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 5 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 5 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 5 2
-	// Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 7 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 8 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 10 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 6 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 6 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 6 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 6 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 6 0
-	// Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 7 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 7 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 7 2
-	// Bard
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 8 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 8 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 8 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 8 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 8 2 // 2-hand weapon
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 8 2 // sword/shield
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 8 2 // single-weapon
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 8 2 // dual-wielding
-	// Paladin
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 9 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 9 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 9 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 9 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 9 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 9 2
-	// Druid
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 10 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 10 0
-	// Ranger
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 11 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 11 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 11 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 11 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 11 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 11 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 11 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 11 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 11 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 11 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 11 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 11 2
-	// Fighter/Mage
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 12 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 13 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 14 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 15 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 17 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 18 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 19 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 20 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 21 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 23 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 25 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 26 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 28 12 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 30 12 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 12 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 12 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 12 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 12 0
-	// Fighter/Cleric
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 12 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 13 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 14 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 15 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 17 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 18 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 19 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 20 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 21 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 23 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 25 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 26 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 28 13 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 30 13 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 13 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 13 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 13 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 13 0
-	// Fighter/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 14 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 14 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 14 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 15 2
-	// Fighter/Mage/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 15 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 15 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 15 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 15 2
-	// Mage/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 16 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 16 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 16 2
-	// Cleric/Mage
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 17 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 17 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 17 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 17 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 17 0
-	// Cleric/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 18 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 18 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 18 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 18 2
-	// Fighter/Druid
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 19 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 19 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 19 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 19 2
-	// Fighter/Mage/Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 20 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 20 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 20 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 20 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 20 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 20 0
-	// Ranger/Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 21 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 21 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 21 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 21 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 21 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 21 2
-	// Wizards
+	// Mages
+	SET_2DA_ENTRY_LATER ~#weapprof~ 18 4 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 20 4 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 25 4 1
 	SET_2DA_ENTRY_LATER ~#weapprof~ 26 4 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 22 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 22 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 23 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 23 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 24 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 24 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 25 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 25 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 26 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 26 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 27 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 27 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 28 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 28 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 29 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 29 1
-	// Berserker
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 30 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 30 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 30 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 30 4
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 30 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 30 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 30 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 30 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 30 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 30 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 30 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 30 2
-	// Wizard Slayer
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 31 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 31 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 31 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 31 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 31 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 31 2
-	// Kensai
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 32 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 32 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 32 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 32 3
-	// Cavalier
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 33 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 33 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 33 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 33 2
-	// Inquisitor
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 34 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 34 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 34 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 34 2
-	// Undead Hunter
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 35 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 35 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 35 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 35 2
-	// Archer
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 36 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 36 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 36 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 36 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 36 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 36 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 36 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 36 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 36 2
-	// Stalker
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 37 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 37 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 37 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 37 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 37 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 37 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 37 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 37 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 37 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 37 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 37 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 37 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 37 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 37 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 37 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 37 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 37 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 37 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 37 2
-	// Beastmaster
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 38 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 38 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 38 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 38 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 38 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 38 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 38 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 38 4
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 38 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 38 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 38 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 38 2
-	// Assassin
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 39 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 39 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 39 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 39 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 39 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 39 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 39 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 39 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 39 2
-	// Bounty Hunter
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 40 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 40 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 40 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 40 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 40 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 40 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 40 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 40 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 40 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 40 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 40 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 40 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 40 2
-	// Swashbuckler
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 41 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 41 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 41 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 41 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 41 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 41 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 41 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 41 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 41 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 41 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 41 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 41 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 41 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 41 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 41 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 41 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 41 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 41 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 41 2
-	// Blade
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 42 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 42 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 42 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 42 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 42 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 42 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 42 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 42 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 42 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 42 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 42 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 42 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 42 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 42 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 42 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 42 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 42 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 42 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 42 2
-	// Jester
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 43 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 43 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 43 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 43 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 43 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 43 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 43 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 43 2
-	// Skald
-	SET_2DA_ENTRY_LATER ~#weapprof~ 12 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 13 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 44 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 44 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 44 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 28 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 44 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 44 2
-	// Totemic Driud
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 45 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 45 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 45 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 45 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 45 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 45 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 45 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 45 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 45 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 45 2
-	// Shapeshifter
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 46 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 46 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 46 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 46 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 46 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 46 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 46 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 46 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 46 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 46 2
-	// Avenger
-	SET_2DA_ENTRY_LATER ~#weapprof~ 17 47 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 18 47 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 47 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 47 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 47 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 47 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 47 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 47 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 47 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 47 2
-	// Talos
-	SET_2DA_ENTRY_LATER ~#weapprof~ 7 48 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 8 48 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 10 48 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 48 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 48 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 48 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 48 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 48 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 48 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 48 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 48 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 48 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 48 0
-	// Helm
-	SET_2DA_ENTRY_LATER ~#weapprof~ 7 49 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 8 49 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 10 49 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 49 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 49 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 49 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 49 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 49 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 49 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 49 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 49 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 49 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 49 0
-	// Lathander
-	SET_2DA_ENTRY_LATER ~#weapprof~ 7 50 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 8 50 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 10 50 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 19 50 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 23 50 2
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 50 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 25 50 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 30 50 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 50 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 49 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 49 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 49 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 49 0
-	// Monk
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 51 1
-	// Barbarian
-	SET_2DA_ENTRY_LATER ~#weapprof~ 14 52 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 15 52 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 52 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 21 52 3
-//	SET_2DA_ENTRY_LATER ~#weapprof~ 24 52 3
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 52 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 52 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 52 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 52 3
-	// Wild Mage	
-	SET_2DA_ENTRY_LATER ~#weapprof~ 20 53 1
-	SET_2DA_ENTRY_LATER ~#weapprof~ 26 53 1
+	SET_2DA_ENTRY_LATER ~#weapprof~ 30 4 1
+	// Clerics
+	PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+	  SET_2DA_ENTRY_LATER ~#weapprof~ 13 6 2
+	  SET_2DA_ENTRY_LATER ~#weapprof~ 18 6 2
+	  SET_2DA_ENTRY_LATER ~#weapprof~ 21 6 2
+	  SET_2DA_ENTRY_LATER ~#weapprof~ 26 6 2
+	END
 	SET_2DA_ENTRIES_NOW ~#weapprof~ 1
-	REPLACE_TEXTUALLY ~TYPE ~ ~      ~
-
-ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
-	COPY_EXISTING ~weapprof.2da~ ~override~
-		// Blackguard
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 54 3
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 54 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 54 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 54 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 54 2
-		// Shadowdancer
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 12 55 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 13 55 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 17 55 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 18 55 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 55 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 25 55 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 26 55 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 28 55 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 30 55 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 55 0
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 55 0
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 55 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 55 2
-		// Dwarven Defender
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 12 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 13 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 14 56 4
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 15 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 17 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 18 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 19 56 4
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 21 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 23 56 2
-//		SET_2DA_ENTRY_LATER ~EE#weapprof~ 24 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 25 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 26 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 28 56 0
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 30 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 56 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 56 2
-		// Dragon Disciple
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 57 1
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 26 57 1
-		// Dark Moon Monk
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 58 1
-		// Sun Soul Monk
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 59 1
-		// Tyr
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 7 61 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 8 61 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 10 61 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 19 61 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 23 61 2
-//		SET_2DA_ENTRY_LATER ~EE#weapprof~ 24 61 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 25 61 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 30 61 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 20 61 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 26 61 2
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 31 61 1
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 32 61 1
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 33 61 1
-		SET_2DA_ENTRY_LATER ~EE#weapprof~ 34 61 0
-	SET_2DA_ENTRIES_NOW ~EE#weapprof~ 1
-END
-
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-	COPY_EXISTING ~weapprof.2da~ ~override~
-		// Shaman
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 9 60 2
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 14 60 2
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 17 60 0
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 18 60 2
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 20 60 2
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 21 60 2
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 25 60 2
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 28 60 2
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 30 60 2
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 31 60 1
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 32 60 0
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 33 60 1
-		SET_2DA_ENTRY_LATER ~BEE#weapprof~ 34 60 2
-	SET_2DA_ENTRIES_NOW ~BEE#weapprof~ 1
-END
-ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
-	COPY_EXISTING ~weapprof.2da~ ~override~
-		// Shaman
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 9 62 2
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 14 62 2
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 17 62 0
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 18 62 2
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 20 62 2
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 21 62 2
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 25 62 2
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 28 62 2
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 30 62 2
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 31 62 1
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 32 62 0
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 33 62 1
-		SET_2DA_ENTRY_LATER ~2EE#weapprof~ 34 62 2
-	SET_2DA_ENTRIES_NOW ~2EE#weapprof~ 1
-END
-	
-ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-	COPY_EXISTING ~weapprof.2da~ ~override~
-/*
-		// Tyr
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 7 61 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 8 61 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 10 61 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 19 61 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 23 61 2
-//		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 24 61 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 25 61 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 30 61 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 20 61 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 26 61 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 31 61 1
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 32 61 1
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 33 61 1
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 34 61 0
-*/
-		// Tempus
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 7 62 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 8 62 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 10 62 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 19 62 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 23 62 2
-//		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 24 62 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 25 62 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 30 62 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 20 62 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 26 62 2
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 31 62 1
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 32 62 1
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 33 62 1
-		SET_2DA_ENTRY_LATER ~IEE#weapprof~ 34 62 0
-	SET_2DA_ENTRIES_NOW ~IEE#weapprof~ 1
-END
+	REPLACE_TEXTUALLY ~TYPE ~ ~%TAB%%TAB%%TAB%%TAB%%TAB%%TAB%~
 //__________________________________________________________________________________
-
 
 //PROFICIENCIES FOR MOD CLERICS_____________________________________________________
 //
@@ -883,7 +200,7 @@ END
 	END
 	COPY_EXISTING kitlist.2da override
 		READ_2DA_ENTRIES_NOW kitlist 3
-		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
+		FOR (row = 3; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
 			READ_2DA_ENTRY_FORMER kitlist row 1 label
 			READ_2DA_ENTRY_FORMER kitlist row 8 class
 			PATCH_IF class = 3 OR		// cleric
@@ -901,22 +218,16 @@ END
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER C#weapprof 7 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 8 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 10 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 18 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 19 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 20 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 21 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 23 (col + 1) 2
-//					SET_2DA_ENTRY_LATER C#weapprof 24 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 25 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 26 (col + 1) 2
-					SET_2DA_ENTRY_LATER C#weapprof 30 (col + 1) 2
 					SET_2DA_ENTRY_LATER C#weapprof 31 (col + 1) 1
 					SET_2DA_ENTRY_LATER C#weapprof 32 (col + 1) 1
 					SET_2DA_ENTRY_LATER C#weapprof 33 (col + 1) 1
 					SET_2DA_ENTRY_LATER C#weapprof 34 (col + 1) 0
+					PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+					  SET_2DA_ENTRY_LATER C#weapprof 13 (col + 1) 2
+					  SET_2DA_ENTRY_LATER C#weapprof 18 (col + 1) 2
+					  SET_2DA_ENTRY_LATER C#weapprof 21 (col + 1) 2
+					  SET_2DA_ENTRY_LATER C#weapprof 26 (col + 1) 2
+					END
 				END
 			END
 		END
@@ -925,7 +236,7 @@ END
 	BUT_ONLY
 //__________________________________________________________________________________
 
-
+/*
 //PROFICIENCIES FOR MC CLERICS______________________________________________________
 //
 	OUTER_SET count = 0
@@ -952,18 +263,6 @@ END
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER MC#weapprof 7 (col + 1) 3
-					SET_2DA_ENTRY_LATER MC#weapprof 8 (col + 1) 3
-					SET_2DA_ENTRY_LATER MC#weapprof 10 (col + 1) 3
-					SET_2DA_ENTRY_LATER MC#weapprof 18 (col + 1) 3
-					SET_2DA_ENTRY_LATER MC#weapprof 19 (col + 1) 3
-					SET_2DA_ENTRY_LATER MC#weapprof 20 (col + 1) 3
-					SET_2DA_ENTRY_LATER MC#weapprof 21 (col + 1) 3
-					SET_2DA_ENTRY_LATER MC#weapprof 23 (col + 1) 3
-//					SET_2DA_ENTRY_LATER MC#weapprof 24 (col + 1) 3
-					SET_2DA_ENTRY_LATER MC#weapprof 25 (col + 1) 3
-					SET_2DA_ENTRY_LATER MC#weapprof 26 (col + 1) 3
-					SET_2DA_ENTRY_LATER MC#weapprof 30 (col + 1) 3
 					SET_2DA_ENTRY_LATER MC#weapprof 31 (col + 1) 2
 					SET_2DA_ENTRY_LATER MC#weapprof 32 (col + 1) 2
 					SET_2DA_ENTRY_LATER MC#weapprof 33 (col + 1) 2
@@ -975,7 +274,7 @@ END
 		PRETTY_PRINT_2DA
 	BUT_ONLY
 //__________________________________________________________________________________
-
+*/
 
 //PROFICIENCIES FOR MOD DRUIDS_______________________________________________________
 //
@@ -1003,17 +302,10 @@ END
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER D#weapprof 17 (col + 1) 2
-					SET_2DA_ENTRY_LATER D#weapprof 18 (col + 1) 2
-					SET_2DA_ENTRY_LATER D#weapprof 20 (col + 1) 2
-					SET_2DA_ENTRY_LATER D#weapprof 21 (col + 1) 2
-					SET_2DA_ENTRY_LATER D#weapprof 25 (col + 1) 2
-					SET_2DA_ENTRY_LATER D#weapprof 28 (col + 1) 2
-					SET_2DA_ENTRY_LATER D#weapprof 30 (col + 1) 2
 					SET_2DA_ENTRY_LATER D#weapprof 31 (col + 1) 2
 					SET_2DA_ENTRY_LATER D#weapprof 32 (col + 1) 0
 					SET_2DA_ENTRY_LATER D#weapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER D#weapprof 34 (col + 1) 2
+					SET_2DA_ENTRY_LATER D#weapprof 34 (col + 1) 0
 				END
 			END
 		END
@@ -1032,7 +324,7 @@ END
 	END
 	COPY_EXISTING kitlist.2da override
 		READ_2DA_ENTRIES_NOW kitlist 3
-		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
+		FOR (row = 3; row < kitlist; ++row) BEGIN
 			READ_2DA_ENTRY_FORMER kitlist row 1 label
 			READ_2DA_ENTRY_FORMER kitlist row 8 class
 			PATCH_IF class = 1 OR		// mage
@@ -1094,15 +386,6 @@ END
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER T#weapprof 12 (col + 1) 2
-					SET_2DA_ENTRY_LATER T#weapprof 13 (col + 1) 2
-					SET_2DA_ENTRY_LATER T#weapprof 17 (col + 1) 2
-					SET_2DA_ENTRY_LATER T#weapprof 18 (col + 1) 2
-					SET_2DA_ENTRY_LATER T#weapprof 20 (col + 1) 2
-					SET_2DA_ENTRY_LATER T#weapprof 25 (col + 1) 2
-					SET_2DA_ENTRY_LATER T#weapprof 26 (col + 1) 2
-					SET_2DA_ENTRY_LATER T#weapprof 28 (col + 1) 2
-					SET_2DA_ENTRY_LATER T#weapprof 30 (col + 1) 2
 					SET_2DA_ENTRY_LATER T#weapprof 31 (col + 1) 0
 					SET_2DA_ENTRY_LATER T#weapprof 32 (col + 1) 0
 					SET_2DA_ENTRY_LATER T#weapprof 33 (col + 1) 2
@@ -1141,21 +424,6 @@ END
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER B#weapprof 12 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 13 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 14 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 15 (col + 1) 0
-					SET_2DA_ENTRY_LATER B#weapprof 17 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 18 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 19 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 20 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 21 (col + 1) 0
-					SET_2DA_ENTRY_LATER B#weapprof 23 (col + 1) 2
-//					SET_2DA_ENTRY_LATER B#weapprof 24 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 25 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 26 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 28 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 30 (col + 1) 2
 					SET_2DA_ENTRY_LATER B#weapprof 31 (col + 1) 2
 					SET_2DA_ENTRY_LATER B#weapprof 32 (col + 1) 2
 					SET_2DA_ENTRY_LATER B#weapprof 33 (col + 1) 2
@@ -1195,14 +463,6 @@ END
 			FOR (col = 0; col < cols - 1; ++col) BEGIN
 				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
 				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER R#weapprof 12 (col + 1) 3
-					SET_2DA_ENTRY_LATER R#weapprof 13 (col + 1) 3
-					SET_2DA_ENTRY_LATER R#weapprof 14 (col + 1) 3
-					SET_2DA_ENTRY_LATER R#weapprof 17 (col + 1) 3
-					SET_2DA_ENTRY_LATER R#weapprof 18 (col + 1) 3
-					SET_2DA_ENTRY_LATER R#weapprof 21 (col + 1) 3
-					SET_2DA_ENTRY_LATER R#weapprof 25 (col + 1) 3
-					SET_2DA_ENTRY_LATER R#weapprof 28 (col + 1) 3
 					SET_2DA_ENTRY_LATER R#weapprof 31 (col + 1) 2
 					SET_2DA_ENTRY_LATER R#weapprof 32 (col + 1) 0
 					SET_2DA_ENTRY_LATER R#weapprof 33 (col + 1) 2
@@ -1315,7 +575,6 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 0
-//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 2
@@ -1331,7 +590,6 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 2
-//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 4
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 4
@@ -1348,7 +606,6 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 2
-//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 1
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 4
@@ -1365,7 +622,6 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 2
-//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 1
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 1
@@ -1391,7 +647,6 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 2
-//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 0
@@ -1410,7 +665,6 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 0
-//			SET_2DA_ENTRY_LATER ~s2el_mng~ 24 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 2
@@ -1428,90 +682,6 @@ BUT_ONLY
 /*
 //COPY PROFICIENCY FILES____________________________________________________________
 //
-COPY ~scales_of_balance/profs/d5_caxe1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_caxe2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_caxe3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cdag1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cdag2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cdag3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cbow1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cbow2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cbow3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_clsw1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_clsw2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_clsw3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cssw1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cssw2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cssw3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_c2sw1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_c2sw2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_c2sw3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_csci1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_csci2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_csci3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cspe1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cspe2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cspe3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_csli1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_csli2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_csli3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cclu1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cclu2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cclu3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cfla1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cfla2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cfla3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cmac1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cmac2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cmac3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cham1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cham2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_cham3.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_csta1.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_csta2.spl~ ~override~
-	SAY NAME1 @1248
-COPY ~scales_of_balance/profs/d5_csta3.spl~ ~override~
-	SAY NAME1 @1248
 COPY ~scales_of_balance/profs/d5_pano.itm~ ~override~
 	SAY NAME2 @1254
 	SAY DESC @1255
@@ -1604,168 +774,8 @@ COPY_EXISTING ~clabrn05.2da~ ~override~
 	REPLACE_TEXTUALLY ~AP_TB#TATT~ ~****      ~
 	REPLACE_TEXTUALLY ~AP_d5_NUMAT~ ~****       ~
 	BUT_ONLY
-
-/*
-//AMEND CLERIC CLAB FILES____________________________________________________________
-//
-COPY_EXISTING ~clabpr02.2da~ ~override~
-	LPM remove_blank_lines
-	APPEND_FILE ~scales_of_balance/profs/pcspea.txt~
-	BUT_ONLY
-COPY_EXISTING ~clabpr03.2da~ ~override~
-	LPM remove_blank_lines
-	APPEND_FILE ~scales_of_balance/profs/pc2swo.txt~
-	BUT_ONLY
-COPY_EXISTING ~clabpr04.2da~ ~override~
-	LPM remove_blank_lines
-	APPEND_FILE ~scales_of_balance/profs/pcmace.txt~
-	BUT_ONLY
-ACTION_IF FILE_EXISTS_IN_GAME ~ohtyr.2da~ THEN BEGIN
-	COPY_EXISTING ~ohtyr.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pclswo.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~ohtempus.2da~ THEN BEGIN
-	COPY_EXISTING ~ohtempus.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcaxe.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~a#cyric.2da~ THEN BEGIN
-	COPY_EXISTING ~a#cyric.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcsswo.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~a#feyw.2da~ THEN BEGIN
-	COPY_EXISTING ~a#feyw.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pclswo.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~a#koss.2da~ THEN BEGIN
-	COPY_EXISTING ~a#koss.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcflai.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~a#ogma.2da~ THEN BEGIN
-	COPY_EXISTING ~a#ogma.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pclswo.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~a#red.2da~ THEN BEGIN
-	COPY_EXISTING ~a#red.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pclswo.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~a#shar.2da~ THEN BEGIN
-	COPY_EXISTING ~a#shar.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcdagg.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~a#temp.2da~ THEN BEGIN
-	COPY_EXISTING ~a#temp.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcaxe.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~cdilmatr.2da~ THEN BEGIN
-	COPY_EXISTING ~cdilmatr.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcflai.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~cdselune.2da~ THEN BEGIN
-	COPY_EXISTING ~cdselune.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcmace.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~cdxvim.2da~ THEN BEGIN
-	COPY_EXISTING ~cdxvim.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcscim.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~clabeart.2da~ THEN BEGIN
-	COPY_EXISTING ~clabeart.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pchamm.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~clabgruu.2da~ THEN BEGIN
-	COPY_EXISTING ~clabgruu.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcaxe.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~clabluth.2da~ THEN BEGIN
-	COPY_EXISTING ~clabluth.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcsswo.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~clabauri.2da~ THEN BEGIN
-	COPY_EXISTING ~clabauri.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcdagg.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~clabiceg.2da~ THEN BEGIN
-	COPY_EXISTING ~clabiceg.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcspea.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~clableaf.2da~ THEN BEGIN
-	COPY_EXISTING ~clableaf.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcclub.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_tymor.2da~ THEN BEGIN
-	COPY_EXISTING ~d5_tymor.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcslin.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_cllei.2da~ THEN BEGIN
-	COPY_EXISTING ~d5_cllei.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcdagg.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~b_cllov.2da~ THEN BEGIN
-	COPY_EXISTING ~b_cllov.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcflai.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~b_acilm.2da~ THEN BEGIN
-	COPY_EXISTING ~b_acilm.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcstaf.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_acmas.2da~ THEN BEGIN
-	COPY_EXISTING ~d5_acmas.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcsswo.txt~
-		BUT_ONLY
-END
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_acsha.2da~ THEN BEGIN
-	COPY_EXISTING ~d5_acsha.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/pcdagg.txt~
-		BUT_ONLY
-END
 //__________________________________________________________________________________
-*/
+
 
 //UNIVERSAL CLUBS___________________________________________________________________
 //
@@ -1838,7 +848,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 
 //UNIVERSAL CROSSBOWS________________________________________________________________
 //
-COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
     READ_BYTE 0x31 "prof" ELSE 0
     PATCH_IF ("%prof%" = 103) BEGIN
@@ -1889,9 +900,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
       END
     END
   END
-  BUT_ONLY_IF_IT_CHANGES
+ BUT_ONLY
 
-COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
     READ_BYTE 0x31 "prof" ELSE 0
     PATCH_IF ("%prof%" = 103) BEGIN
@@ -1946,21 +957,21 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
       END
     END
   END
-  BUT_ONLY_IF_IT_CHANGES
+ BUT_ONLY
+END
 //__________________________________________________________________________________
 
 
 //CLERIC WEAPON USABILITY___________________________________________________________
 //
-//ACTION_IF NOT MOD_IS_INSTALLED "faiths_and_powers.tp2" "101" "skipping"
-// ACTION_IF NOT MOD_IS_INSTALLED "faiths_and_powers.tp2" "105" "skipping"
-
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+  COPY_EXISTING_REGEXP GLOB ~.*\.itm$~ ~override~
+	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 		READ_BYTE  0x1e cleric 
 		READ_BYTE  0x1f mcler 
-		READ_SHORT  ~0x1c~ type 
-		PATCH_IF (type = 15 || type = 5 || type = 31 || type = 29 || type = 25 || type = 19 || type = 20 || type = 16) BEGIN // bows, spears, axes, small swords, large swords, daggers
+		READ_SHORT  0x1c type 
+		READ_BYTE  0x31 prof 
+		PATCH_IF (type = 15 || type = 5 || type = 31 || type = 27 || prof = 98 || prof = 92 || prof = 96 || prof = 91 || prof = 90 || prof = 95) BEGIN // bows, spears, axes, daggers, shortswords, longswords, scimitars
 			WRITE_BYTE 0x1e (cleric BAND 0b01111111)
 			WRITE_BYTE 0x1f (mcler BAND 0b00111000)
   	      PATCH_FOR_EACH offset IN
@@ -1981,141 +992,8 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
   	        END
 		END
 	END
-BUT_ONLY
-/*
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
-		READ_BYTE  0x1e cleric 
-		READ_BYTE  0x1f mcler 
-		PATCH_IF (type = 29) BEGIN // spears
-			WRITE_BYTE 0x1e (cleric BAND 0b01111111)
-			WRITE_BYTE 0x1f (mcler BAND 0b00111000)
-	        PATCH_FOR_EACH offset IN
-	          ~0x50~
-	          ~0x54~
-	        BEGIN
-	          READ_LONG ~%offset%~ desc_strref
-	          PATCH_IF (desc_strref >= 0 && desc_strref < 2147483646) BEGIN
-	            READ_STRREF ~%offset%~ desc
-	           	LAUNCH_PATCH_FUNCTION ~REMOVE_CLASS_LINE_FROM_USABILITIES~
-	           	  STR_VAR
-	           	    unusable_regexp = EVALUATE_BUFFER ~^[ %TAB%]*\(Unusable By\|Not Usable By\).*~
-	           	    unusable_replacement = ~Not Usable By:~
-	           	    class_regexp = EVALUATE_BUFFER ~[%LNL%%MNL%%WNL%].*\bCleric.*~
-	           	    class_prefix = ~ ~
-	           	END
-	          END
-	        END
-		END
-	END
-BUT_ONLY
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
-		READ_BYTE  0x1e cleric 
-		READ_BYTE  0x1f mcler 
-		PATCH_IF (type = 25) BEGIN // axes
-			WRITE_BYTE 0x1e (cleric BAND 0b01111111)
-			WRITE_BYTE 0x1f (mcler BAND 0b00111000)
-	        PATCH_FOR_EACH offset IN
-	          ~0x50~
-	          ~0x54~
-	        BEGIN
-	          READ_LONG ~%offset%~ desc_strref
-	          PATCH_IF (desc_strref >= 0 && desc_strref < 2147483646) BEGIN
-	            READ_STRREF ~%offset%~ desc
-	           	LAUNCH_PATCH_FUNCTION ~REMOVE_CLASS_LINE_FROM_USABILITIES~
-	           	  STR_VAR
-	           	    unusable_regexp = EVALUATE_BUFFER ~^[ %TAB%]*\(Unusable By\|Not Usable By\).*~
-	           	    unusable_replacement = ~Not Usable By:~
-	           	    class_regexp = EVALUATE_BUFFER ~[%LNL%%MNL%%WNL%].*\bCleric.*~
-	           	    class_prefix = ~ ~
-	           	END
-	          END
-	        END
-		END
-	END
-BUT_ONLY
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
-		READ_BYTE  0x1e cleric 
-		READ_BYTE  0x1f mcler 
-		PATCH_IF (type = 19) BEGIN // small swords
-			WRITE_BYTE 0x1e (cleric BAND 0b01111111)
-			WRITE_BYTE 0x1f (mcler BAND 0b00111000)
-	        PATCH_FOR_EACH offset IN
-	          ~0x50~
-	          ~0x54~
-	        BEGIN
-	          READ_LONG ~%offset%~ desc_strref
-	          PATCH_IF (desc_strref >= 0 && desc_strref < 2147483646) BEGIN
-	            READ_STRREF ~%offset%~ desc
-	           	LAUNCH_PATCH_FUNCTION ~REMOVE_CLASS_LINE_FROM_USABILITIES~
-	           	  STR_VAR
-	           	    unusable_regexp = EVALUATE_BUFFER ~^[ %TAB%]*\(Unusable By\|Not Usable By\).*~
-	           	    unusable_replacement = ~Not Usable By:~
-	           	    class_regexp = EVALUATE_BUFFER ~[%LNL%%MNL%%WNL%].*\bCleric.*~
-	           	    class_prefix = ~ ~
-	           	END
-	          END
-	        END
-		END
-	END
-BUT_ONLY
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
-		READ_BYTE  0x1e cleric 
-		READ_BYTE  0x1f mcler 
-		PATCH_IF (type = 20) BEGIN // large swords
-			WRITE_BYTE 0x1e (cleric BAND 0b01111111)
-			WRITE_BYTE 0x1f (mcler BAND 0b00111000)
-	        PATCH_FOR_EACH offset IN
-	          ~0x50~
-	          ~0x54~
-	        BEGIN
-	          READ_LONG ~%offset%~ desc_strref
-	          PATCH_IF (desc_strref >= 0 && desc_strref < 2147483646) BEGIN
-	            READ_STRREF ~%offset%~ desc
-	           	LAUNCH_PATCH_FUNCTION ~REMOVE_CLASS_LINE_FROM_USABILITIES~
-	           	  STR_VAR
-	           	    unusable_regexp = EVALUATE_BUFFER ~^[ %TAB%]*\(Unusable By\|Not Usable By\).*~
-	           	    unusable_replacement = ~Not Usable By:~
-	           	    class_regexp = EVALUATE_BUFFER ~[%LNL%%MNL%%WNL%].*\bCleric.*~
-	           	    class_prefix = ~ ~
-	           	END
-	          END
-	        END
-		END
-	END
-BUT_ONLY
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~ // copies all item files
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN // avoid crashing on empty items
-		READ_BYTE  0x1e cleric 
-		READ_BYTE  0x1f mcler 
-		PATCH_IF (type = 16) BEGIN // daggers
-			WRITE_BYTE 0x1e (cleric BAND 0b01111111)
-			WRITE_BYTE 0x1f (mcler BAND 0b00111000)
-	        PATCH_FOR_EACH offset IN
-	          ~0x50~
-	          ~0x54~
-	        BEGIN
-	          READ_LONG ~%offset%~ desc_strref
-	          PATCH_IF (desc_strref >= 0 && desc_strref < 2147483646) BEGIN
-	            READ_STRREF ~%offset%~ desc
-	           	LAUNCH_PATCH_FUNCTION ~REMOVE_CLASS_LINE_FROM_USABILITIES~
-	           	  STR_VAR
-	           	    unusable_regexp = EVALUATE_BUFFER ~^[ %TAB%]*\(Unusable By\|Not Usable By\).*~
-	           	    unusable_replacement = ~Not Usable By:~
-	           	    class_regexp = EVALUATE_BUFFER ~[%LNL%%MNL%%WNL%].*\bCleric.*~
-	           	    class_prefix = ~ ~
-	           	END
-	          END
-	        END
-		END
-	END
-BUT_ONLY
-*/
-// END
-//END
+  BUT_ONLY
+END
 //__________________________________________________________________________________
 
 
@@ -2867,44 +1745,6 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
   COPY ~scales_of_balance/profs/d5sslin.spl~ ~override~
   COPY ~scales_of_balance/profs/d5sxbow.spl~ ~override~
 
-/*
-  COPY ~scales_of_balance/profs/d5wepf1.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5wepf1.eff~ ~override~
-  COPY ~scales_of_balance/profs/d5wepfa.spl~ ~override~
-	SAY NAME1 @12300
-	SAY UNIDENTIFIED_DESC @12300
-	WRITE_ASCII 0x3a ~d5_wepfo~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
-  COPY ~scales_of_balance/profs/d5wepf2.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5wepf2.eff~ ~override~
-  COPY ~scales_of_balance/profs/d5wepfb.spl~ ~override~
-	SAY NAME1 @12300
-	SAY UNIDENTIFIED_DESC @12300
-	WRITE_ASCII 0x3a ~d5_wepfo~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
-  COPY ~scales_of_balance/profs/d5wepf3.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5wepf3.eff~ ~override~
-  COPY ~scales_of_balance/profs/d5wepfc.spl~ ~override~
-	SAY NAME1 @12300
-	SAY UNIDENTIFIED_DESC @12300
-	WRITE_ASCII 0x3a ~d5_wepfo~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
-  COPY ~scales_of_balance/profs/d5wepf4.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5wepf4.eff~ ~override~
-  COPY ~scales_of_balance/profs/d5wepfd.spl~ ~override~
-	SAY NAME1 @12300
-	SAY UNIDENTIFIED_DESC @12300
-	WRITE_ASCII 0x3a ~d5_wepfo~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
-  COPY ~scales_of_balance/profs/d5wepf5.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5wepf5.eff~ ~override~
-  COPY ~scales_of_balance/profs/d5wepfe.spl~ ~override~
-	SAY NAME1 @12300
-	SAY UNIDENTIFIED_DESC @12300
-	WRITE_ASCII 0x3a ~d5_wepfo~
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
-*/
-
   APPEND ~splprot.2da~ ~D5_INT_GTEQ%TAB%38%TAB%-1%TAB%4~
 //  APPEND ~splprot.2da~ ~D5_CLASS_EQ%TAB%0x10d%TAB%-1%TAB%1~
 
@@ -2993,13 +1833,6 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	SAY UNIDENTIFIED_DESC @12351
 	WRITE_ASCII 0x3a ~d5_wepfo~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
-
-/*
-  COPY ~scales_of_balance/profs/d5iprf4.spl~ ~override~
-    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_prof_1% parameter2 = %int_gteq_row% END
-  COPY ~scales_of_balance/profs/d5iprf5.spl~ ~override~
-    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_prof_2% parameter2 = %int_gteq_row% END
-*/
 
   ACTION_IF FILE_EXISTS_IN_GAME ~clabfi01.2da~ BEGIN
 	COPY_EXISTING ~clabfi01.2da~ ~override~

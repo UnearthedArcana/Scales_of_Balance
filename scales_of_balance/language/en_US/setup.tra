@@ -30,6 +30,9 @@
 @102   = ~IWO - Functional Weapon Tweaks~
 @103   = ~IWO - Light/Heavy Weapon Distinctions~
 @104   = ~IWO - IWDEE Item Tweaks~
+@107   = ~IWO - Restrict Dual-Wielding~
+@1071  = ~Dual-Wield small weapons only~
+@1072  = ~Dual-Wield small/medium weapons~
 @121   = ~WPO - Weapon Category Collapse~
 @122   = ~WPO - Systemic Proficiency Changes~
 @123   = ~WPO - TEMPORARILY UNAVAILABLE~
@@ -39,7 +42,8 @@
 @180   = ~MRO - Magic Resistance Overhaul~
 @200   = ~SBO - Stat Bonus Overhaul~
 @202   = ~SBO - Full Strength for 2-Hand Weapons Only~
-@205   = ~HDO - Hit Dice Overhaul~
+@204   = ~SBO - Enable Concentration Checks~
+@205   = ~SBO - Hit Dice Overhaul~
 @206   = ~Generous (above-average) hit points~
 @207   = ~Hardcore (closer to average) hit points~
 @210   = ~XPO - Slower, standardized XP Tables~
@@ -75,65 +79,65 @@ Area of Effect: The caster
 Saving Throw: None 
 
 The caster of the Armor of Faith receives significant protection against melee and magical attacks. This magical armor-like force surrounds the caster and absorbs a portion of any damage taken. This amounts to an effect 10% boost to damage resistance against all damage types.~
-@1001   = ~Mastercraft Arrows~
-@1002   = ~Enchanted Arrows~
-@1003   = ~Mastercraft Bolts~
-@1004   = ~Enchanted Bolts~
-@1005   = ~Mastercraft Sling Bullets~
-@1006   = ~Enchanted Sling Bullets~
-@1007   = ~Mastercraft Battle Axe~
-@1008   = ~Enchanted Throwing Axe~
-@1009   = ~Mastercraft Flail~
-@1010   = ~Mastercraft Mace~
-@1011   = ~Mastercraft Morning Star~
-@1012   = ~Enchanted Flail~
-@1013   = ~Enchanted Morning Star~
-@1014   = ~Mastercraft Composite Longbow~
-@1015   = ~Mastercraft Longbow~
-@1016   = ~Mastercraft Shortbow~
-@1017   = ~Enchanted Composite Longbow~
-@1018   = ~Enchanted Longow~
-@1019   = ~Enchanted Shortbow~
-@1020   = ~Mastercraft Dagger~
-@1021   = ~Mastercraft Darts~
-@1022   = ~Mastercraft Halberd~
-@1023   = ~Mastercraft War Hammer~
-@1024   = ~Mastercraft Sling~
-@1025   = ~Mastercraft Spear~
-@1026   = ~Enchanted Spear~
-@1027   = ~Mastercraft Quarterstaff~
-@1028   = ~Enchanted Quarterstaff~
-@1029   = ~Mastercraft Bastard Sword~
-@1030   = ~Mastercraft Long Sword~
-@1031   = ~Mastercraft Short Sword~
-@1032   = ~Mastercraft Scimitar~
-@1033   = ~Mastercraft Katana~
-@1034   = ~Mastercraft Wakizashi~
-@1035   = ~Mastercraft Ninja-to~
-@1036   = ~Drusus~
-@1037   = ~Enchanted Long Sword~
-@1038   = ~Enchanted Bastard Sword~
-@1039   = ~Enchanted Katana~
-@1040   = ~Mastercraft Two-Handed Sword~
-@1041   = ~Enchanted Two-Handed Sword~
-@1042   = ~Mastercraft Heavy Crossbow~
-@1043   = ~Mastercraft Light Crossbow~
-@1044   = ~Mastercraft Chain Mail~
-@1045   = ~Mastercraft Splint Mail~
-@1046   = ~Enchanted Chain Mail~
-@1047   = ~Mastercraft Leather Armor~
-@1048   = ~Mastercraft Studded Leather~
-@1049   = ~Enchanted Leather Armor~
-@1050   = ~Enchanted Halberd~
-@1051   = ~Mastercraft Small Shield~
-@1052   = ~Mastercraft Medium Shield~
-@1053   = ~Mastercraft Large Shield~
-@1054   = ~The Redshield~
-@1055   = ~Mastercraft Buckler~
-@1056   = ~Enchanted Small Shield~
-@1057   = ~Enchanted Medium Shield~
-@1058   = ~Quiver of Plenty~
-@1059   = ~Quiver of Plenty
+@10101   = ~Mastercraft Arrows~
+@10102   = ~Enchanted Arrows~
+@10103   = ~Mastercraft Bolts~
+@10104   = ~Enchanted Bolts~
+@10105   = ~Mastercraft Sling Bullets~
+@10106   = ~Enchanted Sling Bullets~
+@10107   = ~Mastercraft Battle Axe~
+@10108   = ~Enchanted Throwing Axe~
+@10109   = ~Mastercraft Flail~
+@10110   = ~Mastercraft Mace~
+@10111   = ~Mastercraft Morning Star~
+@10112   = ~Enchanted Flail~
+@10113   = ~Enchanted Morning Star~
+@10114   = ~Mastercraft Composite Longbow~
+@10115   = ~Mastercraft Longbow~
+@10116   = ~Mastercraft Shortbow~
+@10117   = ~Enchanted Composite Longbow~
+@10118   = ~Enchanted Longow~
+@10119   = ~Enchanted Shortbow~
+@10120   = ~Mastercraft Dagger~
+@10121   = ~Mastercraft Darts~
+@10122   = ~Mastercraft Halberd~
+@10123   = ~Mastercraft War Hammer~
+@10124   = ~Mastercraft Sling~
+@10125   = ~Mastercraft Spear~
+@10126   = ~Enchanted Spear~
+@10127   = ~Mastercraft Quarterstaff~
+@10128   = ~Enchanted Quarterstaff~
+@10129   = ~Mastercraft Bastard Sword~
+@10130   = ~Mastercraft Long Sword~
+@10131   = ~Mastercraft Short Sword~
+@10132   = ~Mastercraft Scimitar~
+@10133   = ~Mastercraft Katana~
+@10134   = ~Mastercraft Wakizashi~
+@10135   = ~Mastercraft Ninja-to~
+@10136   = ~Drusus~
+@10137   = ~Enchanted Long Sword~
+@10138   = ~Enchanted Bastard Sword~
+@10139   = ~Enchanted Katana~
+@10140   = ~Mastercraft Two-Handed Sword~
+@10141   = ~Enchanted Two-Handed Sword~
+@10142   = ~Mastercraft Heavy Crossbow~
+@10143   = ~Mastercraft Light Crossbow~
+@10144   = ~Mastercraft Chain Mail~
+@10145   = ~Mastercraft Splint Mail~
+@10146   = ~Enchanted Chain Mail~
+@10147   = ~Mastercraft Leather Armor~
+@10148   = ~Mastercraft Studded Leather~
+@10149   = ~Enchanted Leather Armor~
+@10150   = ~Enchanted Halberd~
+@10151   = ~Mastercraft Small Shield~
+@10152   = ~Mastercraft Medium Shield~
+@10153   = ~Mastercraft Large Shield~
+@10154   = ~The Redshield~
+@10155   = ~Mastercraft Buckler~
+@10156   = ~Enchanted Small Shield~
+@10157   = ~Enchanted Medium Shield~
+@10158   = ~Quiver of Plenty~
+@10159   = ~Quiver of Plenty
 The history of this magical quiver has been long forgotten, though it likely had something to do with the inexplicable but well documented shortage of competent fletchers during the Time of Troubles.
 
 STATISTICS:
@@ -142,8 +146,8 @@ Equipped abilities:
 – Unlimited mastercraft arrows 
 
 Weight: 0~
-@1060   = ~Case of Plenty~
-@1061   = ~Case of Plenty
+@10160   = ~Case of Plenty~
+@10161   = ~Case of Plenty
 The history of this magical case has been long forgotten, though it likely had something to do with the inexplicable but well documented shortage of competent fletchers during the Time of Troubles.
 
 STATISTICS:
@@ -152,9 +156,9 @@ Equipped abilities:
 – Unlimited mastercraft bolts
 
 Weight: 0~
-@1062   = ~Mastercraft Club~
-@1063   = ~Bag of Plenty~
-@1064   = ~Bag of Plenty
+@10162   = ~Mastercraft Club~
+@10163   = ~Bag of Plenty~
+@10164   = ~Bag of Plenty
 Although this soft cloth pouch is empty right now, there is still a powerful aura of magic surrounding it.
 
 STATISTICS:
@@ -163,34 +167,34 @@ Equipped abilities:
 – Unlimited mastercraft sling bullets
 
 Weight: 0~
-@1065   = ~Enchanted Battle Axe~
-@1066   = ~Dagger: Heart of the Golem~
-@1067   = ~Enchanted Dagger~
-@1068   = ~Suryris' Blade~
-@1069   = ~War Hammer: Ashideena~
-@1070   = ~War Hammer: Borok's Fist~
-@1071   = ~Enchanted Studded Leather~
-@1072   = ~Mastercraft Plate Mail~
-@1073   = ~Mastercraft Full Plate~
-@1074   = ~Enchanted Full Plate~
-@1075   = ~Enchanted Large Shield~
-@1076   = ~Enchanted Sling~
-@1077   = ~Varscona~
-@1078   = ~The Whistling Sword~
-@1079   = ~Water's Edge~
-@1080   = ~Enchanted Mace~
-@1081   = ~Enchanted Club~
-@1082   = ~Drow Crossbow Bolts~
-@1083   = ~Enchanted Drow Flail~
-@1084   = ~Enchanted Drow Halberd~
-@1085   = ~Enchanted Drow Spear~
-@1086   = ~Enchanted Drow Scimitar~
-@1087   = ~Enchanted Drow Long Sword~
-@1088   = ~Enchanted War Hammer~
-@1089   = ~Yoshimo's Katana~
-@1090   = ~Enchanted Heavy Crossbow~
-@1091   = ~Enchanted Light Crossbow~
-@1092   = ~Quiver of Plenty
+@10165   = ~Enchanted Battle Axe~
+@10166   = ~Dagger: Heart of the Golem~
+@10167   = ~Enchanted Dagger~
+@10168   = ~Suryris' Blade~
+@10169   = ~War Hammer: Ashideena~
+@10170   = ~War Hammer: Borok's Fist~
+@10171   = ~Enchanted Studded Leather~
+@10172   = ~Mastercraft Plate Mail~
+@10173   = ~Mastercraft Full Plate~
+@10174   = ~Enchanted Full Plate~
+@10175   = ~Enchanted Large Shield~
+@10176   = ~Enchanted Sling~
+@10177   = ~Varscona~
+@10178   = ~The Whistling Sword~
+@10179   = ~Water's Edge~
+@10180   = ~Enchanted Mace~
+@10181   = ~Enchanted Club~
+@10182   = ~Drow Crossbow Bolts~
+@10183   = ~Enchanted Drow Flail~
+@10184   = ~Enchanted Drow Halberd~
+@10185   = ~Enchanted Drow Spear~
+@10186   = ~Enchanted Drow Scimitar~
+@10187   = ~Enchanted Drow Long Sword~
+@10188   = ~Enchanted War Hammer~
+@10189   = ~Yoshimo's Katana~
+@10190   = ~Enchanted Heavy Crossbow~
+@10191   = ~Enchanted Light Crossbow~
+@10192   = ~Quiver of Plenty
 The history of this magical quiver has been long forgotten, though it likely had something to do with the inexplicable but well documented shortage of competent fletchers during the Time of Troubles.
 
 STATISTICS:
@@ -199,7 +203,7 @@ Equipped abilities:
 – Unlimited enchanted arrows 
 
 Weight: 0~
-@1093   = ~Case of Plenty
+@10193   = ~Case of Plenty
 The history of this magical case has been long forgotten, though it likely had something to do with the inexplicable but well documented shortage of competent fletchers during the Time of Troubles.
 
 STATISTICS:
@@ -208,7 +212,7 @@ Equipped abilities:
 – Unlimited enchanted bolts
 
 Weight: 0~
-@1094   = ~Bag of Plenty
+@10194   = ~Bag of Plenty
 Although this soft cloth pouch is empty right now, there is still a powerful aura of magic surrounding it.
 
 STATISTICS:
@@ -217,19 +221,20 @@ Equipped abilities:
 – Unlimited enchanted sling bullets
 
 Weight: 0~
-@1095   = ~Bone Club~
-@1096   = ~Gnasher~
-@1097   = ~Greater Cloak of Protection~
-@1098   = ~Duskblade~
-@1099   = ~Wave~
-@1100   = ~The Kneecapper~
-@1101   = ~Greater Ring of Protection~
-@1102   = ~Superior Ring of Protection~
-@1103   = ~Shield of Falling Stars~
-@1104   = ~The Impaler~
-@1105   = ~Halcyon Spear~
-@1106   = ~Kondar~
-@1107   = ~Rashad's Talon~
+@10195   = ~Bone Club~
+@10196   = ~Gnasher~
+@10197   = ~Greater Cloak of Protection~
+@10198   = ~Duskblade~
+@10199   = ~Wave~
+@10200   = ~The Kneecapper~
+@10201   = ~Greater Ring of Protection~
+@10202   = ~Superior Ring of Protection~
+@10203   = ~Shield of Falling Stars~
+@10204   = ~The Impaler~
+@10205   = ~Halcyon Spear~
+@10206   = ~Kondar~
+@10207   = ~Rashad's Talon~
+@10701	= ~ ~
 @1214   = ~FIGHTER: The Fighter is a champion, soldier, and brawler who lives or dies by knowledge of weapons and tactics. Fighters can be found at the front of any battle, contesting toe-to-toe with monsters and villains. A good Fighter needs to be strong and healthy if he hopes to survive.
 CLASS FEATURES:
 - May wear helmets.

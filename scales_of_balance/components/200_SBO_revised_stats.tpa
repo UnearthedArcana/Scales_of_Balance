@@ -97,17 +97,17 @@ COPY ~scales_of_balance/misc/d5_wisp7.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp8.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp9.spl~ ~override~
 COPY ~scales_of_balance/stats/d5_noint.spl~ ~override~
-COPY ~scales_of_balance/stats/d5_nint2.eff~ ~override~
-COPY ~scales_of_balance/stats/d5_nint3.eff~ ~override~
-COPY ~scales_of_balance/stats/d5_nint4.eff~ ~override~
-COPY ~scales_of_balance/stats/d5_nint5.eff~ ~override~
-COPY ~scales_of_balance/stats/d5_nint6.eff~ ~override~
-COPY ~scales_of_balance/stats/d5_nint7.eff~ ~override~
-COPY ~scales_of_balance/stats/d5_nint8.eff~ ~override~
-COPY ~scales_of_balance/stats/d5_nint9.eff~ ~override~
-COPY ~scales_of_balance/stats/d5_nint0.eff~ ~override~
 
 ACTION_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+	COPY ~scales_of_balance/stats/d5_nint2.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nint3.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nint4.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nint5.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nint6.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nint7.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nint8.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nint9.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nint0.eff~ ~override~
 	COPY ~scales_of_balance/stats/old/d5_int12.spl~ ~override~
 	COPY ~scales_of_balance/stats/old/d5_int13.spl~ ~override~
 	COPY ~scales_of_balance/stats/old/d5_int14.spl~ ~override~
@@ -137,6 +137,15 @@ ACTION_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	COMPILE ~scales_of_balance/stats/old/d5_int20.baf~
 END
 ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+	COPY ~scales_of_balance/stats/d5_ninta.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nintb.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nintc.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nintd.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_ninte.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nintf.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_nintg.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_ninth.eff~ ~override~
+	COPY ~scales_of_balance/stats/d5_ninti.eff~ ~override~
 	COPY ~scales_of_balance/stats/new/d5i13spl.spl~ ~override~
 	COPY ~scales_of_balance/stats/new/d5i14spl.spl~ ~override~
 	COPY ~scales_of_balance/stats/new/d5i15spl.spl~ ~override~

@@ -102,35 +102,6 @@ END
 //	COPY_EXISTING ~.itm~ ~override~
 //__________________________________________________________________________________
 
-/*
-//item price fixes__________________________________________________________________
-//
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
-	PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
-		READ_SHORT 0x1c type
-		PATCH_IF (%type% = 16 || %type% = 17 || %type% = 19 || %type% = 20 || %type% = 21 || %type% = 22 || %type% = 23 || %type% = 25 || %type% = 26 || %type% = 29 || %type% = 30 || %type% = 44 || %type% = 57 || %type% = 69) BEGIN
-			READ_LONG 0x60 enchantment
-			PATCH_IF (%enchantment% = 1) BEGIN
-				WRITE_LONG 0x34 ~~
-			END
-			PATCH_IF (%enchantment% = 2) BEGIN
-				WRITE_LONG 0x34 ~~
-			END
-			PATCH_IF (%enchantment% = 3) BEGIN
-				WRITE_LONG 0x34 ~~
-			END
-			PATCH_IF (%enchantment% = 4) BEGIN
-				WRITE_LONG 0x34 ~~
-			END
-			PATCH_IF (%enchantment% = 5) BEGIN
-				WRITE_LONG 0x34 ~~
-			END
-		END
-	END
-BUT_ONLY
-			
-//__________________________________________________________________________________
-*/
 
 //speed melee weapon fixes__________________________________________________________
 //

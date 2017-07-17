@@ -723,6 +723,25 @@ COPY ~scales_of_balance/profs/d5_sns2.spl~ ~override~
 COPY ~scales_of_balance/profs/d5_sns2a.spl~ ~override~
 COPY ~scales_of_balance/profs/d5_sns2b.spl~ ~override~
 COPY ~scales_of_balance/profs/d5_snsn.spl~ ~override~
+COPY ~scales_of_balance/profs/d5_snst.spl~ ~override~
+COPY ~scales_of_balance/profs/d5_snst.eff~ ~override~
+
+APPEND ~clabth01.2da~ ~ABILITY    AP_D5_SNST  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~ 
+COPY_EXISTING ~kitlist.2da~ ~override~
+  COUNT_2DA_ROWS ~9~ "rows"
+  FOR ( index = 31 ; index < rows ; index = index + 1 ) BEGIN
+	READ_2DA_ENTRY %index% 5 9 clab
+	READ_2DA_ENTRY %index% 8 9 class
+	DEFINE_ASSOCIATIVE_ARRAY d5_sns_thieves BEGIN "%clab%" => "%class%" END
+  END
+BUT_ONLY
+ACTION_PHP_EACH d5_sns_thieves AS lemon => lime BEGIN
+  ACTION_IF (%lime% = 3) BEGIN 
+	ACTION_IF FILE_EXISTS_IN_GAME ~%lemon%.2da~ BEGIN
+	  APPEND ~%lemon%.2da~ ~ABILITY    AP_D5_SNST  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~ 
+	END
+  END
+END
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN

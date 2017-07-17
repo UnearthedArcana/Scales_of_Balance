@@ -10,25 +10,20 @@
 //__________________________________________________________________________________
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
-		READ_SHORT ~0x1c~ ~type~
-		PATCH_IF (~%type%~ = ~16~) BEGIN // daggers
+		READ_BYTE 0x31 prof
+		READ_SHORT 0x1c type
+		PATCH_IF (%prof% = 96) BEGIN // daggers
 			LPF DELETE_EFFECT INT_VAR match_opcode = 1 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=1 target=1 timing=2 parameter1=7 parameter2=1 END
 		END
-		PATCH_IF (~%type%~ = ~26~) BEGIN // quarterstaff
-			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=3 dicenumber=2 END
+		PATCH_IF (%prof% = 102) BEGIN // quarterstaff
+//			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=3 dicenumber=2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=0 target=1 timing=2 parameter1=1 parameter2=0 END
 		END
-/*
-		PATCH_IF (~%type%~ = ~22~) BEGIN // morning star
-			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=6 dicenumber=1 END
-			LPF ADD_ITEM_EFFECT INT_VAR opcode=12 target=2 timing=1 parameter1=1 parameter2=0 dicesize=3 dicenumber=1 END
-		END
-*/
-		PATCH_IF (~%type%~ = ~23~) BEGIN // flails
+		PATCH_IF (%prof% = 100) BEGIN // flails
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=8 dicenumber=1 END
 		END
-		PATCH_IF (~%type%~ = ~29~) BEGIN // spears
+		PATCH_IF (%prof% = 98) BEGIN // spears
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 dicesize=2 dicenumber=4 END
 			FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 				READ_LONG "%index%" "valid"
@@ -45,10 +40,10 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 
 		END
 /*
-		PATCH_IF (~%type%~ = ~25~) BEGIN // axes
+		PATCH_IF (%prof% = 92) BEGIN // axes
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 damage_type=8 END
 		END
-		PATCH_IF (~%type%~ = ~19~) BEGIN // small swords
+		PATCH_IF (%prof% = 91) BEGIN // short swords
 			LPF ALTER_ITEM_HEADER INT_VAR header_type=1 damage_type=7 END
 		END
 */
@@ -217,8 +212,9 @@ Weight:~
 ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
   COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
+		READ_BYTE 0x31 prof
 		READ_SHORT 0x1c type
-		PATCH_IF (%type% = 16 || %type% = 18 || %type% = 24) BEGIN // daggers, slings, darts
+		PATCH_IF (%prof% = 96 || %prof% = 107 || %prof% = 106) BEGIN // daggers, slings, darts
 			READ_LONG 0x64 abil_offset
 			READ_SHORT 0x68 abil_number
 			WHILE (%abil_number% > 0) BEGIN
