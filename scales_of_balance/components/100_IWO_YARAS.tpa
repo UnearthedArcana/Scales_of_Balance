@@ -48,6 +48,15 @@ BUT_ONLY
 //__________________________________________________________________________________
 
 
+//DON'T CHANGE JAN'S ARMOR__________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~nparm.itm~ BEGIN
+  COPY_EXISTING ~nparm.itm~ ~override~
+	WRITE_SHORT 0x22 22362
+END
+//__________________________________________________________________________________
+
+
 //USE GAME INSTALL LANGUAGE FOR WORD MATCHING_______________________________________
 //
 ACTION_IF NOT VARIABLE_IS_SET %EE_LANGUAGE% BEGIN
@@ -196,7 +205,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	  READ_SHORT 0x1c type
 	  PATCH_IF (type = 2) BEGIN
-	  
+/*	  
 		PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
 		  READ_BYTE    ~0x1f~ ~fight~ //reads the byte containing the fighter usability flag
 		  PATCH_IF ((~%fight%~ BAND ~0b00100000~) = ~0b00000000~) BEGIN // if *usable* by fighter/mages (excluding scrolls and wands for now)
@@ -209,7 +218,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			WRITE_BYTE    ~0x20~ (~%class3%~ BAND ~0b10000000~) // others
 		  END
 		END
-		PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+*/
+//		PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
 		  READ_BYTE    ~0x1f~ ~fight~ //reads the byte containing the fighter usability flag
 		  PATCH_IF ((~%fight%~ BAND ~0b00100000~) = ~0b00000000~) BEGIN // if *usable* by fighter/mages (excluding scrolls and wands for now)
 			READ_BYTE    ~0x1e~ ~class1~
@@ -220,7 +230,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			WRITE_BYTE    ~0x1f~ (~%class2%~ BAND ~0b00000000~) // multiclasses
 			WRITE_BYTE    ~0x20~ (~%class3%~ BAND ~0b10000000~) // others
 		  END
-		END
+//		END
 
 		SET elven = 0
 		SET no_cast = 0
@@ -611,7 +621,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			END
 		  END
 //	scale armor
-		  ELSE PATCH_IF VARIABLE_IS_SET %scale_strref% BEGIN
+		  PATCH_IF VARIABLE_IS_SET %scale_strref% BEGIN
 		   PATCH_IF (gen_name_strref = scale_strref) BEGIN 
 //			SPRINT armor_type ~scale~
 			PATCH_PRINT ~%SOURCE_RES% = scale armor~
@@ -673,7 +683,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		   END
 		  END
 //	plate is default
-		  ELSE BEGIN 
+		  PATCH_IF (gen_name_strref = plate_strref) BEGIN 
 //			SPRINT armor_type ~plate~
 			PATCH_PRINT ~%SOURCE_RES% = plate mail~
 			READ_LONG 0x6a eff_offset
@@ -806,6 +816,15 @@ ACTION_IF FILE_EXISTS_IN_GAME ~waflail.itm~ BEGIN
 	  SAY_EVALUATED 0x54 ~%new_desc%~
 	END
   BUT_ONLY
+END
+//__________________________________________________________________________________
+
+
+//DON'T CHANGE JAN'S ARMOR__________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~nparm.itm~ BEGIN
+  COPY_EXISTING ~nparm.itm~ ~override~
+	WRITE_SHORT 0x22 16690
 END
 //__________________________________________________________________________________
 
