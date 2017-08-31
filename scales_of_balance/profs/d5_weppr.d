@@ -2,18 +2,18 @@ BEGIN ~D5_WEPPR~
 
 IF ~Global("D5_WEPPR","GLOBAL",1)~ THEN BEGIN d5_weppr
 SAY @12352
-IF ~CheckStatLT(myself,1,"PROFICIENCYTWOHANDEDSWORD")~ THEN REPLY @12301 GOTO d5_weppr_1
-IF ~CheckStatLT(myself,1,"PROFICIENCYLONGSWORD")~ THEN REPLY @12303 GOTO d5_weppr_2
-IF ~CheckStatLT(myself,1,"PROFICIENCYSCIMITARWAKISASHININJATO")~ THEN REPLY @12305 GOTO d5_weppr_3
-IF ~CheckStatLT(myself,1,"PROFICIENCYSHORTSWORD")~ THEN REPLY @12307 GOTO d5_weppr_4
+IF ~!Class(myself,"CLERIC") !Class(myself,"THIEF") !Class(myself,"MAGE") !Class(myself,"CLERIC_MAGE") !Class(myself,"CLERIC_THIEF") !Class(myself,"MAGE_THIEF") !Class(myself,"CLERIC_RANGER") !Class(myself,"MONK") CheckStatLT(myself,1,"PROFICIENCYTWOHANDEDSWORD")~ THEN REPLY @12301 GOTO d5_weppr_1
+IF ~!Class(myself,"CLERIC") !Class(myself,"MAGE") !Class(myself,"CLERIC_MAGE") !Class(myself,"CLERIC_THIEF") CheckStatLT(myself,1,"PROFICIENCYLONGSWORD")~ THEN REPLY @12303 GOTO d5_weppr_2
+IF ~!Class(myself,CLERIC) !Class(myself,"MAGE") !Class(myself,"CLERIC_MAGE") CheckStatLT(myself,1,"PROFICIENCYSCIMITARWAKISASHININJATO")~ THEN REPLY @12305 GOTO d5_weppr_3
+IF ~!Class(myself,"MAGE") CheckStatLT(myself,1,"PROFICIENCYSHORTSWORD")~ THEN REPLY @12307 GOTO d5_weppr_4
 IF ~CheckStatLT(myself,1,"PROFICIENCYDAGGER")~ THEN REPLY @12309 GOTO d5_weppr_5
-IF ~CheckStatLT(myself,1,"PROFICIENCYSPEAR")~ THEN REPLY @12311 GOTO d5_weppr_6
-IF ~CheckStatLT(myself,1,"PROFICIENCYQUARTERSTAFF")~ THEN REPLY @12313 GOTO d5_weppr_7
+IF ~!Class(myself,CLERIC) !Class(myself,"MAGE") !Class(myself,"CLERIC_MAGE") !Class(myself,"MONK") CheckStatLT(myself,1,"PROFICIENCYSPEAR")~ THEN REPLY @12311 GOTO d5_weppr_6
+IF ~!Class(myself,"MONK") CheckStatLT(myself,1,"PROFICIENCYQUARTERSTAFF")~ THEN REPLY @12313 GOTO d5_weppr_7
 IF ~CheckStatLT(myself,1,"PROFICIENCYCLUB")~ THEN REPLY @12315 GOTO d5_weppr_8
-IF ~CheckStatLT(myself,1,"PROFICIENCYWARHAMMER")~ THEN REPLY @12317 GOTO d5_weppr_10
-IF ~CheckStatLT(myself,1,"PROFICIENCYFLAILMORNINGSTAR")~ THEN REPLY @12319 GOTO d5_weppr_11
-IF ~CheckStatLT(myself,1,"PROFICIENCYAXE")~ THEN REPLY @12321 GOTO d5_weppr_12
-IF ~GlobalLT("D5_MELEE","GLOBAL",1) CheckStatLT(myself,1,"PROFICIENCYSHORTBOW")~ THEN REPLY @12323 GOTO d5_weppr_13
+IF ~!Class(myself,"THIEF") !Class(myself,"MAGE_THIEF") CheckStatLT(myself,1,"PROFICIENCYWARHAMMER")~ THEN REPLY @12317 GOTO d5_weppr_10
+IF ~!Class(myself,"THIEF") !Class(myself,"MAGE_THIEF") CheckStatLT(myself,1,"PROFICIENCYFLAILMORNINGSTAR")~ THEN REPLY @12319 GOTO d5_weppr_11
+IF ~!Class(myself,"THIEF") !Class(myself,"MAGE_THIEF") !Class(myself,CLERIC) CheckStatLT(myself,1,"PROFICIENCYAXE")~ THEN REPLY @12321 GOTO d5_weppr_12
+IF ~!Class(myself,CLERIC) GlobalLT("D5_MELEE","GLOBAL",1) CheckStatLT(myself,1,"PROFICIENCYSHORTBOW")~ THEN REPLY @12323 GOTO d5_weppr_13
 IF ~GlobalLT("D5_MELEE","GLOBAL",1) CheckStatLT(myself,1,"PROFICIENCYCROSSBOW")~ THEN REPLY @12325 GOTO d5_weppr_14
 IF ~GlobalLT("D5_MELEE","GLOBAL",1) CheckStatLT(myself,1,"PROFICIENCYSLING")~ THEN REPLY @12327 GOTO d5_weppr_15
 END

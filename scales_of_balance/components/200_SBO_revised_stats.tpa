@@ -1055,22 +1055,22 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	  READ_BYTE 0x23a intelligence
 	  READ_BYTE 0x23b wisdom
 	  READ_BYTE 0x23e charisma
-	  PATCH_IF (8 < strength < 12) BEGIN
+	  PATCH_IF (strength > 8) AND (strength < 12) BEGIN
 		WRITE_BYTE 0x238 12
 	  END
-	  PATCH_IF (8 < dexterity < 12) BEGIN
+	  PATCH_IF (dexterity > 8) AND (dexterity < 12) BEGIN
 		WRITE_BYTE 0x23c 12
 	  END
-	  PATCH_IF (8 < constitution < 12) BEGIN
+	  PATCH_IF (constitution > 8) AND (constitution < 12) BEGIN
 		WRITE_BYTE 0x23d 12
 	  END
-	  PATCH_IF (8 < intelligence < 12) BEGIN
+	  PATCH_IF (intelligence > 8) AND (intelligence < 12) BEGIN
 		WRITE_BYTE 0x23a 12
 	  END
-	  PATCH_IF (8 < wisdom < 12) BEGIN
+	  PATCH_IF (wisdom > 8) AND (wisdom < 12) BEGIN
 		WRITE_BYTE 0x23b 12
 	  END
-	  PATCH_IF (8 < charisma < 12) BEGIN
+	  PATCH_IF (charisma > 8) AND (charisma < 12) BEGIN
 		WRITE_BYTE 0x23e 12
 	  END
 	  LPF ADD_CRE_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 9 resist_dispel = 0 STR_VAR resource = ~D5_STATS~ END

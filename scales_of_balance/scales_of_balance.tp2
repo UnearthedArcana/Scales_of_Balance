@@ -1,16 +1,14 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.7.1~
+VERSION ~v5.7.2~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
 
 ALWAYS
 
-	INCLUDE ~scales_of_balance/lib/alter_effect.tpa~
-
-	INCLUDE ~scales_of_balance/lib/delete_effect.tpa~
+	INCLUDE ~scales_of_balance/lib/joinable_npcs.tpa~
 
 	INCLUDE ~scales_of_balance/lib/remove_lines.tpa~
 

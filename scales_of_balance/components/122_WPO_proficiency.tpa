@@ -1059,14 +1059,14 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
 END
 //__________________________________________________________________________________
 
-
+/*  5.8: no, add more prof dialogues instead
 //DELETE NPCS' PROFICIENCIES________________________________________________________
 //
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 	READ_LONG 0x1cc biography
 	PATCH_IF (biography > 0 && biography < 2147483647) BEGIN // party-joinable NPC
-	  LPF DELETE_EFFECT INT_VAR match_opcode = 233 END
+	  LPF DELETE_EFFECT INT_VAR silent = 1 match_opcode = 233 END
 	END
   END
 BUT_ONLY
@@ -1077,8 +1077,8 @@ BUT_ONLY
 //
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
-	READ_LONG 0x1cc biography
-	PATCH_IF (biography > 0 && biography < 2147483647) BEGIN // party-joinable NPC
+	READ_LONG 0xbc leader_sound
+	PATCH_IF (leader_sound > 0 && leader_sound < 2147483647) BEGIN // party-joinable NPC
 	  READ_BYTE 0x23d npc_con
 	  READ_BYTE 0x273 npc_class
 //	  LPF ADD_CRE_EFFECT INT_VAR opcode = 206 target = 1 timing = 9 parameter1 = (0 - 1) STR_VAR resource = ~d5weppw~ END
@@ -1709,7 +1709,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
   END
 BUT_ONLY
 //__________________________________________________________________________________
-
+*/
 
 //MnG KENSAI________________________________________________________________________
 // 
@@ -1849,38 +1849,38 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
   END
 
   COPY ~scales_of_balance/profs/d5weppw.spl~ ~override~
-    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_prof_1% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp1~ END
-    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_prof_2% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp2~ END
-    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_prof_3% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp3~ END
-    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_spec_1% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5weps2~ END
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_prof_1% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp1~ END
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_prof_2% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp2~ END
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_prof_3% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp3~ END
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_spec_1% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5weps2~ END
 //    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = 2 parameter2 = %class_eq_row% STR_VAR match_resource = ~d5weps1~ END
   COPY ~scales_of_balance/profs/d5weppr.spl~ ~override~
-    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_prof_3% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp3~ END
-    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = %int_spec_1% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5weps2~ END
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_prof_3% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp3~ END
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_spec_1% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5weps2~ END
   
   COPY ~scales_of_balance/profs/d5wepp1.spl~ ~override~
   COPY ~scales_of_balance/profs/d5weppa.spl~ ~override~
 	SAY NAME1 @12352
 	SAY UNIDENTIFIED_DESC @12352
-	WRITE_ASCII 0x3a ~d5_weppr~
+	WRITE_ASCII 0x3a ~d5_weppr~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_weppr~ END
   COPY ~scales_of_balance/profs/d5wepp2.spl~ ~override~
   COPY ~scales_of_balance/profs/d5weppb.spl~ ~override~
 	SAY NAME1 @12352
 	SAY UNIDENTIFIED_DESC @12352
-	WRITE_ASCII 0x3a ~d5_weppr~
+	WRITE_ASCII 0x3a ~d5_weppr~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_weppr~ END
   COPY ~scales_of_balance/profs/d5wepp3.spl~ ~override~
   COPY ~scales_of_balance/profs/d5weppc.spl~ ~override~
 	SAY NAME1 @12352
 	SAY UNIDENTIFIED_DESC @12352
-	WRITE_ASCII 0x3a ~d5_weppr~
+	WRITE_ASCII 0x3a ~d5_weppr~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_weppr~ END
   COPY ~scales_of_balance/profs/d5wepp4.spl~ ~override~
   COPY ~scales_of_balance/profs/d5weppd.spl~ ~override~
 	SAY NAME1 @12352
 	SAY UNIDENTIFIED_DESC @12352
-	WRITE_ASCII 0x3a ~d5_weppr~
+	WRITE_ASCII 0x3a ~d5_weppr~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_weppr~ END
   COPY ~scales_of_balance/profs/d5weps1.eff~ ~override~
   COPY ~scales_of_balance/profs/d5wepsa.eff~ ~override~
@@ -1888,13 +1888,13 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
   COPY ~scales_of_balance/profs/d5wepsa.spl~ ~override~
 	SAY NAME1 @12351
 	SAY UNIDENTIFIED_DESC @12351
-	WRITE_ASCII 0x3a ~d5_wepfo~
+	WRITE_ASCII 0x3a ~d5_wepfo~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
   COPY ~scales_of_balance/profs/d5weps2.spl~ ~override~
   COPY ~scales_of_balance/profs/d5wepsb.spl~ ~override~
 	SAY NAME1 @12351
 	SAY UNIDENTIFIED_DESC @12351
-	WRITE_ASCII 0x3a ~d5_wepfo~
+	WRITE_ASCII 0x3a ~d5_wepfo~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
 
   ACTION_IF FILE_EXISTS_IN_GAME ~clabfi01.2da~ BEGIN
@@ -1980,6 +1980,401 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
     EXTEND_TOP ~d5_wepfo.bcs~ ~scales_of_balance/profs/d5wsling.baf~
   END
 
+  COPY ~scales_of_balance/profs/d5slswo.spl~ ~override/d5mlswo~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5slswo~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5ssswo.spl~ ~override/d5msswo~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5ssswo~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sdagg.spl~ ~override/d5mdagg~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sdagg~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sscim.spl~ ~override/d5mscim~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sscim~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5s2swo.spl~ ~override/d5m2swo~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5s2swo~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sspea.spl~ ~override/d5mspea~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sspea~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sstaf.spl~ ~override/d5mstaf~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sstaf~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sclub.spl~ ~override/d5mclub~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sclub~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sflai.spl~ ~override/d5mflai~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sflai~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5shamm.spl~ ~override/d5mhamm~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5shamm~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sbaxe.spl~ ~override/d5mbaxe~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sbaxe~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sbows.spl~ ~override/d5mbows~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sbows~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sslin.spl~ ~override/d5mslin~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sslin~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sxbow.spl~ ~override/d5mxbow~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sxbow~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+
+  COPY ~scales_of_balance/profs/d5slswo.spl~ ~override/d5hlswo~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5slswo~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mlswo~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5ssswo.spl~ ~override/d5hsswo~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5ssswo~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5msswo~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sdagg.spl~ ~override/d5hdagg~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sdagg~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mdagg~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sscim.spl~ ~override/d5hscim~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sscim~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mscim~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5s2swo.spl~ ~override/d5h2swo~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5s2swo~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5m2swo~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sspea.spl~ ~override/d5hspea~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sspea~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mspea~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sstaf.spl~ ~override/d5hstaf~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sstaf~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mstaf~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sclub.spl~ ~override/d5hclub~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sclub~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mclub~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sflai.spl~ ~override/d5hflai~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sflai~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mflai~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5shamm.spl~ ~override/d5hhamm~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5shamm~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mhamm~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sbaxe.spl~ ~override/d5hbaxe~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sbaxe~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mbaxe~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sbows.spl~ ~override/d5hbows~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sbows~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mbows~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sslin.spl~ ~override/d5hslin~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sslin~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mslin~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+  COPY ~scales_of_balance/profs/d5sxbow.spl~ ~override/d5hxbow~
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sxbow~ END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mxbow~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
+
+/*
+  COPY ~scales_of_balance/profs/d5_wepx.bam~ ~override~
+  COPY ~scales_of_balance/profs/d5_wepx.eff~ ~override~
+  COPY ~scales_of_balance/profs/d5_wepx.cre~ ~override~
+  COMPILE ~scales_of_balance/profs/d5_wepx.baf~
+  COMPILE ~scales_of_balance/profs/d5_wepx.d~
+  COPY ~scales_of_balance/profs/d5wepx1.spl~ ~override~
+  COPY ~scales_of_balance/profs/d5wepx1.spl~ ~override/d5wepx2.spl~
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5wepxb~ END
+  COPY ~scales_of_balance/profs/d5wepx1.spl~ ~override/d5wepx3.spl~
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5wepxc~ END
+  COPY ~scales_of_balance/profs/d5wepx1.spl~ ~override/d5wepx4.spl~
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5wepxd~ END
+  COPY ~scales_of_balance/profs/d5wepx1.spl~ ~override/d5wepx5.spl~
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5wepxe~ END
+  COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override~
+	SAY NAME1 @12355
+	SAY UNIDENTIFIED_DESC @12355
+	WRITE_ASCII 0x3a ~d5_wepx~ #8
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
+  COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxb.spl~
+	SAY NAME1 @12355
+	SAY UNIDENTIFIED_DESC @12355
+	WRITE_ASCII 0x3a ~d5_wepx~ #8
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxb~ END
+  COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxc.spl~
+	SAY NAME1 @12355
+	SAY UNIDENTIFIED_DESC @12355
+	WRITE_ASCII 0x3a ~d5_wepx~ #8
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxc~ END
+  COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxd.spl~
+	SAY NAME1 @12355
+	SAY UNIDENTIFIED_DESC @12355
+	WRITE_ASCII 0x3a ~d5_wepx~ #8
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxd~ END
+  COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxe.spl~
+	SAY NAME1 @12355
+	SAY UNIDENTIFIED_DESC @12355
+	WRITE_ASCII 0x3a ~d5_wepx~ #8
+	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxe~ END
+
+LAM JOINABLE_NPC_ARRAY END
+
+ACTION_PHP_EACH JOINABLE_NPC_ARRAY AS cre => dv BEGIN
+  PRINT ~%cre% => %dv%~ 
+  COPY_EXISTING ~%cre%~ ~override~
+	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+	  READ_BYTE 0x234 level_1
+	  READ_BYTE 0x235 level_2
+	  READ_BYTE 0x273 npc_class
+	  PATCH_IF (npc_class = 2) BEGIN 	//	fighter: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 5 parameter1 = 4 END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	  PATCH_IF (npc_class = 6) BEGIN 	//	paladin: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	  PATCH_IF (npc_class = 12) BEGIN 	//	ranger: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	  PATCH_IF (npc_class = 4) BEGIN 	//	thief: +3
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppb~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsb~ END
+		END
+	  END
+	  PATCH_IF (npc_class = 5) BEGIN 	//	bard: +3
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppb~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	  PATCH_IF (npc_class = 3) BEGIN 	//	cleric: +3
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppb~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsb~ END
+		END
+	  END
+	  PATCH_IF (npc_class = 11) BEGIN 	//	druid: +3
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsb~ END
+		END
+	  END
+	  PATCH_IF (npc_class = 20) BEGIN 	//	monk: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsb~ END
+		END
+	  END
+	  PATCH_IF (npc_class = 1) BEGIN 	// 	mage: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+	  END
+	  PATCH_IF (npc_class = 19) BEGIN 	//	sorcerer: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+	  END
+	  PATCH_IF (npc_class = 21) BEGIN 	//	shaman: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+	  END
+	  PATCH_IF (%npc_class% = 7) BEGIN 	//	fighter/mage: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	  PATCH_IF (%npc_class% = 8) BEGIN 	//	fighter/cleric: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	  PATCH_IF (%npc_class% = 9) BEGIN 	//	fighter/thief: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	  PATCH_IF (%npc_class% = 10) BEGIN	//	fighter/mage/thief: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	  PATCH_IF (%npc_class% = 13) BEGIN	//	mage/thief: +3
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsb~ END
+		END
+	  END
+	  PATCH_IF (%npc_class% = 14) BEGIN	//	cleric/mage: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsb~ END
+		END
+	  END
+	  PATCH_IF (%npc_class% = 15) BEGIN	//	cleric/thief: +3
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepsb~ END
+		END
+	  END
+	  PATCH_IF (%npc_class% = 16) BEGIN	//	fighter/druid: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	  PATCH_IF (%npc_class% = 17) BEGIN	//	fighter/mage/cleric: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	  PATCH_IF (%npc_class% = 18) BEGIN	//	cleric/ranger: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		END
+		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		END
+		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		END
+	  END
+	END
+  BUT_ONLY
+*/
 END
 //__________________________________________________________________________________
 

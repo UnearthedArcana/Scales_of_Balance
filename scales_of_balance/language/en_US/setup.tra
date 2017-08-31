@@ -503,6 +503,7 @@ Specialized (2 slots): The thac0 penalties are reduced to -2 with the main weapo
 @12330  = ~Choose a different weapon~
 @12351  = ~Choose a weapon specialization:~
 @12352  = ~Choose a weapon proficiency:~
+@12355  = ~Advance weapon proficiency:~
 @1400   = ~Spell Saving Throw Standardization~
 @1401   = ~Death Ward~
 @1402   = ~Death Ward
