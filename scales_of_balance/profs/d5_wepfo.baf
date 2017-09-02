@@ -1,0 +1,42 @@
+IF
+	NumTimesTalkedTo(0)
+	Global("D5_ARCHER","GLOBAL",0)
+	Kit(LastSummonerOf(Myself),FERALAN)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_ARCHER","GLOBAL",1)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	Global("D5_MELEE","GLOBAL",0)
+  OR(4)
+	Kit(LastSummonerOf(Myself),BERSERKER)
+	Kit(LastSummonerOf(Myself),KENSAI)
+	Kit(LastSummonerOf(Myself),BARBARIAN)
+	Kit(LastSummonerOf(Myself),CAVALIER)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_MELEE","GLOBAL",1)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	Global("D5_WEPFO","GLOBAL",0)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_WEPFO","GLOBAL",1)
+	SetNumTimesTalkedTo(1)
+	ActionOverride(LastSummonerOf(Myself),StartDialogOverride("d5_wepfo",Myself))
+END
+
+IF
+	True()
+THEN
+	RESPONSE #100
+	SetGlobal("D5_WEPFO","GLOBAL",0)
+	SetGlobal("D5_ARCHER","GLOBAL",0)
+	SetGlobal("D5_MELEE","GLOBAL",0)
+	SetNumTimesTalkedTo(0)
+	DestroySelf()               // reset global variables, then destroy self
+END
