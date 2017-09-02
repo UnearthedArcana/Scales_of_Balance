@@ -1,6 +1,100 @@
 
 IF
 	NumTimesTalkedTo(0)
+	Global("D5_2PIPS","GLOBAL",0)
+  OR(5)
+	CLASS(LastSummonerOf(Myself),CLERIC)
+	CLASS(LastSummonerOf(Myself),CLERIC_MAGE)
+	CLASS(LastSummonerOf(Myself),THIEF)
+	CLASS(LastSummonerOf(Myself),CLERIC_THIEF)
+	CLASS(LastSummonerOf(Myself),MAGE_THIEF)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_2PIPS","GLOBAL",1)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	Global("D5_3PIPS","GLOBAL",0)
+  OR(10)
+	CLASS(LastSummonerOf(Myself),FIGHTER)
+	CLASS(LastSummonerOf(Myself),FIGHTER_CLERIC)
+	CLASS(LastSummonerOf(Myself),CLERIC_RANGER)
+	CLASS(LastSummonerOf(Myself),FIGHTER_MAGE_CLERIC)
+	CLASS(LastSummonerOf(Myself),FIGHTER_DRUID)
+	CLASS(LastSummonerOf(Myself),FIGHTER_THIEF)
+	CLASS(LastSummonerOf(Myself),FIGHTER_MAGE_THIEF)
+	CLASS(LastSummonerOf(Myself),FIGHTER_MAGE)
+	CLASS(LastSummonerOf(Myself),RANGER)
+	CLASS(LastSummonerOf(Myself),PALADIN)
+	Kit(LastSummonerOf(Myself),SWASHBUCKLER)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_3PIPS","GLOBAL",1)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	Global("D5_CLERIC","GLOBAL",0)
+  OR(5)
+	CLASS(LastSummonerOf(Myself),CLERIC)
+	CLASS(LastSummonerOf(Myself),FIGHTER_CLERIC)
+	CLASS(LastSummonerOf(Myself),CLERIC_MAGE)
+	CLASS(LastSummonerOf(Myself),CLERIC_RANGER)
+	CLASS(LastSummonerOf(Myself),FIGHTER_MAGE_CLERIC)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_CLERIC","GLOBAL",1)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	Global("D5_DRUID","GLOBAL",0)
+  OR(2)
+	CLASS(LastSummonerOf(Myself),DRUID)
+	CLASS(LastSummonerOf(Myself),FIGHTER_DRUID)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_DRUID","GLOBAL",1)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	Global("D5_THIEF","GLOBAL",0)
+  OR(5)
+	CLASS(LastSummonerOf(Myself),THIEF)
+	CLASS(LastSummonerOf(Myself),FIGHTER_THIEF)
+	CLASS(LastSummonerOf(Myself),CLERIC_THIEF)
+	CLASS(LastSummonerOf(Myself),MAGE_THIEF)
+	CLASS(LastSummonerOf(Myself),FIGHTER_MAGE_THIEF)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_THIEF","GLOBAL",1)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	Global("D5_MAGE","GLOBAL",0)
+  OR(2)
+	CLASS(LastSummonerOf(Myself),MAGE)
+	CLASS(LastSummonerOf(Myself),SORCERER)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_MAGE","GLOBAL",1)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	Global("D5_MONK","GLOBAL",0)
+	CLASS(LastSummonerOf(Myself),MONK)
+THEN
+	RESPONSE #100
+	SetGlobal("D5_MONK","GLOBAL",1)
+END
+
+IF
+	NumTimesTalkedTo(0)
+	Global("D5_ARCHER","GLOBAL",0)
 	Kit(LastSummonerOf(Myself),FERALAN)
 THEN
 	RESPONSE #100
@@ -9,30 +103,11 @@ END
 
 IF
 	NumTimesTalkedTo(0)
+	Global("D5_MELEE","GLOBAL",0)
+  OR(4)
 	Kit(LastSummonerOf(Myself),BERSERKER)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_MELEE","GLOBAL",1)
-END
-
-IF
-	NumTimesTalkedTo(0)
 	Kit(LastSummonerOf(Myself),KENSAI)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_MELEE","GLOBAL",1)
-END
-
-IF
-	NumTimesTalkedTo(0)
 	Kit(LastSummonerOf(Myself),BARBARIAN)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_MELEE","GLOBAL",1)
-END
-
-IF
-	NumTimesTalkedTo(0)
 	Kit(LastSummonerOf(Myself),CAVALIER)
 THEN
 	RESPONSE #100
@@ -41,6 +116,7 @@ END
 
 IF
 	NumTimesTalkedTo(0)
+	Global("D5_WEPX","GLOBAL",0)
 THEN
 	RESPONSE #100
 	SetGlobal("D5_WEPX","GLOBAL",1)
@@ -55,6 +131,13 @@ THEN
 	SetGlobal("D5_WEPX","GLOBAL",0)
 	SetGlobal("D5_ARCHER","GLOBAL",0)
 	SetGlobal("D5_MELEE","GLOBAL",0)
+	SetGlobal("D5_CLERIC","GLOBAL",0)
+	SetGlobal("D5_DRUID","GLOBAL",0)
+	SetGlobal("D5_THIEF","GLOBAL",0)
+	SetGlobal("D5_MAGE","GLOBAL",0)
+	SetGlobal("D5_MONK","GLOBAL",0)
+	SetGlobal("D5_2PIPS","GLOBAL",0)
+	SetGlobal("D5_3PIPS","GLOBAL",0)
 	SetNumTimesTalkedTo(0)
 	DestroySelf()               // reset global variables, then destroy self
 END

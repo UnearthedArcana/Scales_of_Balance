@@ -73,15 +73,15 @@ END
 ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
 	STRING_SET 9588 @1222
 /*
-	STRING_SET 36799 @1225 // bastard sw
 	STRING_SET 36807 @1224 // 2-H sw
-	STRING_SET 36809 @1225 // katana
 	STRING_SET 36811 @1226 // scimitar
 	STRING_SET 36813 @1227 // dagger
 	STRING_SET 36819 @1228 // spear
+	STRING_SET 37721 @1229 // shortbow
+	STRING_SET 36799 @1225 // bastard sw
+	STRING_SET 36809 @1225 // katana
 	STRING_SET 36821 @1225 // halberd
 	STRING_SET 37719 @1225 // longbow
-	STRING_SET 37721 @1229 // shortbow
 	STRING_SET 37723 @1225 // dart
 */
 	STRING_SET 36800 ~ ~ // bastard sw
@@ -112,9 +112,14 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
-	COUNT_2DA_COLS weapcols
-	FOR (col = 4; col < weapcols; col += 1) BEGIN
-	    SET_2DA_ENTRY 21 col weapcols ~0~
+	COUNT_2DA_COLS cols
+	FOR (col = 4; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 17 col cols club
+	    READ_2DA_ENTRY 21 col cols mace
+	    PATCH_IF (%mace% > %club%) BEGIN
+	    	SET_2DA_ENTRY 17 col cols %mace%
+		END
+		SET_2DA_ENTRY 21 col cols ~0~
 	END
 //__________________________________________________________________________________
 
@@ -137,9 +142,14 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
-	COUNT_2DA_COLS weapcols
-	FOR (col = 4; col < weapcols; col += 1) BEGIN
-	    SET_2DA_ENTRY 19 col weapcols ~0~
+	COUNT_2DA_COLS cols
+	FOR (col = 4; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 18 col cols spear
+	    READ_2DA_ENTRY 19 col cols halberd
+	    PATCH_IF (%halberd% > %spear%) BEGIN
+	    	SET_2DA_ENTRY 18 col cols %halberd%
+		END
+	    SET_2DA_ENTRY 19 col cols ~0~
 	END
 //__________________________________________________________________________________
 
@@ -162,9 +172,14 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
-	COUNT_2DA_COLS weapcols
-	FOR (col = 4; col < weapcols; col += 1) BEGIN
-	    SET_2DA_ENTRY 26 col weapcols ~0~
+	COUNT_2DA_COLS cols
+	FOR (col = 4; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 15 col cols dagger
+	    READ_2DA_ENTRY 26 col cols darts
+	    PATCH_IF (%darts% > %dagger%) BEGIN
+	    	SET_2DA_ENTRY 15 col cols %darts%
+		END
+	    SET_2DA_ENTRY 26 col cols ~0~
 	END
 //__________________________________________________________________________________
 
@@ -187,9 +202,14 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
-	COUNT_2DA_COLS weapcols
-	FOR (col = 4; col < weapcols; col += 1) BEGIN
-	    SET_2DA_ENTRY 13 col weapcols ~0~
+	COUNT_2DA_COLS cols
+	FOR (col = 4; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 14 col cols scimitar
+	    READ_2DA_ENTRY 13 col cols katana
+	    PATCH_IF (%katana% > %scimitar%) BEGIN
+	    	SET_2DA_ENTRY 14 col cols %katana%
+		END
+	    SET_2DA_ENTRY 13 col cols ~0~
 	END
 //__________________________________________________________________________________
 
@@ -212,9 +232,14 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
-	COUNT_2DA_COLS weapcols
-	FOR (col = 4; col < weapcols; col += 1) BEGIN
-	    SET_2DA_ENTRY 24 col weapcols ~0~
+	COUNT_2DA_COLS cols
+	FOR (col = 4; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 25 col cols shortbow
+	    READ_2DA_ENTRY 24 col cols longbow
+	    PATCH_IF (%longbow% > %shortbow%) BEGIN
+	    	SET_2DA_ENTRY 25 col cols %longbow%
+		END
+	    SET_2DA_ENTRY 24 col cols ~0~
 	END
 //__________________________________________________________________________________
 
@@ -243,9 +268,14 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
-	COUNT_2DA_COLS weapcols
-	FOR (col = 4; col < weapcols; col += 1) BEGIN
-	    SET_2DA_ENTRY 8 col weapcols ~0~
+	COUNT_2DA_COLS cols
+	FOR (col = 4; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 9 col cols longsword
+	    READ_2DA_ENTRY 8 col cols bastard
+	    PATCH_IF (%bastard% > %longsword%) BEGIN
+	    	SET_2DA_ENTRY 9 col cols %bastard%
+		END
+	    SET_2DA_ENTRY 8 col cols ~0~
 	END
 //__________________________________________________________________________________
 

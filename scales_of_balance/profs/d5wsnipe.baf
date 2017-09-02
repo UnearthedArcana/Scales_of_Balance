@@ -1,7 +1,8 @@
+
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_ARCHER","GLOBAL",0)
-	Kit(LastSummonerOf(Myself),D5EARCH)
+	Kit(LastSummonerOf(Myself),D5SNIPE)
 THEN
 	RESPONSE #100
 	SetGlobal("D5_ARCHER","GLOBAL",1)

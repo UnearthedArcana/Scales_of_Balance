@@ -1,6 +1,7 @@
 
 IF
 	NumTimesTalkedTo(0)
+	Global("D5_ARCHER","GLOBAL",0)
 	Kit(LastSummonerOf(Myself),D5MARKS)
 THEN
 	RESPONSE #100
