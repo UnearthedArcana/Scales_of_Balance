@@ -160,8 +160,9 @@ Weight:~
 				END
 			END
 		END
-		READ_BYTE 0x31 ~bowtype~
-		PATCH_IF (~%bowtype%~ = 104) BEGIN   // longbows
+		PATCH_IF (~%type%~ = ~15~) BEGIN // bows
+		  READ_BYTE 0x31 ~bowtype~
+		  PATCH_IF (~%bowtype%~ = 104) BEGIN   // longbows
 			READ_LONG 0x64 abilities_off
 			READ_SHORT 0x68 num_abilities
 			FOR (ability = 0; ability < num_abilities; ability += 1) BEGIN
@@ -199,6 +200,7 @@ Weight:~
 			END
 			LPF DELETE_EFFECT INT_VAR match_opcode = 1 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=1 target=1 timing=2 power=1 parameter1=7 parameter2=1 END
+		  END
 		END
 		READ_BYTE 0x31 ~bowtype~
 /*

@@ -7,7 +7,6 @@
 //__________________________________________________________________________________
 
 
-//IWDEE-specific stuff______________________________________________________________
 
 //random little stuff_______________________________________________________________
 //
@@ -20,11 +19,11 @@ COPY_EXISTING ~quost.itm~ ~override~
 //__________________________________________________________________________________
 
 
-
 //less-ramdomized loot______________________________________________________________
 //
-//	COPY ~scales_of_balance/misc/iwdee/rndtres.2da~ ~override~
+  COPY ~scales_of_balance/misc/iwdee/rndtres.2da~ ~override~
 //__________________________________________________________________________________
+
 
 //item price fixes__________________________________________________________________
 //
@@ -98,8 +97,6 @@ ACTION_IF FILE_EXISTS_IN_GAME ~wa2amu.itm~ BEGIN
 	COPY_EXISTING ~wa2shiel.itm~ ~override~
 		WRITE_LONG 0x34 ~12000~
 END
-//	COPY_EXISTING ~.itm~ ~override~
-//	COPY_EXISTING ~.itm~ ~override~
 //__________________________________________________________________________________
 
 
@@ -120,23 +117,6 @@ END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=1 target=1 timing=2 power=1 parameter1=2 parameter2=1 END
 //__________________________________________________________________________________
 
-/*
-//deprecated, see next section______________________________________________________
-//
-ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-	COPY ~scales_of_balance/misc/iwdee/bowmess.itm~ ~override~
-	COPY ~scales_of_balance/misc/iwdee/sbowebu.itm~ ~override~
-	COPY ~scales_of_balance/misc/iwdee/uhxbw3b.itm~ ~override~
-	COPY ~scales_of_balance/misc/iwdee/uhxbw5a.itm~ ~override~
-	COPY ~scales_of_balance/misc/iwdee/ulbow4a.itm~ ~override~
-	COPY ~scales_of_balance/misc/iwdee/ulbow5a.itm~ ~override~
-	COPY ~scales_of_balance/misc/iwdee/ulxbw3b.itm~ ~override~
-	COPY ~scales_of_balance/misc/iwdee/ulxbw5a.itm~ ~override~
-	COPY ~scales_of_balance/misc/iwdee/xbow06.itm~ ~override~
-	COPY ~scales_of_balance/misc/iwdee/xxbow06.itm~ ~override~
-END 
-//__________________________________________________________________________________
-*/
 
 //fix speed missile weapons_________________________________________________________
 //
@@ -169,6 +149,3 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 BUT_ONLY
 //__________________________________________________________________________________
 
-
-//END 
-//__________________________________________________________________________________
