@@ -259,6 +259,32 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 44 3
 	SET_2DA_ENTRIES_NOW ~#weapprof~ 1
 	REPLACE_TEXTUALLY ~TYPE ~ ~%TAB%%TAB%%TAB%%TAB%%TAB%%TAB%~
+	
+COPY_EXISTING ~weapprof.2da~ ~override~
+	COUNT_2DA_COLS cols
+	READ_2DA_ENTRIES_NOW weapprof cols
+//	FOR (row = 28; row < 31; ++row) BEGIN
+	  FOR (col = 4; col < cols - 1; ++col) BEGIN
+		READ_2DA_ENTRY_FORMER weapprof 28 col style
+		PATCH_IF (style == 3) BEGIN
+		  SET_2DA_ENTRY 28 col cols 2
+		END
+		READ_2DA_ENTRY_FORMER weapprof 29 col style
+		PATCH_IF (style == 3) BEGIN
+		  SET_2DA_ENTRY 29 col cols 2
+		END
+		READ_2DA_ENTRY_FORMER weapprof 30 col style
+		PATCH_IF (style == 3) BEGIN
+		  SET_2DA_ENTRY 30 col cols 2
+		END
+		READ_2DA_ENTRY_FORMER weapprof 31 col style
+		PATCH_IF (style == 4) BEGIN
+		  SET_2DA_ENTRY 31 col cols 3
+		END
+	  END
+//	END
+BUT_ONLY
+
 //__________________________________________________________________________________
 
 
@@ -1939,6 +1965,12 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
   END
   ACTION_IF FILE_EXISTS_IN_GAME ~clabth04.2da~ BEGIN
 	COPY_EXISTING ~clabth04.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/profs/bard_intprof.txt~
+	BUT_ONLY
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~d5_hrld.2da~ BEGIN
+	COPY_EXISTING ~d5_hrld.2da~ ~override~
 		LPM remove_blank_lines
 		APPEND_FILE ~scales_of_balance/profs/bard_intprof.txt~
 	BUT_ONLY
