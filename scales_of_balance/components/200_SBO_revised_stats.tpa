@@ -981,7 +981,6 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	END
   END
 
-
 //REMOVE M&G LUCK FEAT______________________________________________________________
 //
  ACTION_IF NOT GAME_IS ~iwdee~ BEGIN
@@ -1035,6 +1034,25 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 		  REPLACE_TEXTUALLY ~18~  ~+1~
 		END
 		SAY_EVALUATED 0x54 ~%new_desc%~
+	  END
+  END
+ END
+ 
+//NERF 'FRIENDS' SPELL______________________________________________________________
+//
+ ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~spwi107.spl~ BEGIN
+	COPY_EXISTING ~spwi107.spl~ ~override~
+	  LPF ALTER_EFFECT INT_VAR match_opcode = 6 duration = 12 END
+	  LPF ALTER_EFFECT INT_VAR match_opcode = 142 duration = 12 END
+	  LPF ALTER_EFFECT INT_VAR match_opcode = 174 match_timing = 4 duration = 12 END
+	  READ_LONG 0x50 "valid"
+	  PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+		READ_STRREF 0x50 "desc"
+		INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+			REPLACE_TEXTUALLY ~^Duration:.+$~ ~Duration: 2 rounds~
+		END
+		SAY_EVALUATED 0x50 ~%new_desc%~
 	  END
   END
  END
