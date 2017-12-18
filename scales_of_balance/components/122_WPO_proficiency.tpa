@@ -2153,24 +2153,28 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	WRITE_ASCII 0x3a ~d5_wepx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxb~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR resource = ~d5wepxb~ END
   COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxc.spl~
 	SAY NAME1 @12355
 	SAY UNIDENTIFIED_DESC @12355
 	WRITE_ASCII 0x3a ~d5_wepx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxc~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR resource = ~d5wepxc~ END
   COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxd.spl~
 	SAY NAME1 @12355
 	SAY UNIDENTIFIED_DESC @12355
 	WRITE_ASCII 0x3a ~d5_wepx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxd~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR resource = ~d5wepxd~ END
   COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxe.spl~
 	SAY NAME1 @12355
 	SAY UNIDENTIFIED_DESC @12355
 	WRITE_ASCII 0x3a ~d5_wepx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxe~ END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR resource = ~d5wepxe~ END
 
   ACTION_IF FILE_EXISTS_IN_GAME ~d5_marks.2da~ BEGIN
     EXTEND_TOP ~d5_wepx.bcs~ ~scales_of_balance/profs/d5wmarks.baf~

@@ -93,8 +93,7 @@
     <p><strong><em>IWO: Functional Weapon Tweaks</em></strong></p>
     <p>This component makes tweaks to the base characteristics of various items:</p>
     <ul>
-      <li> Spears do 1d10 damage, since in BG games they are of the 2-handed variety (this is per PnP).</li>
-      <li> Halberds do 2d5 damage.</li>
+      <li> Spears do 2d4 damage, since in BG games they are of the 2-handed variety (this is per PnP).</li>
       <li> Quarterstaves get an inherent -1 AC bonus.</li>
       <li> Daggers have 1.5 base APR. (This includes throwing daggers.)</li>
       <li> Light crossbows can be used 1-handed, with shields. Heavy crossbows have an overall +3 damage bonus to compensate.</li>
@@ -175,11 +174,11 @@
       <p>This component <b>(which is EE-only)</b> rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  All styles get thac0 bonuses in addition to other benefits.  So especially at low levels, it might be worth investing in a style for benefits that work for all weapons, rather than progressing in a single weapon proficiency.  The benefits of each style are listed below (cumulative totals):</p>
       <div class="kit_description">
         <p>Single-Weapon Style: now called <b>"Fencing"</b><br />
-        &ndash; (+) = +1 thac0, -1 melee AC, -1 weapon speed<br />
-        &ndash; (++) = +1 thac0, -2 melee AC, APR increased by .5</p>
+        &ndash; (+) = +1 thac0, -1 melee AC, +2 to saves vs. Breath Weapon<br />
+        &ndash; (++) = +1 thac0, -1 melee AC +2 Breath saves, APR increased by .5</p>
         <p>Sword & Shield Style: now called <b>"Shield-Fighting"</b><br />
         &ndash; (+) = +1 thac0, -1 melee AC, -2 missile AC<br />
-        &ndash; (++) = +1 thac0, -1 melee AC, -2 missile AC, perform shield bash when struck (1d4 damage and 3-second stun on failed save vs. petrification)</p>
+        &ndash; (++) = +1 thac0, -1 melee AC, -2 missile AC, perform shield bash when struck (1d3 damage and knockdown on failed save vs. Breath)</p>
         <p>Two-Handed Weapon Style: now called <b>"Two-Hand Style"</b><br />
         &ndash; (+) = +1 thac0, +1 damage, +5% crit chance<br />
         &ndash; (++) = +2 thac0, +2 damage, +10% crit chance</p>
@@ -189,6 +188,7 @@
         &ndash; (++) = -2 main-hand thac0, and -0 off-hand thac0<br />.</p>
       </div>
       <p><b>Note:</b> if you are specialized in Fencing/Single-Weapon Style, the APR bonus will take one second to kick in whenever you switch to a one-handed weapon. </p>
+      <p><b>Also note:</b> the shield bash also stuns opponents for 1 second starting at level 5; and the damage increases by 1d3 and the saving throw is at a -1 penalty for each 5 levels, up to level 20.</p>
       <p><b>Also note:</b> thrown daggers and darts will have their base APR reduced from 2 to 1.5, and from 3 to 2.5, respectively.  So you will need to be specialized in Fencing/SWS to get the full benefit of those items.</p>
       <p>If you have installed the "Distinctions Between Light/Heavy Weapons" IWO component (#103), the off-hand thac0 bonus for daggers, short swords and clubs becomes a main-hand thac0 bonus instead.  Thus, with two pips in dual-wielding and two short swords you will have <b>no</b> thac0 penalty at all.  With two pips in dual-wielding and two bastard swords, you will have a -2 penalty with main-hand and a -4 penalty with off-hand.</p>
   </div>
@@ -505,7 +505,7 @@
  </tr>
  <tr>
   <td><b>24:</b></td>
-  <td>4t level</td>
+  <td>4th level</td>
   <td>+4</td>
   <td>+4</td>
   <td>+3, +1 spec</td>
@@ -596,7 +596,7 @@
   <td><b>17:</b></td>
   <td>2nd level</td>
   <td>+10%</td>
-  <td>.</td>
+  <td>+1</td>
  </tr>
  <tr>
   <td><b>18:</b></td>
@@ -608,7 +608,7 @@
   <td><b>19:</b></td>
   <td>3rd level</td>
   <td>+14%</td>
-  <td>+1</td>
+  <td>+2</td>
  </tr>
  <tr>
   <td><b>20:</b></td>
@@ -620,7 +620,7 @@
   <td><b>21:</b></td>
   <td>4th level</td>
   <td>+16%</td>
-  <td>+2</td>
+  <td>+3</td>
  </tr>
  <tr>
   <td><b>22:</b></td>
@@ -632,7 +632,7 @@
   <td><b>23:</b></td>
   <td>5th level</td>
   <td>+18%</td>
-  <td>+3</td>
+  <td>+4</td>
  </tr>
  <tr>
   <td><b>24:</b></td>
@@ -651,19 +651,19 @@
 <table style= "width: 65%">
  <tr>
   <th>CHARISMA</th>
-  <th>save vs. Breath</th>
-  <th>Save vs. Death</th>
-  <th>Save vs. Spells</th>
-  <th>Save vs. Wands</th>
-  <th>Save vs. Polymorph</th>
+  <th>save vs. Breath - 36</th>
+  <th>Save vs. Wands - 34</th>
+  <th>Save vs. Death - 33</th>
+  <th>Save vs. Polymorph - 35</th>
+  <th>Save vs. Spells - 37</th>
   <th>Luck Bonus </th>
  </tr>
  <tr>
   <td><b>5:</b></td>
   <td>-3</td>
   <td>-3</td>
-  <td>.</td>
   <td>-3</td>
+  <td>.</td>
   <td>.</td>
   <td>-3</td>
  </tr>
@@ -671,8 +671,8 @@
   <td><b>6:</b></td>
   <td>-2</td>
   <td>-2</td>
-  <td>.</td>
   <td>-2</td>
+  <td>.</td>
   <td>.</td>
   <td>-2</td>
  </tr>
@@ -680,8 +680,8 @@
   <td><b>7:</b></td>
   <td>-2</td>
   <td>-2</td>
-  <td>.</td>
   <td>-2</td>
+  <td>.</td>
   <td>.</td>
   <td>-1</td>
  </tr>
@@ -689,8 +689,8 @@
   <td><b>8:</b></td>
   <td>-1</td>
   <td>-1</td>
-  <td>.</td>
   <td>-1</td>
+  <td>.</td>
   <td>.</td>
   <td>-1</td>
  </tr>
@@ -698,8 +698,8 @@
   <td><b>9:</b></td>
   <td>-1</td>
   <td>-1</td>
-  <td>.</td>
   <td>-1</td>
+  <td>.</td>
   <td>.</td>
   <td>.</td>
  </tr>
@@ -713,10 +713,19 @@
   <td>-</td>
  </tr>
  <tr>
-  <td><b>15:</b></td>
+  <td><b>14:</b></td>
   <td>+1</td>
   <td>+1</td>
   <td>.</td>
+  <td>.</td>
+  <td>.</td>
+  <td>.</td>
+ </tr>
+ <tr>
+  <td><b>15:</b></td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>+1</td>
   <td>.</td>
   <td>.</td>
   <td>.</td>
@@ -726,7 +735,7 @@
   <td>+1</td>
   <td>+1</td>
   <td>+1</td>
-  <td>.</td>
+  <td>+1</td>
   <td>.</td>
   <td>.</td>
  </tr>
@@ -772,7 +781,7 @@
   <td>+2</td>
   <td>+2</td>
   <td>+2</td>
-  <td>+2</td>
+  <td>+1</td>
   <td>+1</td>
  </tr>
  <tr>
@@ -782,12 +791,12 @@
   <td>+2</td>
   <td>+2</td>
   <td>+2</td>
-  <td>+2</td>
+  <td>+1</td>
  </tr>
  <tr>
   <td><b>23:</b></td>
-  <td>+3</td>
-  <td>+3</td>
+  <td>+2</td>
+  <td>+2</td>
   <td>+2</td>
   <td>+2</td>
   <td>+2</td>

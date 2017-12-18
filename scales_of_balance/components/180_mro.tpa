@@ -27,7 +27,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 			LPF ADD_CRE_EFFECT INT_VAR opcode = 31 parameter1 = 40 timing=9 END
 		END
 	END
-	BUT_ONLY
+BUT_ONLY
 //__________________________________________________________________________________
 
 /*

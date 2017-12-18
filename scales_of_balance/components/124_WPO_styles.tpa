@@ -284,256 +284,122 @@ END
 //__________________________________________________________________________________
 
 
+//CLASS/WEAPPROF LISTS______________________________________________________________
+//
+COPY_EXISTING ~kitlist.2da~ ~override~
+  COUNT_2DA_COLS cols
+  READ_2DA_ENTRIES_NOW ~r2en_kitlist~ cols
+  FOR (row = 2; row < r2en_kitlist; row += 1) BEGIN
+    READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 6 prof_col
+    READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 8 class_num
+    PATCH_IF (class_num == 3) OR (class_num == 8) OR (class_num == 17) BEGIN 		//	clerics
+      DEFINE_ASSOCIATIVE_ARRAY d5_clerics_array BEGIN "%prof_col%" => "%class_num%" END
+    END
+    PATCH_IF (class_num == 11) OR (class_num == 16) BEGIN 							//	druids
+      DEFINE_ASSOCIATIVE_ARRAY d5_druids_array BEGIN "%prof_col%" => "%class_num%" END
+    END
+    PATCH_IF (class_num == 4) OR (class_num == 13) OR (class_num == 15) BEGIN 		//	thieves
+      DEFINE_ASSOCIATIVE_ARRAY d5_thieves_array BEGIN "%prof_col%" => "%class_num%" END
+    END
+    PATCH_IF (class_num == 5) BEGIN 												//	bards
+      DEFINE_ASSOCIATIVE_ARRAY d5_bards_array BEGIN "%prof_col%" => "%class_num%" END
+    END
+    PATCH_IF (class_num == 12) OR (class_num == 18) BEGIN 							//	rangers
+      DEFINE_ASSOCIATIVE_ARRAY d5_rangers_array BEGIN "%prof_col%" => "%class_num%" END
+    END
+    PATCH_IF (class_num == 6) BEGIN 												//	paladins
+      DEFINE_ASSOCIATIVE_ARRAY d5_paladins_array BEGIN "%prof_col%" => "%class_num%" END
+    END
+  END
+BUT_ONLY
+
 //STYLES FOR MOD CLERICS____________________________________________________________
 //
-	OUTER_SET count = 0
-	ACTION_FOR_EACH class IN
-                  cleric
-	BEGIN
-		OUTER_SPRINT $clerics("%count%") "%class%"
-		OUTER_SET ++count
-	END
-	COPY_EXISTING kitlist.2da override
-		READ_2DA_ENTRIES_NOW kitlist 3
-		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
-			READ_2DA_ENTRY_FORMER kitlist row 1 label
-			READ_2DA_ENTRY_FORMER kitlist row 8 class
-			PATCH_IF class = 3 BEGIN // cleric
-				SPRINT $clerics("%count%") "%label%"
-				++count
-			END
-		END
-	BUT_ONLY
-	COPY_EXISTING ~WEAPPROF.2DA~ override
-		READ_2DA_ENTRIES_NOW weapprof 3
-		COUNT_2DA_COLS cols
-		PHP_EACH clerics AS _ => name BEGIN
-			FOR (col = 0; col < cols - 1; ++col) BEGIN
-				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
-				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER C#weapprof 31 (col + 1) 1
-					SET_2DA_ENTRY_LATER C#weapprof 32 (col + 1) 1
-					SET_2DA_ENTRY_LATER C#weapprof 33 (col + 1) 1
-					SET_2DA_ENTRY_LATER C#weapprof 34 (col + 1) 0
-				END
-			END
-		END
-		SET_2DA_ENTRIES_NOW C#weapprof 1
-		PRETTY_PRINT_2DA
-	BUT_ONLY
+COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols 
+  PHP_EACH d5_clerics_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // 2Hand
+    SET_2DA_ENTRY 31 %kit_col% cols 2 // shield
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // single
+    SET_2DA_ENTRY 31 %kit_col% cols 0 // dual-wield
+  END
+BUT_ONLY
 //__________________________________________________________________________________
 
 
 //STYLES FOR MOD DRUIDS_____________________________________________________________
 //
-	OUTER_SET count = 0
-	ACTION_FOR_EACH class IN
-                  druid
-	BEGIN
-		OUTER_SPRINT $druids("%count%") "%class%"
-		OUTER_SET ++count
-	END
-	COPY_EXISTING kitlist.2da override
-		READ_2DA_ENTRIES_NOW kitlist 3
-		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
-			READ_2DA_ENTRY_FORMER kitlist row 1 label
-			READ_2DA_ENTRY_FORMER kitlist row 8 class
-			PATCH_IF class = 11 BEGIN // druid
-				SPRINT $druids("%count%") "%label%"
-				++count
-			END
-		END
-	BUT_ONLY
-	COPY_EXISTING ~WEAPPROF.2DA~ override
-		READ_2DA_ENTRIES_NOW weapprof 3
-		COUNT_2DA_COLS cols
-		PHP_EACH druids AS _ => name BEGIN
-			FOR (col = 0; col < cols - 1; ++col) BEGIN
-				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
-				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER D#weapprof 31 (col + 1) 2
-					SET_2DA_ENTRY_LATER D#weapprof 32 (col + 1) 0
-					SET_2DA_ENTRY_LATER D#weapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER D#weapprof 34 (col + 1) 2
-				END
-			END
-		END
-		SET_2DA_ENTRIES_NOW D#weapprof 1
-		PRETTY_PRINT_2DA
-	BUT_ONLY
+COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols 
+  PHP_EACH d5_druids_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // 2Hand
+    SET_2DA_ENTRY 31 %kit_col% cols 0 // shield
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // single
+    SET_2DA_ENTRY 31 %kit_col% cols 2 // dual-wield
+  END
+BUT_ONLY
 //__________________________________________________________________________________
 
 
 //STYLES FOR MOD THIEVES____________________________________________________________
 //
-	OUTER_SET count = 0
-	ACTION_FOR_EACH class IN
-                  thief
-	BEGIN
-		OUTER_SPRINT $thiefs("%count%") "%class%"
-		OUTER_SET ++count
-	END
-	COPY_EXISTING kitlist.2da override
-		READ_2DA_ENTRIES_NOW kitlist 3
-		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
-			READ_2DA_ENTRY_FORMER kitlist row 1 label
-			READ_2DA_ENTRY_FORMER kitlist row 8 class
-			PATCH_IF class = 4 BEGIN // thief
-				SPRINT $thiefs("%count%") "%label%"
-				++count
-			END
-		END
-	BUT_ONLY
-	COPY_EXISTING ~WEAPPROF.2DA~ override
-		READ_2DA_ENTRIES_NOW weapprof 3
-		COUNT_2DA_COLS cols
-		PHP_EACH thiefs AS _ => name BEGIN
-			FOR (col = 0; col < cols - 1; ++col) BEGIN
-				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
-				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER T#weapprof 31 (col + 1) 0
-					SET_2DA_ENTRY_LATER T#weapprof 32 (col + 1) 0
-					SET_2DA_ENTRY_LATER T#weapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER T#weapprof 34 (col + 1) 2
-				END
-			END
-		END
-		SET_2DA_ENTRIES_NOW T#weapprof 1
-		PRETTY_PRINT_2DA
-	BUT_ONLY
+COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols 
+  PHP_EACH d5_thieves_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 30 %kit_col% cols 0 // 2Hand
+    SET_2DA_ENTRY 31 %kit_col% cols 0 // shield
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // single
+    SET_2DA_ENTRY 31 %kit_col% cols 2 // dual-wield
+  END
+BUT_ONLY
 //__________________________________________________________________________________
 
 
 //STYLES FOR MOD BARDS______________________________________________________________
 //
-	OUTER_SET count = 0
-	ACTION_FOR_EACH class IN
-                  bard
-	BEGIN
-		OUTER_SPRINT $bards("%count%") "%class%"
-		OUTER_SET ++count
-	END
-	COPY_EXISTING kitlist.2da override
-		READ_2DA_ENTRIES_NOW kitlist 3
-		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
-			READ_2DA_ENTRY_FORMER kitlist row 1 label
-			READ_2DA_ENTRY_FORMER kitlist row 8 class
-			PATCH_IF class = 5 BEGIN // bard
-				SPRINT $bards("%count%") "%label%"
-				++count
-			END
-		END
-	BUT_ONLY
-	COPY_EXISTING ~WEAPPROF.2DA~ override
-		READ_2DA_ENTRIES_NOW weapprof 3
-		COUNT_2DA_COLS cols
-		PHP_EACH bards AS _ => name BEGIN
-			FOR (col = 0; col < cols - 1; ++col) BEGIN
-				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
-				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER B#weapprof 31 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 32 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER B#weapprof 34 (col + 1) 2
-				END
-			END
-		END
-		SET_2DA_ENTRIES_NOW B#weapprof 1
-		PRETTY_PRINT_2DA
-	BUT_ONLY
+COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols 
+  PHP_EACH d5_bards_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // 2Hand
+    SET_2DA_ENTRY 31 %kit_col% cols 2 // shield
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // single
+    SET_2DA_ENTRY 31 %kit_col% cols 2 // dual-wield
+  END
+BUT_ONLY
 //__________________________________________________________________________________
 
 
 //STYLES FOR MOD RANGERS____________________________________________________________
 //
-	OUTER_SET count = 0
-	ACTION_FOR_EACH class IN
-                  ranger
-	BEGIN
-		OUTER_SPRINT $rangers("%count%") "%class%"
-		OUTER_SET ++count
-	END
-	COPY_EXISTING kitlist.2da override
-		READ_2DA_ENTRIES_NOW kitlist 3
-		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
-			READ_2DA_ENTRY_FORMER kitlist row 1 label
-			READ_2DA_ENTRY_FORMER kitlist row 8 class
-			PATCH_IF class = 12 BEGIN // ranger
-				SPRINT $rangers("%count%") "%label%"
-				++count
-			END
-		END
-	BUT_ONLY
-	COPY_EXISTING ~WEAPPROF.2DA~ override
-		READ_2DA_ENTRIES_NOW weapprof 3
-		COUNT_2DA_COLS cols
-		PHP_EACH rangers AS _ => name BEGIN
-			FOR (col = 0; col < cols - 1; ++col) BEGIN
-				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
-				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER R#weapprof 31 (col + 1) 2
-					SET_2DA_ENTRY_LATER R#weapprof 32 (col + 1) 0
-					SET_2DA_ENTRY_LATER R#weapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER R#weapprof 34 (col + 1) 2
-				END
-			END
-		END
-		SET_2DA_ENTRIES_NOW R#weapprof 1
-		PRETTY_PRINT_2DA
-	BUT_ONLY
+COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols 
+  PHP_EACH d5_rangers_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // 2Hand
+    SET_2DA_ENTRY 31 %kit_col% cols 0 // shield
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // single
+    SET_2DA_ENTRY 31 %kit_col% cols 2 // dual-wield
+  END
+BUT_ONLY
 //__________________________________________________________________________________
 
 
 //STYLES FOR MOD PALADINS___________________________________________________________
 //
-	OUTER_SET count = 0
-	ACTION_FOR_EACH class IN
-                  paladin
-	BEGIN
-		OUTER_SPRINT $paladins("%count%") "%class%"
-		OUTER_SET ++count
-	END
-	COPY_EXISTING kitlist.2da override
-		READ_2DA_ENTRIES_NOW kitlist 3
-		FOR (row = 31; row < kitlist; ++row) BEGIN // Skip past the vanilla kits
-			READ_2DA_ENTRY_FORMER kitlist row 1 label
-			READ_2DA_ENTRY_FORMER kitlist row 8 class
-			PATCH_IF class = 6 BEGIN // paladin
-				SPRINT $paladins("%count%") "%label%"
-				++count
-			END
-		END
-	BUT_ONLY
-	COPY_EXISTING ~WEAPPROF.2DA~ override
-		READ_2DA_ENTRIES_NOW weapprof 3
-		COUNT_2DA_COLS cols
-		PHP_EACH paladins AS _ => name BEGIN
-			FOR (col = 0; col < cols - 1; ++col) BEGIN
-				READ_2DA_ENTRY_FORMER weapprof 0 col column_name
-				PATCH_IF "%column_name%" STRING_EQUAL_CASE "%name%" BEGIN
-					SET_2DA_ENTRY_LATER P#weapprof 31 (col + 1) 2
-					SET_2DA_ENTRY_LATER P#weapprof 32 (col + 1) 2
-					SET_2DA_ENTRY_LATER P#weapprof 33 (col + 1) 2
-					SET_2DA_ENTRY_LATER P#weapprof 34 (col + 1) 2
-				END
-			END
-		END
-		SET_2DA_ENTRIES_NOW P#weapprof 1
-		PRETTY_PRINT_2DA
-	BUT_ONLY
+COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols 
+  PHP_EACH d5_paladins_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // 2Hand
+    SET_2DA_ENTRY 31 %kit_col% cols 2 // shield
+    SET_2DA_ENTRY 30 %kit_col% cols 2 // single
+    SET_2DA_ENTRY 31 %kit_col% cols 2 // dual-wield
+  END
+BUT_ONLY
 //__________________________________________________________________________________
 
 
-//CHANGE BONUSES____________________________________________________________________
+//CHANGE BASIC BONUSES______________________________________________________________
 //
-/*
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5_dwweap.d5~) BEGIN	//	if light/heavy weapon distinctions installed
-	COPY ~scales_of_balance/profs/stylbonu_iwo.2da~ ~override/stylbonu.2da~
-END
-*/
-//ACTION_IF NOT (FILE_EXISTS_IN_GAME ~d5_dwweap.d5~) BEGIN
-	COPY ~scales_of_balance/profs/stylbonu.2da~ ~override~
-//END
+COPY ~scales_of_balance/profs/stylbonu2.2da~ ~override/stylbonu.2da~
 //__________________________________________________________________________________
 
 
@@ -570,38 +436,130 @@ COPY_EXISTING ~splprot.2da~ ~override~
 	  END
 	END
 BUT_ONLY
-
 //__________________________________________________________________________________
+
+
+/*
+//2-HAND WEAPON_____________________________________________________________________
+//
+/*
+- give +.5 APR for two pips
+
+2-hand items:
+- while equipped, trigger .eff to run 232 effect
+
+.eff:
+- every 6 seconds, cast ths1
+
+ths1:
+- 326, conditionally cast ths2 if >= 2 pips 2hs
+
+ths2: 
+- +0.5 APR, 7 seconds
+
+shields:
+- on equip, 321 cancel ths2
+- while equipped, 206 prot. from ths1, ths2
+
+1-handed weapons: 
+- on equip, 321 cancel ths2
+??? - while equipped, 206 prot. from sws1, sws3, sws4 ???
+*/
+
+APPEND ~splprot.2da~ ~D5_SPEC_2HS%TAB%111%TAB%2%TAB%4~		//	specialized or better in SWS
+
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols // amount of columns
+	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
+	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_SPEC_2HS~ BEGIN
+	    SET 2hs_spec = %row%
+	  END
+	END
+BUT_ONLY
+
+COPY ~scales_of_balance/profs/d5_ths.eff~ ~override~
+COPY ~scales_of_balance/profs/d5_ths1.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = 0 parameter2 = %2hs_spec% timing = 1 duration = 0 END
+COPY ~scales_of_balance/profs/d5_ths2.spl~ ~override~
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
+	READ_SHORT 0x1c type
+	READ_BYTE 0x31 prof
+	READ_BYTE 0x18 handed
+	PATCH_IF (%prof% = 98) OR	// spear
+			(%prof% = 99) OR	// halberd
+			(%prof% = 89) OR	// bastard sword
+			(%prof% = 93) OR	// 2-hand sword
+			(%prof% = 92) OR	// axe
+			(%prof% = 94) OR	// katana
+			(%prof% = 102) BEGIN	 // staff
+	  PATCH_IF ((%handed% BAND 0b00000010) = 0b00000010) BEGIN 	//	2-handed
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5_ths~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5_ths1~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_ths2~ END
+	  END
+	END
+
+	PATCH_IF ((%handed% BOR 0b11111101) = 0b11111101) BEGIN 	//	1-handed
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 resist_dispel = 0 STR_VAR resource = ~d5_ths2~ END
+	END
+
+	PATCH_IF (%prof% = 106) OR	// darts
+			(%type% = 27) OR	// crossbows
+			(%type% = 15) OR	// bows
+			(%type% = 18) BEGIN	// slings
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 resist_dispel = 0 STR_VAR resource = ~d5_ths2~ END
+	END
+
+	PATCH_IF (%type% = 12) BEGIN	//	shields
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_ths1~ END
+//add	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_ths2~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_ths2~ END
+	END
+  END
+BUT_ONLY
+//__________________________________________________________________________________
+*/
 
 
 //SWS APR___________________________________________________________________________
 //
 /*
-TRYING AGAIN
-
-1-hand items:
+1-hand weapons:
 - while equipped, increment 134 by 32 (shifted 3 bits up)
-- on equip, cancel any APR bonus from SWS
-- on equip, conditionally cast spellB if not 64 pips in 134
+- while equipped, 318 protect from sws3 if dual-wielding
+- on equip, cancel any APR bonus from styles (cancel sws3)
+- on equip, cast sws2
 - while equipped, trigger .eff to run 232 effect
 
 .eff:
-- every 6 seconds, cast spellA
+- 232, repeatedly cast sws1
 
-spellA:
-- conditionally cast spellB if 32 pips 134
+sws1:
+- 326, conditionally cast sws2 if one 1-handed weap equipped
 
-spellB:
-- conditionally cast spellC if 2 pips sws
+sws2:
+- 326, conditionally cast sws3 if >= 2 pips sws
+- 326, conditionally cast sws4 if >= 1 pips sws
 
-spellC: 
+sws3: 
 - +0.5 APR, 7 seconds
 
-spellZ:
-- cancel spellC
+ADD: sws4: +2 Breath save bonus
 
-2-hand items:
-- on equip, cancel spellC
+swsn: cancel 233/134 stuff on dual-classing
+
+shields:
+- on equip, 321 cancel sws3
+- while equipped, 206 prot. from sws1, sws3, sws4
+
+2-hand weapons:
+- on equip, 321 cancel sws3
+??? - while equipped, 206 prot. from sws1, sws3, sws4 ???
+
 */
 
 //APPEND ~splprot.2da~ ~D5_SPEC_SWS%TAB%113%TAB%2%TAB%4~		//	specialized or better in SWS
@@ -609,6 +567,7 @@ spellZ:
 //APPEND ~splprot.2da~ ~D5_134_BIT7%TAB%134%TAB%100%TAB%8~  	//	100 = 64 = bit7 of extraproficiency20
 //APPEND ~splprot.2da~ ~D5_134_NOT7%TAB%134%TAB%100%TAB%9~  	//	100 = 64 = bit7 of extraproficiency20
 
+APPEND ~splprot.2da~ ~D5_PROF_SWS%TAB%113%TAB%2%TAB%4~		//	proficient or better in SWS
 APPEND ~splprot.2da~ ~D5_SPEC_SWS%TAB%113%TAB%2%TAB%4~		//	specialized or better in SWS
 
 COPY_EXISTING ~splprot.2da~ ~override~
@@ -616,6 +575,9 @@ COPY_EXISTING ~splprot.2da~ ~override~
 	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
 	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_PROF_SWS~ BEGIN
+	    SET sws_prof = %row%
+	  END
 	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_SPEC_SWS~ BEGIN
 	    SET sws_spec = %row%
 	  END
@@ -624,12 +586,14 @@ BUT_ONLY
 
 COPY ~scales_of_balance/profs/d5_sws.eff~ ~override~
 COPY ~scales_of_balance/profs/d5_sws1.spl~ ~override~
-	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = (32 << 24) parameter2 = %134_style% END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = (64 << 24) parameter2 = %134_nstyle% END
 COPY ~scales_of_balance/profs/d5_sws2.spl~ ~override~
-	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = 0 parameter2 = %sws_spec% timing = 1 duration = 0 END
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = 0 parameter2 = %sws_prof% timing = 1 duration = 0 END
+	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = 0 parameter2 = %sws_spec% timing = 1 duration = 0 STR_VAR resource = ~d5_sws3~ END
 COPY ~scales_of_balance/profs/d5_sws3.spl~ ~override~
-COPY ~scales_of_balance/profs/d5_swsx.spl~ ~override~
-COPY ~scales_of_balance/profs/d5_swsz.spl~ ~override~
+
+//COPY ~scales_of_balance/profs/d5_swsx.spl~ ~override~
+//COPY ~scales_of_balance/profs/d5_swsz.spl~ ~override~
 COPY ~scales_of_balance/profs/d5_swsn.spl~ ~override~
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
@@ -673,16 +637,18 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	  READ_SHORT 0x68 abil_number
 	  WHILE (%abil_number% > 0) BEGIN
 		SET abil_number = (%abil_number% - 1)
-		READ_SHORT (%abil_offset% + (0x38 * %abil_number%)) range
-		PATCH_IF (%range% = 2 || %range% = 4) BEGIN 	// ranged weapon
-		  LPF ALTER_EFFECT INT_VAR match_opcode = 1 match_parameter1 = 2 match_parameter2 = 1 parameter1 = 7 END
-		  LPF ALTER_EFFECT INT_VAR match_opcode = 1 match_parameter1 = 3 match_parameter2 = 1 parameter1 = 8 END
+		READ_SHORT (%abil_offset% + (0x38 * %abil_number%)) ranged
+		PATCH_IF (%ranged% = 2 || %ranged% = 4) BEGIN 	// ranged weapon
+		  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 1 match_parameter1 = 2 match_parameter2 = 1 parameter1 = 7 END
+		  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 1 match_parameter1 = 3 match_parameter2 = 1 parameter1 = 8 END
 		END
 	  END
 	END
 
 	PATCH_IF (%type% = 12) BEGIN	//	shields
 	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws1~ END
+//add	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws3~ END
+//add	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws4~ END
 	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_sws3~ END
 //	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = (32 << 24) parameter2 = (134 + (0x10000 * 1)) timing = 2 END
 	END
@@ -698,8 +664,227 @@ END
 //__________________________________________________________________________________
 
 
+/*
+//DUAL-WIELDING_____________________________________________________________________
+//
+/*
+simply set thaco to -4 in stylbonu, and give weapons a bonus via 177 while equipped (+1 med, +2 small)
+and have 318 protection against that bonus if NOT 64 pips in 134
+
+small weaps: on equip, cast spellB if 64 pips in 134
+- while equipped, increment 134 by (32 << 24)
+
+likewise, have all daggers give a parry AC bonus via 177 while equipped 
+and have 318 protection against that bonus if NOT 64 pips in 134 
+
+...
+
+that may not be working effectively.  maybe do this:
+ 
+1-hand weaps: 
+- while equipped, increment 134 by (32 << 24)
+- small weaps increment 134 by (16 << 24)
+- med. weaps increment 134 by (4 << 24)
+- while equipped, 318 protect from twf3/4/5/6 if not bit equal 64
+- on equip, cancel twf3/4/5/6
+- on equip, cast twf1
+- while equipped, trigger .eff to run 232 effect
+
+.eff:
+- 232, repeatedly cast twf1
+
+twf1:
+- 326, conditionally cast twf2 if >= 1 pips twf
+
+twf2:
+- 326, conditionally cast twf3 if bit equal 96 (sm/sm) <-- should return true for 80, & cast twf5
+- 326, conditionally cast twf5 if bit equal 84 (sm/med) <-- should return true for 80, & cast twf5
+- 326, conditionally cast twf4 if bit equal 80 (sm/lg)
+- 326, conditionally cast twf5 if bit equal 72 (med/med) <-- should return true for 68, & cast twf5
+- 326, conditionally cast twf6 if bit equal 68 (med/lg)
+
+twf3:
+- AC +1 (not missile)
+- thac0 +2
+
+twf4:
+- AC +1 (not missile)
+- thac0 +2
+
+twf5:
+- thac0 +1
+
+twf6:
+- thac0 +1
+
+nope.  how about this:
+
+1-hand items:
+- while equipped, increment 134 by (32 << 24)
+- on equip, cancel twfA/B/C/D
+- while equipped, protect from twfA/B/C/D if not bit equal 64
+- while equipped, protect from twfA/B/C/D if < 1 pip DW
+-- small weaps: on equip, cast twf1
+-- small weaps: while equipped, protect from twfD
+-- small weaps: trigger 232 .eff1
+--- med. weaps: on equip, cast twf2
+--- med. weaps: while equipped, protect from twfB
+--- med. weaps: trigger 232 .eff2
+---- large weaps: while equipped, protect from twfB
+---- large weaps: while equipped, protect from twfD
+
+.eff1:
+- every 6 seconds, cast twf1
+
+twf1:
+- cast spellA/B if 64 pips 134
+
+.eff2:
+- every 6 seconds, cast twf2
+
+twf2:
+- cast spellC/D if 64 pips 134
+
+twfA: 
+- +2 thac0, -1 AC
+twfB: 
+- +2 thac0, -1 AC
+
+twfC:
+- +1 thac0
+twfD:
+- +1 thac0
+
+damn, not working. 
+
+*/
+
+APPEND ~splprot.2da~ ~D5_PROF_TWF%TAB%114%TAB%1%TAB%4~		//	proficient or better in TWF
+APPEND ~splprot.2da~ ~D5_NPROF_TWF%TAB%114%TAB%0%TAB%1~		//	not proficient in TWF
+
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols // amount of columns
+	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
+	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_PROF_TWF~ BEGIN
+	    SET twf_prof = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_NPROF_TWF~ BEGIN
+	    SET twf_nprof = %row%
+	  END
+	END
+BUT_ONLY
+
+/*
+COPY ~scales_of_balance/profs/d5_twfa.eff~ ~override~						// AC +1
+COPY ~scales_of_balance/profs/d5_twfb.eff~ ~override~						// missile AC -1
+COPY ~scales_of_balance/profs/d5_twf1.eff~ ~override~						// thac0 +1
+COPY ~scales_of_balance/profs/d5_twf2.eff~ ~override~						// thac0 +2
+*/
+
+COPY ~scales_of_balance/profs/d5_twf1.eff~ ~override~
+COPY ~scales_of_balance/profs/d5_twf2.eff~ ~override~
+COPY ~scales_of_balance/profs/d5_twf1.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = (64 << 24) parameter2 = %134_style% timing = 1 duration = 0 END
+COPY ~scales_of_balance/profs/d5_twf2.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = (64 << 24) parameter2 = %134_style% timing = 1 duration = 0 END
+COPY ~scales_of_balance/profs/d5_twfa.spl~ ~override~
+COPY ~scales_of_balance/profs/d5_twfb.spl~ ~override~
+COPY ~scales_of_balance/profs/d5_twfc.spl~ ~override~
+COPY ~scales_of_balance/profs/d5_twfd.spl~ ~override~
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
+	READ_SHORT 0x1c type
+	READ_BYTE 0x31 prof
+	READ_BYTE 0x18 handed
+	PATCH_IF ((%handed% BOR 0b11111101) = 0b11111101) BEGIN 	//	1-handed
+	  PATCH_IF (%prof% = 91) OR	// short sword
+			(%prof% = 96) BEGIN	// dagger
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5_twf1~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twfd~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5_twf1~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfa~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfb~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfc~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfd~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfa~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfb~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfc~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfd~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = (32 << 24) parameter2 = (134 + (0x10000 * 1)) timing = 2 END
+	  END
+
+	  PATCH_IF (%prof% = 115) OR	// club
+			(%prof% = 96) OR	// dagger
+			(%prof% = 90) OR	// long sword
+			(%prof% = 101) OR	// mace
+			(%prof% = 95) OR	// scimitar
+			(%prof% = 97) BEGIN	 // hammer
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5_twf2~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twfb~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5_twf2~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfa~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfb~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfc~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfd~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfa~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfb~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfc~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfd~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = (32 << 24) parameter2 = (134 + (0x10000 * 1)) timing = 2 END
+	  END
+	  PATCH_IF (%prof% = 89) OR	// bastard sword
+			(%prof% = 94) OR	// katana
+			(%prof% = 92) OR	// axe
+			(%prof% = 100) BEGIN	// flail
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twfb~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twfd~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfa~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfb~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfc~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfd~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfa~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfb~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfc~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twfd~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = (32 << 24) parameter2 = (134 + (0x10000 * 1)) timing = 2 END
+	  END
+	END
+/*
+	PATCH_IF (%type% = 12) BEGIN	//	shields
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twfa~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twfb~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf1~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf2~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twfa~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twfb~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf1~ END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf2~ END
+	END
+*/
+  END
+BUT_ONLY
+
+//__________________________________________________________________________________
+*/
+
+
 //SHIELD BASH_______________________________________________________________________
 //
+/*
+ now:
+
+- shields set a 177/232 while equipped, firing at nearest enemy when attacked, casts sns1
+- sns1 uses 326, checks SnS >= 2 on original caster, if so cast sns2
+- sns2 = damage etc.
+
+next:
+
+for purposes of range, set sns to 255, but layer in another 232 with "enemy within special range" ??
+*/
+
 APPEND ~splprot.2da~ ~D5_SPEC_SNS%TAB%112%TAB%2%TAB%4~
 
 COPY_EXISTING ~splprot.2da~ ~override~
@@ -713,18 +898,16 @@ COPY_EXISTING ~splprot.2da~ ~override~
 	END
 BUT_ONLY
 
-COPY ~scales_of_balance/profs/d5_sns1.spl~ ~override~	
-	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter2 = %sns_spec% END
-COPY ~scales_of_balance/profs/d5_sns1a.spl~ ~override~
-	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = (16 << 24) parameter2 = %134_style% END
-	LPF CLONE_EFFECT INT_VAR multi_match = 1 match_opcode = 326 parameter1 = (16 << 24) parameter2 = %134_nstyle% STR_VAR resource = ~d5_snsn~ END
-COPY ~scales_of_balance/profs/d5_sns2.spl~ ~override~
-	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter2 = %sns_spec% END
-COPY ~scales_of_balance/profs/d5_sns2a.spl~ ~override~
-COPY ~scales_of_balance/profs/d5_sns2b.spl~ ~override~
-COPY ~scales_of_balance/profs/d5_snsn.spl~ ~override~
-COPY ~scales_of_balance/profs/d5_snst.spl~ ~override~
-COPY ~scales_of_balance/profs/d5_snst.eff~ ~override~
+ADD_PROJECTILE ~scales_of_balance/profs/d5_sns.pro~
+COPY ~scales_of_balance/profs/d5_sns.eff~ ~override~						// cast sns when attacked
+COPY ~scales_of_balance/profs/d5_sns1.spl~ ~override~						// cast sns2 if spec.
+	LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = 0 parameter2 = %sns_spec% END
+//	LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5trfire% END
+COPY ~scales_of_balance/profs/d5_sns2.spl~ ~override~						// stun/damage/etc.
+	LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5_sns% END
+
+COPY ~scales_of_balance/profs/d5_snst.spl~ ~override~						// thieves' immunity to shield bash
+COPY ~scales_of_balance/profs/d5_snst.eff~ ~override~						// thieves' immunity to shield bash
 
 APPEND ~clabth01.2da~ ~ABILITY    AP_D5_SNST  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~ 
 COPY_EXISTING ~kitlist.2da~ ~override~
@@ -747,13 +930,10 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
 	READ_SHORT 0x1c type
 	PATCH_IF (%type% = 12) BEGIN
-	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 2 resist_dispel = 0 probability1 = 100 STR_VAR resource = ~d5_sns1~ END
-	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 2 resist_dispel = 0 probability1 = 100 STR_VAR resource = ~d5_sns2~ END
-	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = (16 << 24) parameter2 = (134 + (0x10000 * 1)) timing = 2 resist_dispel = 0 END
+	  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 resist_dispel = 0 probability1 = 100 STR_VAR resource = ~d5_sns~ END
 	END
   END
 BUT_ONLY
-
 //__________________________________________________________________________________
 
 

@@ -205,8 +205,12 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	  READ_SHORT 0x1c type
 	  PATCH_IF (type = 2) BEGIN
+		READ_LONG 0x22 appearance
+		PATCH_IF (appearance = 16690) OR	// leather appearance
+				(appearance = 16691) OR		// chain appearance
+				(appearance = 16692) BEGIN 	// plate appearance
 /*	  
-		PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+		 PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
 		  READ_BYTE    ~0x1f~ ~fight~ //reads the byte containing the fighter usability flag
 		  PATCH_IF ((~%fight%~ BAND ~0b00100000~) = ~0b00000000~) BEGIN // if *usable* by fighter/mages (excluding scrolls and wands for now)
 			READ_BYTE    ~0x1e~ ~class1~
@@ -217,9 +221,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			WRITE_BYTE    ~0x1f~ (~%class2%~ BAND ~0b11010111~) // multiclasses
 			WRITE_BYTE    ~0x20~ (~%class3%~ BAND ~0b10000000~) // others
 		  END
-		END
+		 END
 */
-//		PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+//		 PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
 		  READ_BYTE    ~0x1f~ ~fight~ //reads the byte containing the fighter usability flag
 		  PATCH_IF ((~%fight%~ BAND ~0b00100000~) = ~0b00000000~) BEGIN // if *usable* by fighter/mages (excluding scrolls and wands for now)
 			READ_BYTE    ~0x1e~ ~class1~
@@ -230,14 +234,14 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			WRITE_BYTE    ~0x1f~ (~%class2%~ BAND ~0b00000000~) // multiclasses
 			WRITE_BYTE    ~0x20~ (~%class3%~ BAND ~0b10000000~) // others
 		  END
-//		END
+//		 END
+		END
 
 		SET elven = 0
 		SET no_cast = 0
 
 		READ_LONG 0x08 gen_name_strref
 		READ_LONG 0x0c id_name_strref
-		READ_LONG 0x22 appearance
 		PATCH_IF (gen_name_strref >= 0 && gen_name_strref < 2147483646) BEGIN
 		  READ_STRREF 0x08 ~gen_name~
 		END
