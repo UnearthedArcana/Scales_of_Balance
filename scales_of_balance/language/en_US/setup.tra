@@ -436,25 +436,35 @@ Prime Requisites For Dual-Classing: Intelligence~
 4 stars: +4 to hit, +4 damage, +1.5 APR~
 @1245   = ~TWO-HAND STYLE: Investing in this fighting style allows the character to make the best use of two-handed melee weapons, handling them more deftly and inflicting more grievous blows.
 
-Proficient (1 slot): The wielder gets a +1 bonus to thac0 and damage rolls, a -1 bonus to weapon speed factor, and critical hits occur on a roll of 19 or 20 (instead of just 20).
+Proficient (+): The wielder gets a +1 bonus to thac0 and damage rolls, a -1 bonus to weapon speed factor, and critical hits occur on a roll of 19 or 20 (instead of just 20).
 
-Specialized (2 slots): The wielder's thac0 and damage bonus increases to +2, and and critical hits occur on a roll of 18 or higher.~
-@1246   = ~SHIELD-FIGHTING: By spending slots on this fighting style, a character maximizes the protection afforded by a shield and overcomes the difficulty coordinating the use of both weapon and shield. With further specialization, use of a shield can affect enemies' balance and expose weak points in their defenses.
+Specialized (++): The wielder's thac0 and damage bonuses increase to +2/+3, and and critical hits occur on a roll of 18 or higher.
+~
+@1246   = ~SHIELD-FIGHTING: Investing in this fighting style, a character maximizes the protection afforded by a shield and overcomes the difficulty coordinating the use of both weapon and shield. With further specialization, use of a shield can affect enemies' balance and expose weak points in their defenses.
 
-Proficient (1 slot): The wielder gets a +1 bonus to thac0 and melee AC when using a shield, and a +2 bonus to AC vs. missile attacks
+Proficient (+): The wielder gets an extra +1 bonus to melee AC, and a +2 bonus to AC vs. missile attacks, when using a shield.
 
-Specialized (2 slots): When struck by a melee attack, there is a 25% chance of performing a Shield Bash, causing that attacker to be knocked back 5 feet and stunned for 2 seconds on a failed save vs. Breath Weapon.~
+Specialized (++): Once per round, the wielder can perform a Shield Bash, doing 1d3 nonlethal damage and knocking the nearest attacker of his or or feet on a failed save vs. Breath Weapon.
+
+NOTE: for every 5 levels gained by the wielder, the damage from the shield bash indreases by 1d3 and the saving throw suffers a 1-point penalty.
+~
 @1247   = ~FENCING: Investing in this fighting style allows characters to be especially quick and accurate when wielding a single weapon in one hand. 
 
-Proficient (1 slot): The wielder gets a +1 bonus to thac0, AC vs. melee attacks, and weapon speed factor.
+Proficient (+): The wielder gets a +1 bonus to thac0, a -2 bonus to weapon speed factor, and a +2 bonus to saving throws vs. Breath Weapon.
 
-Specialized (2 slots): The AC bonus increases to +2 and the wielder's base attack rate is increased to 3 attacks per 2 rounds.~
+Specialized (++): The wielder's base attack rate is increased by 1 attack per 2 rounds.
+~
 @1248   = ~proficiencies~
-@1249   = ~DUAL-WIELDING: This fighting style involves attacking opponents with two melee weapons at the same time. It is very difficult to coordinate; main-hand attacks suffer from severely decreased accuracy (though opponents often lose track of the character's off-hand weapon, making for a higher chance of a successful strike with it). Without any skill in this style, characters suffer a -4 penalty to thac0 with both the main weapon and the off-hand weapon.
+@1249   = ~DUAL-WIELDING: This fighting style involves using a second melee weapon (generally a very small one) alongside the wielder's main weapon. It is difficult to coordinate, especially with larger weapons; attacks tend to suffer from decreased accuracy; however, if the wielder is skilled the 2nd weapon can be useful in both an offensive and defensive manner.
 
-Proficient (1 slot): The thac0 penalties are reduced to -3 with the main weapon and -2 with the off-hand weapon.
+Whenever a dagger is equipped together with a medium or large weapon, the wielder will have a -2 thac0 penalty; if a medium and large or two large weapons are equipped together, this penalty will increase to -4.  Medium weapons generally include anything that does more than 1d4 but less than 1d8 base damage; large weapons are generally those that do 1d8 or higher base damage.
 
-Specialized (2 slots): The thac0 penalties are reduced to -2 with the main weapon and no penalty with the off-hand weapon.~
+Proficient (+): Equipping a dagger with a 2nd weapon will provide a -1 bonus to AC against melee attacks.  Equipping 2 daggers provides a -2 bonus.
+
+Specialized (++): Equipping a 2nd weapon allows one attack per round with that weapon, at the same thac0 as the wielder's main weapon.  
+
+(FOR CLARIFICATION: off-hand weapons cannot be used to attack unless you are specialized in this style.)
+~
 @1250   = ~Two-Hand Style~
 @1251   = ~Shield-Fighting~
 @1252   = ~Fencing~

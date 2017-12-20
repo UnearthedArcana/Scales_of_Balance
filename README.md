@@ -11,15 +11,15 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.7 </strong><br />
+  <p><strong> Version 5.8 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
 <h2>Overview</h2>
 <div class="section">
-  <p>This mod is all about improving gameplay. While I love mods that bring the game closer to PnP, like Rogue Rebalancing and aTweaks, BG is a single-player computer game. If tweaking a rule makes this specific game more fun, then it's a good tweak, PnP be damned. Consider this mod as a collection of 'house rules' specific to the BG campaign. Every choice has been made with an eye to the particular gameplay mechanics of BG2 and the EEs.</p>
-  <p>I call this a "post-hac tweak mod" because it is designed to be installed on top of - not instead of - all the other great mods out there.  I began with a BGT game with over 75 mods; they made the game great, but a few things still irked me, like druid shapechanges and the the archer's called shots and awkwardly fourth-wall-breaking weapon names. (<i>Holy sword +6? Really? That's a punchline, not a game feature.</i>) I made a bunch of little tweaks, then I learned Weidu for easy re-installation, and then I learned more.  Before I knew it I had 30 components altering many different aspects of the game.</p>
-  <p><strong><u>Everything is completely optional.  You can use as many or as few of the mod components as you want.  None of them rely on each other, there is no 'core' component. Use what you like, ignore what you don't.</u></strong> </p>
+  <p>This mod is all about improving gameplay.  While I love mods that bring the game closer to PnP, like Rogue Rebalancing and aTweaks, BG is a single-player computer game.  If tweaking a rule makes this specific game more fun, then it's a good tweak, PnP be damned.  Consider this mod as a collection of 'house rules' specific to the BG campaign. Every choice has been made with an eye to the particular gameplay mechanics of BG2 and the EEs.</p>
+  <p>I call this a "post-hac tweak mod" because it is designed to be installed on top of - not instead of - all the other great mods out there.  I began with a BGT game with over 75 mods; they made the game great, but a few things still irked me, like awkwardly fourth-wall-breaking weapon names. (<i>Holy sword +6? Really? That's a punchline, not a game feature.</i>) </p>
+  <p><strong><u>Everything is completely optional.  You can use as many or as few of the mod components as you want.  There is no 'core' component; use what you like, ignore what you don't.</u></strong> </p>
 </div>
 <h2>Installation</h2>
 <div class="section">
@@ -27,22 +27,40 @@
     The mod archive should be extracted into your game folder from the archive (or just unzipped and then copied there). If properly extracted, you should have an "SoB" folder and "setup-SoB.exe" in your BG2 folder. To install, simply double-click "setup-SoB.exe" and follow the instructions on screen.</p>
   <p>Please run setup-SoB.exe in your BG2 folder to reinstall, uninstall or otherwise change components.</p>
   <p><strong>Mac OS X:</strong><br />
-    This mod is packaged and installed with WeiDU. To install, simply extract the contents of the mod into your game folder. If properly extracted, you should have a folder called "SoB," a file called "weidu," and the "WeiDU Mac Launcher" in your BG2 directory. To install, simply double-click the WeiDU Launcher, choose Scales of Balance from the list, and follow the instructions on screen.</p>
+    This mod is packaged and installed with WeiDU. To install, simply extract the contents of the mod into your game folder. If properly extracted, you should have a folder called "Scales_of_Balance" and the "WeiDU Mac Launcher" app in your BG2 directory. To install, simply double-click the WeiDU Launcher, choose Scales of Balance from the list, and follow the instructions on screen.</p>
 </div>
 <h2>Compatibility</h2>
 <div class="section">
   <p>Scales of Balance is designed to work with any Infinity Engine game on a variant of the BG2 engine that someone might purchase and play today, in 2014. At the moment, that includes TOB, TuTu, BGT, BG:EE, BG2:EE, and IWD:EE.</p>
   <p>Scales of Balance aims to be compatible with almost all other popular mods. There are however a few compatibility issues of note:<br />
   <ul>
-  	<li>Some of the tweaks here cover the same ground as other tweak mods. This should hopefully be pretty obvious: I have modified spell tables, and <u>BG2Tweaks</u> has modified spell tables, so you should pick one or the other - don't install both. Other overlaps with <u>BG2Tweaks</u> are my hit dice component and their changes to level-up hit dice; my Weapon Proficiency Overhaul and their proficiency changes; my changes to stat bonuses and various other mods' changes to stat bonuses... etc. Like I say, these kinds of overlaps should be pretty obvious.</li><br />
-  	<li>I have not tested compatibility with Kit Revisions. These two mods cover a lot of the same ground. Eventually (after KR is released, anyway) I will try to see if I can make them work well together. But for now, you should probably choose one or the other. (You may try to skip the SoB tweaks and only install new kits, and/or the multiclass component... it should work, but there might be balance issues.)</li><br />
-  	<li>The first component of <u>Rogue Rebalancing</u> is not compatible, and not necessary, with SoB's component #120 "the Weapon Proficiency Overhaul." </li><br />
+  	<li>Some of the tweaks here cover the same ground as other tweak mods. This should hopefully be pretty obvious: for example, my hit dice component and the changes to level-up hit dice in Tweaks Anthology; my Weapon Proficiency Overhaul and the Tweaks' proficiency changes; my changes to stat bonuses and various other mods' changes to stat bonuses... etc. These kinds of overlaps should be pretty obvious.</li><br />
+  	<li>I have not tested compatibility with Kit Revisions. These two mods cover a lot of the same ground.  For now at least, you should probably choose one or the other.</li><br />
+  	<li>The first component of <u>Rogue Rebalancing</u> is not compatible, and not necessary, with SoB's component #122 "the Weapon Proficiency Overall Overhaul." </li><br />
   	<li>Most of SoB's overhauls and class tweaks are incompatible with the first, "core" component of <u>Six's Kitpack</u>. Take a look at what each mod does and decide which one you want to use.</li><br />
-  	<li>The <u>Hidden Kits</u> mods is probably extremely incompatible. You can try to use them together but you might see some very weird behavior, like innate abilities changing or disappearing - if not even worse symptoms.</li>
   </ul></p>
   <p>See the component descriptions below for more specific information about compatibility.</p>
   <p><strong>Load Order:</strong><br />
-    Scales of Balance should be installed <strong>after</strong> all other mods that add or change creatures, items or kits. It should be installed <strong>after</strong> the "WSPATCK for All" component of <u>tb#Tweaks</u>.  Most of it should slot nicely in immediately before SCS... *except* the MRO: if you install aTweaks, the MRO component should be installed after that. (That's why I moved the MRO to the end as of v5.3.)</p>
+    Scales of Balance should be installed <strong>after</strong> all other mods that add or change creatures, items, spells, and kits.  It should be installed after most tweak mods, like Tweaks Anthology.  Most of this mod should slot in nicely immediately before or immediately after SCS... *except* the MRO: if you install aTweaks PnP fiends, the MRO component should be installed after that. (That's why I moved the MRO to the end as of v5.3.)  Alternatively, if you want really hard aTweaks fiends, you can install aTweaks after the MRO, and they will be the only creatures in the game that have magic resistance.</p>
+  <p>My personal install order looks something like this:
+  <ul>
+    <li> [quest mods]</li>
+    <li> [NPC mods]</li>
+    <li> [item mods including Item Revisions]</li>
+    <li> [spell mods including Spell Revisions]</li>
+    <li> [small kit mods]</li>
+    <li> Divine Remix</li>
+    <li> Song & Silence</li>
+    <li> Rogue Rebalancing</li>
+    <li> Monastic Orders of Faerun</li>
+    <li> Tome & Blood</li>
+    <li> Faiths & Powers</li>
+    <li> Might and Guile</li>
+    <li> [tweak mods including Tweaks Anthology]</li>
+    <li> Scales of Balance</li>
+    <li> SCS</li>
+    <li> [end-of-order mods like LevelOneNPCs, NPC_EE, Randomiser, etc.]</li>
+  </ul>
 </div>
 <h2>Contents</h2>
 <div class="section">
@@ -95,7 +113,7 @@
     <ul>
       <li> Spears do 2d4 damage, since in BG games they are of the 2-handed variety (this is per PnP).</li>
       <li> Quarterstaves get an inherent -1 AC bonus.</li>
-      <li> Daggers have 1.5 base APR. (This includes throwing daggers.)</li>
+      <li> Daggers do 1d5 base damage instead of 1d4. (This includes throwing daggers.)</li>
       <li> Light crossbows can be used 1-handed, with shields. Heavy crossbows have an overall +3 damage bonus to compensate.</li>
       <li> Bolts do 1d6 base damage (and thus, from heavy crossbows they do 1d6+3).</li>
       <li> Longbows and composite bows have their base APR reduced to 3/2 but do an extra +2 damage.</li>
@@ -103,13 +121,14 @@
       <li> Sling bullets do blunt damage.</li>
       <li> Darts have 2 APR instead of 3.</li>
       <li> In the EE games, strength damage bonuses are removed from thrown daggers, darts, and slings.</li>
-      <li> Archers (and thus, any kits with the Archer usability flag) can use Elven Chain armor.</li>
+      <li> Archers (and any kits with the Archer usability flag) can now use Elven Chain armor.</li>
     </ul>
     <p><b>Compatibility:</b> this component covers some of the same ground as the "Weapon Changes" component of Item Revisions. I, for one, use both together. But be aware that this might compound or override some of the IR component's effects.</p>
   </div>
   <h4 class="subheader">Component 103: </h4>
   <div class="section">
     <p><strong><em>IWO: Distinctions between Light and Heavy Weapons</em></strong></p>
+    <p><strong><em>NOTE: This component is deprecated and will no longer be installed.  Distinctions between light and heavy weapons when dual-wielding are included in a much more comprehensive way in component #124, the "Fighting Style Overhaul."</em></strong></p>
     <p>Light, low-damage weapons get a +1 off-hand thac0 bonus.  These weapons include short swords, and daggers.  Light two-handed weapons - spears and quarterstaves - get an overall +1 thac0 bonus.</p>
     <p>Heavy weapons that are inappropriate for dual-wielding get a -2 penalty to off-hand thac0. These include bastard swords, katanas, and flails.</p>
     <p><b>Compatibility:</b> this component covers the same ground as the "Dual-Wielding Changes for Light and Heavy Weapons" component of Item Revisions. You can probably use both together, but the effects will be compounded and will likely be somewhat extreme. Best to choose one or the other.</p>
@@ -125,30 +144,16 @@
       <li> Weapons "of Action" +2 that previously only gave +1 DEX now give an extra 1/2 APR as well.</li>
     </ul>
   </div>
-  <h4 class="subheader">Component 121: </h4>
+  <h4 class="subheader">Component 122 (for EE 1.4+ or ToBEx): </h4>
   <div class="section">
-    <p><strong><em>Weapon Proficiency Overhaul (WPO): Weapon Category Combination</em></strong></p>
-      <p>This component groups certain proficiencies together:</p>
-      <ul>
-        <li> Two-handed swords and bastard swords are combined into a "greatswords" proficiency.</li>
-        <li> Scimitars, katanas, and wakizashi are combined into a "scimitar/katana" proficiency.</li>
-        <li> Clubs and Maces are combined into a "club/mace" proficiency.</li>
-        <li> Spears and halberds are combined into a "spear/halberd" proficiency.</li>
-        <li> Daggers and darts are combined into a "dagger/dart" proficiency.</li>
-        <li> Long bows and short bows are combined into a "bows" proficiency.</li>
-      </ul>
-    <p><b>Compatibility:</b> this component is probably not compatible with most other proficiency system changes. However, it <b>IS</b> compatible with the <i>first subcomponent</i> of the "Revised Proficiencies" options in Tweaks Anthology - the one that basically just merges maces and morning stars. If you install that first, then clubs maces & morning stars will all share a proficiency.</p>
-  </div>
-  <h4 class="subheader">Component 122: </h4>
-  <div class="section">
-    <p><strong><em>WPO: Proficiency System Overhaul</em></strong></p>
-      <p><strong>Please note, this component can only be installed on an EE or TobEx game.  And it requires/will automatically install Component #121 "Weapon Category Combination."</strong></p>
-      <p>This component can be considered a convenience tweak; it will give most classes substantially more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
+    <p><strong><em>Weapon Proficiency Overhaul (WPO): Overall Overhaul</em></strong></p>
+      <p><b>INSTALL NOTE:</b> if you install this component, then components #121 (Weapon Category Combination) and #124 (Fighting Style Overhaul) will also be installed automatically. </p>
+      <p>This component can be considered a convenience tweak; it will give most classes natably more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
       <p>Clubs are truly universal, simple weapons: everyone can use them. Crossbows are usable by everyone except druids and Beastmasters.</p>
-      <p>Warriors, rogues, and priests start with 4 proficiency points; wizards, sorcerers, and shamans start with 3. Warriors can get up the 3 more proficiencies, chosen by dialogue, if their INT score is 11 (+1), 12 (+2), or 13 (+3).</p> 
+      <p>Warriors, rogues, and priests start with 4 proficiency points; wizards, sorcerers, and shamans start with 3. Warriors receive up the 3 more proficiencies, chosen by dialogue, if their INT score is 11 (+1), 12 (+2), or 13 (+3).</p> 
       <p>At 1st level, you may only put one point in any weapon or style, so you must spread those proficiencies among many weapons. However, unusually warriors with an INT score of 14+ receive a "focus training" ability allowing them to specialize in 1 weapon immediately. (<b>NOTE</b> - the focus weapon ability will only appear in EE games of version 1.4 or higher.) And trueclass fighters automatically get an additional weapon of focus, regardless of INT. </p>
-      <p>Warriors gain another proficiency point every 3 levels. Rogues gain a new point every 4 levels. Druids, clerics and shamans gain a new point every 5 levels. Wizards, sorcerers, and monks can never move past their initial proficiencies (<b>NOTE</b> - this means dual-classing into a mage means no more weapon advancement <b>at all!</b>).</p>
+      <p>Warriors gain another proficiency point every 3 levels. Rogues gain a new point every 4 levels. Druids, clerics and shamans gain a new point every 5 levels. Wizards, sorcerers, and monks can never move past their initial proficiencies (<b>NOTE</b> - this means no more weapon advancement <b>at all</b> after dual-classing into a mage!).</p>
       <ul>
         <li> Trueclass fighters and Kensai can attain Mastery (+++) at 6th level, and High Mastery (++++) at 9th level, in any weapons they focus on. </li>
         <li> Other kitted fighters plus barbarians, paladins, and rangers can attain Mastery (+++) at 6th level. </li>
@@ -164,38 +169,60 @@
         &ndash; **** = +4 thac0; +4 damage; +1.5 APR<br />.</p>
       </div>
       <p>(The APR bonuses will only affect warriors, unless you also install the WPO part 5, "APR on Spec.")
-      <p>This component also tweaks the thac0 tables: Rogues' thac0 is buffed, making it equal to clerics. Their progression is smoothed out, no more jumping by 2. Warriors start at thac0 20, and non-warriors start at thac0 21.</p>
-      <p>This component makes serious changes and it has been extremely hard to get various game mechanisms to work with it, especially dual-classing and NPCs. As a result, <b>ALL</b> NPCs you meet except dual-classed ones will be dropped to level 1, TOB-style, and start with selected base proficiencies. They will have the normal amount of XP however, so you can immediately level them up and direct their advancement.  Because this method doesn't work well for dual-classed NPCs, Imoen, Anomen, and Nalia, will instead receive a special "Proficiency Tome" that you can use to set their proficiencies.</p>
-    <p><b>Compatibility:</b> this component is probably not compatible with stuff like the weapon proficiency changes in Tweaks Anthology. Choose one proficiency system mod and stick with it.</p>
+      <p>This component also tweaks the thac0 tables: Rogues' thac0 becomes equal to clerics and their progression is smoothed out - no more jumping by 2. Warriors start at thac0 20, and non-warriors start at thac0 21.</p>
+      <p>This component makes serious changes and it has been rather hard to get various game mechanisms to work with it, especially dual-classing and NPCs. To catch them up, joinable NPCs will have several innate abilities that allow you to choose more proficiencies for them.</p>
+    <p><b>Compatibility:</b> this component is generally not compatible with stuff like the weapon proficiency changes in Tweaks Anthology. Choose one proficiency system mod and stick with it.</p>
   </div>
-  <h4 class="subheader">Component 124: </h4>
+  <h4 class="subheader">Component 121: </h4>
+  <div class="section">
+    <p><strong><em>WPO: Weapon Category Combination</em></strong></p>
+      <p><b>INSTALL NOTE:</b> if you choose to install component #122, the Weapon Proficiency Overhaul, then this component will also be installed automatically. </p>
+      <p>This component groups certain proficiencies together:</p>
+      <ul>
+        <li> Two-handed swords and bastard swords are combined into a "greatswords" proficiency.</li>
+        <li> Scimitars, katanas, and wakizashi are combined into a "scimitar/katana" proficiency.</li>
+        <li> Clubs and Maces are combined into a "club/mace" proficiency.</li>
+        <li> Spears and halberds are combined into a "spear/halberd" proficiency.</li>
+        <li> Daggers and darts are combined into a "dagger/dart" proficiency.</li>
+        <li> Long bows and short bows are combined into a "bows" proficiency.</li>
+      </ul>
+    <p><b>Compatibility:</b> this component is probably not compatible with most other proficiency system changes. However, it <b>IS</b> compatible with the <i>first subcomponent</i> of the "Revised Proficiencies" options in Tweaks Anthology - the one that basically just merges maces and morning stars. If you install that first, then clubs maces & morning stars will all share a proficiency.</p>
+  </div>
+  <h4 class="subheader">Component 124 (for EE 1.4+): </h4>
   <div class="section">
     <p><strong><em>WPO: Fighting Style Overhaul</em></strong></p>
-      <p>This component <b>(which is EE-only)</b> rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  All styles get thac0 bonuses in addition to other benefits.  So especially at low levels, it might be worth investing in a style for benefits that work for all weapons, rather than progressing in a single weapon proficiency.  The benefits of each style are listed below (cumulative totals):</p>
+      <p><b>INSTALL NOTE:</b> if you choose to install component #122, the Weapon Proficiency Overhaul, then this component will also be installed automatically. </p>
+      <p>This component rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  The benefits of each style are listed below:</p>
       <div class="kit_description">
         <p>Single-Weapon Style: now called <b>"Fencing"</b><br />
-        &ndash; (+) = +1 thac0, -1 melee AC, +2 to saves vs. Breath Weapon<br />
-        &ndash; (++) = +1 thac0, -1 melee AC +2 Breath saves, APR increased by .5</p>
+        &ndash; (+) = +1 thac0, -2 to weapon speed, +2 to saves vs. Breath Weapon<br />
+        &ndash; (++) = APR increased by .5<br /></p>
+        <p><br /></p>
         <p>Sword & Shield Style: now called <b>"Shield-Fighting"</b><br />
-        &ndash; (+) = +1 thac0, -1 melee AC, -2 missile AC<br />
-        &ndash; (++) = +1 thac0, -1 melee AC, -2 missile AC, perform shield bash when struck (1d3 damage and knockdown on failed save vs. Breath)</p>
+        &ndash; (+) = -1 melee AC bonus, -2 missile AC bonus<br />
+        &ndash; (++) = may perform a shield bash once per round (1d3 damage per 5 levels and knockdown on failed save vs. Breath)<br /></p>
+        <p><br /></p>
         <p>Two-Handed Weapon Style: now called <b>"Two-Hand Style"</b><br />
         &ndash; (+) = +1 thac0, +1 damage, +5% crit chance<br />
-        &ndash; (++) = +2 thac0, +2 damage, +10% crit chance</p>
+        &ndash; (++) = additional +1 thac0, +2 damage, and +5% crit chance<br /></p>
+        <p><br /></p>
         <p>Two-Weapon Style: now called <b>"Dual-Wielding"</b><br />
-        &ndash; ( ) = -4 main-hand thac0, and -4 off-hand thac0<br />
-        &ndash; (+) = -3 main-hand thac0, and -2 off-hand thac0<br />
-        &ndash; (++) = -2 main-hand thac0, and -0 off-hand thac0<br />.</p>
+        &ndash; ( ) = -2 thac0 penalty with a dagger and any other weapon or with 2 medium weapons; -4 thac0 penalty for medium+large weapons; no off-hand attack<br />
+        &ndash; (+) = -1 AC bonus per dagger when dual-wielding; still no off-hand attack<br />
+        &ndash; (++) = may make an off-hand attack with thac0 equal to main-hand<br />.</p>
       </div>
-      <p><b>Note:</b> if you are specialized in Fencing/Single-Weapon Style, the APR bonus will take one second to kick in whenever you switch to a one-handed weapon. </p>
-      <p><b>Also note:</b> the shield bash also stuns opponents for 1 second starting at level 5; and the damage increases by 1d3 and the saving throw is at a -1 penalty for each 5 levels, up to level 20.</p>
+      <p><b>Medium Weapons:</b> short sword, ninja-to, wakizashi, club, war hammmer, mace.</p>
+      <p><b>Large Weapons:</b> long sword, scimitar, bastard sword, katana, flail, morning star, battle axe.</p>
+      <p><b>Note:</b> bastard swords and katanas are unusually large; they cannot be equipped in the off-hand position.</p>
+      <p><b>Also note:</b> your thac0 may briefly be incorrect when you equip two weapons and begin dual-wielding them.  It should take approximately 1 second normalize to the correct value.</p>
+      <p><b>Also note:</b> the shield bash also stuns opponents for 1 second starting at level 5; and the saving throw is at a -1 penalty for each 5 levels, up to level 20.</p>
       <p><b>Also note:</b> thrown daggers and darts will have their base APR reduced from 2 to 1.5, and from 3 to 2.5, respectively.  So you will need to be specialized in Fencing/SWS to get the full benefit of those items.</p>
-      <p>If you have installed the "Distinctions Between Light/Heavy Weapons" IWO component (#103), the off-hand thac0 bonus for daggers, short swords and clubs becomes a main-hand thac0 bonus instead.  Thus, with two pips in dual-wielding and two short swords you will have <b>no</b> thac0 penalty at all.  With two pips in dual-wielding and two bastard swords, you will have a -2 penalty with main-hand and a -4 penalty with off-hand.</p>
+      <p><b>Compatibility:</b> this component covers the same ground as the "Dual-Wielding Changes for Light and Heavy Weapons" component of Item Revisions. You can probably use both together, but the effects will be compounded and will likely be somewhat extreme. Best to choose one or the other.</p>
   </div>
-  <h4 class="subheader">Component 125: </h4>
+  <h4 class="subheader">Component 125 (for EE 1.4+): </h4>
   <div class="section">
     <p><strong><em>WPO: APR on Spec</em></strong></p>
-      <p>This component <b>(which is EE-only)</b> enables any class to gain APR benefits from weapon specialization - not just warriors.</p>
+      <p>This component enables any class to gain APR benefits from weapon specialization - not just warriors.</p>
       <p>(NB if you install component 122 without this one, only warriors will get the benefit of the APR bonus for basic proficiency.)</p>
     <p><b>Compatibility:</b> this component is not compatible with the APR on Spec component of Tweaks Anthology (which I wrote, and is based on this one). The other version is specifically designed for the vanilla proficiency system; this one is specifically designed for the WPO proficiency system. Use If you installed the "WPO Part 2," use this version.</p>
   </div>
@@ -274,8 +301,8 @@
  </tr>
  <tr>
   <td><b>23:</b></td>
-  <td>+3</td>
-  <td>+8</td>
+  <td>+4</td>
+  <td>+7</td>
  </tr>
  <tr>
   <td><b>24:</b></td>
@@ -284,7 +311,7 @@
  </tr>
  <tr>
   <td><b>25:</b></td>
-  <td>+5</td>
+  <td>+4</td>
   <td>+9</td>
  </tr>
 </table>
@@ -329,30 +356,30 @@
  <tr>
   <td><b>18:</b></td>
   <td>-4</td>
-  <td>+2</td>
+  <td>+3</td>
   <td>+1</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
   <td>-5</td>
   <td>+3</td>
-  <td>+1</td>
+  <td>+2</td>
  </tr>
  <tr>
   <td><b>20:</b></td>
-  <td>-5</td>
+  <td>-6</td>
   <td>+3</td>
   <td>+2</td>
  </tr>
  <tr>
   <td><b>21:</b></td>
   <td>-6</td>
-  <td>+3</td>
+  <td>+4</td>
   <td>+2</td>
  </tr>
  <tr>
   <td><b>22:</b></td>
-  <td>-6</td>
+  <td>-7</td>
   <td>+4</td>
   <td>+2</td>
  </tr>
@@ -360,11 +387,11 @@
   <td><b>23:</b></td>
   <td>-7</td>
   <td>+4</td>
-  <td>+2</td>
+  <td>+3</td>
  </tr>
  <tr>
   <td><b>24:</b></td>
-  <td>-7</td>
+  <td>-8</td>
   <td>+4</td>
   <td>+3</td>
  </tr>
@@ -651,11 +678,11 @@
 <table style= "width: 65%">
  <tr>
   <th>CHARISMA</th>
-  <th>save vs. Breath - 36</th>
-  <th>Save vs. Wands - 34</th>
-  <th>Save vs. Death - 33</th>
-  <th>Save vs. Polymorph - 35</th>
-  <th>Save vs. Spells - 37</th>
+  <th>save vs. Breath</th>
+  <th>Save vs. Wands</th>
+  <th>Save vs. Death</th>
+  <th>Save vs. Polymorph</th>
+  <th>Save vs. Spells</th>
   <th>Luck Bonus </th>
  </tr>
  <tr>
@@ -896,9 +923,9 @@
 </div>
 <h2>Thanks and Acknowledgements</h2>
 <div class="section">
-  <p>Huge thanks in particular to Smeagolheart, Crevsdaak, kjeron, Camdawg, Mike1072, kreso, Grammarsalad and The Imp for advice and help with the code. And to everyone participating in the Dev thread at forum.baldursgate.com, for helping to sort through my good and bad ideas and helping me get the best ones implemented. </p>
-  <p>Special thanks to Galactygon, Demivrgvs, and Pecca for directly contributing mod resources (the Beastheart of Malar's Beast Claw ability, the Nightrunner of Mask's Summon Shadow ability, and the various Magic Bolt cantrip projectiles, respectively). </p>
-  <p>Special thanks to DreamSlaveOne at G3 for contributing .BAM files for the mage's Cantrip ability, druids' Shapeshift: Lion ability, the innate Spell Sequencers, and the Spellbender's special abilities.</p>
+  <p>Huge thanks in particular to Smeagolheart, Crevsdaak, kjeron, Camdawg, Mike1072, kreso, Grammarsalad, Aquadrizzt, and The Imp for advice and help with the code. And to everyone participating in the Dev thread at forum.baldursgate.com, for helping to sort through my good and bad ideas and helping me get the best ones implemented. </p>
+  <p>Special thanks to Galactygon, Demivrgvs, DreamSlaveOne, and Pecca for directly contributing mod resources </p>
+  <p>Big thanks to Etamin for providing a Polish translation. </p>
   <p>Thanks to the still active and vibrant Infinity Engine modding community. </p>
   <p><strong>Tools Used in Creation</strong><br />
     <a href="http://www.weidu.org/"><acronym title="Weimer Dialogue Utility">WeiDU</acronym></a> by
@@ -912,11 +939,15 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.8 - December 2017</strong></p>
+  <ul>
+    <li>major revision of the fighting styles code: better shield bash and refined dual-wielding</li>
+    <li>smaller refinements elsewhere, such as with the stat bonuses</li>
+  </ul>
   <p><strong>Version 5.7 - March 2017</strong></p>
   <ul>
     <li>new component: concentration checks</li>
-    <li>compatibility between WPO and FnP usability system</li>
-    <li>working on new component: no dual-wielding large weapons</li>
+    <li>compatibility between WPO and the FnP 0.74+ usability system</li>
   </ul>
   <p><strong>Version 5.6 - March 2017</strong></p>
   <ul>
@@ -925,6 +956,7 @@
   </ul>
   <p><strong>Version 5.5 - November 2016</strong></p>
   <ul>
+    <li>Polish translation by Etamin added - thank you!</li>
     <li>re-wrote YARAS</li>
     <li>re-wrote portions of the WPO</li>
     <li>added multiple subcomponents for NMX</li>
@@ -986,7 +1018,7 @@
   <ul>
     <li>Another major reorganization, with components DESIGNATED and compartmentalized into distinct .tpa files</li>
     <li>More options in the settings file to adjust mod components</li>
-    <li>Major revised of the wizard specialist kits</li>
+    <li>Major revision of the wizard specialist kits</li>
     <li>Revised the proficiency overhaul</li>
     <li>Favored weapons for clerics available without the proficiency overhaul</li>
     <li>Toggleable monk fists available without the proficiency overhaul</li>

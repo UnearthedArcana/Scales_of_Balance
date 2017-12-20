@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.7.7~
+VERSION ~v5.8~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -137,6 +137,7 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee e
 
 INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
 INCLUDE ~scales_of_balance/components/122_WPO_proficiency.tpa~
+INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
 //__________________________________________________________________________________
 
 BEGIN @121 // combine profs
@@ -159,6 +160,7 @@ INCLUDE ~scales_of_balance/components/123_WPO_dual_class.tpa~
 BEGIN @124 // change styles
 DESIGNATED 124
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
+FORBID_COMPONENT ~scales_of_balance.tp2~ ~122~ @3
 
 INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
 //__________________________________________________________________________________

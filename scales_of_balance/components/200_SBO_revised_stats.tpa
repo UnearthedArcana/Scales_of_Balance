@@ -96,9 +96,9 @@ COPY ~scales_of_balance/misc/d5_wisp6.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp7.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp8.spl~ ~override~
 COPY ~scales_of_balance/misc/d5_wisp9.spl~ ~override~
-COPY ~scales_of_balance/stats/d5_noint.spl~ ~override~
 
 ACTION_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+	COPY ~scales_of_balance/stats/d5_noint.spl~ ~override~
 	COPY ~scales_of_balance/stats/d5_nint2.eff~ ~override~
 	COPY ~scales_of_balance/stats/d5_nint3.eff~ ~override~
 	COPY ~scales_of_balance/stats/d5_nint4.eff~ ~override~
@@ -137,6 +137,7 @@ ACTION_IF NOT GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	COMPILE ~scales_of_balance/stats/old/d5_int20.baf~
 END
 ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+	COPY ~scales_of_balance/stats/d5_nointee.spl~ ~override/d5_noint.spl~
 	COPY ~scales_of_balance/stats/d5_ninta.eff~ ~override~
 	COPY ~scales_of_balance/stats/d5_nintb.eff~ ~override~
 	COPY ~scales_of_balance/stats/d5_nintc.eff~ ~override~
@@ -701,7 +702,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 284 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex19.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex19~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 284 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 284 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex20.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex20~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 284 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
@@ -713,7 +714,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 284 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex23.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex23~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 284 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 284 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex24.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex24~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 284 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
@@ -1039,7 +1040,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
  ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~ring30.itm~ BEGIN
 	COPY_EXISTING ~ring30.itm~ ~override~
-	  LPF ALTER_EFFECT INT_VAR match_opcode = 6 match_parameter2 = 1 parameter2 = 0 parameter1 = 1 END
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 6 match_parameter2 = 1 parameter2 = 0 parameter1 = 1 END
 	  READ_LONG 0x54 valid
 	  PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 		READ_STRREF 0x54 "desc"
