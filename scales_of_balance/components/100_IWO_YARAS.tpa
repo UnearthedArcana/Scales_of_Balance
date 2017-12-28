@@ -124,6 +124,10 @@ ACTION_IF FILE_EXISTS_IN_GAME ~plat18.itm~ BEGIN
 	COPY_EXISTING ~plat18.itm~ ~override~
 	  READ_LONG 0x08 scale_strref
 END
+ACTION_IF NOT (VARIABLE_IS_SET %scale_strref%) BEGIN
+//	RESOLVE_STR_REF scale_strref ~Scale Armor~
+	OUTER_SET scale_strref = RESOLVE_STR_REF (~Scale Armor~)
+END
 
 ACTION_FOR_EACH leather_armor IN ~bdleat06~ BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%leather_armor%.itm~ BEGIN
@@ -601,8 +605,8 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			END
 		  END
 //	scale armor
-		  PATCH_IF VARIABLE_IS_SET %scale_strref% BEGIN
-		   PATCH_IF (gen_name_strref = scale_strref) BEGIN 
+//		  PATCH_IF VARIABLE_IS_SET %scale_strref% BEGIN
+		  ELSE PATCH_IF (gen_name_strref = scale_strref) BEGIN 
 //			SPRINT armor_type ~scale~
 			PATCH_PRINT ~%SOURCE_RES% = scale armor~
 			PATCH_IF (no_cast = 0) BEGIN
@@ -652,10 +656,10 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  END
 			  SAY_EVALUATED 0x50 ~%new_desc%~
 			END
-		   END
+//		   END
 		  END
 //	plate is default
-		  PATCH_IF (gen_name_strref = plate_strref) BEGIN 
+		  ELSE /*PATCH_IF (gen_name_strref = plate_strref)*/ BEGIN 
 //			SPRINT armor_type ~plate~
 			PATCH_PRINT ~%SOURCE_RES% = plate mail~
 			PATCH_IF (no_cast = 0) BEGIN
