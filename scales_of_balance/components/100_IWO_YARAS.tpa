@@ -121,43 +121,68 @@ COPY_EXISTING ~plat01.itm~ ~override~
 COPY_EXISTING ~plat05.itm~ ~override~
 	READ_LONG 0x08 fullplate_strref
 ACTION_IF FILE_EXISTS_IN_GAME ~plat18.itm~ BEGIN
-	COPY_EXISTING ~plat18.itm~ ~override~
-	  READ_LONG 0x08 scale_strref
+	OUTER_SET scale_strref = 39544
 END
-ACTION_IF NOT (VARIABLE_IS_SET %scale_strref%) BEGIN
-//	RESOLVE_STR_REF scale_strref ~Scale Armor~
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~plat18.itm~ BEGIN
 	OUTER_SET scale_strref = RESOLVE_STR_REF (~Scale Armor~)
 END
 
-ACTION_FOR_EACH leather_armor IN ~bdleat06~ BEGIN
+ACTION_FOR_EACH leather_armor IN 
+ ~bdleat06~ 
+BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%leather_armor%.itm~ BEGIN
 	COPY_EXISTING ~%leather_armor%.itm~ ~override~
 	  WRITE_LONG 0x08 %leather_strref%
 	BUT_ONLY
   END
 END
-ACTION_FOR_EACH studded_armor IN ~bdchan01~ BEGIN
+ACTION_FOR_EACH studded_armor IN 
+ ~bdchan01~ 
+BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%studded_armor%.itm~ BEGIN
 	COPY_EXISTING ~%studded_armor%.itm~ ~override~
 	  WRITE_LONG 0x08 %studded_strref%
 	BUT_ONLY
   END
 END
-ACTION_FOR_EACH chain_armor IN ~bdcha05~ BEGIN
+ACTION_FOR_EACH chain_armor IN 
+ ~bdcha05~ 
+BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%chain_armor%.itm~ BEGIN
 	COPY_EXISTING ~%chain_armor%.itm~ ~override~
 	  WRITE_LONG 0x08 %chain_strref%
 	BUT_ONLY
   END
 END
-ACTION_FOR_EACH plate_armor IN ~plat06~ ~plat06_~ ~bdplat04~ BEGIN
+ACTION_FOR_EACH scale_armor IN
+ ~chan17~
+ ~bdleat05~
+ ~chan20~
+ ~leat19~
+ ~plat18~
+ ~ohdarmor~ 
+BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%scale_armor%.itm~ BEGIN
+	COPY_EXISTING ~%scale_armor%.itm~ ~override~
+	  WRITE_LONG 0x08 %scale_strref%
+	BUT_ONLY
+  END
+END
+ACTION_FOR_EACH plate_armor IN
+ ~plat06~
+ ~plat06_~
+ ~bdplat04~ 
+BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%plate_armor%.itm~ BEGIN
 	COPY_EXISTING ~%plate_armor%.itm~ ~override~
 	  WRITE_LONG 0x08 %plate_strref%
 	BUT_ONLY
   END
 END
-ACTION_FOR_EACH fullplate_armor IN ~npplat~ BEGIN
+ACTION_FOR_EACH fullplate_armor IN
+ ~npplat~
+ ~plat04~ 
+BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%fullplate_armor%.itm~ BEGIN
 	COPY_EXISTING ~%fullplate_armor%.itm~ ~override~
 	  WRITE_LONG 0x08 %fullplate_strref%
@@ -413,7 +438,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		PATCH_IF (appearance = 16691) BEGIN // chain appearance
 		  READ_LONG 0x08 gen_name_strref
 //	splint armor
-		  PATCH_IF (gen_name_strref = splint_strref) BEGIN 
+		  PATCH_IF (gen_name_strref = %splint_strref%) BEGIN 
 //			SPRINT armor_type ~splint~
 			PATCH_PRINT ~%SOURCE_RES% = splint armor~
 			PATCH_IF (no_cast = 0) BEGIN
@@ -463,6 +488,60 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  END
 			  SAY_EVALUATED 0x50 ~%new_desc%~
 		    END
+		  END
+//	scale armor
+//		  PATCH_IF VARIABLE_IS_SET %scale_strref% BEGIN
+		  ELSE PATCH_IF (gen_name_strref = %scale_strref%) BEGIN 
+//			SPRINT armor_type ~scale~
+			PATCH_PRINT ~%SOURCE_RES% = scale armor~
+			PATCH_IF (no_cast = 0) BEGIN
+			  SET chain_cast = 0
+			END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 0 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 144 END
+			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
+			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
+			LPF DELETE_EFFECT INT_VAR match_opcode = 90 END 	// OL
+			LPF DELETE_EFFECT INT_VAR match_opcode = 277 END 	// ST
+			LPF DELETE_EFFECT INT_VAR match_opcode = 91 END 	// FT
+			LPF DELETE_EFFECT INT_VAR match_opcode = 276 END 	// DI
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 0 target = 1 parameter1 = %scale_ac% parameter2 = 16 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 86 target = 1 parameter1 = %scale_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 87 target = 1 parameter1 = %scale_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 88 target = 1 parameter1 = %scale_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %scale_dr% parameter2 = 1 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - %scale_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - %scale_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - %scale_stealth%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 90 target = 1 parameter1 = (0 - %scale_mech%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 277 target = 1 parameter1 = (0 - %scale_mech%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 91 target = 1 parameter1 = (0 - %scale_detect%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 276 target = 1 parameter1 = (0 - %scale_detect%) parameter2 = 0 timing = 2 END
+			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %scale_dex%) parameter2 = 0 timing = 2 END
+			LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 145 opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%scale_cast%~ END
+			PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN
+			  LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %magus_code% parameter2 = 9 STR_VAR match_resource = EVAL ~d5_cstp%scale_cast%~ resource = EVAL ~d5_cstb%scale_cast%~ END
+			END
+			PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+			  LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%scale_cast%~ END
+			END
+			READ_LONG 0x54 valid
+			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+			  READ_STRREF 0x54 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%scale_ac%%WNL%%new_dr%%scale_dr%%%WNL%%new_dex%%splint_dex%%WNL%%new_cast%%scale_cast%%WNL%%thief_stealth%%scale_stealth%%WNL%%thief_mech%%scale_mech%%WNL%%thief_detect%%scale_detect%%WNL%~
+			  END
+			  SAY_EVALUATED 0x54 ~%new_desc%~
+			END
+			ELSE BEGIN
+			  READ_STRREF 0x50 "desc"
+			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_ac%%scale_ac%%WNL%%new_dr%%scale_dr%%%WNL%%new_dex%%splint_dex%%WNL%%new_cast%%scale_cast%%WNL%%thief_stealth%%scale_stealth%%WNL%%thief_mech%%scale_mech%%WNL%%thief_detect%%scale_detect%%WNL%~
+			  END
+			  SAY_EVALUATED 0x50 ~%new_desc%~
+			END
+//		   END
 		  END
 //	chain is default
 		  ELSE BEGIN 
@@ -553,7 +632,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		ELSE PATCH_IF (appearance = 16692) BEGIN // plate appearance
 		  READ_LONG 0x08 gen_name_strref
 //	full plate armor
-		  PATCH_IF (gen_name_strref = fullplate_strref) BEGIN 
+		  PATCH_IF (gen_name_strref = %fullplate_strref%) BEGIN 
 //			SPRINT armor_type ~fullplate~
 			PATCH_PRINT ~%SOURCE_RES% = full plate~
 			PATCH_IF (no_cast = 0) BEGIN
@@ -606,7 +685,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  END
 //	scale armor
 //		  PATCH_IF VARIABLE_IS_SET %scale_strref% BEGIN
-		  ELSE PATCH_IF (gen_name_strref = scale_strref) BEGIN 
+		  ELSE PATCH_IF (gen_name_strref = %scale_strref%) BEGIN 
 //			SPRINT armor_type ~scale~
 			PATCH_PRINT ~%SOURCE_RES% = scale armor~
 			PATCH_IF (no_cast = 0) BEGIN
