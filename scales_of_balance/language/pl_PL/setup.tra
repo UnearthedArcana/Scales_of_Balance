@@ -433,25 +433,30 @@ Podstawowa cecha potrzebna przy dwuklasowości: Inteligencja~
 4 gwiazdki: +4 do testów trafienia, +4 do obrażeń, +1.5 ataku na rundę ~
 @1245 = ~STYL OBURĘCZNY: Inwestowanie w ten styl walki pozwala postaci lepiej posługiwać się broniami oburęcznymi, zadając nimi dotkliwsze obrażenia.
 
-Wyszkolenie (1 punkt): Postać otrzymuje premię +1 do TraK0 oraz obrażeń, -1 do opóźnienia, a trafienia krytyczne wykonuje przy rzucie 19 i 20 (a nie tylko 20). 
+Wyszkolenie (1 punkt): Postać otrzymuje premię +1 do TraK0 oraz obrażeń, -1 do opóźnienia, a trafienia krytyczne wykonuje przy rzucie 19 i 20 (a nie tylko 20).
 
-Specjalizacja (2 punkty): Premia do obrażeń postaci wzrasta do +3, a a trafienia krytyczne wykonuje przy rzucie równym 18 lub więcej.~
+Specjalizacja (2 punkty): Premia postaci do TraK0 oraz obrażeń wzrasta do +2/+3, a trafienia krytyczne wykonuje przy rzucie równym 18 lub więcej.~
 @1246 = ~WALKA Z TARCZĄ: Wydając punkty w ten styl walki postać zwiększa ochronę zapewnianą przez tarczę i opanowuje trudności związane z jej koordynacją wraz z bronią. Wraz z dalszą Specjalizacją użycie tarczy zapewnia atak ogłuszający, odpychający przeciwników i ujawniający ich luki w obronie.
 
-Wyszkolenie (1 punkt): Postać otrzymuje premię +1 do TraK0 oraz KP przeciwko broni białej oraz premię +2 do KP przeciwko pociskom.
+Wyszkolenie (1 punkt): Postać otrzymuje premię +1 do KP przeciwko broni białej oraz premię +2 do KP przeciwko pociskom.
 
-Specjalizacja (2 punkty): Istnieje 25% szansy, że po uderzeniu bronią białą wykonane zostanie Pchnięcie Tarczą, odpychające przeciwnika na 1,5 metra i ogłuszające go na 2 sekundy w przypadku nieudanego rzutu obronnego przeciw zionięciom. ~
+Specjalizacja (2 punkty): Raz na rundę postać może wykonać Pchnięcie Tarczą, zadające 1k3 obrażeń oraz przewracające najbliższego przeciwnika w przypadku nieudanego rzutu obronnego przeciw zionięciom.
+
+UWAGA: Na każde 5 pięć poziomów postaci obrażenia Pchnięcia Tarczą wzrastają o 1k3, a kara do rzutu obronnego wzrasta o -1.~
 @1247 = ~SZERMIERKA: Inwestowanie w ten styl walki pozwala postaci zyskać na szybkości i precyzji w posługiwaniu się jedną bronią jednoręczną.
 
-Wyszkolenie (1 punkt): Postać otrzymuje premię +1 do TraK0, KP przeciwko broni białej oraz opóźnienia.
+Wyszkolenie (1 punkt): Postać otrzymuje premię +1 do TraK0, -2 do opóźnienia i +2 do rzutów obronnych przeciw zionięciom.
 
-Specjalizacja (2 punkty): Premia do KP wzrasta do +2, a podstawowa szybkość ataku postaci wynosi trzy ataki na dwie rundy.~ 
+Specjalizacja (2 punkty): Szybkość ataku postaci wzrasta o jeden atak na dwie rundy.~
 @1248 = ~biegłości~
-@1249 = ~STYL DWÓCH BRONI: Ten styl walki dotyczy starć przy użyciu dwóch broni jednoręcznych. Walka w ten sposób jest szczególnie trudna - ataki zadawane główną bronią posiadają obniżoną celność (choć przeciwnicy często nie zauważają tych wyprowadzanych drugą, co zwiększa szansę na zadanie skutecznego ciosu). Bez żadnego punkty biegłości w tym stylu, postać otrzymuje karę -4 do TraK0 dla obu broni. 
+@1249 = ~STYL DWÓCH BRONI: Ten styl walki związany jest ze stosowaniem drugiej broni jednoręcznej (generalnie bardzo małej) razem z bronią główną. Walka w ten sposób jest szczególnie trudna, szczególnie większymi broniami; ataki mają obniżoną celność; jednakże jeżeli postać jest wyszkolona może używać drugiej broni zarówno ofensywnie, jak i defensywnie.
+Kiedy sztylet stosowany jest razem z inną średnią, bądź dużą bronią, postać ma -2 kary do Trak0; jeżeli razem stosowane są broń średnia oraz duża, bądź dwie duże kara wzrasta do -4. Średnie bronie oznaczają te, które zadają więcej niż 1k4 obrażeń, a mniej niż 1k8. Duże bronie to te, które zadają 1k8 bądź więcej obrażeń.
 
-Wyszkolenie (1 punkt): Kara do TraK0 zostaje obniżona do -3 dla głównej broni i -2 dla drugiej.
+Wyszkolenie (1 punkt): Walka sztyletem wraz z drugą bronią zapewnia premię -1 do KP przeciwko broni białej. Przy walce dwoma sztyletami premia wzrasta do -2.
 
-Specjalizacja (2 punkty): Kara do TraK0 zostaje zniesiona dla drugiej broni, a dla głównej obniżona do -2.~
+Specjalizacja (2 punkty): Użycie drugiej broni zapewnia jej dodatkowy atak z takim samym Trak0 jak broni głównej.
+
+UWAGA: Postać nie może używać drugiej broni do ataku, jeżeli nie posiada specjalizacji w tym stylu.~
 @1250 = ~Styl oburęczny~
 @1251 = ~Walka z tarczą~
 @1252 = ~Szermierka~

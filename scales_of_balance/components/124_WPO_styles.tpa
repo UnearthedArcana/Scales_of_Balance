@@ -15,6 +15,7 @@ COPY ~scales_of_balance/lib/markers/d5_styles.d5~ ~override~
 
 //UPDATE STYLE STRINGS______________________________________________________________
 //
+/*
 COPY_EXISTING ~weapprof.2da~ ~override~
 	READ_2DA_ENTRY 31 2 1 2h_string 
 	READ_2DA_ENTRY 31 3 1 2h_desc   
@@ -33,6 +34,17 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	STRING_SET %sns_desc% @1246
 	STRING_SET %sws_desc% @1247
 	STRING_SET %dw_desc% @1249
+*/
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+	SET_2DA_ENTRY 31 2 1 RESOLVE_STR_REF (@1250)
+	SET_2DA_ENTRY 31 3 1 RESOLVE_STR_REF (@1245)  
+	SET_2DA_ENTRY 32 2 1 RESOLVE_STR_REF (@1251) 
+	SET_2DA_ENTRY 32 3 1 RESOLVE_STR_REF (@1246)  
+	SET_2DA_ENTRY 33 2 1 RESOLVE_STR_REF (@1252) 
+	SET_2DA_ENTRY 33 3 1 RESOLVE_STR_REF (@1247)  
+	SET_2DA_ENTRY 34 2 1 RESOLVE_STR_REF (@1253)
+	SET_2DA_ENTRY 34 3 1 RESOLVE_STR_REF (@1249) 
 
 //__________________________________________________________________________________
 
