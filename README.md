@@ -406,7 +406,6 @@
 <table style= "width: 60%">
  <tr>
   <th>INTELLIGENCE</th>
-  <th>Bonus Spells</th>
   <th>Caster Level </th>
   <th>Save vs. Spells </th>
   <th>Extra Proficiencies* </th>
@@ -414,13 +413,11 @@
  <tr>
   <td><b>5:</b></td>
   <td>.</td>
-  <td>.</td>
   <td>-5</td>
   <td>.</td>
  </tr>
  <tr>
   <td><b>6:</b></td>
-  <td>.</td>
   <td>.</td>
   <td>-4</td>
   <td>.</td>
@@ -428,20 +425,17 @@
  <tr>
   <td><b>7:</b></td>
   <td>.</td>
-  <td>.</td>
   <td>-3</td>
   <td>.</td>
  </tr>
  <tr>
   <td><b>8:</b></td>
   <td>.</td>
-  <td>.</td>
   <td>-2</td>
   <td>.</td>
  </tr>
  <tr>
   <td><b>9:</b></td>
-  <td>.</td>
   <td>.</td>
   <td>-1</td>
   <td>.</td>
@@ -451,12 +445,10 @@
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td><b>13:</b></td>
   <td>1st level</td>
-  <td>.</td>
   <td>.</td>
   <td>+3</td>
  </tr>
@@ -464,13 +456,11 @@
   <td><b>14:</b></td>
   <td>2nd level</td>
   <td>.</td>
-  <td>.</td>
   <td>+3, +1 spec</td>
  </tr>
  <tr>
   <td><b>15:</b></td>
   <td>3rd level</td>
-  <td>.</td>
   <td>.</td>
   <td>+3, +1 spec</td>
  </tr>
@@ -478,13 +468,11 @@
   <td><b>16:</b></td>
   <td>4th level</td>
   <td>.</td>
-  <td>.</td>
   <td>+3, +1 spec</td>
  </tr>
  <tr>
   <td><b>17:</b></td>
   <td>5th level</td>
-  <td>.</td>
   <td>+1</td>
   <td>+3, +1 spec</td>
  </tr>
@@ -492,13 +480,11 @@
   <td><b>18:</b></td>
   <td>6th level</td>
   <td>+1</td>
-  <td>+1</td>
   <td>+3, +1 spec</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
   <td>7th level</td>
-  <td>+1</td>
   <td>+2</td>
   <td>+3, +1 spec</td>
  </tr>
@@ -506,13 +492,11 @@
   <td><b>20:</b></td>
   <td>8th level</td>
   <td>+2</td>
-  <td>+2</td>
   <td>+3, +1 spec</td>
  </tr>
  <tr>
   <td><b>21:</b></td>
   <td>9th level</td>
-  <td>+2</td>
   <td>+3</td>
   <td>+3, +1 spec</td>
  </tr>
@@ -520,13 +504,11 @@
   <td><b>22:</b></td>
   <td>2nd level</td>
   <td>+3</td>
-  <td>+3</td>
   <td>+3, +1 spec</td>
  </tr>
  <tr>
   <td><b>23:</b></td>
   <td>3rd level</td>
-  <td>+3</td>
   <td>+4</td>
   <td>+3, +1 spec</td>
  </tr>
@@ -534,13 +516,11 @@
   <td><b>24:</b></td>
   <td>4th level</td>
   <td>+4</td>
-  <td>+4</td>
   <td>+3, +1 spec</td>
  </tr>
  <tr>
   <td><b>25:</b></td>
   <td>5th level</td>
-  <td>+4</td>
   <td>+5</td>
   <td>+3, +1 spec</td>
  </tr>

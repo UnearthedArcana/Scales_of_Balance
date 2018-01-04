@@ -668,7 +668,7 @@ Melee bonuses/penalties:
 20: +2 thac0, +6 damage
 21: +3 thac0, +6 damage
 22: +3 thac0, +7 damage
-23: +3 thac0, +8 damage
+23: +4 thac0, +7 damage
 24: +4 thac0, +8 damage
 25: +4 thac0, +9 damage~
 @2002   = ~DEXTERITY: Dexterity measures a character's hand-eye coordination, agility, reflexes, and balance. A high Dexterity score improves a character's armor class, and to-hit rolls with ranged weapons. It is the prime requisite of the Thief.
@@ -680,18 +680,18 @@ Bonuses/penalties:
 8:  -1 ranged thac0, -1 save vs. breath weapon
 9:  -1 save vs. breath weapon
 ...
-13: -1 ranged thac0
+13: -1 to AC
 14: -1 to AC, +1 ranged thac0
 15: -2 to AC, +1 ranged thac0
 16: -2 to AC, +2 ranged thac0, +1 melee thac0
 17: -3 to AC, +2 ranged thac0, +1 melee thac0
-18: -4 to AC, +2 ranged thac0, +1 melee thac0
-19: -5 to AC, +3 ranged thac0, +1 melee thac0
-20: -5 to AC, +3 ranged thac0, +2 melee thac0
-21: -6 to AC, +3 ranged thac0, +2 melee thac0
-22: -6 to AC, +4 ranged thac0, +2 melee thac0
-23: -7 to AC, +4 ranged thac0, +2 melee thac0
-24: -7 to AC, +4 ranged thac0, +3 melee thac0
+18: -4 to AC, +3 ranged thac0, +1 melee thac0
+19: -5 to AC, +3 ranged thac0, +2 melee thac0
+20: -6 to AC, +3 ranged thac0, +2 melee thac0
+21: -6 to AC, +4 ranged thac0, +2 melee thac0
+22: -7 to AC, +4 ranged thac0, +2 melee thac0
+23: -7 to AC, +4 ranged thac0, +3 melee thac0
+24: -8 to AC, +4 ranged thac0, +3 melee thac0
 25: -8 to AC, +5 ranged thac0, +3 melee thac0
 ~
 @2003   = ~CONSTITUTION: Constitution measures a character's fitness, health, and physical resistance to hardship, injury, and disease. This ability is important to the Ranger.
@@ -714,16 +714,15 @@ General bonuses/penalties:
 8:  -2 save vs. spells
 9:  -1 save vs. spells
 ...
-16: +1 caster level
-17: +1 caster level, +1 save vs. spells
-18: +2 caster level, +1 save vs. spells
-19: +2 caster level, +2 save vs. spells
-20: +3 caster level, +2 save vs. spells
-21: +3 caster level, +3 save vs. spells
-22: +4 caster level, +3 save vs. spells
-23: +4 caster level, +4 save vs. spells
-24: +5 caster level, +4 save vs. spells
-25: +5 caster level, +5 save vs. spells
+17: +1 save vs. spells
+18: +1 save vs. spells
+19: +2 save vs. spells
+20: +2 save vs. spells
+21: +3 save vs. spells
+22: +3 save vs. spells
+23: +4 save vs. spells
+24: +4 save vs. spells
+25: +5 save vs. spells
 
 Bonuses for mages and bards:
 13: +1 1st-level spell slot
@@ -750,30 +749,31 @@ General bonuses/penalties:
 14: +4% XP progression
 15: +6% XP progression
 16: +8% XP progression
-17: +10% XP progression
+17: +10% XP progression, +1 save vs. polymorph
 18: +12% XP progression, +1 save vs. polymorph
-19: +14% XP progression, +1 save vs. polymorph
+19: +14% XP progression, +2 save vs. polymorph
 20: +15% XP progression, +2 save vs. polymorph
-21: +16% XP progression, +2 save vs. polymorph
+21: +16% XP progression, +3 save vs. polymorph
 22: +17% XP progression, +3 save vs. polymorph
-23: +18% XP progression, +3 save vs. polymorph
+23: +18% XP progression, +4 save vs. polymorph
 24: +19% XP progression, +4 save vs. polymorph
-25: +20% XP progression, +4 save vs. polymorph
+25: +20% XP progression, +5 save vs. polymorph
 
 Bonuses for clerics and druids:
 13: +1 1st-level spell
-14: +1 1st-level spell
-15: +1 2nd-level spell
-16: +1 2nd-level spell
-17: +1 3rd-level spell
+14: +1 2nd-level spell
+15: +1 1st-level spell
+16: +1 3rd-level spell
+17: +1 2nd-level spell
 18: +1 4th-level spell
 19: +1 3rd-level spell
-20: +1 4th-level spell
-21: +1 5th-level spell
+20: +1 5th-level spell
+21: +1 4th-level spell
 22: +1 6th-level spell
 23: +1 5th-level spell
 24: +1 6th-level spell
-25: +1 7th-level spell~
+25: +1 7th-level spell
+~
 @2006   = ~CHARISMA: Charisma measures a character's personal magnetism and strength of spirit. It reflects what some cultures call 'karma,' or 'soul.' High Charisma helps with saving throws and luck. This ability is important to the Druid, Bard, and Paladin.
 
 Bonuses: 
@@ -782,25 +782,26 @@ Bonuses:
 7:  -1 Luck, -2 save vs. breath/death/wands
 8:  -1 Luck, -1 save vs. breath/death/wands
 9:  -1 save vs. breath/death/wands
-15: +1 to saves vs. breath/death
-16: +1 to saves vs. breath/death/spells
+14: +1 to saves vs. breath/wands
+15: +1 to saves vs. breath/wands/death
+16: +1 to saves vs. breath/wands/death/polymorph
 17: +1 to all saving throws
 18: +1 Luck, +1 to all saving throws
-19: +1 Luck, +2 saves vs. breath/death, +1 vs. spells/wands/polymorph
-20: +1 Luck, +2 saves vs. breath/death/spells, +1 vs. wands/polymorph
-21: +1 Luck, +2 to all saving throws
-22: +2 Luck, +2 to all saving throws
-23: +2 Luck, +3 saves vs. breath/death, +2 vs. spells/wands/polymorph
-24: +2 Luck, +3 saves vs. breath/death/spells, +2 vs. wands/polymorph
+19: +1 Luck, +2 saves vs. breath/wands, +1 vs. death/polymorph/spells
+20: +1 Luck, +2 saves vs. breath/wands/death, +1 vs. polymorph/spells
+21: +1 Luck, +2 saves vs. breath/wands/death/polymorph, +1 vs. spells
+22: +1 Luck, +2 to all saving throws
+23: +2 Luck, +2 to all saving throws
+24: +2 Luck, +3 saves vs. breath/wands/death, +2 vs. polymorph/spells
 25: +2 Luck, +3 to all saving throws
 ~
 @2007   = ~CONSTITUTION: Constitution measures a character's fitness, health, and physical resistance to hardship, injury, and disease. This ability is important to the Ranger.
 
 Bonuses:
-12: minimum 2 on each d3 roll
+12: 2/3 minimum on hp rolls
 14: +1 hit point per level
 16: +2 hit points per level
-17: max hit points per level
+17: max hit points on rolls
 18: +3 hp/level (warriors only)
 19: slow regeneration (2 hp per hour)
 20: +3 hp/level (warriors +4), regen 1 hp/turn
