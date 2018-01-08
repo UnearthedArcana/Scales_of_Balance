@@ -642,16 +642,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   END
 BUT_ONLY
 
-/*
-COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
-  PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
-	READ_SHORT 0x1c type
-	READ_BYTE 0x31 prof
-	READ_BYTE 0x18 handed
-	PATCH_IF ((%handed% BOR 0b11111101) = 0b11111101) BEGIN 	//	1-handed
-	  PATCH_IF (%prof% = 96) BEGIN	// dagger
-*/
-
 ACTION_PHP_EACH d5_weapon_sizes AS weap => size BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%weap%.itm~ BEGIN
 	PRINT ~%weap% = %size%~
@@ -664,6 +654,8 @@ ACTION_PHP_EACH d5_weapon_sizes AS weap => size BEGIN
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5_twfc~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5_twfp~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5_twfs~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf2~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_sws3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_sws4~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twfc~ END
@@ -683,6 +675,7 @@ ACTION_PHP_EACH d5_weapon_sizes AS weap => size BEGIN
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5_twf2~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_sws3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_sws4~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf2~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf4~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_sws3~ END
