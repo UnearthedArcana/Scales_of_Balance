@@ -47,11 +47,10 @@
 @206   = ~Generous (above-average) hit points~
 @207   = ~Hardcore (closer to average) hit points~
 @210   = ~XPO - Slower, standardized XP Tables~
-@212   = ~XPO - No Murder XP~
-@2121  = ~kills give 1/10th XP~
-@2122  = ~kills give 1/5th XP~
-@2123  = ~kills give half XP~
-@215   = ~Revised Spellcasting Tables~
+@215   = ~XPO - No Murder XP~
+@216   = ~kills give 1/10th XP~
+@217   = ~kills give 1/5th XP~
+@218   = ~kills give half XP~
 @10001  = ~^Armor Class:.+$~
 @10002  = ~Armor Class: ~
 @10003  = ~Damage Resistance: ~
@@ -841,7 +840,7 @@ Dwarves have the following traits:
 - +1 Constitution, –1 Dexterity, –2 Charisma.
 - Infravision.
 - +10% Open Locks, +15% Find Traps, +5% Detect Illusion, +10% Set Traps.
-- Up to a +3 bonus to Saving Throws vs. Poison/Death and Polymorph/Petrification (dependent on CON score).~
+- +3 bonus to Saving Throws vs. Poison/Death.~
 @2013   = ~ELVES: Elves tend to be shorter and slimmer than humans. Their features are finely chiseled and delicate, and they speak in melodic tones. Elves are looked upon as being frivolous and aloof. They concern themselves with natural beauty, dancing, frolicking, and other similar pursuits. Their humor is clever, as are their songs and poetry. There are six racial divisions of elves within the Realms: gold elves, moon elves, wild elves, sea elves, dark elves (drow), and winged elves (avariel).
 
 Elves have the following traits:
@@ -856,14 +855,14 @@ Gnomes have the following traits:
 - +1 Intelligence, +1 Constitution, -1 Strength, -2 Wisdom.
 - Infravision.
 - +5% Open Locks, +10% Find Traps, +5% Move Silently, +5% Hide in Shadows, +10% Detect Illusion, +5% Set Traps.
-- Up to a +3 bonus to Saving Throws vs. Spells, Poison/Death, and Polymorph/Petrification (dependent on CON score).~
+- +2 bonus to Saving Throws vs. Spells.~
 @2015   = ~HALFLINGS: Halflings are short, generally plump people, very much like small humans. Their faces are round and broad, and often quite florid. Their hair is typically curly, and the tops of their feet are covered with coarse hair. Overall they prefer the comforts of home to dangerous adventuring. They enjoy good living, rough humor, and homespun tales. There are three racial divisions of halflings within the Realms: the hairfoot, tallfellow, and stout.
 
 Halflings have the following traits:
 - +1 Dexterity, +1 Charisma –1 Intelligence, -2 Strength.
 - +1 THAC0 bonus with slings.
 - +5% Open Locks, +5% Find Traps, +5% Pick Pockets, +10% Move Silently, +15% Hide in Shadows.
-- Up to a +3 bonus to Saving Throws vs. Poison/Death and Polymorph/Petrification (dependent on CON score).~
+- +3 bonus to Saving Throws vs. Poison/Death.~
 @2016   = ~HALF-ELVES: Half-elves are a mix of human and elven blood. They are handsome folk, with good features from each of their parent races. A half-elf has the curiosity, inventiveness, and ambition of their human ancestors and the refined senses, love of nature, and artistic tastes of their elven ancestors.
 
 Half-elves have the following traits:
@@ -880,6 +879,134 @@ Half-orcs have the following traits:
 @2022   = ~~
 @2023   = ~~
 @2024   = ~~
+@2091  = ~Advance weapon proficiency~
+@2092  = ~Choose a different weapon~
+//
+@2101  = ~Advance to Proficiency (+) with Bastard Swords~
+@2102  = ~Advance to Proficiency (+) with Long Swords~
+@2103  = ~Advance to Proficiency (+) with Short Swords~
+@2104  = ~Advance to Proficiency (+) with Battle Axes~
+@2105  = ~Advance to Proficiency (+) with Two-Handed Swords~
+@2106  = ~Advance to Proficiency (+) with Katanas~
+@2107  = ~Advance to Proficiency (+) with Scimitars~
+@2108  = ~Advance to Proficiency (+) with Daggers~
+@2109  = ~Advance to Proficiency (+) with War Hammers~
+@2110  = ~Advance to Proficiency (+) with Spears~
+@2111  = ~Advance to Proficiency (+) with Halberds~
+@2112  = ~Advance to Proficiency (+) with Flails~
+@2113  = ~Advance to Proficiency (+) with Maces~
+@2114  = ~Advance to Proficiency (+) with Clubs~
+@2115  = ~Advance to Proficiency (+) with Quarterstaff~
+@2116  = ~Advance to Proficiency (+) with Crossbows~
+@2117  = ~Advance to Proficiency (+) with Long Bows~
+@2118  = ~Advance to Proficiency (+) with Long Bows~
+@2119  = ~Advance to Proficiency (+) with Darts~
+@2120  = ~Advance to Proficiency (+) with Slings~
+@2121  = ~Advance to Proficiency (+) in Two-Handed Style~
+@2122  = ~Advance to Proficiency (+) in Shield-Fighting Style~
+@2123  = ~Advance to Proficiency (+) in Single-Weapon Style~
+@2124  = ~Advance to Proficiency (+) in Two-Weapon Style~
+//
+@2201  = ~Advance to Specialization (++) with Bastard Swords~
+@2202  = ~Advance to Specialization (++) with Long Swords~
+@2203  = ~Advance to Specialization (++) with Short Swords~
+@2204  = ~Advance to Specialization (++) with Battle Axes~
+@2205  = ~Advance to Specialization (++) with Two-Handed Swords~
+@2206  = ~Advance to Specialization (++) with Katanas~
+@2207  = ~Advance to Specialization (++) with Scimitars~
+@2208  = ~Advance to Specialization (++) with Daggers~
+@2209  = ~Advance to Specialization (++) with War Hammers~
+@2210  = ~Advance to Specialization (++) with Spears~
+@2211  = ~Advance to Specialization (++) with Halberds~
+@2212  = ~Advance to Specialization (++) with Flails~
+@2213  = ~Advance to Specialization (++) with Maces~
+@2214  = ~Advance to Specialization (++) with Clubs~
+@2215  = ~Advance to Specialization (++) with Quarterstaff~
+@2216  = ~Advance to Specialization (++) with Crossbows~
+@2217  = ~Advance to Specialization (++) with Long Bows~
+@2218  = ~Advance to Specialization (++) with Long Bows~
+@2219  = ~Advance to Specialization (++) with Darts~
+@2220  = ~Advance to Specialization (++) with Slings~
+@2221  = ~Advance to Specialization (++) in Two-Handed Style~
+@2222  = ~Advance to Specialization (++) in Shield-Fighting Style~
+@2223  = ~Advance to Specialization (++) in Single-Weapon Style~
+@2224  = ~Advance to Specialization (++) in Two-Weapon Style~
+//
+@2301  = ~Advance to Mastery (+++) with Bastard Swords~
+@2302  = ~Advance to Mastery (+++) with Long Swords~
+@2303  = ~Advance to Mastery (+++) with Short Swords~
+@2304  = ~Advance to Mastery (+++) with Battle Axes~
+@2305  = ~Advance to Mastery (+++) with Two-Handed Swords~
+@2306  = ~Advance to Mastery (+++) with Katanas~
+@2307  = ~Advance to Mastery (+++) with Scimitars~
+@2308  = ~Advance to Mastery (+++) with Daggers~
+@2309  = ~Advance to Mastery (+++) with War Hammers~
+@2310  = ~Advance to Mastery (+++) with Spears~
+@2311  = ~Advance to Mastery (+++) with Halberds~
+@2312  = ~Advance to Mastery (+++) with Flails~
+@2313  = ~Advance to Mastery (+++) with Maces~
+@2314  = ~Advance to Mastery (+++) with Clubs~
+@2315  = ~Advance to Mastery (+++) with Quarterstaff~
+@2316  = ~Advance to Mastery (+++) with Crossbows~
+@2317  = ~Advance to Mastery (+++) with Long Bows~
+@2318  = ~Advance to Mastery (+++) with Long Bows~
+@2319  = ~Advance to Mastery (+++) with Darts~
+@2320  = ~Advance to Mastery (+++) with Slings~
+@2321  = ~Advance to Mastery (+++) in Two-Handed Style~
+@2322  = ~Advance to Mastery (+++) in Shield-Fighting Style~
+@2323  = ~Advance to Mastery (+++) in Single-Weapon Style~
+@2324  = ~Advance to Mastery (+++) in Two-Weapon Style~
+//
+@2401  = ~Advance to High Mastery (++++) with Bastard Swords~
+@2402  = ~Advance to High Mastery (++++) with Long Swords~
+@2403  = ~Advance to High Mastery (++++) with Short Swords~
+@2404  = ~Advance to High Mastery (++++) with Battle Axes~
+@2405  = ~Advance to High Mastery (++++) with Two-Handed Swords~
+@2406  = ~Advance to High Mastery (++++) with Katanas~
+@2407  = ~Advance to High Mastery (++++) with Scimitars~
+@2408  = ~Advance to High Mastery (++++) with Daggers~
+@2409  = ~Advance to High Mastery (++++) with War Hammers~
+@2410  = ~Advance to High Mastery (++++) with Spears~
+@2411  = ~Advance to High Mastery (++++) with Halberds~
+@2412  = ~Advance to High Mastery (++++) with Flails~
+@2413  = ~Advance to High Mastery (++++) with Maces~
+@2414  = ~Advance to High Mastery (++++) with Clubs~
+@2415  = ~Advance to High Mastery (++++) with Quarterstaff~
+@2416  = ~Advance to High Mastery (++++) with Crossbows~
+@2417  = ~Advance to High Mastery (++++) with Long Bows~
+@2418  = ~Advance to High Mastery (++++) with Long Bows~
+@2419  = ~Advance to High Mastery (++++) with Darts~
+@2420  = ~Advance to High Mastery (++++) with Slings~
+@2421  = ~Advance to High Mastery (++++) in Two-Handed Style~
+@2422  = ~Advance to High Mastery (++++) in Shield-Fighting Style~
+@2423  = ~Advance to High Mastery (++++) in Single-Weapon Style~
+@2424  = ~Advance to High Mastery (++++) in Two-Weapon Style~
+//
+@2501  = ~Advance to Grandmastery (+++++) with Bastard Swords~
+@2502  = ~Advance to Grandmastery (+++++) with Long Swords~
+@2503  = ~Advance to Grandmastery (+++++) with Short Swords~
+@2504  = ~Advance to Grandmastery (+++++) with Battle Axes~
+@2505  = ~Advance to Grandmastery (+++++) with Two-Handed Swords~
+@2506  = ~Advance to Grandmastery (+++++) with Katanas~
+@2507  = ~Advance to Grandmastery (+++++) with Scimitars~
+@2508  = ~Advance to Grandmastery (+++++) with Daggers~
+@2509  = ~Advance to Grandmastery (+++++) with War Hammers~
+@2510  = ~Advance to Grandmastery (+++++) with Spears~
+@2511  = ~Advance to Grandmastery (+++++) with Halberds~
+@2512  = ~Advance to Grandmastery (+++++) with Flails~
+@2513  = ~Advance to Grandmastery (+++++) with Maces~
+@2514  = ~Advance to Grandmastery (+++++) with Clubs~
+@2515  = ~Advance to Grandmastery (+++++) with Quarterstaff~
+@2516  = ~Advance to Grandmastery (+++++) with Crossbows~
+@2517  = ~Advance to Grandmastery (+++++) with Long Bows~
+@2518  = ~Advance to Grandmastery (+++++) with Long Bows~
+@2519  = ~Advance to Grandmastery (+++++) with Darts~
+@2520  = ~Advance to Grandmastery (+++++) with Slings~
+@2521  = ~Advance to Grandmastery (+++++) in Two-Handed Style~
+@2522  = ~Advance to Grandmastery (+++++) in Shield-Fighting Style~
+@2523  = ~Advance to Grandmastery (+++++) in Single-Weapon Style~
+@2524  = ~Advance to Grandmastery (+++++) in Two-Weapon Style~
+//
 @2632  = ~Choose weapon focus~
 @2648  = ~KENSAI: This class's name, which means "sword saint" in the common tongue, refers to a warrior who has been specially trained to be one with a single weapon. The kensai is deadly, fast, and trained to fight without the protection of armor. 
 

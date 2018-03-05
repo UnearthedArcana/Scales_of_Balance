@@ -19,7 +19,7 @@ COPY ~scales_of_balance/misc/savewiz.2da~ ~override~
 
 //UPDATE SAVING THROW STRINGS________________________________________________________
 //
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+ACTION_IF GAME_IS ~bgee~ BEGIN
 	STRING_SET 17384 ~Spells / Enchantments~
 	STRING_SET 17383 ~Breath Weapon / Dodge~ 
 	STRING_SET 17380 ~Poison / Death~
@@ -28,7 +28,8 @@ ACTION_IF GAME_IS ~bgee~ THEN BEGIN
 //	  STRING_SET 17381 ~Psionics / Etc.~
 //  END
 END
-ACTION_IF GAME_IS ~tob bgt tutu bg2ee eet~ THEN BEGIN
+
+ACTION_IF GAME_IS ~tob bgt tutu bg2ee eet~ BEGIN
 	STRING_SET 17384 ~Spells / Enchantments~
 	STRING_SET 17383 ~Breath Weapon / Dodge~ 
 	STRING_SET 17380 ~Poison / Death~
@@ -37,7 +38,8 @@ ACTION_IF GAME_IS ~tob bgt tutu bg2ee eet~ THEN BEGIN
 //	  STRING_SET 17381 ~Psionics / Etc.~
 //  END
 END
-//ACTION_IF GAME_IS ~eet~ THEN BEGIN
+
+//ACTION_IF GAME_IS ~eet~ BEGIN
 //	STRING_SET 217384 ~Spells / Enchantments~
 //	STRING_SET 217383 ~Breath Weapon / Dodge~ 
 //	STRING_SET 217380 ~Poison / Death~
@@ -45,8 +47,9 @@ END
 //  ACTION_IF FILE_EXISTS_IN_GAME ~d5_psion.d5~ BEGIN
 //	  STRING_SET 217381 ~Psionics / Etc.~
 //  END
-END
-ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
+//END
+
+ACTION_IF GAME_IS ~iwdee~ BEGIN
 	STRING_SET 17384 ~Spells / Enchantments~
 	STRING_SET 17383 ~Breath Weapon / Dodge~ 
 	STRING_SET 17380 ~Poison / Death~
@@ -60,7 +63,9 @@ END
 
 //updating spells and descriptions___________________________________________________
 //
-ACTION_PHP_EACH savespell AS spl => sav BEGIN 
+//INCLUDE ~scales_of_balance/lib/save_list_base.tpa~
+
+ACTION_PHP_EACH d5_spell_saves AS spl => sav BEGIN 
 	ACTION_IF (FILE_EXISTS_IN_GAME ~%spl%.spl~) BEGIN 
 		COPY_EXISTING ~%spl%.spl~ ~override~ 	
 			PATCH_IF (sav = 1) BEGIN //save vs. spells

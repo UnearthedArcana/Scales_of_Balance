@@ -2,7 +2,7 @@
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//						WPO - MAJOR OVERHAUL
+//							WPO - MAJOR OVERHAUL
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
@@ -10,6 +10,12 @@
 //COPY MARKER FILE_________________________________________________________________
 //
 COPY ~scales_of_balance/lib/markers/d5_profs.d5~ ~override~
+//__________________________________________________________________________________
+
+
+//PROFICIENCY CATRGORIES____________________________________________________________
+//
+INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
 //__________________________________________________________________________________
 
 
@@ -588,7 +594,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 4
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 4
-			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 1
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 4
 		END
 		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5EARCH~) BEGIN
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 2
@@ -991,657 +997,6 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
 END
 //__________________________________________________________________________________
 
-/*  5.8: no, add more prof dialogues instead
-//DELETE NPCS' PROFICIENCIES________________________________________________________
-//
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
-  PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
-	READ_LONG 0x1cc biography
-	PATCH_IF (biography > 0 && biography < 2147483647) BEGIN // party-joinable NPC
-	  LPF DELETE_EFFECT INT_VAR silent = 1 match_opcode = 233 END
-	END
-  END
-BUT_ONLY
-//__________________________________________________________________________________
-
-
-//SET NPCS TO LEVEL 1_______________________________________________________________
-//
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
-  PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
-	READ_LONG 0xbc leader_sound
-	PATCH_IF (leader_sound > 0 && leader_sound < 2147483647) BEGIN // party-joinable NPC
-	  READ_BYTE 0x23d npc_con
-	  READ_BYTE 0x273 npc_class
-//	  LPF ADD_CRE_EFFECT INT_VAR opcode = 206 target = 1 timing = 9 parameter1 = (0 - 1) STR_VAR resource = ~d5weppw~ END
-//	  LPF ADD_CRE_EFFECT INT_VAR opcode = 206 target = 1 timing = 9 parameter1 = (0 - 1) STR_VAR resource = ~d5weppr~ END
-	  PATCH_IF (npc_class = 2) BEGIN 	//	fighter
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 12
-		  WRITE_SHORT 0x0026 12
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 13
-		  WRITE_SHORT 0x0026 13
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 14
-		  WRITE_SHORT 0x0026 14
-		END
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-		SET_BG2_PROFICIENCY 114 1
-	  END
-	  PATCH_IF (npc_class = 6) BEGIN 	//	paladin
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		WRITE_SHORT 0x0024 10
-		WRITE_SHORT 0x0026 10
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 12
-		  WRITE_SHORT 0x0026 12
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 13
-		  WRITE_SHORT 0x0026 13
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 14
-		  WRITE_SHORT 0x0026 14
-		END
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 93 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 112 1
-	  END
-	  PATCH_IF (npc_class = 12) BEGIN 	//	ranger
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 12
-		  WRITE_SHORT 0x0026 12
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 13
-		  WRITE_SHORT 0x0026 13
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 14
-		  WRITE_SHORT 0x0026 14
-		END
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 2
-	  END
-	  PATCH_IF (npc_class = 4) BEGIN 	//	thief
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 6
-		  WRITE_SHORT 0x0026 6
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 7
-		  WRITE_SHORT 0x0026 7
-		END
-		PATCH_IF (npc_con > 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (npc_class = 5) BEGIN 	//	bard
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 6
-		  WRITE_SHORT 0x0026 6
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 7
-		  WRITE_SHORT 0x0026 7
-		END
-		PATCH_IF (npc_con > 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (npc_class = 3) BEGIN 	//	cleric
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con > 15) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 112 1
-	  END
-	  PATCH_IF (npc_class = 11) BEGIN 	//	druid
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con > 15) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (npc_class = 20) BEGIN 	//	monk
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 12
-		  WRITE_SHORT 0x0026 12
-		END
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (npc_class = 1) BEGIN 	// 	mage
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-	  END
-	  PATCH_IF (npc_class = 19) BEGIN 	//	sorcerer
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-	  END
-	  PATCH_IF (npc_class = 21) BEGIN 	//	shaman
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con > 15) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (%npc_class% = 7) BEGIN 	//	fighter/mage
-		WRITE_BYTE 0x0234 1 // sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 7
-		  WRITE_SHORT 0x0026 7
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (%npc_class% = 8) BEGIN 	//	fighter/cleric
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 12
-		  WRITE_SHORT 0x0026 12
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 13
-		  WRITE_SHORT 0x0026 13
-		END
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (%npc_class% = 9) BEGIN 	//	fighter/thief
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 12
-		  WRITE_SHORT 0x0026 12
-		END
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 95 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (%npc_class% = 10) BEGIN	//	fighter/mage/thief
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 7
-		  WRITE_SHORT 0x0026 7
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (%npc_class% = 13) BEGIN	//	mage/thief
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 10
-		WRITE_BYTE 0x0064 5
-		WRITE_BYTE 0x0065 5
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0067 5
-		WRITE_BYTE 0x0068 10
-		WRITE_BYTE 0x0069 5
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 6
-		  WRITE_SHORT 0x0026 6
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 7
-		  WRITE_SHORT 0x0026 7
-		END
-		PATCH_IF (npc_con > 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (%npc_class% = 14) BEGIN	//	cleric/mage
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 6
-		  WRITE_SHORT 0x0026 6
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 7
-		  WRITE_SHORT 0x0026 7
-		END
-		PATCH_IF (npc_con > 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 107 1
-	  END
-	  PATCH_IF (%npc_class% = 15) BEGIN	//	cleric/thief
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 7
-		  WRITE_SHORT 0x0026 7
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		PATCH_IF (npc_con > 15) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (%npc_class% = 16) BEGIN	//	fighter/druid
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 12
-		  WRITE_SHORT 0x0026 12
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 13
-		  WRITE_SHORT 0x0026 13
-		END
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 96 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 107 1
-		SET_BG2_PROFICIENCY 111 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (%npc_class% = 17) BEGIN	//	fighter/mage/cleric
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x006a 5
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 7
-		  WRITE_SHORT 0x0026 7
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 8
-		  WRITE_SHORT 0x0026 8
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 91 1
-		SET_BG2_PROFICIENCY 97 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 100 1
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 103 1
-		SET_BG2_PROFICIENCY 113 1
-	  END
-	  PATCH_IF (%npc_class% = 18) BEGIN	//	cleric/ranger
-		WRITE_BYTE 0x0234 1 //sets level to 1
-		WRITE_BYTE 0x0235 1
-		WRITE_BYTE 0x0236 1
-		WRITE_BYTE 0x0045 15
-		WRITE_BYTE 0x0066 10
-		WRITE_BYTE 0x0068 15
-		PATCH_IF (npc_con < 15) BEGIN
-		  WRITE_SHORT 0x0024 9
-		  WRITE_SHORT 0x0026 9
-		END
-		PATCH_IF (npc_con = 15) BEGIN
-		  WRITE_SHORT 0x0024 10
-		  WRITE_SHORT 0x0026 10
-		END
-		PATCH_IF (npc_con = 16) BEGIN
-		  WRITE_SHORT 0x0024 11
-		  WRITE_SHORT 0x0026 11
-		END
-		PATCH_IF (npc_con = 17) BEGIN
-		  WRITE_SHORT 0x0024 12
-		  WRITE_SHORT 0x0026 12
-		END
-		PATCH_IF (npc_con > 17) BEGIN
-		  WRITE_SHORT 0x0024 13
-		  WRITE_SHORT 0x0026 13
-		END
-		SET_BG2_PROFICIENCY 115 1
-		SET_BG2_PROFICIENCY 90 1
-		SET_BG2_PROFICIENCY 92 1
-		SET_BG2_PROFICIENCY 98 1
-		SET_BG2_PROFICIENCY 102 1
-		SET_BG2_PROFICIENCY 105 1
-		SET_BG2_PROFICIENCY 114 2
-	  END
-	END
-  END
-BUT_ONLY
-//__________________________________________________________________________________
-*/
 
 //MnG KENSAI________________________________________________________________________
 // 
@@ -1704,173 +1059,38 @@ END
 //__________________________________________________________________________________
 
 
+//REVISED FIGHTING STYLES___________________________________________________________
+//
+INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
+//__________________________________________________________________________________
+
+
+//DIALOGUE-BASED PROFICIENCIES______________________________________________________
+//
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_dialprof.d5~ BEGIN
+  INCLUDE ~scales_of_balance/lib/weapprof_dialogue.tpa~
+//  LAM SET_UP_PROF_DIALOGUES
+END
+
 //WEAPONS SPEC______________________________________________________________________
 // 
-ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-
-  INCLUDE ~scales_of_balance/ini/stats.ini~
-
-  COPY ~scales_of_balance/profs/d5plswo.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5psswo.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pdagg.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pscim.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5p2swo.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pspea.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pstaf.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pclub.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pflai.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5phamm.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pbaxe.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pbows.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pslin.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pxbow.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5ps2hw.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pssws.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5pssns.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5psdw.spl~ ~override~
-
-  COPY ~scales_of_balance/profs/d5slswo.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5ssswo.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sdagg.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sscim.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5s2swo.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sspea.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sstaf.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sclub.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sflai.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5shamm.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sbaxe.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sbows.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sslin.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sxbow.spl~ ~override~
-
-  APPEND ~splprot.2da~ ~D5_INT_GTEQ%TAB%38%TAB%-1%TAB%4~
-//  APPEND ~splprot.2da~ ~D5_CLASS_EQ%TAB%0x10d%TAB%-1%TAB%1~
-
-  COPY_EXISTING ~splprot.2da~ ~override~
-	COUNT_2DA_COLS cols // amount of columns
-	COUNT_2DA_ROWS cols rows // amount of rows
-	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
-	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
-      READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
-      PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_GTEQ~ BEGIN
-    	SET int_gteq_row = %row%
-      END
-//      PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CLASS_EQ~ BEGIN
-//    	SET class_eq_row = %row%
-//      END
-	END
-  BUT_ONLY
-
-  COPY ~scales_of_balance/profs/d5_weppr.bam~ ~override~
-  COPY ~scales_of_balance/profs/d5_weppr.eff~ ~override~
-  COPY ~scales_of_balance/profs/d5_weppr.cre~ ~override~
-  COMPILE ~scales_of_balance/profs/d5_weppr.baf~
-  COMPILE ~scales_of_balance/profs/d5_weppr.d~
-  COPY ~scales_of_balance/profs/d5_wepfo.bam~ ~override~
-  COPY ~scales_of_balance/profs/d5_wepfo.eff~ ~override~
-  COPY ~scales_of_balance/profs/d5_wepfo.cre~ ~override~
-  COMPILE ~scales_of_balance/profs/d5_wepfo.baf~
-  COMPILE ~scales_of_balance/profs/d5_wepfo.d~
-  
-  ACTION_IF GAME_IS ~iwdee~ BEGIN
-	COPY_EXISTING ~d5_wepfo.dlg~ ~override~
-	  DECOMPILE_AND_PATCH BEGIN
-		REPLACE_TEXTUALLY ~PROFICIENCYCLUB~ ~EXTRAPROFICIENCY1~
-	  END
-	COPY_EXISTING ~d5_weppr.dlg~ ~override~
-	  DECOMPILE_AND_PATCH BEGIN
-		REPLACE_TEXTUALLY ~PROFICIENCYCLUB~ ~EXTRAPROFICIENCY1~
-	  END
-  END
-
-  COPY ~scales_of_balance/profs/d5weppw.spl~ ~override~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_prof_1% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp1~ END
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_prof_2% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp2~ END
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_prof_3% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp3~ END
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_spec_1% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5weps2~ END
-//    LPF ALTER_EFFECT INT_VAR match_opcode = 326 parameter1 = 2 parameter2 = %class_eq_row% STR_VAR match_resource = ~d5weps1~ END
-  COPY ~scales_of_balance/profs/d5weppr.spl~ ~override~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_prof_3% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5wepp3~ END
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = %int_spec_1% parameter2 = %int_gteq_row% STR_VAR match_resource = ~d5weps2~ END
-  
-  COPY ~scales_of_balance/profs/d5wepp1.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5weppa.spl~ ~override~
-	SAY NAME1 @12352
-	SAY UNIDENTIFIED_DESC @12352
-	WRITE_ASCII 0x3a ~d5_weppr~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_weppr~ END
-  COPY ~scales_of_balance/profs/d5wepp2.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5weppb.spl~ ~override~
-	SAY NAME1 @12352
-	SAY UNIDENTIFIED_DESC @12352
-	WRITE_ASCII 0x3a ~d5_weppr~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_weppr~ END
-  COPY ~scales_of_balance/profs/d5wepp3.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5weppc.spl~ ~override~
-	SAY NAME1 @12352
-	SAY UNIDENTIFIED_DESC @12352
-	WRITE_ASCII 0x3a ~d5_weppr~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_weppr~ END
-  COPY ~scales_of_balance/profs/d5wepp4.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5weppd.spl~ ~override~
-	SAY NAME1 @12352
-	SAY UNIDENTIFIED_DESC @12352
-	WRITE_ASCII 0x3a ~d5_weppr~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_weppr~ END
-  COPY ~scales_of_balance/profs/d5weps1.eff~ ~override~
-  COPY ~scales_of_balance/profs/d5wepsa.eff~ ~override~
-//  COPY ~scales_of_balance/profs/d5weps1.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5wepsa.spl~ ~override~
-	SAY NAME1 @12351
-	SAY UNIDENTIFIED_DESC @12351
-	WRITE_ASCII 0x3a ~d5_wepfo~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
-  COPY ~scales_of_balance/profs/d5weps2.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5wepsb.spl~ ~override~
-	SAY NAME1 @12351
-	SAY UNIDENTIFIED_DESC @12351
-	WRITE_ASCII 0x3a ~d5_wepfo~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepfo~ END
-
   ACTION_IF FILE_EXISTS_IN_GAME ~clabfi01.2da~ BEGIN
 	COPY_EXISTING ~clabfi01.2da~ ~override~
 		LPM remove_blank_lines
-//		APPEND_FILE ~scales_of_balance/profs/fighter_focus_2.txt~
-		APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
+		APPEND_FILE ~scales_of_balance/profs/warrior_focus.txt~
 		APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
 	BUT_ONLY
   END
   ACTION_IF FILE_EXISTS_IN_GAME ~clabrn01.2da~ BEGIN
 	COPY_EXISTING ~clabrn01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
 		APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
 	BUT_ONLY
   END
   ACTION_IF FILE_EXISTS_IN_GAME ~clabpa01.2da~ BEGIN
 	COPY_EXISTING ~clabpa01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
 		APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
-	BUT_ONLY
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~clabba01.2da~ BEGIN
-	COPY_EXISTING ~clabba01.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/bard_intprof.txt~
-	BUT_ONLY
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~clabth04.2da~ BEGIN
-	COPY_EXISTING ~clabth04.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/bard_intprof.txt~
-	BUT_ONLY
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~d5_hrld.2da~ BEGIN
-	COPY_EXISTING ~d5_hrld.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/bard_intprof.txt~
 	BUT_ONLY
   END
 
@@ -1886,208 +1106,24 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	ACTION_IF (%lu% = 2) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
 		COPY_EXISTING ~%hu%.2da~ ~override~
 			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
 			APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
 		BUT_ONLY
 	END
 	ACTION_IF (%lu% = 6) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
 		COPY_EXISTING ~%hu%.2da~ ~override~
 			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
 			APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
 		BUT_ONLY
 	END
 	ACTION_IF (%lu% = 12) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
 		COPY_EXISTING ~%hu%.2da~ ~override~
 			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/profs/warrior_intprof.txt~
 			APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
 		BUT_ONLY
 	END
-	ACTION_IF (%lu% = 5) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
-		COPY_EXISTING ~%hu%.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/profs/bard_intprof.txt~
-		BUT_ONLY
-	END
   END
 
-  ACTION_IF FILE_EXISTS_IN_GAME ~d5_marks.2da~ BEGIN
-    EXTEND_TOP ~d5_wepfo.bcs~ ~scales_of_balance/profs/d5wmarks.baf~
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~d5_earch.2da~ BEGIN
-    EXTEND_TOP ~d5_wepfo.bcs~ ~scales_of_balance/profs/d5wearch.baf~
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~d5_sling.2da~ BEGIN
-    EXTEND_TOP ~d5_wepfo.bcs~ ~scales_of_balance/profs/d5wsling.baf~
-  END
-
-  COPY ~scales_of_balance/profs/d5ss2hw.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sssws.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5sssns.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5ssdw.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5slswo.spl~ ~override/d5mlswo~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5slswo~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5ssswo.spl~ ~override/d5msswo~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5ssswo~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sdagg.spl~ ~override/d5mdagg~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sdagg~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sscim.spl~ ~override/d5mscim~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sscim~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5s2swo.spl~ ~override/d5m2swo~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5s2swo~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sspea.spl~ ~override/d5mspea~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sspea~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sstaf.spl~ ~override/d5mstaf~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sstaf~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sclub.spl~ ~override/d5mclub~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sclub~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sflai.spl~ ~override/d5mflai~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sflai~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5shamm.spl~ ~override/d5mhamm~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5shamm~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sbaxe.spl~ ~override/d5mbaxe~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sbaxe~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sbows.spl~ ~override/d5mbows~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sbows~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sslin.spl~ ~override/d5mslin~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sslin~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sxbow.spl~ ~override/d5mxbow~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sxbow~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-
-  COPY ~scales_of_balance/profs/d5slswo.spl~ ~override/d5hlswo~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5slswo~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mlswo~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5ssswo.spl~ ~override/d5hsswo~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5ssswo~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5msswo~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sdagg.spl~ ~override/d5hdagg~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sdagg~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mdagg~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sscim.spl~ ~override/d5hscim~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sscim~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mscim~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5s2swo.spl~ ~override/d5h2swo~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5s2swo~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5m2swo~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sspea.spl~ ~override/d5hspea~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sspea~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mspea~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sstaf.spl~ ~override/d5hstaf~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sstaf~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mstaf~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sclub.spl~ ~override/d5hclub~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sclub~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mclub~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sflai.spl~ ~override/d5hflai~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sflai~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mflai~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5shamm.spl~ ~override/d5hhamm~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5shamm~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mhamm~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sbaxe.spl~ ~override/d5hbaxe~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sbaxe~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mbaxe~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sbows.spl~ ~override/d5hbows~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sbows~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mbows~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sslin.spl~ ~override/d5hslin~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sslin~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mslin~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-  COPY ~scales_of_balance/profs/d5sxbow.spl~ ~override/d5hxbow~
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5sxbow~ END
-	LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 321 STR_VAR resource = ~d5mxbow~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
-
-  COPY ~scales_of_balance/profs/d5_wepx.bam~ ~override~
-  COPY ~scales_of_balance/profs/d5_wepx.eff~ ~override~
-  COPY ~scales_of_balance/profs/d5_wepx.cre~ ~override~
-  COMPILE ~scales_of_balance/profs/d5_wepx.baf~
-  COMPILE ~scales_of_balance/profs/d5_wepx.d~
-  COPY ~scales_of_balance/profs/d5wepx1.spl~ ~override~
-  COPY ~scales_of_balance/profs/d5wepx1.spl~ ~override/d5wepx2.spl~
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5wepxb~ END
-  COPY ~scales_of_balance/profs/d5wepx1.spl~ ~override/d5wepx3.spl~
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5wepxc~ END
-  COPY ~scales_of_balance/profs/d5wepx1.spl~ ~override/d5wepx4.spl~
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5wepxd~ END
-  COPY ~scales_of_balance/profs/d5wepx1.spl~ ~override/d5wepx5.spl~
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5wepxe~ END
-  COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override~
-	SAY NAME1 @12355
-	SAY UNIDENTIFIED_DESC @12355
-	WRITE_ASCII 0x3a ~d5_wepx~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
-  COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxb.spl~
-	SAY NAME1 @12355
-	SAY UNIDENTIFIED_DESC @12355
-	WRITE_ASCII 0x3a ~d5_wepx~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxb~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR resource = ~d5wepxb~ END
-  COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxc.spl~
-	SAY NAME1 @12355
-	SAY UNIDENTIFIED_DESC @12355
-	WRITE_ASCII 0x3a ~d5_wepx~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxc~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR resource = ~d5wepxc~ END
-  COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxd.spl~
-	SAY NAME1 @12355
-	SAY UNIDENTIFIED_DESC @12355
-	WRITE_ASCII 0x3a ~d5_wepx~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxd~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR resource = ~d5wepxd~ END
-  COPY ~scales_of_balance/profs/d5wepxa.spl~ ~override/d5wepxe.spl~
-	SAY NAME1 @12355
-	SAY UNIDENTIFIED_DESC @12355
-	WRITE_ASCII 0x3a ~d5_wepx~ #8
-	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_wepx~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5wepxe~ END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 206 STR_VAR resource = ~d5wepxe~ END
-
-  ACTION_IF FILE_EXISTS_IN_GAME ~d5_marks.2da~ BEGIN
-    EXTEND_TOP ~d5_wepx.bcs~ ~scales_of_balance/profs/d5wmarks.baf~
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~d5_earch.2da~ BEGIN
-    EXTEND_TOP ~d5_wepx.bcs~ ~scales_of_balance/profs/d5wearch.baf~
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~d5_sling.2da~ BEGIN
-    EXTEND_TOP ~d5_wepx.bcs~ ~scales_of_balance/profs/d5wsling.baf~
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~d5_snipe.2da~ BEGIN
-    EXTEND_TOP ~d5_wepx.bcs~ ~scales_of_balance/profs/d5wsnipe.baf~
-  END
-
- LAM JOINABLE_NPC_ARRAY
+ LAM JOINABLE_NPC_ARRAYS
 
  ACTION_PHP_EACH JOINABLE_NPC_ARRAY AS cre => dv BEGIN
   PRINT ~%cre% => %dv%~ 
@@ -2097,292 +1133,159 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	  READ_BYTE 0x235 level_2
 	  READ_BYTE 0x273 npc_class
 	  PATCH_IF (npc_class = 2) BEGIN 	//	fighter: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 5 parameter1 = 4 END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
+/*
 		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profs~ END
 		END
 		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profr~ END
 		END
+*/
 	  END
 	  PATCH_IF (npc_class = 6) BEGIN 	//	paladin: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
-//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
-		END
-		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 12) BEGIN 	//	ranger: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
-//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
-		END
-		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 4) BEGIN 	//	thief: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
 		END
 	  END
-	  PATCH_IF (npc_class = 5) BEGIN 	//	bard: +3
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppb~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+	  PATCH_IF (npc_class = 5) BEGIN 	//	bard: +2
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
-		END
-		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 3) BEGIN 	//	cleric: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 11) BEGIN 	//	druid: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 20) BEGIN 	//	monk: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 1) BEGIN 	// 	mage: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 	  END
 	  PATCH_IF (npc_class = 19) BEGIN 	//	sorcerer: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 	  END
 	  PATCH_IF (npc_class = 21) BEGIN 	//	shaman: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 	  END
 	  PATCH_IF (%npc_class% = 7) BEGIN 	//	fighter/mage: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
-//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
-		END
-		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 8) BEGIN 	//	fighter/cleric: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
-//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
-		END
-		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 9) BEGIN 	//	fighter/thief: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
-//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
-		END
-		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 10) BEGIN	//	fighter/mage/thief: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
-//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
-		END
-		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 13) BEGIN	//	mage/thief: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 14) BEGIN	//	cleric/mage: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 15) BEGIN	//	cleric/thief: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 16) BEGIN	//	fighter/druid: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
-//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
-		END
-		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 17) BEGIN	//	fighter/mage/cleric: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
-//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
-		END
-		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 18) BEGIN	//	cleric/ranger: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppc~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5weppd~ END
-//		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 2 parameter1 = 3 END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxa~ END
-		END
-		PATCH_IF (level_1 > 12) OR (level_2 > 12)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxb~ END
-		END
-		PATCH_IF (level_1 > 18) OR (level_2 > 18)  BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5wepxc~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	END
   BUT_ONLY
  END
-END
 //__________________________________________________________________________________
 
-
-/*
-//UPDATE STARTING XP________________________________________________________________
-// 
-ACTION_IF GAME_IS ~tob~ AND NOT GAME_IS ~bgt~ THEN BEGIN
-	ACTION_IF FILE_EXISTS ~bgmain.exe~ BEGIN
-		COPY ~bgmain.exe~ ~bgmain.exe~
-			SET i = 1
-			WHILE (i>0) BEGIN
-				SET i += 4
-				READ_LONG (0x6b0000 + "%i%" - 1) long_value //start at offset 0x6b0000
-				READ_LONG (0x6b0000 + "%i%" - 5) long_before_value
-				READ_LONG (0x6b0000 + "%i%" + 3) long_after_value
-				PATCH_IF ("%long_before_value%" = 0) AND ("%long_after_value%" = 161000) THEN BEGIN //look only for a long value bounded by a previous value of 0, and a next value of 161000
-					WRITE_LONG (0x6b0000 + "%i%" - 1) 1 //setting to zero causes thieving skills to isolate from proficiencies and screws up skill types
-				END
-				PATCH_IF ("%i%" = 0x10001) BEGIN //span a region of 0x10000 bytes
-					SET i = 0
-				END
-			END
-	END
-	EXTEND_BOTTOM ~ar0602.bcs~ ~scales_of_balance/misc/soaxp.baf~
-END
-
-ACTION_IF GAME_IS ~bg2ee~ THEN BEGIN
-	COPY_EXISTING ~startare.2da~ ~override~
-		SET_2DA_ENTRY 12 1 1 ~1000~
-		BUT_ONLY
-	EXTEND_BOTTOM ~ar0602.bcs~ ~scales_of_balance/profs/xpsoa.baf~
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~startbp.2da~ THEN BEGIN
-	COPY_EXISTING ~startbp.2da~ ~override~
-		SET_2DA_ENTRY 12 1 1 ~1000~
-		BUT_ONLY
-	EXTEND_BOTTOM ~ohbhub.bcs~ ~scales_of_balance/profs/xpbp2.baf~
-END
-
-ACTION_IF FILE_EXISTS_IN_GAME ~sodstrta.2da~ THEN BEGIN
-	COPY_EXISTING ~sodstrta.2da~ ~override~
-		SET_2DA_ENTRY 12 1 1 ~1000~
-		BUT_ONLY
-	EXTEND_BOTTOM ~bd0120.bcs~ ~scales_of_balance/profs/xpsod.baf~
-END
-//__________________________________________________________________________________
-*/
 
 CLEAR_ARRAYS

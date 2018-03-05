@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.8.5~
+VERSION ~v5.9~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -135,9 +135,7 @@ DESIGNATED 122
 REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee eet iwdee~) @1
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "121") @1
 
-INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
 INCLUDE ~scales_of_balance/components/122_WPO_proficiency.tpa~
-INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
 //__________________________________________________________________________________
 
 BEGIN @121 // combine profs
@@ -184,7 +182,7 @@ INCLUDE ~scales_of_balance/components/125_WPO_apr.tpa~
 BEGIN @160
 DESIGNATED 160
 
-INCLUDE ~scales_of_balance/spells/save_list_base.tpa~
+INCLUDE ~scales_of_balance/lib/save_list_base.tpa~
 
 INCLUDE ~scales_of_balance/components/160_STO.tpa~
 //__________________________________________________________________________________
@@ -264,31 +262,31 @@ INCLUDE ~scales_of_balance/components/210_XPO_tables.tpa~
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-BEGIN @2121
+BEGIN @216
 DESIGNATED 2121
-SUBCOMPONENT @212
+SUBCOMPONENT @215
 
 OUTER_SET xp_divisor = 10
 
-INCLUDE ~scales_of_balance/components/212_XPO_NMX.tpa~
+INCLUDE ~scales_of_balance/components/215_XPO_NMX.tpa~
 //__________________________________________________________________________________
 
-BEGIN @2122
+BEGIN @217
 DESIGNATED 2122
-SUBCOMPONENT @212
+SUBCOMPONENT @215
 
 OUTER_SET xp_divisor = 5
 
-INCLUDE ~scales_of_balance/components/212_XPO_NMX.tpa~
+INCLUDE ~scales_of_balance/components/215_XPO_NMX.tpa~
 //__________________________________________________________________________________
 
-BEGIN @2123
+BEGIN @218
 DESIGNATED 2123
-SUBCOMPONENT @212
+SUBCOMPONENT @215
 
 OUTER_SET xp_divisor = 2
 
-INCLUDE ~scales_of_balance/components/212_XPO_NMX.tpa~
+INCLUDE ~scales_of_balance/components/215_XPO_NMX.tpa~
 //__________________________________________________________________________________
 
 
