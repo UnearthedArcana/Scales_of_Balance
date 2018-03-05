@@ -456,13 +456,16 @@ Specialized (++): The wielder's base attack rate is increased by 1 attack per 2 
 @1248   = ~proficiencies~
 @1249   = ~DUAL-WIELDING: This fighting style involves using a second melee weapon (generally a very small one) alongside the wielder's main weapon. It is difficult to coordinate, especially with larger weapons; attacks tend to suffer from decreased accuracy; however, if the wielder is skilled the 2nd weapon can be useful in both an offensive and defensive manner.
 
-Whenever a dagger is equipped together with a medium or large weapon, the wielder will have a -2 thac0 penalty; if a medium and large or two large weapons are equipped together, this penalty will increase to -4.  Medium weapons generally include anything that does more than 1d4 but less than 1d8 base damage; large weapons are generally those that do 1d8 or higher base damage.
+Proficient (+): Equipping a small weapon in the off-hand will provide a -2 bonus to AC against melee attacks.
 
-Proficient (+): Equipping a dagger with a 2nd weapon will provide a -1 bonus to AC against melee attacks.  Equipping 2 daggers provides a -2 bonus.
+Specialized (++): A weapon equipped in the off-hand may be used to make one attack per round, at the same thac0 as the wielder's main weapon.
 
-Specialized (++): Equipping a 2nd weapon allows one attack per round with that weapon, at the same thac0 as the wielder's main weapon.  
+(FOR CLARIFICATION: off-hand weapons will suffer a major penalty to attack unless you are specialized in this style.)
 
-(FOR CLARIFICATION: off-hand weapons cannot be used to attack unless you are specialized in this style.)
+Coordinating the use of two weapons is difficult, especially with larger, heavier weapons.  When dual-wielding, all melee attacks wil suffer a 1-point thac0 penalty for each medium-sized weapon equipped, and a 2-point penalty for each large weapon.
+- Small weapons: dagger, short sword, ninja-to.
+- Medium weapons: wakizashi, club, war hammmer, mace, morning star.
+- Large weapons: long sword, scimitar, bastard sword, katana, flail, battle axe.
 ~
 @1250   = ~Two-Hand Style~
 @1251   = ~Shield-Fighting~
