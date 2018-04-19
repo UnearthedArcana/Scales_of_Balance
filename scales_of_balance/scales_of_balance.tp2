@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.9~
+VERSION ~v5.9.2~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -121,6 +121,12 @@ OUTER_SET d5_dw_medium = 1
 INCLUDE ~scales_of_balance/components/107_IWO_dw_weapons.tpa~
 //__________________________________________________________________________________
 */
+
+BEGIN @109 // potions usable by any class
+DESIGNATED 109
+
+INCLUDE ~scales_of_balance/components/109_IWO_potion_use.tpa~
+//__________________________________________________________________________________
 
 
 //__________________________________________________________________________________

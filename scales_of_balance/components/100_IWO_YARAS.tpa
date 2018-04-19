@@ -230,6 +230,17 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   END
 BUT_ONLY
 
+ACTION_IF FILE_EXISTS_IN_GAME ~x#garch.itm~ BEGIN
+  COPY_EXISTING ~x#garch.itm~ ~override~
+	WRITE_LONG 0x60 1
+  BUT_ONLY
+END
+ACTION_IF FILE_EXISTS_IN_GAME ~x#garch2.itm~ BEGIN
+  COPY_EXISTING ~x#garch2.itm~ ~override~
+	WRITE_LONG 0x60 2
+  BUT_ONLY
+END
+
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 	  READ_SHORT 0x1c type

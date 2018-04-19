@@ -609,7 +609,7 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_7% target = 1 timing = 1 STR_VAR resource = ~d5int7~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_8% target = 1 timing = 1 STR_VAR resource = ~d5int8~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_9% target = 1 timing = 1 STR_VAR resource = ~d5int9~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = 13 parameter2 = 129 target = 1 timing = 1 STR_VAR resource = ~d5int12~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 13 parameter2 = 129 target = 1 timing = 1 STR_VAR resource = ~d5int12~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_13% target = 1 timing = 1 STR_VAR resource = ~d5int13~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_14% target = 1 timing = 1 STR_VAR resource = ~d5int14~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_15% target = 1 timing = 1 STR_VAR resource = ~d5int15~ END
@@ -1312,7 +1312,7 @@ END
 LAM JOINABLE_NPC_ARRAYS
 
 ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
-  PRINT ~%cre% = non-joinable~ 
+//  PRINT ~%cre% = non-joinable~ 
   COPY_EXISTING ~%cre%~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 	  READ_BYTE 0x238 strength

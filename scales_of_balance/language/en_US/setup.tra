@@ -1,6 +1,6 @@
 @1   = ~skipping component~
 @2   = ~skipping non-EE component~
-@3   = ~skipping overhaul components~
+@3   = ~already included~
 @4   = ~skipping tweak components~
 @5   = ~skipping new kit components~
 @6   = ~...~
@@ -33,6 +33,7 @@
 @107   = ~IWO - Restrict Dual-Wielding~
 @1071  = ~Dual-Wield small weapons only~
 @1072  = ~Dual-Wield small/medium weapons~
+@109   = ~IWO - All Potions Usable by Any Class~
 @121   = ~WPO - Weapon Category Collapse~
 @122   = ~WPO - Systemic Proficiency Changes~
 @123   = ~WPO - TEMPORARILY UNAVAILABLE~

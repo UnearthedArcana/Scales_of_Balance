@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.8 </strong><br />
+  <p><strong> Version 5.9 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -144,6 +144,12 @@
       <li> Weapons "of Action" +2 that previously only gave +1 DEX now give an extra 1/2 APR as well.</li>
     </ul>
   </div>
+  <h4 class="subheader">Component 109: </h4>
+  <div class="section">
+    <p><strong><em>IWO: Universal Potions</em></strong></p>
+    <p>This component removes the usability restrictions from potions, since I don't understand how one's choice of profession can affect the ability to drink certain liquids.</p>
+    <p>So now you can waste a potion of Giant Strength on your mage; and you can boost your barbarian's pickpocket skills with a Potion of Thievery. Go crazy.</p>
+  </div>
   <h4 class="subheader">Component 122 (for EE 1.4+ or ToBEx): </h4>
   <div class="section">
     <p><strong><em>Weapon Proficiency Overhaul (WPO): Overall Overhaul</em></strong></p>
@@ -197,26 +203,32 @@
         <p>Single-Weapon Style: now called <b>"Fencing"</b><br />
         &ndash; (+) = +1 thac0, -2 to weapon speed, +2 to saves vs. Breath Weapon<br />
         &ndash; (++) = APR increased by .5<br /></p>
-        <p><br /></p>
         <p>Sword & Shield Style: now called <b>"Shield-Fighting"</b><br />
         &ndash; (+) = -1 melee AC bonus, -2 missile AC bonus<br />
         &ndash; (++) = may perform a shield bash once per round (1d3 damage per 5 levels and knockdown on failed save vs. Breath)<br /></p>
-        <p><br /></p>
         <p>Two-Handed Weapon Style: now called <b>"Two-Hand Style"</b><br />
-        &ndash; (+) = +1 thac0, +1 damage, +5% crit chance<br />
+        &ndash; (+) = +1 thac0, +2 damage, +5% crit chance<br />
         &ndash; (++) = additional +1 thac0, +2 damage, and +5% crit chance<br /></p>
-        <p><br /></p>
         <p>Two-Weapon Style: now called <b>"Dual-Wielding"</b><br />
-        &ndash; ( ) = -2 thac0 penalty with a dagger and any other weapon or with 2 medium weapons; -4 thac0 penalty for medium+large weapons; no off-hand attack<br />
-        &ndash; (+) = -1 AC bonus per dagger when dual-wielding; still no off-hand attack<br />
-        &ndash; (++) = may make an off-hand attack with thac0 equal to main-hand<br />.</p>
-      </div>
-      <p><b>Medium Weapons:</b> short sword, ninja-to, wakizashi, club, war hammmer, mace.</p>
-      <p><b>Large Weapons:</b> long sword, scimitar, bastard sword, katana, flail, morning star, battle axe.</p>
+        &ndash; ( ) = No off-hand attacks, no bonuses for dual-wielding<br />
+        &ndash; (+) = 0 to 2 point melee AC bonus; off-hand attack with 5-point thac0 penalty<br />
+        &ndash; (++) = off-hand attack has no thac0 penalty<br />.</p>
+      </div> 
+      <p>When dual-wielding, your main-hand thac0 will depend on the size and weight of the weapons you have equipped, as described below.</p>
+      <div class="kit_description">
+      	<p><b>&ndash; wielding two daggers:</b> 1-point thac0 penalty, 2-point melee AC bonus.<br />
+      	<b>&ndash; dagger + anything:</b> 2-point thac0 penalty, 2-point AC bonus.<br />
+      	<b>&ndash; medium + medium:</b> 2-point thac0 penalty, 1-point AC bonus.<br />
+      	<b>&ndash; large + medium:</b> 3-point thac0 penalty, no AC bonus.<br />
+      	<b>&ndash; large + large:</b> 4-point thac0 penalty, no AC bonus.<br />.</p>
+      </div> 
+      <p><b>Medium weapons are:</b> short sword, ninjato, wakizashi, club, war hammmer, mace, morning star.<br />
+      <b>Large weapons are:</b> long sword, scimitar, bastard sword, katana, flail, battle axe.</p>
       <p><b>Note:</b> bastard swords and katanas are unusually large; they cannot be equipped in the off-hand position.</p>
-      <p><b>Also note:</b> your thac0 may briefly be incorrect when you equip two weapons and begin dual-wielding them.  It should take approximately 1 second normalize to the correct value.</p>
-      <p><b>Also note:</b> the shield bash also stuns opponents for 1 second starting at level 5; and the saving throw is at a -1 penalty for each 5 levels, up to level 20.</p>
-      <p><b>Also note:</b> thrown daggers and darts will have their base APR reduced from 2 to 1.5, and from 3 to 2.5, respectively.  So you will need to be specialized in Fencing/SWS to get the full benefit of those items.</p>
+      <p><b>Also note:</b> your thac0 and/or AC may briefly be incorrect when you equip two weapons and begin dual-wielding them. If your thac0 seems wrong, the first thing you should try it simply waiting a couple seconds with the game clock running. They should quickly resolve to the proper numbers.</p>
+      <p><b>Shield bash:</b> in addition to the knockdown effect, it stuns opponents for 1 second starting at level 5; and the saving throw is at a -1 penalty for each 5 levels, up to level 20.</p>
+      <p><b>Thrown daggers and darts:</b> will have their base APR reduced from 2 to 1.5, and from 3 to 2.5, respectively.  So you will need to be specialized in Fencing/SWS to get the full benefit of those items.</p>
+      <p><b>OPTION:</b> by editing Scales_of_Balance/ini/styles.ini, you can set Two-Handed Weapon Style to match Single Weapon Style (it is a single weapon, after all) in granting extra APR for specialization, instead of extra damage and crit chance.</p>
       <p><b>Compatibility:</b> this component covers the same ground as the "Dual-Wielding Changes for Light and Heavy Weapons" component of Item Revisions. You can probably use both together, but the effects will be compounded and will likely be somewhat extreme. Best to choose one or the other.</p>
   </div>
   <h4 class="subheader">Component 125 (for EE 1.4+): </h4>
@@ -242,7 +254,17 @@
   <h4 class="subheader">Component 200 (for EE 1.4+): </h4>
   <div class="section">
     <p><strong><em>Stat Bonus Overhaul (SBO)</em></strong></p>
-    <p>Stat bonuses are modified so that every point added above 13 (or so) results in a tangible benefit; and scores below ~11 have some tangible penalties (down to 5, which is the new minimum).<br />
+    <p>To make more meaningful differences between races, demihumans will have more stat bonuses and penalties.  The racial maximums are now:</p>
+      <ul>
+        <li> Elves: 19 Dex, 19 Int, 17 Str, 16 Con</li>
+        <li> Half-elf: 19 Cha, 17 Wis</li>
+        <li> Dwarf: 19 Con, 17 Dex, 17 Cha</li>
+        <li> Halfling: 19 Dex, 19 Cha, 17 Int, 16 Str</li>
+        <li> Gnome: 19 Int, 19 Con, 17 Str, 16 Wis</li>
+        <li> Half-orc: 19 Str, 17 Int, 16 Cha</li>
+      </ul>
+    <p>This component shifts saving throw bonuses to the INT, WIS, and CHA stats. Therefore, and since Constitution is already one of the most important stats in the game, the "shorty save bonuses" for high CON are eradicated.  In their place, dwarves and halflings get a flat +3 bonus to saves vs. Death/Poison, and gnomes get a flat +2 bonus to saves vs. Spells.</p>
+    <p>Finally, the major effect of this component: stat bonuses are modified so that every point added above 13 or so results in a tangible benefit; and scores below ~11 have some tangible penalties (down to 5, which is the new minimum).  <b>NOTE:</b> the changes for each stat can be selectively skipped by editing a variable in /Scales_of_Balance/ini/stats.ini.<br />
     <div class="kit_description">
 <table style= "width: 40%">
  <tr>
@@ -406,7 +428,7 @@
 <table style= "width: 60%">
  <tr>
   <th>INTELLIGENCE</th>
-  <th>Caster Level </th>
+  <th>Bonus Spell Slot </th>
   <th>Save vs. Spells </th>
   <th>Extra Proficiencies* </th>
  </tr>
@@ -450,82 +472,82 @@
   <td><b>13:</b></td>
   <td>1st level</td>
   <td>.</td>
-  <td>+3</td>
+  <td>+1, +1 per 9 levels</td>
  </tr>
  <tr>
   <td><b>14:</b></td>
   <td>2nd level</td>
   <td>.</td>
-  <td>+3, +1 spec</td>
+  <td>+1, +1 per 9 levels</td>
  </tr>
  <tr>
   <td><b>15:</b></td>
   <td>3rd level</td>
   <td>.</td>
-  <td>+3, +1 spec</td>
+  <td>+2, +1 per 7 levels</td>
  </tr>
  <tr>
   <td><b>16:</b></td>
   <td>4th level</td>
-  <td>.</td>
-  <td>+3, +1 spec</td>
+  <td>+1</td>
+  <td>+2, +1 per 7 levels</td>
  </tr>
  <tr>
   <td><b>17:</b></td>
   <td>5th level</td>
   <td>+1</td>
-  <td>+3, +1 spec</td>
+  <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>18:</b></td>
   <td>6th level</td>
-  <td>+1</td>
-  <td>+3, +1 spec</td>
+  <td>+2</td>
+  <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
   <td>7th level</td>
   <td>+2</td>
-  <td>+3, +1 spec</td>
+  <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>20:</b></td>
   <td>8th level</td>
-  <td>+2</td>
-  <td>+3, +1 spec</td>
+  <td>+3</td>
+  <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>21:</b></td>
   <td>9th level</td>
   <td>+3</td>
-  <td>+3, +1 spec</td>
+  <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>22:</b></td>
-  <td>2nd level</td>
-  <td>+3</td>
-  <td>+3, +1 spec</td>
+  <td>.</td>
+  <td>+4</td>
+  <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>23:</b></td>
-  <td>3rd level</td>
+  <td>.</td>
   <td>+4</td>
-  <td>+3, +1 spec</td>
+  <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>24:</b></td>
-  <td>4th level</td>
-  <td>+4</td>
-  <td>+3, +1 spec</td>
+  <td>.</td>
+  <td>+5</td>
+  <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>25:</b></td>
-  <td>5th level</td>
+  <td>.</td>
   <td>+5</td>
-  <td>+3, +1 spec</td>
+  <td>+3, +1 per 5 levels</td>
  </tr>
 </table>
-* <i>(If you have installed component #122 "WPO")</i><br />
+* <i>(Warriors only. Bards get the INT 13 bonus proficiencies if their INT is 15+, and get the INT 17 bonus proficiencies if their INT is 17+.  <b>NOTE:</b> these extra proficiencies can be turned off by editing a variable in /Scales_of_Balance/ini/stats.ini.)</i><br />
 <table style= "width: 50%">
  <tr>
   <th>WISDOM </th>
@@ -597,7 +619,7 @@
   <td><b>16:</b></td>
   <td>3rd level</td>
   <td>+8%</td>
-  <td>.</td>
+  <td>+1</td>
  </tr>
  <tr>
   <td><b>17:</b></td>
@@ -609,7 +631,7 @@
   <td><b>18:</b></td>
   <td>4th level</td>
   <td>+12%</td>
-  <td>+1</td>
+  <td>+2</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
@@ -621,7 +643,7 @@
   <td><b>20:</b></td>
   <td>5th level</td>
   <td>+15%</td>
-  <td>+2</td>
+  <td>+3</td>
  </tr>
  <tr>
   <td><b>21:</b></td>
@@ -633,7 +655,7 @@
   <td><b>22:</b></td>
   <td>6th level</td>
   <td>+17%</td>
-  <td>+3</td>
+  <td>+4</td>
  </tr>
  <tr>
   <td><b>23:</b></td>
@@ -645,13 +667,13 @@
   <td><b>24:</b></td>
   <td>7th level</td>
   <td>+19%</td>
-  <td>+4</td>
+  <td>+5</td>
  </tr>
  <tr>
   <td><b>25:</b></td>
   <td>6th level</td>
   <td>+20%</td>
-  <td>+4</td>
+  <td>+5</td>
  </tr>
 </table>
 
@@ -829,16 +851,7 @@
  </tr>
 </table>
     </div>
-      <p>(Note: the 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same. Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</p>
-      <p>Finally, to make more meaningful differences between races, demihumans will have more stat bonuses and penalties.  The racial maximums are now:</p>
-      <ul>
-        <li> Elves: 19 Dex, 19 Int, 17 Str, 16 Con</li>
-        <li> Half-elf: 19 Cha, 17 Wis</li>
-        <li> Dwarf: 19 Con, 17 Dex, 17 Cha</li>
-        <li> Halfling: 19 Dex, 19 Cha, 17 Int, 16 Str</li>
-        <li> Gnome: 19 Int, 19 Con, 17 Str, 16 Wis</li>
-        <li> Half-orc: 19 Str, 17 Int, 16 Cha</li>
-      </ul>
+      <p>Note: the 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same. Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</p>
   </div>
   <h4 class="subheader">Component 202: </h4>
   <div class="section">
@@ -919,6 +932,17 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.9.2 - April 2018</strong></p>
+  <ul>
+    <li>new universal potions component</li>
+    <li>even more refined dual-wielding</li>
+  </ul>
+  <p><strong>Version 5.9 - February 2018</strong></p>
+  <ul>
+    <li>dynamic spell slot bonuses</li>
+    <li>refined dual-wielding</li>
+    <li>improved weapon proficiency dialogue</li>
+  </ul>
   <p><strong>Version 5.8 - December 2017</strong></p>
   <ul>
     <li>major revision of the fighting styles code: better shield bash and refined dual-wielding</li>
