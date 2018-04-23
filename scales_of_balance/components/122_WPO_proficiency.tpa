@@ -13,6 +13,9 @@ COPY ~scales_of_balance/lib/markers/d5_profs.d5~ ~override~
 //__________________________________________________________________________________
 
 
+LAM JOINABLE_NPC_ARRAYS
+
+
 //PROFICIENCY CATRGORIES____________________________________________________________
 //
 INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
@@ -1123,10 +1126,8 @@ END
 	END
   END
 
- LAM JOINABLE_NPC_ARRAYS
-
  ACTION_PHP_EACH JOINABLE_NPC_ARRAY AS cre => dv BEGIN
-  PRINT ~%cre% => %dv%~ 
+//  PRINT ~%cre% => %dv%~ 
   COPY_EXISTING ~%cre%~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
 	  READ_BYTE 0x234 level_1

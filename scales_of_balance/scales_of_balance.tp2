@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.9.2~
+VERSION ~v5.10~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -66,7 +66,7 @@ LANGUAGE
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//						ITEM/WEAPON OVERHAUL
+//							ITEM/WEAPON OVERHAUL
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
@@ -132,7 +132,7 @@ INCLUDE ~scales_of_balance/components/109_IWO_potion_use.tpa~
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//						PROFICIENCY OVERHAUL
+//							PROFICIENCY OVERHAUL
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
@@ -181,11 +181,11 @@ INCLUDE ~scales_of_balance/components/125_WPO_apr.tpa~
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//						SAVING THROW OVERHAUL
+//							SAVING THROW OVERHAUL
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-BEGIN @160
+BEGIN @160 // basic saving throw rebalance
 DESIGNATED 160
 
 INCLUDE ~scales_of_balance/lib/save_list_base.tpa~
@@ -193,51 +193,61 @@ INCLUDE ~scales_of_balance/lib/save_list_base.tpa~
 INCLUDE ~scales_of_balance/components/160_STO.tpa~
 //__________________________________________________________________________________
 
+BEGIN @171 // thief spell evasion for IWD spells
+DESIGNATED 171
+SUBCOMPONENT @170 (NOT GAME_IS ~iwdee~)
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~d5_rfeat.d5~ @3
+
+OUTER_SET optional_evade = 0
+
+INCLUDE ~scales_of_balance/components/170_STO_evasion.tpa~
+//__________________________________________________________________________________
+
+BEGIN @172 // thief spell evasion for expanded list of spells
+DESIGNATED 172
+SUBCOMPONENT @170
+
+OUTER_SET optional_evade = 1
+
+INCLUDE ~scales_of_balance/components/170_STO_evasion.tpa~
+//__________________________________________________________________________________
+
 
 
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//						STAT BONUS CHANGES
+//							STAT BONUS CHANGES
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-BEGIN @200
+BEGIN @200 // basic stat bonus overhaul
 DESIGNATED 200
 
 INCLUDE ~scales_of_balance/components/200_SBO_revised_stats.tpa~
 //__________________________________________________________________________________
 
-BEGIN @202
+BEGIN @202 // strength penalty for 1-handed weapons
 DESIGNATED 202
 
 INCLUDE ~scales_of_balance/components/202_SBO_2h_strength.tpa~
 //__________________________________________________________________________________
 
-BEGIN @204
+BEGIN @204 // add concentration checks
 DESIGNATED 204
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
 
 INCLUDE ~scales_of_balance/components/204_concentration.tpa~
 //__________________________________________________________________________________
 
-
-
-//__________________________________________________________________________________
-//__________________________________________________________________________________
-//
-//						HIT DICE CHANGES
-//__________________________________________________________________________________
-//__________________________________________________________________________________
-
-BEGIN @206
+BEGIN @206 // constitution/hit dice rebalance - normal
 DESIGNATED 206
 SUBCOMPONENT @205
 
 INCLUDE ~scales_of_balance/components/206_HDO.tpa~
 //__________________________________________________________________________________
 
-BEGIN @207
+BEGIN @207 // constitution/hit dice rebalance - hardcore
 DESIGNATED 207
 SUBCOMPONENT @205
 
@@ -249,26 +259,17 @@ INCLUDE ~scales_of_balance/components/207_HDO_hc.tpa~
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//						XP TABLE CHANGES
+//							XP OVERHAUL
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-BEGIN @210
+BEGIN @210 // XP table rebalance
 DESIGNATED 210
 
 INCLUDE ~scales_of_balance/components/210_XPO_tables.tpa~
 //__________________________________________________________________________________
 
-
-
-//__________________________________________________________________________________
-//__________________________________________________________________________________
-//
-//						XP REWARD CHANGES
-//__________________________________________________________________________________
-//__________________________________________________________________________________
-
-BEGIN @216
+BEGIN @216 // changes to creature XP rewards - 1/10
 DESIGNATED 2121
 SUBCOMPONENT @215
 
@@ -277,7 +278,7 @@ OUTER_SET xp_divisor = 10
 INCLUDE ~scales_of_balance/components/215_XPO_NMX.tpa~
 //__________________________________________________________________________________
 
-BEGIN @217
+BEGIN @217 // changes to creature XP rewards - 1/5
 DESIGNATED 2122
 SUBCOMPONENT @215
 
@@ -286,7 +287,7 @@ OUTER_SET xp_divisor = 5
 INCLUDE ~scales_of_balance/components/215_XPO_NMX.tpa~
 //__________________________________________________________________________________
 
-BEGIN @218
+BEGIN @218 // changes to creature XP rewards - 1/2
 DESIGNATED 2123
 SUBCOMPONENT @215
 

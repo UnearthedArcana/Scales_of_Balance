@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.9 </strong><br />
+  <p><strong> Version 5.10 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -250,6 +250,13 @@
       <li>Saving throws vs. Rod/Staff/Wands are basically unused. (If you install psionics from Might & Guile, psionic powers will use saves vs. Wands.)</li>
     </ul></p> 
     <p>Additionally, saving throw tables are made more sensible.  No earth-shaking changes, just sensible progression: wizards save well against spells, priests save well against death, rogues save well against breath, and warriors save well against almost everything.</p>
+  </div>
+  <h4 class="subheader">Component 170 (for EE 1.4+): </h4>
+  <div class="section">
+    <p><strong><em>STO: IWD-Style Spell Evasion</em></strong></p>
+      <p>This component adds the IWD Evasion skill (which I'll generally refer to as "Spell Evasion" to distinguish it from the BG2 HLA). This allows thieves of 7th level or higher to roll a saving throw vs. Breath Weapon for a chance to completely dodge the effects of certain spells like Fireball, Skull Trap, Holy Smite, etc.</p>
+      <p>You can choose to install it with the bare list of spells that can be evaded in IWDEE, or with an expanded list that includes things like BG2 HLAs and some other spells that I think make sense, like Magic Missile, Acid Arrow, Web, and others. Basically anything that seems like it could be dodged by a skilled rogue in the game world. This should gives thieves a distinctive and unique defensive advantage, something they sorely lack in the vanilla game.</p>
+      <p><b>Note:</b> this component can only be installed on EE games with the 2.0 or later patch. </p>
   </div>
   <h4 class="subheader">Component 200 (for EE 1.4+): </h4>
   <div class="section">
@@ -859,12 +866,11 @@
       <p>This small component simply adds a -1 STR penalty to every 1-handed weapon.  The idea behind it is, your "STR" score measures your total bodily strength. If you attempt a feat of strength one-handed, naturally the result will not be as effective as if you used both arms. </p>
       <p>Note: this penalty stacks, so you will have a -2 penalty when dual-wielding. That weapon style is all about speed - not power! </p>
   </div>
-  <h4 class="subheader">Component 204: </h4>
+  <h4 class="subheader">Component 204 (for EE 2.0+): </h4>
   <div class="section">
     <p><strong><em>SBO: Concentration Checks</em></strong></p>
       <p>This component enables the 'concentration' stat and allows spellcasters to roll to avoid interruption when they take damage during casting. The forumla is:</p>
       <p><i>(1d20 + Luck) vs. (spell level + damage taken)</i></p>
-      <p><b>Note:</b> this component can only be installed on EE games with the 2.0 or later patch. </p>
   </div>
   <h4 class="subheader">Component 205: </h4>
   <div class="section">
@@ -932,6 +938,10 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.10 - April 2018</strong></p>
+  <ul>
+    <li>new component: IWD evasion for thieves</li>
+  </ul>
   <p><strong>Version 5.9.2 - April 2018</strong></p>
   <ul>
     <li>new universal potions component</li>

@@ -329,21 +329,6 @@ COPY ~scales_of_balance/profs/stylbonu2.2da~ ~override/stylbonu.2da~
 //__________________________________________________________________________________
 
 
-/*
-//CHANGE LIGHT WEAPON BONUSES TO MAIN_HAND__________________________________________
-//
-COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
-	PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
-		READ_BYTE ~0x31~ ~prof~
-		PATCH_IF (~%prof%~ = ~96~) OR 		// dagger
-				(~%prof%~ = ~91~) OR 		// short sword
-				(~%prof%~ = ~115~) BEGIN 	// club
-			LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 305 match_parameter1 = 1 opcode = 306 END
-		END
-	END
-BUT_ONLY
-//__________________________________________________________________________________
-*/
 
 //PREP SPLPROT.2DA__________________________________________________________________
 //
@@ -459,16 +444,6 @@ END
 
 //SWS & DW__________________________________________________________________________
 //
-/*
-
-- stylbonu = -2 melee AC bonus
-- med. weaps = ongoing +1 penalty SPL if [1+ pips(??)] and 134_style = 64
-- lg. weaps = ongoing +2 penalty SPL if [1+ pips(??)] and 134_style = 64
- -- 321 cancel penalty
- -- 
-- dagger = 206 vs. those ^ SPLs
-
-*/
 
 //APPEND ~splprot.2da~ ~D5_134_BIT6%TAB%134%TAB%50%TAB%8~		//	50 = 32 = bit6 of extraproficiency20
 //APPEND ~splprot.2da~ ~D5_134_BIT7%TAB%134%TAB%100%TAB%8~  	//	100 = 64 = bit7 of extraproficiency20
@@ -508,8 +483,6 @@ COPY ~scales_of_balance/profs/d5_swsm.spl~ ~override~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = (64 << 24) parameter2 = %134_nstyle% END
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 326 parameter1 = (64 << 24) parameter2 = %134_style% STR_VAR resource = ~d5_twf4~ END
 	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 326 parameter1 = (64 << 24) parameter2 = %134_style% STR_VAR resource = ~d5_twf1~ END
-//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 326 parameter1 = (64 << 24) parameter2 = %134_style% STR_VAR resource = ~d5_twf2~ END
-//	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 326 parameter1 = (64 << 24) parameter2 = %134_style% STR_VAR resource = ~d5_twf3~ END
 COPY ~scales_of_balance/profs/d5_swsl.eff~ ~override~										// 232 casting swsl
 COPY ~scales_of_balance/profs/d5_swsl.spl~ ~override~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = (64 << 24) parameter2 = %134_nstyle% END
@@ -531,8 +504,6 @@ COPY ~scales_of_balance/profs/d5_twf3.spl~ ~override~										// thac0 penalty 
 COPY ~scales_of_balance/profs/d5_twf4.spl~ ~override~										// melee AC penalty -1: med. weaps
 COPY ~scales_of_balance/profs/d5_twf5.spl~ ~override~										// melee AC penalty -2: lg. weaps
 
-//COPY ~scales_of_balance/profs/d5_swsx.spl~ ~override~
-//COPY ~scales_of_balance/profs/d5_swsz.spl~ ~override~
 COPY ~scales_of_balance/profs/d5_swsn.spl~ ~override~
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
@@ -669,15 +640,8 @@ ACTION_PHP_EACH d5_weapon_sizes AS weap => size BEGIN
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5_swsd~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5_sws2~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5_swsd~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5_twf1~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5_twf2~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5_twf3~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf1~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf2~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_sws3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_sws4~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (16 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_twf1~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf4~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf5~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf3~ END
@@ -686,7 +650,6 @@ ACTION_PHP_EACH d5_weapon_sizes AS weap => size BEGIN
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twf3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twf4~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twf5~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = (8 << 24) parameter2 = (134 + (0x10000 * 1)) timing = 2 END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = (32 << 24) parameter2 = (134 + (0x10000 * 1)) timing = 2 END
 	END
 	ACTION_IF (~%size%~ STRING_EQUAL_CASE ~medium~) BEGIN
@@ -697,9 +660,6 @@ ACTION_PHP_EACH d5_weapon_sizes AS weap => size BEGIN
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 326 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 1 STR_VAR resource = ~d5_twf4~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_sws3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_sws4~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (8 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf1~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf1~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twf4~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twf5~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf3~ END
@@ -716,16 +676,10 @@ ACTION_PHP_EACH d5_weapon_sizes AS weap => size BEGIN
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 4 duration = 1 STR_VAR resource = ~d5_swsl~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_sws3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (64 << 24) parameter2 = %134_style% timing = 2 STR_VAR resource = ~d5_sws4~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (8 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf1~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = (8 << 24) parameter2 = %134_nstyle% timing = 2 STR_VAR resource = ~d5_twf2~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 318 target = 1 parameter1 = 0 parameter2 = %twf_nprof% timing = 2 STR_VAR resource = ~d5_twf5~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 206 parameter1 = (0 - 1) timing = 2 resist_dispel = 0 STR_VAR resource = ~d5_twf4~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_sws3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_sws4~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twf1~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twf2~ END
-//		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twf3~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twf4~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_twf5~ END
 		LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = (32 << 24) parameter2 = (134 + (0x10000 * 1)) timing = 2 END
@@ -797,15 +751,11 @@ END
 //SHIELD BASH_______________________________________________________________________
 //
 /*
- now:
 
 - shields set a 177/232 while equipped, firing at nearest enemy when attacked, casts sns1
 - sns1 uses 326, checks SnS >= 2 on original caster, if so cast sns2
 - sns2 = damage etc.
 
-next:
-
-for purposes of range, set sns to 255, but layer in another 232 with "enemy within special range" ??
 */
 
 APPEND ~splprot.2da~ ~D5_SPEC_SNS%TAB%112%TAB%2%TAB%4~

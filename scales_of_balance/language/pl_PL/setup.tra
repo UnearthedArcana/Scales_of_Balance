@@ -1,6 +1,8 @@
 @1 = ~pomijanie komponentu~
 @2 = ~pomijanie komponentu nie-EE ~
-@3 = ~pomijanie komponentow rewizji~
+//
+@3   = ~already included~
+//
 @4 = ~pomijanie komponentow ulepszen~
 @5 = ~pomijanie komponentow nowych podklas~
 @6 = ~...~
@@ -30,6 +32,12 @@
 @102 = ~IWO - Funkcjonalne ulepszenia broni~
 @103 = ~IWO - Wyodrebnienie broni ciezkiej/lekkiej~
 @104 = ~IWO - Ulepszenia przedmiotow IWD:EE~
+//
+@107    = ~IWO - Restrict Dual-Wielding~
+@1071   = ~Dual-Wield small weapons only~
+@1072   = ~Dual-Wield small/medium weapons~
+@109    = ~IWO - All Potions Usable by Any Class~
+//
 @121 = ~WPO - Zwiniecie kategorii broni~
 @122 = ~WPO - Zmiana systemu bieglosci~
 @123 = ~WPO - TYMCZASOWO NIEDOSTĘPNE~
@@ -37,18 +45,25 @@
 @125 = ~WPO - Atak na runde w podklasach~
 @150 = ~WCO (rewizja klasy maga)~
 @160 = ~STO - Rewizja rzutow obronnych~
+//
+@170   = ~STO - IWD Spell Evasion~
+@171   = ~For IWD spells~
+@172   = ~For Expanded Spell List~
+//
 @180 = ~MRO - Rewizja odpornosci na magie (zainstaluj po modyfikacji aTweaks!)~
 @200 = ~SBO - Rewizja premii do statystyk~
 @202 = ~SBO - Pelna Sila tylko dla broni oburecznych~
-@205 = ~HDO - Rewizja Kostek Wytrzymalosci~
+//
+@204   = ~SBO - Enable Concentration Checks~
+//
+@205 = ~SBO - Rewizja Kostek Wytrzymalosci~
 @206 = ~Hojne (ponadprzecietne) punkty zycia~
 @207 = ~Hardcorowe (blizsze usrednionym) punkty zycia~
 @210 = ~XPO - Ujednolicone tabele PD~
-@212 = ~XPO - Mniejsza ilosc PD za walke~
-@2121 = ~zabicie daje 1/10 PD~
-@2122 = ~zabicie daje 1/5 PD~
-@2123 = ~zabicie daje połowę PD~
-@215 = ~Poprawione tabele rzucania czarow~
+@215 = ~XPO - Mniejsza ilosc PD za walke~
+@216 = ~zabicie daje 1/10 PD~
+@217 = ~zabicie daje 1/5 PD~
+@218 = ~zabicie daje połowę PD~
 @10001 = ~^Klasa Pancerza:.+$~
 @10002 = ~Klasa Pancerza: ~
 @10003 = ~Odporność na obrażenia: ~
