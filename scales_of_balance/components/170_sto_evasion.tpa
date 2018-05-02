@@ -30,6 +30,12 @@ COPY_EXISTING ~kitlist.2da~ ~override~
     END
   END
 BUT_ONLY
+
+ACTION_IF FILE_EXISTS_IN_GAME ~d5psirog.2da~ BEGIN
+  COPY_EXISTING ~d5psirog.2da~ ~override~
+    REPLACE_TEXTUALLY ~AP_D5EVADE  ~ ~****        ~
+  BUT_ONLY
+END
 //___________________________________________________________________________________
 
 
