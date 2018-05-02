@@ -70,13 +70,12 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_evasion.d5~ BEGIN
 		LPF DELETE_EFFECT INT_VAR match_opcode = 324 match_parameter2 = 63 END
 		LPF DELETE_EFFECT INT_VAR match_opcode = 72 match_parameter1 = 4 match_duration = 0 END
 		LPF ADD_SPELL_EFFECT INT_VAR opcode = 324 insert_point = 0 target = 2 parameter2 = 63 timing = 0 duration = 1 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 72 insert_point = 0 target = 2 parameter2 = 3 parameter1 = 4 timing = 0 duration = 0 END
 	  BUT_ONLY
 	END
   END
  END
  ACTION_IF (optional_evade = 1) BEGIN
-  ACTION_DEFINE_ASSOCIATIVE_ARRAY optional_evades BEGIN		
+  ACTION_DEFINE_ASSOCIATIVE_ARRAY optional_evades BEGIN
 	abzaway 		=> 1
 	balshld2 		=> 1
 	bdbarbde 		=> 1
@@ -129,7 +128,8 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_evasion.d5~ BEGIN
 	spwi033 		=> 1
 	spwi034 		=> 1
 	spwi101 		=> 1
-	spwi211 		=> 1
+//	spwi112 		=> 1
+//	spwi211 		=> 1
 	spwi215 		=> 1
 	spwi299 		=> 1
 	spwi308 		=> 1
@@ -155,7 +155,6 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_evasion.d5~ BEGIN
 		LPF DELETE_EFFECT INT_VAR match_opcode = 324 match_parameter2 = 63 END
 		LPF DELETE_EFFECT INT_VAR match_opcode = 72 match_parameter1 = 4 match_duration = 0 END
 		LPF ADD_SPELL_EFFECT INT_VAR opcode = 324 insert_point = 0 target = 2 parameter2 = 63 timing = 0 duration = 1 STR_VAR resource = EVAL ~%SOURCE_RES%~ END
-		LPF ADD_SPELL_EFFECT INT_VAR opcode = 72 insert_point = 0 target = 2 parameter2 = 3 parameter1 = 4 timing = 0 duration = 0 END
 	  BUT_ONLY
 	END
   END

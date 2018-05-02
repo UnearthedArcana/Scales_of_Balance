@@ -11,6 +11,7 @@
 //
 INCLUDE ~scales_of_balance/lib/spell_evasion.tpa~
 
+/*
 ACTION_IF FILE_EXISTS_IN_GAME ~clabth01.2da~ BEGIN
   COPY_EXISTING ~clabth01.2da~ ~override~
     APPEND ~clabth01.2da~ ~EVASION     ****        ****        ****        ****        ****        ****        AP_D5EVADE  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~ UNLESS ~AP_D5EVADE~
@@ -54,3 +55,4 @@ ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
 END
 //___________________________________________________________________________________
 
+*/
