@@ -39,6 +39,7 @@ SPPR512 => 1  //Greater Command
 SPPR517 => 2  //Insect Plague
 
 SPPR603 => 2  //Blade Barrier
+SPPR603D => 2  //Blade Barrier
 SPPR606 => 2  //Fire Seeds
 SPPR610 => 3  //Dolorous Decay
 SPPR614 => 2  //Searing Orb
@@ -52,6 +53,7 @@ SPPR717 => 2  //Creeping Doom
 SPPR718 => 1  //Symbol Stun
 SPPR719 => 3  //Symbol Death
 SPPR720 => 2  //Earthquake
+SPPR725 => 2  // globe of blades
 
 SPWI101 => 2  //Grease 
 SPWI103 => 2  //Burning Hands 
@@ -83,7 +85,7 @@ SPWI312 => 5  // Slow
 SPWI313 => 3  // Skull Trap 
 //SPWI314 => 3  // Vampiric Touch 
 SPWI316 => 1  // Dire Charm 
-SPWI324 => 1  // Hold Undead 
+SPWI324 => 5  // Hold Undead 
 SPWI327 => 2  // Icelance 
 SPWI328 => 2  // Lance of Disruption 
 
@@ -141,5 +143,87 @@ SPWI918 => 5  // Bigby's Crushing Hand
 
 // game spells requiring saving throws
 
+bdsha01a => 1  // confusion
+bdsha01b => 3  // poison
+bdsha01c => 1  // panic
+bdsha06a => 1  // stuns
+bdsha06b => 5  // slows
+bdsumst1 => 2  // fire damage
+spcl239a => 2  // sun soul beam
+spcl311 => 1  // charm animal
+spcl722 => 2  // lightning bolt
+spcl742 => 5  // hold undead
+spcl811 => 2  // stunning blow
+spcl820 => 3  // quivering palm
+spcl911b => 2  // exploding trap
+spcl937  => 2  // shadow maze
+spcryo01 => 2  // cone of cold
+spctmd01 => 2  // fireball
+spdm101 => 1  // blindness
+spdm103 => 5  // ghoul touch
+spdr101 => 2  // chromatic orb
+spdr301 => 2  // lightning bolt
+spdr501 => 1  // confusion
+spdr601 => 2  // chain lightning
+spimix01 => 2  // flame strike
+spin115 => 1  // mournful wail
+spin116 => 3  // death knell
+spin118 => 3  // undying lament
+// maybe make all beholder abilities vs. breath???
+spin141 => 1  // beholder charm
+spin142 => 1  // beholder sleep
+spin143 => 5  // beholder petrify
+spin144 => 3  // beholder disintegrate
+spin145 => 1  // beholder fear
+spin146 => 5  // beholder slow
+spin147 => 3  // beholder cause wounds
+spin148 => 1  // beholder death ray
+spin161 => 1  // sleep
+spin164 => 5  // slow
+spin169 => 2  // winter wolf breath
+spin173 => 1  // fear
+spin175 => 2  // fire damage
+spin188 => 1  // myconid spores: confusion/berserk
+umbergaz => 1  // umber hulk gaze
+spin203 => 1  // cloak of fear
+spin921 => 1  // panic
+spin935 => 2  // glass dust
+spin973 => 2  // whirlwind
+spin974 => 1  // psionic blast
+spin975 => 1  // psionic domination
+spin976 => 1  // golem confusion
+spin977 => 5  // golem slow
+spin979 => 3  // golem poison gas
+spogre01 => 2  // earthquake
+
+spwi001 => 2  // fireball trap
+spwi002 => 2  // lightning bolt trap
+spwi004 => 3  // stinking cloud trap
+spwi008 => 3  // poison trap
+spwi009 => 2  // explosion trap
+spwi011 => 2  // fire arrow trap
+spwi012 => 2  // ice arrow trap
+spwi013 => 2  // piercing arrow trap
+spwi015 => 2  // ice trap
+spwi016 => 3  // cloudkill trap
+spwi017 => 2  // lightning bolt trap
+spwi018 => 3  // disease darts
+spwi019 => 3  // poison darts
+//spwi028 => 3  // poison/paralyzation darts
+//spwi029 => 3  // poison/confusion darts
+spwi031 => 3  // finger of death trap
+spwi032 => 1  // sleep trap
+spwi034 => 2  // fireball trap
+spwi035 => 5  // petrify trap
+spwi036 => 3  // horror trap
+spwi053 => 5  // petrify trap
+spwi054 => 3  // death trap
+
+spwm122 => 5  // hold
+spwm123 => 1  // fear
+spwm164 => 5  // slow
+spwm179 => 1  // charm
+spwm187 => 3  // stinking cloud
+spyanc01 => 2  // buffet
 
 END

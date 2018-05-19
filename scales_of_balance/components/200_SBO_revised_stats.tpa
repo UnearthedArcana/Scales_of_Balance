@@ -274,41 +274,25 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 //STR_______________________________________________________________________________
 //
  ACTION_IF (change_STR > 0) BEGIN
-  APPEND ~splprot.2da~ ~D5_STR_5%TAB%36%TAB%5%TAB%1~
-  APPEND ~splprot.2da~ ~D5_STR_6%TAB%36%TAB%6%TAB%1~
-  APPEND ~splprot.2da~ ~D5_STR_7%TAB%36%TAB%7%TAB%1~
-  APPEND ~splprot.2da~ ~D5_STR_8%TAB%36%TAB%8%TAB%1~
-  APPEND ~splprot.2da~ ~D5_STR_9%TAB%36%TAB%9%TAB%1~
+  APPEND ~splprot.2da~ ~D5_STR_IS%TAB%36%TAB%-1%TAB%1~
 
   COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols // amount of columns
 	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
 	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_5~ BEGIN
-	    SET str_5 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_6~ BEGIN
-	    SET str_6 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_7~ BEGIN
-	    SET str_7 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_8~ BEGIN
-	    SET str_8 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_9~ BEGIN
-	    SET str_9 = %row%
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_STR_IS~ BEGIN
+	    SET str_row = %row%
 	  END
 	END
   BUT_ONLY
 
   COPY_EXISTING ~d5_stats.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %str_5% target = 1 timing = 1 STR_VAR resource = ~d5str5~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %str_6% target = 1 timing = 1 STR_VAR resource = ~d5str6~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %str_7% target = 1 timing = 1 STR_VAR resource = ~d5str7~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %str_8% target = 1 timing = 1 STR_VAR resource = ~d5str8~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %str_9% target = 1 timing = 1 STR_VAR resource = ~d5str9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 5 parameter2 = %str_row% target = 1 timing = 1 STR_VAR resource = ~d5str5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 6 parameter2 = %str_row% target = 1 timing = 1 STR_VAR resource = ~d5str6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 7 parameter2 = %str_row% target = 1 timing = 1 STR_VAR resource = ~d5str7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 8 parameter2 = %str_row% target = 1 timing = 1 STR_VAR resource = ~d5str8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 9 parameter2 = %str_row% target = 1 timing = 1 STR_VAR resource = ~d5str9~ END
 
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5str5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5str5~ END
@@ -330,41 +314,25 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 //CON_______________________________________________________________________________
 //
 // ACTION_IF (change_CON > 0) BEGIN
-  APPEND ~splprot.2da~ ~D5_CON_5%TAB%41%TAB%5%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CON_6%TAB%41%TAB%6%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CON_7%TAB%41%TAB%7%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CON_8%TAB%41%TAB%8%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CON_9%TAB%41%TAB%9%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CON_IS%TAB%41%TAB%-1%TAB%1~
 
   COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols // amount of columns
 	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
 	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_5~ BEGIN
-	    SET con_5 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_6~ BEGIN
-	    SET con_6 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_7~ BEGIN
-	    SET con_7 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_8~ BEGIN
-	    SET con_8 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_9~ BEGIN
-	    SET con_9 = %row%
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CON_IS~ BEGIN
+	    SET con_row = %row%
 	  END
 	END
   BUT_ONLY
 
   COPY_EXISTING ~d5_stats.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %con_5% target = 1 timing = 1 STR_VAR resource = ~d5con5~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %con_6% target = 1 timing = 1 STR_VAR resource = ~d5con6~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %con_7% target = 1 timing = 1 STR_VAR resource = ~d5con7~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %con_8% target = 1 timing = 1 STR_VAR resource = ~d5con8~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %con_9% target = 1 timing = 1 STR_VAR resource = ~d5con9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 5 parameter2 = %con_row% target = 1 timing = 1 STR_VAR resource = ~d5con5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 6 parameter2 = %con_row% target = 1 timing = 1 STR_VAR resource = ~d5con6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 7 parameter2 = %con_row% target = 1 timing = 1 STR_VAR resource = ~d5con7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 8 parameter2 = %con_row% target = 1 timing = 1 STR_VAR resource = ~d5con8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 9 parameter2 = %con_row% target = 1 timing = 1 STR_VAR resource = ~d5con9~ END
 
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5con5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5con5~ END
@@ -386,91 +354,35 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 //DEX_______________________________________________________________________________
 //
  ACTION_IF (change_DEX > 0) BEGIN
-  APPEND ~splprot.2da~ ~D5_DEX_5%TAB%40%TAB%5%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_6%TAB%40%TAB%6%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_7%TAB%40%TAB%7%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_8%TAB%40%TAB%8%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_9%TAB%40%TAB%9%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_16%TAB%40%TAB%16%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_17%TAB%40%TAB%17%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_18%TAB%40%TAB%18%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_19%TAB%40%TAB%19%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_20%TAB%40%TAB%20%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_21%TAB%40%TAB%21%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_22%TAB%40%TAB%22%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_23%TAB%40%TAB%23%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_24%TAB%40%TAB%24%TAB%1~
-  APPEND ~splprot.2da~ ~D5_DEX_25%TAB%40%TAB%25%TAB%1~
+  APPEND ~splprot.2da~ ~D5_DEX_IS%TAB%40%TAB%-1%TAB%1~
 
   COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols // amount of columns
 	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
 	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_5~ BEGIN
-	    SET dex_5 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_6~ BEGIN
-	    SET dex_6 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_7~ BEGIN
-	    SET dex_7 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_8~ BEGIN
-	    SET dex_8 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_9~ BEGIN
-	    SET dex_9 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_16~ BEGIN
-	    SET dex_16 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_17~ BEGIN
-	    SET dex_17 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_18~ BEGIN
-	    SET dex_18 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_19~ BEGIN
-	    SET dex_19 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_20~ BEGIN
-	    SET dex_20 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_21~ BEGIN
-	    SET dex_21 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_22~ BEGIN
-	    SET dex_22 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_23~ BEGIN
-	    SET dex_23 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_24~ BEGIN
-	    SET dex_24 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_25~ BEGIN
-	    SET dex_25 = %row%
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_DEX_IS~ BEGIN
+	    SET dex_row = %row%
 	  END
 	END
   BUT_ONLY
 
   COPY_EXISTING ~d5_stats.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_5% target = 1 timing = 1 STR_VAR resource = ~d5dex5~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_6% target = 1 timing = 1 STR_VAR resource = ~d5dex6~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_7% target = 1 timing = 1 STR_VAR resource = ~d5dex7~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_8% target = 1 timing = 1 STR_VAR resource = ~d5dex8~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_9% target = 1 timing = 1 STR_VAR resource = ~d5dex9~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_16% target = 1 timing = 1 STR_VAR resource = ~d5dex16~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_17% target = 1 timing = 1 STR_VAR resource = ~d5dex17~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_18% target = 1 timing = 1 STR_VAR resource = ~d5dex18~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_19% target = 1 timing = 1 STR_VAR resource = ~d5dex19~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_20% target = 1 timing = 1 STR_VAR resource = ~d5dex20~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_21% target = 1 timing = 1 STR_VAR resource = ~d5dex21~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_22% target = 1 timing = 1 STR_VAR resource = ~d5dex22~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_23% target = 1 timing = 1 STR_VAR resource = ~d5dex23~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_24% target = 1 timing = 1 STR_VAR resource = ~d5dex24~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %dex_25% target = 1 timing = 1 STR_VAR resource = ~d5dex25~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 5 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 6 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 7 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 8 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 9 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 16 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 17 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 18 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 19 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 20 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 21 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 22 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 23 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 24 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 25 parameter2 = %dex_row% target = 1 timing = 1 STR_VAR resource = ~d5dex25~ END
 
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5dex5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5dex5~ END
@@ -522,107 +434,39 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 //INT_______________________________________________________________________________
 //
  ACTION_IF (change_INT > 0) BEGIN
-  APPEND ~splprot.2da~ ~D5_INT_5%TAB%38%TAB%5%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_6%TAB%38%TAB%6%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_7%TAB%38%TAB%7%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_8%TAB%38%TAB%8%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_9%TAB%38%TAB%9%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_13%TAB%38%TAB%14%TAB%2~
-  APPEND ~splprot.2da~ ~D5_INT_14%TAB%38%TAB%14%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_15%TAB%38%TAB%15%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_16%TAB%38%TAB%16%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_17%TAB%38%TAB%17%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_18%TAB%38%TAB%18%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_19%TAB%38%TAB%19%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_20%TAB%38%TAB%20%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_21%TAB%38%TAB%21%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_22%TAB%38%TAB%22%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_23%TAB%38%TAB%23%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_24%TAB%38%TAB%24%TAB%1~
-  APPEND ~splprot.2da~ ~D5_INT_25%TAB%38%TAB%25%TAB%1~
+  APPEND ~splprot.2da~ ~D5_INT_IS%TAB%38%TAB%-1%TAB%1~
 
   COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols // amount of columns
 	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
 	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_5~ BEGIN
-	    SET int_5 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_6~ BEGIN
-	    SET int_6 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_7~ BEGIN
-	    SET int_7 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_8~ BEGIN
-	    SET int_8 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_9~ BEGIN
-	    SET int_9 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_13~ BEGIN
-	    SET int_13 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_14~ BEGIN
-	    SET int_14 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_15~ BEGIN
-	    SET int_15 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_16~ BEGIN
-	    SET int_16 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_17~ BEGIN
-	    SET int_17 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_18~ BEGIN
-	    SET int_18 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_19~ BEGIN
-	    SET int_19 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_20~ BEGIN
-	    SET int_20 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_21~ BEGIN
-	    SET int_21 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_22~ BEGIN
-	    SET int_22 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_23~ BEGIN
-	    SET int_23 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_24~ BEGIN
-	    SET int_24 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_25~ BEGIN
-	    SET int_25 = %row%
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_IS~ BEGIN
+	    SET int_row = %row%
 	  END
 	END
   BUT_ONLY
 
   COPY_EXISTING ~d5_stats.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_5% target = 1 timing = 1 STR_VAR resource = ~d5int5~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_6% target = 1 timing = 1 STR_VAR resource = ~d5int6~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_7% target = 1 timing = 1 STR_VAR resource = ~d5int7~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_8% target = 1 timing = 1 STR_VAR resource = ~d5int8~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_9% target = 1 timing = 1 STR_VAR resource = ~d5int9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 5 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 6 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 7 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 8 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 9 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int9~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 13 parameter2 = 129 target = 1 timing = 1 STR_VAR resource = ~d5int12~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_13% target = 1 timing = 1 STR_VAR resource = ~d5int13~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_14% target = 1 timing = 1 STR_VAR resource = ~d5int14~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_15% target = 1 timing = 1 STR_VAR resource = ~d5int15~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_16% target = 1 timing = 1 STR_VAR resource = ~d5int16~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_17% target = 1 timing = 1 STR_VAR resource = ~d5int17~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_18% target = 1 timing = 1 STR_VAR resource = ~d5int18~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_19% target = 1 timing = 1 STR_VAR resource = ~d5int19~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_20% target = 1 timing = 1 STR_VAR resource = ~d5int20~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_21% target = 1 timing = 1 STR_VAR resource = ~d5int21~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_22% target = 1 timing = 1 STR_VAR resource = ~d5int22~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_23% target = 1 timing = 1 STR_VAR resource = ~d5int23~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_24% target = 1 timing = 1 STR_VAR resource = ~d5int24~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %int_25% target = 1 timing = 1 STR_VAR resource = ~d5int25~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 13 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int13~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 14 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int14~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 15 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int15~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 16 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 17 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 18 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 19 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 20 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 21 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 22 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 23 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 24 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 25 parameter2 = %int_row% target = 1 timing = 1 STR_VAR resource = ~d5int25~ END
 
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int5~ END
@@ -707,111 +551,39 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 //WIS_______________________________________________________________________________
 //
  ACTION_IF (change_WIS > 0) BEGIN
-  APPEND ~splprot.2da~ ~D5_WIS_5%TAB%39%TAB%5%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_6%TAB%39%TAB%6%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_7%TAB%39%TAB%7%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_8%TAB%39%TAB%8%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_9%TAB%39%TAB%9%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_10%TAB%39%TAB%10%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_13%TAB%39%TAB%13%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_14%TAB%39%TAB%14%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_15%TAB%39%TAB%15%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_16%TAB%39%TAB%16%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_17%TAB%39%TAB%17%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_18%TAB%39%TAB%18%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_19%TAB%39%TAB%19%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_20%TAB%39%TAB%20%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_21%TAB%39%TAB%21%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_22%TAB%39%TAB%22%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_23%TAB%39%TAB%23%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_24%TAB%39%TAB%24%TAB%1~
-  APPEND ~splprot.2da~ ~D5_WIS_25%TAB%39%TAB%25%TAB%1~
+  APPEND ~splprot.2da~ ~D5_WIS_IS%TAB%39%TAB%-1%TAB%1~
 
   COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols // amount of columns
 	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
 	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_5~ BEGIN
-	    SET wis_5 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_6~ BEGIN
-	    SET wis_6 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_7~ BEGIN
-	    SET wis_7 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_8~ BEGIN
-	    SET wis_8 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_9~ BEGIN
-	    SET wis_9 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_10~ BEGIN
-	    SET wis_10 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_13~ BEGIN
-	    SET wis_13 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_14~ BEGIN
-	    SET wis_14 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_15~ BEGIN
-	    SET wis_15 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_16~ BEGIN
-	    SET wis_16 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_17~ BEGIN
-	    SET wis_17 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_18~ BEGIN
-	    SET wis_18 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_19~ BEGIN
-	    SET wis_19 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_20~ BEGIN
-	    SET wis_20 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_21~ BEGIN
-	    SET wis_21 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_22~ BEGIN
-	    SET wis_22 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_23~ BEGIN
-	    SET wis_23 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_24~ BEGIN
-	    SET wis_24 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_25~ BEGIN
-	    SET wis_25 = %row%
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_WIS_IS~ BEGIN
+	    SET wis_row = %row%
 	  END
 	END
   BUT_ONLY
 
   COPY_EXISTING ~d5_stats.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_5% target = 1 timing = 1 STR_VAR resource = ~d5wis5~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_6% target = 1 timing = 1 STR_VAR resource = ~d5wis6~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_7% target = 1 timing = 1 STR_VAR resource = ~d5wis7~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_8% target = 1 timing = 1 STR_VAR resource = ~d5wis8~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_9% target = 1 timing = 1 STR_VAR resource = ~d5wis9~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_10% target = 1 timing = 1 STR_VAR resource = ~d5wis10~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_13% target = 1 timing = 1 STR_VAR resource = ~d5wis13~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_14% target = 1 timing = 1 STR_VAR resource = ~d5wis14~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_15% target = 1 timing = 1 STR_VAR resource = ~d5wis15~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_16% target = 1 timing = 1 STR_VAR resource = ~d5wis16~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_17% target = 1 timing = 1 STR_VAR resource = ~d5wis17~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_18% target = 1 timing = 1 STR_VAR resource = ~d5wis18~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_19% target = 1 timing = 1 STR_VAR resource = ~d5wis19~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_20% target = 1 timing = 1 STR_VAR resource = ~d5wis20~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_21% target = 1 timing = 1 STR_VAR resource = ~d5wis21~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_22% target = 1 timing = 1 STR_VAR resource = ~d5wis22~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_23% target = 1 timing = 1 STR_VAR resource = ~d5wis23~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_24% target = 1 timing = 1 STR_VAR resource = ~d5wis24~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %wis_25% target = 1 timing = 1 STR_VAR resource = ~d5wis25~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 5 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 6 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 7 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 8 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 9 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 10 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis10~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 13 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis13~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 14 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis14~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 15 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis15~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 16 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 17 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 18 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 19 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 20 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 21 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 22 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 23 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 24 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 25 parameter2 = %wis_row% target = 1 timing = 1 STR_VAR resource = ~d5wis25~ END
 
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis5~ END
@@ -890,101 +662,37 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 //CHA_______________________________________________________________________________
 //
  ACTION_IF (change_CHA > 0) BEGIN
-  APPEND ~splprot.2da~ ~D5_CHA_5%TAB%42%TAB%5%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_6%TAB%42%TAB%6%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_7%TAB%42%TAB%7%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_8%TAB%42%TAB%8%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_9%TAB%42%TAB%9%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_14%TAB%42%TAB%14%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_15%TAB%42%TAB%15%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_16%TAB%42%TAB%16%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_17%TAB%42%TAB%17%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_18%TAB%42%TAB%18%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_19%TAB%42%TAB%19%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_20%TAB%42%TAB%20%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_21%TAB%42%TAB%21%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_22%TAB%42%TAB%22%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_23%TAB%42%TAB%23%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_24%TAB%42%TAB%24%TAB%1~
-  APPEND ~splprot.2da~ ~D5_CHA_25%TAB%42%TAB%25%TAB%1~
+  APPEND ~splprot.2da~ ~D5_CHA_IS%TAB%42%TAB%-1%TAB%1~
   
   COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols // amount of columns
 	READ_2DA_ENTRIES_NOW rows cols // read all file into memory  
 	FOR (row = 1; row < rows; ++row) BEGIN // iterate over rows
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ // read column value
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_5~ BEGIN
-	    SET cha_5 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_6~ BEGIN
-	    SET cha_6 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_7~ BEGIN
-	    SET cha_7 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_8~ BEGIN
-	    SET cha_8 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_9~ BEGIN
-	    SET cha_9 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_14~ BEGIN
-	    SET cha_14 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_15~ BEGIN
-	    SET cha_15 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_16~ BEGIN
-	    SET cha_16 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_17~ BEGIN
-	    SET cha_17 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_18~ BEGIN
-	    SET cha_18 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_19~ BEGIN
-	    SET cha_19 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_20~ BEGIN
-	    SET cha_20 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_21~ BEGIN
-	    SET cha_21 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_22~ BEGIN
-	    SET cha_22 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_23~ BEGIN
-	    SET cha_23 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_24~ BEGIN
-	    SET cha_24 = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_25~ BEGIN
-	    SET cha_25 = %row%
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHA_IS~ BEGIN
+	    SET cha_row = %row%
 	  END
 	END
   BUT_ONLY
 
   COPY_EXISTING ~d5_stats.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_5% target = 1 timing = 1 STR_VAR resource = ~d5cha5~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_6% target = 1 timing = 1 STR_VAR resource = ~d5cha6~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_7% target = 1 timing = 1 STR_VAR resource = ~d5cha7~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_8% target = 1 timing = 1 STR_VAR resource = ~d5cha8~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_9% target = 1 timing = 1 STR_VAR resource = ~d5cha9~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_14% target = 1 timing = 1 STR_VAR resource = ~d5cha14~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_15% target = 1 timing = 1 STR_VAR resource = ~d5cha15~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_16% target = 1 timing = 1 STR_VAR resource = ~d5cha16~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_17% target = 1 timing = 1 STR_VAR resource = ~d5cha17~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_18% target = 1 timing = 1 STR_VAR resource = ~d5cha18~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_19% target = 1 timing = 1 STR_VAR resource = ~d5cha19~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_20% target = 1 timing = 1 STR_VAR resource = ~d5cha20~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_21% target = 1 timing = 1 STR_VAR resource = ~d5cha21~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_22% target = 1 timing = 1 STR_VAR resource = ~d5cha22~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_23% target = 1 timing = 1 STR_VAR resource = ~d5cha23~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_24% target = 1 timing = 1 STR_VAR resource = ~d5cha24~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter2 = %cha_25% target = 1 timing = 1 STR_VAR resource = ~d5cha25~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 5 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha5~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 6 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha6~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 7 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha7~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 8 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha8~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 9 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha9~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 14 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha14~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 15 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha15~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 16 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha16~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 17 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha17~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 18 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha18~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 19 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha19~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 20 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha20~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 21 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha21~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 22 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha22~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 23 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha23~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 24 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha24~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 25 parameter2 = %cha_row% target = 1 timing = 1 STR_VAR resource = ~d5cha25~ END
 
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5cha5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5cha5~ END

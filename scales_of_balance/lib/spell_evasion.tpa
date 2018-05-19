@@ -114,6 +114,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_evasion.d5~ BEGIN
 	ohdmask 		=> 1
 	spblun29 		=> 1
 	spcl237d 		=> 1
+	spcl911b 		=> 1
 	spctmd01 		=> 1
 	spdd03  		=> 1
 	spdr201 		=> 1
@@ -122,6 +123,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_evasion.d5~ BEGIN
 	spin134 		=> 1
 	spin160 		=> 1
 	spin175 		=> 1
+	spin191 		=> 1
 	firau3d6 		=> 1
 	spin935 		=> 1
 	spogre01 		=> 1
@@ -176,6 +178,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_evasion.d5~ BEGIN
 	spwi918 		=> 1
 	spwi922 		=> 1
 	spwi925 		=> 1
+// add all beholder abilities???
   END
   ACTION_PHP_EACH optional_evades AS optional_evaded => ind BEGIN 
 	ACTION_IF FILE_EXISTS_IN_GAME ~%optional_evaded%.spl~ BEGIN

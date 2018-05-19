@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.12.2~
+VERSION ~v5.12.3~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -235,7 +235,7 @@ INCLUDE ~scales_of_balance/components/202_SBO_2h_strength.tpa~
 
 BEGIN @204 // add concentration checks
 DESIGNATED 204
-REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
+REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ @8
 
 INCLUDE ~scales_of_balance/components/204_concentration.tpa~
 //__________________________________________________________________________________

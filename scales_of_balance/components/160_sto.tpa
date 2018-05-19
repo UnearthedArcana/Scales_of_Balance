@@ -60,6 +60,13 @@ ACTION_IF GAME_IS ~iwdee~ BEGIN
 END
 //___________________________________________________________________________________
 
+/*
+1 = spells
+2 = breath
+4 = death
+8 = rod/wand
+16 = petrify
+*/
 
 //updating spells and descriptions___________________________________________________
 //
