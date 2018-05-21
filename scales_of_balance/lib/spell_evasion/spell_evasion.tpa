@@ -1,0 +1,55 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//							IWD-style Spell Evasion
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+/*
+SAVES:
+1 = spells
+2 = breath
+4 = death
+8 = rod/wand
+16 = petrify
+*/
+
+//patch spells for evasion__________________________________________________________
+//
+DEFINE_ACTION_FUNCTION add_evade_spell INT_VAR evasion_spellstate = 252 evasion_save = 2 STR_VAR evade_spell = ~this_spell~ evade_prefix = ~prefix~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~evade%evasion_spellstate%.2da~ BEGIN
+	COPY_EXISTING ~evade%evasion_spellstate%.2da~ ~override~
+	  COUNT_2DA_ROWS 2 rows
+	  READ_2DA_ENTRY (rows - 1) 0 2 last_entry
+	BUT_ONLY
+	OUTER_SET evasion_ind = %last_entry%
+  END
+  ACTION_IF NOT FILE_EXISTS_IN_GAME ~evade%evasion_spellstate%.2da~ BEGIN
+	COPY ~%MOD_FOLDER%/lib/spell_evasion/evasion.2da~ ~override/evade%evasion_spellstate%.2da~
+	OUTER_SET evasion_ind = 0
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~%evade_spell%.spl~ BEGIN
+	ACTION_IF NOT FILE_CONTAINS_EVALUATED (~evade%evasion_spellstate%.2da~ ~%evade_spell%~) BEGIN
+	OUTER_SET evasion_ind = (evasion_ind + 1)
+	  COPY_EXISTING ~%evade_spell%.spl~ ~override~
+		LPF DELETE_EFFECT INT_VAR match_opcode = 324 match_parameter2 = 63 END
+		LPF DELETE_EFFECT INT_VAR match_opcode = 72 match_parameter1 = 4 match_duration = 0 END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 insert_point = 0 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 1 STR_VAR resource = EVAL ~%evade_prefix%%evasion_ind%~ END
+		LPF ADD_SPELL_EFFECT INT_VAR opcode = 324 insert_point = 0 target = 2 parameter2 = 0 timing = 0 duration = 1 savingthrow = %evasion_save% STR_VAR resource = EVAL ~%evade_prefix%%evasion_ind%~ END
+	  CREATE EFF ~%evade_prefix%%evasion_ind%~
+		WRITE_LONG 0x10 324
+		WRITE_LONG 0x14 2
+		WRITE_LONG 0x1c %evasion_spellstate%
+		WRITE_LONG 0x20 110
+		WRITE_LONG 0x24 0
+		WRITE_LONG 0x28 1
+		WRITE_SHORT 0x2c 100
+		WRITE_EVALUATED_ASCII 0x30 ~%evade_spell%~ #8
+		WRITE_LONG 0x90 1
+		WRITE_EVALUATED_ASCII 0x94 ~%evade_prefix%%evasion_ind%~ #8
+	  APPEND ~evade%evasion_spellstate%.2da~ ~%evasion_ind%%TAB%%evade_spell%%TAB%%evade_prefix%_%evasion_ind%~
+	END
+  END
+END
+//__________________________________________________________________________________
