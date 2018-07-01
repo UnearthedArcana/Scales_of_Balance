@@ -1074,6 +1074,8 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_dialprof.d5~ BEGIN
   INCLUDE ~scales_of_balance/lib/weapprof_dialogue.tpa~
 //  LAM SET_UP_PROF_DIALOGUES
 END
+//__________________________________________________________________________________
+
 
 //WEAPONS SPEC______________________________________________________________________
 // 
@@ -1288,5 +1290,129 @@ END
  END
 //__________________________________________________________________________________
 
+
+/*
+//PUT SPEC APR IN WEAPONS___________________________________________________________
+//
+ACTION_FOR_EACH apr IN ~1~ ~7~ ~2~ ~8~ ~3~ ~9~ ~4~ ~10~ ~5~ BEGIN
+  CREATE EFF ~d5papr%apr%~
+	WRITE_LONG 0x10 1
+	WRITE_LONG 0x14 1
+	WRITE_LONG 0x1c %apr%
+	WRITE_LONG 0x20 1
+	WRITE_LONG 0x24 2
+	WRITE_LONG 0x28 0
+	WRITE_SHORT 0x2c 100
+	WRITE_LONG 0x90 1
+	WRITE_EVALUATED_ASCII 0x94 ~D5PAPR%apr%~ #8
+END
+
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols
+	COUNT_2DA_ROWS cols splprot_rows
+BUT_ONLY
+
+OUTER_SET rows = %splprot_rows%
+
+ACTION_FOR_EACH prof_stat IN ~89~ ~90~ ~91~ ~92~ ~93~ ~94~ ~95~ ~96~ ~97~ ~98~ ~99~ ~100~ ~101~ ~102~ ~103~ ~104~ ~105~ ~106~ ~107~ BEGIN
+  OUTER_SET more_2_row = (%rows% + 0)
+  OUTER_SET less_2_row = (%rows% + 1)
+  OUTER_SET more_3_row = (%rows% + 3)
+  OUTER_SET less_3_row = (%rows% + 4)
+  OUTER_SET more_4_row = (%rows% + 6)
+  OUTER_SET less_4_row = (%rows% + 7)
+  APPEND ~splprot.2da~ ~%prof_stat%_PROF_>2 %TAB% %prof_stat% %TAB% 2 %TAB% 11~
+  APPEND ~splprot.2da~ ~%prof_stat%_PROF_<2 %TAB% %prof_stat% %TAB% -6 %TAB% 10~
+  APPEND ~splprot.2da~ ~%prof_stat%_NOT_2 %TAB% 0x103 %TAB% %more_2_row% %TAB% %less_2_row% ~
+  APPEND ~splprot.2da~ ~%prof_stat%_PROF_>3 %TAB% %prof_stat% %TAB% 3 %TAB% 11~
+  APPEND ~splprot.2da~ ~%prof_stat%_PROF_<3 %TAB% %prof_stat% %TAB% -5 %TAB% 10~
+  APPEND ~splprot.2da~ ~%prof_stat%_NOT_3 %TAB% 0x103 %TAB% %more_3_row% %TAB% %less_3_row% ~
+  APPEND ~splprot.2da~ ~%prof_stat%_PROF_>4 %TAB% %prof_stat% %TAB% 4 %TAB% 11~
+  APPEND ~splprot.2da~ ~%prof_stat%_PROF_<4 %TAB% %prof_stat% %TAB% -4 %TAB% 10~
+  APPEND ~splprot.2da~ ~%prof_stat%_NOT_4 %TAB% 0x103 %TAB% %more_4_row% %TAB% %less_4_row% ~
+  OUTER_SET rows = (%rows% + 9)
+END
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
+	READ_BYTE 0x31 prof
+	PATCH_FOR_EACH weap_prof IN ~89~ ~90~ ~91~ ~92~ ~93~ ~94~ ~95~ ~96~ ~97~ ~98~ ~99~ ~100~ ~101~ ~102~ ~103~ ~104~ ~105~ ~106~ ~107~ BEGIN
+	  SET multiplier = (%weap_prof% - 89)
+	  SET base_row = (%multiplier% * 9)
+	  PATCH_IF (%prof% = %weap_prof%) BEGIN
+		LPF DELETE_EFFECT INT_VAR match_opcode = 1 match_parameter2 = 1 match_timing = 2 END
+		LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR8~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR2~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR7~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR1~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter2 = (%splprot_rows% + %base_row% + 8) timing = 2 STR_VAR resource = ~D5PAPR8~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter2 = (%splprot_rows% + %base_row% + 5) timing = 2 STR_VAR resource = ~D5PAPR2~ END
+		LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter2 = (%splprot_rows% + %base_row% + 2) timing = 2 STR_VAR resource = ~D5PAPR7~ END
+	  END
+	END
+	PATCH_FOR_EACH weap_prof IN ~104~ ~105~ BEGIN
+	  SET multiplier = (%weap_prof% - 89)
+	  SET base_row = (%multiplier% * 9)
+	  PATCH_IF (%prof% = %weap_prof%) BEGIN
+		LPF DELETE_EFFECT INT_VAR match_opcode = 1 match_parameter2 = 1 match_timing = 2 END
+		PATCH_IF NOT MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~102~ BEGIN
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR9~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR3~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR8~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR2~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 8) timing = 2 STR_VAR resource = ~D5PAPR9~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 5) timing = 2 STR_VAR resource = ~D5PAPR3~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 2) timing = 2 STR_VAR resource = ~D5PAPR8~ END
+		END
+		PATCH_IF MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~102~ BEGIN
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR3~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR8~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR2~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR7~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 8) timing = 2 STR_VAR resource = ~D5PAPR3~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 5) timing = 2 STR_VAR resource = ~D5PAPR8~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 2) timing = 2 STR_VAR resource = ~D5PAPR2~ END
+		END
+	  END
+	END
+	PATCH_FOR_EACH weap_prof IN ~106~ BEGIN
+	  SET multiplier = (%weap_prof% - 89)
+	  SET base_row = (%multiplier% * 9)
+	  PATCH_IF (%prof% = %weap_prof%) BEGIN
+		LPF DELETE_EFFECT INT_VAR match_opcode = 1 match_parameter2 = 1 match_timing = 2 END
+		PATCH_IF NOT MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~102~ BEGIN
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR10~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR4~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR9~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR3~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 8) timing = 2 STR_VAR resource = ~D5PAPR10~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 5) timing = 2 STR_VAR resource = ~D5PAPR4~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 2) timing = 2 STR_VAR resource = ~D5PAPR9~ END
+		END
+		PATCH_IF MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~102~ BEGIN
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR9~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR3~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR8~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 177 target = 1 parameter2 = 2 timing = 2 STR_VAR resource = ~D5PAPR2~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 8) timing = 2 STR_VAR resource = ~D5PAPR9~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 5) timing = 2 STR_VAR resource = ~D5PAPR3~ END
+			LPF ADD_ITEM_EQEFFECT INT_VAR insert_point = 0 opcode = 324 target = 1 parameter2 = (%splprot_rows% + %base_row% + 2) timing = 2 STR_VAR resource = ~D5PAPR8~ END
+		END
+	  END
+	END
+  END
+BUT_ONLY
+
+COPY_EXISTING ~wspatck.2da~ ~override~
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+  FOR (row = 0 ; row < rows ; ++row) BEGIN
+	FOR (col = 1 ; col < cols ; ++col) BEGIN
+	  SET_2DA_ENTRY row col cols 0
+	END
+  END
+BUT_ONLY
+//__________________________________________________________________________________
+*/
 
 CLEAR_ARRAYS

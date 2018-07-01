@@ -28,7 +28,7 @@
 @100   = ~IWO - Yet Another Revised Armor System~
 @101   = ~IWO - Aesthetic & Enchantment Tweaks~
 @102   = ~IWO - Functional Weapon Tweaks~
-@103   = ~IWO - Light/Heavy Weapon Distinctions~
+@103   = ~IWO - Light/Heavy Weapon Distinctions (DEPRECATED)~
 @104   = ~IWO - IWDEE Item Tweaks~
 @107   = ~IWO - Restrict Dual-Wielding~
 @1071  = ~Dual-Wield small weapons only~
@@ -40,6 +40,7 @@
 @124   = ~WPO - Fighting Style Changes~
 @125   = ~WPO - APR on Spec~
 @160   = ~STO - Saving Throw Overhaul~
+@165   = ~STO - Revised Saving Throw Tables~
 @170   = ~STO - IWD Spell Evasion~
 @171   = ~For IWD Spells~
 @172   = ~For Expanded Spell List~
@@ -567,6 +568,11 @@ Area of Effect: 1 creature
 Saving Throw: None 
 
 This spell protects the target from all forms of death magic for the duration of the spell. This includes, but is not limited to, Disintegrate, Power Word Kill, Death Spell and Finger of Death. The beneficiary of the spell also receives a +10 bonus to saving throws vs. Death, applicable against any necromantic magic not specifically blocked by the Death Ward.~
+@16001   = ~Spells / Enchantments~
+@16002   = ~Breath Weapon / Dodge~
+@16003   = ~Poison / Death~
+@16004   = ~Petrification / Polymorph~
+@16005   = ~ ~
 @1611   = ~WIZARD SLAYER: This warrior has been specially trained by <PRO_HISHER> sect to excel in hunting and combating spellcasters of all kinds.
 
 Abilities:

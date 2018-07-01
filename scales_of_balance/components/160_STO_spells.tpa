@@ -7,6 +7,7 @@
 //__________________________________________________________________________________
 
 
+
 //EDIT SAVE TABLES__________________________________________________________________
 //
 COPY ~scales_of_balance/misc/savemonk.2da~ ~override~
@@ -20,40 +21,40 @@ COPY ~scales_of_balance/misc/savewiz.2da~ ~override~
 //UPDATE SAVING THROW STRINGS________________________________________________________
 //
 ACTION_IF GAME_IS ~bgee~ BEGIN
-	STRING_SET 17384 ~Spells / Enchantments~
-	STRING_SET 17383 ~Breath Weapon / Dodge~ 
-	STRING_SET 17380 ~Poison / Death~
-//	STRING_SET 17382 ~Petrification / Polymorph~
+	STRING_SET 17384 @16001
+	STRING_SET 17383 @16002
+	STRING_SET 17380 @16003
+//	STRING_SET 17382 @16004
 //  ACTION_IF FILE_EXISTS_IN_GAME ~d5_psion.d5~ BEGIN
 //	  STRING_SET 17381 ~Psionics / Etc.~
 //  END
 END
 
 ACTION_IF GAME_IS ~tob bgt tutu bg2ee eet~ BEGIN
-	STRING_SET 17384 ~Spells / Enchantments~
-	STRING_SET 17383 ~Breath Weapon / Dodge~ 
-	STRING_SET 17380 ~Poison / Death~
-//	STRING_SET 17382 ~Petrification / Polymorph~
+	STRING_SET 17384 @16001
+	STRING_SET 17383 @16002 
+	STRING_SET 17380 @16003
+//	STRING_SET 17382 @16004
 //  ACTION_IF FILE_EXISTS_IN_GAME ~d5_psion.d5~ BEGIN
 //	  STRING_SET 17381 ~Psionics / Etc.~
 //  END
 END
 
 //ACTION_IF GAME_IS ~eet~ BEGIN
-//	STRING_SET 217384 ~Spells / Enchantments~
-//	STRING_SET 217383 ~Breath Weapon / Dodge~ 
-//	STRING_SET 217380 ~Poison / Death~
-//	STRING_SET 217382 ~Petrification / Polymorph~
+//	STRING_SET 217384 @16001
+//	STRING_SET 217383 @16002
+//	STRING_SET 217380 @16003
+//	STRING_SET 217382 @16004
 //  ACTION_IF FILE_EXISTS_IN_GAME ~d5_psion.d5~ BEGIN
 //	  STRING_SET 217381 ~Psionics / Etc.~
 //  END
 //END
 
 ACTION_IF GAME_IS ~iwdee~ BEGIN
-	STRING_SET 17384 ~Spells / Enchantments~
-	STRING_SET 17383 ~Breath Weapon / Dodge~ 
-	STRING_SET 17380 ~Poison / Death~
-	STRING_SET 17382 ~Petrification / Polymorph~
+	STRING_SET 17384 @16001
+	STRING_SET 17383 @16002
+	STRING_SET 17380 @16003
+	STRING_SET 17382 @16004
 //  ACTION_IF FILE_EXISTS_IN_GAME ~d5_psion.d5~ BEGIN
 //	  STRING_SET 17381 ~Psionics / Etc.~
 //  END

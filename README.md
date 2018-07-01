@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.12 </strong><br />
+  <p><strong> Version 5.13 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -938,6 +938,13 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.13 - June 2018</strong></p>
+  <ul>
+    <li>what happened to 5.11 and 5.12??</li>
+    <li>some externalizations, e.g. of the proficiency dialogue</li>
+    <li>some updates for the 2.5 patch, e.g. with the proficiency dialogue</li>
+    <li>some fixes</li>
+  </ul>
   <p><strong>Version 5.10 - April 2018</strong></p>
   <ul>
     <li>new component: IWD evasion for thieves</li>

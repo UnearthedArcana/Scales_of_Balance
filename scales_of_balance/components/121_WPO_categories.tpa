@@ -109,7 +109,7 @@ BUT_ONLY
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 101 parameter2 = 115 END
-	BUT_ONLY
+BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
 	COUNT_2DA_COLS cols
@@ -139,7 +139,7 @@ BUT_ONLY
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 99 parameter2 = 98 END
-	BUT_ONLY
+BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
 	COUNT_2DA_COLS cols
@@ -169,7 +169,7 @@ BUT_ONLY
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 106 parameter2 = 96 END
-	BUT_ONLY
+BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
 	COUNT_2DA_COLS cols
@@ -199,7 +199,7 @@ BUT_ONLY
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 94 parameter2 = 95 END
-	BUT_ONLY
+BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
 	COUNT_2DA_COLS cols
@@ -229,7 +229,7 @@ BUT_ONLY
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 104 parameter2 = 105 END
-	BUT_ONLY
+BUT_ONLY
 	
 COPY_EXISTING ~weapprof.2da~ ~override~
 	COUNT_2DA_COLS cols

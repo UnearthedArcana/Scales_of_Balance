@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.12.5~
+VERSION ~v5.13~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -190,8 +190,16 @@ DESIGNATED 160
 
 INCLUDE ~scales_of_balance/lib/save_list_base.tpa~
 
-INCLUDE ~scales_of_balance/components/160_STO.tpa~
+INCLUDE ~scales_of_balance/components/160_STO_spells.tpa~
 //__________________________________________________________________________________
+
+/*
+BEGIN @165 // saving throw table rebalance
+DESIGNATED 165
+
+INCLUDE ~scales_of_balance/components/165_STO_tables.tpa~
+//__________________________________________________________________________________
+*/
 
 BEGIN @171 // thief spell evasion for IWD spells
 DESIGNATED 171

@@ -1,0 +1,24 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//						SAVING THROW STANDARDIZATION
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+//EDIT SAVE TABLES__________________________________________________________________
+//
+COPY ~scales_of_balance/misc/save_flat.2da~ ~override/savemonk.2da~
+COPY ~scales_of_balance/misc/save_flat.2da~ ~override/saveprs.2da~
+COPY ~scales_of_balance/misc/save_flat.2da~ ~override/saverog.2da~
+COPY ~scales_of_balance/misc/save_flat.2da~ ~override/savewar.2da~
+COPY ~scales_of_balance/misc/save_flat.2da~ ~override/savewiz.2da~
+//___________________________________________________________________________________
+
+
+// apply stat bonuses here
+
+
+//___________________________________________________________________________________
+

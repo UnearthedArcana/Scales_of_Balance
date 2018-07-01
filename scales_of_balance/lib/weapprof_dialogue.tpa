@@ -130,6 +130,9 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~clabshgs.2da~) OR (FILE_EXISTS_IN_GAME ~clabsh01
   OUTER_SPRINT $d5_kits_profs(~SHAMAN~ ~class~) ~59~
 END
 
+COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.baf~ ~%MOD_FOLDER%/lib/d5profx.baf~
+	 ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.baf~ ~%MOD_FOLDER%/lib/d5profy.baf~
+
 COPY_EXISTING ~kitlist.2da~ ~override~
   COUNT_2DA_COLS cols
   READ_2DA_ENTRIES_NOW ~r2en_kitlist~ cols
@@ -145,7 +148,7 @@ COPY_EXISTING ~kitlist.2da~ ~override~
 ACTION_PHP_EACH d5_kits_profs AS kitidsname => profcol BEGIN
 //  PRINT ~%kitidsname% = %kitidsname_1% = column %profcol%~
   ACTION_IF (~%kitidsname_1%~ STRING_EQUAL_CASE ~kit~) BEGIN
-	APPEND_OUTER ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.baf~ ~
+	APPEND_OUTER ~%MOD_FOLDER%/lib/d5profx.baf~ ~
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_PROFX","GLOBAL",0)
@@ -159,7 +162,7 @@ THEN
 	ActionOverride(LastSummonerOf(Myself),StartDialogOverride("d5profx",Myself))
 END
 ~ KEEP_CRLF
-	APPEND_OUTER ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.baf~ ~
+	APPEND_OUTER ~%MOD_FOLDER%/lib/d5profy.baf~ ~
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_PROFY","GLOBAL",0)
@@ -178,7 +181,7 @@ END
 
 ACTION_IF (FILE_EXISTS_IN_GAME ~clabshgs.2da~) OR (FILE_EXISTS_IN_GAME ~clabsh01.2da~) BEGIN
 
-  APPEND_OUTER ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.baf~ ~
+  APPEND_OUTER ~%MOD_FOLDER%/lib/d5profx.baf~ ~
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_PROFX","GLOBAL",0)
@@ -192,7 +195,7 @@ THEN
 END
 ~ KEEP_CRLF
 
-  APPEND_OUTER ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.baf~ ~
+  APPEND_OUTER ~%MOD_FOLDER%/lib/d5profy.baf~ ~
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_PROFY","GLOBAL",0)
@@ -208,7 +211,7 @@ END
 
 END
 
-APPEND_OUTER ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.baf~ ~
+APPEND_OUTER ~%MOD_FOLDER%/lib/d5profx.baf~ ~
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_PROFX","GLOBAL",0)
@@ -471,7 +474,7 @@ THEN
 END
 ~ KEEP_CRLF
 
-APPEND_OUTER ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.baf~ ~
+APPEND_OUTER ~%MOD_FOLDER%/lib/d5profy.baf~ ~
 
 IF
 	NumTimesTalkedTo(0)
@@ -763,8 +766,8 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	  READ_2DA_ENTRY 30 (%profcol% + 1) cols single_weapon_style
 	  READ_2DA_ENTRY 31 (%profcol% + 1) cols two_weapon_style
 	  INNER_ACTION BEGIN
-		COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.baf~ ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.baf~
-			 ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.baf~ ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.baf~
+		COPY ~%MOD_FOLDER%/lib/d5profx.baf~ ~%MOD_FOLDER%/lib/d5profx.baf~
+			 ~%MOD_FOLDER%/lib/d5profy.baf~ ~%MOD_FOLDER%/lib/d5profy.baf~
 		  PATCH_IF (%two_weapon_style% > 0) BEGIN
 			REPLACE_TEXTUALLY ~	ActionOverride(LastSummonerOf(Myself),SetGlobal("D5_%kitidsname%","LOCALS",1))~ ~	ActionOverride(LastSummonerOf(Myself),SetGlobal("D5_%kitidsname%","LOCALS",1))
 	ActionOverride(LastSummonerOf(Myself),SetGlobal("D5_TWO_WEAPON","LOCALS",%two_weapon_style%))~
@@ -917,8 +920,8 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	READ_2DA_ENTRY 31 2 cols two_weapon_name
 	READ_2DA_ENTRY 31 3 cols two_weapon_desc
 
-COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.d~ ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.d~
-	 ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.d~ ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.d~
+COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.d~ ~%MOD_FOLDER%/lib/d5profx.d~
+	 ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.d~ ~%MOD_FOLDER%/lib/d5profy.d~
 	REPLACE_TEXTUALLY ~bastard_sword_name~ ~%bastard_sword_name%~
 	REPLACE_TEXTUALLY ~bastard_sword_desc~ ~%bastard_sword_desc%~
 	REPLACE_TEXTUALLY ~long_sword_name~ ~%long_sword_name%~
@@ -1308,9 +1311,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55stwf.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 114 END
 
-COMPILE ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.baf~
-
-COMPILE ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.d~
+COMPILE ~%MOD_FOLDER%/lib/d5profx.baf~
+COMPILE ~%MOD_FOLDER%/lib/d5profx.d~
 
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5_profx.bam~ ~override~
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.eff~ ~override~
@@ -1554,9 +1556,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5proft.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profx~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5proft~ END
 
-COMPILE ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.baf~
-
-COMPILE ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.d~
+COMPILE ~%MOD_FOLDER%/lib/d5profy.baf~
+COMPILE ~%MOD_FOLDER%/lib/d5profy.d~
 
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5_profy.bam~ ~override~
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.eff~ ~override~
