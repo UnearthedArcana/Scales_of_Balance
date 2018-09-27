@@ -389,8 +389,8 @@ BUT_ONLY
 //CLASS/WEAPPROF LISTS______________________________________________________________
 //
 COPY_EXISTING ~kitlist.2da~ ~override~
-  COUNT_2DA_COLS cols
-  READ_2DA_ENTRIES_NOW ~r2en_kitlist~ cols
+//  COUNT_2DA_COLS cols
+  READ_2DA_ENTRIES_NOW ~r2en_kitlist~ 10
   FOR (row = 2; row < r2en_kitlist; row += 1) BEGIN
     READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 6 prof_col
     READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 8 class_num
