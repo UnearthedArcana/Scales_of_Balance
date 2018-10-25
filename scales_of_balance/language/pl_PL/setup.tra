@@ -29,6 +29,8 @@
 @39 = ~Ograniczenia:~
 @100 = ~IWO - Jeszcze jeden system usprawnien zbroi~
 @101 = ~IWO - Ulepszenia kosmetyczne~
+@1011  = ~Standardize Enchanted Equipment~
+@1012  = ~Replace Enchanted Equipment with Mastercraft~
 @102 = ~IWO - Funkcjonalne ulepszenia broni~
 @103 = ~IWO - Wyodrebnienie broni ciezkiej/lekkiej~
 @104 = ~IWO - Ulepszenia przedmiotow IWD:EE~
@@ -59,6 +61,7 @@
 @205 = ~SBO - Rewizja Kostek Wytrzymalosci~
 @206 = ~Hojne (ponadprzecietne) punkty zycia~
 @207 = ~Hardcorowe (blizsze usrednionym) punkty zycia~
+@208 = ~Reduced punkty zycia~
 @210 = ~XPO - Ujednolicone tabele PD~
 @215 = ~XPO - Mniejsza ilosc PD za walke~
 @216 = ~zabicie daje 1/10 PD~
@@ -727,6 +730,17 @@ Premie:
 24: -9 do KP, +5 do TraK0 dla broni dystansowej
 25: -9 do KP, +6 do TraK0 dla broni dystansowej
 ~
+@2010 = ~KONDYCJA: Opisuje ogólną budowę bohatera, jego stan zdrowia i fizyczną wytrzymałość na obrażenia, choroby i innego rodzaju trudy. Ta cecha jest ważna dla łowców.
+
+Premie:
+12: +1 punkt życia na poziom (tylko wojownicy)
+14: +1 punkt życia na poziom
+16: +2 punkty życia na poziom
+18: +3 punkty życia na poziom
+19+: szybsza regeneracja 
+20: +4 punkty życia na poziom
+22: +5 punkty życia na poziom
+24: +6 punkty życia na poziom~
 @2011 = ~LUDZIE: Ludzie są dominującą rasą Faerûnu. Przewodzą najznaczniejszym imperiom i królestwom Zapomnianych Krain. Są chyba najbardziej tolerancyjną i towarzyską ze wszystkich ras, z wyjątkiem może niziołków. Ludzie mają tylko jedną zdolność specjalną – mogą należeć do dowolnej klasy. Ich statystyki mogą wynosić od 7 do 18.~
 @2012 = ~KRASNOLUDY: Krasnoludy są niskimi, krępymi osobnikami, łatwymi do rozpoznania po wzroście i posturze. Mają czerstwe policzki, ciemne oczy i takież włosy. Zazwyczaj są uparte i małomówne. Z chęcią oddają się ciężkiej pracy, nie posiadają za to za grosz poczucia humoru. Lubują się w piwie i miodzie, ale nade wszystko kochają złoto. W Krainach żyją cztery różne odłamy tej rasy: krasnoludy tarczowe, złote, dzikie i duergarowie.
 

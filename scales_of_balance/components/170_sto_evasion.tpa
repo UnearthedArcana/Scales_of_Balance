@@ -22,10 +22,7 @@ INCLUDE ~%MOD_FOLDER%/lib/spell_evasion/spell_evasion.tpa~
 //spell to set evasion state________________________________________________________
 //
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5evade.spl~ BEGIN
-  COPY_EXISTING ~spcl221.spl~ ~override/d5evade.spl~
-	SAY NAME1 ~ ~
-	SAY UNIDENTIFIED_DESC ~ ~
-	LPF DELETE_EFFECT INT_VAR match_probability1 = 100 END
+  COPY ~%MOD_FOLDER%/lib/spell_evasion/d5_base.spl~ ~override/d5evade.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 328 target = 1 parameter2 = 252 timing = 9 special = 1 END
   BUT_ONLY
 END
@@ -35,9 +32,32 @@ END
 //patch spells for evasion__________________________________________________________
 //
 ACTION_PHP_EACH evade_spells AS evadable_spell => ind BEGIN 
-  LAF add_evade_spell INT_VAR evasion_spellstate = 252 evasion_save = 2 STR_VAR evade_spell = EVAL ~%evadable_spell%~ evade_prefix = ~d5ev~ END
+  LAF add_evade_spell INT_VAR evasion_spellstate = 252 evasion_save = 2 STR_VAR evade_spell = EVAL ~%evadable_spell%~ evade_prefix = ~D5EV~ END
 END
 //__________________________________________________________________________________
+
+
+/* do this in the function itself
+//no evasion if disabled____________________________________________________________
+//
+ACTION_PHP_EACH evade_spells AS evadable_spell => ind BEGIN 
+  ACTION_IF FILE_EXISTS_IN_GAME ~%evadable_spell%.spl~ BEGIN
+    COPY_EXISTING ~%evadable_spell%.spl~ ~override~
+      LPF DELETE_EFFECT INT_VAR match_opcode = 318 match_parameter2 = 136 END
+      LPF CLONE_EFFECT INT_VAR match_opcode = 318 match_duration = 1 parameter1 = 2 parameter2 = 136 savingthrow = 0 STR_VAR insert = ~first~ END 		// berserk
+      LPF CLONE_EFFECT INT_VAR match_opcode = 318 match_duration = 1 parameter1 = 262144 parameter2 = 136 savingthrow = 0 STR_VAR insert = ~first~ END	// blind
+      LPF CLONE_EFFECT INT_VAR match_opcode = 318 match_duration = 1 parameter1 = 8192 parameter2 = 136 savingthrow = 0 STR_VAR insert = ~first~ END 	// charmed
+      LPF CLONE_EFFECT INT_VAR match_opcode = 318 match_duration = 1 parameter1 = 2147483648 parameter2 = 136 savingthrow = 0 STR_VAR insert = ~first~ END // confused
+      LPF CLONE_EFFECT INT_VAR match_opcode = 318 match_duration = 1 parameter1 = 1048576 parameter2 = 136 savingthrow = 0 STR_VAR insert = ~first~ END	// feebleminded
+      LPF CLONE_EFFECT INT_VAR match_opcode = 318 match_duration = 1 parameter1 = 32 parameter2 = 136 savingthrow = 0 STR_VAR insert = ~first~ END 		// helpless
+      LPF CLONE_EFFECT INT_VAR match_opcode = 318 match_duration = 1 parameter1 = 4 parameter2 = 136 savingthrow = 0 STR_VAR insert = ~first~ END 		// panicked
+      LPF CLONE_EFFECT INT_VAR match_opcode = 318 match_duration = 1 parameter1 = 1 parameter2 = 136 savingthrow = 0 STR_VAR insert = ~first~ END 		// sleeping
+      LPF CLONE_EFFECT INT_VAR match_opcode = 318 match_duration = 1 parameter1 = 65536 parameter2 = 136 savingthrow = 0 STR_VAR insert = ~first~ END 	// slowed
+      LPF CLONE_EFFECT INT_VAR match_opcode = 318 match_duration = 1 parameter1 = 8 parameter2 = 136 savingthrow = 0 STR_VAR insert = ~first~ END 		// stunned
+  END
+END
+//__________________________________________________________________________________
+*/
 
 
 //ADD EVASION FOR THIEVES___________________________________________________________

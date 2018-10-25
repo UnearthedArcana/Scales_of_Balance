@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.13.1~
+VERSION ~v5.14~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -76,8 +76,17 @@ DESIGNATED 100
 INCLUDE ~scales_of_balance/components/100_IWO_YARAS.tpa~
 //__________________________________________________________________________________
 
-BEGIN @101 // aesthetic/enchantment tweaks
+BEGIN @1011 // normal aesthetic/enchantment tweaks
 DESIGNATED 101
+SUBCOMPONENT @101
+REQUIRE_PREDICATE NOT GAME_IS ~iwdee~ @8
+
+INCLUDE ~scales_of_balance/components/101_IWO_enchantments.tpa~
+//__________________________________________________________________________________
+
+BEGIN @1012 // hardcore/low magic enchantment tweaks
+DESIGNATED 1012
+SUBCOMPONENT @101
 REQUIRE_PREDICATE NOT GAME_IS ~iwdee~ @8
 
 INCLUDE ~scales_of_balance/components/101_IWO_enchantments.tpa~
@@ -259,7 +268,14 @@ BEGIN @207 // constitution/hit dice rebalance - hardcore
 DESIGNATED 207
 SUBCOMPONENT @205
 
-INCLUDE ~scales_of_balance/components/207_HDO_hc.tpa~
+INCLUDE ~scales_of_balance/components/207_HDO_hardcore.tpa~
+//__________________________________________________________________________________
+
+BEGIN @208 // constitution/hit dice rebalance - reduced
+DESIGNATED 208
+SUBCOMPONENT @205
+
+INCLUDE ~scales_of_balance/components/208_HDO_reduced.tpa~
 //__________________________________________________________________________________
 
 

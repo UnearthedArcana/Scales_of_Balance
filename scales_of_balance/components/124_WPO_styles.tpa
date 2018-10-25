@@ -382,7 +382,7 @@ shields:
 - on equip, 321 cancel ths2
 */
 
- APPEND ~splprot.2da~ ~D5_SPEC_2HS%TAB%111%TAB%2%TAB%4~		//	specialized or better in SWS
+ APPEND ~splprot.2da~ ~D5_SPEC_2HS%TAB%111%TAB%2%TAB%4~		//	specialized or better in 2HS
 
  COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols // amount of columns
