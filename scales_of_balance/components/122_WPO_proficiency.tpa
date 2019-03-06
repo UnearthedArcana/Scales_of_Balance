@@ -1062,6 +1062,18 @@ END
 //__________________________________________________________________________________
 
 
+//MnG 3.9 BARDS_____________________________________________________________________
+// 
+ACTION_FOR_EACH nubard_kit IN ~d5_bard~ ~d5_blade~ ~d5_jstr~ ~d5_mstr~ ~d5_jinx~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%nubard_kit%.2da~ BEGIN
+	COPY_EXISTING ~%nubard_kit%.2da~ ~override~
+	  REPLACE_TEXTUALLY ~AP_D5BTHAC2~ ~****       ~
+	BUT_ONLY
+  END
+END
+//__________________________________________________________________________________
+
+
 //REVISED FIGHTING STYLES___________________________________________________________
 //
 INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
