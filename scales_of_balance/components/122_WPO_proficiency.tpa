@@ -562,6 +562,22 @@ BUT_ONLY
 
 //MIGHT & GUILE KITS________________________________________________________________
 //
+COPY_EXISTING ~kitlist.2da~ ~override~
+  COUNT_2DA_ROWS 9 rows
+  FOR (row = 3 ; row < rows ; row = row + 1 ) BEGIN
+	READ_2DA_ENTRY row 5 9 kitclab
+	READ_2DA_ENTRY row 8 9 kitclass
+	PATCH_IF (kitclass = 13) BEGIN
+	  PATCH_IF (FILE_EXISTS_IN_GAME ~%kitclab%.2da~) BEGIN
+		INNER_ACTION BEGIN
+		  COPY_EXISTING ~%kitclab%.2da~ ~override~
+			REPLACE_TEXTUALLY ~AP_D5_BAB2~ ~****      ~
+		END
+	  END
+	END
+  END
+BUT_ONLY
+
 COPY_EXISTING ~weapprof.2da~ ~override~
 	COUNT_2DA_COLS num_cols
 	READ_2DA_ENTRIES_NOW ~r2en_mng~ (num_cols - 1)
