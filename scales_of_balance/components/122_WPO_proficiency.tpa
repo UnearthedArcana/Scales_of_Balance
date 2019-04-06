@@ -693,6 +693,25 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 32 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 33 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 34 (col + 1) 3
+		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5_LORESINGER~) BEGIN
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 12 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 13 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 14 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 15 (col + 1) 0
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 17 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 18 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 19 (col + 1) 0
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 20 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 21 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 23 (col + 1) 0
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 25 (col + 1) 0
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 26 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 30 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 31 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 32 (col + 1) 0
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 33 (col + 1) 2
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 34 (col + 1) 0
 		END
 	END
 	SET_2DA_ENTRIES_NOW ~s2el_mng~ 1
@@ -1442,5 +1461,18 @@ COPY_EXISTING ~wspatck.2da~ ~override~
 BUT_ONLY
 //__________________________________________________________________________________
 */
+
+// re-do MnG extra profs feat_______________________________________________________
+//
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5_rfeat.d5~) BEGIN
+
+  ACTION_IF FILE_EXISTS ~override/d5ftprof.bcs~ BEGIN
+	DELETE ~override/d5ftprof.bcs~
+  END
+
+  INCLUDE ~scales_of_balance/lib/mng_prof_dialogue.tpa~
+
+END
+//__________________________________________________________________________________
 
 CLEAR_ARRAYS

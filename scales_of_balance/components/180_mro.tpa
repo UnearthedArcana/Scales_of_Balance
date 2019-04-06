@@ -137,7 +137,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~clck05.itm~ THEN BEGIN
 	COPY_EXISTING ~clck05.itm~ ~override~ // Cloak of Balduran
 //	charisma bonus
 		LPF ALTER_EFFECT INT_VAR match_opcode=166 opcode=6 parameter1=1 END 
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=44 parameter1=1 END 
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=44 parameter1=1 timing=2 END 
 		FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 			READ_LONG "%index%" "valid"
 			PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
@@ -207,7 +207,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~ohdarmor.itm~ THEN BEGIN
 	COPY_EXISTING ~ohdarmor.itm~ ~override~ // Silver Dragon Armor (15%)
 //	cold + lightning resistance
 		LPF ALTER_EFFECT INT_VAR match_opcode=166 opcode=28 parameter1=50 parameter2=1 END
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=29 parameter1=50 parameter2=1 END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=29 parameter1=50 parameter2=1 timing=2 END
 		FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 			READ_LONG "%index%" "valid"
 			PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
@@ -317,7 +317,7 @@ END
 ACTION_IF FILE_EXISTS_IN_GAME ~sw1h71.itm~ THEN BEGIN
 	COPY_EXISTING ~sw1h70.itm~ ~override~ // Hindo's Doom +3
 //	death save bonus
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=33 parameter1=3 END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=33 parameter1=3 timing=2 END
 END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~sw1h71.itm~ THEN BEGIN
@@ -581,7 +581,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~potn34.itm~ THEN BEGIN
 	COPY_EXISTING ~potn34.itm~ ~override~ // Potion of Magic Protection
 //	spells save bonus + magic damage immunity
 		LPF ALTER_EFFECT INT_VAR match_opcode=166 opcode=37 parameter1=5 END
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=31 parameter1=100 parameter2=1 END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=31 parameter1=100 parameter2=1 timing=2 END
 		FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 			READ_LONG "%index%" "valid"
 			PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
