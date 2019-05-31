@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.16.2~
+VERSION ~v5.16.3~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -102,6 +102,7 @@ INCLUDE ~scales_of_balance/components/102_IWO_weapons.tpa~
 
 BEGIN @103 // light/heavy weapon differences
 DESIGNATED 103
+DEPRECATED @1
 
 INCLUDE ~scales_of_balance/components/103_IWO_light_heavy.tpa~
 //__________________________________________________________________________________

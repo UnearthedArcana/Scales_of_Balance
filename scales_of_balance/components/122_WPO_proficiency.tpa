@@ -39,10 +39,10 @@ COPY ~scales_of_balance/profs/wspat3.2da~ ~override/wspatck.2da~
 COPY ~scales_of_balance/profs/wspecial2.2da~ ~override/wspecial.2da~
 
 COPY ~scales_of_balance/profs/thac0.2da~ ~override~
-ACTION_IF GAME_IS ~iwdee tob bgt~ BEGIN
+ACTION_IF GAME_IS ~tob bgt~ BEGIN
 	COPY ~scales_of_balance/profs/profsmax_i.2da~ ~override/profsmax.2da~
 END
-ACTION_IF GAME_IS ~bgee bg2ee eet~ BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	COPY ~scales_of_balance/profs/profsmax.2da~ ~override~
 END
 
@@ -713,6 +713,9 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 32 (col + 1) 0
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 33 (col + 1) 2
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 34 (col + 1) 0
+		END
+		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5_MEISTER~) BEGIN
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 31 (col + 1) 2
 		END
 	END
 	SET_2DA_ENTRIES_NOW ~s2el_mng~ 1

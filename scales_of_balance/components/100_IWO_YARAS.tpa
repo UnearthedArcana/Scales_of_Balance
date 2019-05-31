@@ -654,6 +654,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  END
 		END
 		ELSE PATCH_IF (appearance = 16692) BEGIN // plate appearance
+		 PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~plat07~) BEGIN
 		  READ_LONG 0x08 gen_name_strref
 //	full plate armor
 		  PATCH_IF (gen_name_strref = %fullplate_strref%) BEGIN 
@@ -813,6 +814,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  SAY_EVALUATED 0x50 ~%new_desc%~
 			END
 		  END
+		 END
 		END
 	  END
 	END

@@ -485,40 +485,58 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int12.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int12~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 511 target = 1 timing = 0 duration = 7 END
+	PATCH_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 511 target = 1 timing = 0 duration = 7 END
+	END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int13.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int13~ END
+	PATCH_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 510 target = 1 timing = 0 duration = 7 END
+	  END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int14.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int14~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 508 target = 1 timing = 0 duration = 7 END
+	PATCH_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 508 target = 1 timing = 0 duration = 7 END
+	END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int15.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int15~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 504 target = 1 timing = 0 duration = 7 END
+	PATCH_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 504 target = 1 timing = 0 duration = 7 END
+	END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int16.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int16~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 496 target = 1 timing = 0 duration = 7 END
+	PATCH_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 496 target = 1 timing = 0 duration = 7 END
+	END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int17.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int17~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 480 target = 1 timing = 0 duration = 7 END
+	PATCH_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 480 target = 1 timing = 0 duration = 7 END
+	END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int18.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int18~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 448 target = 1 timing = 0 duration = 7 END
+	PATCH_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 448 target = 1 timing = 0 duration = 7 END
+	END
 //	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
 //	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 1 parameter2 = 1 target = 1 timing = 0 duration = 7 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int19.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int19~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 384 target = 1 timing = 0 duration = 7 END
+	PATCH_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 384 target = 1 timing = 0 duration = 7 END
+	END
 //	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
 //	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 1 parameter2 = 1 target = 1 timing = 0 duration = 7 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int20.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5int20~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 256 target = 1 timing = 0 duration = 7 END
+	PATCH_IF NOT FILE_EXISTS_IN_GAME ~qdtnb_attrbon.qd~ BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 256 target = 1 timing = 0 duration = 7 END
+	END
 //	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
 //	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 2 parameter2 = 1 target = 1 timing = 0 duration = 7 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5int21.spl~
@@ -588,75 +606,75 @@ ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis5~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 3) parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 80 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 80 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis6.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis6~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 85 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 85 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis7.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis7~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 2) parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 90 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 90 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis8.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis8~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 94 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 94 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis9.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis9~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = (0 - 1) parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 96 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 96 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis10.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis10~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 98 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 98 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis13.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis13~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 102 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 102 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis14.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis14~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 104 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 104 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis15.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis15~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 106 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 106 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis16.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis16~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 108 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 108 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis17.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis17~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 1 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 110 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 110 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis18.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis18~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 112 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 112 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis19.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis19~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 114 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 114 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis20.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis20~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 115 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 115 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis21.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis21~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 3 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 116 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 116 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis22.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis22~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 4 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 117 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 117 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis23.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis23~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 4 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 118 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 118 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis24.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis24~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 5 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 119 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 119 parameter2 = 2 target = 1 timing = 0 duration = 9 END
   COPY ~scales_of_balance/stats/d5_statx.spl~ ~override/d5wis25.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 parameter2 = 0 target = 1 timing = 1 STR_VAR resource = ~d5wis25~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 4 parameter2 = 0 target = 1 timing = 0 duration = 7 END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 120 parameter2 = 2 target = 1 timing = 0 duration = 126144000 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 120 parameter2 = 2 target = 1 timing = 0 duration = 9 END
  END
 
 //CHA_______________________________________________________________________________
