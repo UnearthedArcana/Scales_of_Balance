@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.15 </strong><br />
+  <p><strong> Version 5.14 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -70,13 +70,13 @@
     <p>This component changes armor to give the wearer a mix of Armor Class and Damage Resistance bonuses. The values are listed below:</p>
       <pre>
     Armor:
-	 leather:	AC 8 	-1 Dex 	5% DR 	+2 casting time
-	 studded:	AC 7 	-2 Dex 	10% DR 	+3 casting time
-	 hide armor: 	AC 6 	-3 Dex 	21% DR	+4 casting time
-	 chain mail: 	AC 5 	-3 Dex 	18% DR	+4 casting time
-	 splint mail: 	AC 5 	-4 Dex 	22% DR	+5 casting time
-	 plate mail: 	AC 4 	-5 Dex 	27% DR	+5 casting time
-	 full plate*:   AC 3 	-4 Dex	33% DR	+6 casting time<br />
+	 leather:	AC 8 	-1 Dex 	8% DR 	+2 casting time
+	 studded:	AC 7 	-2 Dex 	12% DR 	+3 casting time
+	 hide armor: 	AC 6 	-3 Dex 	24% DR	+4 casting time
+	 chain mail: 	AC 5 	-3 Dex 	24% DR	+4 casting time
+	 splint mail: 	AC 5 	-4 Dex 	30% DR	+5 casting time
+	 plate mail: 	AC 4 	-5 Dex 	36% DR	+5 casting time
+	 full plate*:   AC 3 	-4 Dex	42% DR	+6 casting time<br />
     Enchantment:
 	 +1:	 	-1 AC	+1 Dex	+1% DR
 	 +2: 		-2 AC 	+2 Dex	+2% DR
@@ -103,6 +103,7 @@
       <li> All named weapons that were formerly from +1 to +4, become +3 weapons for purposes of what they can hit - though their bonuses and magical abilities remain unchanged.</li>
       <li> All upgraded weapons and originally +5/+6 weapons become +5 for purposes of what they can hit.</li>
     </ul>
+    <p>New in version 5.14 is an optional "hardcore" version of this component, borrowed from the "Low Magic World" mod.  In this version all generic enchanted weapons, instead of being standardized as +2, are turned into "mastercraft" weapons (i.e. equivalent to +1).</p>
     <p>(This component does not work on IWDEE - too many items are defined and recognized by the "plus" in their names and descriptions.</p>
     <p><b>Compatibility:</b> this component covers the same ground as the SCS component "Make +1 Weapons Into Fine Weapons." This component also has other effects, of course. You should not install that component of SCS if you want to use this component.</p>
   </div>
@@ -281,12 +282,12 @@
  </tr>
  <tr>
   <td><b>14:</b></td>
-  <td>.</td>
+  <td>-</td>
   <td>+1</td>
  </tr>
  <tr>
   <td><b>15:</b></td>
-  <td>.</td>
+  <td>-</td>
   <td>+2</td>
  </tr>
  <tr>
@@ -355,20 +356,20 @@
  <tr>
   <td><b>13:</b></td>
   <td>-1</td>
-  <td>.</td>
-  <td>.</td>
+  <td>-</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>14:</b></td>
   <td>-1</td>
   <td>+1</td>
-  <td>.</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>15:</b></td>
   <td>-2</td>
   <td>+1</td>
-  <td>.</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>16:</b></td>
@@ -435,168 +436,45 @@
 <table style= "width: 60%">
  <tr>
   <th>INTELLIGENCE</th>
-  <th>Bonus Spell Slot </th>
-  <th>Save vs. Spells </th>
+  <th>Mage: Bonus Spells</th>
+  <th>Saves vs. Spells</th>
   <th>Extra Proficiencies* </th>
  </tr>
  <tr>
   <td><b>5:</b></td>
-  <td>.</td>
-  <td>-5</td>
-  <td>.</td>
- </tr>
- <tr>
-  <td><b>6:</b></td>
-  <td>.</td>
+  <td>-</td>
   <td>-4</td>
-  <td>.</td>
- </tr>
- <tr>
-  <td><b>7:</b></td>
-  <td>.</td>
-  <td>-3</td>
-  <td>.</td>
- </tr>
- <tr>
-  <td><b>8:</b></td>
-  <td>.</td>
-  <td>-2</td>
-  <td>.</td>
- </tr>
- <tr>
-  <td><b>9:</b></td>
-  <td>.</td>
-  <td>-1</td>
-  <td>.</td>
- </tr>
- <tr>
-  <td><b>10-12:</b></td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
- </tr>
- <tr>
-  <td><b>13:</b></td>
-  <td>1st level</td>
-  <td>.</td>
-  <td>+1, +1 per 9 levels</td>
- </tr>
- <tr>
-  <td><b>14:</b></td>
-  <td>2nd level</td>
-  <td>.</td>
-  <td>+1, +1 per 9 levels</td>
- </tr>
- <tr>
-  <td><b>15:</b></td>
-  <td>3rd level</td>
-  <td>.</td>
-  <td>+2, +1 per 7 levels</td>
- </tr>
- <tr>
-  <td><b>16:</b></td>
-  <td>4th level</td>
-  <td>+1</td>
-  <td>+2, +1 per 7 levels</td>
- </tr>
- <tr>
-  <td><b>17:</b></td>
-  <td>5th level</td>
-  <td>+1</td>
-  <td>+3, +1 per 5 levels</td>
- </tr>
- <tr>
-  <td><b>18:</b></td>
-  <td>6th level</td>
-  <td>+2</td>
-  <td>+3, +1 per 5 levels</td>
- </tr>
- <tr>
-  <td><b>19:</b></td>
-  <td>7th level</td>
-  <td>+2</td>
-  <td>+3, +1 per 5 levels</td>
- </tr>
- <tr>
-  <td><b>20:</b></td>
-  <td>8th level</td>
-  <td>+3</td>
-  <td>+3, +1 per 5 levels</td>
- </tr>
- <tr>
-  <td><b>21:</b></td>
-  <td>9th level</td>
-  <td>+3</td>
-  <td>+3, +1 per 5 levels</td>
- </tr>
- <tr>
-  <td><b>22:</b></td>
-  <td>.</td>
-  <td>+4</td>
-  <td>+3, +1 per 5 levels</td>
- </tr>
- <tr>
-  <td><b>23:</b></td>
-  <td>.</td>
-  <td>+4</td>
-  <td>+3, +1 per 5 levels</td>
- </tr>
- <tr>
-  <td><b>24:</b></td>
-  <td>.</td>
-  <td>+5</td>
-  <td>+3, +1 per 5 levels</td>
- </tr>
- <tr>
-  <td><b>25:</b></td>
-  <td>.</td>
-  <td>+5</td>
-  <td>+3, +1 per 5 levels</td>
- </tr>
-</table>
-* <i>(Warriors only. Bards get the INT 13 bonus proficiencies if their INT is 15+, and get the INT 17 bonus proficiencies if their INT is 17+.  <b>NOTE:</b> these extra proficiencies can be turned off by editing a variable in /Scales_of_Balance/ini/stats.ini.)</i><br />
-<table style= "width: 50%">
- <tr>
-  <th>WISDOM </th>
-  <th>Bonus Spells</th>
-  <th>XP Modifier</th>
-  <th>Save vs. Polymorph</th>
- </tr>
- <tr>
-  <td><b>5:</b></td>
-  <td>.</td>
-  <td>-20%</td>
-  <td>-3</td>
  </tr>
  <tr>
   <td><b>6:</b></td>
-  <td>.</td>
-  <td>-15%</td>
-  <td>-2</td>
+  <td>-</td>
+  <td>-3</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>7:</b></td>
-  <td>.</td>
-  <td>-10%</td>
+  <td>-</td>
   <td>-2</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>8:</b></td>
-  <td>.</td>
-  <td>-6%</td>
-  <td>-1</td>
+  <td>-</td>
+  <td>-2</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>9:</b></td>
-  <td>.</td>
-  <td>-4%</td>
+  <td>-</td>
   <td>-1</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>10:</b></td>
-  <td>.</td>
-  <td>-2%</td>
-  <td>.</td>
+  <td>-</td>
+  <td>-1</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>11-12:</b></td>
@@ -607,142 +485,289 @@
  <tr>
   <td><b>13:</b></td>
   <td>1st level</td>
-  <td>+2%</td>
-  <td>.</td>
+  <td>-</td>
+  <td>+1, +1 per 9 levels</td>
+ </tr>
+ <tr>
+  <td><b>14:</b></td>
+  <td>1st level</td>
+  <td>-</td>
+  <td>+1, +1 per 9 levels</td>
+ </tr>
+ <tr>
+  <td><b>15:</b></td>
+  <td>2nd level</td>
+  <td>+1</td>
+  <td>+2, +1 per 7 levels</td>
+ </tr>
+ <tr>
+  <td><b>16:</b></td>
+  <td>2nd level</td>
+  <td>+1</td>
+  <td>+2, +1 per 7 levels</td>
+ </tr>
+ <tr>
+  <td><b>17:</b></td>
+  <td>3rd level</td>
+  <td>+2</td>
+  <td>+3, +1 per 5 levels</td>
+ </tr>
+ <tr>
+  <td><b>18:</b></td>
+  <td>4th level</td>
+  <td>+2</td>
+  <td>+3, +1 per 5 levels</td>
+ </tr>
+ <tr>
+  <td><b>19:</b></td>
+  <td>3rd level</td>
+  <td>+3</td>
+  <td>+3, +1 per 5 levels</td>
+ </tr>
+ <tr>
+  <td><b>20:</b></td>
+  <td>5th level</td>
+  <td>+3</td>
+  <td>+3, +1 per 5 levels</td>
+ </tr>
+ <tr>
+  <td><b>21:</b></td>
+  <td>4th level</td>
+  <td>+4</td>
+  <td>+3, +1 per 5 levels</td>
+ </tr>
+ <tr>
+  <td><b>22:</b></td>
+  <td>6th level</td>
+  <td>+4</td>
+  <td>+3, +1 per 5 levels</td>
+ </tr>
+ <tr>
+  <td><b>23:</b></td>
+  <td>5th level</td>
+  <td>+5</td>
+  <td>+3, +1 per 5 levels</td>
+ </tr>
+ <tr>
+  <td><b>24:</b></td>
+  <td>7th level</td>
+  <td>+5</td>
+  <td>+3, +1 per 5 levels</td>
+ </tr>
+ <tr>
+  <td><b>25:</b></td>
+  <td>6th level</td>
+  <td>+6</td>
+  <td>+3, +1 per 5 levels</td>
+ </tr>
+</table>
+* <i>(Warriors only. Bards get the INT 13 bonus proficiencies if their INT is 15+, and get the INT 15 bonus proficiencies if their INT is 17+.  <b>NOTE:</b> these extra proficiencies can be turned off by editing a variable in /Scales_of_Balance/ini/stats.ini.)</i><br />
+<table style= "width: 50%">
+ <tr>
+  <th>WISDOM </th>
+  <th>Bonus Spells</th>
+  <th>Saves vs. Death</th>
+  <th>Saves vs. Polymorph</th>
+ </tr>
+ <tr>
+  <td><b>5:</b></td>
+  <td>-</td>
+  <td>-3</td>
+  <td>-3</td>
+ </tr>
+ <tr>
+  <td><b>6:</b></td>
+  <td>-</td>
+  <td>-3</td>
+  <td>-2</td>
+ </tr>
+ <tr>
+  <td><b>7:</b></td>
+  <td>-</td>
+  <td>-2</td>
+  <td>-2</td>
+ </tr>
+ <tr>
+  <td><b>8:</b></td>
+  <td>-</td>
+  <td>-2</td>
+  <td>-1</td>
+ </tr>
+ <tr>
+  <td><b>9:</b></td>
+  <td>-</td>
+  <td>-1</td>
+  <td>-1</td>
+ </tr>
+ <tr>
+  <td><b>10:</b></td>
+  <td>-</td>
+  <td>-1</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>11-14:</b></td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>13:</b></td>
+  <td>1st level</td>
+  <td>-</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>14:</b></td>
   <td>2nd level</td>
-  <td>+4%</td>
-  <td>.</td>
+  <td>-</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>15:</b></td>
   <td>1st level</td>
-  <td>+6%</td>
-  <td>.</td>
+  <td>-</td>
+  <td>+1</td>
  </tr>
  <tr>
   <td><b>16:</b></td>
   <td>3rd level</td>
-  <td>+8%</td>
+  <td>+1</td>
   <td>+1</td>
  </tr>
  <tr>
   <td><b>17:</b></td>
   <td>2nd level</td>
-  <td>+10%</td>
   <td>+1</td>
+  <td>+2</td>
  </tr>
  <tr>
   <td><b>18:</b></td>
   <td>4th level</td>
-  <td>+12%</td>
+  <td>+2</td>
   <td>+2</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
   <td>3rd level</td>
-  <td>+14%</td>
   <td>+2</td>
+  <td>+3</td>
  </tr>
  <tr>
   <td><b>20:</b></td>
   <td>5th level</td>
-  <td>+15%</td>
+  <td>+3</td>
   <td>+3</td>
  </tr>
  <tr>
   <td><b>21:</b></td>
   <td>4th level</td>
-  <td>+16%</td>
   <td>+3</td>
+  <td>+4</td>
  </tr>
  <tr>
   <td><b>22:</b></td>
   <td>6th level</td>
-  <td>+17%</td>
+  <td>+4</td>
   <td>+4</td>
  </tr>
  <tr>
   <td><b>23:</b></td>
   <td>5th level</td>
-  <td>+18%</td>
   <td>+4</td>
+  <td>+5</td>
  </tr>
  <tr>
   <td><b>24:</b></td>
   <td>7th level</td>
-  <td>+19%</td>
+  <td>+5</td>
   <td>+5</td>
  </tr>
  <tr>
   <td><b>25:</b></td>
   <td>6th level</td>
-  <td>+20%</td>
   <td>+5</td>
+  <td>+6</td>
  </tr>
 </table>
 
 <table style= "width: 65%">
  <tr>
   <th>CHARISMA</th>
-  <th>save vs. Breath</th>
-  <th>Save vs. Wands</th>
-  <th>Save vs. Death</th>
-  <th>Save vs. Polymorph</th>
-  <th>Save vs. Spells</th>
+  <th>Bard: Bonus Spells</th>
+  <th>Sorcerer: Bonus Spells</th>
+  <th>Saves vs. Breath</th>
+  <th>Saves vs. Wands</th>
   <th>Luck Bonus </th>
+  <th>XP Bonus </th>
  </tr>
  <tr>
   <td><b>5:</b></td>
+  <td>-</td>
+  <td>-</td>
   <td>-3</td>
   <td>-3</td>
-  <td>-3</td>
-  <td>.</td>
-  <td>.</td>
-  <td>-3</td>
+  <td>-2</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>6:</b></td>
+  <td>-</td>
+  <td>-</td>
   <td>-2</td>
   <td>-2</td>
-  <td>-2</td>
-  <td>.</td>
-  <td>.</td>
-  <td>-2</td>
+  <td>-1</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>7:</b></td>
+  <td>-</td>
+  <td>-</td>
   <td>-2</td>
-  <td>-2</td>
-  <td>-2</td>
-  <td>.</td>
-  <td>.</td>
   <td>-1</td>
+  <td>-1</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>8:</b></td>
+  <td>-</td>
+  <td>-</td>
+  <td>-2</td>
   <td>-1</td>
-  <td>-1</td>
-  <td>-1</td>
-  <td>.</td>
-  <td>.</td>
-  <td>-1</td>
+  <td>-</td>
+  <td>-</td>
  </tr>
  <tr>
   <td><b>9:</b></td>
+  <td>-</td>
+  <td>-</td>
   <td>-1</td>
   <td>-1</td>
-  <td>-1</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
+  <td>-</td>
+  <td>-</td>
  </tr>
  <tr>
-  <td><b>10-13:</b></td>
+  <td><b>10:</b></td>
   <td>-</td>
   <td>-</td>
+  <td>-1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>11-12:</b></td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>13:</b></td>
+  <td>1st level</td>
+  <td>1st level</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -750,111 +775,111 @@
  </tr>
  <tr>
   <td><b>14:</b></td>
-  <td>+1</td>
-  <td>+1</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
+  <td>1st level</td>
+  <td>1st level</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>+2%</td>
  </tr>
  <tr>
   <td><b>15:</b></td>
+  <td>2nd level</td>
+  <td>2nd level</td>
   <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
-  <td>.</td>
-  <td>.</td>
-  <td>.</td>
+  <td>-</td>
+  <td>-</td>
+  <td>+4%</td>
  </tr>
  <tr>
   <td><b>16:</b></td>
+  <td>2nd level</td>
+  <td>-</td>
   <td>+1</td>
   <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
-  <td>.</td>
-  <td>.</td>
+  <td>-</td>
+  <td>+6%</td>
  </tr>
  <tr>
   <td><b>17:</b></td>
+  <td>3rd level</td>
+  <td>2nd level</td>
+  <td>+2</td>
   <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
-  <td>.</td>
+  <td>-</td>
+  <td>+8%</td>
  </tr>
  <tr>
   <td><b>18:</b></td>
+  <td>4th level</td>
+  <td>3rd level</td>
+  <td>+2</td>
+  <td>+2</td>
   <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
+  <td>+10%</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
+  <td>3rd level</td>
+  <td>-</td>
+  <td>+3</td>
   <td>+2</td>
-  <td>+2</td>
   <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
+  <td>+12%</td>
  </tr>
  <tr>
   <td><b>20:</b></td>
-  <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
+  <td>5th level</td>
+  <td>3rd level</td>
+  <td>+3</td>
+  <td>+3</td>
   <td>+1</td>
-  <td>+1</td>
-  <td>+1</td>
+  <td>+14%</td>
  </tr>
  <tr>
   <td><b>21:</b></td>
-  <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
+  <td>4th level</td>
+  <td>4th level</td>
+  <td>+4</td>
+  <td>+3</td>
   <td>+1</td>
-  <td>+1</td>
+  <td>+16%</td>
  </tr>
  <tr>
   <td><b>22:</b></td>
-  <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
+  <td>6th level</td>
+  <td>-</td>
+  <td>+4</td>
+  <td>+4</td>
   <td>+1</td>
+  <td>+17%</td>
  </tr>
  <tr>
   <td><b>23:</b></td>
+  <td>5th level</td>
+  <td>4th level</td>
+  <td>+4</td>
+  <td>+4</td>
   <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
+  <td>+18%</td>
  </tr>
  <tr>
   <td><b>24:</b></td>
-  <td>+3</td>
-  <td>+3</td>
-  <td>+3</td>
+  <td>-</td>
+  <td>5th level</td>
+  <td>+5</td>
+  <td>+4</td>
   <td>+2</td>
-  <td>+2</td>
-  <td>+2</td>
+  <td>+19%</td>
  </tr>
  <tr>
   <td><b>25:</b></td>
-  <td>+3</td>
-  <td>+3</td>
-  <td>+3</td>
-  <td>+3</td>
-  <td>+3</td>
+  <td>6th level</td>
+  <td>-</td>
+  <td>+5</td>
+  <td>+5</td>
   <td>+2</td>
+  <td>+20%</td>
  </tr>
 </table>
     </div>
@@ -888,7 +913,8 @@
       	<li>Rogues and priests get 3/level from 9 to 15, 2/level from 16 to 25, and 1 per level after that. </li>
       	<li>Wizards get 2/level from 9 to 15, and 1/level after that. </li>
       </ul>
-      <p>Finally, I have added an alternate hardcore version of this component, which eliminates 1 hp from each class (so wizards are 1d3, rogues/priests are 2d3, and warriors are 3d3). The regular component should give hit points somewhere between the vanilla game's mean and max values; the hardcore variant should result in hit points closer to vanilla's mean. </p>
+      <p>Additionally, there is an alternate hardcore version of this component, which eliminates 1 hp from each class (so wizards are 1d3, rogues/priests are 2d3, and warriors are 3d3). The regular component should give hit points somewhere between the vanilla game's mean and max values; the hardcore variant should result in hit points closer to vanilla's mean. </p>
+      <p>Finally, there is a new alternate "reduced" version of this component.  This is for players who want consistency without messing up the game's spells and encounters.  This option reduces wizard hit dice to 1d3, rogues to 1d4, priests to 1d5, warriors to 1d6, and barbarians to 1d7.  It also gives +1 hit point per level for every even point of CON starting at 12 for warriors, and at 14 for non-warriors.  Like the other two components, it double the hit die at 1st level and hit dice only go until 8th level - after that you only get 2-3 hp/level, slowly tapering to just 1 hp/level at level 25.</p>
   </div>
   <h4 class="subheader">Component 210: </h4>
   <div class="section">

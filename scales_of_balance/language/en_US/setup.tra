@@ -666,13 +666,7 @@ QUIVERING PALM: The next successful attack forces the opponent to save vs. Spell
 ~
 @2001   = ~STRENGTH: Strength measures a character's muscle, endurance, and stamina. High Strength scores result in bonuses to damage rolls, to-hit rolls, and a character's maximum encumbrance. It is the prime requisite of Fighters.
 
-Melee bonuses/penalties:
-5: -2 thac0, -3 damage, -3 save vs. polymorph
-6: -1 thac0, -2 damage, -2 save vs. polymorph
-7: -1 damage, -2 save vs. polymorph
-8: -1 save vs. polymorph
-9: -1 save vs. polymorph
-...
+Melee bonuses:
 14: +1 damage
 15: +2 damage
 16: +1 thac0, +2 damage
@@ -688,13 +682,7 @@ Melee bonuses/penalties:
 25: +4 thac0, +9 damage~
 @2002   = ~DEXTERITY: Dexterity measures a character's hand-eye coordination, agility, reflexes, and balance. A high Dexterity score improves a character's armor class, and to-hit rolls with ranged weapons. It is the prime requisite of the Thief.
 
-Bonuses/penalties:
-5:  +3 to AC, -3 ranged thac0, -3 save vs. breath weapon
-6:  +2 to AC, -2 ranged thac0, -2 save vs. breath weapon
-7:  +1 to AC, -1 ranged thac0, -2 save vs. breath weapon
-8:  -1 ranged thac0, -1 save vs. breath weapon
-9:  -1 save vs. breath weapon
-...
+Bonuses:
 13: -1 to AC
 14: -1 to AC, +1 ranged thac0
 15: -2 to AC, +1 ranged thac0
@@ -722,57 +710,57 @@ Bonuses:
 
 Note: A character with an Intelligence score of 8 or less is illiterate and cannot use scrolls or most wands.
 
-General bonuses/penalties:
-5:  -5 save vs. spells
-6:  -4 save vs. spells
-7:  -3 save vs. spells
+General adjustments:
+5:  -4 save vs. spells
+6:  -3 save vs. spells
+7:  -2 save vs. spells
 8:  -2 save vs. spells
 9:  -1 save vs. spells
+10:  -1 save vs. spells
 ...
-17: +1 save vs. spells
-18: +1 save vs. spells
-19: +2 save vs. spells
-20: +2 save vs. spells
-21: +3 save vs. spells
-22: +3 save vs. spells
-23: +4 save vs. spells
-24: +4 save vs. spells
-25: +5 save vs. spells
+15: +1 to save vs. spells
+17: +2 to save vs. spells
+19: +3 to save vs. spells
+21: +4 to save vs. spells
+23: +5 to save vs. spells
+25: +6 to save vs. spells
 
-Bonuses for mages and bards:
+Bonuses for mages:
 13: +1 1st-level spell slot
-14: +1 2nd-level spell slot
-15: +1 3rd-level spell slot
-16: +1 4th-level spell slot
-17: +1 5th-level spell slot
-18: +1 6th-level spell slot
-19: +1 7th-level spell slot
-20: +1 8th-level spell slot
-21: +1 9th-level spell slot
+14: +2 1st-level spell slots
+15: +1 2nd-level spell slot
+16: +2 2nd-level spell slots
+17: +1 3rd-level spell slot
+18: +1 4th-level spell slot
+19: +2 3rd-level spell slots
+20: +1 5th-level spell slot
+21: +2 4th-level spell slots
+22: +1 6th-level spell slot
+23: +2 5th-level spell slots
+24: +1 7th-level spell slot
+25: +2 6th-level spell slots
 ~
 @2005   = ~WISDOM: Wisdom measures a character's enlightenment, judgment, and common sense. It is the prime requisite of priests, who gain extra spells from high Wisdom scores.
 
-General bonuses/penalties:
-5:  -20% XP progression, -3 save vs. polymorph
-6:  -15% XP progression, -2 save vs. polymorph
-7:  -10% XP progression, -2 save vs. polymorph
-8:  -6% XP progression, -1 save vs. polymorph
-9:  -4% XP progression, -1 save vs. polymorph
-10: -2% XP progression
+General adjustments:
+5:  -3 save vs. polymorph
+6:  -3 to save vs. death
+7:  -2 save vs. polymorph
+8:  -2 to save vs. death
+9:  -1 save vs. polymorph
+10: -1 to save vs. death
 ...
-13: +2% XP progression
-14: +4% XP progression
-15: +6% XP progression
-16: +8% XP progression
-17: +10% XP progression, +1 save vs. polymorph
-18: +12% XP progression, +1 save vs. polymorph
-19: +14% XP progression, +2 save vs. polymorph
-20: +15% XP progression, +2 save vs. polymorph
-21: +16% XP progression, +3 save vs. polymorph
-22: +17% XP progression, +3 save vs. polymorph
-23: +18% XP progression, +4 save vs. polymorph
-24: +19% XP progression, +4 save vs. polymorph
-25: +20% XP progression, +5 save vs. polymorph
+15: +1 to save vs. polymorph
+16: +1 to save vs. death
+17: +2 to save vs. polymorph
+18: +2 to save vs. death
+19: +3 to save vs. polymorph
+20: +3 to save vs. death
+21: +4 to save vs. polymorph
+22: +4 to save vs. death
+23: +5 to save vs. polymorph
+24: +5 to save vs. death
+25: +6 to save vs. polymorph
 
 Bonuses for clerics and druids:
 13: +1 1st-level spell
@@ -792,23 +780,50 @@ Bonuses for clerics and druids:
 @2006   = ~CHARISMA: Charisma measures a character's personal magnetism and strength of spirit. It reflects what some cultures call 'karma,' or 'soul.' High Charisma helps with saving throws and luck. This ability is important to the Druid, Bard, and Paladin.
 
 Bonuses: 
-5:  -3 Luck, -3 save vs. breath/death/wands
-6:  -2 Luck, -2 save vs. breath/death/wands
-7:  -1 Luck, -2 save vs. breath/death/wands
-8:  -1 Luck, -1 save vs. breath/death/wands
-9:  -1 save vs. breath/death/wands
-14: +1 to saves vs. breath/wands
-15: +1 to saves vs. breath/wands/death
-16: +1 to saves vs. breath/wands/death/polymorph
-17: +1 to all saving throws
-18: +1 Luck, +1 to all saving throws
-19: +1 Luck, +2 saves vs. breath/wands, +1 vs. death/polymorph/spells
-20: +1 Luck, +2 saves vs. breath/wands/death, +1 vs. polymorph/spells
-21: +1 Luck, +2 saves vs. breath/wands/death/polymorph, +1 vs. spells
-22: +1 Luck, +2 to all saving throws
-23: +2 Luck, +2 to all saving throws
-24: +2 Luck, +3 saves vs. breath/wands/death, +2 vs. polymorph/spells
-25: +2 Luck, +3 to all saving throws
+5:  -2 Luck, -3 to save vs. breath
+6:  -2 to save vs. wands
+7:  -1 Luck
+8:  -2 to save vs. breath
+9:  -1 to save vs. wands
+10: -1 to save vs. breath
+...
+14: +2% XP progression
+15: +4% XP, +1 to save vs. breath
+16: +6% XP, +1 to save vs. wands
+17: +8% XP, +2 to save vs. breath
+18: +10% XP, +2 to save vs. wands, +1 Luck
+19: +12% XP, +3 to save vs. breath
+20: +14% XP, +3 to save vs. wands
+21: +16% XP, +4 to save vs. breath
+22: +17% XP, +4 to save vs. wands
+23: +18% XP, +2 Luck
+24: +19% XP, +5 to save vs. breath
+25: +20% XP, +5 to save vs. wands
+
+Bonuses for bards:
+13: +1 1st-level spell slot
+14: +2 1st-level spell slots
+15: +1 2nd-level spell slot
+16: +2 2nd-level spell slots
+17: +1 3rd-level spell slot
+18: +1 4th-level spell slot
+19: +2 3rd-level spell slots
+20: +1 5th-level spell slot
+21: +2 4th-level spell slots
+22: +1 6th-level spell slot
+23: +2 5th-level spell slots
+25: +2 6th-level spell slots
+
+Bonuses for sorcerers:
+13: +1 1st-level spell slot
+14: +2 1st-level spell slots
+15: +1 2nd-level spell slot
+17: +2 2nd-level spell slots
+18: +1 3rd-level spell slot
+20: +2 3rd-level spell slots
+21: +1 4th-level spell slot
+23: +2 4th-level spell slots
+24: +1 5th-level spell slot
 ~
 @2007   = ~CONSTITUTION: Constitution measures a character's fitness, health, and physical resistance to hardship, injury, and disease. This ability is important to the Ranger.
 
@@ -828,13 +843,7 @@ Bonuses:
 ~
 @2008   = ~DEXTERITY: Dexterity measures a character's hand-eye coordination, agility, reflexes, and balance. A high Dexterity score improves a character's armor class, and to-hit rolls with ranged weapons. It is the prime requisite of the Thief.
 
-Bonuses/penalties:
-5:  +3 to AC, -3 ranged thac0, -3 save vs. breath weapon
-6:  +2 to AC, -2 ranged thac0, -2 save vs. breath weapon
-7:  +1 to AC, -1 ranged thac0, -2 save vs. breath weapon
-8:  -1 ranged thac0, -1 save vs. breath weapon
-9:  -1 save vs. breath weapon
-...
+Bonuses:
 13: -1 to AC
 14: -1 to AC, +1 ranged thac0
 15: -2 to AC, +1 ranged thac0

@@ -86,44 +86,51 @@ DEFINE_ACTION_FUNCTION d5_resolve_state INT_VAR index=0 delete=0 STR_VAR new_sta
   END
 END
 
-LAF d5_resolve_state STR_VAR new_state_id = ~NEW_PROFICIENCIES~ RET new_state_ind END
-
+LAF d5_resolve_state STR_VAR new_state_id = ~D5_NEW_PROFS~ RET new_state_ind END
 OUTER_SET new_profs_state = %new_state_ind%
+APPEND ~splprot.2da~ ~D5_NEW_PROFS%TAB%0x112%TAB%%new_profs_state%%TAB%1~
 
-APPEND ~splprot.2da~ ~D5_PROFS_STATE%TAB%0x112%TAB%%new_profs_state%%TAB%1~ UNLESS ~D5_PROFS_STATE~
+/*
+LAF d5_resolve_state STR_VAR new_state_id = ~D5_NO_NEW_PROFS~ RET new_state_ind END
+OUTER_SET no_new_profs_state = %new_state_ind%
+APPEND ~splprot.2da~ ~D5_NO_NEW_PROFS%TAB%0x112%TAB%%no_new_profs_state%%TAB%1~
+*/
 
 COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols 
 	READ_2DA_ENTRIES_NOW rows cols 
 	FOR (row = 1; row < rows; ++row) BEGIN 
 	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ 
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_PROFS_STATE~ BEGIN
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_NEW_PROFS~ BEGIN
 	    SET profs_state = %row%
 	  END
+//	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_NO_NEW_PROFS~ BEGIN
+//	    SET no_profs_state = %row%
+//	  END
 	END
 BUT_ONLY
 //__________________________________________________________________________________
 
 ACTION_DEFINE_ASSOCIATIVE_ARRAY d5_kits_profs BEGIN
- MAGE , class , MAGE							=> 	3
- FIGHTER , class , FIGHTER 						=> 	4
- CLERIC , class , CLERIC 						=> 	5
- THIEF , class , THIEF 							=> 	6
- BARD , class , BARD 							=> 	7
- PALADIN , class , PALADIN 						=> 	8
- DRUID , class , DRUID 							=> 	9
- RANGER , class , RANGER 						=> 	10
- FIGHTER_MAGE , class , FIGHTER_MAGE 			=> 	11
- FIGHTER_CLERIC , class , FIGHTER_CLERIC	 	=> 	12
- FIGHTER_THIEF , class , FIGHTER_THIEF 			=> 	13
+ MAGE , class , MAGE					=> 	3
+ FIGHTER , class , FIGHTER 				=> 	4
+ CLERIC , class , CLERIC 				=> 	5
+ THIEF , class , THIEF 					=> 	6
+ BARD , class , BARD 					=> 	7
+ PALADIN , class , PALADIN 				=> 	8
+ DRUID , class , DRUID 					=> 	9
+ RANGER , class , RANGER 				=> 	10
+ FIGHTER_MAGE , class , FIGHTER_MAGE 		=> 	11
+ FIGHTER_CLERIC , class , FIGHTER_CLERIC 	=> 	12
+ FIGHTER_THIEF , class , FIGHTER_THIEF 		=> 	13
  FIGHTER_MAGE_THIEF , class , FIGHTER_MAGE_THIEF 	=> 	14
- MAGE_THIEF , class , MAGE_THIEF 				=> 	15
- CLERIC_MAGE , class , CLERIC_MAGE 				=> 	16
- CLERIC_THIEF , class , CLERIC_THIEF 			=> 	17
- FIGHTER_DRUID , class , FIGHTER_DRUID 			=> 	18
+ MAGE_THIEF , class , MAGE_THIEF 			=> 	15
+ CLERIC_MAGE , class , CLERIC_MAGE 			=> 	16
+ CLERIC_THIEF , class , CLERIC_THIEF 		=> 	17
+ FIGHTER_DRUID , class , FIGHTER_DRUID 		=> 	18
  FIGHTER_MAGE_CLERIC , class , FIGHTER_MAGE_CLERIC => 	19
- CLERIC_RANGER , class , CLERIC_RANGER 			=> 	20
- MONK , class , MONK 							=> 	50
+ CLERIC_RANGER , class , CLERIC_RANGER 		=> 	20
+ MONK , class , MONK 					=> 	50
 END
 
 ACTION_IF (FILE_EXISTS_IN_GAME ~clabshgs.2da~) OR (FILE_EXISTS_IN_GAME ~clabsh01.2da~) BEGIN
@@ -1020,295 +1027,199 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d51stwf.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter2 = 114 END
 
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52bswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52lswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 90 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52sswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 91 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52baxe.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 92 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d522swo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 93 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52kata.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 94 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52scim.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 95 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52dagg.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 96 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52hamm.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 97 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52spea.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 98 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52halb.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 99 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52flai.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 100 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52mace.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 101 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52club.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 115 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52staf.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 102 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52xbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 103 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52lbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 104 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52sbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 105 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52dart.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 106 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52slin.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 107 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52s2hw.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 111 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52ssns.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 112 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52ssws.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 113 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d52stwf.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 2 parameter2 = 114 END
 
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53bswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53lswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 90 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53sswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 91 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53baxe.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 92 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d532swo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 93 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53kata.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 94 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53scim.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 95 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53dagg.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 96 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53hamm.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 97 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53spea.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 98 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53halb.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 99 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53flai.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 100 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53mace.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 101 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53club.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 115 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53staf.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 102 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53xbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 103 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53lbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 104 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53sbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 105 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53dart.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 106 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53slin.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 107 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53s2hw.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 111 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53ssns.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 112 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53ssws.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 113 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d53stwf.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 3 parameter2 = 114 END
 
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54bswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54lswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 90 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54sswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 91 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54baxe.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 92 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d542swo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 93 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54kata.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 94 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54scim.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 95 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54dagg.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 96 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54hamm.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 97 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54spea.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 98 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54halb.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 99 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54flai.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 100 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54mace.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 101 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54club.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 115 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54staf.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 102 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54xbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 103 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54lbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 104 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54sbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 105 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54dart.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 106 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54slin.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 107 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54s2hw.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 111 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54ssns.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 112 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54ssws.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 113 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d54stwf.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 4 parameter2 = 114 END
 
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55bswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55lswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 90 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55sswo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 91 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55baxe.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 92 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d552swo.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 93 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55kata.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 94 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55scim.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 95 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55dagg.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 96 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55hamm.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 97 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55spea.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 98 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55halb.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 99 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55flai.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 100 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55mace.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 101 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55club.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 115 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55staf.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 102 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55xbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 103 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55lbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 104 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55sbow.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 105 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55dart.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 106 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55slin.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 107 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55s2hw.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 111 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55ssns.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 112 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55ssws.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 113 END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55stwf.spl~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 337 parameter2 = 328 parameter1 = 118 target = 1 timing = 1 END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 114 END
 
 COMPILE ~%MOD_FOLDER%/lib/d5profx.baf~

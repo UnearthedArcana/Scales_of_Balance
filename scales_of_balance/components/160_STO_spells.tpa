@@ -245,6 +245,8 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 
 //CHANGE WANDS_______________________________________________________________________
 //
+ACTION_IF !(MOD_IS_INSTALLED "item_rev.tp2" "0") BEGIN
+
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
 	READ_SHORT 0x1c type
@@ -467,6 +469,6 @@ ACTION_PHP_EACH d5_petrify_wands AS wand => save BEGIN
   END
 END
 
-
+END // end IR conditional
 //___________________________________________________________________________________
 

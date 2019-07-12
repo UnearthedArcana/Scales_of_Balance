@@ -14,6 +14,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY d5_spell_saves BEGIN
 
 SPPR102 => 1  //Command
 SPPR105 => 2  //Entangle
+SPPR116 => 2  //Faerie Fire
 
 SPPR204 => 1  //Charm Person/Mammal
 SPPR208 => 5  //Hold Person
@@ -74,7 +75,7 @@ SPWI215 => 2  // Web
 SPWI218 => 3  // Ghoul Touch 
 SPWI221 => 5  // Ray of Enfeeblement 
 SPWI223 => 1  // Deafness 
-SPWI224 => 1  // Glitterdust 
+SPWI224 => 2  // Glitterdust 
 SPWI226 => 1  // Blindness [iwd]
 
 SPWI303 => 2  // Flame Arrow 
@@ -140,6 +141,10 @@ SPWI818 => 5  // Bigby's Clenched Fist
 SPWI913 => 3  // Wail of the Banshee 
 //SPWI914 => 3  // Energy Drain 
 SPWI918 => 5  // Bigby's Crushing Hand 
+
+// mod spells requiring saving throws
+
+SPPR114 => 2  //Faerie Fire
 
 // game spells requiring saving throws
 
