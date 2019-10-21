@@ -29,16 +29,17 @@
 @39 = ~Ograniczenia:~
 @100 = ~IWO - Jeszcze jeden system usprawnien zbroi~
 @101 = ~IWO - Ulepszenia kosmetyczne~
-@1011  = ~Standardize Enchanted Equipment~
-@1012  = ~Replace Enchanted Equipment with Mastercraft~
+@1011 = ~Ujednolicenie Magicznych Przedmiotow~
+@1012 = ~Zastapienie Magicznych Przedmiotow Mistrzowskimi~
 @102 = ~IWO - Funkcjonalne ulepszenia broni~
-@103 = ~IWO - Wyodrebnienie broni ciezkiej/lekkiej~
+@103 = ~IWO – Odroznienie Lekkiej/Ciezkiej Broni (Przestarzale)~
 @104 = ~IWO - Ulepszenia przedmiotow IWD:EE~
 //
-@107    = ~IWO - Restrict Dual-Wielding~
-@1071   = ~Dual-Wield small weapons only~
-@1072   = ~Dual-Wield small/medium weapons~
-@109    = ~IWO - All Potions Usable by Any Class~
+@165  = ~STO – Poprawione Tabele Rzutow Obronych~
+@107  = ~IWO - Ogranicz Styl Dwoch Broni~
+@1071  = ~Styl dwoch broni tylko male bronie~
+@1072  = ~Styl dwoch bron male/srednie bronie~
+@109  = ~IWO - Wszystkie klasy moga uzywac kazdej mikstury~
 //
 @121 = ~WPO - Zwiniecie kategorii broni~
 @122 = ~WPO - Zmiana systemu bieglosci~
@@ -48,15 +49,15 @@
 @150 = ~WCO (rewizja klasy maga)~
 @160 = ~STO - Rewizja rzutow obronnych~
 //
-@170   = ~STO - IWD Spell Evasion~
-@171   = ~For IWD spells~
-@172   = ~For Expanded Spell List~
+@170 = ~STO - IWD Unik Zaklecia~
+@171 = ~Dla zaklec IWD~
+@172 = ~Dla Rozbudowanej Listy Zaklec~
 //
 @180 = ~MRO - Rewizja odpornosci na magie (zainstaluj po modyfikacji aTweaks!)~
 @200 = ~SBO - Rewizja premii do statystyk~
 @202 = ~SBO - Pelna Sila tylko dla broni oburecznych~
 //
-@204   = ~SBO - Enable Concentration Checks~
+@204 = ~SBO - Wlacz Rzut na Koncentracje~ 
 //
 @205 = ~SBO - Rewizja Kostek Wytrzymalosci~
 @206 = ~Hojne (ponadprzecietne) punkty zycia~
@@ -533,6 +534,11 @@ Obszar działania: 1 istota
 Rzut obronny: brak
 
 Czar ten chroni cel przed wszystkimi postaciami magii śmierci. Ochrona ta działa przez cały czas działania zaklęcia. Uwzględnić należy, ale nie tylko, takie czary jak: Słowo mocy: giń, Zaklęcie śmierci i Palec śmierci. Ponad to rzucający czar zyskuje premię +10 do rzutów obronnych przeciw śmierci.~
+@16001 = ~Czary / Zaczarowania~
+@16002 = ~Zionięcie / Unik~
+@16003 = ~Trucizna / Śmierć~
+@16004 = ~ Petryfikacja / Polimorfia: ~
+@16005 = ~ ~
 @1611 = ~ZABÓJCA MAGÓW: Ten wojownik przeszedł specjalne szkolenie w swojej sekcie, aby być jak najlepiej przygotowanym do ścigania i walki ze wszelkiego rodzaju magami.
 
 Zalety:
@@ -622,35 +628,36 @@ DRŻĄCA DŁOŃ: Zdolność ta zapewnia mnichowi jeden atak, który zabija przec
 @2001 = ~SIŁA: Opisuje siłę mięśni bohatera, jego wytrzymałość i wytrwałość. Wysoka siła wpływa na zadawane obrażenia, szansę na trafienie oraz maksymalny udźwig. Jest podstawową cechą wojowników.
 
 Premie do walki wręcz:
-13: +1 do obrażeń
 14: +1 do obrażeń
 15: +2 do obrażeń
 16: +1 TraK0, +2 do obrażeń
 17: +1 TraK0, +3 do obrażeń
-18: +2 TraK0, +3 do obrażeń
-18/01:  +2 TraK0, +4 do obrażeń
+18: +1 TraK0, +4 do obrażeń
+18/xx: +2 TraK0, +4 do obrażeń (tylko wojownicy)
 19: +2 TraK0, +5 do obrażeń
-20: +3 TraK0, +5 do obrażeń
-21: +4 TraK0, +6 do obrażeń
-22: +4 TraK0, +7 do obrażeń
-23: +5 TraK0, +8 do obrażeń
-24: +5 TraK0, +9 do obrażeń
-25: +6 TraK0, +10 do obrażeń~
-@2002 = ~ZRĘCZNOŚĆ: Opisuje zwinność, refleks, koordynację i umiejętność zachowania równowagi. Wysoka zręczność wpływa na klasę pancerza postaci oraz szansę na trafienie bronią dystansową. Jest podstawową cechą złodziei. 
+20: +2 TraK0, +6 do obrażeń
+21: +3 TraK0, +6 do obrażeń
+22: +3 TraK0, +7 do obrażeń
+23: +4 TraK0, +7 do obrażeń
+24: +4 TraK0, +8 do obrażeń
+25: +4 TraK0, +9 do obrażeń 
+~
+@2002 = ~ ZRĘCZNOŚĆ: Opisuje zwinność, refleks, koordynację i umiejętność zachowania równowagi. Wysoka zręczność wpływa na klasę pancerza postaci oraz szansę na trafienie bronią dystansową. Jest podstawową cechą złodziei.
 
 Premie:
-14: -1 do KP
-15: -1 do KP, +1 do TraK0 dla broni dystansowej
-16: -2 do KP, +1 do TraK0 dla broni dystansowej
-17: -2 do KP, +2 do TraK0 dla broni dystansowej
-18: -3 do KP, +2 do TraK0 dla broni dystansowej
-19: -4 do KP, +3 do TraK0 dla broni dystansowej
-20: -5 do KP, +3 do TraK0 dla broni dystansowej
-21: -5 do KP, +4 do TraK0 dla broni dystansowej
-22: -6 do KP, +4 do TraK0 dla broni dystansowej
-23: -6 do KP, +5 do TraK0 dla broni dystansowej
-24: -7 do KP, +5 do TraK0 dla broni dystansowej
-25: -7 do KP, +6 do TraK0 dla broni dystansowej
+13: -1 do KP
+14: -1 do KP, +1 do TraK0 dla broni dystansowej
+15: -2 do KP, +1 do TraK0 dla broni dystansowej
+16: -2 do KP, +2 do TraK0 dla broni dystansowej, +1 do TraK0 dla broni białej
+17: -3 do KP, +2 do TraK0 dla broni dystansowej, +1 do TraK0 dla broni białej
+18: -4 do KP, +3 do TraK0 dla broni dystansowej, +1 do TraK0 dla broni białej
+19: -5 do KP, +3 do TraK0 dla broni dystansowej, +2 do TraK0 dla broni białej
+20: -6 do KP, +3 do TraK0 dla broni dystansowej, +2 do TraK0 dla broni białej
+21: -6 do KP, +4 do TraK0 dla broni dystansowej, +2 do TraK0 dla broni białej
+22: -7 do KP, +4 do TraK0 dla broni dystansowej, +2 do TraK0 dla broni białej
+23: -7 do KP, +4 do TraK0 dla broni dystansowej, +3 do TraK0 dla broni białej
+24: -8 do KP, +4 do TraK0 dla broni dystansowej, +3 do TraK0 dla broni białej
+25: -8 do KP, +5 do TraK0 dla broni dystansowej, +3 do TraK0 dla broni białej
 ~
 @2003 = ~KONDYCJA: Opisuje ogólną budowę bohatera, jego stan zdrowia i fizyczną wytrzymałość na obrażenia, choroby i innego rodzaju trudy. Ta cecha jest ważna dla łowców.
 
@@ -662,48 +669,126 @@ Premie:
 19: +5 punktów życia na poziom (tylko wojownicy) i regeneracja
 
 ~
-@2004 = ~INTELIGENCJA: Opisuje zdolność zapamiętywania, rozumowania i uczenia się. Wysoka inteligencja zwiększa szansę dostrzeżenia luki w obronie przeciwnika i zadanie trafienia krytycznego, jak również daje dodatkowe zaklęcia wtajemniczeń. Jest cechą podstawową magów.
+@2004 = ~ INTELIGENCJA: Opisuje zdolność zapamiętywania, rozumowania i uczenia się. Wysoka inteligencja daje zwiększoną szansę na wykonaniu rzutów obronnych przeciwko zaklęciom zaczarowania i iluzji oraz potężniejszym czarom. Jest cechą podstawową magów.
 
 Uwaga: Postać z inteligencją niższą niż 9 jest analfabetą i nie potrafi korzystać ze zwojów oraz większości różdżek.
 
 Premie dla wszystkich:
-15: +1 do określenia trafienia krytycznego
-17: +2 do określenia trafienia krytycznego
-19: +3 do określenia trafienia krytycznego
+5: -4 do rzutów obronnych przeciw czarom
+6: -3 do rzutów obronnych przeciw czarom
+7: -2 do rzutów obronnych przeciw czarom
+8: -2 do rzutów obronnych przeciw czarom
+9: -1 do rzutów obronnych przeciw czarom
+10: -1 do rzutów obronnych przeciw czarom
+...
+15: +1 do rzutów obronnych przeciw czarom
+17: +2 do rzutów obronnych przeciw czarom
+19: +3 do rzutów obronnych przeciw czarom
+21: +4 do rzutów obronnych przeciw czarom
+23: +5 do rzutów obronnych przeciw czarom
+25: +6 do rzutów obronnych przeciw czarom
 
-Premie dla magów i bardów:
+Premie dla magów:
 13: +1 czar 1. poziomu
-14: +1 czar 2. poziomu
-15: +1 czar 3. poziomu
-16: +1 czar 4. poziomu
-17: +1 czar 5. poziomu
-18: +1 czar 6. poziomu
-19: +1 czar 7. poziomu
-20: +1 czar 8. poziomu
-21: +1 czar 9. poziomu~
-@2005 = ~MĄDROŚĆ: Opisuje intuicję, zdolność osądu, zdrowy rozsądek i siłę woli bohatera. Jest podstawową cechą kapłanów, którzy dzięki niej zyskują dodatkowe zaklęcia.
+14: +2 czary 1. poziomu
+15: +1 czar 2. poziomu
+16: +2 czary 2. poziomu
+17: +1 czar 3. poziomu
+18: +1 czar 4. poziomu
+19: +2 czary 3. poziomu
+20: +1 czar 5. poziomu
+21: +2 czary 4. poziomu
+22: +1 czar 6. poziomu
+23: +2 czary 5. poziomu
+24: +1 czar 7. poziomu
+25: +2 czary 6. poziomu
+~
+@2005 = ~ MĄDROŚĆ: Opisuje intuicję, zdolność osądu, zdrowy rozsądek i siłę woli bohatera. Jest podstawową cechą kapłanów, którzy dzięki niej zyskują dodatkowe zaklęcia.
+
+Premie dla wszystkich:
+
+5: -3 do rzutów obronnych przeciw polimorfii
+6: -3 do rzutów obronnych przeciw śmierci
+7: -2 do rzutów obronnych przeciw polimorfii
+8: -2 do rzutów obronnych przeciw śmierci
+9: -1 do rzutów obronnych przeciw polimorfii
+10: -1 do rzutów obronnych przeciw śmierci
+...
+15: +1 do rzutów obronnych przeciw polimorfii
+16: +1 do rzutów obronnych przeciw śmierci
+17: +2 do rzutów obronnych przeciw polimorfii
+18: +2 do rzutów obronnych przeciw śmierci
+19: +3 do rzutów obronnych przeciw polimorfii
+20: +3 do rzutów obronnych przeciw śmierci
+21: +4 do rzutów obronnych przeciw polimorfii
+22: +4 do rzutów obronnych przeciw śmierci
+23: +5 do rzutów obronnych przeciw polimorfii
+24: +5 do rzutów obronnych przeciw śmierci
+25: +6 do rzutów obronnych przeciw polimorfii
 
 Premie dla kapłanów i druidów:
 13: +1 czar 1. poziomu
-14: +1 czar 1. poziomu
-15: +1 czar 2. poziomu
-16: +1 czar 2. poziomu
-17: +1 czar 3. poziomu
+14: +1 czar 2. poziomu
+15: +1 czar 1. poziomu
+16: +1 czar 3. poziomu
+17: +1 czar 2. poziomu
 18: +1 czar 4. poziomu
 19: +1 czar 3. poziomu
-20: +1 czar 4. poziomu
-21: +1 czar 5. poziomu
+20: +1 czar 5. poziomu
+21: +1 czar 4. poziomu
 22: +1 czar 6. poziomu
 23: +1 czar 5. poziomu
 24: +1 czar 6. poziomu
-25: +1 czar 7. poziomu~
-@2006 = ~CHARYZMA: Charyzma opisuje magnetyzm oraz hart ducha postaci. Odzwierciedla to, co w niektórych kulturach zwie się „karmą” albo „duszą”. Wysoka charyzma wpływa na rzuty obronne oraz szczęście. Jest to cecha istotna dla druidów, bardów i paladynów.
+25: +1 czar 7. poziomu
+~
+@2006 = ~ CHARYZMA: Charyzma opisuje magnetyzm oraz hart ducha postaci. Odzwierciedla to, co w niektórych kulturach zwie się „karmą” albo „duszą”. Wysoka charyzma wpływa na rzuty obronne oraz szczęście. Jest to cecha istotna dla druidów, bardów i paladynów.
 
 Premie:
-16: +1 do rzutów obronnych przeciw czarom i różdżkom.
-17: +2 do rzutów obronnych przeciw czarom i różdżkom.
-18: +2 do rzutów obronnych przeciw czarom i różdżkom oraz +1 do szczęścia
-19: +2 do rzutów obronnych przeciw czarom i różdżkom oraz +2 do szczęścia~
+5: -2 Szczęście, -3 Premia do rzutów obronnych przeciw zionięciom
+6: -2 do rzutów obronnych przeciw różdżkom
+7: -1 Szczęście
+8: -2 do rzutów obronnych przeciw zionięciom
+9: -1 do rzutów obronnych przeciw różdżkom
+10: -1 do rzutów obronnych przeciw zionięciom
+...
+14: +2% XP premia do doświadczenia
+15: +4% XP, +1 do rzutów obronnych przeciw zionięciom
+16: +6% XP, +1 do rzutów obronnych przeciw różdżkom
+17: +8% XP, +2 do rzutów obronnych przeciw zionięciom
+18: +10% XP, +2 do rzutów obronnych przeciw różdżkom, +1 Szczęście
+19: +12% XP, +3 do rzutów obronnych przeciw zionięciom
+20: +14% XP, +3 do rzutów obronnych przeciw różdżkom
+21: +16% XP, +4 do rzutów obronnych przeciw zionięciom
+22: +17% XP, +4 do rzutów obronnych przeciw różdżkom
+23: +18% XP, +2 Szczęście
+24: +19% XP, +5 do rzutów obronnych przeciw zionięciom
+25: +20% XP, +5 do rzutów obronnych przeciw różdżkom
+
+Premie dla bardów:
+13: +1 czar 1. poziomu
+14: +2 czary 1. poziomu
+15: +1 czar 2. poziomu
+16: +2 czary 2. poziomu
+17: +1 czar 3. poziomu
+18: +1 czar 4. poziomu
+19: +2 czary 3. poziomu
+20: +1 czar 5. poziomu
+21: +2 czary 4. poziomu
+22: +1 czar 6. poziomu
+23: +2 czary 5. poziomu
+25: +2 czary 1. poziomu
+
+Premie dla czarowników:
+13: +1 czar 1. poziomu
+14: +2 czary 1. poziomu
+15: +1 czar 2. poziomu
+17: +2 czary 2. poziomu
+18: +1 czar 3. poziomu
+20: +2 czary 3. poziomu
+21: +1 czar 4. poziomu
+23: +2 czary 4. poziomu
+24: +1 czar 5. poziomu
+~
 @2007 = ~KONDYCJA: Opisuje ogólną budowę bohatera, jego stan zdrowia i fizyczną wytrzymałość na obrażenia, choroby i innego rodzaju trudy. Ta cecha jest ważna dla łowców.
 
 Premie:
@@ -713,34 +798,40 @@ Premie:
 17: wolna regeneracja (2 punkty życia na godzinę)
 18: maksymalna ilość punktów życia na poziom
 19: +3 punkty życia na poziom (tylko wojownicy) i szybsza regeneracja (1 punkt życia na turę)
-20: szybsza regeneracja (2 punkty życia na turę)~
-@2008 = ~ZRĘCZNOŚĆ: Opisuje zwinność, refleks, koordynację i umiejętność zachowania równowagi. Wysoka zręczność wpływa na klasę pancerza postaci oraz szansę na trafienie bronią dystansową. Jest podstawową cechą złodziei. 
-
-Premie:
-14: -1 do KP
-15: -2 do KP, +1 do TraK0 dla broni dystansowej
-16: -3 do KP, +1 do TraK0 dla broni dystansowej
-17: -4 do KP, +2 do TraK0 dla broni dystansowej
-18: -5 do KP, +2 do TraK0 dla broni dystansowej
-19: -6 do KP, +3 do TraK0 dla broni dystansowej
-20: -7 do KP, +3 do TraK0 dla broni dystansowej
-21: -7 do KP, +4 do TraK0 dla broni dystansowej
-22: -8 do KP, +4 do TraK0 dla broni dystansowej
-23: -8 do KP, +5 do TraK0 dla broni dystansowej
-24: -9 do KP, +5 do TraK0 dla broni dystansowej
-25: -9 do KP, +6 do TraK0 dla broni dystansowej
+20: szybsza regeneracja (2 punkty życia na turę)
 ~
-@2010 = ~KONDYCJA: Opisuje ogólną budowę bohatera, jego stan zdrowia i fizyczną wytrzymałość na obrażenia, choroby i innego rodzaju trudy. Ta cecha jest ważna dla łowców.
+@2008 = ~ZRĘCZNOŚĆ: Opisuje zwinność, refleks, koordynację i umiejętność zachowania równowagi. Wysoka zręczność wpływa na klasę pancerza postaci oraz szansę na trafienie bronią dystansową. Jest podstawową cechą złodziei
 
 Premie:
-12: +1 punkt życia na poziom (tylko wojownicy)
-14: +1 punkt życia na poziom
-16: +2 punkty życia na poziom
-18: +3 punkty życia na poziom
-19+: szybsza regeneracja 
-20: +4 punkty życia na poziom
-22: +5 punkty życia na poziom
-24: +6 punkty życia na poziom~
+13: -1 do KP
+14: -1 do KP, +1 do TraK0 dla broni dystansowej
+15: -2 do KP, +1 do TraK0 dla broni dystansowej
+16: -3 do KP, +1 do TraK0 dla broni dystansowej, +1 do TraK0 dla broni białej
+17: -4 do KP, +2 do TraK0 dla broni dystansowej, +1 do TraK0 dla broni białej
+18: -5 do KP, +2 do TraK0 dla broni dystansowej, +1 do TraK0 dla broni białej
+19: -6 do KP, +3 do TraK0 dla broni dystansowej, +1 do TraK0 dla broni białej
+20: -6 do KP, +3 do TraK0 dla broni dystansowej, +2 do TraK0 dla broni białej
+21: -7 do KP, +3 do TraK0 dla broni dystansowej, +2 do TraK0 dla broni białej
+22: -7 do KP, +4 do TraK0 dla broni dystansowej, +2 do TraK0 dla broni białej
+23: -8 do KP, +4 do TraK0 dla broni dystansowej, +2 do TraK0 dla broni białej
+24: -8 do KP, +4 do TraK0 dla broni dystansowej, +3 do TraK0 dla broni białej
+25: -9 do KP, +5 do TraK0 dla broni dystansowej, +3 do TraK0 dla broni białej
+~
+@2010 = ~ KONDYCJA: Opisuje ogólną budowę bohatera, jego stan zdrowia i fizyczną wytrzymałość na obrażenia, choroby i innego rodzaju trudy. Ta cecha jest ważna dla łowców.
+
+Premie:
+12: wojownicy zyskują +1 punkt życia na poziom
+14: +1 punkt życia na poziom (wojownicy +2)
+16: +2 punkty życia na poziom (wojownicy +3)
+18: +3 punkty życia na poziom (wojownicy +4)
+19: powolna regeneracja (2 pż na godzinę)
+20: +4 pż/poziom (wojownicy +5), regeneracja 1 pż/tura
+21: +4 pż/poziom (wojownicy +5), regeneracja 2 pż/tura
+22: +5 pż/poziom (wojownicy +6), regeneracja 1 pż/2 rundy
+23: +5 pż/poziom (wojownicy +6), regeneracja 1 pż/runda
+24: +6 pż/poziom (wojownicy +7), regeneracja 2 pż/runda
+25: +6 pż/poziom (wojownicy +8), regeneracja 1 pż/sekunda
+~
 @2011 = ~LUDZIE: Ludzie są dominującą rasą Faerûnu. Przewodzą najznaczniejszym imperiom i królestwom Zapomnianych Krain. Są chyba najbardziej tolerancyjną i towarzyską ze wszystkich ras, z wyjątkiem może niziołków. Ludzie mają tylko jedną zdolność specjalną – mogą należeć do dowolnej klasy. Ich statystyki mogą wynosić od 7 do 18.~
 @2012 = ~KRASNOLUDY: Krasnoludy są niskimi, krępymi osobnikami, łatwymi do rozpoznania po wzroście i posturze. Mają czerstwe policzki, ciemne oczy i takież włosy. Zazwyczaj są uparte i małomówne. Z chęcią oddają się ciężkiej pracy, nie posiadają za to za grosz poczucia humoru. Lubują się w piwie i miodzie, ale nade wszystko kochają złoto. W Krainach żyją cztery różne odłamy tej rasy: krasnoludy tarczowe, złote, dzikie i duergarowie.
 

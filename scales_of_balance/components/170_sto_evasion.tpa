@@ -33,9 +33,16 @@ END
 
 //patch spells for evasion__________________________________________________________
 //
-ACTION_PHP_EACH evade_spells AS evadable_spell => ind BEGIN
-  ACTION_IF (%ind% = 1) BEGIN
-	LAF add_evade_spell INT_VAR evasion_spellstate = 252 evasion_save = 2 STR_VAR evade_res = EVAL ~%evadable_spell%~ evade_prefix = ~D5EV~ END
+ACTION_PHP_EACH evade_spells AS evadable_spell => val BEGIN
+  ACTION_IF (%val% = 1) BEGIN
+	LAF add_evade_spell INT_VAR evasion_spellstate = 252 evasion_save = 2 STR_VAR evade_ext = ~spl~ evade_res = EVAL ~%evadable_spell%~ evade_prefix = ~D5EV~ END
+  END
+END
+ACTION_IF (optional_evade = 1) BEGIN
+  ACTION_PHP_EACH evade_items AS evadable_item => val BEGIN
+	ACTION_IF (%val% = 1) BEGIN
+	  LAF add_evade_spell INT_VAR evasion_spellstate = 252 evasion_save = 2 STR_VAR evade_ext = ~itm~ evade_res = EVAL ~%evadable_item%~ evade_prefix = ~D5EV~ END
+	END
   END
 END
 //__________________________________________________________________________________
