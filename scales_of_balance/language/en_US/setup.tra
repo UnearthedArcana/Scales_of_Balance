@@ -59,6 +59,7 @@
 @216   = ~kills give 1/10th XP~
 @217   = ~kills give 1/5th XP~
 @218   = ~kills give half XP~
+//
 @10001  = ~^Armor Class:.+$~
 @10002  = ~Armor Class: ~
 @10003  = ~Damage Resistance: ~
@@ -937,10 +938,10 @@ Half-orcs have the following traits:
 @2112  = ~Advance to Proficiency (+) with Flails~
 @2113  = ~Advance to Proficiency (+) with Maces~
 @2114  = ~Advance to Proficiency (+) with Clubs~
-@2115  = ~Advance to Proficiency (+) with Quarterstaff~
+@2115  = ~Advance to Proficiency (+) with Quarterstaffs~
 @2116  = ~Advance to Proficiency (+) with Crossbows~
 @2117  = ~Advance to Proficiency (+) with Long Bows~
-@2118  = ~Advance to Proficiency (+) with Long Bows~
+@2118  = ~Advance to Proficiency (+) with Short Bows~
 @2119  = ~Advance to Proficiency (+) with Darts~
 @2120  = ~Advance to Proficiency (+) with Slings~
 @2121  = ~Advance to Proficiency (+) in Two-Handed Style~
@@ -962,10 +963,10 @@ Half-orcs have the following traits:
 @2212  = ~Advance to Specialization (++) with Flails~
 @2213  = ~Advance to Specialization (++) with Maces~
 @2214  = ~Advance to Specialization (++) with Clubs~
-@2215  = ~Advance to Specialization (++) with Quarterstaff~
+@2215  = ~Advance to Specialization (++) with Quarterstaffs~
 @2216  = ~Advance to Specialization (++) with Crossbows~
 @2217  = ~Advance to Specialization (++) with Long Bows~
-@2218  = ~Advance to Specialization (++) with Long Bows~
+@2218  = ~Advance to Specialization (++) with Short Bows~
 @2219  = ~Advance to Specialization (++) with Darts~
 @2220  = ~Advance to Specialization (++) with Slings~
 @2221  = ~Advance to Specialization (++) in Two-Handed Style~
@@ -987,10 +988,10 @@ Half-orcs have the following traits:
 @2312  = ~Advance to Mastery (+++) with Flails~
 @2313  = ~Advance to Mastery (+++) with Maces~
 @2314  = ~Advance to Mastery (+++) with Clubs~
-@2315  = ~Advance to Mastery (+++) with Quarterstaff~
+@2315  = ~Advance to Mastery (+++) with Quarterstaffs~
 @2316  = ~Advance to Mastery (+++) with Crossbows~
 @2317  = ~Advance to Mastery (+++) with Long Bows~
-@2318  = ~Advance to Mastery (+++) with Long Bows~
+@2318  = ~Advance to Mastery (+++) with Short Bows~
 @2319  = ~Advance to Mastery (+++) with Darts~
 @2320  = ~Advance to Mastery (+++) with Slings~
 @2321  = ~Advance to Mastery (+++) in Two-Handed Style~
@@ -1012,10 +1013,10 @@ Half-orcs have the following traits:
 @2412  = ~Advance to High Mastery (++++) with Flails~
 @2413  = ~Advance to High Mastery (++++) with Maces~
 @2414  = ~Advance to High Mastery (++++) with Clubs~
-@2415  = ~Advance to High Mastery (++++) with Quarterstaff~
+@2415  = ~Advance to High Mastery (++++) with Quarterstaffs~
 @2416  = ~Advance to High Mastery (++++) with Crossbows~
 @2417  = ~Advance to High Mastery (++++) with Long Bows~
-@2418  = ~Advance to High Mastery (++++) with Long Bows~
+@2418  = ~Advance to High Mastery (++++) with Short Bows~
 @2419  = ~Advance to High Mastery (++++) with Darts~
 @2420  = ~Advance to High Mastery (++++) with Slings~
 @2421  = ~Advance to High Mastery (++++) in Two-Handed Style~
@@ -1037,10 +1038,10 @@ Half-orcs have the following traits:
 @2512  = ~Advance to Grandmastery (+++++) with Flails~
 @2513  = ~Advance to Grandmastery (+++++) with Maces~
 @2514  = ~Advance to Grandmastery (+++++) with Clubs~
-@2515  = ~Advance to Grandmastery (+++++) with Quarterstaff~
+@2515  = ~Advance to Grandmastery (+++++) with Quarterstaffs~
 @2516  = ~Advance to Grandmastery (+++++) with Crossbows~
 @2517  = ~Advance to Grandmastery (+++++) with Long Bows~
-@2518  = ~Advance to Grandmastery (+++++) with Long Bows~
+@2518  = ~Advance to Grandmastery (+++++) with Short Bows~
 @2519  = ~Advance to Grandmastery (+++++) with Darts~
 @2520  = ~Advance to Grandmastery (+++++) with Slings~
 @2521  = ~Advance to Grandmastery (+++++) in Two-Handed Style~

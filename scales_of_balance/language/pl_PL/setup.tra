@@ -1,8 +1,6 @@
 @1 = ~pomijanie komponentu~
 @2 = ~pomijanie komponentu nie-EE ~
-//
 @3   = ~already included~
-//
 @4 = ~pomijanie komponentow ulepszen~
 @5 = ~pomijanie komponentow nowych podklas~
 @6 = ~...~
@@ -34,13 +32,11 @@
 @102 = ~IWO - Funkcjonalne ulepszenia broni~
 @103 = ~IWO – Odroznienie Lekkiej/Ciezkiej Broni (Przestarzale)~
 @104 = ~IWO - Ulepszenia przedmiotow IWD:EE~
-//
 @165  = ~STO – Poprawione Tabele Rzutow Obronych~
 @107  = ~IWO - Ogranicz Styl Dwoch Broni~
 @1071  = ~Styl dwoch broni tylko male bronie~
 @1072  = ~Styl dwoch bron male/srednie bronie~
 @109  = ~IWO - Wszystkie klasy moga uzywac kazdej mikstury~
-//
 @121 = ~WPO - Zwiniecie kategorii broni~
 @122 = ~WPO - Zmiana systemu bieglosci~
 @123 = ~WPO - TYMCZASOWO NIEDOSTĘPNE~
@@ -48,33 +44,29 @@
 @125 = ~WPO - Atak na runde w podklasach~
 @150 = ~WCO (rewizja klasy maga)~
 @160 = ~STO - Rewizja rzutow obronnych~
-//
 @170 = ~STO - IWD Unik Zaklecia~
 @171 = ~Dla zaklec IWD~
 @172 = ~Dla Rozbudowanej Listy Zaklec~
-//
 @180 = ~MRO - Rewizja odpornosci na magie (zainstaluj po modyfikacji aTweaks!)~
 @200 = ~SBO - Rewizja premii do statystyk~
 @202 = ~SBO - Pelna Sila tylko dla broni oburecznych~
-//
 @204 = ~SBO - Wlacz Rzut na Koncentracje~ 
-//
 @205 = ~SBO - Rewizja Kostek Wytrzymalosci~
 @206 = ~Hojne (ponadprzecietne) punkty zycia~
 @207 = ~Hardcorowe (blizsze usrednionym) punkty zycia~
-@208 = ~Reduced punkty zycia~
+@208 = ~Zredukowane punkty zycia~
 @210 = ~XPO - Ujednolicone tabele PD~
 @215 = ~XPO - Mniejsza ilosc PD za walke~
 @216 = ~zabicie daje 1/10 PD~
 @217 = ~zabicie daje 1/5 PD~
 @218 = ~zabicie daje połowę PD~
+//
 @10001 = ~^Klasa Pancerza:.+$~
 @10002 = ~Klasa Pancerza: ~
 @10003 = ~Odporność na obrażenia: ~
 @10004 = ~Kara do zręczności: -~
 @10005 = ~Kara do prędkości rzucania czarów: +~
 @10006 = ~Kara do prędkości ataku bronią: +~
-
 @10011 = ~smok~
 @10012 = ~elfi~
 @10013 = ~elficki~
@@ -82,11 +74,9 @@
 @10015 = ~pieśniarz klingi~
 @10018 = ~szata~
 @10019 = ~płaszcz~
-
 @10021 = ~Krycie się w cieniu, Kradzież kieszonkowa: -~
 @10022 = ~Otwieranie zamków, Zastawianie pułapek: -~
 @10023 = ~Znajdowanie pułapek, Wykrycie iluzji: -~
-
 @10030 = ~Zbroja wiary
 
 Poziom: 1
@@ -99,65 +89,65 @@ Rzut obronny: Brak
 
 Rzucający Zbroję Wiary otrzymuje znaczną ochronę przeciwko atakom wręcz i pociskom. Ta magiczna, przypominająca zbroję osłona, otacza rzucającego i pochłania część przyjętych obrażeń. Dodatkowo zwiększa odporność na obrażenia wszelkiego typu o 10%.~
 @1000 = ~100: Ulepszenia przedmiotow~
-@1001 = ~Mistrzowska strzała~
-@1002 = ~Magiczna strzała~
-@1003 = ~Mistrzowski bełt~
-@1004 = ~Magiczny bełt~
-@1005 = ~Mistrzowski pocisk~
-@1006 = ~Magiczny pociski~
-@1007 = ~Mistrzowski topór bojowy~
-@1008 = ~Magiczny toporek~
-@1009 = ~Mistrzowski cep bojowy~
-@1010 = ~Mistrzowska wekiera~
-@1011 = ~Mistrzowski morgensztern~
-@1012 = ~Magiczny cep bojowy~
-@1013 = ~Magiczny morgensztern~
-@1014 = ~Mistrzowski długi łuk refleksyjny~
-@1015 = ~Mistrzowski długi łuk~
-@1016 = ~Mistrzowski krótki łuk~
-@1017 = ~Magiczny długi łuk refleksyjny~
-@1018 = ~Magiczny długi łuk~
-@1019 = ~Magiczny krótki łuk~
-@1020 = ~Mistrzowski sztylet~
-@1021 = ~Mistrzowska strzałka~
-@1022 = ~Mistrzowska halabarda~
-@1023 = ~Mistrzowski młot bojowy~
-@1024 = ~Mistrzowska proca~
-@1025 = ~Mistrzowska włócznia~
-@1026 = ~Magiczna włócznia~
-@1027 = ~Mistrzowski kij~
-@1028 = ~Magiczny kij~
-@1029 = ~Mistrzowski miecz półtoraręczny~
-@1030 = ~Mistrzowski miecz długi~
-@1031 = ~Mistrzowski miecz krótki~
-@1032 = ~Mistrzowski sejmitar~
-@1033 = ~Mistrzowska katana~
-@1034 = ~Mistrzowskie wakizashi~
-@1035 = ~Mistrzowskie ninja-to~
-@1036 = ~Drusus~
-@1037 = ~Magiczny miecz długi~
-@1038 = ~Magiczny miecz półtoraręczny~
-@1039 = ~Magiczna katana~
-@1040 = ~Mistrzowski miecz oburęczny~
-@1041 = ~Magiczny miecz oburęczny~
-@1042 = ~Mistrzowska kusza ciężka~
-@1043 = ~Mistrzowska kusza lekka~
-@1044 = ~Mistrzowska kolczuga~
-@1045 = ~Mistrzowska zbroja paskowa~
-@1046 = ~Magiczna kolczuga~
-@1047 = ~Mistrzowska zbroja skórzana~
-@1048 = ~Mistrzowska zbroja skórzana ćwiekowana~
-@1049 = ~Magiczna zbroja skórzana~
-@1050 = ~Magiczna halabarda~
-@1051 = ~Mistrzowska tarcza mała~
-@1052 = ~Mistrzowska tarcza średnia~
-@1053 = ~Mistrzowska pawęż~
-@1054 = ~Czerwona tarcza~
-@1055 = ~Mistrzowski puklerz~
-@1056 = ~Magiczna tarcza mała~
-@1057 = ~Magiczna tarcza średnia~
-@1058 = ~Kołczan obfitości~
-@1059 = ~Kołczan obfitości
+@10101 = ~Mistrzowska strzała~
+@10102 = ~Magiczna strzała~
+@10103 = ~Mistrzowski bełt~
+@10104 = ~Magiczny bełt~
+@10105 = ~Mistrzowski pocisk~
+@10106 = ~Magiczny pociski~
+@10107 = ~Mistrzowski topór bojowy~
+@10108 = ~Magiczny toporek~
+@10109 = ~Mistrzowski cep bojowy~
+@10110 = ~Mistrzowska wekiera~
+@10111 = ~Mistrzowski morgensztern~
+@10112 = ~Magiczny cep bojowy~
+@10113 = ~Magiczny morgensztern~
+@10114 = ~Mistrzowski długi łuk refleksyjny~
+@10115 = ~Mistrzowski długi łuk~
+@10116 = ~Mistrzowski krótki łuk~
+@10117 = ~Magiczny długi łuk refleksyjny~
+@10118 = ~Magiczny długi łuk~
+@10119 = ~Magiczny krótki łuk~
+@10120 = ~Mistrzowski sztylet~
+@10121 = ~Mistrzowska strzałka~
+@10122 = ~Mistrzowska halabarda~
+@10123 = ~Mistrzowski młot bojowy~
+@10124 = ~Mistrzowska proca~
+@10125 = ~Mistrzowska włócznia~
+@10126 = ~Magiczna włócznia~
+@10127 = ~Mistrzowski kij~
+@10128 = ~Magiczny kij~
+@10129 = ~Mistrzowski miecz półtoraręczny~
+@10130 = ~Mistrzowski miecz długi~
+@10131 = ~Mistrzowski miecz krótki~
+@10132 = ~Mistrzowski sejmitar~
+@10133 = ~Mistrzowska katana~
+@10134 = ~Mistrzowskie wakizashi~
+@10135 = ~Mistrzowskie ninja-to~
+@10136 = ~Drusus~
+@10137 = ~Magiczny miecz długi~
+@10138 = ~Magiczny miecz półtoraręczny~
+@10139 = ~Magiczna katana~
+@10140 = ~Mistrzowski miecz oburęczny~
+@10141 = ~Magiczny miecz oburęczny~
+@10142 = ~Mistrzowska kusza ciężka~
+@10143 = ~Mistrzowska kusza lekka~
+@10144 = ~Mistrzowska kolczuga~
+@10145 = ~Mistrzowska zbroja paskowa~
+@10146 = ~Magiczna kolczuga~
+@10147 = ~Mistrzowska zbroja skórzana~
+@10148 = ~Mistrzowska zbroja skórzana ćwiekowana~
+@10149 = ~Magiczna zbroja skórzana~
+@10150 = ~Magiczna halabarda~
+@10151 = ~Mistrzowska tarcza mała~
+@10152 = ~Mistrzowska tarcza średnia~
+@10153 = ~Mistrzowska pawęż~
+@10154 = ~Czerwona tarcza~
+@10155 = ~Mistrzowski puklerz~
+@10156 = ~Magiczna tarcza mała~
+@10157 = ~Magiczna tarcza średnia~
+@10158 = ~Kołczan obfitości~
+@10159 = ~Kołczan obfitości
 Historia tego magicznego kołczana dawno już poszła w zapomnienie, choć prawdopodobnie miała ona coś wspólnego z trudnym do wyjaśnienia, lecz dobrze udokumentowanym brakiem dobrych wytwórców strzał podczas Czasu Niepokojów.
 
 PARAMETRY:
@@ -166,8 +156,8 @@ Specjalne:
 – Nieograniczona liczba mistrzowskich strzał
 
 Waga: 0~
-@1060 = ~Futerał obfitości~
-@1061 = ~Futerał obfitości
+@10160 = ~Futerał obfitości~
+@10161 = ~Futerał obfitości
 Historia tego magicznego futerału na bełty dawno już poszła w zapomnienie, choć prawdopodobnie miała ona coś wspólnego z trudnym do wyjaśnienia, lecz dobrze udokumentowanym brakiem dobrych wytwórców bełtów podczas Czasu Niepokojów.
 
 PARAMETRY:
@@ -176,9 +166,9 @@ Specjalne:
 – Nieograniczona liczba mistrzowskich bełtów
 
 Waga: 0~
-@1062 = ~Mistrzowska maczuga~
-@1063 = ~Torba obfitości~
-@1064 = ~Torba obfitości
+@11062 = ~Mistrzowska maczuga~
+@10163 = ~Torba obfitości~
+@10164 = ~Torba obfitości
 Choć ta torba na pociski wyprodukowana z miękkiej tkaniny, jest teraz pusta, to wciąż otacza ją potężna magiczna aura.
 
 PARAMETRY:
@@ -187,34 +177,34 @@ Specjalne:
 – Nieograniczona liczba mistrzowskich pocisków
 
 Waga: 0~
-@1065 = ~Magiczny topór bojowy~
-@1066 = ~Sztylet: Serce golema~
-@1067 = ~Magiczny sztylet~
-@1068 = ~Ostrze Suryrisa~
-@1069 = ~Młot bojowy: Ashideena~
-@1070 = ~Młot bojowy: Pięść Boroka~
-@1071 = ~Magiczna zbroja skórzana ćwiekowana~
-@1072 = ~Mistrzowska zbroja płytowa~
-@1073 = ~Mistrzowska pełna zbroja płytowa~
-@1074 = ~Magiczna pełna zbroja płytowa~
-@1075 = ~Magiczna pawęż~
-@1076 = ~Magiczna proca~
-@1077 = ~Varscona~
-@1078 = ~Gwiżdżący miecz~
-@1079 = ~Ostrze wody~
-@1080 = ~Magiczna wekiera~
-@1081 = ~Magiczna maczuga~
-@1082 = ~Bełt do kuszy drowow~
-@1083 = ~Magiczny ceb bojowy drowów~
-@1084 = ~Magiczna halabarda drowów~
-@1085 = ~Magiczna włócznia drowów~
-@1086 = ~Magiczny sejmitar drowów~
-@1087 = ~Magiczny długi łuk drowów~
-@1088 = ~Magiczny młot bojowy drowów~
-@1089 = ~Katana Yoshimo~
-@1090 = ~Magiczna kusza ciężka~
-@1091 = ~Magiczna kusza lekka~
-@1092 = ~Kołczan obfitości
+@10165 = ~Magiczny topór bojowy~
+@10166 = ~Sztylet: Serce golema~
+@10167 = ~Magiczny sztylet~
+@10168 = ~Ostrze Suryrisa~
+@10169 = ~Młot bojowy: Ashideena~
+@10170 = ~Młot bojowy: Pięść Boroka~
+@10171 = ~Magiczna zbroja skórzana ćwiekowana~
+@10172 = ~Mistrzowska zbroja płytowa~
+@10173 = ~Mistrzowska pełna zbroja płytowa~
+@10174 = ~Magiczna pełna zbroja płytowa~
+@10175 = ~Magiczna pawęż~
+@10176 = ~Magiczna proca~
+@10177 = ~Varscona~
+@10178 = ~Gwiżdżący miecz~
+@10179 = ~Ostrze wody~
+@10180 = ~Magiczna wekiera~
+@10181 = ~Magiczna maczuga~
+@10182 = ~Bełt do kuszy drowow~
+@10183 = ~Magiczny ceb bojowy drowów~
+@10184 = ~Magiczna halabarda drowów~
+@10185 = ~Magiczna włócznia drowów~
+@10186 = ~Magiczny sejmitar drowów~
+@10187 = ~Magiczny długi łuk drowów~
+@10188 = ~Magiczny młot bojowy drowów~
+@10189 = ~Katana Yoshimo~
+@10190 = ~Magiczna kusza ciężka~
+@10191 = ~Magiczna kusza lekka~
+@10192 = ~Kołczan obfitości
 Historia tego magicznego kołczana dawno już poszła w zapomnienie, choć prawdopodobnie miała ona coś wspólnego z trudnym do wyjaśnienia, lecz dobrze udokumentowanym brakiem dobrych wytwórców strzał podczas Czasu Niepokojów.
 
 PARAMETRY:
@@ -223,7 +213,7 @@ Specjalne:
 – Nieograniczona liczba magicznych strzał
 
 Waga: 0~
-@1093 = ~Futerał obfitości
+@10193 = ~Futerał obfitości
 Historia tego magicznego futerału na bełty dawno już poszła w zapomnienie, choć prawdopodobnie miała ona coś wspólnego z trudnym do wyjaśnienia, lecz dobrze udokumentowanym brakiem dobrych wytwórców bełtów podczas Czasu Niepokojów.
 
 PARAMETRY:
@@ -232,7 +222,7 @@ Specjalne:
 – Nieograniczona liczba magicznych bełtów
 
 Waga: 0~
-@1094 = ~Torba obfitości
+@10194 = ~Torba obfitości
 Choć ta torba na pociski wyprodukowana z miękkiej tkaniny, jest teraz pusta, to wciąż otacza ją potężna magiczna aura.
 
 PARAMETRY:
@@ -241,19 +231,20 @@ Specjalne:
 – Nieograniczona liczba magicznych pocisków
 
 Waga: 0~
-@1095 = ~Kościana maczuga~
-@1096 = ~Zgniatacz~
-@1097 = ~Większy płaszcz ochrony~
-@1098 = ~Ostrze zmierzchu~
-@1099 = ~Fala~
-@1100 = ~Łamacz kolan~
-@1101 = ~Większy pierścień ochrony~
-@1102 = ~Lepszy pierścień ochrony~
-@1103 = ~Tarcza spadających gwiazd~
-@1104 = ~Przebijacz~
-@1105 = ~Włócznia zimorodka~
-@1106 = ~Kondar~
-@1107 = ~Szpon Rashada~
+@10195 = ~Kościana maczuga~
+@10196 = ~Zgniatacz~
+@10197 = ~Większy płaszcz ochrony~
+@10198 = ~Ostrze zmierzchu~
+@10199 = ~Fala~
+@10100 = ~Łamacz kolan~
+@10201 = ~Większy pierścień ochrony~
+@10202 = ~Lepszy pierścień ochrony~
+@10203 = ~Tarcza spadających gwiazd~
+@10204 = ~Przebijacz~
+@10205 = ~Włócznia zimorodka~
+@10206 = ~Kondar~
+@10207 = ~Szpon Rashada~
+@10701	= ~ ~
 @1214 = ~WOJOWNIK: Wojownik to rycerz, fechmistrz, żołnierz i miłośnik bójek. Jego życie wypełnia poznawanie broni i taktyki. Można go spotkać nie tylko na polu bitwy, ale również walczącego twarzą w twarz z potworami. Dobry wojownik musi być silny i zdrowy – inaczej ma nikłe szanse na przetrwanie.
 CECHY KLASOWE:
 – Może nosić hełmy.
@@ -878,6 +869,132 @@ Półorkowie posiadają następujące cechy:
 @2022 = ~~
 @2023 = ~~
 @2024 = ~~
+//
+@2101 = ~Awans na Wyszkolenie (+) w Mieczach Półtoraręcznych~
+@2102 = ~Awans na Wyszkolenie (+) w Mieczach Długich~
+@2103 = ~Awans na Wyszkolenie (+) w Mieczach Krótkich~
+@2104 = ~Awans na Wyszkolenie (+) w Toporach Bojowych~
+@2105 = ~Awans na Wyszkolenie (+) w Mieczach Dwuręcznych~
+@2106 = ~Awans na Wyszkolenie (+) w Katanach~
+@2107 = ~Awans na Wyszkolenie (+) w Sejmitarach~
+@2108 = ~Awans na Wyszkolenie (+) w Sztyletach~
+@2109 = ~Awans na Wyszkolenie (+) w Młotach Bojowych~
+@2110 = ~Awans na Wyszkolenie (+) we Włóczniach~
+@2111 = ~Awans na Wyszkolenie (+) w Halabardach~
+@2112 = ~Awans na Wyszkolenie (+) w Cepach Bojowych~
+@2113 = ~Awans na Wyszkolenie (+) we Wekierach~
+@2114 = ~Awans na Wyszkolenie (+) w Maczugach~
+@2115 = ~Awans na Wyszkolenie (+) w Kijach~
+@2116 = ~Awans na Wyszkolenie (+) w Kuszach~
+@2117 = ~Awans na Wyszkolenie (+) w Długich Łukach~
+@2118 = ~Awans na Wyszkolenie (+) w Krótkich Łukach ~
+@2119 = ~Awans na Wyszkolenie (+) w Strzałkach~
+@2120 = ~Awans na Wyszkolenie (+) w Procach~
+@2121 = ~Awans na Wyszkolenie (+) w Stylu Walki Bronią Dwuręczną~
+@2122 = ~Awans na Wyszkolenie (+) w Stylu Walki Mieczem i Tarczą~
+@2123 = ~Awans na Wyszkolenie (+) w Stylu Walki Jedną Bronią~
+@2124 = ~Awans na Wyszkolenie (+) w Stylu Walki Dwoma Broniami~
+//
+@2201 = ~Awans na Specjalizację (++) w Mieczach Półtoraręcznych~
+@2202 = ~Awans na Specjalizację (++) w Mieczach Długich~
+@2203 = ~Awans na Specjalizację (++) w Mieczach Krótkich~
+@2204 = ~Awans na Specjalizację (++) w Toporach Bojowych~
+@2205 = ~Awans na Specjalizację (++) w Mieczach Dwuręcznych~
+@2206 = ~Awans na Specjalizację (++) w Katanach~
+@2207 = ~Awans na Specjalizację (++) w Sejmitarach~
+@2208 = ~Awans na Specjalizację (++) w Sztyletach~
+@2209 = ~Awans na Specjalizację (++) w Młotach Bojowych~
+@2210 = ~Awans na Specjalizację (++) we Włóczniach~
+@2211 = ~Awans na Specjalizację (++) w Halabardach~
+@2212 = ~Awans na Specjalizację (++) w Cepach Bojowych~
+@2213 = ~Awans na Specjalizację (++) we Wekierach~
+@2214 = ~Awans na Specjalizację (++) w Maczugach~
+@2215 = ~Awans na Specjalizację (++) w Kijach~
+@2216 = ~Awans na Specjalizację (++) w Kuszach~
+@2217 = ~Awans na Specjalizację (++) w Długich Łukach ~
+@2218 = ~Awans na Specjalizację (++) w Krótkich Łukach ~
+@2219 = ~Awans na Specjalizację (++) w Strzałkach~
+@2220 = ~Awans na Specjalizację (++) w Procach~
+@2221 = ~Awans na Specjalizację (++) w Stylu Walki Bronią Dwuręczną~
+@2222 = ~Awans na Specjalizację (++) w Stylu Walki Mieczem i Tarczą~
+@2223 = ~Awans na Specjalizację (++) w Stylu Walki Jedną Bronią~
+@2224 = ~Awans na Specjalizację (++) w Stylu Walki Dwoma Broniami~
+//
+@2301 = ~Awans na Mistrzostwo (+++) w Mieczach Półtoraręcznych~
+@2302 = ~Awans na Mistrzostwo (+++) w Mieczach Długich~
+@2303 = ~Awans na Mistrzostwo (+++) w Mieczach Krótkich~
+@2304 = ~Awans na Mistrzostwo (+++) w Toporach Bojowych~
+@2305 = ~Awans na Mistrzostwo (+++) w Mieczach Dwuręcznych~
+@2306 = ~Awans na Mistrzostwo (+++) w Katanach~
+@2307 = ~Awans na Mistrzostwo (+++) w Sejmitarach~
+@2308 = ~Awans na Mistrzostwo (+++) w Sztyletach~
+@2309 = ~Awans na Mistrzostwo (+++) w Młotach Bojowych~
+@2310 = ~Awans na Mistrzostwo (+++) we Włóczniach~
+@2311 = ~Awans na Mistrzostwo (+++) w Halabardach~
+@2312 = ~Awans na Mistrzostwo (+++) w Cepach Bojowych~
+@2313 = ~Awans na Mistrzostwo (+++) we Wekierach~
+@2314 = ~Awans na Mistrzostwo (+++) w Maczugach~
+@2315 = ~Awans na Mistrzostwo (+++) w Kijach~
+@2316 = ~Awans na Mistrzostwo (+++) w Kuszach~
+@2317 = ~Awans na Mistrzostwo (+++) w Długich Łukach ~
+@2318 = ~Awans na Mistrzostwo (+++) w Krótkich Łukach ~
+@2319 = ~Awans na Mistrzostwo (+++) w Strzałkach~
+@2320 = ~Awans na Mistrzostwo (+++) w Procach~
+@2321 = ~Awans na Mistrzostwo (+++) w Stylu Walki Bronią Dwuręczną~
+@2322 = ~Awans na Mistrzostwo (+++) w Stylu Walki Mieczem i Tarczą~
+@2323 = ~Awans na Mistrzostwo (+++) w Stylu Walki Jedną Bronią~
+@2324 = ~Awans na Mistrzostwo (+++) w Stylu Walki Dwoma Broniami~
+//
+@2401 = ~Awans na Prawdziwe mistrzostwo (++++) w Mieczach Półtoraręcznych~
+@2402 = ~Awans na Prawdziwe mistrzostwo (++++) w Mieczach Długich~
+@2403 = ~Awans na Prawdziwe mistrzostwo (++++) w Mieczach Krótkich~
+@2404 = ~Awans na Prawdziwe mistrzostwo (++++) w Toporach Bojowych~
+@2405 = ~Awans na Prawdziwe mistrzostwo (++++) w Mieczach Dwuręcznych~
+@2406 = ~Awans na Prawdziwe mistrzostwo (++++) w Katanach~
+@2407 = ~Awans na Prawdziwe mistrzostwo (++++) w Sejmitarach~
+@2408 = ~Awans na Prawdziwe mistrzostwo (++++) w Sztyletach~
+@2409 = ~Awans na Prawdziwe mistrzostwo (++++) w Młotach Bojowych~
+@2410 = ~Awans na Prawdziwe mistrzostwo (++++) we Włóczniach~
+@2411 = ~Awans na Prawdziwe mistrzostwo (++++) w Halabardach~
+@2412 = ~Awans na Prawdziwe mistrzostwo (++++) w Cepach Bojowych~
+@2413 = ~Awans na Prawdziwe mistrzostwo (++++) we Wekierach~
+@2414 = ~Awans na Prawdziwe mistrzostwo (++++) w Maczugach~
+@2415 = ~Awans na Prawdziwe mistrzostwo (++++) w Kijach~
+@2416 = ~Awans na Prawdziwe mistrzostwo (++++) w Kuszach~
+@2417 = ~Awans na Prawdziwe mistrzostwo (++++) w Długich Łukach ~
+@2418 = ~Awans na Prawdziwe mistrzostwo (++++) w Krótkich Łukach ~
+@2419 = ~Awans na Prawdziwe mistrzostwo (++++) w Strzałkach~
+@2420 = ~Awans na Prawdziwe mistrzostwo (++++) w Procach~
+@2421 = ~Awans na Prawdziwe mistrzostwo (++++) w Stylu Walki Bronią Dwuręczną~
+@2422 = ~Awans na Prawdziwe mistrzostwo (++++) w Stylu Walki Mieczem i Tarczą~
+@2423 = ~Awans na Prawdziwe mistrzostwo (++++) w Stylu Walki Jedną Bronią~
+@2424 = ~Awans na Prawdziwe mistrzostwo (++++) w Stylu Walki Dwoma Broniami~
+//
+@2501 = ~Awans na Wielkie mistrzostwo (+++++) w Mieczach Półtoraręcznych~
+@2502 = ~Awans na Wielkie mistrzostwo (+++++) w Mieczach Długich~
+@2503 = ~Awans na Wielkie mistrzostwo (+++++) w Mieczach Krótkich~
+@2504 = ~Awans na Wielkie mistrzostwo (+++++) w Toporach Bojowych~
+@2505 = ~Awans na Wielkie mistrzostwo (+++++) w Mieczach Dwuręcznych~
+@2506 = ~Awans na Wielkie mistrzostwo (+++++) w Katanach~
+@2507 = ~Awans na Wielkie mistrzostwo (+++++) w Sejmitarach~
+@2508 = ~Awans na Wielkie mistrzostwo (+++++) w Sztyletach~
+@2509 = ~Awans na Wielkie mistrzostwo (+++++) w Młotach Bojowych~
+@2510 = ~Awans na Wielkie mistrzostwo (+++++) we Włóczniach~
+@2511 = ~Awans na Wielkie mistrzostwo (+++++) w Halabardach~
+@2512 = ~Awans na Wielkie mistrzostwo (+++++) w Cepach Bojowych~
+@2513 = ~Awans na Wielkie mistrzostwo (+++++) we Wekierach~
+@2514 = ~Awans na Wielkie mistrzostwo (+++++) w Maczugach~
+@2515 = ~Awans na Wielkie mistrzostwo (+++++) w Kijach~
+@2516 = ~Awans na Wielkie mistrzostwo (+++++) w Kuszach~
+@2517 = ~Awans na Wielkie mistrzostwo (+++++) w Długich Łukach ~
+@2518 = ~Awans na Wielkie mistrzostwo (+++++) w Krótkich Łukach ~
+@2519 = ~Awans na Wielkie mistrzostwo (+++++) w Strzałkach~
+@2520 = ~Awans na Wielkie mistrzostwo (+++++) w Procach~
+@2521 = ~Awans na Wielkie mistrzostwo (+++++) w Stylu Walki Bronią Dwuręczną~
+@2522 = ~Awans na Wielkie mistrzostwo (+++++) w Stylu Walki Mieczem i Tarczą~
+@2523 = ~Awans na Wielkie mistrzostwo (+++++) w Stylu Walki Jedną Bronią~
+@2524 = ~Awans na Wielkie mistrzostwo (+++++) w Stylu Walki Dwoma Broniami~
+//
 @2632 = ~Wybierz broń, w której chcesz się szkolić~
 @2648 = ~KENSAI: Ta klasa bywa także nazywana „świętymi miecza”. Należą do niej wojownicy, którzy zostali specjalnie wytrenowani tak, by stać się jednością ze swoją bronią. Są śmiertelnie szybcy i skuteczni. Szkoleni są do walki bez zbroi. 
 
