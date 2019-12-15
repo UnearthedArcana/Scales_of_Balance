@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.18~
+VERSION ~v5.19~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -10,14 +10,13 @@ ALWAYS
 
 	INCLUDE ~scales_of_balance/lib/joinable_npcs.tpa~
 
-	INCLUDE ~scales_of_balance/lib/remove_lines.tpa~
-
-	INCLUDE ~scales_of_balance/lib/spell_to_innate.tpa~
+	INCLUDE ~scales_of_balance/lib/misc_functions.tpa~
 
 	INCLUDE ~scales_of_balance/lib/add_spell_header.tpa~
 
 	INCLUDE ~scales_of_balance/lib/fl#add_kit_ee.tpa~
 
+	LAF fix_kitlist_missing_ids END
 
 // joinable NPC issues for tutu/bgt/eet:
   ACTION_IF GAME_IS ~bgee~ BEGIN
