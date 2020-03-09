@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.14 </strong><br />
+  <p><strong> Version 5.21 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -61,6 +61,8 @@
     <li> SCS</li>
     <li> [end-of-order mods like LevelOneNPCs, NPC_EE, Randomiser, etc.]</li>
   </ul>
+  <p><strong>Modder Resources:</strong><br />
+	Scales of Balance adds several custom spellstates to SPLSTATE.IDS.  It uses the 4th byte of stat 115, Clubs proficiency, for certain features, principally the Revised Weapon Styles component. </p>
 </div>
 <h2>Contents</h2>
 <div class="section">
@@ -436,43 +438,36 @@
 <table style= "width: 60%">
  <tr>
   <th>INTELLIGENCE</th>
-  <th>Mage: Bonus Spells</th>
   <th>Saves vs. Spells</th>
   <th>Extra Proficiencies* </th>
  </tr>
  <tr>
   <td><b>5:</b></td>
-  <td>-</td>
   <td>-4</td>
   <td>-</td>
  </tr>
  <tr>
   <td><b>6:</b></td>
-  <td>-</td>
   <td>-3</td>
   <td>-</td>
  </tr>
  <tr>
   <td><b>7:</b></td>
-  <td>-</td>
   <td>-2</td>
   <td>-</td>
  </tr>
  <tr>
   <td><b>8:</b></td>
-  <td>-</td>
   <td>-2</td>
   <td>-</td>
  </tr>
  <tr>
   <td><b>9:</b></td>
-  <td>-</td>
   <td>-1</td>
   <td>-</td>
  </tr>
  <tr>
   <td><b>10:</b></td>
-  <td>-</td>
   <td>-1</td>
   <td>-</td>
  </tr>
@@ -480,83 +475,69 @@
   <td><b>11-12:</b></td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td><b>13:</b></td>
-  <td>1st level</td>
   <td>-</td>
   <td>+1, +1 per 9 levels</td>
  </tr>
  <tr>
   <td><b>14:</b></td>
-  <td>1st level</td>
   <td>-</td>
   <td>+1, +1 per 9 levels</td>
  </tr>
  <tr>
   <td><b>15:</b></td>
-  <td>2nd level</td>
   <td>+1</td>
   <td>+2, +1 per 7 levels</td>
  </tr>
  <tr>
   <td><b>16:</b></td>
-  <td>2nd level</td>
   <td>+1</td>
   <td>+2, +1 per 7 levels</td>
  </tr>
  <tr>
   <td><b>17:</b></td>
-  <td>3rd level</td>
   <td>+2</td>
   <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>18:</b></td>
-  <td>4th level</td>
   <td>+2</td>
   <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
-  <td>3rd level</td>
   <td>+3</td>
   <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>20:</b></td>
-  <td>5th level</td>
   <td>+3</td>
   <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>21:</b></td>
-  <td>4th level</td>
   <td>+4</td>
   <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>22:</b></td>
-  <td>6th level</td>
   <td>+4</td>
   <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>23:</b></td>
-  <td>5th level</td>
   <td>+5</td>
   <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>24:</b></td>
-  <td>7th level</td>
   <td>+5</td>
   <td>+3, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>25:</b></td>
-  <td>6th level</td>
   <td>+6</td>
   <td>+3, +1 per 5 levels</td>
  </tr>
@@ -964,6 +945,12 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.14-5.18 - 2019</strong></p>
+  <ul>
+    <li>bunch of minor fixes</li>
+    <li>updates for Spell Evasion</li>
+    <li>some changes to stat bonuses</li>
+  </ul>
   <p><strong>Version 5.13 - June 2018</strong></p>
   <ul>
     <li>what happened to 5.11 and 5.12??</li>
