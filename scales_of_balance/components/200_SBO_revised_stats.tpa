@@ -6,6 +6,7 @@
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
+DEFINE_ACTION_FUNCTION revise_stat_bonuses BEGIN
 
 //COPY MARKER FILE___________________________________________________________________
 //
@@ -1190,4 +1191,22 @@ ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
 END
 //__________________________________________________________________________________
 
+
+//fix sewage golem__________________________________________________________________
+//
+COPY_EXISTING ~igolem01.cre~ ~override~
+  LPF ALTER_EFFECT INT_VAR match_opcode = 102 match_power = 1 match_parameter1 = 0 parameter1 = 1 END
+  LPF ALTER_EFFECT INT_VAR match_opcode = 102 match_power = 2 match_parameter1 = 0 parameter1 = 2 END
+  LPF ALTER_EFFECT INT_VAR match_opcode = 102 match_power = 3 match_parameter1 = 0 parameter1 = 3 END
+  LPF ALTER_EFFECT INT_VAR match_opcode = 102 match_power = 4 match_parameter1 = 0 parameter1 = 4 END
+  LPF ALTER_EFFECT INT_VAR match_opcode = 102 match_power = 5 match_parameter1 = 0 parameter1 = 5 END
+  LPF ALTER_EFFECT INT_VAR match_opcode = 102 match_power = 6 match_parameter1 = 0 parameter1 = 6 END
+  LPF ALTER_EFFECT INT_VAR match_opcode = 102 match_power = 7 match_parameter1 = 0 parameter1 = 7 END
+  LPF ALTER_EFFECT INT_VAR match_opcode = 102 match_power = 8 match_parameter1 = 0 parameter1 = 8 END
+  LPF ALTER_EFFECT INT_VAR match_opcode = 102 match_power = 9 match_parameter1 = 0 parameter1 = 9 END
+IF_EXISTS BUT_ONLY
+//__________________________________________________________________________________
+
 CLEAR_ARRAYS
+
+END // end function

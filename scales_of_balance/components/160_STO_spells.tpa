@@ -6,7 +6,7 @@
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-
+DEFINE_ACTION_FUNCTION revise_saving_throws BEGIN
 
 //EDIT SAVE TABLES__________________________________________________________________
 //
@@ -73,8 +73,20 @@ END
 //
 //INCLUDE ~scales_of_balance/lib/save_list_base.tpa~
 
-ACTION_PHP_EACH d5_spell_saves AS spl => sav BEGIN 
-	ACTION_IF (FILE_EXISTS_IN_GAME ~%spl%.spl~) BEGIN 
+ACTION_PHP_EACH d5_spell_saves AS spell => sav BEGIN 
+	ACTION_IF (FILE_CONTAINS_EVALUATED (~SPELL.IDS~ ~[ %TAB%]%spell%[ %TAB%%LNL%%MNL%%WNL%]~)) BEGIN
+		LAF RES_NUM_OF_SPELL_NAME STR_VAR spell_name = EVAL ~%spell%~ RET spell_res END
+		ACTION_IF (FILE_EXISTS_IN_GAME ~%spell_res%.spl~) BEGIN
+			OUTER_SPRINT spl ~%spell_res%~
+		END
+	END
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%spell%.spl~) BEGIN
+		OUTER_SPRINT spl ~%spell%~
+	END
+	ACTION_IF !(FILE_CONTAINS_EVALUATED (~SPELL.IDS~ ~[ %TAB%]%spell%[ %TAB%%LNL%%MNL%%WNL%]~)) && !(FILE_EXISTS_IN_GAME ~%spell%.spl~) BEGIN
+		OUTER_SPRINT spl ~bleh~
+	END
+	ACTION_IF (FILE_EXISTS_IN_GAME ~%spl%.spl~) BEGIN  
 		COPY_EXISTING ~%spl%.spl~ ~override~ 	
 			PATCH_IF (sav = 1) BEGIN //save vs. spells
 				LPF ALTER_EFFECT INT_VAR silent = 1 match_savingthrow = 2 savingthrow = 1 END
@@ -472,3 +484,4 @@ END
 END // end IR conditional
 //___________________________________________________________________________________
 
+END // end function

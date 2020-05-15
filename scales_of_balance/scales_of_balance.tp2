@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.21~
+VERSION ~v5.22~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -75,6 +75,8 @@ BEGIN @100 // revised armor
 DESIGNATED 100
 
 INCLUDE ~scales_of_balance/components/100_IWO_YARAS.tpa~
+
+LAF revise_armor_system END
 //__________________________________________________________________________________
 
 BEGIN @1011 // normal aesthetic/enchantment tweaks
@@ -83,6 +85,8 @@ SUBCOMPONENT @101
 REQUIRE_PREDICATE NOT GAME_IS ~iwdee~ @8
 
 INCLUDE ~scales_of_balance/components/101_IWO_enchantments.tpa~
+
+LAF revise_enchantment END
 //__________________________________________________________________________________
 
 BEGIN @1012 // hardcore/low magic enchantment tweaks
@@ -90,13 +94,17 @@ DESIGNATED 1012
 SUBCOMPONENT @101
 REQUIRE_PREDICATE NOT GAME_IS ~iwdee~ @8
 
-INCLUDE ~scales_of_balance/components/101_IWO_enchantments.tpa~
+INCLUDE ~scales_of_balance/components/101_IWO_enchantments_hardcore.tpa~
+
+LAF revise_enchantment_hardcore END
 //__________________________________________________________________________________
 
 BEGIN @102 // functional tweaks
 DESIGNATED 102
 
 INCLUDE ~scales_of_balance/components/102_IWO_weapons.tpa~
+
+LAF weapon_tweaks END
 //__________________________________________________________________________________
 
 /*
@@ -113,6 +121,8 @@ DESIGNATED 104
 REQUIRE_PREDICATE GAME_IS ~iwdee~ @8
 
 INCLUDE ~scales_of_balance/components/104_IWO_IWDEE.tpa~
+
+LAF iwd_weapon_tweaks END
 //__________________________________________________________________________________
 
 /*
@@ -139,6 +149,8 @@ BEGIN @109 // potions usable by any class
 DESIGNATED 109
 
 INCLUDE ~scales_of_balance/components/109_IWO_potion_use.tpa~
+
+LAF revise_potion_use END
 //__________________________________________________________________________________
 
 
@@ -155,15 +167,19 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee e
 //REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "121") @1
 
 INCLUDE ~scales_of_balance/components/122_WPO_proficiency.tpa~
+INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
+INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
+
+LAF revise_proficiency_system END
 //__________________________________________________________________________________
 
 BEGIN @121 // combine profs
 DESIGNATED 121
 FORBID_COMPONENT ~scales_of_balance.tp2~ ~122~ @3
 
-ACTION_IF NOT MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~122~ BEGIN
-  INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
-END
+INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
+
+LAF revise_weapon_categories END
 //__________________________________________________________________________________
 
 BEGIN @123 // hardcore dual
@@ -180,6 +196,8 @@ REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
 FORBID_COMPONENT ~scales_of_balance.tp2~ ~122~ @3
 
 INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
+
+LAF revise_weapon_styles END
 //__________________________________________________________________________________
 
 BEGIN @125 // wspatck for all
@@ -187,6 +205,8 @@ DESIGNATED 125
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
 
 INCLUDE ~scales_of_balance/components/125_WPO_apr.tpa~
+
+LAF apr_on_spec END
 //__________________________________________________________________________________
 
 
@@ -204,6 +224,8 @@ DESIGNATED 160
 INCLUDE ~scales_of_balance/lib/save_list_base.tpa~
 
 INCLUDE ~scales_of_balance/components/160_STO_spells.tpa~
+
+LAF revise_saving_throws END
 //__________________________________________________________________________________
 
 /*
@@ -211,6 +233,8 @@ BEGIN @165 // saving throw table rebalance
 DESIGNATED 165
 
 INCLUDE ~scales_of_balance/components/165_STO_tables.tpa~
+
+LAF revise_save_tables END
 //__________________________________________________________________________________
 */
 
@@ -219,18 +243,18 @@ DESIGNATED 171
 SUBCOMPONENT @170 (NOT GAME_IS ~iwdee~)
 REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~d5_rfeat.d5~ @3
 
-OUTER_SET optional_evade = 0
-
 INCLUDE ~scales_of_balance/components/170_STO_evasion.tpa~
+
+LAF add_spell_evasion INT_VAR optional_evade = 0 END
 //__________________________________________________________________________________
 
 BEGIN @172 // thief spell evasion for expanded list of spells
 DESIGNATED 172
 SUBCOMPONENT @170
 
-OUTER_SET optional_evade = 1
-
 INCLUDE ~scales_of_balance/components/170_STO_evasion.tpa~
+
+LAF add_spell_evasion INT_VAR optional_evade = 1 END
 //__________________________________________________________________________________
 
 
@@ -246,12 +270,16 @@ BEGIN @200 // basic stat bonus overhaul
 DESIGNATED 200
 
 INCLUDE ~scales_of_balance/components/200_SBO_revised_stats.tpa~
+
+LAF revise_stat_bonuses END
 //__________________________________________________________________________________
 
 BEGIN @202 // strength penalty for 1-handed weapons
 DESIGNATED 202
 
 INCLUDE ~scales_of_balance/components/202_SBO_2h_strength.tpa~
+
+LAF 2hand_weapon_strength END
 //__________________________________________________________________________________
 
 BEGIN @204 // add concentration checks
@@ -259,6 +287,8 @@ DESIGNATED 204
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ @8
 
 INCLUDE ~scales_of_balance/components/204_concentration.tpa~
+
+LAF enable_concentration_checks END
 //__________________________________________________________________________________
 
 BEGIN @206 // constitution/hit dice rebalance - normal
@@ -266,6 +296,8 @@ DESIGNATED 206
 SUBCOMPONENT @205
 
 INCLUDE ~scales_of_balance/components/206_HDO.tpa~
+
+LAF revise_hit_dice END
 //__________________________________________________________________________________
 
 BEGIN @207 // constitution/hit dice rebalance - hardcore
@@ -273,6 +305,8 @@ DESIGNATED 207
 SUBCOMPONENT @205
 
 INCLUDE ~scales_of_balance/components/207_HDO_hardcore.tpa~
+
+LAF revise_hit_dice_hardcore END
 //__________________________________________________________________________________
 
 BEGIN @208 // constitution/hit dice rebalance - reduced
@@ -280,6 +314,8 @@ DESIGNATED 208
 SUBCOMPONENT @205
 
 INCLUDE ~scales_of_balance/components/208_HDO_reduced.tpa~
+
+LAF revise_hit_dice_reduced END
 //__________________________________________________________________________________
 
 
@@ -287,7 +323,7 @@ INCLUDE ~scales_of_balance/components/208_HDO_reduced.tpa~
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//							XP OVERHAUL
+//								XP OVERHAUL
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
@@ -295,33 +331,35 @@ BEGIN @210 // XP table rebalance
 DESIGNATED 210
 
 INCLUDE ~scales_of_balance/components/210_XPO_tables.tpa~
+
+LAF revise_xp_tables END
 //__________________________________________________________________________________
 
 BEGIN @216 // changes to creature XP rewards - 1/10
 DESIGNATED 2121
 SUBCOMPONENT @215
 
-OUTER_SET xp_divisor = 10
-
 INCLUDE ~scales_of_balance/components/215_XPO_NMX.tpa~
+
+LAF revise_enemy_xp INT_VAR xp_divisor = 10 END
 //__________________________________________________________________________________
 
 BEGIN @217 // changes to creature XP rewards - 1/5
 DESIGNATED 2122
 SUBCOMPONENT @215
 
-OUTER_SET xp_divisor = 5
-
 INCLUDE ~scales_of_balance/components/215_XPO_NMX.tpa~
+
+LAF revise_enemy_xp INT_VAR xp_divisor = 5 END
 //__________________________________________________________________________________
 
 BEGIN @218 // changes to creature XP rewards - 1/2
 DESIGNATED 2123
 SUBCOMPONENT @215
 
-OUTER_SET xp_divisor = 2
-
 INCLUDE ~scales_of_balance/components/215_XPO_NMX.tpa~
+
+LAF revise_enemy_xp INT_VAR xp_divisor = 2 END
 //__________________________________________________________________________________
 
 
@@ -329,15 +367,34 @@ INCLUDE ~scales_of_balance/components/215_XPO_NMX.tpa~
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//						MAGIC RESISTANCE OVERHAUL
+//							MAGIC RESISTANCE OVERHAUL
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-BEGIN @180
+BEGIN @230
 DESIGNATED 180
 
 //INCLUDE ~scales_of_balance/spells/mr_list_base.tpa~
 
-INCLUDE ~scales_of_balance/components/180_MRO.tpa~
+INCLUDE ~scales_of_balance/components/230_MRO.tpa~
+
+LAF revise_magic_resistance END
+//__________________________________________________________________________________
+
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//								POISON OVERHAUL
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+BEGIN @240
+DESIGNATED 240
+
+INCLUDE ~scales_of_balance/components/240_POI.tpa~
+
+LAF revise_poisons END
 //__________________________________________________________________________________
 

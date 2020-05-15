@@ -6,6 +6,7 @@
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
+DEFINE_ACTION_FUNCTION revise_weapon_categories BEGIN
 
 //UPDATE PROFICIENCY STRINGS_________________________________________________________
 //
@@ -316,3 +317,5 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 // ... ya. that's gonna be annoying
 
 CLEAR_ARRAYS
+
+END // end function

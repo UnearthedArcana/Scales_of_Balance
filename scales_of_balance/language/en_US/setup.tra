@@ -46,7 +46,6 @@
 @170   = ~STO - IWD Spell Evasion~
 @171   = ~For IWD Spells~
 @172   = ~For Expanded Spell List~
-@180   = ~MRO - Magic Resistance Overhaul~
 @200   = ~SBO - Stat Bonus Overhaul~
 @202   = ~SBO - Full Strength for 2-Hand Weapons Only~
 @204   = ~SBO - Enable Concentration Checks~
@@ -59,6 +58,8 @@
 @216   = ~kills give 1/10th XP~
 @217   = ~kills give 1/5th XP~
 @218   = ~kills give half XP~
+@230   = ~MRO - Magic Resistance Overhaul~
+@240   = ~POI - Poison Overhaul~
 //
 @10001  = ~^Armor Class:.+$~
 @10002  = ~Armor Class: ~
@@ -382,7 +383,7 @@ Prime Requisites For Dual-Classing: Intelligence~
 2 stars: +1 to hit, +1 damage, +.5 APR
 3 stars: +3 to hit, +2 damage, +1 APR
 4 stars: +4 to hit, +4 damage, +1.5 APR~
-@1233   = ~HEAVY SWORDS: The hallmark of the traditional muscle bound warrior is the greatsword: claymores, bastard swords, and other double-edge blades large enough to be used with two hands.  This proficiency class allows you to use these heavy swords to mangle your opponents.
+@1233   = ~TWO-HANDED SWORDS: The hallmark of the traditional muscle bound warrior is the greatsword: claymores, bastard swords, and other double-edge blades large enough to be used with two hands.  This proficiency class allows you to use these heavy swords to mangle your opponents.
 
 2 stars: +1 to hit, +1 damage, +.5 APR
 3 stars: +3 to hit, +2 damage, +1 APR
@@ -407,7 +408,7 @@ Prime Requisites For Dual-Classing: Intelligence~
 2 stars: +1 to hit, +1 damage, +.5 APR
 3 stars: +3 to hit, +2 damage, +1 APR
 4 stars: +4 to hit, +4 damage, +1.5 APR~
-@1238   = ~POLEARMS: This weapon class includes long spears, pikes, halberds and other polearms.  Their long 'reach' makes them very useful against most opponents.
+@1238   = ~SPEARS: This weapon class includes long spears, pikes, halberds and other polearms.  Their long 'reach' makes them very useful against most opponents.
 
 2 stars: +1 to hit, +1 damage, +.5 APR
 3 stars: +3 to hit, +2 damage, +1 APR

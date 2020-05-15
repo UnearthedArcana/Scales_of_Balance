@@ -12,139 +12,143 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY d5_spell_saves BEGIN
 
 // vanilla spells requiring saving throws
 
-SPPR102 => 1  //Command
-SPPR105 => 2  //Entangle
-SPPR116 => 2  //Faerie Fire
+CLERIC_COMMAND => 1  //Command
+CLERIC_ENTANGLE => 2  //Entangle
+CLERIC_FAERIE_FIRE => 2  //Faerie Fire
 
-SPPR204 => 1  //Charm Person/Mammal
-SPPR208 => 5  //Hold Person
-SPPR209 => 1  //Know Alignment
-SPPR211 => 1  //Silence
+CLERIC_CHARM_PERSON => 1  //Charm Person/Mammal
+CLERIC_HOLD_PERSON => 5  //Hold Person
+CLERIC_KNOW_ALIGNMENT => 1  //Know Alignment
+CLERIC_SILENCE_15_FOOT => 1  //Silence
 
-SPPR302 => 2  //Call Lightning
-SPPR304 => 2  //Glyph of Warding
-SPPR305 => 5  //Hold Animal
-SPPR310 => 1  //Miscast Magic
-SPPR311 => 1  //Rigid Thinking
-SPPR313 => 1  //Holy Smite
-SPPR314 => 3  //Unholy Blight
-SPPR319 => 2  //Summon Insects
+CLERIC_CALL_LIGHTNING => 2  //Call Lightning
+CLERIC_GLYPH_OF_WARDING => 2  //Glyph of Warding
+CLERIC_HOLD_ANIMAL => 5  //Hold Animal
+CLERIC_MISCAST_MAGIC => 1  //Miscast Magic
+CLERIC_RIGID_THINKING => 1  //Rigid Thinking
+CLERIC_HOLY_SMITE => 1  //Holy Smite
+CLERIC_UNHOLY_BLIGHT => 3  //Unholy Blight
+CLERIC_SUMMON_INSECTS => 2  //Summon Insects
 
-SPPR405 => 1  //Mental Domination
-SPPR411 => 3  //Poison
-SPPR416 => 1  //Cloak of Fear
+CLERIC_MENTAL_DOMINATION => 1  //Mental Domination
+CLERIC_POISON => 3  //Poison
+CLERIC_CLOAK_OF_FEAR => 1  //Cloak of Fear
 
-SPPR503 => 2  //Flame Strike
-SPPR511 => 3  //Slay Living
-SPPR512 => 1  //Greater Command
-SPPR517 => 2  //Insect Plague
+CLERIC_FLAME_STRIKE => 2  //Flame Strike
+CLERIC_SLAY_LIVING => 3  //Slay Living
+CLERIC_GREATER_COMMAND => 1  //Greater Command
+CLERIC_INSECT_PLAGUE => 2  //Insect Plague
 
-SPPR603 => 2  //Blade Barrier
+CLERIC_BLADE_BARRIER => 2  //Blade Barrier
 SPPR603D => 2  //Blade Barrier
-SPPR606 => 2  //Fire Seeds
-SPPR610 => 3  //Dolorous Decay
-SPPR614 => 2  //Searing Orb
+CLERIC_FIRE_SEEDS => 2  //Fire Seeds
+CLERIC_DOLOROUS_DECAY => 3  //Dolorous Decay
+CLERIC_SOL_SEARING_ORB => 2  //Searing Orb
 
-SPPR704 => 1  //Nature's Beauty
-SPPR706 => 1  //Symbol Fear
-SPPR707 => 2  //Sunray
-SPPR708 => 3  //Finger of Death
-SPPR709 => 1  //Confusion
-SPPR717 => 2  //Creeping Doom
-SPPR718 => 1  //Symbol Stun
-SPPR719 => 3  //Symbol Death
-SPPR720 => 2  //Earthquake
-SPPR725 => 2  // globe of blades
+CLERIC_NATURE_BEAUTY => 1  //Nature's Beauty
+CLERIC_SYMBOL_FEAR => 1  //Symbol Fear
+CLERIC_SYMBOL_WEAKNESS => 5 //Symbol Fear
+CLERIC_SUNRAY => 2  //Sunray
+CLERIC_FINGER_OF_DEATH => 3  //Finger of Death
+CLERIC_CONFUSION => 1  //Confusion
+CLERIC_CREEPING_DOOM => 2  //Creeping Doom
+CLERIC_SYMBOL_STUN => 1  //Symbol Stun
+CLERIC_SYMBOL_DEATH => 3  //Symbol Death
+CLERIC_EARTHQUAKE => 2  //Earthquake
+CLERIC_GLOBE_OF_BLADES => 2  // globe of blades
 
-SPWI101 => 2  //Grease 
-SPWI103 => 2  //Burning Hands 
-SPWI104 => 1  //Charm Person 
-SPWI105 => 1  //Color Spray 
-SPWI106 => 1  //Blindness (bg2) 
-SPWI116 => 1  //Sleep 
-SPWI117 => 3  //Chill Touch 
-SPWI118 => 2  //Chromatic Orb 
-SPWI125 => 1  //Spook 
+WIZARD_GREASE => 2  //Grease 
+WIZARD_BURNING_HANDS => 2  //Burning Hands 
+WIZARD_CHARM_PERSON => 1  //Charm Person 
+WIZARD_COLOR_SPRAY => 1  //Color Spray 
+WIZARD_BLINDNESS => 1  //Blindness (bg2) 
+WIZARD_SHOCKING_GRASP => 5 // shocking touch
+WIZARD_SLEEP => 1  //Sleep 
+WIZARD_CHILL_TOUCH => 3  //Chill Touch 
+WIZARD_CHROMATIC_ORB => 2  //Chromatic Orb 
+WIZARD_SPOOK => 1  //Spook 
 
-SPWI204 => 2  // Snilloc's Snowball Swarm 
-SPWI205 => 1  // Horror 
-//SPWI207 => 2  // Knock 
-//SPWI208 => 1  // Know Alignment 
-SPWI213 => 3  // Stinking Cloud 
-SPWI215 => 2  // Web 
-SPWI218 => 3  // Ghoul Touch 
-SPWI221 => 5  // Ray of Enfeeblement 
-SPWI223 => 1  // Deafness 
-SPWI224 => 2  // Glitterdust 
+WIZARD_HORROR => 1  // Horror 
+WIZARD_BATTERING_RAM => 2  // SR Knock 
+WIZARD_KNOW_OPPONENT => 1  // Know Opponent 
+WIZARD_STINKING_CLOUD => 3  // Stinking Cloud 
+WIZARD_WEB => 2  // Web 
+WIZARD_GHOUL_TOUCH => 3  // Ghoul Touch 
+WIZARD_RAY_OF_ENFEEBLEMENT => 5  // Ray of Enfeeblement 
+WIZARD_DEAFNESS => 1  // Deafness 
+WIZARD_SOUND_BURST => 5
+WIZARD_GLITTERDUST => 2  // Glitterdust 
 SPWI226 => 1  // Blindness [iwd]
+WIZARD_SNILLOCS_SNOWBALL_SWARM => 2
 
-SPWI303 => 2  // Flame Arrow 
-SPWI304 => 2  // Fireball 
-SPWI306 => 5  // Hold Person 
-SPWI308 => 2  // Lightning Bolt 
-SPWI312 => 5  // Slow 
-SPWI313 => 3  // Skull Trap 
-//SPWI314 => 3  // Vampiric Touch 
-SPWI316 => 1  // Dire Charm 
-SPWI324 => 5  // Hold Undead 
-SPWI327 => 2  // Icelance 
-SPWI328 => 2  // Lance of Disruption 
+WIZARD_FLAME_ARROW => 2  // Flame Arrow 
+WIZARD_FIREBALL => 2  // Fireball 
+WIZARD_HOLD_PERSON => 5  // Hold Person 
+WIZARD_LIGHTNING_BOLT => 2  // Lightning Bolt 
+WIZARD_SLOW => 5  // Slow 
+WIZARD_SKULL_TRAP => 3  // Skull Trap 
+//WIZARD_VAMPIRIC_TOUCH => 3  // Vampiric Touch 
+WIZARD_DIRE_CHARM => 1  // Dire Charm 
+WIZARD_HOLD_UNDEAD => 5  // Hold Undead 
+WIZARD_ICELANCE => 2  // Icelance 
+WIZARD_LANCE_OF_DISRUPTION => 2  // Lance of Disruption 
 
-SPWI401 => 1  // Confusion 
-//SPWI404 => 2  // Ice Storm 
-SPWI409 => 3  // Contagion 
-SPWI411 => 1  // Emotion: Hopelessness 
-SPWI413 => 5  // Otiluke's Resilient Sphere 
-SPWI415 => 5  // Polymorph Other 
-//SPWI421 => 5  // Teleport Field 
-SPWI422 => 5  // Beltyn's Burning Blood 
-SPWI428 => 1  // Emotion: Fear 
-SPWI431 => 1  // Shout 
-SPWI432 => 2  // Vitriolic Sphere 
+WIZARD_CONFUSION => 1  // Confusion 
+WIZARD_ICE_STORM => 2  // Ice Storm 
+WIZARD_CONTAGION => 3  // Contagion 
+WIZARD_EMOTION_HOPELESSNESS => 1  // Emotion: Hopelessness 
+WIZARD_OTILUKES_RESILIENT_SPHERE => 5  // Otiluke's Resilient Sphere 
+WIZARD_POLYMORPH_OTHER => 5  // Polymorph Other 
+WIZARD_TELEPORT_FIELD => 5  // Teleport Field 
+WIZARD_BELTYNS_BURNING_BLOOD => 5  // Beltyn's Burning Blood 
+WIZARD_EMOTION_FEAR => 1  // Emotion: Fear 
+WIZARD_SHOUT => 1  // Shout 
+WIZARD_VITRIOLIC_SPHERE => 2  // Vitriolic Sphere 
 
-SPWI502 => 3  // Cloudkill 
-SPWI503 => 2  // Cone of Cold 
-//SPWI505 => 1  // Shadow Door 
-SPWI506 => 1  // Domination 
-SPWI507 => 5  // Hold Monster 
-SPWI508 => 1  // Chaos 
-SPWI509 => 1  // Feeblemind 
-SPWI523 => 2  // Sunfire 
-SPWI524 => 2  // Shroud of Flame 
+WIZARD_CLOUDKILL => 3  // Cloudkill 
+WIZARD_CONE_OF_COLD => 2  // Cone of Cold 
+//WIZARD_SHADOW_DOOR => 1  // Shadow Door 
+WIZARD_DOMINATION => 1  // Domination 
+WIZARD_HOLD_MONSTER => 5  // Hold Monster 
+WIZARD_WAVES_OF_FATIGUE => 5 // SR Chaos
+WIZARD_CHAOS => 1  // Chaos 
+WIZARD_FEEBLEMIND => 1  // Feeblemind 
+WIZARD_SUN_FIRE => 2  // Sunfire 
+WIZARD_SHROUD_OF_FLAME => 2  // Shroud of Flame 
 
-SPWI604 => 5  // Flesh to Stone 
-SPWI615 => 2  // Chain Lightning 
-SPWI616 => 3  // Disintegrate 
-//SPWI626 => 3  // Lich Touch 
-SPWI628 => 2  // Otiluke's Freezing Sphere 
-SPWI630 => 3  // Darts of Bone 
-SPWI631 => 3  // Soul Eater 
+WIZARD_FLESH_TO_STONE => 5  // Flesh to Stone 
+WIZARD_CHAIN_LIGHTNING => 2  // Chain Lightning 
+WIZARD_DISINTEGRATE => 3  // Disintegrate 
+WIZARD_LICH_TOUCH => 3  // Lich Touch 
+WIZARD_OTILUKES_FREEZING_SPHERE => 2  // Otiluke's Freezing Sphere 
+WIZARD_DARTS_OF_BONE => 3  // Darts of Bone 
+WIZARD_SOUL_EATER => 3  // Soul Eater 
 
-//SPWI709 => 3  // Malavon's Rage 
-SPWI712 => 2  // Delayed Blast Fireball 
-SPWI713 => 3  // Finger of Death 
-SPWI714 => 2  // Prismatic Spray 
-SPWI720 => 1  // Control Undead 
-SPWI724 => 2  // Acid Storm 
-//SPWI725 => 1  // Seven Eyes 
-SPWI726 => 3  // Suffocate 
+WIZARD_DELAYED_BLAST_FIREBALL => 2  // Delayed Blast Fireball 
+WIZARD_FINGER_OF_DEATH => 3  // Finger of Death 
+WIZARD_PRISMATIC_SPRAY => 2  // Prismatic Spray 
+WIZARD_CONTROL_UNDEAD => 1  // Control Undead 
+WIZARD_ACID_STORM => 2  // Acid Storm 
+WIZARD_MALAVONS_RAGE => 3  // Malavon's Rage 
+//WIZARD_SEVEN_EYES => 1  // Seven Eyes 
+WIZARD_SUFFOCATE => 3  // Suffocate 
 
-SPWI806 => 1  // Great Shout 
-SPWI810 => 2  // Incendiary Cloud 
-SPWI811 => 1  // Symbol: Fear 
-SPWI812 => 3  // Abi-Dalzim's Horrid Wilting 
-SPWI816 => 1  // Symbol: Stun 
-SPWI817 => 1  // Symbol: Death 
-SPWI818 => 5  // Bigby's Clenched Fist 
+WIZARD_INCENDIARY_CLOUD => 2  // Incendiary Cloud 
+WIZARD_SYMBOL_FEAR => 1  // Symbol: Fear 
+WIZARD_SYMBOL_WEAKNESS => 5 // Symbol: Weakness
+WIZARD_ABI_DALZIMS_HORRID_WILTING => 3  // Abi-Dalzim's Horrid Wilting 
+WIZARD_SYMBOL_STUN => 1  // Symbol: Stun 
+WIZARD_SYMBOL_DEATH => 1  // Symbol: Death 
+WIZARD_BIGBYS_CLENCHED_FIST => 5  // Bigby's Clenched Fist 
+WIZARD_BIGBYS_ICY_GRASP => 5  // Bigby's Icy Grasp
+WIZARD_GREAT_SHOUT => 1  // Great Shout 
 
 //SPWI904 => 3  // Death Fog 
-SPWI913 => 3  // Wail of the Banshee 
-//SPWI914 => 3  // Energy Drain 
-SPWI918 => 5  // Bigby's Crushing Hand 
+WIZARD_WAIL_OF_THE_BANSHEE => 3  // Wail of the Banshee 
+WIZARD_ENERGY_DRAIN => 3  // Energy Drain 
+WIZARD_BIGBYS_CRUSHING_HAND => 5  // Bigby's Crushing Hand 
 
-// mod spells requiring saving throws
-
-SPPR114 => 2  //Faerie Fire
+WIZARD_DRAGONS_BREATH => 2
 
 // game spells requiring saving throws
 

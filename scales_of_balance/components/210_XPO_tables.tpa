@@ -6,8 +6,14 @@
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
+DEFINE_ACTION_FUNCTION revise_xp_tables BEGIN
+
+//___________________________________________________________________________________
 
 COPY ~scales_of_balance/misc/xplevel.2da~ ~override~
 COPY_EXISTING ~mxsplprs.2da~ ~override/mxspldru.2da~
 //COPY ~scales_of_balance/misc/d5_drspl.d5~ ~override~
+
 //___________________________________________________________________________________
+
+END // end function
