@@ -58,6 +58,18 @@
 @216   = ~kills give 1/10th XP~
 @217   = ~kills give 1/5th XP~
 @218   = ~kills give half XP~
+@220  = ~XPO - Choose SoD Starting XP~
+@221  = ~65,000~
+@222  = ~90,000~
+@223  = ~125,000~
+@224  = ~161,000~
+@225  = ~XPO - Choose SoA Starting XP~
+@226  = ~90,000~
+@227  = ~161,000~
+@228  = ~240,000~
+@229  = ~400,000~
+@230   = ~MRO - Magic Resistance Overhaul~
+@240   = ~POI - Poison Overhaul~
 @230   = ~MRO - Magic Resistance Overhaul~
 @240   = ~POI - Poison Overhaul~
 //

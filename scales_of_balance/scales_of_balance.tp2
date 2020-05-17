@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.22~
+VERSION ~v5.23~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -360,6 +360,82 @@ SUBCOMPONENT @215
 INCLUDE ~scales_of_balance/components/215_XPO_NMX.tpa~
 
 LAF revise_enemy_xp INT_VAR xp_divisor = 2 END
+//__________________________________________________________________________________
+
+BEGIN @221 // SoD starting XP 65K
+DESIGNATED 221
+SUBCOMPONENT @220
+//REQUIRE_PREDICATE (GAME_INCLUDES ~sod~) @1
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~sodstrta.2da~) @1
+
+INCLUDE ~scales_of_balance/components/220_XPO_start_xp.tpa~
+
+LAF revise_starting_xp INT_VAR start_value = 65000 STR_VAR game_start = ~sodstrta~ END
+//__________________________________________________________________________________
+
+BEGIN @222 // SoD starting XP 90K
+DESIGNATED 222
+SUBCOMPONENT @220
+
+INCLUDE ~scales_of_balance/components/220_XPO_start_xp.tpa~
+
+LAF revise_starting_xp INT_VAR start_value = 90000 STR_VAR game_start = ~sodstrta~ END
+//__________________________________________________________________________________
+
+BEGIN @223 // SoD starting XP 125K
+DESIGNATED 223
+SUBCOMPONENT @220
+
+INCLUDE ~scales_of_balance/components/220_XPO_start_xp.tpa~
+
+LAF revise_starting_xp INT_VAR start_value = 125000 STR_VAR game_start = ~sodstrta~ END
+//__________________________________________________________________________________
+
+BEGIN @224 // SoD starting XP 161K
+DESIGNATED 224
+SUBCOMPONENT @220
+
+INCLUDE ~scales_of_balance/components/220_XPO_start_xp.tpa~
+
+LAF revise_starting_xp INT_VAR start_value = 161000 STR_VAR game_start = ~sodstrta~ END
+//__________________________________________________________________________________
+
+BEGIN @226 // SoA starting XP 90K
+DESIGNATED 226
+SUBCOMPONENT @225
+//REQUIRE_PREDICATE (GAME_INCLUDES ~soa~) @1
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~startare.2da~) @1
+
+INCLUDE ~scales_of_balance/components/220_XPO_start_xp.tpa~
+
+LAF revise_starting_xp INT_VAR start_value = 90000 STR_VAR game_start = ~startare~ END
+//__________________________________________________________________________________
+
+BEGIN @227 // SoA starting XP 161K
+DESIGNATED 227
+SUBCOMPONENT @225
+
+INCLUDE ~scales_of_balance/components/220_XPO_start_xp.tpa~
+
+LAF revise_starting_xp INT_VAR start_value = 161000 STR_VAR game_start = ~startare~ END
+//__________________________________________________________________________________
+
+BEGIN @228 // SoA starting XP 240K
+DESIGNATED 228
+SUBCOMPONENT @225
+
+INCLUDE ~scales_of_balance/components/220_XPO_start_xp.tpa~
+
+LAF revise_starting_xp INT_VAR start_value = 240000 STR_VAR game_start = ~startare~ END
+//__________________________________________________________________________________
+
+BEGIN @229 // SoA starting XP 400K
+DESIGNATED 229
+SUBCOMPONENT @225
+
+INCLUDE ~scales_of_balance/components/220_XPO_start_xp.tpa~
+
+LAF revise_starting_xp INT_VAR start_value = 400000 STR_VAR game_start = ~startare~ END
 //__________________________________________________________________________________
 
 

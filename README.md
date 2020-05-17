@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.21 </strong><br />
+  <p><strong> Version 5.23 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -909,7 +909,31 @@
       <p>This component very simply divides the XP reward for killing creatures by 2, 5, or 10.  The aim is to make quest XP derived from role-playing relatively more important, compared to combat experience. Quest XP is not changed at all; so this component will result in a substantial reduction in total XP available over the course of the game.</p>
       <p>Do not install this unless you are looking for more of a challenge!</p>
   </div>
-  <h4 class="subheader">Component 180: </h4>
+  <h4 class="subheader">Components 221-224: </h4>
+  <div class="section">
+    <p><strong><em>Experience Point Overhaul (XPO): Revised Starting XP in Siege of Dragonspear</em></strong></p>
+    <p>This component gives you four choices for how much XP you will have if you begin a new campaign in Siege of Dragonspear: 
+    <ul>
+      <li>65,000</li>
+      <li>90,000</li>
+      <li>125,000</li>
+      <li>161,000</li>
+    </ul></p>
+    <p>This works in the standalone SoD games, in SoD campaigns when the expansion has been purchased for BGEE, and in EET games.</p>
+  </div>
+  <h4 class="subheader">Components 226-229: </h4>
+  <div class="section">
+    <p><strong><em>Experience Point Overhaul (XPO): Revised Starting XP in Shadows of Amn</em></strong></p>
+    <p>This component gives you four choices for how much XP you will have if you begin a new campaign in BG2 Shadows of Amn: 
+    <ul>
+      <li>90,000</li>
+      <li>161,000</li>
+      <li>240,000</li>
+      <li>400,000</li>
+    </ul></p>
+    <p>This works in BG2EE, as well as in EET games. I have not tested it in the pre-EE engine, but if the game includes STARTARE.2DA, then this should work on TOB and BGT games.</p>
+  </div>
+  <h4 class="subheader">Component 230: </h4>
   <div class="section">
     <p><strong><em>Magic Resistance Overhaul (MRO): Eliminate MR</em></strong></p>
     <p>WARNING: This component makes very severe changes to the way the game works, and should be considered as 'beta' quality. Its purpose is to largely (but not completely) remove the probability-based "magic resistance" mechanic from the game. It makes the following changes:</p>
@@ -919,7 +943,23 @@
       <li>Almost all items in the game that grant MR have been changed. Some, like the Amulet of Magic Resistance, have their MR converted into resistance to all elemental and magic damage. Others, like Carsomyr, instead get large bonuses to saving throws. Some are very different, like the Sword of Balduran which now grants a movement rate bonus.</li>
       <li>It is still possible to get *some* MR, from the Hell Trials and the Machine of Lum the Mad. That's okay, 15% MR isn't game-breaking... it only gets stupid when it is stacked to high levels.</li>
       <li>Likewise, the "Magic Resistance" spell is left untouched. It can be used as another form of magic protection along with the likes of Spell Deflections and Globes of Invulnerability. Lower Resistance, Pierce Magic, and Pierce Shield are still effective against this spell, and SCS enemies will use them against you.</li>
-    </ul></p> 
+    </ul></p>
+    <p><b>Compatibility:</b> this should be installed after all mods that add creatures and items that may be subject to magic resistance. Notably, if you want this to affect fiends (removing their MR), then this component should be installed after Spell Revisions, SCS, and aTweaks.</p>
+  </div>
+  <h4 class="subheader">Component 240: </h4>
+  <div class="section">
+    <p><strong><em>Poison Overhaul (MRO): Revised Poisons</em></strong></p>
+    <p>This makes all sources of continual poison damage in the game (opcode 25) do damage more slowly, but last longer. There will now be 4 categories of poison:
+    <ul>
+      <li>Lethal: 2hp/second and -6 to STR, for 3 turns (360 total damage)</li>
+      <li>Strong: 1hp/second and -5 to STR, for 4 turns (240 total damage)</li>
+      <li>Mild: 1hp/3 seconds and -4 to STR, for 5 turns (100 total damage)</li>
+      <li>Weak: 1hp/6 seconds and -3 to STR, for 5 turns (50 total damage)</li>
+    </ul></p>
+    <p>In general, poison damage does not stack.  But you never know, sometimes someone just has a bad reaction, so occasionally the rate of damage might be doubled if you get multiple doses.  This is rare but dangerous.</p>
+    <p>The 'Slow Poison' spell now does what it says on the tin: it SLOWS the poison, it doesn't necessarily cure it.  It will reduce the magnitude of the effects of any poison by two levels: so if you are effected by lethal poison, its effects drop to those of mild poison, and if you are affected by strong poison the effects become those of weak poison, and if you are affected by mild or weak poison the effects will be blocked completely.  However, the spell only lasts for 2 turns; after it expires, the poison will still be in your system and it will return to full strength!  You will need to apply some kind of cure again at that point, or just ride out the more serious effects.</p>
+    <p>Antidotes do the same thing as Slow Poison: they reduce the severity of the effects by two levels.  Unlike the spell, antidotes last for a full 5 turns, so they will block weak potions entirely, and weaken strong poisons for their entire course. </p>
+    <p>The Neutralize Poison spell and the Elixir of Health potion will completely block poisons of any strength, for 6 turns. (They do not prevent any poison from affecting you; they simply block the effect of poison for their duration. If you are affected by poison 5 turns after having Neutralize Poison cast on you, then the poison will kick in 1 turn later.)</p> 
   </div>
 </div>
 <h2>Contact Information</h2>
@@ -945,6 +985,18 @@
 </div>
 <h2>Version History</h2>
 <div class="section">
+  <p><strong>Version 5.22-5.23 - 2020</strong></p>
+  <ul>
+    <li>some fixes</li>
+    <li>encapsulation</li>
+    <li>added Poison Overhaul</li>
+    <li>added starting XP for SoD and SoA</li>
+  </ul>
+  <p><strong>Version 5.19-5.21 - 2020</strong></p>
+  <ul>
+    <li>I forget</li>
+    <li>probably some fixes</li>
+  </ul>
   <p><strong>Version 5.14-5.18 - 2019</strong></p>
   <ul>
     <li>bunch of minor fixes</li>

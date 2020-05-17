@@ -1,0 +1,21 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//						XP TABLE CHANGES
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+DEFINE_ACTION_FUNCTION revise_starting_xp INT_VAR start_value = 89000 STR_VAR game_start = ~startare~ BEGIN
+	COPY_EXISTING ~%game_start%.2da~ ~override~
+	  COUNT_2DA_ROWS 2 rows
+	  FOR (row = 1; row < rows; ++row) BEGIN
+		READ_2DA_ENTRY row 0 2 setting
+		PATCH_IF (~%setting%~ STRING_EQUAL_CASE ~START_XP~) BEGIN
+		  SET_2DA_ENTRY row 1 2 %start_value%
+		END
+	  END
+	IF_EXISTS BUT_ONLY
+END
+
