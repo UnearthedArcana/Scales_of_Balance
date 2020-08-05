@@ -201,7 +201,7 @@ Weight: 0~
 @10175   = ~Enchanted Large Shield~
 @10176   = ~Enchanted Sling~
 @10177   = ~Varscona~
-@10178   = ~The Whistling Sword~
+@10178   = ~Enchanted Short Sword~
 @10179   = ~Water's Edge~
 @10180   = ~Enchanted Mace~
 @10181   = ~Enchanted Club~
@@ -255,6 +255,7 @@ Weight: 0~
 @10205   = ~Halcyon Spear~
 @10206   = ~Kondar~
 @10207   = ~Rashad's Talon~
+@10208   = ~Enchanted Plate Mail~
 @10701	= ~ ~
 @1214   = ~FIGHTER: The Fighter is a champion, soldier, and brawler who lives or dies by knowledge of weapons and tactics. Fighters can be found at the front of any battle, contesting toe-to-toe with monsters and villains. A good Fighter needs to be strong and healthy if he hopes to survive.
 CLASS FEATURES:

@@ -205,6 +205,7 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY evade_spells BEGIN
 	spwi806 		=> 1
 	spwi812 		=> 1
 	spwish32 		=> 1
+	d5ps305a 		=> 1
 END
 ACTION_IF !(VARIABLE_IS_SET %optional_evade%) BEGIN
   OUTER_SET optional_evade = 0

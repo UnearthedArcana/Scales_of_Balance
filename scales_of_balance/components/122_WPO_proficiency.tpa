@@ -393,6 +393,7 @@ COPY_EXISTING ~kitlist.2da~ ~override~
 //  COUNT_2DA_COLS cols
   READ_2DA_ENTRIES_NOW ~r2en_kitlist~ 10
   FOR (row = 2; row < r2en_kitlist; row += 1) BEGIN
+    READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 1 kit_name
     READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 6 prof_col
     READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 8 class_num
     PATCH_IF (class_num == 3) OR (class_num == 8) OR (class_num == 17) BEGIN 		//	clerics
@@ -416,7 +417,7 @@ COPY_EXISTING ~kitlist.2da~ ~override~
     PATCH_IF (class_num == 6) BEGIN 												//	paladins
       DEFINE_ASSOCIATIVE_ARRAY d5_paladins_array BEGIN "%prof_col%" => "%class_num%" END
     END
-    PATCH_IF (class_num == 2) BEGIN 												//	fighters
+    PATCH_IF (class_num == 2) AND !(~%kit_name%~ STRING_EQUAL_CASE ~C#WARDOG~) BEGIN 												//	fighters
       DEFINE_ASSOCIATIVE_ARRAY d5_fighters_array BEGIN "%prof_col%" => "%class_num%" END
     END
     PATCH_IF (class_num == 7) OR (class_num == 14) OR (class_num == 17) BEGIN 		//	fighter/mages, cleric/mages, F/M/Cs
