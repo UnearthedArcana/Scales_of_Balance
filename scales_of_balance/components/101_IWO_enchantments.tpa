@@ -924,6 +924,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			END
 		END
 	END
+BUT_ONLY
 //__________________________________________________________________________________
 
 ACTION_IF FILE_EXISTS_IN_GAME ~blun23.itm~ THEN BEGIN

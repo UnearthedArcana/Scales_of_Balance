@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.24~
+VERSION ~v5.25~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -269,9 +269,24 @@ LAF add_spell_evasion INT_VAR optional_evade = 1 END
 BEGIN @200 // basic stat bonus overhaul
 DESIGNATED 200
 
+INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
+
 INCLUDE ~scales_of_balance/components/200_SBO_revised_stats.tpa~
 
 LAF revise_stat_bonuses END
+
+//__________________________________________________________________________________
+
+BEGIN @201 // stat-based bonus spells
+DESIGNATED 201
+REQUIRE_PREDICATE !(MOD_IS_INSTALLED ~tomeandblood.tp2~ ~95~) @1
+
+INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
+
+INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
+
+LAF revise_stat_bonuses END
+
 //__________________________________________________________________________________
 
 BEGIN @202 // strength penalty for 1-handed weapons
