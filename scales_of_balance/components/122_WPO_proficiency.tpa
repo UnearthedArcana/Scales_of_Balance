@@ -893,15 +893,14 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 
 //UNIVERSAL CROSSBOWS________________________________________________________________
 //
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
- COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-    READ_BYTE 0x31 "prof" ELSE 0
-    PATCH_IF ("%prof%" = 103) BEGIN
-      READ_BYTE 0x1f "fighter"
-      PATCH_IF (("%fighter%" BAND "0b00001000") = "0b00000000") BEGIN
-        READ_BYTE   0x20 "mage"
-        WRITE_BYTE 0x20 ("%mage%" BAND "0b11111011")
+    READ_BYTE 0x31 prof ELSE 0
+    READ_SHORT 0x1c type
+    PATCH_IF (prof = 103) OR (type = 31) BEGIN
+//      READ_BYTE 0x1f "fighter"
+//      PATCH_IF (("%fighter%" BAND "0b00001000") = "0b00000000") BEGIN
+        WRITE_BYTE 0x20 (THIS BAND 0b11111011)
         PATCH_FOR_EACH offset IN
           ~0x50~
           ~0x54~
@@ -918,35 +917,11 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
            	END
           END
         END
-      END
-    END
-    READ_SHORT ~0x1c~ ~type~
-    PATCH_IF (~%type%~ = ~31~) BEGIN
-      READ_BYTE 0x1f "fighter"
-      PATCH_IF (("%fighter%" BAND "0b00001000") = "0b00000000") BEGIN
-        READ_BYTE   0x20 "mage"
-        WRITE_BYTE 0x20 ("%mage%" BAND "0b11111011")
-        PATCH_FOR_EACH offset IN
-          ~0x50~
-          ~0x54~
-        BEGIN
-          READ_LONG ~%offset%~ desc_strref
-          PATCH_IF (desc_strref >= 0 && desc_strref < 2147483646) BEGIN
-            READ_STRREF ~%offset%~ desc
-           	LAUNCH_PATCH_FUNCTION ~REMOVE_CLASS_LINE_FROM_USABILITIES~
-           	  STR_VAR
-           	    unusable_regexp = EVALUATE_BUFFER ~^[ %TAB%]*\(Unusable By\|Not Usable By\).*~
-           	    unusable_replacement = ~Not Usable By:~
-           	    class_regexp = EVALUATE_BUFFER ~[%LNL%%MNL%%WNL%].*\bMage.*~
-           	    class_prefix = ~ ~
-           	END
-          END
-        END
-      END
     END
   END
- BUT_ONLY
+BUT_ONLY
 
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~) BEGIN
  COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
     READ_BYTE 0x31 "prof" ELSE 0
@@ -1009,7 +984,7 @@ END
 
 //CLERIC WEAPON USABILITY___________________________________________________________
 //
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~) BEGIN
   COPY_EXISTING_REGEXP GLOB ~.*\.itm$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 		READ_BYTE  0x1e cleric 
