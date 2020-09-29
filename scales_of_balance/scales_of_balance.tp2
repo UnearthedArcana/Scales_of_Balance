@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.26~
+VERSION ~v5.27~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -285,7 +285,7 @@ INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
 
 INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
 
-LAF revise_stat_bonuses END
+LAF ability_bonus_spells END
 
 //__________________________________________________________________________________
 

@@ -2,7 +2,7 @@
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//									STAT BONUSES
+//							STAT-BASED BONUS SPELLS
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
@@ -11,7 +11,7 @@
 // -----------------------------
 
 
-DEFINE_ACTION_FUNCTION ability_bonuses BEGIN 
+DEFINE_ACTION_FUNCTION ability_bonus_spells BEGIN 
 
 // INCREASE the # of mage/bard/sorcerer/dd slots by 2... then we will reduce them by stat
 
@@ -398,10 +398,28 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5sorc.2da~) BEGIN
 
   COPY_EXISTING ~d5srfrsh.spl~ ~override~
 	PHP_EACH cha_nums_lets AS cha => slot BEGIN
-	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 10 opcode = 326 target = 1 parameter1 = %cha% parameter2 = 132 timing = 1 STR_VAR resource = EVAL ~d5chab%slot%~ END
+	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 10 opcode = 326 target = 1 parameter1 = %cha% parameter2 = 132 timing = 1 STR_VAR resource = EVAL ~d5chas%slot%~ END
 	END
 	PHP_EACH cha_nums_lets AS cha => slot BEGIN
-	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chab%slot%~ END
+	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas%slot%~ END
+	END
+  IF_EXISTS BUT_ONLY
+
+END
+
+
+// CHA bonus spells for manasorc______________________________________________________
+//
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5_mana.2da~) BEGIN
+
+  LAM semi_cha_slots
+
+  COPY_EXISTING ~d5mrfrsh.spl~ ~override~
+	PHP_EACH cha_nums_lets AS cha => slot BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 10 opcode = 326 target = 1 parameter1 = %chr_slots% parameter2 = 132 timing = 1 STR_VAR resource = EVAL ~d5cham%slot%~ END
+	END
+	PHP_EACH cha_nums_lets AS cha => slot BEGIN
+	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5cham%slot%~ END
 	END
   IF_EXISTS BUT_ONLY
 
