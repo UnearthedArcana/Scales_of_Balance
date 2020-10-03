@@ -852,16 +852,44 @@ END // end of IR
 
 
 //monks and wizard slayers__________________________________________________________
-//__________________________________________________________________________________
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_nuwsl.d5~ THEN BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
 	COPY_EXISTING ~clastext.2da~ ~override~
-		SET_2DA_ENTRY 5 4 1 RESOLVE_STR_REF (@1611)
+	  COUNT_2DA_COLS cols 
+	  READ_2DA_ENTRIES_NOW rows cols 
+	  FOR (row = 1; row < rows; ++row) BEGIN 
+		READ_2DA_ENTRY_FORMER rows row 0 ~text~ 
+		PATCH_IF ~%text%~ STRING_EQUAL_CASE ~WIZARD_SLAYER~ BEGIN
+//		  SET wslayer_row = %row%
+		  SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (@1611)
+		END
+	  END
 	BUT_ONLY
   END
   ACTION_IF (FILE_EXISTS_IN_GAME ~sodcltxt.2da~) BEGIN
 	COPY_EXISTING ~sodcltxt.2da~ ~override~
-		SET_2DA_ENTRY 5 4 1 RESOLVE_STR_REF (@1611)
+	  COUNT_2DA_COLS cols 
+	  READ_2DA_ENTRIES_NOW rows cols 
+	  FOR (row = 1; row < rows; ++row) BEGIN 
+		READ_2DA_ENTRY_FORMER rows row 0 ~text~ 
+		PATCH_IF ~%text%~ STRING_EQUAL_CASE ~WIZARD_SLAYER~ BEGIN
+//		  SET wslayer_row = %row%
+		  SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (@1611)
+		END
+	  END
+	BUT_ONLY
+  END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~kitlist.2da~) BEGIN
+	COPY_EXISTING ~kitlist.2da~ ~override~
+//	  COUNT_2DA_COLS cols
+	  READ_2DA_ENTRIES_NOW rows 9
+	  FOR (row = 1; row < rows; ++row) BEGIN
+		READ_2DA_ENTRY_FORMER rows row 1 ~text~
+		PATCH_IF ~%text%~ STRING_EQUAL_CASE ~BERSERKER~ BEGIN
+//		  SET wslayer_row = %row%
+		  SET_2DA_ENTRY row 4 9 RESOLVE_STR_REF (@1611)
+		END
+	  END
 	BUT_ONLY
   END
   ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
@@ -879,12 +907,41 @@ END
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_mfist.d5~ THEN BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
 	COPY_EXISTING ~clastext.2da~ ~override~
-		SET_2DA_ENTRY 56 4 1 RESOLVE_STR_REF (@1615)
+	  COUNT_2DA_COLS cols 
+	  READ_2DA_ENTRIES_NOW rows cols 
+	  FOR (row = 1; row < rows; ++row) BEGIN 
+		READ_2DA_ENTRY_FORMER rows row 0 ~text~ 
+		PATCH_IF ~%text%~ STRING_EQUAL_CASE ~MONK~ BEGIN
+//		  SET monk_row = %row%
+		  SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (@1615)
+		END
+	  END
 	BUT_ONLY
   END
   ACTION_IF (FILE_EXISTS_IN_GAME ~sodcltxt.2da~) BEGIN
 	COPY_EXISTING ~sodcltxt.2da~ ~override~
-		SET_2DA_ENTRY 56 4 1 RESOLVE_STR_REF (@1615)
+	  COUNT_2DA_COLS cols 
+	  READ_2DA_ENTRIES_NOW rows cols 
+	  FOR (row = 1; row < rows; ++row) BEGIN 
+		READ_2DA_ENTRY_FORMER rows row 0 ~text~ 
+		PATCH_IF ~%text%~ STRING_EQUAL_CASE ~MONK~ BEGIN
+//		  SET monk_row = %row%
+		  SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (@1615)
+		END
+	  END
+	BUT_ONLY
+  END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~kitlist.2da~) BEGIN
+	COPY_EXISTING ~kitlist.2da~ ~override~
+//	  COUNT_2DA_COLS cols
+	  READ_2DA_ENTRIES_NOW rows 9
+	  FOR (row = 1; row < rows; ++row) BEGIN
+		READ_2DA_ENTRY_FORMER rows row 1 ~text~
+		PATCH_IF ~%text%~ STRING_EQUAL_CASE ~BERSERKER~ BEGIN
+//		  SET monk_row = %row%
+		  SET_2DA_ENTRY row 4 9 RESOLVE_STR_REF (@1615)
+		END
+	  END
 	BUT_ONLY
   END
   ACTION_IF ENGINE_IS ~tob~ THEN BEGIN
@@ -894,12 +951,41 @@ END
 ACTION_IF FILE_EXISTS_IN_GAME ~d5_mfist.d5~ THEN BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
 	COPY_EXISTING ~clastext.2da~ ~override~
-		SET_2DA_ENTRY 56 4 1 RESOLVE_STR_REF (@1618)
+	  COUNT_2DA_COLS cols 
+	  READ_2DA_ENTRIES_NOW rows cols 
+	  FOR (row = 1; row < rows; ++row) BEGIN 
+		READ_2DA_ENTRY_FORMER rows row 0 ~text~ 
+		PATCH_IF ~%text%~ STRING_EQUAL_CASE ~MONK~ BEGIN
+//		  SET monk_row = %row%
+		  SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (@1618)
+		END
+	  END
 	BUT_ONLY
   END
   ACTION_IF (FILE_EXISTS_IN_GAME ~sodcltxt.2da~) BEGIN
 	COPY_EXISTING ~sodcltxt.2da~ ~override~
-		SET_2DA_ENTRY 56 4 1 RESOLVE_STR_REF (@1618)
+	  COUNT_2DA_COLS cols 
+	  READ_2DA_ENTRIES_NOW rows cols 
+	  FOR (row = 1; row < rows; ++row) BEGIN 
+		READ_2DA_ENTRY_FORMER rows row 0 ~text~ 
+		PATCH_IF ~%text%~ STRING_EQUAL_CASE ~MONK~ BEGIN
+//		  SET monk_row = %row%
+		  SET_2DA_ENTRY row 4 cols RESOLVE_STR_REF (@1618)
+		END
+	  END
+	BUT_ONLY
+  END
+  ACTION_IF (FILE_EXISTS_IN_GAME ~kitlist.2da~) BEGIN
+	COPY_EXISTING ~kitlist.2da~ ~override~
+//	  COUNT_2DA_COLS cols
+	  READ_2DA_ENTRIES_NOW rows 9
+	  FOR (row = 1; row < rows; ++row) BEGIN
+		READ_2DA_ENTRY_FORMER rows row 1 ~text~
+		PATCH_IF ~%text%~ STRING_EQUAL_CASE ~BERSERKER~ BEGIN
+//		  SET monk_row = %row%
+		  SET_2DA_ENTRY row 4 9 RESOLVE_STR_REF (@1618)
+		END
+	  END
 	BUT_ONLY
   END
   ACTION_IF ENGINE_IS ~tob~ THEN BEGIN

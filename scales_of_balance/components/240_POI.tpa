@@ -241,7 +241,7 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5poiz4.spl~
 // - opcode 78, param1 = as appropriate (3-6?), param2 = 4
 // - 206 vs. itself for 5 seconds
 
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5poiz2a.spl~
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5poiz1a.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 25 target = 1 parameter1 = 2 parameter2 = 2 timing = 0 duration = 7 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 78 target = 1 parameter1 = 6 parameter2 = 4 timing = 0 duration = 7 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 5 STR_VAR resource = ~d5poiz1a~ END
@@ -328,7 +328,7 @@ ACTION_PHP_EACH slow_poison_spells AS slow_spl => num BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~%slow_spl%.spl~) BEGIN
 	COPY_EXISTING ~%slow_spl%.spl~ ~override~
 	  LPF DELETE_EFFECT INT_VAR match_opcode = 11 END
-	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 24) parameter2 = (115 + (0x10000 * 1)) timing = 0 duration = 120 END
+	  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 24) parameter2 = (115 + (0x10000 * 1)) timing = 0 duration = 300 END
 	BUT_ONLY
   END
 END
