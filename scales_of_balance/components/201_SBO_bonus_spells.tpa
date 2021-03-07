@@ -99,8 +99,8 @@ COPY ~%MOD_FOLDER%/data/ability_bonuses/d5_slots.eff~ ~override/d5absps.eff~
 
 //COPY ~%MOD_FOLDER%/data/ability_bonuses/d5_slots.spl~ ~override/d5absp.spl~
 
-APPEND ~splprot.2da~ ~D5_INT_SLOTS%TAB%38%TAB%-1%TAB%1~
-APPEND ~splprot.2da~ ~D5_CHR_SLOTS%TAB%42%TAB%-1%TAB%1~
+APPEND ~splprot.2da~ ~D5_INT_SLOTS%TAB%38%TAB%-1%TAB%1~ UNLESS ~D5_INT_SLOTS~
+APPEND ~splprot.2da~ ~D5_CHR_SLOTS%TAB%42%TAB%-1%TAB%1~ UNLESS ~D5_CHR_SLOTS~
 
 COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols 
@@ -353,8 +353,13 @@ ACTION_IF FILE_EXISTS_IN_GAME ~clabso01.2da~ BEGIN
 END
 */
 
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5__slt.spl~
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5z0slt.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 target = 1 parameter1 = (0 - 1) parameter2 = 127 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5z0slt~ END
+
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5z1slt.spl~
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 target = 1 parameter1 = (0 - 1) parameter2 = 127 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5z1slt~ END
 
 COPY_EXISTING ~kitlist.2da~ ~override~
 //  COUNT_2DA_COLS cols
@@ -363,26 +368,26 @@ COPY_EXISTING ~kitlist.2da~ ~override~
 	READ_2DA_ENTRY %row% 1 10 modname
 	READ_2DA_ENTRY %row% 5 10 modclab
 	READ_2DA_ENTRY %row% 8 10 modclass
-	PATCH_IF (%modclass% = 1) AND !(%modname% STRING_MATCHES_REGEXP ~C0SA+~ = 0) AND !(%modname% STRING_EQUAL_CASE ~D5ACNST~) AND !(%modname% STRING_EQUAL_CASE ~D5_MANA~) BEGIN	// mage kits
+	PATCH_IF (%modclass% = 1) AND !(~%modname%~ STRING_MATCHES_REGEXP ~C0SA+~ = 0) AND !(~%modclab%~ STRING_EQUAL_CASE ~D5ACNST~) AND !(~%modclab%~ STRING_EQUAL_CASE ~D5_MANA~) BEGIN	// mage kits
 	  INNER_ACTION BEGIN
 		APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5ABSP1  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
 	  END
 	END
-	PATCH_IF (%modclass% = 5) AND !(%modname% STRING_MATCHES_REGEXP ~C0SA+~ = 0) BEGIN 	// bard kits
+	PATCH_IF (%modclass% = 5) AND !(~%modname%~ STRING_MATCHES_REGEXP ~C0SA+~ = 0) BEGIN 	// bard kits
 	  INNER_ACTION BEGIN
 		APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5ABSP2  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
 	  END
 	END
-	PATCH_IF (%modclass% = 19) AND !(%modname% STRING_MATCHES_REGEXP ~C0SA+~ = 0) BEGIN 	// sorcerer kits
+	PATCH_IF (%modclass% = 19) AND !(~%modname%~ STRING_MATCHES_REGEXP ~C0SA+~ = 0) BEGIN 	// sorcerer kits
 	  INNER_ACTION BEGIN
 		APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5ABSP3  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
 	  END
 	END
 	PATCH_IF (%modclass% = 1) OR (%modclass% = 5) OR (%modclass% = 19) OR (%modclass% = 7) OR (%modclass% = 10) OR (%modclass% = 13) OR (%modclass% = 14) OR (%modclass% = 17) BEGIN
-	  PATCH_IF (%modname% STRING_MATCHES_REGEXP ~C0SA+~ = 0) BEGIN	// shadow adept arcane kits
+	  PATCH_IF (~%modname%~ STRING_MATCHES_REGEXP ~C0SA+~ = 0) BEGIN	// shadow adept arcane kits
 		INNER_ACTION BEGIN
-		  APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5__SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
-		  APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5__SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
+		  APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5Z0SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
+		  APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5Z1SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
 		END
 	  END
 	END
@@ -393,7 +398,7 @@ BUT_ONLY
 // CHA bonus spells for multisorc_____________________________________________________
 //
 ACTION_IF (FILE_EXISTS_IN_GAME ~d5sorc.2da~) BEGIN
-	
+
   LAM semi_cha_slots
 
   COPY_EXISTING ~d5srfrsh.spl~ ~override~
@@ -416,7 +421,7 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_mana.2da~) BEGIN
 
   COPY_EXISTING ~d5mrfrsh.spl~ ~override~
 	PHP_EACH cha_nums_lets AS cha => slot BEGIN
-	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 10 opcode = 326 target = 1 parameter1 = %chr_slots% parameter2 = 132 timing = 1 STR_VAR resource = EVAL ~d5cham%slot%~ END
+	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 10 opcode = 326 target = 1 parameter1 = %cha% parameter2 = %chr_slots% timing = 1 STR_VAR resource = EVAL ~d5cham%slot%~ END
 	END
 	PHP_EACH cha_nums_lets AS cha => slot BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5cham%slot%~ END
@@ -433,6 +438,8 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5acnst.2da~) BEGIN
   LAM semi_int_slots
 
   COPY_EXISTING ~d5ac000.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z0slt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z1slt~ END
 	PHP_EACH int_nums_lets AS int => slot BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 326 target = 1 parameter1 = %int% parameter2 = 128 timing = 1 STR_VAR resource = EVAL ~d5intb%slot%~ END
 	END
@@ -442,6 +449,8 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5acnst.2da~) BEGIN
   IF_EXISTS BUT_ONLY
 
   COPY_EXISTING ~d5acast.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z0slt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z1slt~ END
 	PHP_EACH int_nums_lets AS int => slot BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 326 target = 1 parameter1 = %int% parameter2 = 128 timing = 1 STR_VAR resource = EVAL ~d5intb%slot%~ END
 	END
@@ -450,9 +459,12 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5acnst.2da~) BEGIN
 	END
   IF_EXISTS BUT_ONLY
 
-  APPEND ~d5acnst.2da~ ~LESSSLOTS   AP_D5__SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
-  APPEND ~d5acnst.2da~ ~LESSSLOTS   AP_D5__SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
+//  APPEND ~d5acnst.2da~ ~LESSSLOTS   AP_D5Z0SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
+//  APPEND ~d5acnst.2da~ ~LESSSLOTS   AP_D5Z1SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
 
+  COPY_EXISTING ~d5acnst.2da~ ~override~
+	REPLACE_TEXTUALLY ~AP_D5ABSP1~ ~****      ~
+  IF_EXISTS BUT_ONLY
 END
 
 
@@ -463,6 +475,8 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_bard.2da~) BEGIN
   LAM semi_int_slots
 
   COPY_EXISTING ~d5bcast.spl~ ~override~
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z0slt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z1slt~ END
 	PHP_EACH int_nums_lets AS int => slot BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 326 target = 1 parameter1 = %int% parameter2 = 128 timing = 1 STR_VAR resource = EVAL ~d5intb%slot%~ END
 	END

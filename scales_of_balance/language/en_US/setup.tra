@@ -471,7 +471,7 @@ Specialized (++): Once per round, the wielder can perform a Shield Bash, doing 1
 
 NOTE: for every 5 levels gained by the wielder, the damage from the shield bash indreases by 1d3 and the saving throw suffers a 1-point penalty.
 ~
-@1247   = ~FENCING: Investing in this fighting style allows characters to be especially quick and accurate when wielding a single weapon in one hand. 
+@1247   = ~SINGLE-HAND STYLE: Investing in this fighting style allows characters to be especially quick and accurate when wielding a single weapon in one hand. 
 
 Proficient (+): The wielder gets a +1 bonus to thac0, a -2 bonus to weapon speed factor, and a +2 bonus to saving throws vs. Breath Weapon.
 
@@ -493,7 +493,7 @@ Coordinating the use of two weapons is difficult, especially with larger, heavie
 ~
 @1250   = ~Two-Hand Style~
 @1251   = ~Shield-Fighting~
-@1252   = ~Fencing~
+@1252   = ~Single-Hand Style~
 @1253   = ~Dual-Wielding~
 @1254   = ~Anomen's proficiencies~
 @1255   = ~Use this book to give Anomen the correct proficiencies.~
@@ -540,8 +540,8 @@ Coordinating the use of two weapons is difficult, especially with larger, heavie
 @12332  = ~Specialize in 2-Handed Weapon Style?~
 @12333  = ~Shield-fighting Style~
 @12334  = ~Specialize in Shield-fighting Style?~
-@12335  = ~Fencing Style~
-@12336  = ~Specialize in Fencing Style?~
+@12335  = ~Single-Hand Style~
+@12336  = ~Specialize in Single-Hand Style?~
 @12337  = ~Dual-Wielding Style~
 @12338  = ~Specialize in Dual-Wielding Style?~
 @12330  = ~Choose a different weapon~

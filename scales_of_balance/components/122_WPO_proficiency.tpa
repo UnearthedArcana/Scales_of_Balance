@@ -719,10 +719,15 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5_MEISTER~) BEGIN
 			SET_2DA_ENTRY_LATER ~s2el_mng~ 31 (col + 1) 2
 		END
+		PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5_CR_MIELI~) BEGIN
+			SET_2DA_ENTRY_LATER ~s2el_mng~ 28 (col + 1) 4
+		END
 	END
 	SET_2DA_ENTRIES_NOW ~s2el_mng~ 1
 BUT_ONLY
 //__________________________________________________________________________________
+
+// ***** if MnG bards, remove bonus APR from Bladesingers
 
 /*
 //COPY PROFICIENCY FILES____________________________________________________________
