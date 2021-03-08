@@ -353,13 +353,18 @@ ACTION_IF FILE_EXISTS_IN_GAME ~clabso01.2da~ BEGIN
 END
 */
 
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5z0slt.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 target = 1 parameter1 = (0 - 1) parameter2 = 127 timing = 9 END
-  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5z0slt~ END
+// ***** need to rename these! ...I think
+// ...also probably should make these in semi_spont.tpa
 
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5z1slt.spl~
+/*
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5zislt.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 target = 1 parameter1 = (0 - 1) parameter2 = 127 timing = 9 END
-  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5z1slt~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5zislt~ END
+
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5zjslt.spl~
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 target = 1 parameter1 = (0 - 1) parameter2 = 127 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5zjslt~ END
+*/
 
 COPY_EXISTING ~kitlist.2da~ ~override~
 //  COUNT_2DA_COLS cols
@@ -386,8 +391,8 @@ COPY_EXISTING ~kitlist.2da~ ~override~
 	PATCH_IF (%modclass% = 1) OR (%modclass% = 5) OR (%modclass% = 19) OR (%modclass% = 7) OR (%modclass% = 10) OR (%modclass% = 13) OR (%modclass% = 14) OR (%modclass% = 17) BEGIN
 	  PATCH_IF (~%modname%~ STRING_MATCHES_REGEXP ~C0SA+~ = 0) BEGIN	// shadow adept arcane kits
 		INNER_ACTION BEGIN
-		  APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5Z0SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
-		  APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5Z1SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
+		  APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5ZISLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
+		  APPEND ~%modclab%.2da~ ~XTRA_SPL    AP_D5ZJSLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****  ~
 		END
 	  END
 	END
@@ -433,13 +438,20 @@ END
 
 // INT bonus spells for Arcanist______________________________________________________
 //
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5acnst.2da~) BEGIN
+// ***** don't specify kits, do this for all semi-spont casters
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5zzini.spl~) BEGIN
 	
   LAM semi_int_slots
+  
+END
 
+// since zlotf gets cast at the beginning of the game now, maybe none of this is necessary?
+
+/*
   COPY_EXISTING ~d5ac000.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z0slt~ END
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z1slt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zislt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zjslt~ END
 	PHP_EACH int_nums_lets AS int => slot BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 326 target = 1 parameter1 = %int% parameter2 = 128 timing = 1 STR_VAR resource = EVAL ~d5intb%slot%~ END
 	END
@@ -449,8 +461,8 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5acnst.2da~) BEGIN
   IF_EXISTS BUT_ONLY
 
   COPY_EXISTING ~d5acast.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z0slt~ END
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z1slt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zislt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zjslt~ END
 	PHP_EACH int_nums_lets AS int => slot BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 326 target = 1 parameter1 = %int% parameter2 = 128 timing = 1 STR_VAR resource = EVAL ~d5intb%slot%~ END
 	END
@@ -459,24 +471,33 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5acnst.2da~) BEGIN
 	END
   IF_EXISTS BUT_ONLY
 
-//  APPEND ~d5acnst.2da~ ~LESSSLOTS   AP_D5Z0SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
-//  APPEND ~d5acnst.2da~ ~LESSSLOTS   AP_D5Z1SLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
+//  APPEND ~d5acnst.2da~ ~LESSSLOTS   AP_D5ZISLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
+//  APPEND ~d5acnst.2da~ ~LESSSLOTS   AP_D5ZJSLT  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
 
   COPY_EXISTING ~d5acnst.2da~ ~override~
 	REPLACE_TEXTUALLY ~AP_D5ABSP1~ ~****      ~
   IF_EXISTS BUT_ONLY
 END
+*/
+
+/*
+COPY_EXISTING ~d5zzini.spl~ ~override~
+//  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5nabsw~ END
+*/
 
 
 // INT bonus spells for MnG bards_____________________________________________________
 //
+// ***** don't specify kits, do this for all semi-spont casters
+
+/*
 ACTION_IF (FILE_EXISTS_IN_GAME ~d5_bard.2da~) BEGIN
 	
   LAM semi_int_slots
 
   COPY_EXISTING ~d5bcast.spl~ ~override~
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z0slt~ END
-	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5z1slt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zislt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zjslt~ END
 	PHP_EACH int_nums_lets AS int => slot BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 326 target = 1 parameter1 = %int% parameter2 = 128 timing = 1 STR_VAR resource = EVAL ~d5intb%slot%~ END
 	END
@@ -509,6 +530,7 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_bard.2da~) BEGIN
   END
 
 END
+*/
 
 
 // WIS bonus spells for shaman________________________________________________________
@@ -644,7 +666,7 @@ BUT_ONLY
 
 // WIS bonus spells for FnP spont_____________________________________________________
 //
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5fpspt.spl~) BEGIN
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5fpspt.spl~) OR (FILE_EXISTS_IN_GAME ~d5zzini.spl~) BEGIN
 	
   LAM semi_wis_slots
 
