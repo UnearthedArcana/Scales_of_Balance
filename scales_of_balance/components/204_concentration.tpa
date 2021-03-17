@@ -10,7 +10,7 @@ DEFINE_ACTION_FUNCTION enable_concentration_checks BEGIN
 
 //copy marker file___________________________________________________________________
 //
-//COPY ~scales_of_balance/lib/markers/d5_concentrate.d5~ ~override~ 
+//COPY ~scales_of_balance/lib/markers/d5_marker.d5~ ~override/d5__concentrate.d5~ 
 //___________________________________________________________________________________
 
 

@@ -104,7 +104,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
 				WRITE_BYTE 0x31 115
 /*
-				PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+				PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 					WRITE_SHORT 0x1c 17
 				END
 */
@@ -139,7 +139,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
 				WRITE_BYTE 0x31 98
 /*
-				PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+				PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 					WRITE_SHORT 0x1c 44
 				END
 */
@@ -174,7 +174,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
 				WRITE_BYTE 0x31 96
 /*
-				PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+				PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 					WRITE_SHORT 0x1c 16
 				END
 */
@@ -209,7 +209,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
 				WRITE_BYTE 0x31 95
 /*
-				PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+				PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 					WRITE_SHORT 0x1c 29
 				END
 */
@@ -276,7 +276,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 				PATCH_IF ((~%handed%~ BOR ~0b11111101~) = ~0b11111101~) BEGIN // if 2-handed flag not set
 					WRITE_BYTE 0x31 90
 /*
-					PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+					PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 						WRITE_SHORT 0x1c 20
 					END
 */
@@ -284,7 +284,7 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 				PATCH_IF ((~%handed%~ BOR ~0b11111101~) = ~0b11111111~) BEGIN // if 2-handed flag IS set
 					WRITE_BYTE 0x31 93
 /*
-					PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+					PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 						WRITE_SHORT 0x1c 57
 					END
 */

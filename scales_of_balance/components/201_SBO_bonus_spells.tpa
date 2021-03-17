@@ -417,6 +417,17 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5sorc.2da~) BEGIN
 
 END
 
+// fix multisorc spell table just in case_____________________________________________
+//
+ACTION_IF (FILE_EXISTS_IN_GAME ~qdtnb_mcsrc.qd~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5srslt.spl~) BEGIN
+    DELETE ~d5srslt.spl~
+  END
+  COPY_EXISTING ~mxsplsrc.2da~ ~override~
+    LPF arcane_casting_slots STR_VAR table_spl = ~d5srslt~ END
+  BUT_ONLY
+END
+
 
 // CHA bonus spells for manasorc______________________________________________________
 //

@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.29.1~
+VERSION ~v5.30~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -241,7 +241,7 @@ LAF revise_save_tables END
 BEGIN @171 // thief spell evasion for IWD spells
 DESIGNATED 171
 SUBCOMPONENT @170 (NOT GAME_IS ~iwdee~)
-REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~d5_rfeat.d5~ @3
+REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~d5__rfeat.d5~ @3
 
 INCLUDE ~scales_of_balance/components/170_STO_evasion.tpa~
 

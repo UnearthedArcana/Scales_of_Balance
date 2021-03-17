@@ -10,7 +10,7 @@ DEFINE_ACTION_FUNCTION revise_magic_resistance BEGIN
 
 //COPY MARKER FILE_________________________________________________________________
 //
-COPY ~scales_of_balance/misc/d5_mro.d5~ ~override~
+COPY ~scales_of_balance/lib/markers/d5_marker.d5~ ~override/d5__mro.d5~
 //__________________________________________________________________________________
 
 
@@ -852,7 +852,7 @@ END // end of IR
 
 
 //monks and wizard slayers__________________________________________________________
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_nuwsl.d5~ THEN BEGIN
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__nuwsl.d5~ THEN BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
 	COPY_EXISTING ~clastext.2da~ ~override~
 	  COUNT_2DA_COLS cols 
@@ -904,7 +904,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_nuwsl.d5~ THEN BEGIN
 END
 
 // monk class description
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_mfist.d5~ THEN BEGIN
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__mfist.d5~ THEN BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
 	COPY_EXISTING ~clastext.2da~ ~override~
 	  COUNT_2DA_COLS cols 
@@ -948,7 +948,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_mfist.d5~ THEN BEGIN
 	STRING_SET 45867 @1615
   END
 END
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_mfist.d5~ THEN BEGIN
+ACTION_IF FILE_EXISTS_IN_GAME ~d5__mfist.d5~ THEN BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~clastext.2da~) BEGIN
 	COPY_EXISTING ~clastext.2da~ ~override~
 	  COUNT_2DA_COLS cols 

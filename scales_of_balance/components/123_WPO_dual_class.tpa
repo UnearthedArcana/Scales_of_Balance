@@ -10,7 +10,7 @@
 PRINT ~UNDER CONSTRUCTION~
 
 /*
-ACTION_IF FILE_EXISTS_IN_GAME ~d5_profs.d5~ BEGIN
+ACTION_IF FILE_EXISTS_IN_GAME ~d5__profs.d5~ BEGIN
 
 //DUAL-CLASS KITS____________________________________________________________________
 // 
@@ -203,7 +203,7 @@ WEAPPROF ~D5BEAST    3 3 3 3 3 3 3 3 0 3 3 3 3 0 3 3 3 3 3 0 3 3 3 3 0 3 0 3 2 2
 
 
 END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_profs.d5~ BEGIN
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__profs.d5~ BEGIN
 
 
 //DUAL-CLASS KITS____________________________________________________________________

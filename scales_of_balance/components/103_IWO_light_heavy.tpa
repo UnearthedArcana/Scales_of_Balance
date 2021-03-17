@@ -11,7 +11,7 @@ PRINT ~THIS COMPONENT IS DEPRECATED, SORRY. TRY THE REVISED WEAPON STYLES INSTEA
 /*
 //COPY MARKER FILE_________________________________________________________________
 //
-COPY ~scales_of_balance/profs/d5_dwweap.d5~ ~override~
+COPY ~scales_of_balance/lib/markers/d5_marker.d5~ ~override/d5__dwweap.d5~
 //__________________________________________________________________________________
 
 

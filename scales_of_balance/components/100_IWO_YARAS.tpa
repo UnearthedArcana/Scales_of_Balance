@@ -10,7 +10,7 @@ DEFINE_ACTION_FUNCTION revise_armor_system BEGIN
 
 //COPY MARKER FILE_________________________________________________________________
 //
-COPY ~scales_of_balance/misc/d5_yaras.d5~ ~override~
+COPY ~scales_of_balance/lib/markers/d5_marker.d5~ ~override/d5__yaras.d5~
 //__________________________________________________________________________________
 
 
@@ -264,7 +264,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 				(appearance = 16691) OR		// chain appearance
 				(appearance = 16692) BEGIN 	// plate appearance
 /*	  
-		 PATCH_IF FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+		 PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 		  READ_BYTE    ~0x1f~ ~fight~ //reads the byte containing the fighter usability flag
 		  PATCH_IF ((~%fight%~ BAND ~0b00100000~) = ~0b00000000~) BEGIN // if *usable* by fighter/mages (excluding scrolls and wands for now)
 			READ_BYTE    ~0x1e~ ~class1~
@@ -277,7 +277,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		  END
 		 END
 */
-//		 PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5_fnp_usability.d5~ BEGIN
+//		 PATCH_IF NOT FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 		  READ_BYTE    ~0x1f~ ~fight~ //reads the byte containing the fighter usability flag
 		  PATCH_IF ((~%fight%~ BAND ~0b00100000~) = ~0b00000000~) BEGIN // if *usable* by fighter/mages (excluding scrolls and wands for now)
 			READ_BYTE    ~0x1e~ ~class1~
@@ -354,7 +354,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %leather_dex%) parameter2 = 0 timing = 2 END
 			LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 145 opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%leather_cast%~ END
-			PATCH_IF (FILE_EXISTS_IN_GAME ~d5_bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
+			PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
 			  LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = 5 parameter2 = 5 STR_VAR match_resource = EVAL ~d5_cstp%leather_cast%~ resource = EVAL ~d5_cstb%leather_cast%~ END
 			END
 			PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN
@@ -394,7 +394,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %hide_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %hide_dex%) parameter2 = 0 timing = 2 END
 			LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 145 opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%hide_cast%~ END
-			PATCH_IF (FILE_EXISTS_IN_GAME ~d5_bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
+			PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
 			  LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = 5 parameter2 = 5 STR_VAR match_resource = EVAL ~d5_cstp%hide_cast%~ resource = EVAL ~d5_cstb%hide_cast%~ END
 			END
 			PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN
@@ -434,7 +434,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %studded_dex%) parameter2 = 0 timing = 2 END
 			LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 145 opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%studded_cast%~ END
-			PATCH_IF (FILE_EXISTS_IN_GAME ~d5_bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
+			PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
 			  LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = 5 parameter2 = 5 STR_VAR match_resource = EVAL ~d5_cstp%studded_cast%~ resource = EVAL ~d5_cstb%studded_cast%~ END
 			END
 			PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN
@@ -594,7 +594,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 				WRITE_BYTE 0x2d ("0x00") //blocked: none
 				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %elven_dex%) parameter2 = 0 timing = 2 END
 				LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 145 opcode = 177 target = 1 parameter1 = 1 parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%elven_cast%~ END
-				PATCH_IF (FILE_EXISTS_IN_GAME ~d5_bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
+				PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
 				  LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = 5 parameter2 = 5 STR_VAR match_resource = EVAL ~d5_cstp%elven_cast%~ resource = EVAL ~d5_cstb%elven_cast%~ END
 				END
 				PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN

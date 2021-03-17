@@ -11,7 +11,7 @@ DEFINE_ACTION_FUNCTION add_spell_evasion INT_VAR optional_evade = 0 BEGIN
 
 //COPY MARKER FILE_________________________________________________________________
 //
-COPY_EXISTING ~sw1h04.itm~ ~override/d5_evasion.d5~
+COPY_EXISTING ~%MOD_FOLDER%/lib/markers/d5_marker.d5~ ~override/d5__evasion.d5~
 //__________________________________________________________________________________
 
 

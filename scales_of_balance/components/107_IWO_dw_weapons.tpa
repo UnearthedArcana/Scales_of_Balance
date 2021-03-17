@@ -16,7 +16,7 @@
 
 //copy marker file___________________________________________________________________
 //
-//COPY ~scales_of_balance/lib/markers/d5_limit_dw.d5~ ~override~ 
+//COPY ~scales_of_balance/lib/markers/d5_marker.d5~ ~override/d5__limit_dw.d5~ 
 //___________________________________________________________________________________
 
 

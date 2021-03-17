@@ -11,7 +11,7 @@ END
 
 //COPY MARKER FILE_________________________________________________________________
 //
-COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5_dialprof.d5~ ~override~
+COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5__dialprof.d5~ ~override~
 //__________________________________________________________________________________
 
 //first, grab available spellstate_________________________________________________
