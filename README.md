@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.23 </strong><br />
+  <p><strong> Version 5.31 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -675,8 +675,6 @@
 <table style= "width: 65%">
  <tr>
   <th>CHARISMA</th>
-  <th>Bard: Bonus Spells</th>
-  <th>Sorcerer: Bonus Spells</th>
   <th>Saves vs. Breath</th>
   <th>Saves vs. Wands</th>
   <th>Luck Bonus </th>
@@ -684,8 +682,6 @@
  </tr>
  <tr>
   <td><b>5:</b></td>
-  <td>-</td>
-  <td>-</td>
   <td>-3</td>
   <td>-3</td>
   <td>-2</td>
@@ -693,8 +689,6 @@
  </tr>
  <tr>
   <td><b>6:</b></td>
-  <td>-</td>
-  <td>-</td>
   <td>-2</td>
   <td>-2</td>
   <td>-1</td>
@@ -702,8 +696,6 @@
  </tr>
  <tr>
   <td><b>7:</b></td>
-  <td>-</td>
-  <td>-</td>
   <td>-2</td>
   <td>-1</td>
   <td>-1</td>
@@ -711,8 +703,6 @@
  </tr>
  <tr>
   <td><b>8:</b></td>
-  <td>-</td>
-  <td>-</td>
   <td>-2</td>
   <td>-1</td>
   <td>-</td>
@@ -720,8 +710,6 @@
  </tr>
  <tr>
   <td><b>9:</b></td>
-  <td>-</td>
-  <td>-</td>
   <td>-1</td>
   <td>-1</td>
   <td>-</td>
@@ -729,8 +717,6 @@
  </tr>
  <tr>
   <td><b>10:</b></td>
-  <td>-</td>
-  <td>-</td>
   <td>-1</td>
   <td>-</td>
   <td>-</td>
@@ -742,13 +728,9 @@
   <td>-</td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td><b>13:</b></td>
-  <td>1st level</td>
-  <td>1st level</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -756,8 +738,6 @@
  </tr>
  <tr>
   <td><b>14:</b></td>
-  <td>1st level</td>
-  <td>1st level</td>
   <td>-</td>
   <td>-</td>
   <td>-</td>
@@ -765,8 +745,6 @@
  </tr>
  <tr>
   <td><b>15:</b></td>
-  <td>2nd level</td>
-  <td>2nd level</td>
   <td>+1</td>
   <td>-</td>
   <td>-</td>
@@ -774,8 +752,6 @@
  </tr>
  <tr>
   <td><b>16:</b></td>
-  <td>2nd level</td>
-  <td>-</td>
   <td>+1</td>
   <td>+1</td>
   <td>-</td>
@@ -783,8 +759,6 @@
  </tr>
  <tr>
   <td><b>17:</b></td>
-  <td>3rd level</td>
-  <td>2nd level</td>
   <td>+2</td>
   <td>+1</td>
   <td>-</td>
@@ -792,8 +766,6 @@
  </tr>
  <tr>
   <td><b>18:</b></td>
-  <td>4th level</td>
-  <td>3rd level</td>
   <td>+2</td>
   <td>+2</td>
   <td>+1</td>
@@ -801,8 +773,6 @@
  </tr>
  <tr>
   <td><b>19:</b></td>
-  <td>3rd level</td>
-  <td>-</td>
   <td>+3</td>
   <td>+2</td>
   <td>+1</td>
@@ -810,8 +780,6 @@
  </tr>
  <tr>
   <td><b>20:</b></td>
-  <td>5th level</td>
-  <td>3rd level</td>
   <td>+3</td>
   <td>+3</td>
   <td>+1</td>
@@ -819,8 +787,6 @@
  </tr>
  <tr>
   <td><b>21:</b></td>
-  <td>4th level</td>
-  <td>4th level</td>
   <td>+4</td>
   <td>+3</td>
   <td>+1</td>
@@ -828,8 +794,6 @@
  </tr>
  <tr>
   <td><b>22:</b></td>
-  <td>6th level</td>
-  <td>-</td>
   <td>+4</td>
   <td>+4</td>
   <td>+1</td>
@@ -837,8 +801,6 @@
  </tr>
  <tr>
   <td><b>23:</b></td>
-  <td>5th level</td>
-  <td>4th level</td>
   <td>+4</td>
   <td>+4</td>
   <td>+2</td>
@@ -846,8 +808,6 @@
  </tr>
  <tr>
   <td><b>24:</b></td>
-  <td>-</td>
-  <td>5th level</td>
   <td>+5</td>
   <td>+4</td>
   <td>+2</td>
@@ -855,8 +815,6 @@
  </tr>
  <tr>
   <td><b>25:</b></td>
-  <td>6th level</td>
-  <td>-</td>
   <td>+5</td>
   <td>+5</td>
   <td>+2</td>
@@ -875,8 +833,11 @@
   <h4 class="subheader">Component 204 (for EE 2.0+): </h4>
   <div class="section">
     <p><strong><em>SBO: Concentration Checks</em></strong></p>
-      <p>This component enables the 'concentration' stat and allows spellcasters to roll to avoid interruption when they take damage during casting. The forumla is:</p>
+      <p>This component enables the 'concentration' stat and allows spellcasters to roll to avoid interruption when they take damage during casting. The formula is:</p>
       <p><i>(1d20 + Luck) vs. (spell level + damage taken)</i></p>
+      <p><b>NOTE:</b> I've heard it said that concentration checks are bugged in the EE 2.0-2.5 engine, applying the 'damage taken' value on the wrong side of the equation:</p>
+      <p><i>(1d20 + Luck + damage taken) vs. (spell level)</i></p>
+      <p>This means that the more damage you take, the more likely you are to avoid spell interruption. That is really stupid, and it really annoys me that Beamdog has let this bug persist through several patches. I don't think they fixed it for 2.5 (someone with more time than me can run some tests, if you like), and who knows what they're doing for the new 2.6 patch - I don't even know how to report bugs for it. Hopefully they get off their butts and fix this, because it is one of the last places in the engine where the old engine with ToBEx is completely superior. It's 2020 guys, that shouldn't be happening anymore.</p>
   </div>
   <h4 class="subheader">Component 205: </h4>
   <div class="section">
@@ -957,8 +918,8 @@
       <li>Weak: 1hp/6 seconds and -3 to STR, for 5 turns (50 total damage)</li>
     </ul></p>
     <p>In general, poison damage does not stack.  But you never know, sometimes someone just has a bad reaction, so occasionally the rate of damage might be doubled if you get multiple doses.  This is rare but dangerous.</p>
-    <p>The 'Slow Poison' spell now does what it says on the tin: it SLOWS the poison, it doesn't necessarily cure it.  It will reduce the magnitude of the effects of any poison by two levels: so if you are effected by lethal poison, its effects drop to those of mild poison, and if you are affected by strong poison the effects become those of weak poison, and if you are affected by mild or weak poison the effects will be blocked completely.  However, the spell only lasts for 2 turns; after it expires, the poison will still be in your system and it will return to full strength!  You will need to apply some kind of cure again at that point, or just ride out the more serious effects.</p>
-    <p>Antidotes do the same thing as Slow Poison: they reduce the severity of the effects by two levels.  Unlike the spell, antidotes last for a full 5 turns, so they will block weak potions entirely, and weaken strong poisons for their entire course. </p>
+    <p>The 'Slow Poison' spell now does what it says on the tin: it SLOWS the poison, it doesn't necessarily cure it.  It will reduce the magnitude of the effects of any poison by two levels: so if you are effected by lethal poison, its effects drop to those of mild poison, and if you are affected by strong poison the effects become those of weak poison, and if you are affected by mild or weak poison the effects will be blocked completely.  This lasts for five turns; if you are exposed to more poison within that time, that poison will also be similarly reduced.  (But if you are exposed to poison near the end of the five turns, then the Slow Poison effect will end and the poison will suddenly become much stronger!)</p>
+    <p>Antidotes do the same thing as Slow Poison: they reduce the severity of the effects by two levels.  Like the Slow Poison spell, antidotes last for a 5 turns. </p>
     <p>The Neutralize Poison spell and the Elixir of Health potion will completely block poisons of any strength, for 6 turns. (They do not prevent any poison from affecting you; they simply block the effect of poison for their duration. If you are affected by poison 5 turns after having Neutralize Poison cast on you, then the poison will kick in 1 turn later.)</p> 
   </div>
 </div>
