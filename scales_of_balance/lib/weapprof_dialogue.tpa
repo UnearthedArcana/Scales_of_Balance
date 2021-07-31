@@ -149,7 +149,9 @@ COPY_EXISTING ~kitlist.2da~ ~override~
 	READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 9 kitids_num
 	LOOKUP_IDS_SYMBOL_OF_INT kitids_name ~kit~ %kitids_num%
 	LOOKUP_IDS_SYMBOL_OF_INT classids_name ~class~ %classids_num%
-	SPRINT $d5_kits_profs(~%kitids_name%~ ~kit~ ~%classids_name%~) ~%prof_col%~
+	PATCH_IF (VARIABLE_IS_SET %kitids_name%) and (VARIABLE_IS_SET %classids_name%) BEGIN
+	  SPRINT $d5_kits_profs(~%kitids_name%~ ~kit~ ~%classids_name%~) ~%prof_col%~
+	END
   END
 
 ACTION_PHP_EACH d5_kits_profs AS kitidsname => profcol BEGIN

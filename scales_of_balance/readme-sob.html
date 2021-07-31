@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.31 </strong><br />
+  <p><strong> Version 5.32 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -73,12 +73,12 @@
       <pre>
     Armor:
 	 leather:	AC 8 	-1 Dex 	8% DR 	+2 casting time
-	 studded:	AC 7 	-2 Dex 	12% DR 	+3 casting time
-	 hide armor: 	AC 6 	-3 Dex 	24% DR	+4 casting time
-	 chain mail: 	AC 5 	-3 Dex 	24% DR	+4 casting time
-	 splint mail: 	AC 5 	-4 Dex 	30% DR	+5 casting time
+	 studded:	AC 7 	-2 Dex 	12% DR 	+2 casting time
+	 hide armor: 	AC 6 	-3 Dex 	24% DR	+3 casting time
+	 chain mail: 	AC 5 	-3 Dex 	24% DR	+3 casting time
+	 splint mail: 	AC 5 	-4 Dex 	30% DR	+4 casting time
 	 plate mail: 	AC 4 	-5 Dex 	36% DR	+5 casting time
-	 full plate*:   AC 3 	-4 Dex	42% DR	+6 casting time<br />
+	 full plate:   AC 3 	-4 Dex	42% DR	+5 casting time<br />
     Enchantment:
 	 +1:	 	-1 AC	+1 Dex	+1% DR
 	 +2: 		-2 AC 	+2 Dex	+2% DR
@@ -93,7 +93,7 @@
     <p>This component allows casting arcane spells in armor, but with steep casting time penalties. (As of now, these penalties do not affect divine casters.) It also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>This also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>Finally, this alters the Armor of Faith spell to only give a flat 10% DR bonus, at all levels; and reduces the DR bonus from Hardiness and Defensive Stance form 40% to 20%; and reduces the price of the Defender of Easthaven while reducing its DR bonus from 20% to 5%.</p>
-    <p><b>Compatibility:</b> this component covers the same ground as the IR component "Revised Armors" as well as the "Spellcasting in Armor" component.  Ditto for the Full Plate and Packing Steel mod. Choose one armor system mod and stick with it.</p>
+    <p><b>Compatibility:</b> this component covers the same ground as the IR component "Revised Armors" as well as the "Spellcasting in Armor" component.  Ditto for the Full Plate and Packing Steel mod, and some armor/casting-related components of Tweaks Anthology and Klatu Tweaks. Don't install these things together; choose one armor system mod and stick with it.</p>
   </div>
   <h4 class="subheader">Component 101: </h4>
   <div class="section">
@@ -845,18 +845,18 @@
       <p>This component takes some of the randomness out of hit point rolls. In the vanilla system, a warrior with 16 CON can actually get *fewer* hit points at level-up than a mage with 8 CON. That only leads to annoying reloads or constant moving of the difficulty bar to get max hp (which is just too cheaty, and perverts various game mechanics). With this component, there are still rolls, but the roll will always seem fair and should never cause you to feel you need to reload or go below Core difficulty. That 16 CON warrior will get between 9 and 12 hit points per level, instead of from 3 to 12. Higher average rolls, and more satisfying numbers, but not overpowered.<br />
       <ul>
       	<li>Wizard hit dice is now 1d3+1. Rogue and priest hit dice is 2d3+1. And warrior hit dice is 3d3+1 (3d4+1 for barbarians).</li>
-      	<li>Everyone gets an extra hit point at 15 CON and 16 CON (like vanilla), and warriors get an extra hit point at 18 CON.  Everyone also gets an extra hit point at 20, 22, and 24 CON (so stat-boosting spells and effects can actually increase non-warriors' hit points).</li>
-      	<li>The minimum roll for those d3 rolls is 2 at 14 CON, and 3 at 17 CON. (So 17 CON means max hit points.)</li>
+      	<li>Everyone gets an extra hit point at 14 CON and 16 CON, and warriors get an extra hit point at 18 CON.  Everyone also gets an extra hit point at 20, 22, and 24 CON (so stat-boosting spells and effects can actually increase non-warriors' hit points).</li>
+      	<li>The minimum roll for those d3 rolls is 2 at 15 CON, and 3 at 17 CON. (So 17 CON means max hit points.)</li>
       	<li>Everyone gets very slow hit point regeneration (1 hp per 2 turns) at 19 CON. The regeneration speeds up a bit at 20 CON (1 per turn), 21 CON (1 per 4 rounds), 22 CON (1 per 2 rounds), 23 CON (1 per round), 24 CON (2 per round), and 25 CON (1 per second).</li>
       </ul>
-      <p>Additionally, this smooths out the decline in added hp. Everyone stops getting hit dice after 8th level. After that:
+      <p>Additionally, this smooths out the decline in added hp. <b>Everyone stops getting hit dice after 7th level.</b> After that:
       <ul>
       	<li>Warriors get 4/level from 9 to 15, then 3/level from 16 to 25, and 2/level after that. </li>
       	<li>Rogues and priests get 3/level from 9 to 15, 2/level from 16 to 25, and 1 per level after that. </li>
       	<li>Wizards get 2/level from 9 to 15, and 1/level after that. </li>
       </ul>
       <p>Additionally, there is an alternate hardcore version of this component, which eliminates 1 hp from each class (so wizards are 1d3, rogues/priests are 2d3, and warriors are 3d3). The regular component should give hit points somewhere between the vanilla game's mean and max values; the hardcore variant should result in hit points closer to vanilla's mean. </p>
-      <p>Finally, there is a new alternate "reduced" version of this component.  This is for players who want consistency without messing up the game's spells and encounters.  This option reduces wizard hit dice to 1d3, rogues to 1d4, priests to 1d5, warriors to 1d6, and barbarians to 1d7.  It also gives +1 hit point per level for every even point of CON starting at 12 for warriors, and at 14 for non-warriors.  Like the other two components, it double the hit die at 1st level and hit dice only go until 8th level - after that you only get 2-3 hp/level, slowly tapering to just 1 hp/level at level 25.</p>
+      <p>Finally, there is a new, "reduced" version of the Hit Dice progression.  This is for players who want to retain the original game's general rule, and who tend to play with the "max hit point rolls" option, but who do not want to completely max out their characters' hit points.  This option reduces wizard hit dice to 1d3, rogues to 1d4, priests to 1d5, warriors to 1d6, and barbarians to 1d7.  It also gives +1 hit point per level for every even point of CON starting at 12 for warriors, and at 14 for non-warriors.  This should approximate higher-than-average rolls in the original system, but with less variability.  Like the other two components, it doubles the hit die at 1st level, but unlike them it allows hit dice rolls until 9th level. After that you only get 2-3 hp/level, slowly tapering to just 1 hp/level at level 25.</p>
   </div>
   <h4 class="subheader">Component 210: </h4>
   <div class="section">

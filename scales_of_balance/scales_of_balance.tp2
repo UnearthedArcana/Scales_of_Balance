@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.31~
+VERSION ~v5.32~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -418,7 +418,7 @@ LAF revise_starting_xp INT_VAR start_value = 161000 STR_VAR game_start = ~sodstr
 BEGIN @226 // SoA starting XP 90K
 DESIGNATED 226
 SUBCOMPONENT @225
-REQUIRE_PREDICATE !(GAME_IS ~tutu bgee sod iwdee~) @1
+REQUIRE_PREDICATE !(GAME_IS ~tutu bgee iwdee~) @1
 REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~startare.2da~) @1
 
 INCLUDE ~scales_of_balance/components/220_XPO_start_xp.tpa~

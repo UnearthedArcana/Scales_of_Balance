@@ -263,6 +263,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		PATCH_IF (appearance = 16690) OR	// leather appearance
 				(appearance = 16691) OR		// chain appearance
 				(appearance = 16692) BEGIN 	// plate appearance
+		 PATCH_IF FILE_EXISTS_IN_GAME ~d5__bards.d5~ BEGIN
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 177 match_parameter2 = 9 STR_VAR match_resource = ~D5BNCAST~ END
+		 END
 /*	  
 		 PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
 		  READ_BYTE    ~0x1f~ ~fight~ //reads the byte containing the fighter usability flag
@@ -322,7 +325,19 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			END
 		  END
 		END
-
+		PATCH_IF (FILE_EXISTS_IN_GAME ~d5__semi_spont.d5~) BEGIN
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zncast~ END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm1l~ END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm1c~ END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm1p~ END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm2l~ END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm2c~ END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm2p~ END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zw172l~ END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zw172c~ END
+		  LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zw172p~ END
+		  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 145 target = 1 timing = 2 END
+		END
 		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 STR_VAR match_resource = ~d5arcal~ END
 		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 STR_VAR match_resource = ~d5arcac~ END
 		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 STR_VAR match_resource = ~d5arcap~ END
