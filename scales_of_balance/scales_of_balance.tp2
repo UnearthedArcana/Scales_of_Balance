@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.32.2~
+VERSION ~v5.32.4~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -483,6 +483,7 @@ LAF revise_magic_resistance END
 
 BEGIN @240
 DESIGNATED 240
+DEPRECATED @6
 
 INCLUDE ~scales_of_balance/components/240_POI.tpa~
 

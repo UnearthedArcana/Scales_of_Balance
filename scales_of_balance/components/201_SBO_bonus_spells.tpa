@@ -13,6 +13,15 @@
 
 DEFINE_ACTION_FUNCTION ability_bonus_spells BEGIN 
 
+//Define undefined mage clabs
+//
+ACTION_FOR_EACH kitclab IN ~CLABMA01~ ~CLABMA02~ ~CLABMA03~ ~CLABMA04~ ~CLABMA05~ ~CLABMA06~ ~CLABMA07~ ~CLABMA08~ ~CLABMA09~ BEGIN 
+	ACTION_IF !(FILE_EXISTS_IN_GAME ~%kitclab%.2DA~) THEN BEGIN
+		COPY ~scales_of_balance/stats/BLANKCLAB.2da~ ~override/%kitclab%.2da~ //generate undefined clab files
+	END 
+END  
+
+
 // INCREASE the # of mage/bard/sorcerer/dd slots by 2... then we will reduce them by stat
 
 ACTION_FOR_EACH mage_table IN ~mxsplwiz~ BEGIN
