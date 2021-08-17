@@ -133,8 +133,8 @@ ACTION_DEFINE_ASSOCIATIVE_ARRAY d5_kits_profs BEGIN
  MONK , class , MONK 					=> 	50
 END
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~clabshgs.2da~) OR (FILE_EXISTS_IN_GAME ~clabsh01.2da~) BEGIN
-  OUTER_SPRINT $d5_kits_profs(~SHAMAN~ ~class~) ~59~
+ACTION_IF ((FILE_EXISTS_IN_GAME ~clabshgs.2da~) OR (FILE_EXISTS_IN_GAME ~clabsh01.2da~)) BEGIN
+  OUTER_SPRINT $d5_kits_profs(~SHAMAN~ ~class~ ~SHAMAN~) ~59~
 END
 
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.baf~ ~%MOD_FOLDER%/lib/d5profx.baf~
@@ -149,7 +149,7 @@ COPY_EXISTING ~kitlist.2da~ ~override~
 	READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 9 kitids_num
 	LOOKUP_IDS_SYMBOL_OF_INT kitids_name ~kit~ %kitids_num%
 	LOOKUP_IDS_SYMBOL_OF_INT classids_name ~class~ %classids_num%
-	PATCH_IF (VARIABLE_IS_SET %kitids_name%) and (VARIABLE_IS_SET %classids_name%) BEGIN
+	PATCH_IF ((VARIABLE_IS_SET %kitids_name%) AND (VARIABLE_IS_SET %classids_name%)) BEGIN
 	  SPRINT $d5_kits_profs(~%kitids_name%~ ~kit~ ~%classids_name%~) ~%prof_col%~
 	END
   END
@@ -188,7 +188,7 @@ END
   END
 END
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~clabshgs.2da~) OR (FILE_EXISTS_IN_GAME ~clabsh01.2da~) BEGIN
+ACTION_IF ((FILE_EXISTS_IN_GAME ~clabshgs.2da~) OR (FILE_EXISTS_IN_GAME ~clabsh01.2da~)) BEGIN
 
   APPEND_OUTER ~%MOD_FOLDER%/lib/d5profx.baf~ ~
 IF
