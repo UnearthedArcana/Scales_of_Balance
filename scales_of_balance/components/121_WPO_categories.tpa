@@ -303,7 +303,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	FOR (col = 4; col < cols; col += 1) BEGIN
 	    READ_2DA_ENTRY 9 col cols longsword
 	    READ_2DA_ENTRY 8 col cols bastard
-	    PATCH_IF (VARIABLE_IS_SET %bastard%) and (VARIABLE_IS_SET %longsword%) BEGIN
+	    PATCH_IF ((VARIABLE_IS_SET %bastard%) and (VARIABLE_IS_SET %longsword%)) BEGIN
 	      PATCH_IF (%bastard% > %longsword%) BEGIN
 	    	SET_2DA_ENTRY 9 col cols %bastard%
 		  END
