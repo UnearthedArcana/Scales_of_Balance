@@ -435,7 +435,7 @@ ACTION_IF FILE_EXISTS_IN_GAME ~CLABMA01.2da~ THEN BEGIN
 		APPEND_FILE ~scales_of_balance/profs/dualfm.txt~
 		BUT_ONLY
 END
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~CLABMA01.2da~ THEN BEGIN
+ELSE THEN BEGIN
 	COPY ~scales_of_balance/profs/clabmaxx.2da~ ~override/clabma01.2da~
 		LPM remove_blank_lines
 		APPEND_FILE ~scales_of_balance/profs/dualfm.txt~
