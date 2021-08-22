@@ -7,7 +7,7 @@
 //__________________________________________________________________________________
 
 // -----------------------------
-// ABILITY SCORE BONUSES
+// ABILITY SCORE BONUS SPELLS
 // -----------------------------
 
 
@@ -17,10 +17,29 @@ DEFINE_ACTION_FUNCTION ability_bonus_spells BEGIN
 //
 ACTION_FOR_EACH kitclab IN ~CLABMA01~ ~CLABMA02~ ~CLABMA03~ ~CLABMA04~ ~CLABMA05~ ~CLABMA06~ ~CLABMA07~ ~CLABMA08~ ~CLABMA09~ BEGIN 
 	ACTION_IF !(FILE_EXISTS_IN_GAME ~%kitclab%.2DA~) THEN BEGIN
-		COPY ~scales_of_balance/stats/BLANKCLAB.2da~ ~override/%kitclab%.2da~ //generate undefined clab files
+		COPY ~scales_of_balance/stats/BLANKCLAB.2da~ ~override/%kitclab%.2da~ // generate undefined clab files
 	END 
 END  
 
+
+APPEND ~splprot.2da~ ~D5_INT_SLOTS%TAB%38%TAB%-1%TAB%1~ UNLESS ~D5_INT_SLOTS~
+APPEND ~splprot.2da~ ~D5_CHR_SLOTS%TAB%42%TAB%-1%TAB%1~ UNLESS ~D5_CHR_SLOTS~
+
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols 
+	READ_2DA_ENTRIES_NOW rows cols   
+	FOR (row = 1; row < rows; ++row) BEGIN 
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ 
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_SLOTS~ BEGIN
+	    SET int_slots = %row%
+	  END
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHR_SLOTS~ BEGIN
+	    SET chr_slots = %row%
+	  END
+	END
+BUT_ONLY
+
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__abil_spells.d5~) THEN BEGIN
 
 // INCREASE the # of mage/bard/sorcerer/dd slots by 2... then we will reduce them by stat
 
@@ -107,23 +126,6 @@ COPY ~%MOD_FOLDER%/data/ability_bonuses/d5_slots.eff~ ~override/d5absps.eff~
 	WRITE_ASCII 0x30 ~d5absps~ #8
 
 //COPY ~%MOD_FOLDER%/data/ability_bonuses/d5_slots.spl~ ~override/d5absp.spl~
-
-APPEND ~splprot.2da~ ~D5_INT_SLOTS%TAB%38%TAB%-1%TAB%1~ UNLESS ~D5_INT_SLOTS~
-APPEND ~splprot.2da~ ~D5_CHR_SLOTS%TAB%42%TAB%-1%TAB%1~ UNLESS ~D5_CHR_SLOTS~
-
-COPY_EXISTING ~splprot.2da~ ~override~
-	COUNT_2DA_COLS cols 
-	READ_2DA_ENTRIES_NOW rows cols   
-	FOR (row = 1; row < rows; ++row) BEGIN 
-	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ 
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_INT_SLOTS~ BEGIN
-	    SET int_slots = %row%
-	  END
-	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHR_SLOTS~ BEGIN
-	    SET chr_slots = %row%
-	  END
-	END
-BUT_ONLY
 
 COPY ~%MOD_FOLDER%/data/ability_bonuses/d5_slots.spl~ ~override/d5abspw.spl~ 	// 	spell slot modifications for wizards
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 parameter1 = 13 parameter2 = 129 target = 1 timing = 1 STR_VAR resource = ~d5intwl~ END
@@ -415,7 +417,7 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5sorc.2da~) BEGIN
 
   LAM semi_cha_slots
 
-  COPY_EXISTING ~d5srfrsh.spl~ ~override~
+  COPY_EXISTING ~d5xrfsh.spl~ ~override~
 	PHP_EACH cha_nums_lets AS cha => slot BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 10 opcode = 326 target = 1 parameter1 = %cha% parameter2 = 132 timing = 1 STR_VAR resource = EVAL ~d5chas%slot%~ END
 	END
@@ -429,12 +431,10 @@ END
 // fix multisorc spell table just in case_____________________________________________
 //
 ACTION_IF (FILE_EXISTS_IN_GAME ~qdtnb_mcsrc.qd~) BEGIN
-  ACTION_IF (FILE_EXISTS_IN_GAME ~d5srslt.spl~) BEGIN
-    DELETE ~d5srslt.spl~
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5xltsr.spl~) BEGIN
+    DELETE ~d5xltsr.spl~
   END
-  COPY_EXISTING ~mxsplsrc.2da~ ~override~
-    LPF arcane_casting_slots STR_VAR table_spl = ~d5srslt~ END
-  BUT_ONLY
+  LAF arcane_casting_slots STR_VAR slot_table = ~mxsplsrc~ table_spl = ~d5xltsr~ END
 END
 
 
@@ -456,6 +456,7 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_mana.2da~) BEGIN
 END
 
 
+/*
 // INT bonus spells for Arcanist______________________________________________________
 //
 // ***** don't specify kits, do this for all semi-spont casters
@@ -468,7 +469,6 @@ END
 
 // since zlotf gets cast at the beginning of the game now, maybe none of this is necessary?
 
-/*
   COPY_EXISTING ~d5ac000.spl~ ~override~
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zislt~ END
 	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 2 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zjslt~ END
@@ -506,11 +506,10 @@ COPY_EXISTING ~d5zzini.spl~ ~override~
 */
 
 
+/*
 // INT bonus spells for MnG bards_____________________________________________________
 //
-// ***** don't specify kits, do this for all semi-spont casters
-
-/*
+// ***** don't specify kits, do this for all semi-spont casters ^^
 ACTION_IF (FILE_EXISTS_IN_GAME ~d5_bard.2da~) BEGIN
 	
   LAM semi_int_slots
@@ -551,6 +550,10 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_bard.2da~) BEGIN
 
 END
 */
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_marker.d5~ ~override/d5__abil_spells.d5~
+
+END
 
 
 // WIS bonus spells for shaman________________________________________________________
@@ -682,6 +685,15 @@ COPY_EXISTING ~kitlist.2da~ ~override~
 	END
   END
 BUT_ONLY
+
+
+// INT bonus spells for 5E casters____________________________________________________
+//
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5zzini.spl~) BEGIN
+	
+  LAM semi_int_slots
+  
+END
 
 
 // WIS bonus spells for FnP spont_____________________________________________________
