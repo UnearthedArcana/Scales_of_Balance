@@ -80,6 +80,8 @@
 @10004  = ~Dexterity Penalty: -~
 @10005  = ~Arcane Casting Speed Penalty: +~
 @10006  = ~Weapon Attack Speed Penalty: +~
+@10007  = ~Movement Speed Penalty: -~
+@10008  = ~Arcane Spell Failure Chance: ~
 @10011  = ~dragon~
 @10012  = ~elven~
 @10013  = ~elvish~

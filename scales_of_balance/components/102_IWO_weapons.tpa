@@ -82,9 +82,11 @@ COPY_EXISTING ~xbow01.itm~ ~override~
 	READ_LONG 0x08 heavy_xbow_strref
 BUT_ONLY
 
+/*
 ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_lbows.2da~ BEGIN
-	COPY ~scales_of_balance/lib/d5_base.2da~ ~override/d5_sbows.2da~
+	COPY ~scales_of_balance/lib/d5_base.2da~ ~override/d5_lbows.2da~
 END
+*/
 
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN

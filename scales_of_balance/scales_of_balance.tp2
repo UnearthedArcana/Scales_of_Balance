@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.32.6~
+VERSION ~v5.33~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -73,6 +73,10 @@ LANGUAGE
 
 BEGIN @100 // revised armor
 DESIGNATED 100
+
+ACTION_IF !(FILE_EXISTS ~override/d5_YARAS.ini~) BEGIN
+  COPY ~scales_of_balance/ini/YARAS_default.ini~ ~override/d5_YARAS.ini~
+END
 
 INCLUDE ~scales_of_balance/components/100_IWO_YARAS.tpa~
 

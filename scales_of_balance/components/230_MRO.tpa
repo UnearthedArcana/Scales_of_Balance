@@ -19,7 +19,7 @@ COPY ~scales_of_balance/lib/markers/d5_marker.d5~ ~override/d5__mro.d5~
 COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
 		READ_BYTE 0x5d mr
-		PATCH_IF mr BEGIN
+		PATCH_IF (mr > 0) BEGIN
 			WRITE_BYTE 0x5d ~0~
 			LPF ADD_CRE_EFFECT INT_VAR opcode = 34 parameter1 = 3 timing=9 END
 			LPF ADD_CRE_EFFECT INT_VAR opcode = 35 parameter1 = 3 timing=9 END

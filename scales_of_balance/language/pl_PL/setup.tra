@@ -80,6 +80,8 @@
 @10004 = ~Kara do zręczności: -~
 @10005 = ~Kara do prędkości rzucania czarów: +~
 @10006 = ~Kara do prędkości ataku bronią: +~
+@10007  = ~Movement Speed Penalty: -~
+@10008  = ~Arcane Spell Failure Chance: ~
 @10011 = ~smok~
 @10012 = ~elfi~
 @10013 = ~elficki~
