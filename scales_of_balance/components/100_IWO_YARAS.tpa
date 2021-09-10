@@ -247,16 +247,47 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   END
 BUT_ONLY
 
-ACTION_IF FILE_EXISTS_IN_GAME ~x#garch.itm~ BEGIN
-  COPY_EXISTING ~x#garch.itm~ ~override~
-	WRITE_LONG 0x60 1
-  BUT_ONLY
+ACTION_FOR_EACH plus_1 IN ~x#garch~ ~a!bleat1~ ~a!bchan1~ ~dgi001~ ~dgi002~ ~dgi003~ ~isnfxy7~ ~l#2sde1~ ~wqxle1~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%plus_1%.itm~ BEGIN
+    COPY_EXISTING ~%plus_1%.itm~ ~override~
+	  WRITE_LONG 0x60 1
+    BUT_ONLY
+  END
 END
-ACTION_IF FILE_EXISTS_IN_GAME ~x#garch2.itm~ BEGIN
-  COPY_EXISTING ~x#garch2.itm~ ~override~
-	WRITE_LONG 0x60 2
-  BUT_ONLY
+
+ACTION_FOR_EACH plus_2 IN ~x#garch2~ ~a!bleat2~ ~bdplat01~ ~bdplat03~ ~c02plat~ ~esliarm0~ ~iswarm~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%plus_2%.itm~ BEGIN
+    COPY_EXISTING ~%plus_2%.itm~ ~override~
+	  WRITE_LONG 0x60 2
+    BUT_ONLY
+  END
 END
+
+ACTION_FOR_EACH plus_3 IN ~l#suma~ ~cispgrd3~ ~d0leat08~ ~esliarm1~ ~ishcha~ ~l#2sds08~ ~o#llch1~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%plus_3%.itm~ BEGIN
+    COPY_EXISTING ~%plus_3%.itm~ ~override~
+	  WRITE_LONG 0x60 3
+    BUT_ONLY
+  END
+END
+
+ACTION_FOR_EACH plus_4 IN ~c2plat01~ ~chan18~ ~esxcha~ ~l0skin2~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%plus_4%.itm~ BEGIN
+    COPY_EXISTING ~%plus_4%.itm~ ~override~
+	  WRITE_LONG 0x60 4
+    BUT_ONLY
+  END
+END
+
+/*
+ACTION_FOR_EACH plus_5 IN ~~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~%plus_5%.itm~ BEGIN
+    COPY_EXISTING ~%plus_5%.itm~ ~override~
+	  WRITE_LONG 0x60 5
+    BUT_ONLY
+  END
+END
+*/
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
