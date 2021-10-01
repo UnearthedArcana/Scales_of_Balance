@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.31 </strong><br />
+  <p><strong> Version 5.33 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -71,29 +71,30 @@
     <p><strong><em>Item & Weapon Overhaul (IWO): Yet Another Revised Armor System</em></strong></p>
     <p>This component changes armor to give the wearer a mix of Armor Class and Damage Resistance bonuses. The values are listed below:</p>
       <pre>
-    Armor:
-	 leather:	AC 8 	-1 Dex 	8% DR 	+2 casting time
-	 studded:	AC 7 	-2 Dex 	12% DR 	+3 casting time
-	 hide armor: 	AC 6 	-3 Dex 	24% DR	+4 casting time
-	 chain mail: 	AC 5 	-3 Dex 	24% DR	+4 casting time
-	 splint mail: 	AC 5 	-4 Dex 	30% DR	+5 casting time
-	 plate mail: 	AC 4 	-5 Dex 	36% DR	+5 casting time
-	 full plate*:   AC 3 	-4 Dex	42% DR	+6 casting time<br />
-    Enchantment:
-	 +1:	 	-1 AC	+1 Dex	+1% DR
-	 +2: 		-2 AC 	+2 Dex	+2% DR
-	 +3:		-3 AC 	    "	+3% DR
-	 +4:		-4 AC 	    "	+4% DR
-	 +5:		-5 AC 	    "	+5% DR
-	 +6:		-6 AC 	    "	+6% DR<br />
+ Armor:
+    leather:	  AC 8 	-1 Dex 	8% DR 	+2 casting time  +0 weapon speed  0% miscast chance  0 movement penalty
+    studded:	  AC 7 	-2 Dex 	12% DR 	+2 casting time  +0 weapon speed  0% miscast chance  0 movement penalty
+    hide armor:   AC 6 	-3 Dex 	24% DR	+3 casting time  +0 weapon speed  0% miscast chance  0 movement penalty
+    chain mail:   AC 5 	-3 Dex 	24% DR	+3 casting time  +1 weapon speed  0% miscast chance  0 movement penalty
+    splint mail:  AC 5 	-4 Dex 	30% DR	+4 casting time  +2 weapon speed  0% miscast chance  0 movement penalty
+    plate mail:   AC 4 	-5 Dex 	36% DR	+5 casting time  +2 weapon speed  0% miscast chance  0 movement penalty
+    full plate:   AC 3 	-4 Dex	42% DR	+5 casting time  +2 weapon speed  0% miscast chance  0 movement penalty<br />
+ Enchantment:
+    +1:	 	-1 AC	+1 Dex	+1% DR
+    +2: 	-2 AC 	   " 	+2% DR
+    +3:		-3 AC 	   " 	+3% DR
+    +4:		-4 AC 	   " 	+4% DR
+    +5:		-5 AC 	   " 	+5% DR
+    +6:		-6 AC 	   " 	+6% DR<br />
   * "Caster" armors: no casting speed penalty
-  * Elven armors: dexterity penalty equal to leather armor
+  * Elven armors: dex/casting speed equal to leather
+  * Scale armors: like plate mail for AC, like chain for DR and penalties
       </pre>
-    <p><b>NOTE:</b> you can change many of these values by editing them in /Scales_of_Balance/ini/YARAS.ini.</p>
     <p>This component allows casting arcane spells in armor, but with steep casting time penalties. (As of now, these penalties do not affect divine casters.) It also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>This also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>Finally, this alters the Armor of Faith spell to only give a flat 10% DR bonus, at all levels; and reduces the DR bonus from Hardiness and Defensive Stance form 40% to 20%; and reduces the price of the Defender of Easthaven while reducing its DR bonus from 20% to 5%.</p>
-    <p><b>Compatibility:</b> this component covers the same ground as the IR component "Revised Armors" as well as the "Spellcasting in Armor" component.  Ditto for the Full Plate and Packing Steel mod. Choose one armor system mod and stick with it.</p>
+    <p><b>NOTE:</b> you can change these values by editing them in /Scales_of_Balance/ini/YARAS_default.ini. As of version 5.33, there is another version of these settings, which only applies thief skill penalties a chance of miscast magic... this is meant to mimic the "Allow Thieving in Heavy Armor" and "Allow Spellcasting in Armor" components of Tweaks Anthology, but is compatible with mods like Might & Guile and the 5E spellcasting conversion. To use those settings or your own personal preferences, copy /Scales_of_Balance/ini/YARAS_CD.ini or your modified version of /Scales_of_Balance/ini/YARAS_default.ini into your override folder and rename it to "d5_yaras.ini." If that file is in your override folder at the time of installation, the mod will use those settings instead of the default settings. You can keep a copy with your own preferred settings and use it each time you install mods.</p>
+    <p><b>Compatibility:</b> this component covers the same ground as the IR component "Revised Armors" as well as the "Spellcasting in Armor" component.  Ditto for the Full Plate and Packing Steel mod, and some armor/casting-related components of Tweaks Anthology and Klatu Tweaks. Don't install these things together; choose one armor system mod and stick with it.</p>
   </div>
   <h4 class="subheader">Component 101: </h4>
   <div class="section">
@@ -119,7 +120,7 @@
       <li> Daggers do 1d5 base damage instead of 1d4. (This includes throwing daggers.)</li>
       <li> Light crossbows can be used 1-handed, with shields. Heavy crossbows have an overall +3 damage bonus to compensate.</li>
       <li> Bolts do 1d6 base damage (and thus, from heavy crossbows they do 1d6+3).</li>
-      <li> Longbows and composite bows have their base APR reduced to 3/2 but do an extra +2 damage.</li>
+      <li> Bows have their base APR reduced to 3/2; Longbows and composite bows do an extra +2 damage.</li>
       <li> Arrows do 1d5 damage (and thus, 1d5+2 from longbows).</li>
       <li> Sling bullets do blunt damage.</li>
       <li> Darts have 2 APR instead of 3.</li>
@@ -160,15 +161,15 @@
       <p>This component can be considered a convenience tweak; it will give most classes natably more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
       <p>Clubs are truly universal, simple weapons: everyone can use them. Crossbows are usable by everyone except druids and Beastmasters.</p>
-      <p>Warriors, rogues, and priests start with 4 proficiency points; wizards, sorcerers, and shamans start with 3. Warriors receive up the 3 more proficiencies, chosen by dialogue, if their INT score is 11 (+1), 12 (+2), or 13 (+3).</p> 
-      <p>At 1st level, you may only put one point in any weapon or style, so you must spread those proficiencies among many weapons. However, unusually warriors with an INT score of 14+ receive a "focus training" ability allowing them to specialize in 1 weapon immediately. (<b>NOTE</b> - the focus weapon ability will only appear in EE games of version 1.4 or higher.) And trueclass fighters automatically get an additional weapon of focus, regardless of INT. </p>
+      <p>Warriors, rogues, and priests start with 5 proficiency points; wizards, sorcerers, and shamans start with 3. Warriors receive up the 3 more proficiencies, chosen by dialogue, if their INT score is 11 (+1), 12 (+2), or 13 (+3).</p> 
+      <p>At 1st level, you may only put one point in any weapon or style, so you must spread those proficiencies among many weapons. However, warriors may specialize at 1st level, and unusually intelligent trueclass fighters (INT score of 14+) receive a "focus training" ability allowing them to specialize in 1 more weapon. (<b>NOTE</b> - the focus weapon ability will only appear in EE games of version 1.4 or higher.) And trueclass fighters automatically get an additional weapon of focus, regardless of INT. </p>
       <p>Warriors gain another proficiency point every 3 levels. Rogues gain a new point every 4 levels. Druids, clerics and shamans gain a new point every 5 levels. Wizards, sorcerers, and monks can never move past their initial proficiencies (<b>NOTE</b> - this means no more weapon advancement <b>at all</b> after dual-classing into a mage!).</p>
       <ul>
         <li> Trueclass fighters and Kensai can attain Mastery (+++) at 6th level, and High Mastery (++++) at 9th level, in any weapons they focus on. </li>
         <li> Other kitted fighters plus barbarians, paladins, and rangers can attain Mastery (+++) at 6th level. </li>
-        <li> Rogues, clerics and druids, as well as mage/thieves, cleric/thieves and cleric/mages, can attain Specialization (++) with any weapons they can normally use. </li>
+        <li> Rogues, clerics and druids, as well as mage/thieves, cleric/thieves and cleric/mages, can attain Specialization (++) after 6th level, with any weapons they can normally use.</li>
         <li> Multiclass fighter/mages can attain Mastery (+++) in any weapon but the only available styles are Single-Weapon and Two-Handed Weapon. </li>
-        <li> Fighter/clerics and Fighter/thieves can attain Mastery (+++) in any weapon they can use. </li>
+        <li> Fighter/clerics and Fighter/thieves can attain Mastery (+++) in any weapon they can use.</li>
       </ul>
       <p>Beyond that, certain kits will be able to reach 1 point higher or lower in certain weapons (e.g. Archers can reach (++++) with missile weapons, and only (++) with melee weapons; Assassins can reach (+++) with daggers; etc.). </p>
       <div class="kit_description">
@@ -177,6 +178,7 @@
         &ndash; *** = +3 thac0; +2 damage; +1 APR<br />
         &ndash; **** = +4 thac0; +4 damage; +1.5 APR<br />.</p>
       </div>
+      <p>At 12th level, warriors will get a +1/2 APR bonus with all weapons. (This is in place of the unmodded game's 1/2 APR bonuses at 7th and 13th levels. Because you can get an extra APR bonus from proficiencies, the late-game total max APR for warriors will end up the same as in the unmodded game.)
       <p>(The APR bonuses will only affect warriors, unless you also install the WPO part 5, "APR on Spec.")
       <p>This component also tweaks the thac0 tables: Rogues' thac0 becomes equal to clerics and their progression is smoothed out - no more jumping by 2. Warriors start at thac0 20, and non-warriors start at thac0 21.</p>
       <p>This component makes serious changes and it has been rather hard to get various game mechanisms to work with it, especially dual-classing and NPCs. To catch them up, joinable NPCs will have several innate abilities that allow you to choose more proficiencies for them.</p>
@@ -842,21 +844,21 @@
   <h4 class="subheader">Component 205: </h4>
   <div class="section">
     <p><strong><em>Hit Dice Overhaul (HDO): Revised Hit Point Progression</em></strong></p>
-      <p>This component takes some of the randomness out of hit point rolls. In the vanilla system, a warrior with 16 CON can actually get *fewer* hit points at level-up than a mage with 8 CON. That only leads to annoying reloads or constant moving of the difficulty bar to get max hp (which is just too cheaty, and perverts various game mechanics). With this component, there are still rolls, but the roll will always seem fair and should never cause you to feel you need to reload or go below Core difficulty. That 16 CON warrior will get between 9 and 12 hit points per level, instead of from 3 to 12. Higher average rolls, and more satisfying numbers, but not overpowered.<br />
+      <p>This component takes some of the randomness out of hit point rolls. In the vanilla system, a warrior with 16 CON can actually get *fewer* hit points at level-up than a mage with 8 CON. That only leads to annoying reloads or constant moving of the difficulty bar to get max hp (which is just too cheaty, and perverts various game mechanics). With this component, there are still rolls, but the roll will usually seem "fair" and should never cause you to feel you need to reload or go below Core difficulty. That 16 CON warrior will get between 9 and 12 hit points per level, instead of from 3 to 12. Higher average rolls, and more satisfying numbers, but not overpowered.<br />
       <ul>
       	<li>Wizard hit dice is now 1d3+1. Rogue and priest hit dice is 2d3+1. And warrior hit dice is 3d3+1 (3d4+1 for barbarians).</li>
-      	<li>Everyone gets an extra hit point at 15 CON and 16 CON (like vanilla), and warriors get an extra hit point at 18 CON.  Everyone also gets an extra hit point at 20, 22, and 24 CON (so stat-boosting spells and effects can actually increase non-warriors' hit points).</li>
-      	<li>The minimum roll for those d3 rolls is 2 at 14 CON, and 3 at 17 CON. (So 17 CON means max hit points.)</li>
+      	<li>Everyone gets an extra hit point at 14 CON and 16 CON, and warriors get an extra hit point at 18 CON.  Everyone also gets an extra hit point at 20, 22, and 24 CON (so stat-boosting spells and effects can actually increase non-warriors' hit points).</li>
+      	<li>The minimum roll for those d3 rolls is 2 at 15 CON, and 3 at 17 CON. (So 17 CON means max hit points.)</li>
       	<li>Everyone gets very slow hit point regeneration (1 hp per 2 turns) at 19 CON. The regeneration speeds up a bit at 20 CON (1 per turn), 21 CON (1 per 4 rounds), 22 CON (1 per 2 rounds), 23 CON (1 per round), 24 CON (2 per round), and 25 CON (1 per second).</li>
       </ul>
-      <p>Additionally, this smooths out the decline in added hp. Everyone stops getting hit dice after 8th level. After that:
+      <p>This slightly front-loads HD progression: you get about 2HD at first level, but HD only goes to 7th level (so you get 8HD total). From 8th level on::
       <ul>
-      	<li>Warriors get 4/level from 9 to 15, then 3/level from 16 to 25, and 2/level after that. </li>
-      	<li>Rogues and priests get 3/level from 9 to 15, 2/level from 16 to 25, and 1 per level after that. </li>
-      	<li>Wizards get 2/level from 9 to 15, and 1/level after that. </li>
+      	<li>Warriors get 4/level from 8 to 15, then 3/level from 16 to 25, and 2/level after that. </li>
+      	<li>Rogues and priests get 3/level from 8 to 15, 2/level from 16 to 25, and 1 per level after that. </li>
+      	<li>Wizards get 2/level from 8 to 15, and 1/level after that. </li>
       </ul>
       <p>Additionally, there is an alternate hardcore version of this component, which eliminates 1 hp from each class (so wizards are 1d3, rogues/priests are 2d3, and warriors are 3d3). The regular component should give hit points somewhere between the vanilla game's mean and max values; the hardcore variant should result in hit points closer to vanilla's mean. </p>
-      <p>Finally, there is a new alternate "reduced" version of this component.  This is for players who want consistency without messing up the game's spells and encounters.  This option reduces wizard hit dice to 1d3, rogues to 1d4, priests to 1d5, warriors to 1d6, and barbarians to 1d7.  It also gives +1 hit point per level for every even point of CON starting at 12 for warriors, and at 14 for non-warriors.  Like the other two components, it double the hit die at 1st level and hit dice only go until 8th level - after that you only get 2-3 hp/level, slowly tapering to just 1 hp/level at level 25.</p>
+      <p>Finally, there is a third version of the Hit Dice progression, labeled "Reduced." This is unrelated to the system described above; it is a simpler modification for players who want to retain the original game's mechanic and who tend to play with the "max hit point rolls" option, but who do not want monstrous amounts of hit points. This option reduces wizard hit dice to 1d3, rogues to 1d4, priests to 1d5, warriors to 1d6, and barbarians to 1d7. It also gives +1 hit point per level for every even point of CON starting at 12 for warriors, and at 14 for non-warriors. If you use the "max hit point rolls" game option, this should approximate higher-than-average rolls in the original system, but with zero variability. Like the other two components, it doubles the hit die at 1st level, but unlike them it allows hit dice rolls until 9th level. After that you only get 2-3 hp/level, slowly tapering to just 1 hp/level at level 25.</p>
   </div>
   <h4 class="subheader">Component 210: </h4>
   <div class="section">
