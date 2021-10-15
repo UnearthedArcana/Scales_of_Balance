@@ -4,11 +4,11 @@
 TWOHANDED-0      0                0                0                0                0                0                0                0
 SINGLEWEAPON-0   0                0                0                0                0                0                0                0
 SWORDANDSHIELD-0 0                0                0                0                0                0                0                0
-TWOWEAPON-0      0                0                1                11               0                0                0                0
+TWOWEAPON-0      0                0                1                15               0                0                0                0
 TWOHANDED-1      2                0                -1               0                0                0                -1               1
 SINGLEWEAPON-1   0                0                -1               0                0                0                -2               0
 SWORDANDSHIELD-1 0                0                0                0                -1               -1               0                0
-TWOWEAPON-1      0                0                1                11               -2               +2               0                0
+TWOWEAPON-1      0                0                1                7                -2               +2               0                0
 TWOHANDED-2      4                0                -2               0                0                0                -1               2
 SINGLEWEAPON-2   0                0                -1               0                0                0                -2               0
 SWORDANDSHIELD-2 0                0                0                0                -1               -1               0                0

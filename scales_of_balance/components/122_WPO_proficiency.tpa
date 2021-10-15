@@ -453,7 +453,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
   COUNT_2DA_COLS cols 
   PHP_EACH d5_druids_array AS kit_col => class BEGIN
     SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
+    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 2 // shield
     SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
     SET_2DA_ENTRY 31 (%kit_col% + 1) cols 3 // dual-wield
   END
@@ -480,7 +480,8 @@ BUT_ONLY
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
   COUNT_2DA_COLS cols 
-  PHP_EACH d5_fighters_array AS kit_col => class BEGIN
+//  PHP_EACH d5_fighters_array AS kit_col => class BEGIN
+  PHP_EACH d5_mc_mages_array AS kit_col => class BEGIN
     SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
     SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
     SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
@@ -518,7 +519,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
   COUNT_2DA_COLS cols 
   PHP_EACH d5_rangers_array AS kit_col => class BEGIN
     SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
+    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 2 // shield
     SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
     SET_2DA_ENTRY 31 (%kit_col% + 1) cols 3 // dual-wield
   END
@@ -1103,10 +1104,15 @@ LAF revise_weapon_styles END
 
 //DIALOGUE-BASED PROFICIENCIES______________________________________________________
 //
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__dialprof.d5~ BEGIN
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__dialprof.d5~) BEGIN
   INCLUDE ~scales_of_balance/lib/weapprof_dialogue.tpa~
 //  LAM SET_UP_PROF_DIALOGUES
 END
+
+// ***** need to copy the profx dialogue and make a version for warriors with their profsmax
+// ...and a version for nonwarriors with their profsmax
+// ...and then modify profx bcs to direct each one to its proper dialogue
+
 //__________________________________________________________________________________
 
 

@@ -116,19 +116,21 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	END
 	PATCH_IF (%type% = 27) BEGIN // crossbows
 	  READ_LONG 0x08 gen_name_strref
-	  PATCH_IF (gen_name_strref = %light_xbow_strref%) BEGIN
-		READ_BYTE 0x18 handed
-		WRITE_BYTE 0x18 (~%handed%~ BAND ~0b11111101~)
-		FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
-		  READ_LONG "%index%" "valid"
-		  PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
-			READ_STRREF "%index%" "description"
-			INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
-			  REPLACE_TEXTUALLY EXACT_MATCH ~Type: Two-handed~ ~~
-			END
-			SAY_EVALUATED "%index%" ~%new_desc%~
+	  PATCH_IF (GAME_IS ~bgee bg2ee iwdee eet~) BEGIN
+	    PATCH_IF (gen_name_strref = %light_xbow_strref%) BEGIN
+		  READ_BYTE 0x18 handed
+		  WRITE_BYTE 0x18 (~%handed%~ BAND ~0b11111101~)
+		  FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
+		    READ_LONG "%index%" "valid"
+		    PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
+			  READ_STRREF "%index%" "description"
+			  INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+			    REPLACE_TEXTUALLY EXACT_MATCH ~Type: Two-handed~ ~~
+			  END
+			  SAY_EVALUATED "%index%" ~%new_desc%~
+		    END
 		  END
-		END
+	    END
 	  END
 	  PATCH_IF (gen_name_strref = %heavy_xbow_strref%) BEGIN
 		READ_LONG 0x64 abilities_off
