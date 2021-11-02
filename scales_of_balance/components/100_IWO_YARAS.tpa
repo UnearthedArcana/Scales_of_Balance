@@ -328,7 +328,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		    END
 //		  END
 		  PATCH_IF (FILE_EXISTS_IN_GAME ~d5__semi_spont.d5~) BEGIN
-		    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zncast~ END
+		    LPF ALTER_EFFECT INT_VAR match_opcode = 177 opcode = 145 target = 1 timing = 2 STR_VAR match_resource = ~d5zncast~ END
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm1l~ END
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm1c~ END
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm1p~ END
@@ -338,7 +338,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zw172l~ END
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zw172c~ END
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zw172p~ END
-		    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 145 target = 1 timing = 2 END
 		  END
 		END
 

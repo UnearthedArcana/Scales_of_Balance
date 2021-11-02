@@ -881,10 +881,13 @@ Półelfy posiadają następujące cechy:
 Półorkowie posiadają następujące cechy:
 - Infrawizja.
 - +1 Siła, -1 Inteligencja, -2 Charyzma.~
-@2021 = ~~
-@2022 = ~~
-@2023 = ~~
-@2024 = ~~
+@2021   = ~~
+@2022   = ~~
+@2023   = ~~
+@2024   = ~~
+@2090  = ~Initial weapon proficiency~
+@2091  = ~Advance weapon proficiency~
+@2092  = ~Choose a different weapon~
 //
 @2101 = ~Awans na Wyszkolenie (+) w Mieczach Półtoraręcznych~
 @2102 = ~Awans na Wyszkolenie (+) w Mieczach Długich~

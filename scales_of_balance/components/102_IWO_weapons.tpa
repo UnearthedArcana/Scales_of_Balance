@@ -109,7 +109,9 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	  END
 	END
 	PATCH_IF (~%type%~ = ~24~) BEGIN // darts
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 1 parameter1 = 2 END
+	  PATCH_IF !(~%SOURCE_RES%~ STRING_EQUAL_CASE ~ENEBLADE~) BEGIN
+	    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 1 parameter1 = 2 END
+	  END
 	END
 	PATCH_IF (~%type%~ = ~31~) BEGIN // bolts
 	  LPF ALTER_ITEM_HEADER INT_VAR header_type=2 dicesize=6 dicenumber=1 END

@@ -2,12 +2,20 @@
 //
 //DEFINE_ACTION_MACRO SET_UP_PROF_DIALOGUES BEGIN
 
-ACTION_IF NOT (FILE_CONTAINS_EVALUATED (~trigger.ids~ ~ProficiencyGT~)) BEGIN
-	OUTER_TEXT_SPRINT prof_folder ~prof~
+ACTION_IF !(FILE_CONTAINS_EVALUATED (~trigger.ids~ ~ProficiencyGT~)) BEGIN
+  OUTER_TEXT_SPRINT prof_folder ~prof_old~
+  OUTER_SPRINT prof_menu_warrior ~d5profx~
 END
 ACTION_IF (FILE_CONTAINS_EVALUATED (~trigger.ids~ ~ProficiencyGT~)) BEGIN
-	OUTER_TEXT_SPRINT prof_folder ~prof_2_5~
+  OUTER_TEXT_SPRINT prof_folder ~prof_2_5~
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5__profs.d5~) BEGIN
+    OUTER_SPRINT prof_menu_warrior ~d5profw~
+  END
+  ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__profs.d5~) BEGIN
+    OUTER_SPRINT prof_menu_warrior ~d5profx~
+  END
 END
+
 
 //COPY MARKER FILE_________________________________________________________________
 //
@@ -137,8 +145,8 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~clabshgs.2da~) OR (FILE_EXISTS_IN_GAME ~clabsh01
   OUTER_SPRINT $d5_kits_profs(~SHAMAN~ ~class~) ~59~
 END
 
-COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.baf~ ~%MOD_FOLDER%/lib/d5profx.baf~
-	 ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.baf~ ~%MOD_FOLDER%/lib/d5profy.baf~
+COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.baf~ ~weidu_external/dialprof/d5profx.baf~
+	 ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.baf~ ~weidu_external/dialprof/d5profy.baf~
 
 COPY_EXISTING ~kitlist.2da~ ~override~
   COUNT_2DA_COLS cols
@@ -157,7 +165,7 @@ COPY_EXISTING ~kitlist.2da~ ~override~
 ACTION_PHP_EACH d5_kits_profs AS kitidsname => profcol BEGIN
 //  PRINT ~%kitidsname% = %kitidsname_1% = column %profcol%~
   ACTION_IF (~%kitidsname_1%~ STRING_EQUAL_CASE ~kit~) BEGIN
-	APPEND_OUTER ~%MOD_FOLDER%/lib/d5profx.baf~ ~
+	APPEND_OUTER ~weidu_external/dialprof/d5profx.baf~ ~
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_PROFX","GLOBAL",0)
@@ -171,7 +179,7 @@ THEN
 	ActionOverride(LastSummonerOf(Myself),StartDialogOverride("d5profx",Myself))
 END
 ~ KEEP_CRLF
-	APPEND_OUTER ~%MOD_FOLDER%/lib/d5profy.baf~ ~
+	APPEND_OUTER ~weidu_external/dialprof/d5profy.baf~ ~
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_PROFY","GLOBAL",0)
@@ -190,7 +198,7 @@ END
 
 ACTION_IF (FILE_EXISTS_IN_GAME ~clabshgs.2da~) OR (FILE_EXISTS_IN_GAME ~clabsh01.2da~) BEGIN
 
-  APPEND_OUTER ~%MOD_FOLDER%/lib/d5profx.baf~ ~
+  APPEND_OUTER ~weidu_external/dialprof/d5profx.baf~ ~
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_PROFX","GLOBAL",0)
@@ -204,7 +212,7 @@ THEN
 END
 ~ KEEP_CRLF
 
-  APPEND_OUTER ~%MOD_FOLDER%/lib/d5profy.baf~ ~
+  APPEND_OUTER ~weidu_external/dialprof/d5profy.baf~ ~
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_PROFY","GLOBAL",0)
@@ -220,7 +228,7 @@ END
 
 END
 
-APPEND_OUTER ~%MOD_FOLDER%/lib/d5profx.baf~ ~
+APPEND_OUTER ~weidu_external/dialprof/d5profx.baf~ ~
 IF
 	NumTimesTalkedTo(0)
 	Global("D5_PROFX","GLOBAL",0)
@@ -483,7 +491,7 @@ THEN
 END
 ~ KEEP_CRLF
 
-APPEND_OUTER ~%MOD_FOLDER%/lib/d5profy.baf~ ~
+APPEND_OUTER ~weidu_external/dialprof/d5profy.baf~ ~
 
 IF
 	NumTimesTalkedTo(0)
@@ -775,8 +783,8 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	  READ_2DA_ENTRY 30 (%profcol% + 1) cols single_weapon_style
 	  READ_2DA_ENTRY 31 (%profcol% + 1) cols two_weapon_style
 	  INNER_ACTION BEGIN
-		COPY ~%MOD_FOLDER%/lib/d5profx.baf~ ~%MOD_FOLDER%/lib/d5profx.baf~
-			 ~%MOD_FOLDER%/lib/d5profy.baf~ ~%MOD_FOLDER%/lib/d5profy.baf~
+		COPY ~weidu_external/dialprof/d5profx.baf~ ~weidu_external/dialprof/d5profx.baf~
+			 ~weidu_external/dialprof/d5profy.baf~ ~weidu_external/dialprof/d5profy.baf~
 		  PATCH_IF (%two_weapon_style% > 0) BEGIN
 			REPLACE_TEXTUALLY ~	ActionOverride(LastSummonerOf(Myself),SetGlobal("D5_%kitidsname%","LOCALS",1))~ ~	ActionOverride(LastSummonerOf(Myself),SetGlobal("D5_%kitidsname%","LOCALS",1))
 	ActionOverride(LastSummonerOf(Myself),SetGlobal("D5_TWO_WEAPON","LOCALS",%two_weapon_style%))~
@@ -929,8 +937,8 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	READ_2DA_ENTRY 31 2 cols two_weapon_name
 	READ_2DA_ENTRY 31 3 cols two_weapon_desc
 
-COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.d~ ~%MOD_FOLDER%/lib/d5profx.d~
-	 ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.d~ ~%MOD_FOLDER%/lib/d5profy.d~
+COPY ~%MOD_FOLDER%/lib/%prof_folder%/%prof_menu_warrior%.d~ ~weidu_external/dialprof/d5profx.d~
+	 ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.d~ ~weidu_external/dialprof/d5profy.d~
 	REPLACE_TEXTUALLY ~bastard_sword_name~ ~%bastard_sword_name%~
 	REPLACE_TEXTUALLY ~bastard_sword_desc~ ~%bastard_sword_desc%~
 	REPLACE_TEXTUALLY ~long_sword_name~ ~%long_sword_name%~
@@ -1224,8 +1232,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55ssws.spl~
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d51bswo.spl~ ~override/d55stwf.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 5 parameter2 = 114 END
 
-COMPILE ~%MOD_FOLDER%/lib/d5profx.baf~
-COMPILE ~%MOD_FOLDER%/lib/d5profx.d~
+COMPILE ~weidu_external/dialprof/d5profx.baf~
+COMPILE ~weidu_external/dialprof/d5profx.d~
 
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5_profx.bam~ ~override~
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profx.eff~ ~override~
@@ -1469,8 +1477,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5proft.spl~
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profx~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR resource = ~d5proft~ END
 
-COMPILE ~%MOD_FOLDER%/lib/d5profy.baf~
-COMPILE ~%MOD_FOLDER%/lib/d5profy.d~
+COMPILE ~weidu_external/dialprof/d5profy.baf~
+COMPILE ~weidu_external/dialprof/d5profy.d~
 
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5_profy.bam~ ~override~
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profy.eff~ ~override~
@@ -1482,8 +1490,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profxa.spl~ ~override/d5pr0fya.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5pr0fa~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pr0fya~ END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5pr0fa.spl~
-	SAY NAME1 @2091
-	SAY UNIDENTIFIED_DESC @2091
+	SAY NAME1 @2090
+	SAY UNIDENTIFIED_DESC @2090
 	WRITE_ASCII 0x3a ~d5_profx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profy~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 STR_VAR resource = ~d5profy~ END
@@ -1494,8 +1502,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profxa.spl~ ~override/d5pr0fyb.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5pr0fb~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pr0fyb~ END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5pr0fb.spl~
-	SAY NAME1 @2091
-	SAY UNIDENTIFIED_DESC @2091
+	SAY NAME1 @2090
+	SAY UNIDENTIFIED_DESC @2090
 	WRITE_ASCII 0x3a ~d5_profx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profy~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 STR_VAR resource = ~d5profy~ END
@@ -1506,8 +1514,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profxa.spl~ ~override/d5pr0fyc.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5pr0fc~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pr0fyc~ END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5pr0fc.spl~
-	SAY NAME1 @2091
-	SAY UNIDENTIFIED_DESC @2091
+	SAY NAME1 @2090
+	SAY UNIDENTIFIED_DESC @2090
 	WRITE_ASCII 0x3a ~d5_profx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profy~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 STR_VAR resource = ~d5profy~ END
@@ -1518,8 +1526,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profxa.spl~ ~override/d5pr0fyd.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5pr0fd~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pr0fyd~ END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5pr0fd.spl~
-	SAY NAME1 @2091
-	SAY UNIDENTIFIED_DESC @2091
+	SAY NAME1 @2090
+	SAY UNIDENTIFIED_DESC @2090
 	WRITE_ASCII 0x3a ~d5_profx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profy~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 STR_VAR resource = ~d5profy~ END
@@ -1530,8 +1538,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profxa.spl~ ~override/d5pr0fye.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5pr0fe~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pr0fye~ END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5pr0fe.spl~
-	SAY NAME1 @2091
-	SAY UNIDENTIFIED_DESC @2091
+	SAY NAME1 @2090
+	SAY UNIDENTIFIED_DESC @2090
 	WRITE_ASCII 0x3a ~d5_profx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profy~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 STR_VAR resource = ~d5profy~ END
@@ -1542,8 +1550,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profxa.spl~ ~override/d5pr0fyf.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5pr0ff~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pr0fyf~ END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5pr0ff.spl~
-	SAY NAME1 @2091
-	SAY UNIDENTIFIED_DESC @2091
+	SAY NAME1 @2090
+	SAY UNIDENTIFIED_DESC @2090
 	WRITE_ASCII 0x3a ~d5_profx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profy~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 STR_VAR resource = ~d5profy~ END
@@ -1554,8 +1562,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profxa.spl~ ~override/d5pr0fyg.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5pr0fg~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pr0fyg~ END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5pr0fg.spl~
-	SAY NAME1 @2091
-	SAY UNIDENTIFIED_DESC @2091
+	SAY NAME1 @2090
+	SAY UNIDENTIFIED_DESC @2090
 	WRITE_ASCII 0x3a ~d5_profx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profy~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 STR_VAR resource = ~d5profy~ END
@@ -1566,8 +1574,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profxa.spl~ ~override/d5pr0fyh.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5pr0fh~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pr0fyh~ END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5pr0fh.spl~
-	SAY NAME1 @2091
-	SAY UNIDENTIFIED_DESC @2091
+	SAY NAME1 @2090
+	SAY UNIDENTIFIED_DESC @2090
 	WRITE_ASCII 0x3a ~d5_profx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profy~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 STR_VAR resource = ~d5profy~ END
@@ -1578,8 +1586,8 @@ COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profxa.spl~ ~override/d5pr0fyi.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR resource = ~d5pr0fi~ END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5pr0fyi~ END
 COPY ~%MOD_FOLDER%/lib/%prof_folder%/d5profa.spl~ ~override/d5pr0fi.spl~
-	SAY NAME1 @2091
-	SAY UNIDENTIFIED_DESC @2091
+	SAY NAME1 @2090
+	SAY UNIDENTIFIED_DESC @2090
 	WRITE_ASCII 0x3a ~d5_profx~ #8
 	LPF ALTER_SPELL_HEADER STR_VAR icon = ~d5_profy~ END
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 STR_VAR resource = ~d5profy~ END

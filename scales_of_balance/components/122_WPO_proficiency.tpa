@@ -728,7 +728,28 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 BUT_ONLY
 //__________________________________________________________________________________
 
+
 // ***** if MnG bards, remove bonus APR from Bladesingers
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5_blads.2da~) BEGIN
+  COPY_EXISTING ~kit.ids~ ~override~
+    COUNT_2DA_COLS cols
+    READ_2DA_ENTRIES_NOW rows cols
+    FOR (row = 1; row < rows; ++row) BEGIN
+      READ_2DA_ENTRY_FORMER rows row 0 ~code~
+      READ_2DA_ENTRY_FORMER rows row 1 ~kit~
+      PATCH_IF (~%kit%~ STRING_EQUAL_CASE ~D5_BLADESINGER~) BEGIN
+        SET bladesinger_code = %code%
+      END
+    END  
+  BUT_ONLY
+
+  COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+    PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+      LPF DELETE_EFFECT INT_VAR match_opcode = 177 match_parameter2 = 9 match_parmeter1 = %bladesinger_code% END
+    END
+  BUT_ONLY
+END
 
 /*
 //COPY PROFICIENCY FILES____________________________________________________________
@@ -1104,14 +1125,30 @@ LAF revise_weapon_styles END
 
 //DIALOGUE-BASED PROFICIENCIES______________________________________________________
 //
-ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__dialprof.d5~) BEGIN
+
+/*
+// ***** delete existing, start anew
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5__dialprof.d5~) BEGIN
+  DELETE ~override/d5__dialprof.d5~
+  DELETE ~override/d5profx.bcs~
+  DELETE ~override/d5profx.dlg~
+  DELETE ~override/d5profy.bcs~
+  DELETE ~override/d5profy.dlg~
+  DELETE ~weidu_external/dialprof/d5profx.baf~
+  DELETE ~weidu_external/dialprof/d5profx.d~
+  DELETE ~weidu_external/dialprof/d5profy.baf~
+  DELETE ~weidu_external/dialprof/d5profy.d~
+*/
+
+//ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__dialprof.d5~) BEGIN
   INCLUDE ~scales_of_balance/lib/weapprof_dialogue.tpa~
 //  LAM SET_UP_PROF_DIALOGUES
-END
+//END
 
 // ***** need to copy the profx dialogue and make a version for warriors with their profsmax
 // ...and a version for nonwarriors with their profsmax
 // ...and then modify profx bcs to direct each one to its proper dialogue
+// ...later
 
 //__________________________________________________________________________________
 
@@ -1121,7 +1158,7 @@ END
   ACTION_IF FILE_EXISTS_IN_GAME ~clabfi01.2da~ BEGIN
 	COPY_EXISTING ~clabfi01.2da~ ~override~
 		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/profs/warrior_focus.txt~
+//		APPEND_FILE ~scales_of_balance/profs/warrior_focus.txt~
 		APPEND_FILE ~scales_of_balance/profs/warrior_apr.txt~
 	BUT_ONLY
   END
@@ -1174,9 +1211,10 @@ END
 	  READ_BYTE 0x234 level_1
 	  READ_BYTE 0x235 level_2
 	  READ_BYTE 0x273 npc_class
-	  PATCH_IF (npc_class = 2) BEGIN 	//	fighter: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+	  PATCH_IF (npc_class = 2) BEGIN 	//	fighter: +3
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profd~ END
 		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter1 = 5 parameter1 = 4 END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
@@ -1191,22 +1229,22 @@ END
 */
 	  END
 	  PATCH_IF (npc_class = 6) BEGIN 	//	paladin: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 12) BEGIN 	//	ranger: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 4) BEGIN 	//	thief: +2
 		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
@@ -1216,110 +1254,110 @@ END
 	  END
 	  PATCH_IF (npc_class = 5) BEGIN 	//	bard: +2
 		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 3) BEGIN 	//	cleric: +2
 		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 11) BEGIN 	//	druid: +2
 		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 20) BEGIN 	//	monk: +2
 		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (npc_class = 1) BEGIN 	// 	mage: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fb~ END
 	  END
 	  PATCH_IF (npc_class = 19) BEGIN 	//	sorcerer: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fc~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fb~ END
 	  END
 	  PATCH_IF (npc_class = 21) BEGIN 	//	shaman: +2
 		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fd~ END
 	  END
 	  PATCH_IF (%npc_class% = 7) BEGIN 	//	fighter/mage: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 8) BEGIN 	//	fighter/cleric: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 9) BEGIN 	//	fighter/thief: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 10) BEGIN	//	fighter/mage/thief: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 13) BEGIN	//	mage/thief: +2
 		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 14) BEGIN	//	cleric/mage: +2
 		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 15) BEGIN	//	cleric/thief: +2
 		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 16) BEGIN	//	fighter/druid: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 17) BEGIN	//	fighter/mage/cleric: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
 	  END
 	  PATCH_IF (%npc_class% = 18) BEGIN	//	cleric/ranger: +2
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0fe~ END
-		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5pr0ff~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profe~ END
+		LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5profd~ END
 		PATCH_IF (level_1 > 6) OR (level_2 > 6)  BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode=171 target=1 timing=9 power=1 STR_VAR resource=~d5proft~ END
 		END
@@ -1454,21 +1492,31 @@ BUT_ONLY
 //__________________________________________________________________________________
 */
 
-/*
 // *****
 // re-do MnG extra profs feat_______________________________________________________
 //
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5__rfeat.d5~) BEGIN
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5__rfeat.d5~) AND (FILE_EXISTS ~might_and_guile/lib/extra_prof_dialogue.tpa~) BEGIN
 
-  ACTION_IF FILE_EXISTS ~override/d5ftprof.bcs~ BEGIN
+  ACTION_IF (FILE_EXISTS ~override/d5ftprof.bcs~) BEGIN
 	DELETE ~override/d5ftprof.bcs~
   END
+  ACTION_IF (FILE_EXISTS ~weidu_external/dialprof/might_and_guile/d5ftprof.baf~) BEGIN
+	DELETE ~weidu_external/dialprof/might_and_guile/d5ftprof.baf~
+  END
 
-  INCLUDE ~scales_of_balance/lib/mng_prof_dialogue.tpa~
+  ACTION_IF (FILE_EXISTS ~override/d5ftprof.dlg~) BEGIN
+	DELETE ~override/d5ftprof.dlg~
+  END
+  ACTION_IF (FILE_EXISTS ~weidu_external/dialprof/might_and_guile/d5ftprof.d~) BEGIN
+	DELETE ~weidu_external/dialprof/might_and_guile/d5ftprof.d~
+  END
+
+  WITH_TRA ~might_and_guile/language/english/setup.tra~ BEGIN
+    INCLUDE ~might_and_guile/lib/extra_prof_dialogue.tpa~
+  END
 
 END
 //__________________________________________________________________________________
-*/
 
 CLEAR_ARRAYS
 
