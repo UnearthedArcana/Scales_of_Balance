@@ -29,7 +29,7 @@ COPY ~scales_of_balance/stats/hpwiz_reduced.2da~ ~override/hpwiz.2da~
 
 //EDIT CON DESCRIPTION_______________________________________________________________
 //
-  STRING_SET 9583 @2010 
+  STRING_SET 9583 @20010 
 //___________________________________________________________________________________
 
 

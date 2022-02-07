@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.35.2~
+VERSION ~v5.36~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -281,15 +281,58 @@ LAF revise_stat_bonuses END
 
 //__________________________________________________________________________________
 
-BEGIN @201 // stat-based bonus spells
+BEGIN @201 // stat-based bonus memorization slots - affects spont priests too
 DESIGNATED 201
-REQUIRE_PREDICATE !(MOD_IS_INSTALLED ~tomeandblood.tp2~ ~95~) @1
 
 INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
 
 INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
 
 LAF ability_bonus_spells END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5fpspt.spl~) BEGIN
+  OUTER_SET 5e_wis_bonus_casting = 0
+  LAM semi_wis_slots
+END
+
+//__________________________________________________________________________________
+
+BEGIN @2012 // stat-based bonus memorization slots AND casting slots for 5E casters
+DESIGNATED 2012
+REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~d5zzini.spl~) @6
+REQUIRE_PREDICATE (MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~201~) @1
+SUBCOMPONENT @2011
+
+INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
+  OUTER_SET 5e_int_bonus_memorization = 1
+  LAM semi_int_slots
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) BEGIN
+  OUTER_SET 5e_wis_bonus_casting = 1
+  LAM semi_wis_slots  
+END
+
+//__________________________________________________________________________________
+
+BEGIN @2013 // stat-based memorization slots for Vancian and ONLY casting slots for 5E
+DESIGNATED 2013
+SUBCOMPONENT @2011
+
+INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
+  OUTER_SET 5e_int_bonus_memorization = 0
+  LAM semi_int_slots
+END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) BEGIN
+  OUTER_SET 5e_wis_bonus_casting = 1
+  LAM semi_wis_slots
+  LAF 5e_no_priest_mem_bonus END
+END
 
 //__________________________________________________________________________________
 
@@ -304,6 +347,7 @@ LAF 2hand_weapon_strength END
 BEGIN @204 // add concentration checks
 DESIGNATED 204
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet~ @8
+DEPRECATED @6
 
 INCLUDE ~scales_of_balance/components/204_concentration.tpa~
 
