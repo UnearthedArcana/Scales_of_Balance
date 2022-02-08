@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.33 </strong><br />
+  <p><strong> Version 5.36 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -161,12 +161,11 @@
       <p>This component can be considered a convenience tweak; it will give most classes natably more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
       <p>Clubs are truly universal, simple weapons: everyone can use them. Crossbows are usable by everyone except druids and Beastmasters.</p>
-      <p>Warriors, rogues, and priests start with 5 proficiency points; wizards, sorcerers, and shamans start with 3. Warriors receive up the 3 more proficiencies, chosen by dialogue, if their INT score is 11 (+1), 12 (+2), or 13 (+3).</p> 
-      <p>At 1st level, you may only put one point in any weapon or style, so you must spread those proficiencies among many weapons. However, warriors may specialize at 1st level, and unusually intelligent trueclass fighters (INT score of 14+) receive a "focus training" ability allowing them to specialize in 1 more weapon. (<b>NOTE</b> - the focus weapon ability will only appear in EE games of version 1.4 or higher.) And trueclass fighters automatically get an additional weapon of focus, regardless of INT. </p>
+      <p>Warriors, rogues, and priests start with 5 proficiency points; wizards, sorcerers, and shamans start with 3. Warriors receive up the 3 more proficiencies, chosen by dialogue, if their INT score is 11 (+1), 12 (+2), or 13 (+3).  At 1st level, nonwarriors may only put one point in any weapon or style, so you must spread those proficiencies among many weapons. Warriors may specialize at 1st level. </p>
       <p>Warriors gain another proficiency point every 3 levels. Rogues gain a new point every 4 levels. Druids, clerics and shamans gain a new point every 5 levels. Wizards, sorcerers, and monks can never move past their initial proficiencies (<b>NOTE</b> - this means no more weapon advancement <b>at all</b> after dual-classing into a mage!).</p>
       <ul>
-        <li> Trueclass fighters and Kensai can attain Mastery (+++) at 6th level, and High Mastery (++++) at 9th level, in any weapons they focus on. </li>
-        <li> Other kitted fighters plus barbarians, paladins, and rangers can attain Mastery (+++) at 6th level. </li>
+        <li> Trueclass fighters and Kensai can attain Mastery (+++) at 6th level, and High Mastery (++++) at 9th level, in any weapons they focus on.</li>
+        <li> Other kitted fighters plus barbarians, paladins, rangers, and multiclass fighters can attain Mastery (+++) at 6th level.</li>
         <li> Rogues, clerics and druids, as well as mage/thieves, cleric/thieves and cleric/mages, can attain Specialization (++) after 6th level, with any weapons they can normally use.</li>
         <li> Multiclass fighter/mages can attain Mastery (+++) in any weapon but the only available styles are Single-Weapon and Two-Handed Weapon. </li>
         <li> Fighter/clerics and Fighter/thieves can attain Mastery (+++) in any weapon they can use.</li>
@@ -179,9 +178,195 @@
         &ndash; **** = +4 thac0; +4 damage; +1.5 APR<br />.</p>
       </div>
       <p>At 12th level, warriors will get a +1/2 APR bonus with all weapons. (This is in place of the unmodded game's 1/2 APR bonuses at 7th and 13th levels. Because you can get an extra APR bonus from proficiencies, the late-game total max APR for warriors will end up the same as in the unmodded game.)
-      <p>(The APR bonuses will only affect warriors, unless you also install the WPO part 5, "APR on Spec.")
-      <p>This component also tweaks the thac0 tables: Rogues' thac0 becomes equal to clerics and their progression is smoothed out - no more jumping by 2. Warriors start at thac0 20, and non-warriors start at thac0 21.</p>
-      <p>This component makes serious changes and it has been rather hard to get various game mechanisms to work with it, especially dual-classing and NPCs. To catch them up, joinable NPCs will have several innate abilities that allow you to choose more proficiencies for them.</p>
+      <p>(The APR bonuses will only benefit warriors, unless you also install the WPO part 5, "APR on Spec.")
+      <p>This component also tweaks the thac0 tables: Rogues' thac0 becomes equal to clerics and their progression is smoothed out - no more jumping by 2.</p>
+      <div class="kit_description">
+<table style= "width: 40%">
+ <tr>
+  <th> level </th>
+  <th> warriors </th>
+  <th> priests </th>
+  <th> rogues </th>
+  <th> wizards </th>
+ </tr>
+ <tr>
+  <td><b>1:</b></td>
+  <td>20</td>
+  <td>20</td>
+  <td>20</td>
+  <td>21</td>
+ </tr>
+ <tr>
+  <td><b>2:</b></td>
+  <td>19</td>
+  <td>19</td>
+  <td>19</td>
+  <td>20</td>
+ </tr>
+ <tr>
+  <td><b>3:</b></td>
+  <td>18</td>
+  <td>19</td>
+  <td>19</td>
+  <td>20</td>
+ </tr>
+ <tr>
+  <td><b>4:</b></td>
+  <td>17</td>
+  <td>18</td>
+  <td>18</td>
+  <td>19</td>
+ </tr>
+ <tr>
+  <td><b>5:</b></td>
+  <td>16</td>
+  <td>18</td>
+  <td>18</td>
+  <td>19</td>
+ </tr>
+ <tr>
+  <td><b>6:</b></td>
+  <td>16</td>
+  <td>17</td>
+  <td>17</td>
+  <td>18</td>
+ </tr>
+ <tr>
+  <td><b>7:</b></td>
+  <td>15</td>
+  <td>16</td>
+  <td>16</td>
+  <td>18</td>
+ </tr>
+ <tr>
+  <td><b>8:</b></td>
+  <td>14</td>
+  <td>16</td>
+  <td>16</td>
+  <td>17</td>
+ </tr>
+ <tr>
+  <td><b>9:</b></td>
+  <td>13</td>
+  <td>15</td>
+  <td>15</td>
+  <td>17</td>
+ </tr>
+ <tr>
+  <td><b>10:</b></td>
+  <td>12</td>
+  <td>15</td>
+  <td>15</td>
+  <td>16</td>
+ </tr>
+ <tr>
+  <td><b>11:</b></td>
+  <td>11</td>
+  <td>14</td>
+  <td>14</td>
+  <td>16</td>
+ </tr>
+ <tr>
+  <td><b>12:</b></td>
+  <td>11</td>
+  <td>13</td>
+  <td>13</td>
+  <td>15</td>
+ </tr>
+ <tr>
+  <td><b>13:</b></td>
+  <td>10</td>
+  <td>13</td>
+  <td>13</td>
+  <td>15</td>
+ </tr>
+ <tr>
+  <td><b>14:</b></td>
+  <td>9</td>
+  <td>12</td>
+  <td>12</td>
+  <td>14</td>
+ </tr>
+ <tr>
+  <td><b>15:</b></td>
+  <td>8</td>
+  <td>12</td>
+  <td>12</td>
+  <td>14</td>
+ </tr>
+ <tr>
+  <td><b>16:</b></td>
+  <td>7</td>
+  <td>11</td>
+  <td>11</td>
+  <td>13</td>
+ </tr>
+ <tr>
+  <td><b>17:</b></td>
+  <td>6</td>
+  <td>10</td>
+  <td>10</td>
+  <td>13</td>
+ </tr>
+ <tr>
+  <td><b>18:</b></td>
+  <td>6</td>
+  <td>10</td>
+  <td>10</td>
+  <td>12</td>
+ </tr>
+ <tr>
+  <td><b>19:</b></td>
+  <td>5</td>
+  <td>9</td>
+  <td>9</td>
+  <td>12</td>
+ </tr>
+ <tr>
+  <td><b>20:</b></td>
+  <td>4</td>
+  <td>9</td>
+  <td>9</td>
+  <td>11</td>
+ </tr>
+ <tr>
+  <td><b>21:</b></td>
+  <td>3</td>
+  <td>8</td>
+  <td>8</td>
+  <td>11</td>
+ </tr>
+ <tr>
+  <td><b>22:</b></td>
+  <td>2</td>
+  <td>7</td>
+  <td>7</td>
+  <td>11</td>
+ </tr>
+ <tr>
+  <td><b>23:</b></td>
+  <td>1</td>
+  <td>7</td>
+  <td>7</td>
+  <td>11</td>
+ </tr>
+ <tr>
+  <td><b>24:</b></td>
+  <td>1</td>
+  <td>6</td>
+  <td>6</td>
+  <td>11</td>
+ </tr>
+ <tr>
+  <td><b>25:</b></td>
+  <td>0</td>
+  <td>6</td>
+  <td>6</td>
+  <td>11</td>
+ </tr>
+</table>
+    </div>
+    <p>This component makes serious changes and it has been rather hard to get various game mechanisms to work with it, especially dual-classing and NPCs. To catch them up, joinable NPCs will have several innate abilities that allow you to choose more proficiencies for them.</p>
     <p><b>Compatibility:</b> this component is generally not compatible with stuff like the weapon proficiency changes in Tweaks Anthology. Choose one proficiency system mod and stick with it.</p>
   </div>
   <h4 class="subheader">Component 121: </h4>
@@ -216,8 +401,8 @@
         &ndash; (++) = additional +1 thac0, +2 damage, and +5% crit chance<br /></p>
         <p>Two-Weapon Style: now called <b>"Dual-Wielding"</b><br />
         &ndash; ( ) = No off-hand attacks, no bonuses for dual-wielding<br />
-        &ndash; (+) = 0 to 2 point melee AC bonus; off-hand attack with 5-point thac0 penalty<br />
-        &ndash; (++) = off-hand attack has no thac0 penalty<br />.</p>
+        &ndash; (+) = 0 to 2 point melee AC bonus; off-hand attack with 6-point thac0 penalty compared to main hand<br />
+        &ndash; (++) = off-hand attack with same thac0 penalty as main hand (see below)<br />.</p>
       </div> 
       <p>When dual-wielding, your main-hand thac0 will depend on the size and weight of the weapons you have equipped, as described below.</p>
       <div class="kit_description">
@@ -548,43 +733,36 @@
 <table style= "width: 50%">
  <tr>
   <th>WISDOM </th>
-  <th>Bonus Spells</th>
   <th>Saves vs. Death</th>
   <th>Saves vs. Polymorph</th>
  </tr>
  <tr>
   <td><b>5:</b></td>
-  <td>-</td>
   <td>-3</td>
   <td>-3</td>
  </tr>
  <tr>
   <td><b>6:</b></td>
-  <td>-</td>
   <td>-3</td>
   <td>-2</td>
  </tr>
  <tr>
   <td><b>7:</b></td>
-  <td>-</td>
   <td>-2</td>
   <td>-2</td>
  </tr>
  <tr>
   <td><b>8:</b></td>
-  <td>-</td>
   <td>-2</td>
   <td>-1</td>
  </tr>
  <tr>
   <td><b>9:</b></td>
-  <td>-</td>
   <td>-1</td>
   <td>-1</td>
  </tr>
  <tr>
   <td><b>10:</b></td>
-  <td>-</td>
   <td>-1</td>
   <td>-</td>
  </tr>
@@ -592,83 +770,69 @@
   <td><b>11-14:</b></td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td><b>13:</b></td>
-  <td>1st level</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td><b>14:</b></td>
-  <td>2nd level</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td><b>15:</b></td>
-  <td>1st level</td>
   <td>-</td>
   <td>+1</td>
  </tr>
  <tr>
   <td><b>16:</b></td>
-  <td>3rd level</td>
   <td>+1</td>
   <td>+1</td>
  </tr>
  <tr>
   <td><b>17:</b></td>
-  <td>2nd level</td>
   <td>+1</td>
   <td>+2</td>
  </tr>
  <tr>
   <td><b>18:</b></td>
-  <td>4th level</td>
   <td>+2</td>
   <td>+2</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
-  <td>3rd level</td>
   <td>+2</td>
   <td>+3</td>
  </tr>
  <tr>
   <td><b>20:</b></td>
-  <td>5th level</td>
   <td>+3</td>
   <td>+3</td>
  </tr>
  <tr>
   <td><b>21:</b></td>
-  <td>4th level</td>
   <td>+3</td>
   <td>+4</td>
  </tr>
  <tr>
   <td><b>22:</b></td>
-  <td>6th level</td>
   <td>+4</td>
   <td>+4</td>
  </tr>
  <tr>
   <td><b>23:</b></td>
-  <td>5th level</td>
   <td>+4</td>
   <td>+5</td>
  </tr>
  <tr>
   <td><b>24:</b></td>
-  <td>7th level</td>
   <td>+5</td>
   <td>+5</td>
  </tr>
  <tr>
   <td><b>25:</b></td>
-  <td>6th level</td>
   <td>+5</td>
   <td>+6</td>
  </tr>
@@ -826,6 +990,165 @@
     </div>
       <p>Note: the 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same. Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</p>
   </div>
+  <h4 class="subheader">Component 201 (for EE 2.0+): </h4>
+  <div class="section">
+    <p><strong><em>SBO: Ability Score-Based Bonus Spells</em></strong></p>
+      <p>This component gives you bonus spell memorization slots for having high stats. Clerics and druids already get this in the unmodded game; now similar bonuses are applied to mages (based on INT), bards (based on CHA*), and sorcerers and shamans (based on CHA). (* Note, if you have installed Might & Guile's 'Revised Bards,' those multiclass bards will use INT as their casting stat.) If you have installed the option for priests to cast spells spontaneously from Faiths & Powers, that mechanism will be affecte by these bonuses as well.</p>
+      <p>Additionally, these bonuses have been mde more uniform - including the unmodded cleric and druid bonuses:</p>
+<table style= "width: 50%">
+ <tr>
+  <th>STAT </th>
+  <th>1st level</th>
+  <th>2nd level</th>
+  <th>3rd level</th>
+  <th>4th level</th>
+  <th>5th level</th>
+  <th>6th level</th>
+  <th>7th level</th>
+ </tr>
+ <tr>
+  <td><b>13:</b></td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>14:</b></td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>15:</b></td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>16:</b></td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>17:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>18:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>19:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>20:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>21:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>22:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>23:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>24:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>25:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+ </tr>
+</table>
+  <p>NOTE: sorcerers only get bonuses to spells up to 5th level; in addition, they get up to three 1 bonuses to their caster level.</p>
+  </div>
+  <h4 class="subheader">Component 2012-13 (for EE 2.0+): </h4>
+  <div class="section">
+    <p><strong><em>SBO: Ability Score Bonus Spells for 5E-Style Casting</em></strong></p>
+      <p>These components are only available if component 201 is installed. They represent options for how the ability score-based bonus spells should operate if the '5E Spellcasting' mod is installed, or a mod that uses it such as Tome & Blood's Arcanist or Might & Guile's Revised bards. With only component 201, those spellcasters will get bonus memorization slots, but no bonus casting slots. These components allow you to change that: 
+    <ul>
+      <li><b>Component 2012:</b> ability score bonuses increase <i>both</i> memorization slots and casting slots. <br />
+      <li><b>Component 2013:</b> ability score bonuses increase casting slots but do <i>not</i> increase memorization slots. </p>
+    </ul>
+    <p>NOTE: if you combine component 2012 this with the component in the 5E casting mod that grants bonus casting slots for the Ring of Wizardry and similar magical items, you will end up with a <b>LOT</b> of both memorization and casting slots. I'm surprised to hear myself say this, but it is too many. With such bonuses a 5E mage can easily overpower a sorcerer, which is not supposed to happen. In particular, large numbers of <i>memorization</i> slots can unbalance things; 5E casters can change out their prepared spells every day, so limits on ho many spells they can have prepared is a key balancing mechanism. My suggestion for finding a happy medium is to skip the 5E items component, thereby setting magic items to only increase memorization slots; and to install component 2013 here, thereby setting stat bonuses to only increase casting slots. (Or, if you really want a lot of casting slots, install the 5E items component with component 2013 - that will give you lots of casting slots but retain some limits on memorization slots.)</p>
+  </div>
   <h4 class="subheader">Component 202: </h4>
   <div class="section">
     <p><strong><em>SBO: Full Strength from 2-Hand Weapons Only</em></strong></p>
@@ -837,7 +1160,7 @@
     <p><strong><em>SBO: Concentration Checks</em></strong></p>
       <p>This component enables the 'concentration' stat and allows spellcasters to roll to avoid interruption when they take damage during casting. The formula is:</p>
       <p><i>(1d20 + Luck) vs. (spell level + damage taken)</i></p>
-      <p><b>NOTE:</b> I've heard it said that concentration checks are bugged in the EE 2.0-2.5 engine, applying the 'damage taken' value on the wrong side of the equation:</p>
+      <p><b>NOTE:</b> This is disabled for now. I've heard it said that concentration checks are bugged in the EE 2.0-2.5 engine, applying the 'damage taken' value on the wrong side of the equation:</p>
       <p><i>(1d20 + Luck + damage taken) vs. (spell level)</i></p>
       <p>This means that the more damage you take, the more likely you are to avoid spell interruption. That is really stupid, and it really annoys me that Beamdog has let this bug persist through several patches. I don't think they fixed it for 2.5 (someone with more time than me can run some tests, if you like), and who knows what they're doing for the new 2.6 patch - I don't even know how to report bugs for it. Hopefully they get off their butts and fix this, because it is one of the last places in the engine where the old engine with ToBEx is completely superior. It's 2020 guys, that shouldn't be happening anymore.</p>
   </div>

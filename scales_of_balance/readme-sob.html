@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.34 </strong><br />
+  <p><strong> Version 5.36 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -733,43 +733,36 @@
 <table style= "width: 50%">
  <tr>
   <th>WISDOM </th>
-  <th>Bonus Spells</th>
   <th>Saves vs. Death</th>
   <th>Saves vs. Polymorph</th>
  </tr>
  <tr>
   <td><b>5:</b></td>
-  <td>-</td>
   <td>-3</td>
   <td>-3</td>
  </tr>
  <tr>
   <td><b>6:</b></td>
-  <td>-</td>
   <td>-3</td>
   <td>-2</td>
  </tr>
  <tr>
   <td><b>7:</b></td>
-  <td>-</td>
   <td>-2</td>
   <td>-2</td>
  </tr>
  <tr>
   <td><b>8:</b></td>
-  <td>-</td>
   <td>-2</td>
   <td>-1</td>
  </tr>
  <tr>
   <td><b>9:</b></td>
-  <td>-</td>
   <td>-1</td>
   <td>-1</td>
  </tr>
  <tr>
   <td><b>10:</b></td>
-  <td>-</td>
   <td>-1</td>
   <td>-</td>
  </tr>
@@ -777,83 +770,69 @@
   <td><b>11-14:</b></td>
   <td>-</td>
   <td>-</td>
-  <td>-</td>
  </tr>
  <tr>
   <td><b>13:</b></td>
-  <td>1st level</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td><b>14:</b></td>
-  <td>2nd level</td>
   <td>-</td>
   <td>-</td>
  </tr>
  <tr>
   <td><b>15:</b></td>
-  <td>1st level</td>
   <td>-</td>
   <td>+1</td>
  </tr>
  <tr>
   <td><b>16:</b></td>
-  <td>3rd level</td>
   <td>+1</td>
   <td>+1</td>
  </tr>
  <tr>
   <td><b>17:</b></td>
-  <td>2nd level</td>
   <td>+1</td>
   <td>+2</td>
  </tr>
  <tr>
   <td><b>18:</b></td>
-  <td>4th level</td>
   <td>+2</td>
   <td>+2</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
-  <td>3rd level</td>
   <td>+2</td>
   <td>+3</td>
  </tr>
  <tr>
   <td><b>20:</b></td>
-  <td>5th level</td>
   <td>+3</td>
   <td>+3</td>
  </tr>
  <tr>
   <td><b>21:</b></td>
-  <td>4th level</td>
   <td>+3</td>
   <td>+4</td>
  </tr>
  <tr>
   <td><b>22:</b></td>
-  <td>6th level</td>
   <td>+4</td>
   <td>+4</td>
  </tr>
  <tr>
   <td><b>23:</b></td>
-  <td>5th level</td>
   <td>+4</td>
   <td>+5</td>
  </tr>
  <tr>
   <td><b>24:</b></td>
-  <td>7th level</td>
   <td>+5</td>
   <td>+5</td>
  </tr>
  <tr>
   <td><b>25:</b></td>
-  <td>6th level</td>
   <td>+5</td>
   <td>+6</td>
  </tr>
@@ -1011,6 +990,165 @@
     </div>
       <p>Note: the 18/xx "exceptional" Strength doesn't work in BG like it does in PnP; ALL bonuses are supposed to go up that table in steps (including for non-warriors). BG makes it so that the 1-point jump from 18 to 19 is a bigger difference than the <strong>5-point</strong> jump from 13 to 18. I fix that by, essentially, collapsing the 18/xx values to all be about the same. Bonuses are pushed downward, so there is now almost the same difference between 14 and 15 as there is between 18 and 19.</p>
   </div>
+  <h4 class="subheader">Component 201 (for EE 2.0+): </h4>
+  <div class="section">
+    <p><strong><em>SBO: Ability Score-Based Bonus Spells</em></strong></p>
+      <p>This component gives you bonus spell memorization slots for having high stats. Clerics and druids already get this in the unmodded game; now similar bonuses are applied to mages (based on INT), bards (based on CHA*), and sorcerers and shamans (based on CHA). (* Note, if you have installed Might & Guile's 'Revised Bards,' those multiclass bards will use INT as their casting stat.) If you have installed the option for priests to cast spells spontaneously from Faiths & Powers, that mechanism will be affecte by these bonuses as well.</p>
+      <p>Additionally, these bonuses have been mde more uniform - including the unmodded cleric and druid bonuses:</p>
+<table style= "width: 50%">
+ <tr>
+  <th>STAT </th>
+  <th>1st level</th>
+  <th>2nd level</th>
+  <th>3rd level</th>
+  <th>4th level</th>
+  <th>5th level</th>
+  <th>6th level</th>
+  <th>7th level</th>
+ </tr>
+ <tr>
+  <td><b>13:</b></td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>14:</b></td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>15:</b></td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>16:</b></td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>17:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>18:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>19:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>20:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>21:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>-</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>22:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>23:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>-</td>
+ </tr>
+ <tr>
+  <td><b>24:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+  <td>+1</td>
+ </tr>
+ <tr>
+  <td><b>25:</b></td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+2</td>
+  <td>+1</td>
+ </tr>
+</table>
+  <p>NOTE: sorcerers only get bonuses to spells up to 5th level; in addition, they get up to three 1 bonuses to their caster level.</p>
+  </div>
+  <h4 class="subheader">Component 2012-13 (for EE 2.0+): </h4>
+  <div class="section">
+    <p><strong><em>SBO: Ability Score Bonus Spells for 5E-Style Casting</em></strong></p>
+      <p>These components are only available if component 201 is installed. They represent options for how the ability score-based bonus spells should operate if the '5E Spellcasting' mod is installed, or a mod that uses it such as Tome & Blood's Arcanist or Might & Guile's Revised bards. With only component 201, those spellcasters will get bonus memorization slots, but no bonus casting slots. These components allow you to change that: 
+    <ul>
+      <li><b>Component 2012:</b> ability score bonuses increase <i>both</i> memorization slots and casting slots. <br />
+      <li><b>Component 2013:</b> ability score bonuses increase casting slots but do <i>not</i> increase memorization slots. </p>
+    </ul>
+    <p>NOTE: if you combine component 2012 this with the component in the 5E casting mod that grants bonus casting slots for the Ring of Wizardry and similar magical items, you will end up with a <b>LOT</b> of both memorization and casting slots. I'm surprised to hear myself say this, but it is too many. With such bonuses a 5E mage can easily overpower a sorcerer, which is not supposed to happen. In particular, large numbers of <i>memorization</i> slots can unbalance things; 5E casters can change out their prepared spells every day, so limits on ho many spells they can have prepared is a key balancing mechanism. My suggestion for finding a happy medium is to skip the 5E items component, thereby setting magic items to only increase memorization slots; and to install component 2013 here, thereby setting stat bonuses to only increase casting slots. (Or, if you really want a lot of casting slots, install the 5E items component with component 2013 - that will give you lots of casting slots but retain some limits on memorization slots.)</p>
+  </div>
   <h4 class="subheader">Component 202: </h4>
   <div class="section">
     <p><strong><em>SBO: Full Strength from 2-Hand Weapons Only</em></strong></p>
@@ -1022,7 +1160,7 @@
     <p><strong><em>SBO: Concentration Checks</em></strong></p>
       <p>This component enables the 'concentration' stat and allows spellcasters to roll to avoid interruption when they take damage during casting. The formula is:</p>
       <p><i>(1d20 + Luck) vs. (spell level + damage taken)</i></p>
-      <p><b>NOTE:</b> I've heard it said that concentration checks are bugged in the EE 2.0-2.5 engine, applying the 'damage taken' value on the wrong side of the equation:</p>
+      <p><b>NOTE:</b> This is disabled for now. I've heard it said that concentration checks are bugged in the EE 2.0-2.5 engine, applying the 'damage taken' value on the wrong side of the equation:</p>
       <p><i>(1d20 + Luck + damage taken) vs. (spell level)</i></p>
       <p>This means that the more damage you take, the more likely you are to avoid spell interruption. That is really stupid, and it really annoys me that Beamdog has let this bug persist through several patches. I don't think they fixed it for 2.5 (someone with more time than me can run some tests, if you like), and who knows what they're doing for the new 2.6 patch - I don't even know how to report bugs for it. Hopefully they get off their butts and fix this, because it is one of the last places in the engine where the old engine with ToBEx is completely superior. It's 2020 guys, that shouldn't be happening anymore.</p>
   </div>
