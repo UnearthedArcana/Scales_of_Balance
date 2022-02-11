@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.36.2~
+VERSION ~v5.36.3~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -305,6 +305,8 @@ SUBCOMPONENT @2011
 
 INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
 
+INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
+
 ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
   OUTER_SET 5e_int_bonus_memorization = 1
   LAM semi_int_slots
@@ -322,6 +324,8 @@ DESIGNATED 2013
 SUBCOMPONENT @2011
 
 INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
+
+INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
 
 ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
   OUTER_SET 5e_int_bonus_memorization = 0
