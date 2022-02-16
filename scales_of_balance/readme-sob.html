@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.36 </strong><br />
+  <p><strong> Version 5.37 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -1187,6 +1187,7 @@
   <div class="section">
     <p><strong><em>Experience Point Overhaul (XPO): Revised Tables</em></strong></p>
       <p>XP advancement and thac0/spell/skill advancement are two ends of the same rope; you only need to pull on one end to get the desired effect, but for some reason the 2e rules pull both. I've streamlined it to a fast path and a slow path. Fighters, thieves, bards, and clerics are on the faster table; paladins, rangers, druids and wizards are on the slower table. (No more thieves with more hp than fighters with the same XP!) Advancement is a bit faster than vanilla in the middle levels, and then gets progressively slower at epic levels. You'll be at or near level 20 with 3 million XP, like in vanilla; but won't hit level 30 until 8 million XP. HLAs will be rarer with this component, so choose wisely!</p>
+      <p>The unmodded game sets HLAs to be available at certain levels based on when each class hits 3 million XP. Because these new XP tables change that, the mod will also change when you get HLAs for the sake of uniformity and convenience, all classes will get HLAas when you achieve "epic levels," i.e. level 21. <b>NOTE/b> this is true for multiclasses too! No more getting HLAs at 13th level or whatever, instead multiclasses wil get HLAs starting at level 20, when they have close to 6 million XP. Multiclassing will just have to be, like virtue, its own reward. :P </p>
       <p>This component also switches the druid spellcasting table to match the priest one (since the PnP druid XP and spell tables were only for Grand/Hierophant Druids who settle down in a grove and stop adventuring).</p>
   </div>
   <h4 class="subheader">Component 212: </h4>
@@ -1231,21 +1232,6 @@
       <li>Likewise, the "Magic Resistance" spell is left untouched. It can be used as another form of magic protection along with the likes of Spell Deflections and Globes of Invulnerability. Lower Resistance, Pierce Magic, and Pierce Shield are still effective against this spell, and SCS enemies will use them against you.</li>
     </ul></p>
     <p><b>Compatibility:</b> this should be installed after all mods that add creatures and items that may be subject to magic resistance. Notably, if you want this to affect fiends (removing their MR), then this component should be installed after Spell Revisions, SCS, and aTweaks.</p>
-  </div>
-  <h4 class="subheader">Component 240: </h4>
-  <div class="section">
-    <p><strong><em>Poison Overhaul (MRO): Revised Poisons</em></strong></p>
-    <p>This makes all sources of continual poison damage in the game (opcode 25) do damage more slowly, but last longer. There will now be 4 categories of poison:
-    <ul>
-      <li>Lethal: 2hp/second and -6 to STR, for 3 turns (360 total damage)</li>
-      <li>Strong: 1hp/second and -5 to STR, for 4 turns (240 total damage)</li>
-      <li>Mild: 1hp/3 seconds and -4 to STR, for 5 turns (100 total damage)</li>
-      <li>Weak: 1hp/6 seconds and -3 to STR, for 5 turns (50 total damage)</li>
-    </ul></p>
-    <p>In general, poison damage does not stack.  But you never know, sometimes someone just has a bad reaction, so occasionally the rate of damage might be doubled if you get multiple doses.  This is rare but dangerous.</p>
-    <p>The 'Slow Poison' spell now does what it says on the tin: it SLOWS the poison, it doesn't necessarily cure it.  It will reduce the magnitude of the effects of any poison by two levels: so if you are effected by lethal poison, its effects drop to those of mild poison, and if you are affected by strong poison the effects become those of weak poison, and if you are affected by mild or weak poison the effects will be blocked completely.  This lasts for five turns; if you are exposed to more poison within that time, that poison will also be similarly reduced.  (But if you are exposed to poison near the end of the five turns, then the Slow Poison effect will end and the poison will suddenly become much stronger!)</p>
-    <p>Antidotes do the same thing as Slow Poison: they reduce the severity of the effects by two levels.  Like the Slow Poison spell, antidotes last for a 5 turns. </p>
-    <p>The Neutralize Poison spell and the Elixir of Health potion will completely block poisons of any strength, for 6 turns. (They do not prevent any poison from affecting you; they simply block the effect of poison for their duration. If you are affected by poison 5 turns after having Neutralize Poison cast on you, then the poison will kick in 1 turn later.)</p> 
   </div>
 </div>
 <h2>Contact Information</h2>
