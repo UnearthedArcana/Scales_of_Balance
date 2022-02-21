@@ -610,7 +610,15 @@ DEFINE_ACTION_FUNCTION 5e_no_priest_mem_bonus BEGIN
 
   COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5absp5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5absp5~ END
-	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 21 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
+//	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 21 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 11 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 3 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 8 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 14 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 15 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 16 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 17 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 18 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
 
   COPY ~%MOD_FOLDER%/data/ability_bonuses/d5_slots.eff~ ~override/d5abspp.eff~
 	WRITE_ASCII 0x30 ~d5abspp~ #8

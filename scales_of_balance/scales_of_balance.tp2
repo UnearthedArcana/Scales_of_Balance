@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.37~
+VERSION ~v5.37.1~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -299,45 +299,50 @@ END
 
 BEGIN @2012 // stat-based bonus memorization slots AND casting slots for 5E casters
 DESIGNATED 2012
-REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~d5zzini.spl~) @6
-REQUIRE_PREDICATE (MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~201~) @1
+//REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~d5zzini.spl~) @6
+//REQUIRE_PREDICATE (MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~201~) @1
 SUBCOMPONENT @2011
 
-INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5zzini.spl~) AND (MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~201~) BEGIN
 
-INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
+ INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
+ INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
+
+ ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
   OUTER_SET 5e_int_bonus_memorization = 1
   LAM semi_int_slots
-END
+ END
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) BEGIN
+ ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) BEGIN
   OUTER_SET 5e_wis_bonus_casting = 1
   LAM semi_wis_slots  
-END
+ END
 
+END
 //__________________________________________________________________________________
 
 BEGIN @2013 // stat-based memorization slots for Vancian and ONLY casting slots for 5E
 DESIGNATED 2013
 SUBCOMPONENT @2011
 
-INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5zzini.spl~) AND (MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~201~) BEGIN
+ INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
 
-INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
+ INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
+ ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
   OUTER_SET 5e_int_bonus_memorization = 0
   LAM semi_int_slots
-END
+ END
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) BEGIN
+ ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) BEGIN
   OUTER_SET 5e_wis_bonus_casting = 1
   LAM semi_wis_slots
   LAF 5e_no_priest_mem_bonus END
-END
+ END
 
+END
 //__________________________________________________________________________________
 
 BEGIN @202 // strength penalty for 1-handed weapons
