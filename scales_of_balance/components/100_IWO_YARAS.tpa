@@ -338,6 +338,10 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zw172l~ END
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zw172c~ END
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zw172p~ END
+		    LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zarm1~ END
+		    LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zarml~ END
+		    LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zarmc~ END
+		    LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR resource = ~d5zarmp~ END
 		  END
 		END
 
