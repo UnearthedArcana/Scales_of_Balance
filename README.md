@@ -1137,7 +1137,7 @@
   <td>+1</td>
  </tr>
 </table>
-  <p>NOTE: sorcerers only get bonuses to spells up to 5th level. In addition, they get up to three 1 bonuses to their caster level.</p>
+  <p>NOTE: sorcerers only get bonuses to spells up to 5th level. In addition, they get up to four +1 bonuses to their caster level.</p>
 <table style= "width: 50%">
  <tr>
   <th>STAT </th>
