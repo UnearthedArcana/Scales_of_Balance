@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v5.37.7~
+VERSION ~v5.38~
 //README ~scales_of_balance/readme-SoB.html~
 
 // updated
@@ -83,6 +83,7 @@ INCLUDE ~scales_of_balance/components/100_IWO_YARAS.tpa~
 LAF revise_armor_system END
 //__________________________________________________________________________________
 
+/*
 BEGIN @1011 // normal aesthetic/enchantment tweaks
 DESIGNATED 101
 SUBCOMPONENT @101
@@ -547,3 +548,4 @@ INCLUDE ~scales_of_balance/components/240_POI.tpa~
 LAF revise_poisons END
 //__________________________________________________________________________________
 
+*/
