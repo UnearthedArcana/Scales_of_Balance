@@ -328,7 +328,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		    END
 //		  END
 		  PATCH_IF (FILE_EXISTS_IN_GAME ~d5zarm1p.eff~) BEGIN
-		    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 target = 1 timing = 2 STR_VAR match_resource = ~d5zncast~ END
+		    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 parameter2 = 0 target = 1 timing = 2 STR_VAR match_resource = ~d5zncast~ END
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm1l~ END
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm1c~ END
 		    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR resource = ~d5zarm1p~ END
@@ -376,9 +376,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			END
 		  END
 		END
-		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 STR_VAR match_resource = ~d5arcal~ END
-		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 STR_VAR match_resource = ~d5arcac~ END
-		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 STR_VAR match_resource = ~d5arcap~ END
+		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 parameter2 = 0 STR_VAR match_resource = ~d5arcal~ END
+		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 parameter2 = 0 STR_VAR match_resource = ~d5arcac~ END
+		LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 177 opcode = 145 parameter2 = 0 STR_VAR match_resource = ~d5arcap~ END
 		READ_LONG 0x6a eff_offset
 		READ_SHORT 0x70 num_effects
 		FOR (cnt = 0; cnt < %num_effects%; cnt = cnt+1) BEGIN
@@ -441,9 +441,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%leather_cast%~ END
 			  END
 			END
-			PATCH_IF (leather_cast = 0) BEGIN
+//			PATCH_IF (leather_cast = 0) BEGIN
 			  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-			END
+//			END
 			READ_LONG 0x54 valid
 			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 			  READ_STRREF 0x54 "desc"
@@ -507,9 +507,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%hide_cast%~ END
 			  END
 			END
-			PATCH_IF (hide_cast = 0) BEGIN
+//			PATCH_IF (hide_cast = 0) BEGIN
 			  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-			END
+//			END
 			READ_LONG 0x54 valid
 			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 			  READ_STRREF 0x54 "desc"
@@ -573,9 +573,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%studded_cast%~ END
 			  END
 			END
-			PATCH_IF (studded_cast = 0) BEGIN
+//			PATCH_IF (studded_cast = 0) BEGIN
 			  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-			END
+//			END
 			READ_LONG 0x54 valid
 			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 			  READ_STRREF 0x54 "desc"
@@ -640,9 +640,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%splint_cast%~ END
 			  END
 			END
-			PATCH_IF (splint_cast = 0) BEGIN
+//			PATCH_IF (splint_cast = 0) BEGIN
 			  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-			END
+//			END
 			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
 			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
 			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
@@ -720,9 +720,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%scale_cast%~ END
 			  END
 			END
-			PATCH_IF (scale_cast = 0) BEGIN
+//			PATCH_IF (scale_cast = 0) BEGIN
 			  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-			END
+//			END
 			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
 			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
 			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
@@ -814,9 +814,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 				    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%elven_cast%~ END
 				  END
 				END
-				PATCH_IF (elven_cast = 0) BEGIN
+//				PATCH_IF (elven_cast = 0) BEGIN
 				  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-				END
+//				END
 				READ_LONG 0x54 valid
 				PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
 				  READ_STRREF 0x54 "desc"
@@ -861,9 +861,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 				    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%chain_cast%~ END
 				  END
 				END
-				PATCH_IF (chain_cast = 0) BEGIN
+//				PATCH_IF (chain_cast = 0) BEGIN
 				  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-				END
+//				END
 				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 59 target = 1 parameter1 = (0 - %chain_stealth%) parameter2 = 0 timing = 2 END
 				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 275 target = 1 parameter1 = (0 - %chain_stealth%) parameter2 = 0 timing = 2 END
 				LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 92 target = 1 parameter1 = (0 - %chain_stealth%) parameter2 = 0 timing = 2 END
@@ -938,9 +938,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%fullplate_cast%~ END
 			  END
 			END
-			PATCH_IF (fullplate_cast = 0) BEGIN
+//			PATCH_IF (fullplate_cast = 0) BEGIN
 			  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-			END
+//			END
 			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
 			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
 			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
@@ -1018,9 +1018,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%scale_cast%~ END
 			  END
 			END
-			PATCH_IF (scale_cast = 0) BEGIN
+//			PATCH_IF (scale_cast = 0) BEGIN
 			  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-			END
+//			END
 			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
 			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
 			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
@@ -1098,9 +1098,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%plate_cast%~ END
 			  END
 			END
-			PATCH_IF (plate_cast = 0) BEGIN
+//			PATCH_IF (plate_cast = 0) BEGIN
 			  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-			END
+//			END
 			LPF DELETE_EFFECT INT_VAR match_opcode = 59 END 	// MS
 			LPF DELETE_EFFECT INT_VAR match_opcode = 275 END 	// HiS
 			LPF DELETE_EFFECT INT_VAR match_opcode = 92 END 	// PP
