@@ -11,9 +11,10 @@ DEFINE_ACTION_FUNCTION revise_xp_tables BEGIN
 //___________________________________________________________________________________
 
 COPY ~scales_of_balance/misc/xplevel.2da~ ~override~
-COPY ~scales_of_balance/misc/lunumab.2da~ ~override~
+ACTION_IF !(GAME_IS ~iwdee~) BEGIN
+  COPY ~scales_of_balance/misc/lunumab.2da~ ~override~
+END
 COPY_EXISTING ~mxsplprs.2da~ ~override/mxspldru.2da~
-//COPY ~scales_of_balance/lib/markers/d5_marker.d5~ ~override/d5__drspl.d5~
 
 //___________________________________________________________________________________
 
