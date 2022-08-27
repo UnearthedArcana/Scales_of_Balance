@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
@@ -9,8 +10,8 @@
 <body>
 <h1>Scales of Balance</h1>
 <div class="section">
-  <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
-    On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
+  <p><strong>Author: <a href="https://www.gibberlings3.net/profile/6306-subtledoctor/">Duns Scotus, the SubtleDoctor</a><br />
+    On the web: <a href="https://www.gibberlings3.net">Home page</a></strong> and <strong><a href="https://www.gibberlings3.net/forums/topic/26838-unearthed-arcana-presents-scales-of-balance-a-post-hac-tweak-pack/">discussion forum</a></strong></p>
   <p><strong> Version 5.38 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
@@ -1364,7 +1365,7 @@
 </div>
 <h2>Contact Information</h2>
 <div class="section">
-  <p>This mod was created by SubtleDoctor. You can visit <a href="http://forums.gibberlings3.net/index.php">The
+  <p>This mod was created by SubtleDoctor. You can visit <a href="https://www.gibberlings3.net/forums/">The
     Gibberlings Three</a> for information on this and many other fine mods.</p>
 </div>
 <h2>Thanks and Acknowledgements</h2>
@@ -1376,8 +1377,8 @@
   <p><strong>Tools Used in Creation</strong><br />
     <a href="http://www.weidu.org/"><acronym title="Weimer Dialogue Utility">WeiDU</acronym></a> by
     Wes Weimer, and then the bigg and then Wisp<br />
-    <a href="http://www.idi.ntnu.no/~joh/ni/">Near Infinity</a> by Jon Olav Hauglid, and then Argent77 and Astrobryguy<br />
-    <a href="http://iesdp.gibberlings3.net/"><acronym title="Infinity Engine Structures Description Project">IESDP</acronym></a> maintained by igi</p>
+    <a href="https://github.com/Argent77/NearInfinity">Near Infinity</a> by Jon Olav Hauglid, and then Argent77 and Astrobryguy<br />
+    <a href="https://gibberlings3.github.io/iesdp/"><acronym title="Infinity Engine Structures Description Project">IESDP</acronym></a> maintained by igi</p>
 </div>
 <h2>Credits and Copyright Information</h2>
 <div class="section">
