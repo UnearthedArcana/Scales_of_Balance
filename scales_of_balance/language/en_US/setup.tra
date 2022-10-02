@@ -36,9 +36,10 @@
 @1071  = ~Dual-Wield small weapons only~
 @1072  = ~Dual-Wield small/medium weapons~
 @109   = ~IWO - All Potions Usable by Any Class~
-@121   = ~WPO - Weapon Category Collapse~
-@122   = ~WPO - Systemic Proficiency Changes~
-@123   = ~WPO - TEMPORARILY UNAVAILABLE~
+@120   = ~WPO - Weapon Proficiency Overhaul~
+@121   = ~WPO - Sensible Weapon Categories~
+@122   = ~WPO - Revised Proficiency System~
+@123   = ~WPO - Combat Skills System~
 @124   = ~WPO - Fighting Style Changes~
 @125   = ~WPO - APR on Spec~
 @160   = ~STO - Saving Throw Overhaul~
@@ -512,6 +513,329 @@ Coordinating the use of two weapons is difficult, especially with larger, heavie
 @1292   = ~FIGHTER:  The fighter is a champion, swordsman, soldier, and brawler.  He lives or dies by his knowledge of weapons and tactics.  Fighters can be found at the front of any battle, contesting toe-to-toe with monsters and villains.  A good fighter needs to be strong and healthy if he hopes to survive.~
 @1293   = ~Ranger~
 @1294   = ~RANGER: The ranger is a warrior and a woodsman. He is skilled with weapons and is knowledgeable in the ways of the forest. The ranger often protects and guides lost travelers and honest peasant-folk.  A ranger needs to be strong and wise to the ways of nature to live a full life. ~
+@12000  = ~~
+@12001  = ~Choose a skill~
+@12002  = ~Select this skill~
+@12003  = ~Choose a different skill~
+@12004  = ~~
+@12005  = ~~
+@12006  = ~~
+@12007  = ~~
+@12008  = ~~
+@12009  = ~~
+@12010  = ~~
+@12011  = ~Leadership~
+@12012  = ~Leadership: a warrior in this posture may supervise and direct those around <PRO_HIMHER>, resulting in a 1-point bonus to attack rolls, armor class, and spellcasting speed for all party members within 20 feet.~
+@12013  = ~Grappling~
+@12014  = ~Grappling: when using this posture, each round, both the attacker and the nearest melee enemy will be rooted in place for three seconds. If the enemy fails a save vs. breath, they will be Slowed for one round.~
+@12015  = ~Precise Strike~
+@12016  = ~Precise Strike: when using this posture will make critical hits on rolls of 19 or 20, instead of just 20.~
+@12017  = ~Parry Slashing~
+@12018  = ~Parry Slashing: this posture enables the base (missile) damage from an incoming slashing attack to be blocked, once per round.~
+@12019  = ~Parry Piercing~
+@12020  = ~Parry Piercing: this posture enables the base (missile) damage from an incoming piercing attack to be blocked, once per round.~
+@12021  = ~Parry Crushing~
+@12022  = ~Parry Crushing: this posture enables the base (missile) damage from an incoming crushing attack to be blocked, once per round.~
+@12023  = ~Missile Snaring~
+@12024  = ~Missile Snaring: this posture enables the deflection of base (missile) damage from an incoming ranged attack, once per round.~
+@12025  = ~Fighting Dirty~
+@12026  = ~Fighting Dirty: when using this posture, up to once per round, successful melee attacks can cause debilitating secondary effects if the target fails a save vs. Breath Weapon. These secondary effects include tripping the target and briefly knocking them to the ground; and  briefly blinding the target with handful of sand or dirt; and ___~
+@12027  = ~Spell Evasion~
+@12028  = ~Spell Evasion: when using this posture and targeted by a spell that can be evaded (Fireball, Lightning Bolt, etc.), as long as the character is not helpless (e.g. held, stunned, asleep, etc.) the effects may be completely avoided upon a successful save vs. Breath.~
+@12029  = ~~
+@12030  = ~~
+@12031  = ~Health Conditioning~
+@12032  = ~Health Conditioning: this ability confers a permanent +7 hit points upon the character.~
+@12033  = ~Toughness~
+@12034  = ~Toughness: this ability confers a permanent 10% resistance to physical damage.~
+@12035  = ~Resistance~
+@12036  = ~Resistance: this ability confers a permanent 10% resistance to elemental damage.~
+@12037  = ~Quickstride~
+@12038  = ~Quickstride: this ability allows one to increase <PRO_HISHER> movement rate at will.~
+@12039  = ~Intestinal Fortitude~
+@12040  = ~Intestinal Fortitude: this ability allows an extra saving throw vs. Death to avoid poison and disease.~
+@12041  = ~Unflagging Determination~
+@12042  = ~Unflagging Determination: this ability allows an extra saving throw vs. Petrification to avoid Sleep, Hold, Stun, and fear effects.~
+@12043  = ~Strength Training~
+@12044  = ~Choosing this ability results in a permanent 1-point Strength increase.~
+@12045  = ~Agility Training~
+@12046  = ~Choosing this ability results in a permanent 1-point Dexterity increase.~
+@12047  = ~~
+@12048  = ~~
+@12049  = ~~
+@12050  = ~~
+@12051  = ~Lore Bonus~
+@12052  = ~Lore Bonus: this ability confers a permanent +15 bonus to Lore.~
+@12053  = ~Tracking~
+@12054  = ~Tracking: this ability gives one a general idea of what creatures are in an area and which direction they are. Red arrows at the edge of the screen will point in the general direction of the creatures in the area. This can be used at will.~
+@12055  = ~Flaming Weapon~
+@12056  = ~Flaming Weapon: this ability allows one to coat a weapon in a viscous and highly flammable oil. For two turns, the weapon will do 1d4 fire damage in addition to normal damage.~
+@12057  = ~Grease Jar/Smoke Bomb~
+@12058  = ~Smoke Bomb + Grease Jar: this ability allows the creation, once per day, of two improvised weapons: a Grease Jar (which mimics the effects of the wizard spell Grease) and a Smoke Bomb (which mimics the effects of the wizard spell Stinking Cloud).~
+@12059  = ~Escape Artist~
+@12060  = ~Escape Artist: This ability allows a chance to be affected by Remove Paralysis whenever Held, Webbed, or otherwise helpless.~
+@12061  = ~Slippery Mind~
+@12062  = ~Slippery Mind: this ability allows an extra saving throw vs. Spells to avoid Charm/Domination, Confusion, Feeblemind, and Maze effects.~
+@12063  = ~Luck Bonus~
+@12064  = ~Luck Bonus: this ability confers a permanent +1 bonus to Luck.~
+@12065  = ~Psionic Wild Talent~
+@12066  = ~This ability will reveal that the character is a 'wild talent' with access to a (random) psionic power.~
+@12067  = ~~
+@12068  = ~~
+@12069  = ~~
+@12070  = ~~
+@12071  = ~Use Magical Device~
+@12072  = ~Use Magical Devices: this ability allows one to cast magic from wands and scrolls, just like a wizard.~
+@12073  = ~Reflected Image~
+@12074  = ~This ability allows the use of the spell 'Reflected Image' once per day.~
+@12075  = ~Color Spray~
+@12076  = ~This ability allows the use of the spell 'Color Spray' once per day.~
+@12077  = ~Blur~
+@12078  = ~This ability allows the use of the spell 'Blur' once per day.~
+@12079  = ~Luck~
+@12080  = ~This ability allows the use of the spell 'Luck' once per day.~
+@12081  = ~Glitterdust~
+@12082  = ~This ability allows the use of the spell 'Glitterdust' once per day.~
+@12083  = ~Knock~
+@12084  = ~This ability allows the use of the spell 'Knock' once per day.~
+@12085  = ~Sanctuary~
+@12086  = ~This ability allows the use of the spell 'Sanctuary' once per day.~
+@12087  = ~Shadowstep~
+@12088  = ~This ability allows the use of the spell 'Shadowstep' once per day.~
+@12089  = ~QUARTERSTAFF: A simple weapon, but in the hands of a skilled warrior, whether Mage or Paladin, the quarterstaff can lay flat any foe.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12090  = ~LONG SWORDS: The long sword is perhaps one of the most common weapons in Faerûn. Skill with the long sword will allow your character to have access to a widely available and effective weapon, including basic long swords and the longer bastard swords.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12091  = ~SHORT SWORDS: The preferred weapon of many a thief and halfling, the short sword is a light but useful weapon.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12092  = ~AXES: There are two varieties of axes: throwing axes and battle axes. This proficiency class allows your character to use either.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12093  = ~TWO-HANDED SWORDS: The hallmark of the traditional muscle-bound warrior is the greatsword. This proficiency class allows you to use these heavy swords to mangle your opponents.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12094  = ~KATANAS: The katana is one of the finest examples of the swordsmith's craft, and requires great care to use. These weapons are hard to find outside of Kara-Tur, so care must be taken when considering this proficiency. After all, skill with the katana is only helpful if you can find one.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12095  = ~SCIMITARS:  This weapon class allows the character to use various single-edged blades, including the Scimitar, the katana, and the Wakazashi.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12096  = ~DAGGERS/DARTS: This weapon class covers daggers, dirks, knives and darts - any small blades used for stabbing or hurling at enemies.  While small, daggers are still extremely useful and many warriors carry them in case their larger weapons are stolen or destroyed.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12097  = ~WAR HAMMERS: This weapon class allows the character to use throwing hammers and war hammers. Both of these weapons are often associated with dwarven warriors, and it is the dwarven people who make the finest quality hammers.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR~
+@12098  = ~POLEARMS: This weapon class includes long spears, pikes, halberds and other polearms.  Their long 'reach' makes them very useful against most opponents.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12099  = ~CLUBS/MACES: This weapon class allows the character to basic clubs, as well as more advanced weapons that are similarly heavy, round blugeons.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12100  = ~FLAILS: The flail is a blunt weapon used to knock your enemies senseless. They are difficult to use but with skill and practice these weapons are very useful.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12101  = ~SLING: Although the sling is commonly thought of as a toy weapon, its lethality should not be underestimated. A strong bullet thrown from a sling by an experienced user can tear a hole through a man's skull.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12102  = ~BOWS: This proficiency allows a character to skillfully wield various bows, which are easy to use and have a high rate of fire.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12103  = ~CROSSBOW: The crossbow, although smaller and easier to use than the longbow, is just as deadly in the hands of a skilled shot.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12104  = ~ATTACK SPEED: Improvement in this skill allows a warrior to attack more quickly and strike more often - albeit at the cost of some accuracy.
+
+1 point: -2 bonus to weapon speed
+2 points: +.5 APR, -1 to hit
+3 points: + 1 APR, -2 to hit
+4 points: +1.5 APR, -3 to hit
+~
+@12105  = ~DODGE: This skill represents the ability to keep out of harm's way, turning and dodging to escape or minimize otherwise harmful blows.
+
+1 point: -1 bonus to armor class
+2 points: -2 bonus to armor class
+3 points: -3 bonus to armor class
+4 points: -4 bonus to armor class
+5 points: -5 bonus to armor class
+6 points: -6 bonus to armor class
+~
+@12106  = ~BACKSTAB: Those practiced in the art of springing to attack from the shadows can land devastating blows. Each rank in this proficiency increases the damage inflicted by such attacks.
+
+1 point: +1 bonus to backstab multiplier
+2 points: +2 bonus to backstab multiplier
+3 points: +3 bonus to backstab multiplier
+4 points: +4 bonus to backstab multiplier
+5 points: +5 bonus to backstab multiplier
+6 points: +6 bonus to backstab multiplier
+~
+@12107  = ~SET SNARES: Some rogues learn to protect their positions and hideouts with deadly traps, some of which can increase the severity of any damage done by applying poisons or even magical effects.
+
+Each rank in this proficiency will allow one attempt per day to set a trap.
+
+(Bounty Hunters will be able to set one normal trap plus one special snare for each point invested in this skill.)
+~
+@12108  = ~RANGED ACCURACY: Practice with a bow or sling can make one more effective with that weapon, but some go further and hone their eye and aim with all ranged attacks. With enough training one can become a true sharpshooter.
+
+1 point: +1 bonus to hit and damage with ranged attacks
+2 points: +2 bonus to hit and damage with ranged attacks
+3 points: +3 bonus to hit and damage with ranged attacks
+4 points: +4 bonus to hit and damage with ranged attacks
+5 points: +5 bonus to hit and damage with ranged attacks
+6 points: +6 bonus to hit and damage with ranged attacks
+~
+@12110  = ~HURLED WEAPONS: Throwing weapons at adversaries is, by nature, a slow and clumsy act. But with practice, some can learn to hurl weapons with great accuracy and speed.
+
+0 points: -1 APR and -3 penalty to hit with thrown weapons
+1 point: -.5 APR and -1 penalty to hit with thrown weapons
+2 points: +1 bonus to hit with thrown weapons
+~
+@12115  = ~FIGHTING POSTURES: Each rank in this proficiency group allows the character to learn one of several fighting postures. These postures amount to particular combat styles and tactics, giving discrete bonuses to the character or <PRO_HISHER> allies. Even if the character has learned several fighting postures, only one can be employed at any given moment. A character who has learned more than one fighting posture can switch between them at will. The list of postures to choose from includes:
+
+- Leadership (combat bonuses for allies)
+- Grappling (grapple/Slow nearby opponent)
+- Precise Strike (increased chance of critical hits)
+- Parry Slashing attacks (block one each round)
+- Parry Piercing attacks (block one each round)
+- Parry Crushing attacks (block one each round)
+- Missile Snaring (block one missile attack each round)
+- Fighting Dirty (trip, blind, or weaken on successful hits)
+- Spell Evasion (save to avoid effects of spell projectiles)
+
+NOTE: not all postures are available to every class or kit. Warriors will generally be able to choose from those higher on the list, while rogues will generally be able to choose from those lower on the list.
+~
+@12124  = ~PHYSICAL FITNESS: Each rank in this proficiency group allows the character to learn one of several feats relating to physical health. The list of feats to choose from includes:
+
+- Health Conditioning (+7 hit points)
+- Toughness (10% resistance to weapon damage)
+- Resistance (10% resistance to elemental damage)
+- Quickstride (increased running speed, usable at will)
+- Fortitude (extra save to avoid poison/disease effects)
+- Determination (extra save to avoid stun/hold/sleep/fear effects)
+- Strength Training (+1 bonus to Strength)
+- Agility Training (+1 bonus to Dexterity)
+
+NOTE: not all these feats are available to every class or kit. Warriors will generally be able to choose any fitness feat, while rogues will generally only be able to choose from Health Conditioning, Quickstride, Fortitude, and Agility Training.
+~
+@12127  = ~MISCELLANEOUS SKILLS: Each rank in this proficiency group allows the character to learn one of several miscellaneous skills. The list of skills to choose from includes:
+
+- Lore Bonus (25-point bonus to Lore)
+- Tracking (chance to learn about nearby enemies, at will)
+- Flaming Weapon (inflict extra fire damage with melee attacks)
+- Grease Jar/Smoke Bomb (mimic the 'Grease' and 'Stinking Cloud' spells)
+- Escape Artist (chance to avoid being entangled, webbed, etc.)
+- Slippery Mind (extra save to avoid charm/confusion/feeblemind effects)
+- Luck Bonus (1-point bonus to Luck)
+- Wild Talent (gain a random psionic power (if the 'Will to Power' mod is installed))
+
+NOTE: generally, only rogues will be able to learn any of these skills. Most other classes are restricted to choosing from Lore Bonus, Flaming Weapon, Luck Bonus and Wild Talent.
+~
+@12134  = ~MAGICAL ABILITIES: Some rogues pick up slight magical abilities in their travels. Not enough to become true mages; just a few illusion-related effects that are useful for the furtherance of roguish exploits. The list of abilities to choose from includes:
+
+- Use Magical Device (trigger effects from spell scrolls and wands)
+- Color Spray
+- Reflected Image
+- Blur
+- Knock
+- Luck
+- Glitterdust
+- Sanctuary
+- Shadowstep
+
+These spells are cast innately, like a sorcerer. Each spell that is chosen, it increases by one the number of times per day that this magic can be used.
+~
+@12135  = ~~
+@12136  = ~~
+@12137  = ~~
+@12138  = ~~
+@12139  = ~~
+@12140  = ~Long Sword / Bastard Sword~
+@12141  = ~~
+@12142  = ~~
+@12143  = ~~
+@12144  = ~~
+@12145  = ~Scimitar~
+@12146  = ~Dagger / Dart~
+@12147  = ~~
+@12148  = ~Spear / Halberd~
+@12149  = ~Club / Mace~
+@12150  = ~~
+@12151  = ~~
+@12152  = ~Bows~
+@12153  = ~~
+@12154  = ~Attack Speed~
+@12155  = ~Dodge~
+@12156  = ~Backstab~
+@12157  = ~Set Snare~
+@12158  = ~Ranged Accuracy~
+@12160  = ~Hurled Weapons~
+@12165  = ~Fighting Postures~
+@12174  = ~Physical Fitness~
+@12177  = ~Miscellaneous Skills~
+@12184  = ~Magical Abilities~
+@12185  = ~~
+@12186  = ~~
+@12187  = ~Tracking~
+@12188  = ~Tracking: the Tracking ability gives one a general idea of what creatures are in an area and which direction they are. Red arrows at the edge of the screen will point in the general direction of the creatures in the area.~
+@12189  = ~~
+@12190  = ~~
+@12191  = ~Grease Jar~
+@12192  = ~Grease Jar: this ability mimics the effects of the wizard spell Grease. Everyone in the area of effect finds it difficult to stay standing and has their movement rate reduced.~
+@12193  = ~Smoke Bomb~
+@12194  = ~Smoke Bomb: this ability mimics the effects of the wizard spell Stinking Cloud. Everyone in the area of effect must make a saving throw or be paralyzed with retching and spasms by the noxious gas.~
+@12195  = ~Quickstride~
+@12196  = ~Normal Stride~
+@12197  = ~~
+@12198  = ~~
+@12199  = ~~
+@12200  = ~~
 @12301  = ~Greatsword~
 @12302  = ~Specialize with Greatswords?~
 @12303  = ~Long Sword~

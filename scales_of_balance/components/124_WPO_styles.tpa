@@ -230,7 +230,7 @@ BUT_ONLY
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
   COUNT_2DA_COLS cols 
-  PHP_EACH d5_fighters_array AS kit_col => class BEGIN
+  PHP_EACH d5_wizards_array AS kit_col => class BEGIN
     SET_2DA_ENTRY 28 (%kit_col% + 1) cols 0 // 2Hand
     SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
     SET_2DA_ENTRY 30 (%kit_col% + 1) cols 0 // single
@@ -242,7 +242,7 @@ BUT_ONLY
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
   COUNT_2DA_COLS cols 
-  PHP_EACH d5_fighters_array AS kit_col => class BEGIN
+  PHP_EACH d5_mc_mages_array AS kit_col => class BEGIN
     SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
     SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
     SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single

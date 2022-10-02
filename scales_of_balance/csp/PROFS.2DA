@@ -1,0 +1,24 @@
+2DA V1.0
+0
+                        FIRST_LEVEL     RATE
+MAGE                    3               50
+FIGHTER                 7               2
+CLERIC                  5               3
+THIEF                   7               2
+BARD                    5               3
+PALADIN                 5               2
+DRUID                   5               3
+RANGER                  5               2
+FIGHTER_MAGE            7               2
+FIGHTER_CLERIC          7               2
+FIGHTER_THIEF           7               2
+FIGHTER_MAGE_THIEF      7               2
+MAGE_THIEF              5               3
+CLERIC_MAGE             5               5
+CLERIC_THIEF            5               3
+FIGHTER_DRUID           7               3
+FIGHTER_MAGE_CLERIC     7               3
+CLERIC_RANGER           5               2
+SORCERER                3               50
+MONK                    5               3
+SHAMAN                  5               3
