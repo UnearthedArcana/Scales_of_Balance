@@ -790,6 +790,15 @@ COPY_EXISTING ~weapprof.2da~ ~override~
       SET_2DA_ENTRY_LATER ~#weapprof~ row col 0
     END
   END
+  FOR (row = 7; row < 30; ++row) BEGIN
+    READ_2DA_ENTRY row 1 5 stat
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~102~) BEGIN
+      READ_2DA_ENTRY row 2 5 staff_weapon_name
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~107~) BEGIN
+      READ_2DA_ENTRY row 2 5 sling_weapon_name
+    END
+  END
 // mages
   SET_2DA_ENTRY_LATER ~#weapprof~ 18 4 1
   SET_2DA_ENTRY_LATER ~#weapprof~ 20 4 1
@@ -4005,7 +4014,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
   FOR (row = 7; row < rows; ++row) BEGIN
     READ_2DA_ENTRY row 1 5 stat
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~89~) BEGIN
-      SET_2DA_ENTRY row 2 5 25014
+      SET_2DA_ENTRY row 2 5 %staff_weapon_name%
       SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12089)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~90~) BEGIN
@@ -4053,7 +4062,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
       SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12100)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~101~) BEGIN
-      SET_2DA_ENTRY row 2 5 25019
+      SET_2DA_ENTRY row 2 5 %sling_weapon_name%
       SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12101)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~102~) BEGIN
@@ -4061,7 +4070,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
       SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12102)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~103~) BEGIN
-      SET_2DA_ENTRY row 2 5 25015
+//      SET_2DA_ENTRY row 2 5 // no change here
       SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12103)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~104~) BEGIN
