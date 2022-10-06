@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 5.38 </strong><br />
+  <p><strong> Version 6.0 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -154,10 +154,10 @@
     <p>This component removes the usability restrictions from potions, since I don't understand how one's choice of profession can affect the ability to drink certain liquids.</p>
     <p>So now you can waste a potion of Giant Strength on your mage; and you can boost your barbarian's pickpocket skills with a Potion of Thievery. Go crazy.</p>
   </div>
-  <h4 class="subheader">Component 122 (for EE 1.4+ or ToBEx): </h4>
+  <h4 class="subheader">Component 122 (for EE 1.4+): </h4>
   <div class="section">
     <p><strong><em>Weapon Proficiency Overhaul (WPO): Overall Overhaul</em></strong></p>
-      <p><b>INSTALL NOTE:</b> if you install this component, then components #121 (Weapon Category Combination) and #124 (Fighting Style Overhaul) will also be installed automatically. </p>
+      <p><b>INSTALL NOTE:</b> if you install this component, then component #121 (Weapon Category Combination) will also be installed automatically. </p>
       <p>This component can be considered a convenience tweak; it will give most classes natably more proficiency points to spend. But it incentivizes spreading those points more widely instead of focusing on a single weapon (like the vanilla game), and your overall level of power at any given moment should roughly on par with an unmodded game. The aim is, with more points in more weapons, when you complete a quest and find a wonderful magical artifact, you can actually *use* it instead of just tossing it into your pack to sell later.</p>
       <p>Weapon use is slightly liberalized: all weapons are usable by clerics, but single-class clerics can only be proficient in traditional cleric weapons (the exception being kitted clerics' favored weapons.) Multiclass clerics primarily benefit from this: cleric/thieves can use thief weapons, and fighter/clerics can use any weapon.</p>
       <p>Clubs are truly universal, simple weapons: everyone can use them. Crossbows are usable by everyone except druids and Beastmasters.</p>
@@ -368,6 +368,137 @@
     </div>
     <p>This component makes serious changes and it has been rather hard to get various game mechanisms to work with it, especially dual-classing and NPCs. To catch them up, joinable NPCs will have several innate abilities that allow you to choose more proficiencies for them.</p>
     <p><b>Compatibility:</b> this component is generally not compatible with stuff like the weapon proficiency changes in Tweaks Anthology. Choose one proficiency system mod and stick with it.</p>
+  </div>
+  <h4 class="subheader">Component 123: </h4>
+  <div class="section">
+    <p><strong><em>WPO: Expanded Combat Skills System</em></strong></p>
+      <p><b>INSTALL NOTE:</b> if you choose to install this component, then you cannot install component #121 (Weapon Category Combination). This component already folds in a handful of combined categories - though not as many as that component. </p>
+      <p>This component is an <b>alternative</b> to component #121 the older revised Proficiencies. This system is more conservative in some ways: it does not combine as many weapon groups together, and it does not alter other systems like thac0 advancement or weapon styles. However it adds a lot of new abilities. Its chief aim is to expand the definition of "proficiency" and the options for how players develop their combat skills. It folds in a number of 3E-style feats borrowed from the Might & Guile mod, and uses a single currency - proficiency points - to manage both weapon skill and feats.</p>
+      <p>First off, this system folds a few weapon categories together:
+      <ul>
+        <li> Long swords and bastard swords are combined.</li>
+        <li> Clubs and Maces are combined.</li>
+        <li> Spears and halberds are combined.</li>
+        <li> Daggers and darts are combined.</li>
+        <li> Long bows and short bows are combined.</li>
+      </ul>
+    <p>Second, this streamlines the number of proficiencies you can put into a weapon:
+      <div class="kit_description">
+        <p>Proficiency benefits (cumulative totals)<br />
+        &ndash; ** = +2 thac0; +1 damage<br />
+        &ndash; *** = +3 thac0; +3 damage<br />
+        &ndash; **** = +3 thac0; +3 damage, +.5 APR<br />.</p>
+      </div>
+    <p>Third, it introduces six new impovable combat skills that act similar to weapon styles:
+      <ul>
+        <li> The <b>Attack Speed</b> skill improves weapon speed with one rank, and increase APR by 0.5 with each subsequent rank. Warriors may take four ranks in this proficiency; most non-warriors may take two. (<b>NOTE:</b> in this system there are no automatic APR bonuses for reaching certain levels, or from being specialized with a weapon. The only ways to increase APR is to invest in this proficiency, and to reach the fourth and final pip with weapon proficiencies. So do not neglect this!)</li>
+        <li> The <b>Dodge</b> skill grants a 1-point bonus to armor class with each rank. Most character may take two ranks in this proficiency; Swashbucklers may take up to six. (And this replaces Swashbucklers' automatic level-based AC bonus.)</li>
+        <li> The <b>Backstab</b> skill applies a 1-point bonus to a character's backstab damage multiplier. Most thieves can take four ranks in this proficiency; Assassins can take six; Shadowdancers and Stalkers can take two. (And this replaces thieves' automatic level-based bonuses to backstab multiplier.)</li>
+        <li> The <b>Set Snares</b> skill allows a character to set one snare per day, for each rank taken. Bounty Hunters can set one normal snare and one special snare for each rank taken. (And this replaces thieves' automatic level-based Set Snare ability.)</li>
+        <li> The <b>Ranged Accuracy</b> skill grants a 1-point bonus to attack and damage rolls with ranged weapons, for each rank taken. Most characters can take up to two ranks in this proficiency; Archers can take six. (And this replaces Archers' automatic level-based bonuses.)</li>
+        <li> The <b>Hurled Weapons</b> skill makes a character more likely to successfully strike enemies with thrown weapons like daggers and axes. A baseline 3-point penalty to ranged attack rolls is applied to these weapons; one rank in this proficiency reduces  that to a -1 penalty, and a second rank results in a 1-point bonus to attack. Halflings automatically begin the game with two ranks in this proficiency.</li>
+      </ul>
+    <p>Fourth, this component introduces four more groups of feats that characters can learn. Each of these is tied to a single proficiency; each point spent on that proficiency grants an innate spell which, when cast, triggers a dialogue and allows the character to choose one feat from the group. These groups of feats are:</p>
+    <p><b>Combat Postures:</b> these abilities represent the style and approach a character uses in combat. These are exclusive to each other - a character can only use one at any given time. But characters can learn more than one posture, and switch between them as it is convenient. 
+      <ul>
+        <li> Leadership: when in this posture all nearby allies gain a 1-point bonus to attack rolls, armoor class, and casting speed.</li>
+        <li> Grappling: when using this approach, in addition to attacking the character will attempt to grab and hold a nearby enemy. Each round a nearby enemy must save vs. breath weapon or have their movement restricted for 3 seconds and be slowed for 6 seconds. If this occurs, the grappling character will also have their movement restricted for 3 seconds.</li>
+        <li> Precise Strike: when in this posture, a character focuses on delivering penetrating attacks, and is thereby 5% more likely to land a critical hit.</li>
+        <li> Parry Slashing: in this posture a character can block one otherwise-successful attack per round of this damage type. (Elemental damage attached to the attack will still affect the character, however.)</li>
+        <li> Parry Piercing: in this posture a character can block one otherwise-successful attack per round of this damage type. (Elemental damage attached to the attack will still affect the character, however.)</li>
+        <li> Parry Crushing: in this posture a character can block one otherwise-successful attack per round of this damage type. (Elemental damage attached to the attack will still affect the character, however.)</li>
+        <li> Missil Snaring: in this posture a character can block one otherwise-successful missile attack each round. (Elemental damage attached to the attack will still affect the character, however.)</li>
+        <li> Fighting Dirty: this character attempts to use dirty tricks to gain advantage over enemies. Each successful attack will for the target to save vs. breath weapon or be briefly blinded, tripped, or weakened.</li>
+        <li> Spell Evasion: when in this posture a character can make an extra save vs. breath weapon in order to evade the effects of certain targeted and wide-area spells, such as Magic Missile and Fireball.</li>
+      </ul>
+    <p><b>Physical Fitness:</b> These are ways a character can improve their physical capabilities.
+      <ul>
+        <li> Health Conditioning: this permanently grants the character 7 extra hit points.</li>
+        <li> Toughness: this grants the character 10% resistance to slashing, piercing, and crushing damage.</li>
+        <li> Resistance: this grants the character 10% resistance to fire, cold, and electric damage.</li>
+        <li> Quickstride: this allows the character to move faster, or to toggle the ability off and move at the same speed as the rest of the party. (The exact bonus to movement speed can be controlled by a settings file in the "ini" subfolder.)</li>
+        <li> Intestinal Fortitude: this allows the character an extra chance to save vs. death/poison to avoid the effects of any disease or poison to which they are exposed.</li>
+        <li> Unflagging Determination: this allows the character an extra chance to save vs. petrification to avoid sleep, paralysis, fear, and stunning effects.</li>
+        <li> Strength Training: this grants the character a permanent +1 bonus to Strength.</li>
+        <li> Agility Training: this grants the character a permanent +1 bonus to Dexterity.</li>
+      </ul>
+    <p><b>Miscellaneous Feats:</b> these are an assortment of generally roguish abilities that may be helpful in a pinch. 
+      <ul>
+        <li> Lore: this increases the character's Lore stat by 25 points.</li>
+        <li> Tracking: this allows the at-will use of the Tracking ability, which can identify the general types of enemies nearby, and which direction they are in.</li>
+        <li> Flaming Weapon: this skill enables the character to coat a weapon with viscous oil and light it aflame, thereby doing extra fire damage with successful attacks. The flame lasts for 2 turns, and the character can craft enough of the oil to use the ability once per day.</li>
+        <li> Grease Jar/Smoke Bomb: this allows a character to create improvised semi-explosive devices which can cover a small area with slippery grease, or with noxious smoke. These mimic the effects of the wizard spells Grease and Stinking Cloud, respectively. Each device can be created and used once pr day.</li>
+        <li> Escape Artist: this ability is the result of a character learning to untie knots, dodge tangling briars and webs, and generally escape when bound. Whenever the character is physically or magically restrained, there is a 50% chance each round that this character will be able to free themselves.</li>
+        <li> Slippery Mind: this allows the character an extra chance to save vs. spells to avoid charm, domination, confusion, feeblemind, and maze effects.</li>
+        <li> Luck: this grants a permanent 1-point bonus to a character's Luck. This can make the character slightly more likely to succeed with thieving skills and weapon attacks, and to take a bit less damage from enemy spell attacks.</li>
+        <li> Wild Talent: this ability instantly grants a character the use of a psionic power, which is chosen at random. (NOTE, this ability will only be present if the 'Will to Power' psionics mod is installed.)</li>
+      </ul>
+    <p><b>Magical Abilities:</b> smart rogues can sometimes learn the basic tenets of magic, without studying enough to become a proper mage. They can learn to Use Magical Devices, a.k.a. cast spells from wands and scrolls. Additionally, they can learn some select low-level magic spells, generally those associated with illusions and hiding. Each time a character learns a spell this way they gain one 'spell slot,' which can be used to cast any spell they know (similar to how sorcerers cast spells). Shadowdancers automatically know the Shadowstep spell, and get two extra spell slots. The spells that can be learned this way include:
+      <ul>
+        <li> Color Spray</li>
+        <li> Reflected Image</li>
+        <li> Blur</li>
+        <li> Knock</li>
+        <li> Luck</li>
+        <li> Glitterdust</li>
+        <li> Sanctuary</li>
+        <li> Shadowstep</li>
+      </ul>
+    <p>In order to make use of all these abilities, most characters get more proficiency points to spend. Most of these are available to warriors and rogues; bards and priests can use a few, while mages and sorcerers cannot use any. The number of proficiency points available to character is increased over the base game:
+      <div class="kit_description">
+        <p>&ndash; Fighters/thieves: 8 at 1st level, plus 1 every two levels thereafter<br />
+        &ndash; Rangers/Paladins: 6 at 1st level, plus 1 every two levels thereafter<br />
+        &ndash; Priests/Bards/Monks: 5 at 1st level, plus 1 every three levels thereafter<br />
+        &ndash; Mages/Sorcerers: 3 at 1st level, no more thereafter<br />.</p>
+      </div>
+    Additionally the maximum number of points that can be invested in any one proficiency is as follows:
+    <div class="kit_description">
+	<table style= "width: 40%">
+	 <tr>
+	  <th> class </th>
+	  <th> level 1 </th>
+	  <th> level 2 </th>
+	  <th> level 5 </th>
+	  <th> level 9 </th>
+	 </tr>
+	 <tr>
+	  <td><b>Warriors:</b></td>
+	  <td>1</td>
+	  <td>2</td>
+	  <td>3</td>
+	  <td>4</td>
+	 </tr>
+	 <tr>
+	  <td><b>Thieves:</b></td>
+	  <td>1</td>
+	  <td>2</td>
+	  <td>3</td>
+	  <td>4</td>
+	 </tr>
+	 <tr>
+	  <td><b>Bards:</b></td>
+	  <td>1</td>
+	  <td>1</td>
+	  <td>2</td>
+	  <td>3</td>
+	 </tr>
+	 <tr>
+	  <td><b>Priests:</b></td>
+	  <td>1</td>
+	  <td>1</td>
+	  <td>2</td>
+	  <td>3</td>
+	 </tr>
+	 <tr>
+	  <td><b>Mages:</b></td>
+	  <td>1</td>
+	  <td>1</td>
+	  <td>1</td>
+	  <td>1</td>
+	 </tr>
+	</table>
+    </div>
+    <p><b>Compatibility:</b> this component is probably not compatible with most other proficiency system changes. However, it <b>IS</b> compatible with the <i>first subcomponent</i> of the "Revised Proficiencies" options in Tweaks Anthology - the one that basically just merges maces and morning stars. If you install that first, then clubs maces & morning stars will all share a proficiency.</p>
   </div>
   <h4 class="subheader">Component 121: </h4>
   <div class="section">

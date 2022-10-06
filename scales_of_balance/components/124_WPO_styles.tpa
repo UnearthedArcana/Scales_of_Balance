@@ -67,7 +67,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 6 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 6 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 6 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 6 2
 	// Thief
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 7 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 7 0
@@ -85,31 +85,31 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 9 2
 	// Druid
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 10 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 10 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 10 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 10 2
 	// Ranger
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 11 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 11 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 11 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 11 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 11 2
 	// Fighter/Mage
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 12 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 12 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 12 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 12 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 12 2
 	// Fighter/Cleric
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 13 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 13 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 13 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 13 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 13 2
 	// Fighter/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 14 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 14 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 14 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 14 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 14 2
 	// Fighter/Mage/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 15 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 15 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 15 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 15 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 15 2
@@ -117,30 +117,30 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 16 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 16 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 16 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 16 2
 	// Cleric/Mage
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 17 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 17 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 17 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 17 2
 	// Cleric/Thief
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 18 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 18 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 18 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 18 2
 	// Fighter/Druid
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 19 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 19 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 19 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 19 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 19 2
 	// Fighter/Mage/Cleric
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 20 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 20 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 20 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 20 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 34 20 2
 	// Ranger/Cleric
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 21 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 21 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 21 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 21 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 21 2
 	// Monk
