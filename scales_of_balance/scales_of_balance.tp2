@@ -1,7 +1,7 @@
 BACKUP ~scales_of_balance/backup~
 AUTHOR ~SubtleD~
 
-VERSION ~v6.0~
+VERSION ~v6.0.3~
 
 //README ~scales_of_balance/readme-SoB.html~
 
@@ -182,7 +182,7 @@ REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee e
 
 INCLUDE ~scales_of_balance/components/122_WPO_proficiency.tpa~
 INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
-INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
+//INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
 
 LAF revise_proficiency_system END
 //__________________________________________________________________________________
@@ -213,7 +213,7 @@ BEGIN @124 // change styles
 DESIGNATED 124
 LABEL ~D5_REVISED_WEAPON_STYLES~
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
-FORBID_COMPONENT ~scales_of_balance.tp2~ ~122~ @3
+//FORBID_COMPONENT ~scales_of_balance.tp2~ ~122~ @3
 
 INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
 
@@ -266,7 +266,8 @@ BEGIN @171 // thief spell evasion for IWD spells
 DESIGNATED 171
 LABEL ~D5_IWD_EVASION_BASIC~
 SUBCOMPONENT @170 (NOT GAME_IS ~iwdee~)
-REQUIRE_PREDICATE NOT FILE_EXISTS_IN_GAME ~d5__rfeat.d5~ @3
+REQUIRE_PREDICATE !(FILE_EXISTS_IN_GAME ~d5__rfeat.d5~) @3
+REQUIRE_PREDICATE !(FILE_EXISTS_IN_GAME ~d5__combat_skills.d5~) @3
 
 INCLUDE ~scales_of_balance/components/170_STO_evasion.tpa~
 

@@ -1406,4 +1406,23 @@ ACTION_IF FILE_EXISTS_IN_GAME ~nparm.itm~ BEGIN
 END
 //__________________________________________________________________________________
 
+
+//FIX MONSTERS WITH POOR DEX________________________________________________________
+//
+LAM JOINABLE_NPC_ARRAYS
+
+ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
+//  PRINT ~%cre% = non-joinable~ 
+  COPY_EXISTING ~%cre%~ ~override~
+	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+	  READ_BYTE 0x23c dexterity
+	  PATCH_IF (dexterity < 7) BEGIN
+		WRITE_BYTE 0x23c 7
+	  END
+	END
+  BUT_ONLY
+END
+//__________________________________________________________________________________
+
+
 END // end function

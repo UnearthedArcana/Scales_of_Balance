@@ -1131,7 +1131,9 @@ END
 
 //REVISED FIGHTING STYLES___________________________________________________________
 //
-LAF revise_weapon_styles END
+//LAF revise_weapon_styles END
+//
+// eh no, let this be optional
 //__________________________________________________________________________________
 
 

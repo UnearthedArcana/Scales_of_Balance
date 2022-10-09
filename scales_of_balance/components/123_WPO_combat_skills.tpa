@@ -51,15 +51,18 @@
  /- fix not getting postures
  /- profs tome not removing old profs
  /- also, it disappears when the NPC joins?
- - if get 2 stars at once, only one dialogue abil? need to rearrange this, like Dodge/Backstab/etc.
- - prob should overwrite swash/archer/assassin descriptions
- - ***** make sure NPC_EE can undo anything applied here
- - log stat bytes used in a 2da table (or something like that)
- - ...maybe in next release? consult w/ others about best way to do this 
+ /- if get 2 stars at once, only one dialogue abil? need to rearrange this, like Dodge/Backstab/etc.
+ /- make sure NPC_EE can undo anything applied here
+ - ***** stat 134 doesn't seen to work in BG2EE... the pips just disappear afterCharGen! :( :( :( 
 
-// ***** maybe find a way to make sure multiclasses don't have cs001 applied twice?
-// like, make one version for fighter CLABs, and another for thief CLABs, and put op318 exempting fighter/thieves into the thief version
-// have to be careful with triple-classes, but it can probably work.
+ ***** maybe find a way to make sure multiclasses don't have cs001 applied twice?
+ like, make one version for fighter CLABs, and another for thief CLABs, and put op318 exempting fighter/thieves into the thief version
+ have to be careful with triple-classes, but it can probably work.
+
+ - log stat bytes used in a 2da table (or something like that)
+ - ...maybe in next release? consult w/ others about best way to do this
+ - prob should overwrite swash/archer/assassin descriptions
+
 */
 
 /*
@@ -181,6 +184,10 @@ APPEND ~splprot.2da~ ~STAT_106_BEQ%TAB%106%TAB%-1%TAB%7~ UNLESS ~STAT_106_BEQ~
 APPEND ~splprot.2da~ ~STAT_107_BEQ%TAB%107%TAB%-1%TAB%7~ UNLESS ~STAT_107_BEQ~
 APPEND ~splprot.2da~ ~STAT_108_BEQ%TAB%108%TAB%-1%TAB%7~ UNLESS ~STAT_108_BEQ~
 APPEND ~splprot.2da~ ~STAT_110_BEQ%TAB%110%TAB%-1%TAB%7~ UNLESS ~STAT_110_BEQ~
+APPEND ~splprot.2da~ ~STAT_111_BEQ%TAB%111%TAB%-1%TAB%7~ UNLESS ~STAT_111_BEQ~
+APPEND ~splprot.2da~ ~STAT_112_BEQ%TAB%112%TAB%-1%TAB%7~ UNLESS ~STAT_112_BEQ~
+APPEND ~splprot.2da~ ~STAT_113_BEQ%TAB%113%TAB%-1%TAB%7~ UNLESS ~STAT_113_BEQ~
+APPEND ~splprot.2da~ ~STAT_114_BEQ%TAB%114%TAB%-1%TAB%7~ UNLESS ~STAT_114_BEQ~
 APPEND ~splprot.2da~ ~STAT_115_BEQ%TAB%115%TAB%-1%TAB%7~ UNLESS ~STAT_115_BEQ~
 APPEND ~splprot.2da~ ~STAT_124_BEQ%TAB%124%TAB%-1%TAB%7~ UNLESS ~STAT_124_BEQ~
 APPEND ~splprot.2da~ ~STAT_127_BEQ%TAB%127%TAB%-1%TAB%7~ UNLESS ~STAT_127_BEQ~
@@ -208,6 +215,18 @@ COPY_EXISTING ~splprot.2da~ ~override~
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~STAT_110_BEQ~) BEGIN
       SET prof_110_beq = %row%
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~STAT_111_BEQ~) BEGIN
+      SET prof_111_beq = %row%
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~STAT_112_BEQ~) BEGIN
+      SET prof_112_beq = %row%
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~STAT_113_BEQ~) BEGIN
+      SET prof_113_beq = %row%
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~STAT_114_BEQ~) BEGIN
+      SET prof_114_beq = %row%
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~STAT_115_BEQ~) BEGIN
       SET prof_115_beq = %row%
@@ -256,6 +275,9 @@ COPY_EXISTING ~kit.ids~ ~override~
     END
     PATCH_IF (~%kit%~ STRING_EQUAL_CASE ~D5SHADD~) BEGIN
       SET d5_shadowdancer_code = %code%
+    END
+    PATCH_IF (~%kit%~ STRING_EQUAL_CASE ~D5SWASH~) BEGIN
+      SET d5_swash_code = %code%
     END
     PATCH_IF (~%kit%~ STRING_EQUAL_CASE ~IK_BATTLERAGER~) BEGIN
       SET ik_battlerager_code = %code%
@@ -1278,6 +1300,15 @@ COPY_EXISTING ~weapprof.2da~ ~override~
       SET_2DA_ENTRY_LATER ~s2el_mng~ speed_row (col + 1)    3
       SET_2DA_ENTRY_LATER ~s2el_mng~ dodge_row (col + 1)    6
       SET_2DA_ENTRY_LATER ~s2el_mng~ backstab_row (col + 1) 0
+      PATCH_IF !(FILE_EXISTS_IN_GAME ~d5swash.2da~) BEGIN
+        SET_2DA_ENTRY_LATER ~s2el_mng~ snares_row (col + 1)   0
+      END
+      PATCH_IF (FILE_EXISTS_IN_GAME ~d5swash.2da~) BEGIN
+        SET_2DA_ENTRY_LATER ~s2el_mng~ snares_row (col + 1)   4
+      END
+    END
+    PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5SWASH~) BEGIN
+      SET_2DA_ENTRY_LATER ~s2el_mng~ backstab_row (col + 1) 3
       SET_2DA_ENTRY_LATER ~s2el_mng~ snares_row (col + 1)   0
     END
     PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~SHADOWDANCER~) BEGIN
@@ -2018,6 +2049,8 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp2c.spl~					//		grappling eff
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 45 target = 2 timing = 0 duration = 1 savingthrow = 16 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 176 target = 2 parameter2 = 1 timing = 0 duration = 3 savingthrow = 16 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 40 target = 2 timing = 0 duration = 6 savingthrow = 16 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 0 target = 2 parameter1 = (0 - 4) timing = 0 duration = 6 savingthrow = 16 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 target = 2 parameter1 = (0 - 4) timing = 0 duration = 6 savingthrow = 16 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 9 parameter1 = 0 parameter2 = 2 timing = 0 duration = 2 savingthrow = 16 STR_VAR resource = ~d5csp2c~ END
 
 /*
@@ -3808,7 +3841,7 @@ IF ~~ THEN BEGIN d5cs134_1 											// UMD
  IF ~~ THEN REPLY @12002 DO ~IncrementGlobal("D5CSI1","LOCALS",1)~ DO ~ApplySpellRES("D5CSI1L",Myself)~ EXIT 
  IF ~~ THEN REPLY @12003 GOTO d5cs134 
 END
-IF ~~ THEN BEGIN d5cs134_2												// Coor Spray
+IF ~~ THEN BEGIN d5cs134_2											// Color Spray
  SAY @12074
  IF ~~ THEN REPLY @12002 DO ~IncrementGlobal("D5CSI2","LOCALS",1)~ DO ~ApplySpellRES("D5CSI2L",Myself)~ EXIT 
  IF ~~ THEN REPLY @12003 GOTO d5cs134 
@@ -4010,108 +4043,108 @@ EXTEND_TOP ~d5cs134.bcs~ ~weidu_external/%MOD_FOLDER%/compile/d5134tmp.baf~
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
   COUNT_2DA_COLS cols
-  COUNT_2DA_ROWS 5 rows
+  COUNT_2DA_ROWS cols rows
   FOR (row = 7; row < rows; ++row) BEGIN
-    READ_2DA_ENTRY row 1 5 stat
+    READ_2DA_ENTRY row 1 cols stat
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~89~) BEGIN
-      SET_2DA_ENTRY row 2 5 %staff_weapon_name%
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12089)
+      SET_2DA_ENTRY row 2 cols %staff_weapon_name%
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12089)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~90~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12140)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12090)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12140)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12090)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~91~) BEGIN
-//      SET_2DA_ENTRY row 2 5 25002
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12091)
+//      SET_2DA_ENTRY row 2 cols 25002
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12091)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~92~) BEGIN
-//      SET_2DA_ENTRY row 2 5 25003
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12092)
+//      SET_2DA_ENTRY row 2 cols 25003
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12092)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~93~) BEGIN
-//      SET_2DA_ENTRY row 2 5 25004
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12093)
+//      SET_2DA_ENTRY row 2 cols 25004
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12093)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~94~) BEGIN
-//      SET_2DA_ENTRY row 2 5 25005
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12094)
+//      SET_2DA_ENTRY row 2 cols 25005
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12094)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~95~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12145)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12095)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12145)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12095)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~96~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12146)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12096)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12146)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12096)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~97~) BEGIN
-//      SET_2DA_ENTRY row 2 5 25008
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12097)
+//      SET_2DA_ENTRY row 2 cols 25008
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12097)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~98~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12148)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12098)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12148)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12098)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~99~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12149)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12099)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12149)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12099)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~100~) BEGIN
-//      SET_2DA_ENTRY row 2 5 25012
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12100)
+//      SET_2DA_ENTRY row 2 cols 25012
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12100)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~101~) BEGIN
-      SET_2DA_ENTRY row 2 5 %sling_weapon_name%
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12101)
+      SET_2DA_ENTRY row 2 cols %sling_weapon_name%
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12101)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~102~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12152)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12102)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12152)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12102)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~103~) BEGIN
-//      SET_2DA_ENTRY row 2 5 // no change here
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12103)
+//      SET_2DA_ENTRY row 2 cols // no change here
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12103)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~104~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12154)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12104)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12154)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12104)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~105~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12155)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12105)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12155)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12105)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~106~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12156)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12106)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12156)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12106)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~107~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12157)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12107)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12157)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12107)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~108~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12158)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12108)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12158)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12108)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~110~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12160)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12110)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12160)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12110)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~115~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12165)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12115)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12165)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12115)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~124~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12174)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12124)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12174)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12124)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~127~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12177)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12127)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12177)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12127)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~134~) BEGIN
-      SET_2DA_ENTRY row 2 5 RESOLVE_STR_REF (@12184)
-      SET_2DA_ENTRY row 3 5 RESOLVE_STR_REF (@12134)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12184)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12134)
     END
   END
 BUT_ONLY
@@ -4564,30 +4597,6 @@ END
 
 
 
-/*
- NO! don't use d5_stats... instead just apply a detection spell at every level-up in every clab
-
-//check for prof values______________________________________________________________
-//
-COPY_EXISTING ~d5_stats.spl~ ~override~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = (1 << 8) parameter2 = %stat_104_bnot% timing = 1 STR_VAR resource = ~d5cz104a~ END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = (2 << 8) parameter2 = %stat_104_bnot% timing = 1 STR_VAR resource = ~d5cz104b~ END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = (4 << 8) parameter2 = %stat_104_bnot% timing = 1 STR_VAR resource = ~d5cz104c~ END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = (8 << 8) parameter2 = %stat_104_bnot% timing = 1 STR_VAR resource = ~d5cz104d~ END
-
-//prof value support spells__________________________________________________________
-//
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cz104a.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 1 parameter2 = %stat_104_equal% timing = 1 STR_VAR resource = ~d5cs104a~ END
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cz104b.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 1 parameter2 = %stat_104_equal% timing = 1 STR_VAR resource = ~d5cs104b~ END
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cz104c.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 1 parameter2 = %stat_104_equal% timing = 1 STR_VAR resource = ~d5cs104c~ END
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cz104d.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 1 parameter2 = %stat_104_equal% timing = 1 STR_VAR resource = ~d5cs104d~ END
-
-*/
-
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs000.spl~
 // attack speed
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 1 parameter2 = %prof_104_beq% timing = 1 STR_VAR resource = ~d5cs104a~ END
@@ -4828,6 +4837,11 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs001.spl~
   PATCH_IF (VARIABLE_IS_SET %d5_corsair_code%) BEGIN
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %d5_corsair_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csswa1~ END
   END
+  PATCH_IF (VARIABLE_IS_SET %d5_swash_code%) BEGIN
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %d5_corsair_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csswa1~ END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %d5_corsair_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csswa2~ END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = %d5_corsair_code% parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csswa3~ END
+  END
 //assassin...
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = 0x400a parameter2 = %kit_is_row% timing = 1 STR_VAR resource = ~d5csass1~ END
 //shadowdancer...
@@ -4868,6 +4882,16 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csbar1.spl~
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csswa1.spl~
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (105 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csswa1~ END
+
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cswa2.spl~
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 318 parameter1 = 2 parameter2 = %prof_113_beq% timing = 0 duration = 6 STR_VAR resource = ~d5cswa2~ END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (113 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cshal1~ END
+
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cswa3.spl~
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 318 parameter1 = 2 parameter2 = %prof_114_beq% timing = 0 duration = 6 STR_VAR resource = ~d5cswa3~ END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (114 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cshal1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csass1.spl~
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (106 + (0x10000 * 1)) timing = 9 END
@@ -4911,6 +4935,7 @@ COPY_EXISTING ~kitlist.2da~ ~override~
           REPLACE_TEXTUALLY ~GA_SPCL414~ ~****      ~
 //        swashy AC bonus
           REPLACE_TEXTUALLY ~AP_SPCL441~ ~****      ~
+          REPLACE_TEXTUALLY ~AP_D5_ACBON~ ~****       ~
 //        MnG shadowdancer
           REPLACE_TEXTUALLY ~GA_D5SHAD1~ ~****      ~
 //        archer ranged bonus
@@ -5352,7 +5377,6 @@ END
 //								OTHER MODS
 //__________________________________________________________________________________
 
-/*
 
 //MnG Bladesinger focus weapon_______________________________________________________
 //
@@ -5371,8 +5395,8 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_blads.2da~) BEGIN
   BUT_ONLY
 
   COPY_EXISTING ~d5_blads.2da~ ~override~
-	REPLACE_TEXTUALLY ~GA_D5BSWPF~ ~GA_D5BSFOA~
-	REPLACE_TEXTUALLY ~GA_D5FTPRX~ ~GA_D5BSFOA~
+	REPLACE_TEXTUALLY ~GA_D5BSWPF~ ~AP_D5BSFO1~
+	REPLACE_TEXTUALLY ~GA_D5FTPRX~ ~AP_D5BSFO1~
   BUT_ONLY
 
   OUTER_SPRINT prof_script_name ~d5bsfo~
@@ -5382,6 +5406,10 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_blads.2da~) BEGIN
   OUTER_SET script_higher_levels = 0
 
   LAM PROF_DIALOGUE
+  
+  COPY_EXISTING ~d5bsfo1.spl~ ~override~
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5bsfo1~ END
+  IF_EXISTS BUT_ONLY
 
   COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
     PATCH_FOR_EACH focus_effect IN ~BS89~ ~BS90~ ~BS91~ ~BS92~ ~BS93~ ~BS94~ ~BS95~ ~BS96~ ~BS97~ ~BS98~ ~BS99~ ~BS100~ ~BS101~ ~BS102~ ~BS115~ BEGIN
@@ -5466,8 +5494,6 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_blads.2da~) BEGIN
   END
 
 END	//	end if bladesinger installed
-
-*/
 
 //__________________________________________________________________________________
 

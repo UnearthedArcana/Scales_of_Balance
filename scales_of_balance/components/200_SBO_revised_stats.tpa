@@ -694,76 +694,85 @@ END
 //
 ACTION_IF (int_extra_prof = 1) BEGIN
 
-  ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__dialprof.d5~ BEGIN
-	INCLUDE ~scales_of_balance/lib/weapprof_dialogue.tpa~
-//	LAM SET_UP_PROF_DIALOGUES
-  END
+  INCLUDE ~%MOD_FOLDER%/lib/dialprof.tpa~
+
+  OUTER_SPRINT prof_script_name ~d5iprx~
+  OUTER_SET script_level_one = 0
+  OUTER_SET script_higher_levels = 0
+
+  LAM PROF_DIALOGUE
+
+  COPY_EXISTING ~d5iprxa.spl~ ~override~
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5cs000~ END
+  COPY_EXISTING ~d5iprxa.spl~ ~override/d5iprxb.spl~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxb~ END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~d5iprxa.spl~ ~override/d5iprxc.spl~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxc~ END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~d5iprxa.spl~ ~override/d5iprxd.spl~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxd~ END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~d5iprxa.spl~ ~override/d5iprxe.spl~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxe~ END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~d5iprxa.spl~ ~override/d5iprxf.spl~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxf~ END
+  IF_EXISTS BUT_ONLY
+
+  COPY_EXISTING ~d5iprx1.spl~ ~override/d5iprx2.spl~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxb~ END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5iprx2~ END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~d5iprx1.spl~ ~override/d5iprx3.spl~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxc~ END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5iprx3~ END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~d5iprx1.spl~ ~override/d5iprx4.spl~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxd~ END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5iprx4~ END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~d5iprx1.spl~ ~override/d5iprx5.spl~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxe~ END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5iprx5~ END
+  IF_EXISTS BUT_ONLY
+  COPY_EXISTING ~d5iprx1.spl~ ~override/d5iprx6.spl~
+    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxf~ END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5iprx6~ END
+  IF_EXISTS BUT_ONLY
 
   COPY ~scales_of_balance/stats/d5iprf1.spl~ ~override~
-	PATCH_IF NOT (int_prof_5 = 17) BEGIN
+	PATCH_IF !(int_prof_5 = 17) BEGIN
 	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 17 parameter1 = %int_prof_5% END
 	END
-	PATCH_IF NOT (int_prof_7 = 15) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_5% END
+	PATCH_IF !(int_prof_7 = 15) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_7% END
 	END
-	PATCH_IF NOT (int_prof_9 = 13) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 13 parameter1 = %int_prof_5% END
+	PATCH_IF !(int_prof_9 = 13) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 13 parameter1 = %int_prof_9% END
 	END
   COPY ~scales_of_balance/stats/d5iprf2.spl~ ~override~
-	PATCH_IF NOT (int_prof_5 = 17) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 17 parameter1 = %int_prof_5% END
+	PATCH_IF !(int_prof_5 = 17) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 17 parameter1 = %int_prof_7% END
 	END
-	PATCH_IF NOT (int_prof_7 = 15) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_5% END
+	PATCH_IF !(int_prof_7 = 15) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_9% END
 	END
   COPY ~scales_of_balance/stats/d5iprf5.spl~ ~override~
-	PATCH_IF NOT (int_prof_5 = 17) BEGIN
+	PATCH_IF !(int_prof_5 = 17) BEGIN
 	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 17 parameter1 = %int_prof_5% END
 	END
   COPY ~scales_of_balance/stats/d5iprf7.spl~ ~override~
-	PATCH_IF NOT (int_prof_7 = 15) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_5% END
+	PATCH_IF !(int_prof_7 = 15) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_7% END
 	END
   COPY ~scales_of_balance/stats/d5iprf9.spl~ ~override~
-	PATCH_IF NOT (int_prof_9 = 13) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 13 parameter1 = %int_prof_5% END
+	PATCH_IF !(int_prof_9 = 13) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 13 parameter1 = %int_prof_9% END
 	END
 
-  ACTION_IF FILE_EXISTS_IN_GAME ~clabfi01.2da~ BEGIN
-	COPY_EXISTING ~clabfi01.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
-	BUT_ONLY
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~clabrn01.2da~ BEGIN
-	COPY_EXISTING ~clabrn01.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
-	BUT_ONLY
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~clabpa01.2da~ BEGIN
-	COPY_EXISTING ~clabpa01.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
-	BUT_ONLY
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~clabba01.2da~ BEGIN
-	COPY_EXISTING ~clabba01.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/intprof_bard.txt~
-	BUT_ONLY
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~clabth04.2da~ BEGIN
-	COPY_EXISTING ~clabth04.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/intprof_bard.txt~
-	BUT_ONLY
-  END
-  ACTION_IF FILE_EXISTS_IN_GAME ~d5_hrld.2da~ BEGIN
-	COPY_EXISTING ~d5_hrld.2da~ ~override~
-		LPM remove_blank_lines
-		APPEND_FILE ~scales_of_balance/stats/intprof_bard.txt~
-	BUT_ONLY
+  ACTION_IF (FILE_EXISTS_IN_GAME ~clabfi01.2da~) BEGIN
+    APPEND ~clabfi01.2da~  ~INTPROF     AP_D5IPRF9  ****        ****        ****        AP_D5IPRF5  ****        AP_D5IPRF7  ****        AP_D5IPRF9  AP_D5IPRF5  ****        ****        ****        AP_D5IPRF7  AP_D5IPRF5  ****        ****        AP_D5IPRF9  ****        AP_D5IPRF5  AP_D5IPRF7  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****         ****        ****        ****        ****        ****        ****  ~ UNLESS ~AP_D5IPRF9~
   END
 
   COPY_EXISTING ~kitlist.2da~ ~override~
@@ -771,42 +780,22 @@ ACTION_IF (int_extra_prof = 1) BEGIN
 	FOR ( index = 2 ; index < rows ; index = index + 1 ) BEGIN
 		READ_2DA_ENTRY %index% 5 9 modclab
 		READ_2DA_ENTRY %index% 8 9 modclass
-		DEFINE_ASSOCIATIVE_ARRAY d5_feat_array BEGIN "%modclab%" => "%modclass%" END
+		PATCH_IF (modclass = 2) BEGIN
+		  INNER_ACTION BEGIN
+		    ACTION_IF (FILE_EXISTS_IN_GAME ~%modclab%.2da~) BEGIN
+		      APPEND ~%modclab%.2da~ ~INTPROF     AP_D5IPRF9  ****        ****        ****        AP_D5IPRF5  ****        AP_D5IPRF7  ****        AP_D5IPRF9  AP_D5IPRF5  ****        ****        ****        AP_D5IPRF7  AP_D5IPRF5  ****        ****        AP_D5IPRF9  ****        AP_D5IPRF5  AP_D5IPRF7  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****         ****        ****        ****        ****        ****        ****  ~ UNLESS ~AP_D5IPRF9~
+		    END
+		  END
+		END
 	END
   BUT_ONLY
-  ACTION_PHP_EACH d5_feat_array AS hu => lu BEGIN
-	ACTION_IF (%lu% = 2) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
-		COPY_EXISTING ~%hu%.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
-		BUT_ONLY
-	END
-	ACTION_IF (%lu% = 6) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
-		COPY_EXISTING ~%hu%.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
-		BUT_ONLY
-	END
-	ACTION_IF (%lu% = 12) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
-		COPY_EXISTING ~%hu%.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
-		BUT_ONLY
-	END
-	ACTION_IF (%lu% = 5) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
-		COPY_EXISTING ~%hu%.2da~ ~override~
-			LPM remove_blank_lines
-			APPEND_FILE ~scales_of_balance/stats/intprof_bard.txt~
-		BUT_ONLY
-	END
-  END
+
 END
 //__________________________________________________________________________________
 
 
 //APPLY NEW STAT MODIFIERS TO AI NPCs_______________________________________________
 //
-
 LAM JOINABLE_NPC_ARRAYS
 
 ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN

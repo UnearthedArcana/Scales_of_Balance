@@ -1,5 +1,42 @@
 // v2 - many more options
 
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+DEFINE_ACTION_FUNCTION set_lang RET game_lang BEGIN
+
+ACTION_IF !(VARIABLE_IS_SET %EE_LANGUAGE%) BEGIN
+  COPY_EXISTING ~spwi101.spl~ ~override~
+	READ_STRREF 0x50 description_string
+  BUT_ONLY
+  ACTION_FOR_EACH lang IN ~en_US~ ~fr_FR~/* ~pl_PL~ ~de_DE~ ~es_ES~ ~cs_CZ~ ~ru_RU~ ~ko_KR~*/ BEGIN
+	WITH_TRA ~%MOD_FOLDER%/lib/dialprof/%lang%/dialprof.tra~ BEGIN
+	  OUTER_SPRINT duration_lang @10 
+	END	
+	ACTION_IF !(~%description_string%~ STRING_CONTAINS_REGEXP ~%duration_lang%~) BEGIN
+	  OUTER_SPRINT game_lang ~%lang%~
+	END
+  END
+END
+ACTION_IF (VARIABLE_IS_SET %EE_LANGUAGE%) BEGIN
+  OUTER_SPRINT ee_lang ~%EE_LANGUAGE%~
+  ACTION_IF (FILE_EXISTS ~%MOD_FOLDER%/lib/dialprof/%ee_lang%/dialprof.tra~) BEGIN
+	OUTER_SPRINT game_lang ~%EE_LANGUAGE%~
+  END
+END
+ACTION_IF !(VARIABLE_IS_SET %game_lang%) BEGIN
+	OUTER_SPRINT game_lang ~en_US~
+END
+
+END		//	end define function
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
 //SET UP PROFICIENCY DIALOGUE________________________________________________________
 //
 DEFINE_ACTION_MACRO PROF_DIALOGUE BEGIN
@@ -23,10 +60,14 @@ COPY ~%MOD_FOLDER%/lib/dialprof/d5__dialprof.d5~ ~override~
 //__________________________________________________________________________________
 */
 
+//find game install language__________________________________________________________
+//
+LAF set_lang RET game_lang END
+
+WITH_TRA ~%MOD_FOLDER%/lib/dialprof/%game_lang%/dialprof.tra~ BEGIN
+
 //macro defaults____________________________________________________________________
 //
-WITH_TRA ~%MOD_FOLDER%/lib/dialprof/dialprof.tra~ BEGIN
-
 ACTION_IF !(VARIABLE_IS_SET %prof_script_name%)  BEGIN
   OUTER_SPRINT prof_script_name ~d5cprf~
 END
@@ -2825,7 +2866,7 @@ COPY ~%MOD_FOLDER%/lib/dialprof/d5_1prf.spl~ ~override/d56P127.spl~
 COPY ~%MOD_FOLDER%/lib/dialprof/d5_1prf.spl~ ~override/d56P134.spl~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 parameter1 = 6 parameter2 = 134 END
 
-COPY ~%MOD_FOLDER%/lib/dialprof/d5_cprf.bam~ ~override~
+COPY ~%MOD_FOLDER%/lib/dialprof/d5_prof.bam~ ~override~
 COPY ~%MOD_FOLDER%/lib/dialprof/d5_cprf.eff~ ~override/%prof_script_name%.eff~
   WRITE_EVALUATED_ASCII 0x30 ~%prof_script_name%~ #8
 COPY ~%MOD_FOLDER%/lib/dialprof/d5_cprf.cre~ ~override/%prof_script_name%.cre~
@@ -2833,13 +2874,13 @@ COPY ~%MOD_FOLDER%/lib/dialprof/d5_cprf.cre~ ~override/%prof_script_name%.cre~
 
 COPY ~%MOD_FOLDER%/lib/dialprof/d5_base.spl~ ~override/%prof_script_name%1.spl~
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 171 timing = 1 STR_VAR resource = ~%prof_script_name%a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 171 timing = 1 STR_VAR resource = EVAL ~%prof_script_name%a~ END
 
 COPY ~%MOD_FOLDER%/lib/dialprof/d5_base.spl~ ~override/%prof_script_name%a.spl~
   SAY NAME1 @2091
   SAY UNIDENTIFIED_DESC @2091
-  WRITE_ASCII 0x3a ~%prof_script_name%~ #8
-  LPF ALTER_SPELL_HEADER INT_VAR target = 5 STR_VAR icon = ~d5_cprf~ END
+  WRITE_ASCII 0x3a ~d5_prof~ #8
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 STR_VAR icon = ~d5_prof~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 1 duration = 30 STR_VAR resource = EVAL ~%prof_script_name%~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 172 target = 1 timing = 1 STR_VAR resource = EVAL ~%prof_script_name%a~ END
 

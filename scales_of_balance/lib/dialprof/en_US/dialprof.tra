@@ -1,3 +1,6 @@
+//
+@10  = ~^Duration:.+$~ // used for language auto-detection on non-EE games (or EE games where the user has not selected a language yet maybe?)
+//
 @2000  = ~Advance one point in ~
 @2001  = ~Advance to one point (+)~
 @2002  = ~Advance to two points (++)~
