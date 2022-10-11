@@ -813,7 +813,9 @@ These spells are cast innately, like a sorcerer. Each spell that is chosen, it i
 @12198  = ~Reselect Proficiencies~
 @12199  = ~In order to have the proper amount of proficiencies, using this tome will remove all of the character's current proficiencies and then begin a dialogue which will allow the character to choose new ones.
 
-NOTE: this should  be used right away (or not at all). If the character levels up and advances a proficiency, it will prevent this tome from granting the correct number of proficiency points.~
+NOTE: this should be used right away (or not at all). If the character levels up and advances a proficiency, it will prevent this tome from granting the correct number of proficiency points.
+
+If you also have a tome enabling you to change your class and kit, you should decide whether you want to use that tome or this one. Each will make the other one disappear.~
 @12201  = ~FIGHTER: The Fighter is a champion, swords<PRO_MANWOMAN>, soldier, and brawler who lives or dies by <PRO_HISHER> knowledge of weapons and tactics. Fighters can be found at the front of any battle, contesting toe-to-toe with monsters and villains. A good Fighter needs to be strong and healthy if <PRO_HESHE> hopes to survive.
 
 CLASS FEATURES:
@@ -1052,7 +1054,7 @@ The type of the summoned spirit is randomly determined from all the spirits avai
 @12221  = ~
 
 Proficiencies:
-- Cannot learn the defensive parrying fighting postures.
+- Cannot learn the defensive feats such as Dodge or the parrying fighting postures.
 ~
 @12222  = ~
 
