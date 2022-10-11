@@ -69,7 +69,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 6 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 6 2
 	// Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 7 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 7 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 7 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 7 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 7 2
@@ -85,7 +85,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 9 2
 	// Druid
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 10 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 10 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 10 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 10 2
 	// Ranger
@@ -104,12 +104,12 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 13 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 13 2
 	// Fighter/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 14 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 14 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 14 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 14 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 14 2
 	// Fighter/Mage/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 15 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 31 15 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 32 15 0
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 15 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 15 2
@@ -130,7 +130,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 18 2
 	// Fighter/Druid
 	SET_2DA_ENTRY_LATER ~#weapprof~ 31 19 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 19 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ 32 19 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 33 19 2
 	SET_2DA_ENTRY_LATER ~#weapprof~ 34 19 2
 	// Fighter/Mage/Cleric
@@ -230,7 +230,7 @@ BUT_ONLY
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
   COUNT_2DA_COLS cols 
-  PHP_EACH d5_fighters_array AS kit_col => class BEGIN
+  PHP_EACH d5_wizards_array AS kit_col => class BEGIN
     SET_2DA_ENTRY 28 (%kit_col% + 1) cols 0 // 2Hand
     SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
     SET_2DA_ENTRY 30 (%kit_col% + 1) cols 0 // single
@@ -242,7 +242,7 @@ BUT_ONLY
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
   COUNT_2DA_COLS cols 
-  PHP_EACH d5_fighters_array AS kit_col => class BEGIN
+  PHP_EACH d5_mc_mages_array AS kit_col => class BEGIN
     SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
     SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
     SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
@@ -255,7 +255,7 @@ BUT_ONLY
 COPY_EXISTING ~weapprof.2da~ ~override~
   COUNT_2DA_COLS cols 
   PHP_EACH d5_thieves_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 0 // 2Hand
+    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
     SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
     SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
     SET_2DA_ENTRY 31 (%kit_col% + 1) cols 2 // dual-wield

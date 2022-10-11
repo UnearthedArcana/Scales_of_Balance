@@ -6,7 +6,9 @@
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
+
 DEFINE_ACTION_FUNCTION revise_armor_system BEGIN
+
 
 //COPY MARKER FILE_________________________________________________________________
 //
@@ -38,39 +40,39 @@ COPY ~scales_of_balance/data/YARAS/skilldex.2da~ ~override~
 OUTER_SET enchantment = 0 	//	just need to do this in order to read the .ini file
 
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override~
-  PATCH_INCLUDE ~override/d5_YARAS.ini~
+  PATCH_INCLUDE ~override/YARAS.ini~
   WRITE_LONG 0x1c %leather_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM1~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm2.eff~
-  PATCH_INCLUDE ~override/d5_YARAS.ini~
+  PATCH_INCLUDE ~override/YARAS.ini~
   WRITE_LONG 0x1c %studded_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM2~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm3.eff~
-  PATCH_INCLUDE ~override/d5_YARAS.ini~
+  PATCH_INCLUDE ~override/YARAS.ini~
   WRITE_LONG 0x1c %hide_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM3~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm4.eff~
-  PATCH_INCLUDE ~override/d5_YARAS.ini~
+  PATCH_INCLUDE ~override/YARAS.ini~
   WRITE_LONG 0x1c %scale_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM4~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm5.eff~
-  PATCH_INCLUDE ~override/d5_YARAS.ini~
+  PATCH_INCLUDE ~override/YARAS.ini~
   WRITE_LONG 0x1c %chain_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM5~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm6.eff~
-  PATCH_INCLUDE ~override/d5_YARAS.ini~
+  PATCH_INCLUDE ~override/YARAS.ini~
   WRITE_LONG 0x1c %splint_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM6~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm7.eff~
-  PATCH_INCLUDE ~override/d5_YARAS.ini~
+  PATCH_INCLUDE ~override/YARAS.ini~
   WRITE_LONG 0x1c %plate_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM7~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm8.eff~
-  PATCH_INCLUDE ~override/d5_YARAS.ini~
+  PATCH_INCLUDE ~override/YARAS.ini~
   WRITE_LONG 0x1c %fullplate_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM8~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm9.eff~
-  PATCH_INCLUDE ~override/d5_YARAS.ini~
+  PATCH_INCLUDE ~override/YARAS.ini~
   WRITE_LONG 0x1c %elven_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM9~ #8
 
@@ -438,7 +440,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 
 		READ_LONG 0x60 enchantment
 
-		PATCH_INCLUDE ~override/d5_YARAS.ini~
+		PATCH_INCLUDE ~override/YARAS.ini~
 		
 		PATCH_IF (appearance = 16690) BEGIN // leather appearance
 		  READ_LONG 0x08 gen_name_strref
@@ -1403,5 +1405,24 @@ ACTION_IF FILE_EXISTS_IN_GAME ~nparm.itm~ BEGIN
 	LPF DELETE_EFFECT INT_VAR match_opcode = 15 END
 END
 //__________________________________________________________________________________
+
+
+//FIX MONSTERS WITH POOR DEX________________________________________________________
+//
+LAM JOINABLE_NPC_ARRAYS
+
+ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
+//  PRINT ~%cre% = non-joinable~ 
+  COPY_EXISTING ~%cre%~ ~override~
+	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+	  READ_BYTE 0x23c dexterity
+	  PATCH_IF (dexterity < 7) BEGIN
+		WRITE_BYTE 0x23c 7
+	  END
+	END
+  BUT_ONLY
+END
+//__________________________________________________________________________________
+
 
 END // end function

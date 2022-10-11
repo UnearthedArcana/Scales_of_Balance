@@ -36,9 +36,18 @@
 @1071  = ~Dual-Wield small weapons only~
 @1072  = ~Dual-Wield small/medium weapons~
 @109   = ~IWO - All Potions Usable by Any Class~
-@121   = ~WPO - Weapon Category Collapse~
-@122   = ~WPO - Systemic Proficiency Changes~
-@123   = ~WPO - TEMPORARILY UNAVAILABLE~
+//
+//
+//
+//
+@120   = ~WPO - Weapon Proficiency Overhaul~
+@121   = ~WPO - Broader Weapon Categories~
+@122   = ~Streamlined Proficiency System~
+@123   = ~NEW: Expanded Combat Skills System~
+//
+//
+//
+//
 @124   = ~WPO - Fighting Style Changes~
 @125   = ~WPO - APR on Spec~
 @160   = ~STO - Saving Throw Overhaul~
@@ -512,6 +521,576 @@ Coordinating the use of two weapons is difficult, especially with larger, heavie
 @1292   = ~FIGHTER:  The fighter is a champion, swordsman, soldier, and brawler.  He lives or dies by his knowledge of weapons and tactics.  Fighters can be found at the front of any battle, contesting toe-to-toe with monsters and villains.  A good fighter needs to be strong and healthy if he hopes to survive.~
 @1293   = ~Ranger~
 @1294   = ~RANGER: The ranger is a warrior and a woodsman. He is skilled with weapons and is knowledgeable in the ways of the forest. The ranger often protects and guides lost travelers and honest peasant-folk.  A ranger needs to be strong and wise to the ways of nature to live a full life. ~
+//
+//
+//
+//
+@12001  = ~Choose a skill~
+@12002  = ~Select this skill~
+@12003  = ~Choose a different skill~
+@12011  = ~Leadership~
+@12012  = ~Leadership: a warrior in this posture may supervise and direct those around <PRO_HIMHER>, resulting in a 1-point bonus to attack rolls, armor class, and spellcasting speed for all party members within 20 feet.~
+@12013  = ~Grappling~
+@12014  = ~Grappling: when using this posture, each round, both the attacker and the nearest melee enemy will be rooted in place for three seconds. If the enemy fails a save vs. breath, they will be Slowed for one round.~
+@12015  = ~Precise Strike~
+@12016  = ~Precise Strike: when using this posture will make critical hits on rolls of 19 or 20, instead of just 20.~
+@12017  = ~Parry Slashing~
+@12018  = ~Parry Slashing: this posture enables the base (missile) damage from an incoming slashing attack to be blocked, once per round.~
+@12019  = ~Parry Piercing~
+@12020  = ~Parry Piercing: this posture enables the base (missile) damage from an incoming piercing attack to be blocked, once per round.~
+@12021  = ~Parry Crushing~
+@12022  = ~Parry Crushing: this posture enables the base (missile) damage from an incoming crushing attack to be blocked, once per round.~
+@12023  = ~Missile Snaring~
+@12024  = ~Missile Snaring: this posture enables the deflection of base (missile) damage from an incoming ranged attack, once per round.~
+@12025  = ~Fighting Dirty~
+@12026  = ~Fighting Dirty: when using this posture, up to once per round, an attacker can briefly knockdown, blind, or weaken the target along with a melee attack, if the target fails a save vs. Breath Weapon.~
+@12027  = ~Spell Evasion~
+@12028  = ~Spell Evasion: when using this posture and targeted by a spell that can be evaded (Fireball, Lightning Bolt, etc.), as long as the character is not helpless (e.g. held, stunned, asleep, etc.) the effects may be completely avoided upon a successful save vs. Breath.~
+@12031  = ~Health Conditioning~
+@12032  = ~Health Conditioning: this ability confers a permanent +7 hit points upon the character.~
+@12033  = ~Toughness~
+@12034  = ~Toughness: this ability confers a permanent 10% resistance to physical damage.~
+@12035  = ~Resistance~
+@12036  = ~Resistance: this ability confers a permanent 10% resistance to elemental damage.~
+@12037  = ~Quickstride~
+@12038  = ~Quickstride: this ability allows one to increase <PRO_HISHER> movement rate at will.~
+@12039  = ~Intestinal Fortitude~
+@12040  = ~Intestinal Fortitude: this ability allows an extra saving throw vs. Death to avoid poison and disease.~
+@12041  = ~Unflagging Determination~
+@12042  = ~Unflagging Determination: this ability allows an extra saving throw vs. Petrification to avoid Sleep, Hold, Stun, and fear effects.~
+@12043  = ~Strength Training~
+@12044  = ~Choosing this ability results in a permanent 1-point Strength increase.~
+@12045  = ~Agility Training~
+@12046  = ~Choosing this ability results in a permanent 1-point Dexterity increase.~
+@12051  = ~Lore Bonus~
+@12052  = ~Lore Bonus: this ability confers a permanent +15 bonus to Lore.~
+@12053  = ~Tracking~
+@12054  = ~Tracking: this ability gives one a general idea of what creatures are in an area and which direction they are. Red arrows at the edge of the screen will point in the general direction of the creatures in the area. This can be used at will.~
+@12055  = ~Flaming Weapon~
+@12056  = ~Flaming Weapon: this ability allows one to coat a weapon in a viscous and highly flammable oil. For two turns, the weapon will do 1d4 fire damage in addition to normal damage.~
+@12057  = ~Grease Jar/Smoke Bomb~
+@12058  = ~Smoke Bomb + Grease Jar: this ability allows the creation, once per day, of two improvised weapons: a Grease Jar (which mimics the effects of the wizard spell Grease) and a Smoke Bomb (which mimics the effects of the wizard spell Stinking Cloud).~
+@12059  = ~Escape Artist~
+@12060  = ~Escape Artist: This ability allows a chance to be affected by Remove Paralysis whenever Held, Webbed, or otherwise helpless.~
+@12061  = ~Slippery Mind~
+@12062  = ~Slippery Mind: this ability allows an extra saving throw vs. Spells to avoid Charm/Domination, Confusion, Feeblemind, and Maze effects.~
+@12063  = ~Luck Bonus~
+@12064  = ~Luck Bonus: this ability confers a permanent +1 bonus to Luck.~
+@12065  = ~Psionic Wild Talent~
+@12066  = ~This ability will reveal that the character is a 'wild talent' with access to a (random) psionic power.~
+@12071  = ~Use Magical Device~
+@12072  = ~Use Magical Devices: this ability allows one to cast magic from wands and scrolls, just like a wizard.~
+@12073  = ~Color Spray~
+@12074  = ~This ability allows the use of the spell 'Color Spray' once per day.~
+@12075  = ~Reflected Image~
+@12076  = ~This ability allows the use of the spell 'Reflected Image' once per day.~
+@12077  = ~Blur~
+@12078  = ~This ability allows the use of the spell 'Blur' once per day.~
+@12079  = ~Knock~
+@12080  = ~This ability allows the use of the spell 'Knock' once per day.~
+@12081  = ~Luck~
+@12082  = ~This ability allows the use of the spell 'Luck' once per day.~
+@12083  = ~Glitterdust~
+@12084  = ~This ability allows the use of the spell 'Glitterdust' once per day.~
+@12085  = ~Sanctuary~
+@12086  = ~This ability allows the use of the spell 'Sanctuary' once per day.~
+@12087  = ~Shadowstep~
+@12088  = ~This ability allows the use of the spell 'Shadowstep' once per day.~
+@12089  = ~QUARTERSTAFF: A simple weapon, but in the hands of a skilled warrior, whether Mage or Paladin, the quarterstaff can lay flat any foe.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12090  = ~LONG SWORDS: The long sword is perhaps one of the most common weapons in Faerûn. Skill with the long sword will allow your character to have access to a widely available and effective weapon, including basic long swords and the longer bastard swords.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12091  = ~SHORT SWORDS: The preferred weapon of many a thief and halfling, the short sword is a light but useful weapon.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12092  = ~AXES: There are two varieties of axes: throwing axes and battle axes. This proficiency class allows your character to use either.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12093  = ~TWO-HANDED SWORDS: The hallmark of the traditional muscle-bound warrior is the greatsword. This proficiency class allows you to use these heavy swords to mangle your opponents.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12094  = ~KATANAS: The katana is one of the finest examples of the swordsmith's craft, and requires great care to use. These weapons are hard to find outside of Kara-Tur, so care must be taken when considering this proficiency. After all, skill with the katana is only helpful if you can find one.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12095  = ~SCIMITARS:  This weapon class allows the character to use various single-edged blades, including the Scimitar, the katana, and the Wakazashi.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12096  = ~DAGGERS/DARTS: This weapon class covers daggers, dirks, knives and darts - any small blades used for stabbing or hurling at enemies.  While small, daggers are still extremely useful and many warriors carry them in case their larger weapons are stolen or destroyed.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12097  = ~WAR HAMMERS: This weapon class allows the character to use throwing hammers and war hammers. Both of these weapons are often associated with dwarven warriors, and it is the dwarven people who make the finest quality hammers.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR~
+@12098  = ~POLEARMS: This weapon class includes long spears, pikes, halberds and other polearms.  Their long 'reach' makes them very useful against most opponents.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12099  = ~CLUBS/MACES: This weapon class allows the character to basic clubs, as well as more advanced weapons that are similarly heavy, round blugeons.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12100  = ~FLAILS: The flail is a blunt weapon used to knock your enemies senseless. They are difficult to use but with skill and practice these weapons are very useful.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12101  = ~SLING: Although the sling is commonly thought of as a toy weapon, its lethality should not be underestimated. A strong bullet thrown from a sling by an experienced user can tear a hole through a man's skull.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12102  = ~BOWS: This proficiency allows a character to skillfully wield various bows, which are easy to use and have a high rate of fire.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12103  = ~CROSSBOW: The crossbow, although smaller and easier to use than the longbow, is just as deadly in the hands of a skilled shot.
+
+2 points: +2 to hit, +1 damage
+3 points: +3 to hit, +3 damage
+4 points: +3 to hit, +3 damage, +.5 APR
+~
+@12104  = ~ATTACK SPEED: Improvement in this skill allows a warrior to attack more quickly and strike more often - albeit at the cost of some accuracy.
+
+1 point: -2 bonus to weapon speed
+2 points: +.5 APR, -1 to hit
+3 points: + 1 APR, -2 to hit
+4 points: +1.5 APR, -3 to hit
+~
+@12105  = ~DODGE: This skill represents the ability to keep out of harm's way, turning and dodging to escape or minimize otherwise harmful blows.
+
+1 point: -1 bonus to armor class
+2 points: -2 bonus to armor class
+3 points: -3 bonus to armor class
+4 points: -4 bonus to armor class
+5 points: -5 bonus to armor class
+6 points: -6 bonus to armor class
+~
+@12106  = ~BACKSTAB: Those practiced in the art of springing to attack from the shadows can land devastating blows. Each rank in this proficiency increases the damage inflicted by such attacks.
+
+1 point: +1 bonus to backstab multiplier
+2 points: +2 bonus to backstab multiplier
+3 points: +3 bonus to backstab multiplier
+4 points: +4 bonus to backstab multiplier
+5 points: +5 bonus to backstab multiplier
+6 points: +6 bonus to backstab multiplier
+~
+@12107  = ~SET SNARES: Some rogues learn to protect their positions and hideouts with deadly traps, some of which can increase the severity of any damage done by applying poisons or even magical effects.
+
+Each rank in this proficiency will allow one attempt per day to set a trap.
+
+(Bounty Hunters will be able to set one normal trap plus one special snare for each point invested in this skill.)
+~
+@12108  = ~RANGED ACCURACY: Practice with a bow or sling can make one more effective with that weapon, but some go further and hone their eye and aim with all ranged attacks. With enough training one can become a true sharpshooter.
+
+1 point: +1 bonus to hit and damage with ranged attacks
+2 points: +2 bonus to hit and damage with ranged attacks
+3 points: +3 bonus to hit and damage with ranged attacks
+4 points: +4 bonus to hit and damage with ranged attacks
+5 points: +5 bonus to hit and damage with ranged attacks
+6 points: +6 bonus to hit and damage with ranged attacks
+~
+@12110  = ~HURLED WEAPONS: Throwing weapons at adversaries is, by nature, a slow and clumsy act. But with practice, some can learn to hurl weapons with great accuracy and speed.
+
+0 points: -1 APR and -3 penalty to hit with thrown weapons
+1 point: -.5 APR and -1 penalty to hit with thrown weapons
+2 points: +1 bonus to hit with thrown weapons
+~
+@12115  = ~FIGHTING POSTURES: Each rank in this proficiency group allows the character to learn one of several fighting postures. These postures amount to particular combat styles and tactics, giving discrete bonuses to the character or <PRO_HISHER> allies. Even if the character has learned several fighting postures, only one can be employed at any given moment. A character who has learned more than one fighting posture can switch between them at will. The list of postures to choose from includes:
+
+- Leadership (combat bonuses for allies)
+- Grappling (grapple/Slow nearby opponent)
+- Precise Strike (increased chance of critical hits)
+- Parry Slashing attacks (block one each round)
+- Parry Piercing attacks (block one each round)
+- Parry Crushing attacks (block one each round)
+- Missile Snaring (block one missile attack each round)
+- Fighting Dirty (trip, blind, or weaken on successful hits)
+- Spell Evasion (save to avoid effects of spell projectiles)
+
+NOTE: not all postures are available to every class or kit. Warriors will generally be able to choose from those higher on the list, while rogues will generally be able to choose from those lower on the list.
+~
+@12124  = ~PHYSICAL FITNESS: Each rank in this proficiency group allows the character to learn one of several feats relating to physical health. The list of feats to choose from includes:
+
+- Health Conditioning (+7 hit points)
+- Toughness (10% resistance to weapon damage)
+- Resistance (10% resistance to elemental damage)
+- Quickstride (increased running speed, usable at will)
+- Fortitude (extra save to avoid poison/disease effects)
+- Determination (extra save to avoid stun/hold/sleep/fear effects)
+- Strength Training (+1 bonus to Strength)
+- Agility Training (+1 bonus to Dexterity)
+
+NOTE: not all these feats are available to every class or kit. Warriors will generally be able to choose any fitness feat, while rogues will generally only be able to choose from Health Conditioning, Quickstride, Fortitude, and Agility Training.
+~
+@12127  = ~MISCELLANEOUS SKILLS: Each rank in this proficiency group allows the character to learn one of several miscellaneous skills. The list of skills to choose from includes:
+
+- Lore Bonus (25-point bonus to Lore)
+- Tracking (chance to learn about nearby enemies, at will)
+- Flaming Weapon (inflict extra fire damage with melee attacks)
+- Grease Jar/Smoke Bomb (mimic the 'Grease' and 'Stinking Cloud' spells)
+- Escape Artist (chance to avoid being entangled, webbed, etc.)
+- Slippery Mind (extra save to avoid charm/confusion/feeblemind effects)
+- Luck Bonus (1-point bonus to Luck)
+- Wild Talent (gain a random psionic power (if the 'Will to Power' mod is installed))
+
+NOTE: generally, only rogues will be able to learn any of these skills. Most other classes are restricted to choosing from Lore Bonus, Flaming Weapon, Luck Bonus and Wild Talent.
+~
+@12134  = ~MAGICAL ABILITIES: Some rogues pick up slight magical abilities in their travels. Not enough to become true mages; just a few illusion-related effects that are useful for the furtherance of roguish exploits. The list of abilities to choose from includes:
+
+- Use Magical Device (trigger effects from spell scrolls and wands)
+- Color Spray
+- Reflected Image
+- Blur
+- Knock
+- Luck
+- Glitterdust
+- Sanctuary
+- Shadowstep
+
+These spells are cast innately, like a sorcerer. Each spell that is chosen, it increases by one the number of times per day that this magic can be used.
+~
+@12140  = ~Long Sword / Bastard Sword~
+@12145  = ~Scimitar~
+@12146  = ~Dagger / Dart~
+@12148  = ~Spear / Halberd~
+@12149  = ~Club / Mace~
+@12152  = ~Bows~
+@12154  = ~Attack Speed~
+@12155  = ~Dodge~
+@12156  = ~Backstab~
+@12157  = ~Set Snare~
+@12158  = ~Ranged Accuracy~
+@12160  = ~Hurled Weapons~
+@12165  = ~Fighting Postures~
+@12174  = ~Physical Fitness~
+@12177  = ~Miscellaneous Skills~
+@12184  = ~Magical Abilities~
+@12187  = ~Tracking~
+@12188  = ~Tracking: the Tracking ability gives one a general idea of what creatures are in an area and which direction they are. Red arrows at the edge of the screen will point in the general direction of the creatures in the area.~
+@12191  = ~Grease Jar~
+@12192  = ~Grease Jar: this ability mimics the effects of the wizard spell Grease. Everyone in the area of effect finds it difficult to stay standing and has their movement rate reduced.~
+@12193  = ~Smoke Bomb~
+@12194  = ~Smoke Bomb: this ability mimics the effects of the wizard spell Stinking Cloud. Everyone in the area of effect must make a saving throw or be paralyzed with retching and spasms by the noxious gas.~
+@12195  = ~Quickstride~
+@12196  = ~Normal Stride~
+@12197  = ~Cancel combat posture~
+@12198  = ~Reselect Proficiencies~
+@12199  = ~In order to have the proper amount of proficiencies, using this tome will remove all of the character's current proficiencies and then begin a dialogue which will allow the character to choose new ones.
+
+NOTE: this should be used right away (or not at all). If the character levels up and advances a proficiency, it will prevent this tome from granting the correct number of proficiency points.
+
+If you also have a tome enabling you to change your class and kit, you should decide whether you want to use that tome or this one. Each will make the other one disappear.~
+@12201  = ~FIGHTER: The Fighter is a champion, swords<PRO_MANWOMAN>, soldier, and brawler who lives or dies by <PRO_HISHER> knowledge of weapons and tactics. Fighters can be found at the front of any battle, contesting toe-to-toe with monsters and villains. A good Fighter needs to be strong and healthy if <PRO_HESHE> hopes to survive.
+
+CLASS FEATURES:
+
+- May wear helmets.
+- May wear any armor and use any weapon.
+- Begins with eight proficiency points at first level, and gains another point every second level.
+- One point may be invested in a proficiency at level 1; two points at level 2; three points at level 5, and four or more points at level 9.
+- May achieve Grand Mastery (four points) with any weapon, and with the Attack Speed skill.
+- May achieve Specialization (two points) in any fighting style, and with the Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May learn tactical combat postures, physical fitness feats, and certain miscellaneous skills.
+- Hit Die: d10
+
+Prime Requisites For Dual-Classing: Strength
+~
+@12202  = ~RANGER: The Ranger is a warrior and a woods<PRO_MANWOMAN> who is skilled with weapons and is knowledgeable in the ways of the forest. The Ranger often protects and guides lost travelers and honest peasant-folk. A Ranger needs to be strong and wise to the ways of nature to live a full life.
+
+CLASS FEATURES:
+
+- May wear helmets.
+- May wear any armor and use any weapon.
+- Begins with six proficiency points at first level, and gains another point every second level.
+- One point may be invested in a proficiency at level 1; two points at level 2; three points at level 5, and four or more points at level 9.
+- May achieve Mastery (three points) with any weapon, and Grand Mastery (four points) with the Attack Speed skill.
+- May achieve Specialization (two points) in any fighting style, and with the Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- Begins with the Tracking and Quickstride skills, and with Specialization (two points) in Two-Weapon Style.
+- May learn tactical combat postures, physical fitness feats, and certain miscellaneous skills.
+- May select a racial enemy, which grants a +4 bonus to hit and damage rolls against the selected enemy race.
+- May use the Charm Animal ability once per day. Gains one use at level 1 and an additional use every 2 levels thereafter.
+- May use the Hide In Shadows skill.
+- May cast druidic spells.
+- Alignment restricted to good.
+- Hit Die: d10
+
+Prime Requisites For Dual-Classing: Strength, Dexterity, Wisdom
+~
+@12203  = ~PALADIN: A Paladin is a warrior bold and pure, the exemplar of everything good and true. Like the Fighter, the Paladin is a person of action and combat. However, the Paladin lives for the ideals of righteousness, justice, honesty, piety, and chivalry and strives to be a living example of these virtues so that others may learn from <PRO_HIMHER> as well as gain by <PRO_HISHER> actions.
+
+CLASS FEATURES:
+
+- May wear helmets.
+- May wear any armor and use any weapon.
+- Begins with six proficiency points at first level, and gains another point every second level.
+- One point may be invested in a proficiency at level 1; two points at level 2; three points at level 5, and four or more points at level 9.
+- May achieve Mastery (three points) with any weapon, and Grand Mastery (four points) with the Attack Speed skill.
+- May achieve Specialization (two points) in any fighting style, and with the Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May learn tactical combat postures, physical fitness feats, and certain miscellaneous skills.
+- May use Lay On Hands ability once per day to heal a target for 2 Hit Points per level of the Paladin.
+- May cast Detect Evil once per day per level (starts at 1st level with 4 uses).
+- May cast Protection From Evil once per day per level (starts at 1st level with one use).
+- May Turn Undead as a Cleric two levels lower, starting at level 3.
+- May cast priest spells starting at level 9.
+- Receives a +2 bonus to all Saving Throws.
+- Alignment restricted to lawful good.
+- Hit Die: d10
+~
+@12204  = ~CLERIC: The Cleric is a generic priest (of any mythos) who tends to the spiritual needs of a community. Though <PRO_HESHE> is both protector and healer, <PRO_HESHE> is not purely defensive—when evil threatens, the Cleric is well suited to seek it out on its own ground and destroy it. The opposite is true of evil Clerics as well, and there are also many variations in between.
+
+CLASS FEATURES:
+
+- May wear helmets.
+- May wear any armor.
+- May only use certain weapons appropriate for their ethos (generally non-bladed weapons such as the war hammer, club, flail, mace, quarterstaff, and sling).
+- Begins with five proficiency points at first level, and gains another point every third level.
+- One point may be invested in a proficiency at level 1; two points at level 5; and three or more points at level 9.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May learn select physical fitness feats and miscellaneous skills.
+- May Turn Undead.
+- May cast priest spells.
+- Hit Die: d8
+
+Prime Requisites For Dual-Classing: Wisdom
+~
+@12205  = ~DRUID: The Druid serves the cause of nature and neutrality; the wilderness is <PRO_HISHER> community, and <PRO_HESHE> uses <PRO_HISHER> special powers to protect it and to preserve balance in the world.
+
+CLASS FEATURES:
+
+- May only wear non-metallic armor.
+- May only equip bucklers and non-metallic shields.
+- May only use certain weapons appropriate for their ethos (generally the scimitar, dagger, club, spear, quarterstaff, dart, and sling).
+- Begins with five proficiency points at first level, and gains another point every third level.
+- One point may be invested in a proficiency at level 1; two points at level 5; and three or more points at level 9.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May learn select physical fitness feats and miscellaneous skills.
+- May cast druidic spells.
+- 7th level: May Shapeshift into a wolf, black bear, or brown bear once per day.
+- 15th level: Becomes immune to poison.
+- 18th level: Gains 10% resistance to cold, fire, electricity, and acid; gains a further 10% resistance at levels 21 and 24.
+- Alignment restricted to true neutral.
+- Hit Die: d8
+
+Prime Requisites For Dual-Classing: Wisdom, Charisma
+~
+@12206  = ~MAGE: The wizard strives to be a master of magical energies, shaping them and casting them as spells. To do so, <PRO_HESHE> studies strange tongues and obscure facts and devotes much of <PRO_HISHER> time to magical research. A wizard must rely on knowledge and wit to survive. Wizards are rarely seen adventuring without a retinue of fighters and men-at-arms. Because there are different types (or schools) of magic, there are different types of wizards. The Mage studies all types of magic and learns a wide variety of spells; <PRO_HISHER> broad range makes <PRO_HIMHER> well suited to the demands of adventuring.
+
+CLASS FEATURES:
+
+- May not wear any armor.
+- May only use the following weapons: dagger, quarterstaff, dart, sling.
+- Begins with three proficiency points at first level, and does not gain any more after that.
+- May only become Proficient (one slot) in any weapon class.
+- May cast arcane spells.
+- Hit Die: d4
+
+Prime Requisites For Dual-Classing: Intelligence
+~
+@12207  = ~THIEF: To accomplish <PRO_HISHER> goals, for good or ill, the Thief is a skilled pilferer. Cunning, nimbleness, and stealth are <PRO_HISHER> hallmarks. Whether <PRO_HESHE> turns <PRO_HISHER> talent against innocent passersby and wealthy merchants or oppressors and monsters is a choice for the Thief to make.
+
+CLASS FEATURES:
+
+- May not wear armor heavier than studded leather.
+- May not equip shields larger than bucklers.
+- May only use the following weapons: long sword, short sword, katana, scimitar, dagger, club, quarterstaff, crossbow, shortbow, dart, sling.
+- Begins with six proficiency points at first level, and gains another point every second level.
+- One point may be invested in a proficiency at level 1; two points at level 2; three points at level 5, and four or more points at level 9.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May learn a few select tactical combat postures and physical fitness feats, as well as various miscellaneous skills and even some magical abilities and illusion spells.
+- May distribute 25 points per level (40 at level 1) in thieving abilities: Open Locks, Pick Pockets, Find Traps, Move Silently, Hide In Shadows, Detect Illusion, Set Traps.
+- Starts with base scores of 10% in Open Locks, 5% in Find Traps, 15% in Pick Pockets, 10% in Move Silently, and 5% in Hide in Shadows.
+- May achieve Grand Mastery (four points) in the Backstabbing skill, resulting in backstabs that do two, three, four or five times the damage of a normal weapon strike.
+- May achieve Grand Mastery (four points) with the Set Snare skill, gaining the ability to set one snare each day per proficiency slot spent on the skill.
+
+SET SNARE: Set a trap in the chosen location when no hostile creatures are in sight. Traps grow more powerful with the Thief's level and can only be triggered by enemies.
+  1st level: Deals 2d8+5 missile damage.
+  11th level: Deals 2d8+5 missile damage and additionally deals 2d6 poison damage per round for the next 3 rounds.
+  16th level: Deals 3d8+5 missile damage and 4d8+2 fire damage.
+  21st level: Deals 3d8+5 missile damage and 20 poison damage with no save; slays target if a Save vs. Death with a +4 bonus is failed.
+
+– Alignment restricted to any except lawful good.
+– Hit Die: d6
+
+Prime Requisites For Dual-Classing: Dexterity
+~
+@12208  = ~BARD: The Bard is a rogue, but <PRO_HESHE> is very different from the Thief. The Bard's strength is <PRO_HISHER> pleasant and charming personality. With it and <PRO_HISHER> wits, <PRO_HESHE> makes <PRO_HISHER> way through the world. A Bard is a talented musician and a walking storehouse of gossip, tall tales, and lore; <PRO_HESHE> learns a little bit about everything that crosses <PRO_HISHER> path and is a jack-of-all-trades but master of none. While many Bards are scoundrels, their stories and songs are welcome almost everywhere.
+
+CLASS FEATURES:
+
+- May not wear armor heavier than chain mail. (Spells cannot be cast while wearing armor.)
+- May not equip shields larger than bucklers.
+- Begins with five proficiency points at first level, and gains another point every third level.
+- One point may be invested in a proficiency at level 1; two points at level 5; and three or more points at level 9.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Dodge and Hurled Weapons skills.
+- May learn a few select tactical combat postures, physical fitness feats, and miscellaneous skills.
+- Thieving abilities: Pick Pockets.
+- Increased Lore score.
+- May cast arcane spells starting at 2nd level.
+- May use Bard Song ability. While active, the Bard Song has the following effects:
+  Restore morale to its average value
+  Remove Fear
+  Protection From Fear
+- Alignment restricted to any neutral.
+- Hit Die: d6
+~
+@12209  = ~SORCERER: Sorcerers are practitioners of magic who were born with the innate ability to cast spells. It is thought that the blood of some powerful creature flows through their veins; perhaps they are the spawn of the gods themselves, or even dragons walking in humanoid form. Regardless, the Sorcerer's magic is intuitive rather than logical. They know fewer spells than Mages, and acquire spells more slowly, but they can cast spells more often and have no need to select and prepare spells ahead of time. Sorcerers cannot specialize in magic the way Mages do. Other than these differences, a Sorcerer is very similar to a Mage.
+
+CLASS FEATURES:
+
+- May not wear any armor.
+- May only use the following weapons: dagger, quarterstaff, dart, sling.
+- Begins with three proficiency points at first level, and does not gain any more after that.
+- May only become Proficient (one slot) in any weapon class.
+- May cast arcane spells.
+- May not scribe spells into their spellbooks as Mages do. Instead, Sorcerers learn a small number of spells at each level, which they can cast daily without memorization.
+- Hit Die: d4
+~
+@12210  = ~MONK: Monks are warriors who pursue perfection through contemplation as well as action. They are versatile fighters, especially skilled in combat without weapons or armor. Though Monks cannot cast spells, they have a unique magic of their own: They channel a subtle energy, called ki, which allows them to perform amazing feats. The Monk's best known feat is their ability to stun an opponent with an unarmed blow.
+
+CLASS FEATURES:
+
+- May not wear any armor.
+- May only use weapons available to the Thief class (except two-handed).
+- Begins with five proficiency points at first level, and gains another point every third level.
+- One point may be invested in a proficiency at level 1; two points at level 5; and three or more points at level 9.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May learn a few select tactical combat postures, physical fitness feats, and miscellaneous skills.
+- Moves 2 points faster than other characters. Movement rate further improves by 1 every 5 levels.
+- May make 1 unarmed attack per round. An additional 1/2 attack per round is gained every 3 levels. Damage dealt by unarmed attacks increases with level as follows:
+  Level 1-2: 1d6
+  Level 3-5: 1d8
+  Level 6-8: 1d10
+  Level 9-14: 1d12
+  Level 15+: 1d20
+- At level 9, unarmed attacks are treated as a +1 magical weapon and gain a +1 bonus to hit and damage rolls. This enchantment improves to +2 at level 12, +3 at level 15, and +4 at level 25. 
+- Receives a +2 bonus to Saving Throws vs. Spell.
+- Deflect Missiles: +1 bonus to AC vs. missile attacks every 3 levels.
+- Starts with an Armor Class of 9 at 1st level and gains an additional +1 bonus every 2 levels.
+- May use the Stunning Blow ability once per day. Gains one use at level 1 and an additional use every 4 levels thereafter.
+
+STUNNING BLOW: All successful attacks within the next round force the victim to save vs. Spell or be stunned. This special ability automatically modifies normal attacks; no targeting needs to be done.
+
+- 5th level: Becomes immune to all diseases and cannot be slowed or hasted.
+- 7th level: May use the Lay On Hands ability on <PRO_HIMHER>self to heal 2 Hit Points per level.
+- 8th level: Gains a -1 bonus to Speed Factor.
+- 9th level: Gains a +1 bonus to all Saving Throws and becomes immune to charm.
+- 11th level: Becomes immune to poison.
+- 12th level: Gains another -1 bonus to Speed Factor.
+- 13th level: May use the Quivering Palm ability once per day.
+
+QUIVERING PALM: The next successful attack forces the opponent to save vs. Spell or die. This special ability automatically modifies normal attacks; no targeting needs to be done.
+
+- 14th level: Gains 3% Magic Resistance per level (starting with 42% at 14th level).
+- 20th level: Becomes immune to non-magical weapons.
+- Alignment restricted to lawful.
+- Hit Die: d8
+~
+@12211  = ~SHAMAN: Shamans forge a divine connection with the natural world, similar to the way Druids commune with nature, but Shamans are more spiritual than primal. They directly tap into the energies that flow through the earth and air, through plants and animals, and even through the dead, and shape these energies to obey their will. Nowhere is this more evident than in their ability to summon powerful spirits as guardians and defenders. A being of two worlds, Shamans value balance over dominance.
+
+CLASS FEATURES:
+
+- May only wear leather, studded leather, and hide armor.
+- May not equip shields larger than bucklers.
+- May only use the following weapons: dagger, club, spear, axe, quarterstaff, dart, sling, and shortbow.
+- Begins with five proficiency points at first level, and gains another point every third level.
+- One point may be invested in a proficiency at level 1; two points at level 5; and three or more points at level 9.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May learn a few select miscellaneous skills.
+- May cast druidic spells.
+- Does not automatically learn all spells of a given level as Druids do. Instead, Shamans select new spells to learn at each level, which they can cast daily without memorization.
+- Gains immediate access to a number of Shaman-specific spells, which can be cast like any other: Spirit Ward, Writhing Fog, Spiritual Clarity, Spirit Fire, Recall Spirit, Spiritual Lock, and Ether Gate.
+- Gains use of the Detect Illusion skill with 20% points as a base and an 4 points per level, up to a maximum of 100% at level 20.
+- May use Shamanic Dance at will.
+
+SHAMANIC DANCE: Shamans can summon spirit allies by performing a ritualistic dance. While dancing, the Shaman takes a -4 penalty to Armor Class and cannot move, attack, cast spells, use items and special abilities, or perform any other activity. Each round while the Shaman dances, there is a 35% base chance plus 2% for each level of the Shaman that a spirit will answer the call, up to a maximum of 75% at level 20. Any summoned spirits will disappear if the Shaman moves, stops dancing, or if the spirits leave visual range. The spirits grow in power as the Shaman gains additional levels:
+  Level 1: Minor animal spirits (snake, fox, hound), up to 2 spirits at the same time.
+  Level 6: Major animal spirits (bear, panther, boar), up to 3 spirits at the same time.
+  Level 12: Minor nature spirits (lesser air spirit, lesser earth spirit, lesser fire spirit), up to 4 spirits at the same time.
+  Level 18: Major nature spirits (air spirit, earth spirit, fire spirit), up to 5 spirits at the same time.
+The type of the summoned spirit is randomly determined from all the spirits available at the Shaman's level. For example, a level 12 Shaman will summon either a minor nature spirit, a major animal spirit, or a minor animal spirit, but cannot choose which one appears. Spirits will do their best to protect the Shaman but are not controlled directly.
+
+- Does not gain bonus spells per day from high Wisdom.
+- Alignment restricted to neutral good, true neutral, and neutral evil.
+- May not dual-class or multi-class.
+- Ineligible for any stronghold. (This affects only the Shadows of Amn campaign in Baldur's Gate II: Enhanced Edition.)
+- Hit Die: d8
+~
+@12221  = ~
+
+Proficiencies:
+- Cannot learn the defensive feats such as Dodge or the parrying fighting postures.
+~
+@12222  = ~
+
+Proficiencies:
+- May spend up to six proficiency points advancing the Ranged Accuracy skill.
+~
+@12223  = ~
+
+Proficiencies:
+- May spend up to two proficiency points advancing the Backstab skill.
+- May spend up to four proficiency points learning illusion spells with the Magical Abilities skill.
+~
+@12224  = ~
+
+Proficiencies:
+- Receives one proficiency point in the Backstab skill for free, and may spend a total of six points advancing that skill.
+~
+@12225  = ~
+
+Proficiencies:
+- Receives one proficiency point in the Dodge skill for free, and may spend a total of six points advancing that skill.
+~
+@12226  = ~
+
+Proficiencies:
+- Learns the Shadowstep spell for free, and receives an extra two uses of any spells learned from the Magical Abilities skill. However, may not learn the Color Spray or Glitterdust spells.
+~
+@12240  = ~
+
+Proficiencies:
+- Halflings receive one bonus proficiency point in the use of slings, and free specialization (two points) in the Hurled Weapons skill.
+~
+//
+//
+//
+//
 @12301  = ~Greatsword~
 @12302  = ~Specialize with Greatswords?~
 @12303  = ~Long Sword~
