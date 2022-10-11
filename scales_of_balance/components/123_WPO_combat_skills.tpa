@@ -186,6 +186,7 @@ APPEND ~splprot.2da~ ~STAT_105_BEQ%TAB%105%TAB%-1%TAB%7~ UNLESS ~STAT_105_BEQ~
 APPEND ~splprot.2da~ ~STAT_106_BEQ%TAB%106%TAB%-1%TAB%7~ UNLESS ~STAT_106_BEQ~
 APPEND ~splprot.2da~ ~STAT_107_BEQ%TAB%107%TAB%-1%TAB%7~ UNLESS ~STAT_107_BEQ~
 APPEND ~splprot.2da~ ~STAT_108_BEQ%TAB%108%TAB%-1%TAB%7~ UNLESS ~STAT_108_BEQ~
+APPEND ~splprot.2da~ ~STAT_109_BEQ%TAB%109%TAB%-1%TAB%7~ UNLESS ~STAT_109_BEQ~
 APPEND ~splprot.2da~ ~STAT_110_BEQ%TAB%110%TAB%-1%TAB%7~ UNLESS ~STAT_110_BEQ~
 APPEND ~splprot.2da~ ~STAT_111_BEQ%TAB%111%TAB%-1%TAB%7~ UNLESS ~STAT_111_BEQ~
 APPEND ~splprot.2da~ ~STAT_112_BEQ%TAB%112%TAB%-1%TAB%7~ UNLESS ~STAT_112_BEQ~
@@ -215,6 +216,9 @@ COPY_EXISTING ~splprot.2da~ ~override~
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~STAT_108_BEQ~) BEGIN
       SET prof_108_beq = %row%
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~STAT_109_BEQ~) BEGIN
+      SET prof_109_beq = %row%
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~STAT_110_BEQ~) BEGIN
       SET prof_110_beq = %row%
@@ -336,7 +340,9 @@ BUT_ONLY
 //								WEAPON CATEGORIES
 //__________________________________________________________________________________
 
-/* need to finalize what the categories will be
+/* 
+need to finalize what the categories will be
+
  - 89 = staff
  - 90 = bastard sword + longsword
  - 91 = short sword
@@ -357,7 +363,7 @@ BUT_ONLY
  - 106 = backstab
  - 107 = set snares
  - 108 = ranged thac0
- - 110 = hurled thac0 * // <--nope, need to use this for magic skills
+ - 109 = hurled thac0 * 
  - 111 = 2HW
  - 112 = SnS
  - 113 = SWS
@@ -365,13 +371,10 @@ BUT_ONLY
  - 115 = postures
  - 124 = physical feats **
  - 127 = misc skills *
- - 134 = magical skills // <-- nope, move this to 110
+ - 110 = magical skills *
  
 * need to remove any 233 effects applying this stat
 ** need to remove any 233 effects applying this and maybe also modify scripts
- ... maybe modify scripts to check for CheckStatGT(256) and change the op233 effects to increase by 256 (1 << 8)?
-
-***** maybe get rid of the hurled weapons skill? maybe add combat training or weapon mastery instead?
 
 */
 
@@ -646,6 +649,47 @@ BUT_ONLY
 // there. now there are 4 free proficiencies to use for skills. plus 108, and 134.
 // then steal 110, 124, and 127 from DS and we have 9 proficiencies for combat skills
 
+//free up stat 109___________________________________________________________________
+//
+COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
+  GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS
+  SET remove_this = 0
+  PHP_EACH ab_array AS int => ab_off BEGIN
+	GET_OFFSET_ARRAY2 fx_array ab_off SPL_V10_HEAD_EFFECTS
+	PHP_EACH fx_array AS int => fx_off BEGIN
+	  READ_SHORT fx_off fx_type
+	  READ_SHORT (fx_off + 0x08) fx_prof
+	  PATCH_IF (fx_type = 233) AND (fx_prof = 109) BEGIN
+	    SET remove_this = 1
+	  END
+	END
+  END
+  PATCH_IF (remove_this = 1) BEGIN
+    LPF DELETE_EFFECT INT_VAR match_opcode = 233 match_parameter2 = (109 + (0x10000 * 1)) END
+    LPF DELETE_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 109 END
+  END
+BUT_ONLY
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
+  PHP_EACH ab_array AS int => ab_off BEGIN
+	GET_OFFSET_ARRAY2 fx_array ab_off ITM_V10_HEAD_EFFECTS
+	PHP_EACH fx_array AS int => fx_off BEGIN
+	  READ_SHORT fx_off fx_type
+	  READ_SHORT (fx_off + 0x08) fx_prof
+	  PATCH_IF (fx_type = 233) AND (fx_prof = 109) BEGIN
+	    SET remove_this = 1
+	  END
+	END
+  END
+  PATCH_IF (remove_this = 1) BEGIN
+    LPF DELETE_EFFECT INT_VAR match_opcode = 233 match_parameter2 = (109 + (0x10000 * 1)) END
+    LPF DELETE_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 109 END
+  END
+BUT_ONLY
+
+//__________________________________________________________________________________
+
 //free up stat 110___________________________________________________________________
 //
 COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
@@ -666,7 +710,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
     LPF DELETE_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 110 END
   END
 BUT_ONLY
-
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
@@ -713,7 +756,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
     LPF ALTER_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 124 opcode = 328 parameter2 = %regeneration_state% special = 1 END
   END
 BUT_ONLY
-
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
@@ -769,7 +811,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
     LPF DELETE_EFFECT INT_VAR match_opcode = 233 match_parameter2 = 127 END
   END
 BUT_ONLY
-
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   GET_OFFSET_ARRAY ab_array ITM_V10_HEADERS
@@ -869,7 +910,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
   END
   REMOVE_2DA_ROW remove_row 5
   INSERT_2DA_ROW 32 3 ~CLUB                     115                      25009                    25033                    0 ~
-//  INSERT_2DA_ROW 28 3 ~EXTRA1                   110                      4294967296               4294967296               0 ~
+  INSERT_2DA_ROW 28 3 ~EXTRA1                   109                      4294967296               4294967296               0 ~
   INSERT_2DA_ROW 28 3 ~EXTRA0                   108                      4294967296               4294967296               0 ~
 BUT_ONLY
 
@@ -881,7 +922,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
   COUNT_2DA_ROWS 5 rows
   FOR (row = 3; row < rows; ++row) BEGIN
     READ_2DA_ENTRY row 1 5 stat
-    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~108~) OR (~%stat%~ STRING_EQUAL_CASE ~110~) OR (~%stat%~ STRING_EQUAL_CASE ~115~) BEGIN
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~108~) OR (~%stat%~ STRING_EQUAL_CASE ~109~) OR (~%stat%~ STRING_EQUAL_CASE ~110~) OR (~%stat%~ STRING_EQUAL_CASE ~115~) BEGIN
       FOR (ind = 1; ind < (cols - 4); ++ind) BEGIN
         SET_2DA_ENTRY row 4 5 ~0                        0~
       END
@@ -968,6 +1009,10 @@ COPY_EXISTING ~weapprof.2da~ ~override~
       SET_2DA_ENTRY row 0 5 ~ACCURACY~
       SET ranged_row = (row + 2)
     END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~109~) BEGIN
+      SET_2DA_ENTRY row 0 5 ~HURLING~
+      SET hurling_row = (row + 2)
+    END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~110~) BEGIN
       SET_2DA_ENTRY row 0 5 ~MAGICSKILLS~
       SET magic_row = (row + 2)
@@ -1000,6 +1045,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   0
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  1
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     2
@@ -1011,6 +1057,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   6
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     4
@@ -1022,6 +1069,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   2
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     2
@@ -1033,6 +1081,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 2
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   2
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     7
@@ -1044,6 +1093,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 2
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     4
@@ -1055,6 +1105,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     4
@@ -1066,6 +1117,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   2
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     2
@@ -1077,6 +1129,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 1
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     4
@@ -1088,6 +1141,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     4
@@ -1099,6 +1153,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     2
@@ -1110,6 +1165,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     7
@@ -1121,6 +1177,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     4
@@ -1132,6 +1189,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 2
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   2
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     4
@@ -1143,6 +1201,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   2
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     2
@@ -1154,6 +1213,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 2
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   2
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     6
@@ -1165,6 +1225,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     4
@@ -1176,6 +1237,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     4
@@ -1187,6 +1249,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     4
@@ -1198,6 +1261,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   0
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  1
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     2
@@ -1209,6 +1273,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   0
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 4
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   4
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     2
@@ -1220,6 +1285,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
           SET_2DA_ENTRY_LATER ~s2el_csp~ backstab_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ snares_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   2
+          SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  2
           SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 0
           SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   0
           SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     2
@@ -1253,6 +1319,9 @@ COPY_EXISTING ~weapprof.2da~ ~override~
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~108~) BEGIN
       SET ranged_row = (row + 2)
     END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~109~) BEGIN
+      SET hurling_row = (row + 2)
+    END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~110~) BEGIN
       SET magic_row = (row + 2)
     END
@@ -1275,13 +1344,34 @@ COPY_EXISTING ~weapprof.2da~ ~override~
     PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~BERSERKER~) BEGIN
       SET_2DA_ENTRY_LATER ~s2el_csp~ dodge_row (col + 1)    0
       SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  0
       SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     0
     END
     PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~KENSAI~) BEGIN
       SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  0
+    END
+    PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~IK_BATTLERAGER~) BEGIN
+      SET_2DA_ENTRY_LATER ~s2el_csp~ dodge_row (col + 1)    0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     0
+    END
+    PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~c0tbm~) BEGIN
+      SET_2DA_ENTRY_LATER ~s2el_csp~ dodge_row (col + 1)    0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     0
+    END
+    PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D2KENSAIZERKER~) BEGIN
+      SET_2DA_ENTRY_LATER ~s2el_csp~ dodge_row (col + 1)    0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     0
     END
     PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~CAVALIER~) BEGIN
       SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  0
     END
     PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~FERALAN~) BEGIN
       SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   6
@@ -1334,6 +1424,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
     END
     PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~C#WARDOG~) BEGIN
       SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   0
+      SET_2DA_ENTRY_LATER ~s2el_csp~ hurling_row (col + 1)  0
       SET_2DA_ENTRY_LATER ~s2el_csp~ postures_row (col + 1) 0
       SET_2DA_ENTRY_LATER ~s2el_csp~ health_row (col + 1)   6
       SET_2DA_ENTRY_LATER ~s2el_csp~ misc_row (col + 1)     0
@@ -1719,32 +1810,31 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs108f.spl~
 
 
 
-/* stat 134 wasn't working for magic skills, so we'll use 110 for it instead
 //hurled thac0_______________________________________________________________________
 //
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs134a.spl~		//			hurled thac0
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs109a.spl~		//			hurled thac0
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ134A~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ134D~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cs134a~ END
-  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5cs134a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109A~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109D~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cs109a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5cs109a~ END
 
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs134b.spl~
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs109b.spl~
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ134B~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ134E~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cs134b~ END
-  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5cs110b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109B~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109E~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cs109b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5cs109b~ END
 
 /*
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs134c.spl~
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs109c.spl~
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ134C~ END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cs134c~ END
-  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5cs134c~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~D5CZ109C~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cs109c~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5cs109c~ END
 */
 
-CREATE EFF ~d5cz134a~
+CREATE EFF ~d5cz109a~
 	WRITE_LONG 0x10 167
 	WRITE_LONG 0x14 1
 	WRITE_LONG 0x1c (0 - 2)
@@ -1753,8 +1843,8 @@ CREATE EFF ~d5cz134a~
 	WRITE_LONG 0x28 0
 	WRITE_SHORT 0x2c 100
 	WRITE_LONG 0x90 1
-	WRITE_EVALUATED_ASCII 0x94 ~D5CZ134A~ #8
-CREATE EFF ~d5cz134b~
+	WRITE_EVALUATED_ASCII 0x94 ~D5CZ109A~ #8
+CREATE EFF ~d5cz109b~
 	WRITE_LONG 0x10 167
 	WRITE_LONG 0x14 1
 	WRITE_LONG 0x1c (0 - 2)
@@ -1763,8 +1853,8 @@ CREATE EFF ~d5cz134b~
 	WRITE_LONG 0x28 0
 	WRITE_SHORT 0x2c 100
 	WRITE_LONG 0x90 1
-	WRITE_EVALUATED_ASCII 0x94 ~D5CZ134B~ #8
-CREATE EFF ~d5cz134c~
+	WRITE_EVALUATED_ASCII 0x94 ~D5CZ109B~ #8
+CREATE EFF ~d5cz109c~
 	WRITE_LONG 0x10 167
 	WRITE_LONG 0x14 1
 	WRITE_LONG 0x1c (0 - 2)
@@ -1773,8 +1863,8 @@ CREATE EFF ~d5cz134c~
 	WRITE_LONG 0x28 0
 	WRITE_SHORT 0x2c 100
 	WRITE_LONG 0x90 1
-	WRITE_EVALUATED_ASCII 0x94 ~D5CZ134C~ #8
-CREATE EFF ~d5cz134d~
+	WRITE_EVALUATED_ASCII 0x94 ~D5CZ109C~ #8
+CREATE EFF ~d5cz109d~
 	WRITE_LONG 0x10 1
 	WRITE_LONG 0x14 1
 	WRITE_LONG 0x1c (0 - 6)
@@ -1783,8 +1873,8 @@ CREATE EFF ~d5cz134d~
 	WRITE_LONG 0x28 0
 	WRITE_SHORT 0x2c 100
 	WRITE_LONG 0x90 1
-	WRITE_EVALUATED_ASCII 0x94 ~D5CZ134D~ #8
-CREATE EFF ~d5cz134e~
+	WRITE_EVALUATED_ASCII 0x94 ~D5CZ109D~ #8
+CREATE EFF ~d5cz109e~
 	WRITE_LONG 0x10 1
 	WRITE_LONG 0x14 1
 	WRITE_LONG 0x1c (0 - 6)
@@ -1793,7 +1883,7 @@ CREATE EFF ~d5cz134e~
 	WRITE_LONG 0x28 0
 	WRITE_SHORT 0x2c 100
 	WRITE_LONG 0x90 1
-	WRITE_EVALUATED_ASCII 0x94 ~D5CZ134E~ #8
+	WRITE_EVALUATED_ASCII 0x94 ~D5CZ109E~ #8
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   SET thrown_weap = 0
@@ -1810,16 +1900,15 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	END
   END
   PATCH_IF (thrown_weap = 1) BEGIN
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz134a~ END
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz134b~ END
-//    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz134c~ END
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz134d~ END
-    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz134e~ END
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109a~ END
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109b~ END
+//    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109c~ END
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109d~ END
+    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cz109e~ END
   END
 BUT_ONLY
 
 //__________________________________________________________________________________
-*/
 
 
 
@@ -1861,6 +1950,7 @@ ACTION_FOR_EACH letr IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ BEGIN
 
 END
 //__________________________________________________________________________________
+
 
 
 
@@ -3249,8 +3339,8 @@ ACTION_FOR_EACH let IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ BEGIN
     SAY UNIDENTIFIED_DESC @12127
 
   COPY_EXISTING ~d5c110%let%.spl~ ~override~
-    SAY NAME1 @12184
-    SAY UNIDENTIFIED_DESC @12134
+    SAY NAME1 @12160
+    SAY UNIDENTIFIED_DESC @12110
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5ci206~ END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5ci000~ END
 
@@ -4038,11 +4128,11 @@ EXTEND_TOP ~d5cs110.bcs~ ~weidu_external/%MOD_FOLDER%/compile/d5110tmp.baf~
 
 
 
+
 //__________________________________________________________________________________
 //
 //								MODIFY GAME TEXT
 //__________________________________________________________________________________
-
 
 
 //update proficiency strings_________________________________________________________
@@ -4132,6 +4222,10 @@ COPY_EXISTING ~weapprof.2da~ ~override~
       SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12158)
       SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12108)
     END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~109~) BEGIN
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12159)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12109)
+    END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~115~) BEGIN
       SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12165)
       SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12115)
@@ -4145,8 +4239,8 @@ COPY_EXISTING ~weapprof.2da~ ~override~
       SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12127)
     END
     PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~110~) BEGIN
-      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12184)
-      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12134)
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@12160)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@12110)
     END
   END
 BUT_ONLY
@@ -4640,16 +4734,14 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs000.spl~
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 5 parameter2 = %prof_108_beq% timing = 1 STR_VAR resource = ~d5cs108e~ END
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 6 parameter2 = %prof_108_beq% timing = 1 STR_VAR resource = ~d5cs108f~ END
 //  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 7 parameter2 = %prof_108_beq% timing = 1 STR_VAR resource = ~d5cs108g~ END
-/*
 // hurled thac0
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 1 parameter2 = %prof_110_beq% timing = 1 STR_VAR resource = ~d5cs110a~ END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 2 parameter2 = %prof_110_beq% timing = 1 STR_VAR resource = ~d5cs110b~ END
-//  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 3 parameter2 = %prof_110_beq% timing = 1 STR_VAR resource = ~d5cs110c~ END
-//  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 4 parameter2 = %prof_110_beq% timing = 1 STR_VAR resource = ~d5cs110d~ END
-//  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 5 parameter2 = %prof_110_beq% timing = 1 STR_VAR resource = ~d5cs110e~ END
-//  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 6 parameter2 = %prof_110_beq% timing = 1 STR_VAR resource = ~d5cs110f~ END
-//  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 7 parameter2 = %prof_110_beq% timing = 1 STR_VAR resource = ~d5cs110g~ END
-*/
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 1 parameter2 = %prof_109_beq% timing = 1 STR_VAR resource = ~d5cs109a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 2 parameter2 = %prof_109_beq% timing = 1 STR_VAR resource = ~d5cs109b~ END
+//  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 3 parameter2 = %prof_109_beq% timing = 1 STR_VAR resource = ~d5cs109c~ END
+//  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 4 parameter2 = %prof_109_beq% timing = 1 STR_VAR resource = ~d5cs109d~ END
+//  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 5 parameter2 = %prof_109_beq% timing = 1 STR_VAR resource = ~d5cs109e~ END
+//  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 6 parameter2 = %prof_109_beq% timing = 1 STR_VAR resource = ~d5cs109f~ END
+//  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 7 parameter2 = %prof_109_beq% timing = 1 STR_VAR resource = ~d5cs109g~ END
 // fighting postures
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 1 parameter2 = %prof_115_beq% timing = 1 STR_VAR resource = ~d5cs115a~ END
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 326 parameter1 = 2 parameter2 = %prof_115_beq% timing = 1 STR_VAR resource = ~d5cs115a~ END	//	grant earlier ones too
@@ -4862,6 +4954,7 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs001.spl~
 
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cshal1.spl~
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 2 parameter2 = 109 timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (101 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cshal1~ END
 
@@ -5046,7 +5139,7 @@ ACTION_IF !(FILE_EXISTS_IN_GAME ~d5prfch.spl~) BEGIN
     END
 // should also remove any proficiency-related effects... e.g. from SoB CSP
     PATCH_FOR_EACH d5_csp_letr IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ ~h~ ~i~ BEGIN
-      PATCH_FOR_EACH d5_csp_stat IN ~104~ ~105~ ~106~ ~107~ ~108~ BEGIN
+      PATCH_FOR_EACH d5_csp_stat IN ~104~ ~105~ ~106~ ~107~ ~108~ ~109~ BEGIN
         LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5cs%d5_csp_stat%%d5_csp_letr%b~ END
       END
     END
@@ -5103,7 +5196,7 @@ COPY_EXISTING ~d5cspra.spl~ ~override~
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5profz~ END
 /* don't really need this stuff vv ... but it would harmonize this with NPC_EE's d5prfch.spl
     PATCH_FOR_EACH d5_csp_letr IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ ~h~ ~i~ BEGIN
-      PATCH_FOR_EACH d5_csp_stat IN ~104~ ~105~ ~106~ ~107~ ~108~ BEGIN
+      PATCH_FOR_EACH d5_csp_stat IN ~104~ ~105~ ~106~ ~107~ ~108~ ~109~ BEGIN
         LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5cs%d5_csp_stat%%d5_csp_letr%b~ END
       END
     END

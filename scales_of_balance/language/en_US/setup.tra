@@ -725,7 +725,7 @@ Each rank in this proficiency will allow one attempt per day to set a trap.
 5 points: +5 bonus to hit and damage with ranged attacks
 6 points: +6 bonus to hit and damage with ranged attacks
 ~
-@12110  = ~HURLED WEAPONS: Throwing weapons at adversaries is, by nature, a slow and clumsy act. But with practice, some can learn to hurl weapons with great accuracy and speed.
+@12109  = ~THROWN WEAPONS: Hurling weapons at adversaries is, by nature, a slow and clumsy act. But with practice, some can learn to hurl weapons with great accuracy and speed.
 
 0 points: -1 APR and -3 penalty to hit with thrown weapons
 1 point: -.5 APR and -1 penalty to hit with thrown weapons
@@ -771,7 +771,7 @@ NOTE: not all these feats are available to every class or kit. Warriors will gen
 
 NOTE: generally, only rogues will be able to learn any of these skills. Most other classes are restricted to choosing from Lore Bonus, Flaming Weapon, Luck Bonus and Wild Talent.
 ~
-@12134  = ~MAGICAL ABILITIES: Some rogues pick up slight magical abilities in their travels. Not enough to become true mages; just a few illusion-related effects that are useful for the furtherance of roguish exploits. The list of abilities to choose from includes:
+@12110  = ~MAGICAL ABILITIES: Some rogues pick up slight magical abilities in their travels. Not enough to become true mages; just a few illusion-related effects that are useful for the furtherance of roguish exploits. The list of abilities to choose from includes:
 
 - Use Magical Device (trigger effects from spell scrolls and wands)
 - Color Spray
@@ -796,11 +796,11 @@ These spells are cast innately, like a sorcerer. Each spell that is chosen, it i
 @12156  = ~Backstab~
 @12157  = ~Set Snare~
 @12158  = ~Ranged Accuracy~
-@12160  = ~Hurled Weapons~
+@12159  = ~Thrown Weapons~
 @12165  = ~Fighting Postures~
 @12174  = ~Physical Fitness~
 @12177  = ~Miscellaneous Skills~
-@12184  = ~Magical Abilities~
+@12160  = ~Magical Abilities~
 @12187  = ~Tracking~
 @12188  = ~Tracking: the Tracking ability gives one a general idea of what creatures are in an area and which direction they are. Red arrows at the edge of the screen will point in the general direction of the creatures in the area.~
 @12191  = ~Grease Jar~
@@ -825,7 +825,7 @@ CLASS FEATURES:
 - Begins with eight proficiency points at first level, and gains another point every second level.
 - One point may be invested in a proficiency at level 1; two points at level 2; three points at level 5, and four or more points at level 9.
 - May achieve Grand Mastery (four points) with any weapon, and with the Attack Speed skill.
-- May achieve Specialization (two points) in any fighting style, and with the Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May achieve Specialization (two points) in any fighting style, and with the Dodge, Ranged Accuracy, and Thrown Weapons skills.
 - May learn tactical combat postures, physical fitness feats, and certain miscellaneous skills.
 - Hit Die: d10
 
@@ -840,7 +840,7 @@ CLASS FEATURES:
 - Begins with six proficiency points at first level, and gains another point every second level.
 - One point may be invested in a proficiency at level 1; two points at level 2; three points at level 5, and four or more points at level 9.
 - May achieve Mastery (three points) with any weapon, and Grand Mastery (four points) with the Attack Speed skill.
-- May achieve Specialization (two points) in any fighting style, and with the Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May achieve Specialization (two points) in any fighting style, and with the Dodge, Ranged Accuracy, and Thrown Weapons skills.
 - Begins with the Tracking and Quickstride skills, and with Specialization (two points) in Two-Weapon Style.
 - May learn tactical combat postures, physical fitness feats, and certain miscellaneous skills.
 - May select a racial enemy, which grants a +4 bonus to hit and damage rolls against the selected enemy race.
@@ -861,7 +861,7 @@ CLASS FEATURES:
 - Begins with six proficiency points at first level, and gains another point every second level.
 - One point may be invested in a proficiency at level 1; two points at level 2; three points at level 5, and four or more points at level 9.
 - May achieve Mastery (three points) with any weapon, and Grand Mastery (four points) with the Attack Speed skill.
-- May achieve Specialization (two points) in any fighting style, and with the Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May achieve Specialization (two points) in any fighting style, and with the Dodge, Ranged Accuracy, and Thrown Weapons skills.
 - May learn tactical combat postures, physical fitness feats, and certain miscellaneous skills.
 - May use Lay On Hands ability once per day to heal a target for 2 Hit Points per level of the Paladin.
 - May cast Detect Evil once per day per level (starts at 1st level with 4 uses).
@@ -881,7 +881,7 @@ CLASS FEATURES:
 - May only use certain weapons appropriate for their ethos (generally non-bladed weapons such as the war hammer, club, flail, mace, quarterstaff, and sling).
 - Begins with five proficiency points at first level, and gains another point every third level.
 - One point may be invested in a proficiency at level 1; two points at level 5; and three or more points at level 9.
-- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Thrown Weapons skills.
 - May learn select physical fitness feats and miscellaneous skills.
 - May Turn Undead.
 - May cast priest spells.
@@ -898,7 +898,7 @@ CLASS FEATURES:
 - May only use certain weapons appropriate for their ethos (generally the scimitar, dagger, club, spear, quarterstaff, dart, and sling).
 - Begins with five proficiency points at first level, and gains another point every third level.
 - One point may be invested in a proficiency at level 1; two points at level 5; and three or more points at level 9.
-- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Thrown Weapons skills.
 - May learn select physical fitness feats and miscellaneous skills.
 - May cast druidic spells.
 - 7th level: May Shapeshift into a wolf, black bear, or brown bear once per day.
@@ -931,7 +931,7 @@ CLASS FEATURES:
 - May only use the following weapons: long sword, short sword, katana, scimitar, dagger, club, quarterstaff, crossbow, shortbow, dart, sling.
 - Begins with six proficiency points at first level, and gains another point every second level.
 - One point may be invested in a proficiency at level 1; two points at level 2; three points at level 5, and four or more points at level 9.
-- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Thrown Weapons skills.
 - May learn a few select tactical combat postures and physical fitness feats, as well as various miscellaneous skills and even some magical abilities and illusion spells.
 - May distribute 25 points per level (40 at level 1) in thieving abilities: Open Locks, Pick Pockets, Find Traps, Move Silently, Hide In Shadows, Detect Illusion, Set Traps.
 - Starts with base scores of 10% in Open Locks, 5% in Find Traps, 15% in Pick Pockets, 10% in Move Silently, and 5% in Hide in Shadows.
@@ -957,7 +957,7 @@ CLASS FEATURES:
 - May not equip shields larger than bucklers.
 - Begins with five proficiency points at first level, and gains another point every third level.
 - One point may be invested in a proficiency at level 1; two points at level 5; and three or more points at level 9.
-- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Dodge and Hurled Weapons skills.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Dodge and Thrown Weapons skills.
 - May learn a few select tactical combat postures, physical fitness feats, and miscellaneous skills.
 - Thieving abilities: Pick Pockets.
 - Increased Lore score.
@@ -989,7 +989,7 @@ CLASS FEATURES:
 - May only use weapons available to the Thief class (except two-handed).
 - Begins with five proficiency points at first level, and gains another point every third level.
 - One point may be invested in a proficiency at level 1; two points at level 5; and three or more points at level 9.
-- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Thrown Weapons skills.
 - May learn a few select tactical combat postures, physical fitness feats, and miscellaneous skills.
 - Moves 2 points faster than other characters. Movement rate further improves by 1 every 5 levels.
 - May make 1 unarmed attack per round. An additional 1/2 attack per round is gained every 3 levels. Damage dealt by unarmed attacks increases with level as follows:
@@ -1030,7 +1030,7 @@ CLASS FEATURES:
 - May only use the following weapons: dagger, club, spear, axe, quarterstaff, dart, sling, and shortbow.
 - Begins with five proficiency points at first level, and gains another point every third level.
 - One point may be invested in a proficiency at level 1; two points at level 5; and three or more points at level 9.
-- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Hurled Weapons skills.
+- May become Specialized (two points) with appropriate weapons and fighting styles, and with the Attack Speed, Dodge, Ranged Accuracy, and Thrown Weapons skills.
 - May learn a few select miscellaneous skills.
 - May cast druidic spells.
 - Does not automatically learn all spells of a given level as Druids do. Instead, Shamans select new spells to learn at each level, which they can cast daily without memorization.
@@ -1085,7 +1085,7 @@ Proficiencies:
 @12240  = ~
 
 Proficiencies:
-- Halflings receive one bonus proficiency point in the use of slings, and free specialization (two points) in the Hurled Weapons skill.
+- Halflings receive one bonus proficiency point in the use of slings, and free specialization (two points) in the Thrown Weapons skill.
 ~
 //
 //
