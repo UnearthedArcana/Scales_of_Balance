@@ -22,7 +22,7 @@ INCLUDE ~scales_of_balance/ini/stats.ini~
 
 //EDIT STAT BONUSES__________________________________________________________________
 //
-ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__yaras.d5~) BEGIN
+ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__yaras.d5~ BEGIN
   COPY ~scales_of_balance/stats/dexmod.2da~ ~override~
 END
 COPY ~scales_of_balance/stats/strmod.2da~ ~override~
@@ -40,13 +40,13 @@ COPY_EXISTING ~abclasrq.2da~ ~override~
 
 //EDIT DEMIHUMAN STATS_______________________________________________________________
 //
-ACTION_IF (change_races > 0) BEGIN
+COPY ~scales_of_balance/misc/abracead.2da~ ~override~
+//___________________________________________________________________________________
 
- COPY ~scales_of_balance/misc/abracead.2da~ ~override~
 
 //EDIT RACE STRINGS__________________________________________________________________
 //
- ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
 	COPY_EXISTING ~racetext.2da~ ~override~
 		SET_2DA_ENTRY 3 3 1 RESOLVE_STR_REF (@20011)
 		SET_2DA_ENTRY 4 3 1 RESOLVE_STR_REF (@20013)
@@ -67,19 +67,6 @@ ACTION_IF (change_races > 0) BEGIN
 		SET_2DA_ENTRY 9 3 1 RESOLVE_STR_REF (@20017)
 	BUT_ONLY
   END
-  ACTION_IF (FILE_EXISTS_IN_GAME ~bgractxt.2da~) BEGIN
-	COPY_EXISTING ~bgractxt.2da~ ~override~
-		SET_2DA_ENTRY 3 3 1 RESOLVE_STR_REF (@20011)
-		SET_2DA_ENTRY 4 3 1 RESOLVE_STR_REF (@20013)
-		SET_2DA_ENTRY 5 3 1 RESOLVE_STR_REF (@20016)
-		SET_2DA_ENTRY 6 3 1 RESOLVE_STR_REF (@20012)
-		SET_2DA_ENTRY 7 3 1 RESOLVE_STR_REF (@20015)
-		SET_2DA_ENTRY 8 3 1 RESOLVE_STR_REF (@20014)
-		SET_2DA_ENTRY 9 3 1 RESOLVE_STR_REF (@20017)
-	BUT_ONLY
-  END
- END
-
 END
 //___________________________________________________________________________________
 
@@ -101,19 +88,16 @@ END
 
 //ADD NEW DYNAMIC STAT BONUSES______________________________________________________
 //
-ACTION_IF !(FILE_EXISTS_IN_GAME ~d5_stat1.spl~) BEGIN
+ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
+
   COPY ~scales_of_balance/stats/d5_stat1.spl~ ~override~
-END
-ACTION_IF !(FILE_EXISTS_IN_GAME ~d5_stat.eff~) BEGIN
-  COPY ~scales_of_balance/stats/d5_stats.eff~ ~override~
-END
-ACTION_IF !(FILE_EXISTS_IN_GAME ~d5_stats.spl~) BEGIN
   COPY ~scales_of_balance/stats/d5_stats.spl~ ~override~
-END
+  COPY ~scales_of_balance/stats/d5_stats.eff~ ~override~
+  
 
 //DEX_______________________________________________________________________________
 //
-ACTION_IF (change_DEX > 0) BEGIN
+ ACTION_IF (change_DEX > 0) BEGIN
   APPEND ~splprot.2da~ ~D5_DEX_IS%TAB%40%TAB%-1%TAB%1~
 
   COPY_EXISTING ~splprot.2da~ ~override~
@@ -193,7 +177,7 @@ ACTION_IF (change_DEX > 0) BEGIN
 
 //INT_______________________________________________________________________________
 //
-ACTION_IF (change_INT > 0) BEGIN
+ ACTION_IF (change_INT > 0) BEGIN
   APPEND ~splprot.2da~ ~D5_INT_IS%TAB%38%TAB%-1%TAB%1~
 
   COPY_EXISTING ~splprot.2da~ ~override~
@@ -309,11 +293,11 @@ ACTION_IF (change_INT > 0) BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 37 parameter1 = 6 parameter2 = 0 target = 1 timing = 0 duration = 7 END
 //	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 4 parameter2 = 0 target = 1 timing = 0 duration = 7 END
 //	LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 parameter1 = 4 parameter2 = 1 target = 1 timing = 0 duration = 7 END
-END
+ END
 
 //WIS_______________________________________________________________________________
 //
-ACTION_IF (change_WIS > 0) BEGIN
+ ACTION_IF (change_WIS > 0) BEGIN
   APPEND ~splprot.2da~ ~D5_WIS_IS%TAB%39%TAB%-1%TAB%1~
 
   COPY_EXISTING ~splprot.2da~ ~override~
@@ -427,11 +411,11 @@ ACTION_IF (change_WIS > 0) BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 35 parameter1 = 6 parameter2 = 0 target = 1 timing = 0 duration = 7 END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 33 parameter1 = 5 parameter2 = 0 target = 1 timing = 0 duration = 7 END
 //	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 112 parameter2 = 2 target = 1 timing = 0 duration = 9 END
-END
+ END
 
 //CHA_______________________________________________________________________________
 //
-ACTION_IF (change_CHA > 0) BEGIN
+ ACTION_IF (change_CHA > 0) BEGIN
   APPEND ~splprot.2da~ ~D5_CHA_IS%TAB%42%TAB%-1%TAB%1~
   
   COPY_EXISTING ~splprot.2da~ ~override~
@@ -590,32 +574,34 @@ ACTION_IF (change_CHA > 0) BEGIN
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 34 parameter1 = 5 parameter2 = 0 target = 1 timing = 0 duration = 7 END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 22 parameter1 = 2 parameter2 = 0 target = 1 timing = 0 duration = 7 END
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 104 parameter1 = 120 parameter2 = 2 target = 1 timing = 0 duration = 9 END
-END
+ END
 //__________________________________________________________________________________
 
 
 //ADD STAT BONUS EFFECT TO EVERY CLAB_______________________________________________
 //
 // no need for clabma01 because it is in kitlist.2da
-ACTION_FOR_EACH trueclass IN ~clabba01~ ~clabdr01~ ~clabfi01~ /*~clabma01~*/ ~clabmo01~ ~clabpa01~ ~clabpr01~ ~clabrn01~ ~clabsh01~ ~clabth01~ BEGIN
-  ACTION_IF (FILE_EXISTS_IN_GAME ~%trueclass%.2da~) BEGIN
-    APPEND ~%trueclass%.2da~ ~ABILITY     AP_D5_STAT1 ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~ UNLESS ~AP_D5_STAT1~
+  ACTION_FOR_EACH trueclass IN ~clabba01~ ~clabdr01~ ~clabfi01~ /*~clabma01~*/ ~clabmo01~ ~clabpa01~ ~clabpr01~ ~clabrn01~ ~clabsh01~ ~clabth01~ BEGIN
+	ACTION_IF FILE_EXISTS_IN_GAME ~%trueclass%.2da~ BEGIN
+	  COPY_EXISTING ~%trueclass%.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/stats/stat_bonuses.txt~
+	END
   END
-END
-COPY_EXISTING ~kitlist.2da~ ~override~
-  COUNT_2DA_ROWS ~9~ "rows"
-  FOR ( index = 2 ; index < rows ; index = index + 1 ) BEGIN
-    READ_2DA_ENTRY %index% 5 9 modclab
-    READ_2DA_ENTRY %index% 8 9 modclass
-    PATCH_IF (modclass = 1) OR (modclass = 2) OR (modclass = 3) OR (modclass = 4) OR (modclass = 5) OR (modclass = 6) OR (modclass = 11) OR (modclass = 12) OR (modclass = 19) OR (modclass = 20) OR (modclass = 21) BEGIN
-      INNER_ACTION BEGIN
-        ACTION_IF (FILE_EXISTS_IN_GAME ~%modclab%.2da~) BEGIN
-          APPEND ~%modclab%.2da~ ~ABILITY     AP_D5_STAT1 ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~ UNLESS ~AP_D5_STAT1~
-        END
-      END
-    END
-  END
-BUT_ONLY
+  COPY_EXISTING ~kitlist.2da~ ~override~
+	COUNT_2DA_ROWS ~9~ "rows"
+	FOR ( index = 2 ; index < rows ; index = index + 1 ) BEGIN
+	  READ_2DA_ENTRY %index% 5 9 modclab
+	  READ_2DA_ENTRY %index% 8 9 modclass
+	  PATCH_IF (modclass = 1) OR (modclass = 2) OR (modclass = 3) OR (modclass = 4) OR (modclass = 5) OR (modclass = 6) OR (modclass = 11) OR (modclass = 12) OR (modclass = 19) OR (modclass = 20) OR (modclass = 21) BEGIN
+	    INNER_ACTION BEGIN
+	      ACTION_IF (FILE_EXISTS_IN_GAME ~%modclab%.2da~) BEGIN
+	        APPEND ~%modclab%.2da~ ~ABILITY     AP_D5_STAT1 ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****       ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        **** ~
+	      END
+	    END
+	  END
+	END
+  BUT_ONLY
 
 /*
 	  DEFINE_ASSOCIATIVE_ARRAY d5_stat_bonuses BEGIN "%modclab%" => "%modclass%" END
@@ -633,7 +619,7 @@ BUT_ONLY
 
 //REMOVE M&G LUCK FEAT______________________________________________________________
 //
-ACTION_IF NOT GAME_IS ~iwdee~ BEGIN
+ ACTION_IF NOT GAME_IS ~iwdee~ BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~d5_rogue.dlg~ BEGIN
 	COPY_EXISTING ~d5_rogue.dlg~ ~override~
 	  DECOMPILE_AND_PATCH BEGIN
@@ -669,11 +655,11 @@ ACTION_IF NOT GAME_IS ~iwdee~ BEGIN
 	  END
 	BUT_ONLY
   END
-END  
+ END  
 
 //NERF RING OF HUMAN INFLUENCE______________________________________________________
 //
-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
+ ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~ring30.itm~ BEGIN
 	COPY_EXISTING ~ring30.itm~ ~override~
 	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 6 match_parameter2 = 1 parameter2 = 0 parameter1 = 1 END
@@ -686,93 +672,86 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~dvsrv4here.mrk~ BEGIN
 		SAY_EVALUATED 0x54 ~%new_desc%~
 	  END
   END
+ END
+ 
 END
 //__________________________________________________________________________________
- 
+
 
 //DIALOGUE-BASED PROFICIENCIES______________________________________________________
 //
 ACTION_IF (int_extra_prof = 1) BEGIN
 
-  INCLUDE ~%MOD_FOLDER%/lib/dialprof.tpa~
-
-  OUTER_SPRINT prof_script_name ~d5iprx~
-  OUTER_SET script_level_one = 0
-  OUTER_SET script_higher_levels = 0
-
-  LAM PROF_DIALOGUE
-
-  COPY_EXISTING ~d5iprxa.spl~ ~override~
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5cs000~ END
-  COPY_EXISTING ~d5iprxa.spl~ ~override/d5iprxb.spl~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxb~ END
-  IF_EXISTS BUT_ONLY
-  COPY_EXISTING ~d5iprxa.spl~ ~override/d5iprxc.spl~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxc~ END
-  IF_EXISTS BUT_ONLY
-  COPY_EXISTING ~d5iprxa.spl~ ~override/d5iprxd.spl~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxd~ END
-  IF_EXISTS BUT_ONLY
-  COPY_EXISTING ~d5iprxa.spl~ ~override/d5iprxe.spl~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxe~ END
-  IF_EXISTS BUT_ONLY
-  COPY_EXISTING ~d5iprxa.spl~ ~override/d5iprxf.spl~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 172 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxf~ END
-  IF_EXISTS BUT_ONLY
-
-  COPY_EXISTING ~d5iprx1.spl~ ~override/d5iprx2.spl~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxb~ END
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5iprx2~ END
-  IF_EXISTS BUT_ONLY
-  COPY_EXISTING ~d5iprx1.spl~ ~override/d5iprx3.spl~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxc~ END
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5iprx3~ END
-  IF_EXISTS BUT_ONLY
-  COPY_EXISTING ~d5iprx1.spl~ ~override/d5iprx4.spl~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxd~ END
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5iprx4~ END
-  IF_EXISTS BUT_ONLY
-  COPY_EXISTING ~d5iprx1.spl~ ~override/d5iprx5.spl~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxe~ END
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5iprx5~ END
-  IF_EXISTS BUT_ONLY
-  COPY_EXISTING ~d5iprx1.spl~ ~override/d5iprx6.spl~
-    LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 171 STR_VAR match_resource = ~d5iprxa~ resource = ~d5iprxf~ END
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5iprx6~ END
-  IF_EXISTS BUT_ONLY
+  ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__dialprof.d5~ BEGIN
+	INCLUDE ~scales_of_balance/lib/weapprof_dialogue.tpa~
+//	LAM SET_UP_PROF_DIALOGUES
+  END
 
   COPY ~scales_of_balance/stats/d5iprf1.spl~ ~override~
-	PATCH_IF !(int_prof_5 = 17) BEGIN
+	PATCH_IF NOT (int_prof_5 = 17) BEGIN
 	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 17 parameter1 = %int_prof_5% END
 	END
-	PATCH_IF !(int_prof_7 = 15) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_7% END
+	PATCH_IF NOT (int_prof_7 = 15) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_5% END
 	END
-	PATCH_IF !(int_prof_9 = 13) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 13 parameter1 = %int_prof_9% END
+	PATCH_IF NOT (int_prof_9 = 13) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 13 parameter1 = %int_prof_5% END
 	END
   COPY ~scales_of_balance/stats/d5iprf2.spl~ ~override~
-	PATCH_IF !(int_prof_5 = 17) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 17 parameter1 = %int_prof_7% END
+	PATCH_IF NOT (int_prof_5 = 17) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 17 parameter1 = %int_prof_5% END
 	END
-	PATCH_IF !(int_prof_7 = 15) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_9% END
+	PATCH_IF NOT (int_prof_7 = 15) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_5% END
 	END
   COPY ~scales_of_balance/stats/d5iprf5.spl~ ~override~
-	PATCH_IF !(int_prof_5 = 17) BEGIN
+	PATCH_IF NOT (int_prof_5 = 17) BEGIN
 	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 17 parameter1 = %int_prof_5% END
 	END
   COPY ~scales_of_balance/stats/d5iprf7.spl~ ~override~
-	PATCH_IF !(int_prof_7 = 15) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_7% END
+	PATCH_IF NOT (int_prof_7 = 15) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 15 parameter1 = %int_prof_5% END
 	END
   COPY ~scales_of_balance/stats/d5iprf9.spl~ ~override~
-	PATCH_IF !(int_prof_9 = 13) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 13 parameter1 = %int_prof_9% END
+	PATCH_IF NOT (int_prof_9 = 13) BEGIN
+	  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 match_parameter1 = 13 parameter1 = %int_prof_5% END
 	END
 
-  ACTION_IF (FILE_EXISTS_IN_GAME ~clabfi01.2da~) BEGIN
-    APPEND ~clabfi01.2da~  ~INTPROF     AP_D5IPRF9  ****        ****        ****        AP_D5IPRF5  ****        AP_D5IPRF7  ****        AP_D5IPRF9  AP_D5IPRF5  ****        ****        ****        AP_D5IPRF7  AP_D5IPRF5  ****        ****        AP_D5IPRF9  ****        AP_D5IPRF5  AP_D5IPRF7  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****         ****        ****        ****        ****        ****        ****  ~ UNLESS ~AP_D5IPRF9~
+  ACTION_IF FILE_EXISTS_IN_GAME ~clabfi01.2da~ BEGIN
+	COPY_EXISTING ~clabfi01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
+	BUT_ONLY
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~clabrn01.2da~ BEGIN
+	COPY_EXISTING ~clabrn01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
+	BUT_ONLY
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~clabpa01.2da~ BEGIN
+	COPY_EXISTING ~clabpa01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
+	BUT_ONLY
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~clabba01.2da~ BEGIN
+	COPY_EXISTING ~clabba01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/stats/intprof_bard.txt~
+	BUT_ONLY
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~clabth04.2da~ BEGIN
+	COPY_EXISTING ~clabth04.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/stats/intprof_bard.txt~
+	BUT_ONLY
+  END
+  ACTION_IF FILE_EXISTS_IN_GAME ~d5_hrld.2da~ BEGIN
+	COPY_EXISTING ~d5_hrld.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~scales_of_balance/stats/intprof_bard.txt~
+	BUT_ONLY
   END
 
   COPY_EXISTING ~kitlist.2da~ ~override~
@@ -780,22 +759,42 @@ ACTION_IF (int_extra_prof = 1) BEGIN
 	FOR ( index = 2 ; index < rows ; index = index + 1 ) BEGIN
 		READ_2DA_ENTRY %index% 5 9 modclab
 		READ_2DA_ENTRY %index% 8 9 modclass
-		PATCH_IF (modclass = 2) BEGIN
-		  INNER_ACTION BEGIN
-		    ACTION_IF (FILE_EXISTS_IN_GAME ~%modclab%.2da~) BEGIN
-		      APPEND ~%modclab%.2da~ ~INTPROF     AP_D5IPRF9  ****        ****        ****        AP_D5IPRF5  ****        AP_D5IPRF7  ****        AP_D5IPRF9  AP_D5IPRF5  ****        ****        ****        AP_D5IPRF7  AP_D5IPRF5  ****        ****        AP_D5IPRF9  ****        AP_D5IPRF5  AP_D5IPRF7  ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****        ****         ****        ****        ****        ****        ****        ****  ~ UNLESS ~AP_D5IPRF9~
-		    END
-		  END
-		END
+		DEFINE_ASSOCIATIVE_ARRAY d5_feat_array BEGIN "%modclab%" => "%modclass%" END
 	END
   BUT_ONLY
-
+  ACTION_PHP_EACH d5_feat_array AS hu => lu BEGIN
+	ACTION_IF (%lu% = 2) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
+		COPY_EXISTING ~%hu%.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
+		BUT_ONLY
+	END
+	ACTION_IF (%lu% = 6) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
+		COPY_EXISTING ~%hu%.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
+		BUT_ONLY
+	END
+	ACTION_IF (%lu% = 12) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
+		COPY_EXISTING ~%hu%.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/stats/intprof_warrior.txt~
+		BUT_ONLY
+	END
+	ACTION_IF (%lu% = 5) AND (FILE_EXISTS_IN_GAME ~%hu%.2da~) BEGIN
+		COPY_EXISTING ~%hu%.2da~ ~override~
+			LPM remove_blank_lines
+			APPEND_FILE ~scales_of_balance/stats/intprof_bard.txt~
+		BUT_ONLY
+	END
+  END
 END
 //__________________________________________________________________________________
 
 
 //APPLY NEW STAT MODIFIERS TO AI NPCs_______________________________________________
 //
+
 LAM JOINABLE_NPC_ARRAYS
 
 ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
