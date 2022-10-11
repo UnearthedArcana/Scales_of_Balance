@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 6.0 </strong><br />
+  <p><strong> Version 6.1 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -520,16 +520,16 @@
       <p><b>INSTALL NOTE:</b> if you choose to install component #122, the Weapon Proficiency Overhaul, then this component will also be installed automatically. </p>
       <p>This component rebalances fighting styles in order to make them each more distinct and useful (instead of everything playing 2nd-fiddle to dual-wielding).  The benefits of each style are listed below:</p>
       <div class="kit_description">
-        <p>Single-Weapon Style: now called <b>"Fencing"</b><br />
+        <p>Single-Weapon Style:<br />
         &ndash; (+) = +1 thac0, -2 to weapon speed, +2 to saves vs. Breath Weapon<br />
-        &ndash; (++) = APR increased by .5<br /></p>
-        <p>Sword & Shield Style: now called <b>"Shield-Fighting"</b><br />
+        &ndash; (++) = one extra attack every two rounds<br /></p>
+        <p>Shield-Fighting Style:<br />
         &ndash; (+) = -1 melee AC bonus, -2 missile AC bonus<br />
-        &ndash; (++) = may perform a shield bash once per round (1d3 damage per 5 levels and knockdown on failed save vs. Breath)<br /></p>
-        <p>Two-Handed Weapon Style: now called <b>"Two-Hand Style"</b><br />
+        &ndash; (++) = perform a shield bash once per round (1d3 damage per 5 levels and knockback on failed save vs. Breath)<br /></p>
+        <p>Two-Handed Weapon Style:<br />
         &ndash; (+) = +1 thac0, +2 damage, +5% crit chance<br />
         &ndash; (++) = additional +1 thac0, +2 damage, and +5% crit chance<br /></p>
-        <p>Two-Weapon Style: now called <b>"Dual-Wielding"</b><br />
+        <p>Two-Weapon Style:<br />
         &ndash; ( ) = No off-hand attacks, no bonuses for dual-wielding<br />
         &ndash; (+) = 0 to 2 point melee AC bonus; off-hand attack with 6-point thac0 penalty compared to main hand<br />
         &ndash; (++) = off-hand attack with same thac0 penalty as main hand (see below)<br />.</p>
