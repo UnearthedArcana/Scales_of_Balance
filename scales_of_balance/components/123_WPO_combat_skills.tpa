@@ -5227,8 +5227,15 @@ COPY_EXISTING ~d5cspra.spl~ ~override~
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5cistt~ END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5ci000~ END
 */
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 4 duration = 5 STR_VAR resource = ~d5cs000~ END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 4 duration = 5 STR_VAR resource = ~d5cs000~ END
 IF_EXISTS BUT_ONLY
+
+COPY_EXISTING ~d5cspr.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    REPLACE_TEXTUALLY ~DestroySelf~ ~ApplySpelRES(LastSummonerOf(Myself)"d5cs000")
+    DestroySelf~
+  END
+BUT_ONLY
 
 /*
 COPY_EXISTING ~d5cs000.spl~ ~override~
