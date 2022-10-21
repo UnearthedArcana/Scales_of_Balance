@@ -1998,6 +1998,7 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cx115.spl~					//		cancel postur
   SAY UNIDENTIFIED_DESC @12197
   WRITE_ASCII 0x3a ~d5cx115~ #8
   LPF ALTER_SPELL_HEADER INT_VAR target = 7 STR_VAR icon = ~d5cx115~ END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 172 timing = 1 STR_VAR resource = ~d5cx115~ END
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5csp1a~ END
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5csp2a~ END
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5csp3a~ END
@@ -2087,9 +2088,9 @@ CREATE EFF ~d5csp1a~
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp1b.spl~					//		leadership external
   LPF ALTER_SPELL_HEADER INT_VAR target = 1 PROJECTILE = 158 END
   LPF ADD_SPELL_EFFECT INT_VAR target = 2 opcode = 321 timing = 1 STR_VAR resource = ~d5csp1b~ END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 0 parameter1 = 1 parameter2 = 0 timing = 0 duration = 7 END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 278 parameter1 = 1 parameter2 = 0 timing = 0 duration = 7 END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 189 parameter1 = 1 parameter2 = 0 timing = 0 duration = 7 END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 2 opcode = 0 parameter1 = 1 parameter2 = 0 timing = 0 duration = 7 END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 2 opcode = 278 parameter1 = 1 parameter2 = 0 timing = 0 duration = 7 END
+  LPF ADD_SPELL_EFFECT INT_VAR target = 2 opcode = 189 parameter1 = 1 parameter2 = 0 timing = 0 duration = 7 END
 
 //__________________________________________________________________________________
 
@@ -2377,6 +2378,87 @@ IF_EXISTS BUT_ONLY
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp8a.spl~				//			fighting dirty effect
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 248 target = 1 timing = 0 duration = 126144000 STR_VAR resource = ~d5csp8b~ END
+
+CREATE EFF  ~d5csp8b~
+	WRITE_LONG 0x10 146
+	WRITE_LONG 0x14 2
+	WRITE_LONG 0x1c 0
+	WRITE_LONG 0x20 1
+	WRITE_LONG 0x24 1
+	WRITE_SHORT 0x2c 100
+	WRITE_EVALUATED_ASCII 0x30 ~D5CSP8b~ #8
+
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp8b.spl~				//			fighting dirty effect
+  LPF ALTER_SPELL_HEADER INT_VAR target = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 6 probability1 = 33 probability2 = 0 STR_VAR resource = ~d5csp8c~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 6 probability1 = 33 probability2 = 0 STR_VAR resource = ~d5csp8d~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 283 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 6 probability1 = 66 probability2 = 34 STR_VAR resource = ~d5csp8e~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 283 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 6 probability1 = 66 probability2 = 34 STR_VAR resource = ~d5csp8f~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 283 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 6 probability1 = 100 probability2 = 67 STR_VAR resource = ~d5csp8g~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 283 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 6 probability1 = 100 probability2 = 67 STR_VAR resource = ~d5csp8h~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 2 parameter1 = (0 - 1) timing = 0 duration = 7 STR_VAR resource = ~d5csp8b~ END
+
+CREATE EFF  ~d5csp8c~
+	WRITE_LONG 0x10 74
+	WRITE_LONG 0x14 2
+	WRITE_LONG 0x1c 0
+	WRITE_LONG 0x20 0
+	WRITE_LONG 0x24 0
+	WRITE_LONG 0x28 6
+	WRITE_SHORT 0x2c 100
+
+CREATE EFF  ~d5csp8d~
+	WRITE_LONG 0x10 24
+	WRITE_LONG 0x14 2
+	WRITE_LONG 0x1c 0
+	WRITE_LONG 0x20 1
+	WRITE_LONG 0x24 0
+	WRITE_LONG 0x28 3
+	WRITE_SHORT 0x2c 100
+
+CREATE EFF  ~d5csp8e~
+	WRITE_LONG 0x10 39
+	WRITE_LONG 0x14 2
+	WRITE_LONG 0x1c 0
+	WRITE_LONG 0x20 1
+	WRITE_LONG 0x24 0
+	WRITE_LONG 0x28 6
+	WRITE_SHORT 0x2c 100
+	WRITE_EVALUATED_ASCII 0x30 ~D5CSP8b~ #8
+
+CREATE EFF  ~d5csp8f~
+	WRITE_LONG 0x10 40
+	WRITE_LONG 0x14 2
+	WRITE_LONG 0x1c 0
+	WRITE_LONG 0x20 0
+	WRITE_LONG 0x24 0
+	WRITE_LONG 0x28 3
+	WRITE_SHORT 0x2c 100
+
+CREATE EFF  ~d5csp8g~
+	WRITE_LONG 0x10 44
+	WRITE_LONG 0x14 2
+	WRITE_LONG 0x1c 6
+	WRITE_LONG 0x20 1
+	WRITE_LONG 0x24 0
+	WRITE_LONG 0x28 6
+	WRITE_SHORT 0x2c 100
+
+CREATE EFF  ~d5csp8h~
+	WRITE_LONG 0x10 250
+	WRITE_LONG 0x14 2
+	WRITE_LONG 0x1c (0 - 5)
+	WRITE_LONG 0x20 0
+	WRITE_LONG 0x24 0
+	WRITE_LONG 0x28 6
+	WRITE_SHORT 0x2c 100
+
+
+/* why not just apply a melee hit effect, casting spell_A, which has three effects applying eff_B/C/D...? 
+
+COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp8a.spl~				//			fighting dirty effect
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
   LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = (4 << 24) parameter2 = (115 + (0x10000 * 1)) timing = 0 duration = 126144000 END
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
@@ -2427,6 +2509,7 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp8e.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 6 STR_VAR resource = ~d5csp8c~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 6 STR_VAR resource = ~d5csp8d~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 12 STR_VAR resource = ~d5csp8e~ END
+*/
 
 //__________________________________________________________________________________
 
@@ -3580,6 +3663,7 @@ THEN
 	SetGlobal("D5CS115H","GLOBAL",0)
 	SetGlobal("D5CS115I","GLOBAL",0)
 	SetNumTimesTalkedTo(0)
+	ApplySpellRES("D5CS000",LastSummonerOf(Myself))
 	DestroySelf() 
 END
 ~
@@ -3719,6 +3803,7 @@ THEN
 	SetGlobal("D5CS124H","GLOBAL",0)
 	SetGlobal("D5CS124I","GLOBAL",0)
 	SetNumTimesTalkedTo(0)
+	ApplySpellRES("D5CS000",LastSummonerOf(Myself))
 	DestroySelf() 
 END
 ~
@@ -3870,6 +3955,7 @@ THEN
 	SetGlobal("D5CS127H","GLOBAL",0)
 	SetGlobal("D5CS127I","GLOBAL",0)
 	SetNumTimesTalkedTo(0)
+	ApplySpellRES("D5CS000",LastSummonerOf(Myself))
 	DestroySelf() 
 END
 ~
@@ -4080,6 +4166,7 @@ THEN
 	SetGlobal("D5CS110H","GLOBAL",0)
 	SetGlobal("D5CS110I","GLOBAL",0)
 	SetNumTimesTalkedTo(0)
+	ApplySpellRES("D5CS000",LastSummonerOf(Myself))
 	DestroySelf() 
 END
 ~
@@ -5074,10 +5161,9 @@ BUT_ONLY
 INCLUDE ~%MOD_FOLDER%/lib/dialprof.tpa~
 
 OUTER_SPRINT prof_script_name ~d5cspr~
-
 OUTER_SET script_level_one = 1
-
 OUTER_SET script_higher_levels = 1
+OUTER_SPRINT class_dlgs ~all~
 
 LAM PROF_DIALOGUE
 
@@ -5227,15 +5313,7 @@ COPY_EXISTING ~d5cspra.spl~ ~override~
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5cistt~ END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5ci000~ END
 */
-//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 4 duration = 5 STR_VAR resource = ~d5cs000~ END
 IF_EXISTS BUT_ONLY
-
-COPY_EXISTING ~d5cspr.bcs~ ~override~
-  DECOMPILE_AND_PATCH BEGIN
-    REPLACE_TEXTUALLY ~DestroySelf~ ~ApplySpelRES(LastSummonerOf(Myself)"d5cs000")
-    DestroySelf~
-  END
-BUT_ONLY
 
 /*
 COPY_EXISTING ~d5cs000.spl~ ~override~
@@ -5506,10 +5584,9 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_blads.2da~) BEGIN
   BUT_ONLY
 
   OUTER_SPRINT prof_script_name ~d5bsfo~
-
   OUTER_SET script_level_one = 0
-
   OUTER_SET script_higher_levels = 0
+  OUTER_SPRINT class_dlgs ~fi_ma~
 
   LAM PROF_DIALOGUE
   
@@ -5571,16 +5648,20 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_blads.2da~) BEGIN
    END
   BUT_ONLY
 
-  ACTION_FOR_EACH class_dlg IN ~fi~ ~ma~ /*~ra~ ~pa~ ~cl~ ~dr~ ~sh~ ~th~ ~ba~ ~so~ ~mo~*/ BEGIN
+  ACTION_FOR_EACH class_dlg IN ~fi~ ~ma~ BEGIN
    COPY_EXISTING ~d5bsfo%class_dlg%.dlg~ ~override~
     DECOMPILE_AND_PATCH BEGIN
       REPLACE_TEXTUALLY ~ApplySpellRES("D52P~ ~ApplySpellRES("D52B~
+      REPLACE_TEXTUALLY ~ApplySpellRES("D53P~ ~ApplySpellRES("D53B~
+      REPLACE_TEXTUALLY ~ApplySpellRES("D54P~ ~ApplySpellRES("D54B~
+      REPLACE_TEXTUALLY ~ApplySpellRES("D55P~ ~ApplySpellRES("D55B~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_103","LOCALS",[012345]~ ~GlobalGT("D5_PROF_103","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_104","LOCALS",[012345]~ ~GlobalGT("D5_PROF_104","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_105","LOCALS",[012345]~ ~GlobalGT("D5_PROF_105","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_106","LOCALS",[012345]~ ~GlobalGT("D5_PROF_106","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_107","LOCALS",[012345]~ ~GlobalGT("D5_PROF_107","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_108","LOCALS",[012345]~ ~GlobalGT("D5_PROF_108","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_109","LOCALS",[012345]~ ~GlobalGT("D5_PROF_109","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_111","LOCALS",[012345]~ ~GlobalGT("D5_PROF_111","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_112","LOCALS",[012345]~ ~GlobalGT("D5_PROF_112","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_113","LOCALS",[012345]~ ~GlobalGT("D5_PROF_113","LOCALS",99~
@@ -5599,6 +5680,50 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_blads.2da~) BEGIN
   END
 
 END	//	end if bladesinger installed
+
+//__________________________________________________________________________________
+
+
+//FnP zealot weapon mastery_________________________________________________________
+//
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5pazwpa.dlg~) BEGIN	//	paladin archetype zealot weapon mastery
+
+  ACTION_IF FILE_EXISTS "override\d5pazwpa.dlg" BEGIN
+    DELETE "override\d5pazwpa.dlg"
+  END
+
+  OUTER_SPRINT prof_script_name ~d5pazw~
+  OUTER_SET script_level_one = 0
+  OUTER_SET script_higher_levels = 0
+  OUTER_SPRINT class_dlgs ~pa~
+
+  LAM PROF_DIALOGUE
+
+  COPY_EXISTING ~d5pazwpa.dlg~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_103","LOCALS",[012345]~ ~GlobalGT("D5_PROF_103","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_104","LOCALS",[012345]~ ~GlobalGT("D5_PROF_104","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_105","LOCALS",[012345]~ ~GlobalGT("D5_PROF_105","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_106","LOCALS",[012345]~ ~GlobalGT("D5_PROF_106","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_107","LOCALS",[012345]~ ~GlobalGT("D5_PROF_107","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_108","LOCALS",[012345]~ ~GlobalGT("D5_PROF_108","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_109","LOCALS",[012345]~ ~GlobalGT("D5_PROF_109","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_111","LOCALS",[012345]~ ~GlobalGT("D5_PROF_111","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_112","LOCALS",[012345]~ ~GlobalGT("D5_PROF_112","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_113","LOCALS",[012345]~ ~GlobalGT("D5_PROF_113","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_114","LOCALS",[012345]~ ~GlobalGT("D5_PROF_114","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_115","LOCALS",[012345]~ ~GlobalGT("D5_PROF_115","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_124","LOCALS",[012345]~ ~GlobalGT("D5_PROF_124","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_127","LOCALS",[012345]~ ~GlobalGT("D5_PROF_127","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_110","LOCALS",[012345]~ ~GlobalGT("D5_PROF_110","LOCALS",99~
+      REPLACE_TEXTUALLY ~"LOCALS",2) Proficiency(Myself~ ~"LOCALS",1) Proficiency(Myself~
+      REPLACE_TEXTUALLY ~"LOCALS",3) Proficiency(Myself~ ~"LOCALS",2) Proficiency(Myself~
+      REPLACE_TEXTUALLY ~"LOCALS",4) Proficiency(Myself~ ~"LOCALS",3) Proficiency(Myself~
+      REPLACE_TEXTUALLY ~"LOCALS",5) Proficiency(Myself~ ~"LOCALS",4) Proficiency(Myself~
+    END
+  IF_EXISTS BUT_ONLY
+
+END	//	end if paladin archetypes installed
 
 //__________________________________________________________________________________
 
