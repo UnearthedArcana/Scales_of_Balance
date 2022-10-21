@@ -12,7 +12,7 @@ DEFINE_ACTION_FUNCTION weapon_tweaks BEGIN
 
 COPY ~scales_of_balance/misc/d5_dagg.eff~ ~override~
 
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
 	READ_BYTE 0x31 prof
 	READ_SHORT 0x1c type
@@ -88,7 +88,7 @@ ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5_lbows.2da~ BEGIN
 END
 */
 
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
 	READ_SHORT ~0x1c~ ~type~
 	PATCH_IF (~%type%~ = ~14~) BEGIN // bullets
@@ -248,7 +248,7 @@ BUT_ONLY
 //NO RANGED STR BONUS_______________________________________________________________
 //
 ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ BEGIN
-  COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+  COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
 	  READ_BYTE 0x31 prof
 	  READ_SHORT 0x1c type
