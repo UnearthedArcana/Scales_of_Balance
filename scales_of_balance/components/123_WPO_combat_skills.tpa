@@ -378,6 +378,7 @@ need to finalize what the categories will be
 
 */
 
+// ***** need to deal with FnP op181 effects
 
 //merge bastard sword > long sword___________________________________________________
 //
@@ -777,7 +778,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   END
 BUT_ONLY
 
-// ***** also remove from scripts
+// also remove from scripts
 
 OUTER_SPRINT reg_params "[-0-9]+ [-0-9]+ 124"
 COPY_EXISTING_REGEXP ".+\.bcs" "override"
@@ -2214,7 +2215,7 @@ CREATE EFF  ~d5csp4a~
 	WRITE_LONG 0x48 102
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp4b.spl~
-  PATCH_IF (IS_AN_INT %parry_crushing_row%) BEGIN
+  PATCH_IF (IS_AN_INT %parry_slashing_row%) BEGIN
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %parry_slashing_state% parameter2 = %parry_slashing_row% timing = 4 duration = 0 END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5csp4b~ END
   END
@@ -2262,7 +2263,7 @@ CREATE EFF  ~d5csp5a~
 	WRITE_LONG 0x48 102
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp5b.spl~
-  PATCH_IF (IS_AN_INT %parry_crushing_row%) BEGIN
+  PATCH_IF (IS_AN_INT %parry_piercing_row%) BEGIN
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %parry_piercing_state% parameter2 = %parry_piercing_row% timing = 4 duration = 0 END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5csp5b~ END
   END
@@ -2358,7 +2359,7 @@ CREATE EFF  ~d5csp7a~
 	WRITE_LONG 0x48 102
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp7b.spl~
-  PATCH_IF (IS_AN_INT %parry_crushing_row%) BEGIN
+  PATCH_IF (IS_AN_INT %missile_snaring_row%) BEGIN
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %missile_snaring_state% parameter2 = %missile_snaring_row% timing = 4 duration = 0 END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5csp7b~ END
   END
@@ -3150,15 +3151,15 @@ END
 //
 // use the actual prof value for spell slots
 //
-// d5csi1 = UMD
-// d5csi2 = Color Spray
-// d5csi3 = Reflected Image
-// d5csi4 = Blur
-// d5csi5 = Knock
-// d5csi6 = Luck
-// d5csi7 = Glitterdust
-// d5csi8 = Sanctuary
-// d5csi9 = Shadowstep
+// d5csi1 = UMD				= 
+// d5csi2 = Color Spray		= spwi105
+// d5csi3 = Reflected Image	= spwi120
+// d5csi4 = Blur			= spwi201
+// d5csi5 = Knock			= spwi207
+// d5csi6 = Luck			= spwi209
+// d5csi7 = Glitterdust		= spwi224
+// d5csi8 = Sanctuary		= sppr109
+// d5csi9 = Shadowstep		= spsd02
 
 //__________________________________________________________________________________
 
@@ -3339,7 +3340,7 @@ END
 
 INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
 
-LAF semi_innate_casting INT_VAR semi_innate_stat = 109 semi_innate_shift = 20 STR_VAR semi_innate_prefix = ~d5ci~ semi_innate_array = ~semi_innate_spells~ END
+LAF semi_innate_casting INT_VAR semi_innate_stat = 110 semi_innate_shift = 24 STR_VAR semi_innate_prefix = ~d5ci~ semi_innate_array = ~semi_innate_spells~ END
 
 ACTION_FOR_EACH mag_spl IN ~2~ ~3~ ~4~ ~5~ ~6~ ~7~ ~8~ ~9~ BEGIN			//		set up magic skills
 
@@ -5041,49 +5042,49 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs001.spl~
 
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cshal1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 2 parameter2 = 109 timing = 9 END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (101 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 2 parameter2 = 109 timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (101 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cshal1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csran1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 146 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf4l~ END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 146 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csm2l~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf4l~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csm2l~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csran1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csarc1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (105 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (105 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csarc1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csear1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (102 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (102 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csear1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csbar1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 146 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf4l~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf4l~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csran1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csswa1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (105 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (105 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csswa1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cswa2.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 318 parameter1 = 2 parameter2 = %prof_113_beq% timing = 0 duration = 6 STR_VAR resource = ~d5cswa2~ END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (113 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 1 parameter1 = 2 parameter2 = %prof_113_beq% timing = 0 duration = 6 STR_VAR resource = ~d5cswa2~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (113 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cshal1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cswa3.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 318 parameter1 = 2 parameter2 = %prof_114_beq% timing = 0 duration = 6 STR_VAR resource = ~d5cswa3~ END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (114 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 318 target = 1 parameter1 = 2 parameter2 = %prof_114_beq% timing = 0 duration = 6 STR_VAR resource = ~d5cswa3~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (114 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cshal1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csass1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 233 parameter1 = 1 parameter2 = (106 + (0x10000 * 1)) timing = 9 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = 1 parameter2 = (106 + (0x10000 * 1)) timing = 9 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5csass1~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csshd1.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 146 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csi9l~ END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 146 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csix1z~ END
-  LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 146 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csix1z~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csi9l~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csix1z~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csix1z~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5cssha1~ END
 
 
@@ -5655,6 +5656,8 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5_blads.2da~) BEGIN
       REPLACE_TEXTUALLY ~ApplySpellRES("D53P~ ~ApplySpellRES("D53B~
       REPLACE_TEXTUALLY ~ApplySpellRES("D54P~ ~ApplySpellRES("D54B~
       REPLACE_TEXTUALLY ~ApplySpellRES("D55P~ ~ApplySpellRES("D55B~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_101","LOCALS",[012345]~ ~GlobalGT("D5_PROF_101","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_102","LOCALS",[012345]~ ~GlobalGT("D5_PROF_102","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_103","LOCALS",[012345]~ ~GlobalGT("D5_PROF_103","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_104","LOCALS",[012345]~ ~GlobalGT("D5_PROF_104","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_105","LOCALS",[012345]~ ~GlobalGT("D5_PROF_105","LOCALS",99~
@@ -5688,8 +5691,8 @@ END	//	end if bladesinger installed
 //
 ACTION_IF (FILE_EXISTS_IN_GAME ~d5pazwpa.dlg~) BEGIN	//	paladin archetype zealot weapon mastery
 
-  ACTION_IF FILE_EXISTS "override\d5pazwpa.dlg" BEGIN
-    DELETE "override\d5pazwpa.dlg"
+  ACTION_IF FILE_EXISTS "override/d5pazwpa.dlg" BEGIN
+    DELETE "override/d5pazwpa.dlg"
   END
 
   OUTER_SPRINT prof_script_name ~d5pazw~
@@ -5701,6 +5704,8 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5pazwpa.dlg~) BEGIN	//	paladin archetype zealot
 
   COPY_EXISTING ~d5pazwpa.dlg~ ~override~
     DECOMPILE_AND_PATCH BEGIN
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_101","LOCALS",[012345]~ ~GlobalGT("D5_PROF_101","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_102","LOCALS",[012345]~ ~GlobalGT("D5_PROF_102","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_103","LOCALS",[012345]~ ~GlobalGT("D5_PROF_103","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_104","LOCALS",[012345]~ ~GlobalGT("D5_PROF_104","LOCALS",99~
       REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_105","LOCALS",[012345]~ ~GlobalGT("D5_PROF_105","LOCALS",99~
@@ -5726,6 +5731,56 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5pazwpa.dlg~) BEGIN	//	paladin archetype zealot
 END	//	end if paladin archetypes installed
 
 //__________________________________________________________________________________
+
+/* this may not be necessary at all
+//MnG samurai weapon mastery_________________________________________________________
+//
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5kifofi.dlg~) BEGIN	//	paladin archetype zealot weapon mastery
+
+/* no need to re-do it, just patch the .dlg
+  ACTION_IF FILE_EXISTS "override/d5kifofi.dlg" BEGIN
+    DELETE "override/d5kifofi.dlg"
+  END
+
+  OUTER_SPRINT prof_script_name ~d5kifo~
+  OUTER_SET script_level_one = 0
+  OUTER_SET script_higher_levels = 0
+  OUTER_SPRINT class_dlgs ~fi~
+
+  LAM PROF_DIALOGUE
+*/
+
+  COPY_EXISTING ~d5kifofi.dlg~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+/* this doesn't work, the numbers change when compiled
+      REPLACE_TEXTUALLY ~GOTO d5kifofi_2~ ~GOTO d5kifofi_4~
+      REPLACE_TEXTUALLY ~GOTO d5kifofi_3~ ~GOTO d5kifofi_4~
+      REPLACE_TEXTUALLY ~GOTO d5kifofi_5~ ~GOTO d5kifofi_4~
+*/
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_101","LOCALS",[012345]~ ~GlobalGT("D5_PROF_101","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_102","LOCALS",[012345]~ ~GlobalGT("D5_PROF_102","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_103","LOCALS",[012345]~ ~GlobalGT("D5_PROF_103","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_104","LOCALS",[012345]~ ~GlobalGT("D5_PROF_104","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_105","LOCALS",[012345]~ ~GlobalGT("D5_PROF_105","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_106","LOCALS",[012345]~ ~GlobalGT("D5_PROF_106","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_107","LOCALS",[012345]~ ~GlobalGT("D5_PROF_107","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_108","LOCALS",[012345]~ ~GlobalGT("D5_PROF_108","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_109","LOCALS",[012345]~ ~GlobalGT("D5_PROF_109","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_111","LOCALS",[012345]~ ~GlobalGT("D5_PROF_111","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_112","LOCALS",[012345]~ ~GlobalGT("D5_PROF_112","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_113","LOCALS",[012345]~ ~GlobalGT("D5_PROF_113","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_114","LOCALS",[012345]~ ~GlobalGT("D5_PROF_114","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_115","LOCALS",[012345]~ ~GlobalGT("D5_PROF_115","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_124","LOCALS",[012345]~ ~GlobalGT("D5_PROF_124","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_127","LOCALS",[012345]~ ~GlobalGT("D5_PROF_127","LOCALS",99~
+      REPLACE_TEXTUALLY ~GlobalGT("D5_PROF_110","LOCALS",[012345]~ ~GlobalGT("D5_PROF_110","LOCALS",99~
+    END
+  IF_EXISTS BUT_ONLY
+
+END	//	end if paladin archetypes installed
+
+//__________________________________________________________________________________
+*/
 
 
 END // end function
