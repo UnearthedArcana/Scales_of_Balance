@@ -1296,7 +1296,7 @@ COPY_EXISTING ~weapprof.2da~ ~override~
     END
   END
   SET_2DA_ENTRIES_NOW ~s2el_csp~ 1
-  SET_2DA_ENTRY 0 0 5 ~                ID~
+  SET_2DA_ENTRY 0 0 5 ~                      ID~
 BUT_ONLY
 
 // go back over and apply exceptions to the default values
@@ -1446,13 +1446,13 @@ COPY_EXISTING ~weapprof.2da~ ~override~
     PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5EARCH~) BEGIN
       SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   6
     END
-    PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5MARKS~) BEGIN
+    PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5ARCHF~) BEGIN
       SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   6
     END
     PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5SLING~) BEGIN
       SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   6
     END
-    PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5SNIPE~) BEGIN
+    PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5MARKS~) BEGIN
       SET_2DA_ENTRY_LATER ~s2el_csp~ ranged_row (col + 1)   6
     END
     PATCH_IF (~%kitname%~ STRING_EQUAL_CASE ~D5_BLADE~) BEGIN

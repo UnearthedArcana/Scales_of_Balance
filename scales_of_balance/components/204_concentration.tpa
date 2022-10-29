@@ -13,12 +13,29 @@ DEFINE_ACTION_FUNCTION enable_concentration_checks BEGIN
 //COPY ~scales_of_balance/lib/markers/d5_marker.d5~ ~override/d5__concentrate.d5~ 
 //___________________________________________________________________________________
 
-
+/* no no, F this, it has never worked right... instead build something out of whole cloth!
 //set weapon item types_____________________________________________________________
 //
 COPY_EXISTING ~concentr.2da~ ~override~
 	SET_2DA_ENTRY 2 1 2 1
 BUT_ONLY
 //__________________________________________________________________________________
+*/
+
+/*
+Framework:
+- check every weapon and every spell that does damage
+- put an op326 effect  at the top  of the stack
+- the spell makes the target immune to op170 for 2 ticks
+- the spell has various 318 effects changing the probability based on a stat value
+- Q: what stat?
+ -- INT?
+ -- WIS?
+ -- CON?
+ -- CHA?
+ -- a proficiency you can invest in? (could integrate with comp 123)
+ -- a thief skill???
+
+*/
 
 END // end function
