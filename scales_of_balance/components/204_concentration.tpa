@@ -36,6 +36,16 @@ Framework:
  -- a proficiency you can invest in? (could integrate with comp 123)
  -- a thief skill???
 
+How about this: make every immune to op170
+...then find every source of damage
+...and add a subspell applying a conditional effect
+...the conditional effect applies a short-term miscast magic 
+...or a probability to apply silence??
+...and altering a stat changes the miscast chance/silence probability
+
+that could actually work.
+and with silence could actually work against scripted ForceSpells
+...maybe
 */
 
 END // end function
