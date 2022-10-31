@@ -1,7 +1,7 @@
 BACKUP ~weidu_external/backup/scales_of_balance~
 AUTHOR ~SubtleD~
 
-VERSION ~v6.2.7~
+VERSION ~v6.2.8~
 
 //README ~scales_of_balance/readme-SoB.html~
 
@@ -76,8 +76,8 @@ BEGIN @100 // revised armor
 DESIGNATED 100
 LABEL ~D5_YARAS~
 
-ACTION_IF !(FILE_EXISTS ~override/YARAS.ini~) BEGIN
-  COPY ~scales_of_balance/ini/YARAS_default.ini~ ~override/YARAS.ini~
+ACTION_IF !(FILE_EXISTS ~override/d5_YARAS.ini~) BEGIN
+  COPY ~scales_of_balance/ini/d5_YARAS_default.ini~ ~override/d5_YARAS.ini~
 END
 
 INCLUDE ~scales_of_balance/components/100_IWO_YARAS.tpa~

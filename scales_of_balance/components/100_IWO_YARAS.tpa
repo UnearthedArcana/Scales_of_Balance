@@ -16,6 +16,14 @@ COPY ~scales_of_balance/lib/markers/d5_marker.d5~ ~override/d5__yaras.d5~
 //__________________________________________________________________________________
 
 
+//READ YARAS SETTINGS_________________________________________________________________
+//
+INCLUDE ~override/d5_YARAS.ini~
+
+LAM special_armor_lists
+//__________________________________________________________________________________
+
+
 //__________________________________________________________________________________
 //
 COPY ~scales_of_balance/data/YARAS/d5_cstp1.eff~ ~override~
@@ -40,39 +48,39 @@ COPY ~scales_of_balance/data/YARAS/skilldex.2da~ ~override~
 OUTER_SET enchantment = 0 	//	just need to do this in order to read the .ini file
 
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override~
-  PATCH_INCLUDE ~override/YARAS.ini~
+  LPM armor_characteristics
   WRITE_LONG 0x1c %leather_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM1~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm2.eff~
-  PATCH_INCLUDE ~override/YARAS.ini~
+  LPM armor_characteristics
   WRITE_LONG 0x1c %studded_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM2~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm3.eff~
-  PATCH_INCLUDE ~override/YARAS.ini~
+  LPM armor_characteristics
   WRITE_LONG 0x1c %hide_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM3~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm4.eff~
-  PATCH_INCLUDE ~override/YARAS.ini~
+  LPM armor_characteristics
   WRITE_LONG 0x1c %scale_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM4~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm5.eff~
-  PATCH_INCLUDE ~override/YARAS.ini~
+  LPM armor_characteristics
   WRITE_LONG 0x1c %chain_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM5~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm6.eff~
-  PATCH_INCLUDE ~override/YARAS.ini~
+  LPM armor_characteristics
   WRITE_LONG 0x1c %splint_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM6~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm7.eff~
-  PATCH_INCLUDE ~override/YARAS.ini~
+  LPM armor_characteristics
   WRITE_LONG 0x1c %plate_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM7~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm8.eff~
-  PATCH_INCLUDE ~override/YARAS.ini~
+  LPM armor_characteristics
   WRITE_LONG 0x1c %fullplate_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM8~ #8
 COPY ~scales_of_balance/data/YARAS/d5_cstm1.eff~ ~override/d5_cstm9.eff~
-  PATCH_INCLUDE ~override/YARAS.ini~
+  LPM armor_characteristics
   WRITE_LONG 0x1c %elven_miscast%
   WRITE_ASCII 0x94 ~D5_CSTM9~ #8
 
@@ -291,7 +299,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   END
 BUT_ONLY
 
-ACTION_FOR_EACH plus_1 IN ~x#garch~ ~a!bleat1~ ~a!bchan1~ ~dgi001~ ~dgi002~ ~dgi003~ ~isnfxy7~ ~l#2sde1~ ~wqxle1~ BEGIN
+ACTION_PHP_EACH plus_1_armors AS plus_1 => ind BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%plus_1%.itm~ BEGIN
     COPY_EXISTING ~%plus_1%.itm~ ~override~
 	  WRITE_LONG 0x60 1
@@ -299,7 +307,7 @@ ACTION_FOR_EACH plus_1 IN ~x#garch~ ~a!bleat1~ ~a!bchan1~ ~dgi001~ ~dgi002~ ~dgi
   END
 END
 
-ACTION_FOR_EACH plus_2 IN ~x#garch2~ ~a!bleat2~ ~bdplat01~ ~bdplat03~ ~c02plat~ ~esliarm0~ ~iswarm~ BEGIN
+ACTION_PHP_EACH plus_2_armors AS plus_2 => ind BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%plus_2%.itm~ BEGIN
     COPY_EXISTING ~%plus_2%.itm~ ~override~
 	  WRITE_LONG 0x60 2
@@ -307,7 +315,7 @@ ACTION_FOR_EACH plus_2 IN ~x#garch2~ ~a!bleat2~ ~bdplat01~ ~bdplat03~ ~c02plat~ 
   END
 END
 
-ACTION_FOR_EACH plus_3 IN ~l#suma~ ~cispgrd3~ ~d0leat08~ ~esliarm1~ ~ishcha~ ~l#2sds08~ ~o#llch1~ BEGIN
+ACTION_PHP_EACH plus_3_armors AS plus_3 => ind BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%plus_3%.itm~ BEGIN
     COPY_EXISTING ~%plus_3%.itm~ ~override~
 	  WRITE_LONG 0x60 3
@@ -315,7 +323,7 @@ ACTION_FOR_EACH plus_3 IN ~l#suma~ ~cispgrd3~ ~d0leat08~ ~esliarm1~ ~ishcha~ ~l#
   END
 END
 
-ACTION_FOR_EACH plus_4 IN ~c2plat01~ ~chan18~ ~esxcha~ ~l0skin2~ BEGIN
+ACTION_PHP_EACH plus_4_armors AS plus_4 => ind BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%plus_4%.itm~ BEGIN
     COPY_EXISTING ~%plus_4%.itm~ ~override~
 	  WRITE_LONG 0x60 4
@@ -323,15 +331,13 @@ ACTION_FOR_EACH plus_4 IN ~c2plat01~ ~chan18~ ~esxcha~ ~l0skin2~ BEGIN
   END
 END
 
-/*
-ACTION_FOR_EACH plus_5 IN ~~ BEGIN
+ACTION_PHP_EACH plus_5_armors AS plus_5 => ind BEGIN
   ACTION_IF FILE_EXISTS_IN_GAME ~%plus_5%.itm~ BEGIN
     COPY_EXISTING ~%plus_5%.itm~ ~override~
 	  WRITE_LONG 0x60 5
     BUT_ONLY
   END
 END
-*/
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
@@ -418,9 +424,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 		PATCH_IF NOT (~%id_name%~ STRING_CONTAINS_REGEXP ~%bladesinger_tra%~) BEGIN
 		  SET elven = 1
 		END
-		PATCH_FOR_EACH elven_chain_res IN  ~chan12~ ~chan13~ ~chan14~ ~chan15~ ~chan16~ ~chan19~ ~clolth~ ~dwchan01~ ~a!bchan1~ ~bsingchn~ ~c2chan01~ ~chandrw~ ~cmarq02~ ~cmarq12~ ~cmtuch01~ ~cota~ ~dsjearm~ ~echan01~ ~echan02~ ~elfmail~ ~elvarmx~ ~fwchan02~ ~gcmch01~ ~illas04~ ~kimchain~ ~kiyoarm1~ ~kiyoarm2~ ~kiyoarm3~ ~kiyowed1~ ~mau006~ ~ntchan04~ ~rr#chn01~ ~s!chan02~ ~scal04~ ~sgchan2~  ~tzchan01~ ~u#chan01~ ~u#chan07~ ~ucmgch01~ ~zyplatn8~ ~chands06~ ~drowchn1~ ~drowchn2~ ~drowchn3~ ~efml01~ ~pchan~ ~AAITM127~ ~BGSX10~ ~KOVAWED1~ ~cmchan02~ ~elfchan~ ~kaychai~ ~ntchan06~ ~r#aspchn~ ~tcarmor5~ ~tcechan~ ~tcrihar1~ ~tcrihar2~ ~tcrivarm~ ~CMTCH02~ ~CMTCH03~ ~CMTCH05~ ~ESXCHA~ ~FWCHAN03~ ~SOAITM01~ BEGIN
- 		  PATCH_IF FILE_EXISTS_IN_GAME ~%elven_chain_res%.itm~ BEGIN
-			PATCH_IF (~%SOURCE_RES%~ STRING_EQUAL_CASE ~%elven_chain_res%~) BEGIN
+        PHP_EACH caster_armors AS caster_res =>ind BEGIN
+ 		  PATCH_IF FILE_EXISTS_IN_GAME ~%caster_res%.itm~ BEGIN
+			PATCH_IF (~%SOURCE_RES%~ STRING_EQUAL_CASE ~%caster_res%~) BEGIN
 			  SET elven = 1
 			END
 		  END
@@ -440,14 +446,13 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 
 		READ_LONG 0x60 enchantment
 
-		PATCH_INCLUDE ~override/YARAS.ini~
+		LPM armor_characteristics
 		
 		PATCH_IF (appearance = 16690) BEGIN // leather appearance
 		  READ_LONG 0x08 gen_name_strref
 //	leather armor
 		  PATCH_IF (gen_name_strref = %leather_strref%) BEGIN
 //			SPRINT armor_type ~leather~
-			PATCH_PRINT ~%SOURCE_RES% = leather armor +%enchantment%~
 			PATCH_IF (no_cast = 0) BEGIN
 			  SET leather_speed = 0
 			  SET leather_miscast = 0
@@ -462,65 +467,128 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %leather_dr% parameter2 = 1 timing = 2 END
 			  SPRINT new_desc_lines ~%new_desc_lines%%new_dr%%leather_dr%%%WNL%~
 			END
-			PATCH_IF (leather_dex > 0) BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %leather_dex%) parameter2 = 0 timing = 2 END
-			  SPRINT new_desc_lines ~%new_desc_lines%%new_dex%%leather_dex%%WNL%~
-			END
-			PATCH_IF (leather_move > 0) BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 176 target = 1 parameter1 = (0 - %leather_move%) parameter2 = 0 timing = 2 END
-			  SPRINT new_desc_lines ~%new_desc_lines%%new_move%%leather_move%%WNL%~
-			END
-			PATCH_IF (leather_weap > 0) BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = (0 - %leather_weap%) parameter2 = 0 timing = 2 END
-			  SPRINT new_desc_lines ~%new_desc_lines%%new_weap%%leather_weap%%WNL%~
-			END
-			PATCH_IF (leather_miscast > 0) BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~D5_CSTM1~ END
-			  SPRINT new_desc_lines ~%new_desc_lines%%new_miscast%%leather_miscast%%%WNL%~
-			END
-			PATCH_IF (leather_speed > 0) BEGIN
-			  PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%leather_speed%~ END
-			  END
-			  SPRINT new_desc_lines ~%new_desc_lines%%new_speed%%leather_speed%%WNL%~
-			  PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
-			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = 5 parameter2 = 5 STR_VAR match_resource = EVAL ~d5_cstp%leather_speed%~ resource = EVAL ~d5_cstb%leather_speed%~ END
-			  END
+			PATCH_IF (elven = 1) BEGIN 
+				PATCH_PRINT ~%SOURCE_RES% = casting leather +%enchantment%~
+				WRITE_BYTE 0x2d ("0x00") //blocked: none
+				PATCH_IF (elven_dex > 0) BEGIN
+				  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %elven_dex%) parameter2 = 0 timing = 2 END
+				  SPRINT new_desc_lines ~%new_desc_lines%%new_dex%%elven_dex%%WNL%~
+				END
+				PATCH_IF (elven_move > 0) BEGIN
+				  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 176 target = 1 parameter1 = (0 - %elven_move%) parameter2 = 0 timing = 2 END
+				  SPRINT new_desc_lines ~%new_desc_lines%%new_move%%elven_move%%WNL%~
+				END
+				PATCH_IF (elven_weap > 0) BEGIN
+				  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = (0 - %elven_weap%) parameter2 = 0 timing = 2 END
+				  SPRINT new_desc_lines ~%new_desc_lines%%new_weap%%elven_weap%%WNL%~
+				END
+			    PATCH_IF (elven_miscast > 0) BEGIN
+			      LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~D5_CSTM9~ END
+			      SPRINT new_desc_lines ~%new_desc_lines%%new_miscast%%elven_miscast%%%WNL%~
+			    END
+			    PATCH_IF (elven_speed > 0) BEGIN
+			      PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
+			        LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%elven_speed%~ END
+			      END
+			      SPRINT new_desc_lines ~%new_desc_lines%%new_speed%%elven_speed%%WNL%~
+			      PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
+			        LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = 5 parameter2 = 5 STR_VAR match_resource = EVAL ~d5_cstp%elven_speed%~ resource = EVAL ~d5_cstb%elven_speed%~ END
+			      END
 /*
-			  PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN
-			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %magus_code% parameter2 = 9 STR_VAR match_resource = EVAL ~d5_cstp%leather_speed%~ resource = EVAL ~d5_cstb%leather_speed%~ END
-			  END
-			  PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
-			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%leather_speed%~ END
-			  END
+				  PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN
+				    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %magus_code% parameter2 = 9 STR_VAR match_resource = EVAL ~d5_cstp%elven_speed%~ resource = EVAL ~d5_cstb%elven_speed%~ END
+				  END
+				  PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+				    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%elven_speed%~ END
+				  END
 */
-			END
-			PATCH_IF (leather_block = 0) BEGIN
-			  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-			  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcal~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zncast~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm1l~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm2l~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm3l~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zw172l~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarm1~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarml~ END
-			END
-			READ_LONG 0x54 valid
-			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			  READ_STRREF 0x54 "desc"
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+				END
+			    LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
+			    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcal~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zncast~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm1l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm2l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm3l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zw172l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarm1~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarml~ END
+				READ_LONG 0x54 valid
+				PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+				  READ_STRREF 0x54 "desc"
+				  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+					REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+				  END
+				  SAY_EVALUATED 0x54 ~%new_desc%~
+				END
+			    ELSE BEGIN
+				  READ_STRREF 0x50 "desc"
+				  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+					REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+				  END
+				  SAY_EVALUATED 0x50 ~%new_desc%~
+			    END
+			END ELSE BEGIN
+			  PATCH_PRINT ~%SOURCE_RES% = leather armor +%enchantment%~
+			  PATCH_IF (leather_dex > 0) BEGIN
+			    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %leather_dex%) parameter2 = 0 timing = 2 END
+			    SPRINT new_desc_lines ~%new_desc_lines%%new_dex%%leather_dex%%WNL%~
 			  END
-			  SAY_EVALUATED 0x54 ~%new_desc%~
-			END
-			ELSE BEGIN
-			  READ_STRREF 0x50 "desc"
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+			  PATCH_IF (leather_move > 0) BEGIN
+			    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 176 target = 1 parameter1 = (0 - %leather_move%) parameter2 = 0 timing = 2 END
+			    SPRINT new_desc_lines ~%new_desc_lines%%new_move%%leather_move%%WNL%~
 			  END
-			  SAY_EVALUATED 0x50 ~%new_desc%~
-			END
+			  PATCH_IF (leather_weap > 0) BEGIN
+			    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = (0 - %leather_weap%) parameter2 = 0 timing = 2 END
+			    SPRINT new_desc_lines ~%new_desc_lines%%new_weap%%leather_weap%%WNL%~
+			  END
+			  PATCH_IF (leather_miscast > 0) BEGIN
+			    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~D5_CSTM1~ END
+			    SPRINT new_desc_lines ~%new_desc_lines%%new_miscast%%leather_miscast%%%WNL%~
+			  END
+			  PATCH_IF (leather_speed > 0) BEGIN
+			    PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
+			      LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%leather_speed%~ END
+			    END
+			    SPRINT new_desc_lines ~%new_desc_lines%%new_speed%%leather_speed%%WNL%~
+			    PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
+			      LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = 5 parameter2 = 5 STR_VAR match_resource = EVAL ~d5_cstp%leather_speed%~ resource = EVAL ~d5_cstb%leather_speed%~ END
+			    END
+/*
+			    PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN
+			      LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %magus_code% parameter2 = 9 STR_VAR match_resource = EVAL ~d5_cstp%leather_speed%~ resource = EVAL ~d5_cstb%leather_speed%~ END
+			    END
+			    PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+			      LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%leather_speed%~ END
+			    END
+*/
+			  END
+			  PATCH_IF (leather_block = 0) BEGIN
+			    LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
+			    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcal~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zncast~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm1l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm2l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm3l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zw172l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarm1~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarml~ END
+			  END
+			  READ_LONG 0x54 valid
+			  PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+			    READ_STRREF 0x54 "desc"
+			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+			      REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+			    END
+			    SAY_EVALUATED 0x54 ~%new_desc%~
+			  END
+			  ELSE BEGIN
+			    READ_STRREF 0x50 "desc"
+			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+			      REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+			    END
+			    SAY_EVALUATED 0x50 ~%new_desc%~
+			  END
+		    END
 		  END
 //	hide armor
 		  ELSE PATCH_IF (gen_name_strref = %hide_strref%) BEGIN 
@@ -603,7 +671,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 //	studded leather is default
 		  ELSE BEGIN 		
 //			SPRINT armor_type ~studded~
-  		 	PATCH_PRINT ~%SOURCE_RES% = studded leather +%enchantment%~
 			PATCH_IF (no_cast = 0) BEGIN
 			  SET studded_speed = 0
 			  SET studded_miscast = 0
@@ -618,65 +685,128 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 89 target = 1 parameter1 = %studded_dr% parameter2 = 1 timing = 2 END
 			  SPRINT new_desc_lines ~%new_desc_lines%%new_dr%%studded_dr%%%WNL%~
 			END
-			PATCH_IF (studded_dex > 0) BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %studded_dex%) parameter2 = 0 timing = 2 END
-			  SPRINT new_desc_lines ~%new_desc_lines%%new_dex%%studded_dex%%WNL%~
-			END
-			PATCH_IF (studded_move > 0) BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 176 target = 1 parameter1 = (0 - %studded_move%) parameter2 = 0 timing = 2 END
-			  SPRINT new_desc_lines ~%new_desc_lines%%new_move%%studded_move%%WNL%~
-			END
-			PATCH_IF (studded_weap > 0) BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = (0 - %studded_weap%) parameter2 = 0 timing = 2 END
-			  SPRINT new_desc_lines ~%new_desc_lines%%new_weap%%studded_weap%%WNL%~
-			END
-			PATCH_IF (studded_miscast > 0) BEGIN
-			  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~D5_CSTM2~ END
-			  SPRINT new_desc_lines ~%new_desc_lines%%new_miscast%%studded_miscast%%%WNL%~
-			END
-			PATCH_IF (studded_speed > 0) BEGIN
-			  PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
-			    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%studded_speed%~ END
-			  END
-			  SPRINT new_desc_lines ~%new_desc_lines%%new_speed%%studded_speed%%WNL%~
-			  PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
-			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = 5 parameter2 = 5 STR_VAR match_resource = EVAL ~d5_cstp%studded_speed%~ resource = EVAL ~d5_cstb%studded_speed%~ END
-			  END
+			PATCH_IF (elven = 1) BEGIN 
+				PATCH_PRINT ~%SOURCE_RES% = casting leather +%enchantment%~
+				WRITE_BYTE 0x2d ("0x00") //blocked: none
+				PATCH_IF (elven_dex > 0) BEGIN
+				  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %elven_dex%) parameter2 = 0 timing = 2 END
+				  SPRINT new_desc_lines ~%new_desc_lines%%new_dex%%elven_dex%%WNL%~
+				END
+				PATCH_IF (elven_move > 0) BEGIN
+				  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 176 target = 1 parameter1 = (0 - %elven_move%) parameter2 = 0 timing = 2 END
+				  SPRINT new_desc_lines ~%new_desc_lines%%new_move%%elven_move%%WNL%~
+				END
+				PATCH_IF (elven_weap > 0) BEGIN
+				  LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = (0 - %elven_weap%) parameter2 = 0 timing = 2 END
+				  SPRINT new_desc_lines ~%new_desc_lines%%new_weap%%elven_weap%%WNL%~
+				END
+			    PATCH_IF (elven_miscast > 0) BEGIN
+			      LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~D5_CSTM9~ END
+			      SPRINT new_desc_lines ~%new_desc_lines%%new_miscast%%elven_miscast%%%WNL%~
+			    END
+			    PATCH_IF (elven_speed > 0) BEGIN
+			      PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
+			        LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%elven_speed%~ END
+			      END
+			      SPRINT new_desc_lines ~%new_desc_lines%%new_speed%%elven_speed%%WNL%~
+			      PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
+			        LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = 5 parameter2 = 5 STR_VAR match_resource = EVAL ~d5_cstp%elven_speed%~ resource = EVAL ~d5_cstb%elven_speed%~ END
+			      END
 /*
-			  PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN
-			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %magus_code% parameter2 = 9 STR_VAR match_resource = EVAL ~d5_cstp%studded_speed%~ resource = EVAL ~d5_cstb%studded_speed%~ END
-			  END
-			  PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
-			    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%studded_speed%~ END
-			  END
+				  PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN
+				    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %magus_code% parameter2 = 9 STR_VAR match_resource = EVAL ~d5_cstp%elven_speed%~ resource = EVAL ~d5_cstb%elven_speed%~ END
+				  END
+				  PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+				    LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%elven_speed%~ END
+				  END
 */
-			END
-			PATCH_IF (studded_block = 0) BEGIN
-			  LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
-			  LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcal~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zncast~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm1l~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm2l~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm3l~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zw172l~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarm1~ END
-		      LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarml~ END
-			END
-			READ_LONG 0x54 valid
-			PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
-			  READ_STRREF 0x54 "desc"
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+				END
+			    LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
+			    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcal~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zncast~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm1l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm2l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm3l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zw172l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarm1~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarml~ END
+				READ_LONG 0x54 valid
+				PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+				  READ_STRREF 0x54 "desc"
+				  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+					REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+				  END
+				  SAY_EVALUATED 0x54 ~%new_desc%~
+				END
+			    ELSE BEGIN
+				  READ_STRREF 0x50 "desc"
+				  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+					REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+				  END
+				  SAY_EVALUATED 0x50 ~%new_desc%~
+			    END
+			END ELSE BEGIN
+  		 	  PATCH_PRINT ~%SOURCE_RES% = studded leather +%enchantment%~
+			  PATCH_IF (studded_dex > 0) BEGIN
+			    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 15 target = 1 parameter1 = (0 - %studded_dex%) parameter2 = 0 timing = 2 END
+			    SPRINT new_desc_lines ~%new_desc_lines%%new_dex%%studded_dex%%WNL%~
 			  END
-			  SAY_EVALUATED 0x54 ~%new_desc%~
-			END
-			ELSE BEGIN
-			  READ_STRREF 0x50 "desc"
-			  INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
-				REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+			  PATCH_IF (studded_move > 0) BEGIN
+			    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 176 target = 1 parameter1 = (0 - %studded_move%) parameter2 = 0 timing = 2 END
+			    SPRINT new_desc_lines ~%new_desc_lines%%new_move%%studded_move%%WNL%~
 			  END
-			  SAY_EVALUATED 0x50 ~%new_desc%~
-			END
+			  PATCH_IF (studded_weap > 0) BEGIN
+			    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 190 target = 1 parameter1 = (0 - %studded_weap%) parameter2 = 0 timing = 2 END
+			    SPRINT new_desc_lines ~%new_desc_lines%%new_weap%%studded_weap%%WNL%~
+			  END
+			  PATCH_IF (studded_miscast > 0) BEGIN
+			    LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~D5_CSTM2~ END
+			    SPRINT new_desc_lines ~%new_desc_lines%%new_miscast%%studded_miscast%%%WNL%~
+			  END
+			  PATCH_IF (studded_speed > 0) BEGIN
+			    PATCH_FOR_EACH class IN 1 5 7 10 13 14 17 BEGIN
+			      LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = %class% parameter2 = 5 timing = 2 STR_VAR resource = EVAL ~d5_cstp%studded_speed%~ END
+			    END
+			    SPRINT new_desc_lines ~%new_desc_lines%%new_speed%%studded_speed%%WNL%~
+			    PATCH_IF (FILE_EXISTS_IN_GAME ~d5__bards.d5~) OR (FILE_EXISTS_IN_GAME ~qdtnb_acbards.qd~) BEGIN
+			      LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = 5 parameter2 = 5 STR_VAR match_resource = EVAL ~d5_cstp%studded_speed%~ resource = EVAL ~d5_cstb%studded_speed%~ END
+			    END
+/*
+			    PATCH_IF FILE_EXISTS_IN_GAME ~qdmagus.2da~ BEGIN
+			      LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %magus_code% parameter2 = 9 STR_VAR match_resource = EVAL ~d5_cstp%studded_speed%~ resource = EVAL ~d5_cstb%studded_speed%~ END
+			    END
+			    PATCH_FOR_EACH class IN 5 7 10 13 14 17 BEGIN
+			      LPF CLONE_EFFECT INT_VAR silent = 1 match_opcode = 177 multi_match = 1 parameter1 = %class% STR_VAR match_resource = EVAL ~d5_cstp%studded_speed%~ END
+			    END
+*/
+			  END
+			  PATCH_IF (studded_block = 0) BEGIN
+			    LPF DELETE_EFFECT INT_VAR match_opcode = 145 match_parameter2 = 0 END
+			    LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5arcal~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zncast~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm1l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm2l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 177 STR_VAR match_resource = ~d5zarm3l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zw172l~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarm1~ END
+		        LPF DELETE_EFFECT INT_VAR match_opcode = 146 STR_VAR match_resource = ~d5zarml~ END
+			  END
+			  READ_LONG 0x54 valid
+			  PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+			    READ_STRREF 0x54 "desc"
+			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+			      REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+			    END
+			    SAY_EVALUATED 0x54 ~%new_desc%~
+			  END
+			  ELSE BEGIN
+			    READ_STRREF 0x50 "desc"
+			    INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+			      REPLACE_TEXTUALLY ~%catch_ac%~  ~%new_desc_lines%~
+			    END
+			    SAY_EVALUATED 0x50 ~%new_desc%~
+			  END
+		    END
 		  END
 		END
 		PATCH_IF (appearance = 16691) BEGIN // chain appearance
