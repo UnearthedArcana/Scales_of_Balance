@@ -535,6 +535,7 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   END
 BUT_ONLY
 
+/*
 ACTION_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
   COPY_EXISTING_REGEXP GLOB ~^[Dd]5_[Uu].+\.spl$~ ~override~
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 181 match_parameter1 = 69 parameter1 = 51 END  //  halberds
@@ -632,6 +633,8 @@ COPY_EXISTING_REGEXP	~.*\.sto~	override
 		END
 	END
 BUT_ONLY
+*/
+
 //__________________________________________________________________________________
 
 

@@ -629,6 +629,12 @@ END 	//	end define function
 
 DEFINE_ACTION_FUNCTION 5e_no_priest_mem_bonus BEGIN 
 
+  ACTION_IF (MOD_IS_INSTALLED ~5E_spellcasting.tp2~ ~100~) BEGIN
+    COPY ~scales_of_balance/stats/mxsplwis_0.2da~ ~override/mxsplwis.2da~
+  END
+
+/* ...what is all this for? why not just zero out the table??
+
   COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5absp5.spl~
 	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5absp5~ END
 //	LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 21 parameter2 = 5 timing = 9 STR_VAR resource = ~d5abspp~ END
@@ -762,6 +768,7 @@ DEFINE_ACTION_FUNCTION 5e_no_priest_mem_bonus BEGIN
 	  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 326 target = 1 parameter1 = 18 parameter2 = 105 timing = 1 STR_VAR resource = ~d5absp5~ END
 	BUT_ONLY
   END
+*/
 
 END 	//	end define function
 
