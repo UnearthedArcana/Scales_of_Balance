@@ -43,7 +43,7 @@
 @120   = ~WPO - Weapon Proficiency Overhaul~
 @121   = ~WPO - Broader Weapon Categories~
 @122   = ~Streamlined Proficiency System~
-@123   = ~NEW: Expanded Combat Skills System~
+@123   = ~NEW Expanded Combat Skills System~
 //
 //
 //
@@ -533,13 +533,13 @@ Coordinating the use of two weapons is difficult, especially with larger, heavie
 @12013  = ~Grappling~
 @12014  = ~Grappling: when using this posture, each round, both the attacker and the nearest melee enemy will be rooted in place for three seconds. If the enemy fails a save vs. breath, they will be Slowed for one round.~
 @12015  = ~Precise Strike~
-@12016  = ~Precise Strike: when using this posture will make critical hits on rolls of 19 or 20, instead of just 20.~
+@12016  = ~Precise Strike: when using this posture, an attacker will make critical hits on rolls of 19 or 20, instead of just 20.~
 @12017  = ~Parry Slashing~
-@12018  = ~Parry Slashing: this posture enables the base (missile) damage from an incoming slashing attack to be blocked, once per round.~
+@12018  = ~Parry Slashing: this posture enables the base damage from an incoming slashing attack to be blocked, once per round.~
 @12019  = ~Parry Piercing~
-@12020  = ~Parry Piercing: this posture enables the base (missile) damage from an incoming piercing attack to be blocked, once per round.~
+@12020  = ~Parry Piercing: this posture enables the base damage from an incoming piercing attack to be blocked, once per round.~
 @12021  = ~Parry Crushing~
-@12022  = ~Parry Crushing: this posture enables the base (missile) damage from an incoming crushing attack to be blocked, once per round.~
+@12022  = ~Parry Crushing: this posture enables the base damage from an incoming crushing attack to be blocked, once per round.~
 @12023  = ~Missile Snaring~
 @12024  = ~Missile Snaring: this posture enables the deflection of base (missile) damage from an incoming ranged attack, once per round.~
 @12025  = ~Fighting Dirty~
@@ -632,7 +632,7 @@ Coordinating the use of two weapons is difficult, especially with larger, heavie
 3 points: +3 to hit, +3 damage
 4 points: +3 to hit, +3 damage, +.5 APR
 ~
-@12095  = ~SCIMITARS:  This weapon class allows the character to use various single-edged blades, including the Scimitar, the katana, and the Wakazashi.
+@12095  = ~SCIMITARS:  This weapon class allows the character to use the curved, single-edged blades such as sabers and the scimitar popular in Calimshan.
 
 2 points: +2 to hit, +1 damage
 3 points: +3 to hit, +3 damage
@@ -751,8 +751,8 @@ NOTE: not all postures are available to every class or kit. Warriors will genera
 - Toughness (10% resistance to weapon damage)
 - Resistance (10% resistance to elemental damage)
 - Quickstride (increased running speed, usable at will)
-- Fortitude (extra save to avoid poison/disease effects)
-- Determination (extra save to avoid stun/hold/sleep/fear effects)
+- Intestinal Fortitude (extra save to avoid poison/disease effects)
+- Unflagging Determination (extra save to avoid stun/hold/sleep/fear effects)
 - Strength Training (+1 bonus to Strength)
 - Agility Training (+1 bonus to Dexterity)
 

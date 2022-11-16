@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 6.2 </strong><br />
+  <p><strong> Version 6.3 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -115,14 +115,14 @@
     <p><strong><em>IWO: Functional Weapon Tweaks</em></strong></p>
     <p>This component makes tweaks to the base characteristics of various items:</p>
     <ul>
-      <li> Spears do 2d4 damage, since in BG games they are of the 2-handed variety (this is per PnP).</li>
+      <li> Spears do 1d10 damage, since in BG games they are of the 2-handed variety (this is Pen-and-Paper rule).</li>
       <li> Quarterstaves get an inherent -1 AC bonus.</li>
       <li> Daggers do 1d5 base damage instead of 1d4. (This includes throwing daggers.)</li>
       <li> Light crossbows can be used 1-handed, with shields. Heavy crossbows have an overall +3 damage bonus to compensate.</li>
       <li> Bolts do 1d6 base damage (and thus, from heavy crossbows they do 1d6+3).</li>
       <li> Bows have their base APR reduced to 3/2; Longbows and composite bows do an extra +2 damage.</li>
       <li> Arrows do 1d5 damage (and thus, 1d5+2 from longbows).</li>
-      <li> Sling bullets do blunt damage.</li>
+      <li> Sling bullets do blunt damage instead of missile damage.</li>
       <li> Darts have 2 APR instead of 3.</li>
       <li> In the EE games, strength damage bonuses are removed from thrown daggers, darts, and slings.</li>
       <li> Archers (and any kits with the Archer usability flag) can now use Elven Chain armor.</li>
@@ -807,60 +807,60 @@
  <tr>
   <td><b>15:</b></td>
   <td>+1</td>
-  <td>+2, +1 per 7 levels</td>
+  <td>+1, +1 per 7 levels</td>
  </tr>
  <tr>
   <td><b>16:</b></td>
   <td>+1</td>
-  <td>+2, +1 per 7 levels</td>
+  <td>+1, +1 per 7 levels</td>
  </tr>
  <tr>
   <td><b>17:</b></td>
   <td>+2</td>
-  <td>+3, +1 per 5 levels</td>
+  <td>+1, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>18:</b></td>
   <td>+2</td>
-  <td>+3, +1 per 5 levels</td>
+  <td>+1, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>19:</b></td>
   <td>+3</td>
-  <td>+3, +1 per 5 levels</td>
+  <td>+1, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>20:</b></td>
   <td>+3</td>
-  <td>+3, +1 per 5 levels</td>
+  <td>+1, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>21:</b></td>
   <td>+4</td>
-  <td>+3, +1 per 5 levels</td>
+  <td>+1, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>22:</b></td>
   <td>+4</td>
-  <td>+3, +1 per 5 levels</td>
+  <td>+1, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>23:</b></td>
   <td>+5</td>
-  <td>+3, +1 per 5 levels</td>
+  <td>+1, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>24:</b></td>
   <td>+5</td>
-  <td>+3, +1 per 5 levels</td>
+  <td>+1, +1 per 5 levels</td>
  </tr>
  <tr>
   <td><b>25:</b></td>
   <td>+6</td>
-  <td>+3, +1 per 5 levels</td>
+  <td>+1, +1 per 5 levels</td>
  </tr>
 </table>
-* <i>(Warriors only. Bards get the INT 13 bonus proficiencies if their INT is 15+, and get the INT 15 bonus proficiencies if their INT is 17+.  <b>NOTE:</b> these extra proficiencies can be turned off by editing a variable in /Scales_of_Balance/ini/stats.ini.)</i><br />
+* <i>(Warriors only. <b>NOTE:</b> these extra proficiencies can be turned off by editing a variable in /Scales_of_Balance/ini/stats.ini.)</i><br />
 <table style= "width: 50%">
  <tr>
   <th>WISDOM </th>

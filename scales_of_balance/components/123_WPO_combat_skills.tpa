@@ -3944,24 +3944,23 @@ END
 >>>>>>>>
 
 COPY ~d5/d5cs127.d~ ~weidu_external/%MOD_FOLDER%/compile/d5cs127.d~
-  PATCH_IF (there_is_psionics = 1) BEGIN
+  PATCH_IF (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) BEGIN
     REPLACE_TEXTUALLY 
-~~~~~ IF ~GlobalGT("D5CS127","GLOBAL",0) OR(2) Global("D5CSM7","LOCALS",0) Global("D5CSM7","LOCALS",2)~ THEN REPLY @12063 GOTO d5cs127_7~~~~~
-~~~~~ IF ~GlobalGT("D5CS127","GLOBAL",0) OR(2) Global("D5CSM8","LOCALS",0) Global("D5CSM8","LOCALS",2)~ THEN REPLY @12063 GOTO d5cs127_8
- IF ~GlobalLT("D5CSM8","LOCALS",1) GlobalGT("D5CS127","GLOBAL",0)~ THEN REPLY @12065 GOTO d5cs127_8~~~~~
-    REPLACE_TEXTUALLY 
-~~~~~DO ~ApplySpellRES("D5C127G",Myself)~ EXIT
- IF ~~ THEN REPLY @12003 GOTO d5cs127 
-END~~~~~
-~~~~~DO ~ApplySpellRES("D5C127G",Myself)~ EXIT
- IF ~~ THEN REPLY @12003 GOTO d5cs127 
-END
-IF ~~ THEN BEGIN d5cs127_8 											// wild talent
- SAY @12066
- IF ~~ THEN REPLY @12002 DO ~IncrementGlobal("D5CSM8","LOCALS",1)~ DO ~ApplySpellRES("D5CS8L",Myself)~ EXIT 
- IF ~~ THEN REPLY @12003 GOTO d5cs127 
-END~~~~~
+~~~~~GOTO d5cs127_7.+$~~~~~
+~~~~~GOTO d5cs127_7     // luck bonus
+ IF ~GlobalGT("D5CS127H","GLOBAL",0) OR(2) Global("D5CSM8","LOCALS",0) Global("D5CSM8","LOCALS",2)~ THEN REPLY @12065 GOTO d5cs127_8     // wild talent %WNL%~~~~~
   END
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5__psionics.d5~) BEGIN
+  APPEND_OUTER ~weidu_external/%MOD_FOLDER%/compile/d5cs127.d~
+~~~~~
+IF ~~ THEN BEGIN d5cs127_8 											// wild talent
+%WNL% SAY @12066
+%WNL% IF ~~ THEN REPLY @12002 DO ~IncrementGlobal("D5CSM8","LOCALS",1)~ DO ~ApplySpellRES("D5CSM8L",Myself)~ EXIT 
+%WNL% IF ~~ THEN REPLY @12003 GOTO d5cs127
+%WNL%END
+~~~~~
+END
 
 COMPILE ~weidu_external/%MOD_FOLDER%/compile/d5cs127.d~
 
