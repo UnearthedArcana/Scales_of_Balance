@@ -2257,7 +2257,7 @@ CREATE EFF  ~d5csp4a~
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp4b.spl~
   PATCH_IF (IS_AN_INT %parry_slashing_row%) BEGIN
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %parry_slashing_state% parameter2 = %parry_slashing_row% timing = 4 duration = 0 END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %parry_slashing_state% parameter2 = %parry_slashing_row% timing = 0 duration = 5 END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5csp4b~ END
   END
 
@@ -2305,7 +2305,7 @@ CREATE EFF  ~d5csp5a~
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp5b.spl~
   PATCH_IF (IS_AN_INT %parry_piercing_row%) BEGIN
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %parry_piercing_state% parameter2 = %parry_piercing_row% timing = 4 duration = 0 END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %parry_piercing_state% parameter2 = %parry_piercing_row% timing = 0 duration = 5 END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5csp5b~ END
   END
 
@@ -2353,7 +2353,7 @@ CREATE EFF  ~d5csp6a~
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp6b.spl~
   PATCH_IF (IS_AN_INT %parry_crushing_row%) BEGIN
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %parry_crushing_state% parameter2 = %parry_crushing_row% timing = 4 duration = 0 END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %parry_crushing_state% parameter2 = %parry_crushing_row% timing = 0 duration = 5 END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5csp6b~ END
   END
 
@@ -2401,7 +2401,7 @@ CREATE EFF  ~d5csp7a~
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp7b.spl~
   PATCH_IF (IS_AN_INT %missile_snaring_row%) BEGIN
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %missile_snaring_state% parameter2 = %missile_snaring_row% timing = 4 duration = 0 END
+    LPF ADD_SPELL_EFFECT INT_VAR opcode = 335 target = 1 parameter1 = %missile_snaring_state% parameter2 = %missile_snaring_row% timing = 0 duration = 5 END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5csp7b~ END
   END
 
@@ -3234,9 +3234,14 @@ ACTION_IF (thief_use_wands = 0) BEGIN
 
   COPY_EXISTING ~wand11.itm~ ~weidu_external/%MOD_FOLDER%/temp~
 
-  LAF d5_resolve_specific STR_VAR new_specific_id = ~D5_NO_UMD~ RET new_specific_ind END
-
-  OUTER_SET no_umd_specific = %new_specific_ind%
+  OUTER_SET spec_ids = IDS_OF_SYMBOL (~specific~ ~D5_NO_UMD~)
+  ACTION_IF (spec_ids = 0 - 1) BEGIN  
+    LAF d5_resolve_specific STR_VAR new_specific_id = ~D5_NO_UMD~ RET new_specific_ind END
+    OUTER_SET no_umd_specific = %new_specific_ind%
+  END
+  ACTION_IF (spec_ids > 0) BEGIN
+    OUTER_SET no_umd_specific = %spec_ids%
+  END
 
   ACTION_IF !(FILE_EXISTS_IN_GAME ~d5_numd.spl~) BEGIN
    COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5_numd.spl~				//			UMD
