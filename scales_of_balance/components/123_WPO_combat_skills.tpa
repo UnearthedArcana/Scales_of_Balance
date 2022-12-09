@@ -3423,12 +3423,12 @@ END
 
 INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
 
-LAF semi_innate_casting INT_VAR semi_innate_stat = 110 semi_innate_shift = 24 STR_VAR semi_innate_prefix = ~d5ci~ semi_innate_array = ~semi_innate_spells~ END
+LAF semi_innate_casting INT_VAR semi_innate_stat = 109 semi_innate_shift = 24 STR_VAR semi_innate_prefix = ~d5ci~ semi_innate_array = ~semi_innate_spells~ END
 
 ACTION_FOR_EACH mag_spl IN ~2~ ~3~ ~4~ ~5~ ~6~ ~7~ ~8~ ~9~ BEGIN			//		set up magic skills
 
   COPY_EXISTING ~d5csi%mag_spl%l.spl~ ~override~
-    LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5cix1a~ END
+    LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5cix1a~ END
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 9 STR_VAR resource = EVAL ~d5csi%mag_spl%~ END
   IF_EXISTS BUT_ONLY
 
