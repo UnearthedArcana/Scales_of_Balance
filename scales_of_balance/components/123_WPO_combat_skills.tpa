@@ -700,8 +700,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
 	GET_OFFSET_ARRAY2 fx_array ab_off SPL_V10_HEAD_EFFECTS
 	PHP_EACH fx_array AS int => fx_off BEGIN
 	  READ_SHORT fx_off fx_type
+	  READ_LONG (fx_off + 0x04) fx_val
 	  READ_SHORT (fx_off + 0x08) fx_prof
-	  PATCH_IF (fx_type = 233) AND (fx_prof = 109) BEGIN
+	  PATCH_IF (fx_type = 233) AND (fx_val < 8) AND (fx_prof = 109) BEGIN
 	    SET remove_this = 1
 	  END
 	END
@@ -718,8 +719,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	GET_OFFSET_ARRAY2 fx_array ab_off ITM_V10_HEAD_EFFECTS
 	PHP_EACH fx_array AS int => fx_off BEGIN
 	  READ_SHORT fx_off fx_type
+	  READ_LONG (fx_off + 0x04) fx_val
 	  READ_SHORT (fx_off + 0x08) fx_prof
-	  PATCH_IF (fx_type = 233) AND (fx_prof = 109) BEGIN
+	  PATCH_IF (fx_type = 233) AND (fx_val < 8) AND (fx_prof = 109) BEGIN
 	    SET remove_this = 1
 	  END
 	END
@@ -741,8 +743,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
 	GET_OFFSET_ARRAY2 fx_array ab_off SPL_V10_HEAD_EFFECTS
 	PHP_EACH fx_array AS int => fx_off BEGIN
 	  READ_SHORT fx_off fx_type
+	  READ_LONG (fx_off + 0x04) fx_val
 	  READ_SHORT (fx_off + 0x08) fx_prof
-	  PATCH_IF (fx_type = 233) AND (fx_prof = 110) BEGIN
+	  PATCH_IF (fx_type = 233) AND (fx_val < 8) AND (fx_prof = 110) BEGIN
 	    SET remove_this = 1
 	  END
 	END
@@ -759,8 +762,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	GET_OFFSET_ARRAY2 fx_array ab_off ITM_V10_HEAD_EFFECTS
 	PHP_EACH fx_array AS int => fx_off BEGIN
 	  READ_SHORT fx_off fx_type
+	  READ_LONG (fx_off + 0x04) fx_val
 	  READ_SHORT (fx_off + 0x08) fx_prof
-	  PATCH_IF (fx_type = 233) AND (fx_prof = 110) BEGIN
+	  PATCH_IF (fx_type = 233) AND (fx_val < 8) AND (fx_prof = 110) BEGIN
 	    SET remove_this = 1
 	  END
 	END
@@ -785,8 +789,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
 	GET_OFFSET_ARRAY2 fx_array ab_off SPL_V10_HEAD_EFFECTS
 	PHP_EACH fx_array AS int => fx_off BEGIN
 	  READ_SHORT fx_off fx_type
+	  READ_LONG (fx_off + 0x04) fx_val
 	  READ_SHORT (fx_off + 0x08) fx_prof
-	  PATCH_IF (fx_type = 233) AND (fx_prof = 124) BEGIN
+	  PATCH_IF (fx_type = 233) AND (fx_val < 8) AND (fx_prof = 124) BEGIN
 	    SET remove_this = 1
 	  END
 	END
@@ -805,8 +810,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	GET_OFFSET_ARRAY2 fx_array ab_off ITM_V10_HEAD_EFFECTS
 	PHP_EACH fx_array AS int => fx_off BEGIN
 	  READ_SHORT fx_off fx_type
+	  READ_LONG (fx_off + 0x04) fx_val
 	  READ_SHORT (fx_off + 0x08) fx_prof
-	  PATCH_IF (fx_type = 233) AND (fx_prof = 124) BEGIN
+	  PATCH_IF (fx_type = 233) AND (fx_val < 8) AND (fx_prof = 124) BEGIN
 	    SET remove_this = 1
 	  END
 	END
@@ -842,8 +848,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.spl$~ ~override~
 	GET_OFFSET_ARRAY2 fx_array ab_off SPL_V10_HEAD_EFFECTS
 	PHP_EACH fx_array AS int => fx_off BEGIN
 	  READ_SHORT fx_off fx_type
+	  READ_LONG (fx_off + 0x04) fx_val
 	  READ_SHORT (fx_off + 0x08) fx_prof
-	  PATCH_IF (fx_type = 233) AND (fx_prof = 127) BEGIN
+	  PATCH_IF (fx_type = 233) AND (fx_val < 8) AND (fx_prof = 127) BEGIN
 	    SET remove_this = 1
 	  END
 	END
@@ -860,8 +867,9 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
 	GET_OFFSET_ARRAY2 fx_array ab_off ITM_V10_HEAD_EFFECTS
 	PHP_EACH fx_array AS int => fx_off BEGIN
 	  READ_SHORT fx_off fx_type
+	  READ_LONG (fx_off + 0x04) fx_val
 	  READ_SHORT (fx_off + 0x08) fx_prof
-	  PATCH_IF (fx_type = 233) AND (fx_prof = 127) BEGIN
+	  PATCH_IF (fx_type = 233) AND (fx_val < 8) AND (fx_prof = 127) BEGIN
 	    SET remove_this = 1
 	  END
 	END
