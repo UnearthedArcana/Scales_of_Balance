@@ -1,7 +1,7 @@
 BACKUP ~weidu_external/backup/scales_of_balance~
 AUTHOR ~SubtleD~
 
-VERSION ~v6.3.4~
+VERSION ~v6.4~
 
 //README ~scales_of_balance/readme-SoB.html~
 
@@ -173,16 +173,14 @@ LAF revise_potion_use END
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-BEGIN @122 // change pip values
+BEGIN @122 // WPO pip values
 DESIGNATED 122
 LABEL ~D5_REVISED_PROFICIENCIES~
-SUBCOMPONENT @120
+//SUBCOMPONENT @120
 REQUIRE_PREDICATE (MOD_IS_INSTALLED "TOBEX.TP2" "100") OR (GAME_IS ~bgee bg2ee eet iwdee~) @1
-//REQUIRE_PREDICATE (MOD_IS_INSTALLED "scales_of_balance.tp2" "121") @1
 
-INCLUDE ~scales_of_balance/components/122_WPO_proficiency.tpa~
 INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
-//INCLUDE ~scales_of_balance/components/124_WPO_styles.tpa~
+INCLUDE ~scales_of_balance/components/122_WPO_proficiency.tpa~
 
 LAF revise_proficiency_system END
 //__________________________________________________________________________________
@@ -190,9 +188,10 @@ LAF revise_proficiency_system END
 BEGIN @123 // combat skills
 DESIGNATED 123
 LABEL ~D5_COMBAT_SKILLS~
-SUBCOMPONENT @120 (GAME_IS ~bgee bg2ee eet iwdee~) // AND !(MOD_IS_INSTALLED ~might_and_guile.tp2~ ~200~)
 FORBID_COMPONENT ~might_and_guile.tp2~ ~200~ @3
+REQUIRE_PREDICATE (GAME_IS ~bgee bg2ee eet iwdee~) @1
 
+INCLUDE ~scales_of_balance/components/121_WPO_categories.tpa~
 INCLUDE ~scales_of_balance/components/123_WPO_combat_skills.tpa~
 
 LAF combat_skills_system END
@@ -224,7 +223,6 @@ BEGIN @125 // wspatck for all
 DESIGNATED 125
 LABEL ~D5_EE_WSPATCK_FOR_ALL~
 REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @8
-FORBID_COMPONENT ~scales_of_balance.tp2~ ~123~ @3
 
 INCLUDE ~scales_of_balance/components/125_WPO_apr.tpa~
 
@@ -559,19 +557,30 @@ LAF revise_starting_xp INT_VAR start_value = 400000 STR_VAR game_start = ~starta
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 //
-//							MAGIC RESISTANCE OVERHAUL
+//							MAGIC RESISTANCE OVERHAULS
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
-BEGIN @230
-DESIGNATED 180
+BEGIN @231
 LABEL ~D5_REVISED_MR~
+DESIGNATED 231
+SUBCOMPONENT @230
 
 //INCLUDE ~scales_of_balance/spells/mr_list_base.tpa~
 
 INCLUDE ~scales_of_balance/components/230_MRO.tpa~
 
 LAF revise_magic_resistance END
+//__________________________________________________________________________________
+
+BEGIN @232
+LABEL ~D5_REDUCED_MR~
+DESIGNATED 232
+SUBCOMPONENT @230
+
+INCLUDE ~scales_of_balance/components/230_MRO.tpa~
+
+LAF reduce_magic_resistance END
 //__________________________________________________________________________________
 
 

@@ -6,318 +6,543 @@
 //__________________________________________________________________________________
 //__________________________________________________________________________________
 
+// ***** need to alter racethac.2da also!
+
+/* 
+need to finalize what the categories will be
+
+ - 89 = staff *
+ - 90 = bastard sword + longsword **
+ - 91 = short sword
+ - 92 = axe
+ - 93 = greatsword
+ - 94 = katana
+ - 95 = scimitar
+ - 96 = dagger + dart **
+ - 97 = war hammer
+ - 98 = spear + halberd **
+ - 99 = club + mace *
+ - 100 = flail
+ - 101 = sling *
+ - 102 = bows *
+ - 103 = xbow
+
+*/
+
 DEFINE_ACTION_FUNCTION revise_weapon_categories BEGIN
 
-//UPDATE PROFICIENCY STRINGS_________________________________________________________
+// deal with FnP op181 effects_______________________________________________________
 //
-COPY_EXISTING ~weapprof.2da~ ~override~
-	SET_2DA_ENTRY 11 2 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 11 3 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 15 2 1 RESOLVE_STR_REF (@1224)
-	SET_2DA_ENTRY 16 2 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 16 3 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 17 2 1 RESOLVE_STR_REF (@1226)
-	SET_2DA_ENTRY 18 2 1 RESOLVE_STR_REF (@1227)
-	SET_2DA_ENTRY 20 2 1 RESOLVE_STR_REF (@1223)
-	SET_2DA_ENTRY 21 2 1 RESOLVE_STR_REF (@1228)
-	SET_2DA_ENTRY 22 2 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 22 3 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 24 2 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 24 3 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 27 2 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 27 3 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 28 2 1 RESOLVE_STR_REF (@1229)
-	SET_2DA_ENTRY 29 2 1 RESOLVE_STR_REF (@1225)
-	SET_2DA_ENTRY 29 3 1 RESOLVE_STR_REF (@1225)
+OUTER_SET lsword_found = 0
+OUTER_SET bsword_found = 0
+OUTER_SET dagger_found = 0
+OUTER_SET dart_found = 0
+OUTER_SET spear_found = 0
+OUTER_SET halberd_found = 0
+OUTER_SET mace_found = 0
+OUTER_SET club_found = 0
+COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+  PATCH_IF ((lsword_found + bsword_found + dagger_found + dart_found + spear_found + halberd_found + mace_found + club_found) < 8) BEGIN
+    READ_BYTE 0x31 prof
+    READ_BYTE 0x1b spell_weapon 
+    PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
+      PATCH_IF (prof = 90) BEGIN
+        READ_SHORT 0x1c lsword_type
+        SET lsword_found = 1
+      END
+      PATCH_IF (prof = 89) BEGIN
+        READ_SHORT 0x1c bsword_type
+        SET bsword_found = 1
+      END
+      PATCH_IF (prof = 96) BEGIN
+        READ_SHORT 0x1c dagger_type
+        SET dagger_found = 1
+      END
+      PATCH_IF (prof = 106) BEGIN
+        READ_SHORT 0x1c dart_type
+        SET dart_found = 1
+      END
+      PATCH_IF (prof = 98) BEGIN
+        READ_SHORT 0x1c spear_type
+        SET spear_found = 1
+      END
+      PATCH_IF (prof = 99) BEGIN
+        READ_SHORT 0x1c halberd_type
+        SET halberd_found = 1
+      END
+      PATCH_IF (prof = 101) BEGIN
+        READ_SHORT 0x1c mace_type
+        SET mace_found = 1
+      END
+      PATCH_IF (prof = 115) BEGIN
+        READ_SHORT 0x1c club_type
+        SET club_found = 1
+      END
+    END
+  END
 BUT_ONLY
+//___________________________________________________________________________________
 
-ACTION_IF GAME_IS ~bgee~ THEN BEGIN
-	STRING_SET 24315 @1222
-/*
-	STRING_SET 25000 @1225
-	STRING_SET 25004 @1224
-	STRING_SET 25005 @1225
-	STRING_SET 25006 @1226
-	STRING_SET 25007 @1227
-	STRING_SET 25010 @1228
-	STRING_SET 25011 @1225
-	STRING_SET 25016 @1225
-	STRING_SET 25017 @1229
-	STRING_SET 25018 @1225
-*/
-	STRING_SET 25024 ~ ~
-	STRING_SET 25029 ~ ~
-	STRING_SET 25035 ~ ~
-	STRING_SET 25040 ~ ~
-	STRING_SET 25042 ~ ~
-END
-ACTION_IF GAME_IS ~tob bgt tutu bg2ee eet~ THEN BEGIN
-	STRING_SET 9588 @1222
-/*
-	STRING_SET 31113 @1225
-	STRING_SET 31117 @1224
-	STRING_SET 31118 @1225
-	STRING_SET 31119 @1226
-	STRING_SET 31120 @1227
-	STRING_SET 31122 @1228
-	STRING_SET 31123 @1225
-	STRING_SET 31128 @1225
-	STRING_SET 31129 @1229
-	STRING_SET 31130 @1225
-*/
-	STRING_SET 34146 ~ ~
-	STRING_SET 34151 ~ ~
-	STRING_SET 34158 ~ ~
-	STRING_SET 34163 ~ ~
-	STRING_SET 34165 ~ ~
-END
-ACTION_IF GAME_IS ~iwdee~ THEN BEGIN
-	STRING_SET 9588 @1222
-/*
-	STRING_SET 36807 @1224 // 2-H sw
-	STRING_SET 36811 @1226 // scimitar
-	STRING_SET 36813 @1227 // dagger
-	STRING_SET 36819 @1228 // spear
-	STRING_SET 37721 @1229 // shortbow
-	STRING_SET 36799 @1225 // bastard sw
-	STRING_SET 36809 @1225 // katana
-	STRING_SET 36821 @1225 // halberd
-	STRING_SET 37719 @1225 // longbow
-	STRING_SET 37723 @1225 // dart
-*/
-	STRING_SET 36800 ~ ~ // bastard sw
-	STRING_SET 36810 ~ ~ // katana
-	STRING_SET 36822 ~ ~ // halberd
-	STRING_SET 37720 ~ ~ // longbow
-	STRING_SET 37724 ~ ~ // dart
-END
-//__________________________________________________________________________________
-
-
-//MERGE CLUBS > MACES_______________________________________________________________
+// change item profs_________________________________________________________________
 //
 COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-	READ_BYTE 0x31 prof
-	READ_BYTE 0x1b spell_weapon 
-		PATCH_IF prof = 101 BEGIN
-			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
-				WRITE_BYTE 0x31 115
-/*
-				PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
-					WRITE_SHORT 0x1c 17
-				END
-*/
-			END
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_BYTE 0x31 prof
+    READ_BYTE 0x1b spell_weapon 
+    PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
+      PATCH_IF (prof = 89) BEGIN
+        WRITE_BYTE 0x31 90
+		PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
+		  WRITE_SHORT 0x1c lsword_type
 		END
-	END
+      END
+	  PATCH_IF (prof = 102) BEGIN
+	    WRITE_BYTE 0x31 89
+	  END
+	  PATCH_IF (prof = 106) BEGIN
+	    WRITE_BYTE 0x31 96
+		PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
+		  WRITE_SHORT 0x1c dagger_type
+		END
+	  END
+	  PATCH_IF (prof = 99) BEGIN
+	    WRITE_BYTE 0x31 98
+		PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
+		  WRITE_SHORT 0x1c spear_type
+		END
+	  END
+	  PATCH_IF (prof = 115) BEGIN
+	    WRITE_BYTE 0x31 99
+		PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
+		  WRITE_SHORT 0x1c mace_type
+		END
+	  END
+	  PATCH_IF (prof = 101) BEGIN
+	    WRITE_BYTE 0x31 99
+		PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
+		  WRITE_SHORT 0x1c mace_type
+		END
+	  END
+/* leave morning stars as they were already being treated...?
+	  PATCH_IF (prof = 100) BEGIN
+		PATCH_IF (anim = 21325) BEGIN // morning star
+	      WRITE_BYTE 0x31 93
+		  PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
+		    WRITE_SHORT 0x1c mace_type
+		  END
+		END
+	  END
+*/
+	  PATCH_IF (prof = 104) BEGIN
+	    WRITE_BYTE 0x31 102
+	  END
+	  PATCH_IF (prof = 105) BEGIN
+	    WRITE_BYTE 0x31 102
+	  END
+	  PATCH_IF (prof = 107) BEGIN
+	    WRITE_BYTE 0x31 101
+	  END
+    END
+  END
 BUT_ONLY
 
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 101 parameter2 = 115 END
-IF_EXISTS BUT_ONLY
-	
+OUTER_FOR (u = 1; u < 300; ++u) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5_u%u%.spl~) BEGIN
+    COPY_EXISTING ~d5_u%u%.spl~ override
+      SPRINT no_use ~_~
+      GET_OFFSET_ARRAY ab_array SPL_V10_HEADERS
+      PHP_EACH ab_array AS int => ab_off BEGIN
+        GET_OFFSET_ARRAY2 fx_array ab_off SPL_V10_HEAD_EFFECTS
+        PHP_EACH fx_array AS int => fx_off BEGIN
+          READ_SHORT fx_off fx_type
+          PATCH_IF (fx_type = 181) BEGIN
+			READ_LONG (fx_off + 0x04) exclude_type
+			SPRINT no_use ~%no_use%_~^~%exclude_type%~
+		  END
+		END
+	  END
+	  PATCH_IF (~%no_use%~ STRING_CONTAINS_REGEXP ~%bsword_type%~ = 1) BEGIN
+	    LPF DELETE_EFFECT INT_VAR match_opcode = 181 match_parameter1 = %lsword_type% END
+	  END
+	  PATCH_IF (~%no_use%~ STRING_CONTAINS_REGEXP ~%dart_type%~ = 1) BEGIN
+	    LPF DELETE_EFFECT INT_VAR match_opcode = 181 match_parameter1 = %dagger_type% END
+	  END
+	  PATCH_IF (~%no_use%~ STRING_CONTAINS_REGEXP ~%halberd_type%~ = 1) BEGIN
+	    LPF DELETE_EFFECT INT_VAR match_opcode = 181 match_parameter1 = %spear_type% END
+	  END
+	  PATCH_IF (~%no_use%~ STRING_CONTAINS_REGEXP ~%club_type%~ = 1) BEGIN
+	    LPF DELETE_EFFECT INT_VAR match_opcode = 181 match_parameter1 = %mace_type% END
+	  END
+	BUT_ONLY
+  END
+END
+//___________________________________________________________________________________
+
+//merge bastard sword > long sword___________________________________________________
+//
 COPY_EXISTING ~weapprof.2da~ ~override~
 	COUNT_2DA_COLS cols
 	FOR (col = 4; col < cols; col += 1) BEGIN
-	    READ_2DA_ENTRY 17 col cols club
-	    READ_2DA_ENTRY 21 col cols mace
-	    PATCH_IF (%mace% > %club%) BEGIN
-	    	SET_2DA_ENTRY 17 col cols %mace%
+	    READ_2DA_ENTRY 8 col cols bastard
+	    READ_2DA_ENTRY 9 col cols longsword
+	    PATCH_IF (VARIABLE_IS_SET %bastard%) AND (VARIABLE_IS_SET %longsword%) BEGIN
+	      PATCH_IF (%bastard% >= %longsword%) BEGIN
+	    	  SET_2DA_ENTRY 9 col cols %bastard%
+		  END
 		END
-		SET_2DA_ENTRY 21 col cols ~0~
-	END
-//__________________________________________________________________________________
-
-//MERGE HALBERDS > SPEARS___________________________________________________________
-//
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-	READ_BYTE 0x31 prof
-	READ_BYTE 0x1b spell_weapon 
-		PATCH_IF prof = 99 BEGIN
-			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
-				WRITE_BYTE 0x31 98
-/*
-				PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
-					WRITE_SHORT 0x1c 44
-				END
-*/
-			END
-		END
+//	    SET_2DA_ENTRY 9 col cols 0
+//	    SET_2DA_ENTRY 12 col cols 0
 	END
 BUT_ONLY
 
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 99 parameter2 = 98 END
-IF_EXISTS BUT_ONLY
-	
+COPY_EXISTING ~racethac.2da~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 2; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 0 col cols bastard_mod
+	    READ_2DA_ENTRY 1 col cols longsword_mod
+	    PATCH_IF (VARIABLE_IS_SET %bastard_mod%) AND (VARIABLE_IS_SET %longsword_mod%) BEGIN
+	      PATCH_IF (%bastard_mod% > %longsword_mod%) BEGIN
+	    	  SET_2DA_ENTRY 1 col cols %bastard_mod%
+		  END
+		END
+	    SET_2DA_ENTRY 0 col cols 0
+	END
+BUT_ONLY
+//__________________________________________________________________________________
+
+//move quarterstaff > 89_____________________________________________________________
+//
 COPY_EXISTING ~weapprof.2da~ ~override~
 	COUNT_2DA_COLS cols
 	FOR (col = 4; col < cols; col += 1) BEGIN
-	    READ_2DA_ENTRY 18 col cols spear
-	    READ_2DA_ENTRY 19 col cols halberd
-	    PATCH_IF (%halberd% > %spear%) BEGIN
-	    	SET_2DA_ENTRY 18 col cols %halberd%
-		END
-	    SET_2DA_ENTRY 19 col cols ~0~
-	END
-//__________________________________________________________________________________
-
-//MERGE DARTS > DAGGERS_____________________________________________________________
-//
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-	READ_BYTE 0x31 prof
-	READ_BYTE 0x1b spell_weapon 
-		PATCH_IF prof = 106 BEGIN
-			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
-				WRITE_BYTE 0x31 96
-/*
-				PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
-					WRITE_SHORT 0x1c 16
-				END
-*/
-			END
+	    READ_2DA_ENTRY 8 col cols bastard
+	    READ_2DA_ENTRY 22 col cols staff
+	    PATCH_IF (VARIABLE_IS_SET %bastard%) AND (VARIABLE_IS_SET %staff%) BEGIN
+	      SET_2DA_ENTRY 8 col cols %staff%
+	      SET_2DA_ENTRY 22 col cols 0
 		END
 	END
 BUT_ONLY
 
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 106 parameter2 = 96 END
-IF_EXISTS BUT_ONLY
-	
+COPY_EXISTING ~racethac.2da~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 2; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 14 col cols staff_mod
+	    SET_2DA_ENTRY 0 col cols %staff_mod%
+	    SET_2DA_ENTRY 14 col cols 0
+	END
+BUT_ONLY
+//__________________________________________________________________________________
+
+//merge darts > daggers_____________________________________________________________
+//
 COPY_EXISTING ~weapprof.2da~ ~override~
 	COUNT_2DA_COLS cols
 	FOR (col = 4; col < cols; col += 1) BEGIN
 	    READ_2DA_ENTRY 15 col cols dagger
 	    READ_2DA_ENTRY 26 col cols darts
-	    PATCH_IF (%darts% > %dagger%) BEGIN
+	    PATCH_IF (VARIABLE_IS_SET %bastard%) AND (VARIABLE_IS_SET %staff%) BEGIN
+	      PATCH_IF (%darts% >= %dagger%) BEGIN
 	    	SET_2DA_ENTRY 15 col cols %darts%
-		END
-	    SET_2DA_ENTRY 26 col cols ~0~
-	END
-//__________________________________________________________________________________
-
-//MERGE KATANAS > SCIMITARS_________________________________________________________
-//
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-	READ_BYTE 0x31 prof
-	READ_BYTE 0x1b spell_weapon 
-		PATCH_IF prof = 94 BEGIN
-			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
-				WRITE_BYTE 0x31 95
-/*
-				PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
-					WRITE_SHORT 0x1c 29
-				END
-*/
-			END
+		  END
+	      SET_2DA_ENTRY 26 col cols 0
 		END
 	END
 BUT_ONLY
 
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 94 parameter2 = 95 END
-IF_EXISTS BUT_ONLY
-	
-COPY_EXISTING ~weapprof.2da~ ~override~
+COPY_EXISTING ~racethac.2da~ ~override~
 	COUNT_2DA_COLS cols
-	FOR (col = 4; col < cols; col += 1) BEGIN
-	    READ_2DA_ENTRY 14 col cols scimitar
-	    READ_2DA_ENTRY 13 col cols katana
-	    PATCH_IF (%katana% > %scimitar%) BEGIN
-	    	SET_2DA_ENTRY 14 col cols %katana%
-		END
-	    SET_2DA_ENTRY 13 col cols ~0~
-	END
-//__________________________________________________________________________________
-
-//MERGE LONG BOWS > SHORT BOWS______________________________________________________
-//
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-	READ_BYTE 0x31 prof
-	READ_BYTE 0x1b spell_weapon 
-		PATCH_IF prof = 104 BEGIN
-			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
-				WRITE_BYTE 0x31 105
-			END
-		END
-	END
-BUT_ONLY
-
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 104 parameter2 = 105 END
-IF_EXISTS BUT_ONLY
-	
-COPY_EXISTING ~weapprof.2da~ ~override~
-	COUNT_2DA_COLS cols
-	FOR (col = 4; col < cols; col += 1) BEGIN
-	    READ_2DA_ENTRY 25 col cols shortbow
-	    READ_2DA_ENTRY 24 col cols longbow
-	    PATCH_IF (%longbow% > %shortbow%) BEGIN
-	    	SET_2DA_ENTRY 25 col cols %longbow%
-		END
-	    SET_2DA_ENTRY 24 col cols ~0~
-	END
-//__________________________________________________________________________________
-
-//MERGE BASTARD SWORDS > 2-HAND SWORDS______________________________________________
-//
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
-	PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
-	READ_BYTE 0x31 prof
-	READ_BYTE 0x18 handed 
-	READ_BYTE 0x1b spell_weapon 
-		PATCH_IF prof = 89 BEGIN
-			PATCH_IF ((~%spell_weapon%~ BOR ~0b11111110~) = ~0b11111110~) BEGIN // if undispellable flag not set
-				PATCH_IF ((~%handed%~ BOR ~0b11111101~) = ~0b11111101~) BEGIN // if 2-handed flag not set
-					WRITE_BYTE 0x31 90
-/*
-					PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
-						WRITE_SHORT 0x1c 20
-					END
-*/
-				END
-				PATCH_IF ((~%handed%~ BOR ~0b11111101~) = ~0b11111111~) BEGIN // if 2-handed flag IS set
-					WRITE_BYTE 0x31 93
-/*
-					PATCH_IF FILE_EXISTS_IN_GAME ~d5__fnp_usability.d5~ BEGIN
-						WRITE_SHORT 0x1c 57
-					END
-*/
-				END
-			END
-		END
-	END
-BUT_ONLY
-COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
-	LPF CLONE_EFFECT INT_VAR silent = 1 multi_match = 1 match_opcode = 233 match_parameter2 = 89 parameter2 = 90 END
-	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 89 parameter2 = 93 END
-IF_EXISTS BUT_ONLY
-	
-COPY_EXISTING ~weapprof.2da~ ~override~
-	COUNT_2DA_COLS cols
-	FOR (col = 4; col < cols; col += 1) BEGIN
-	    READ_2DA_ENTRY 9 col cols longsword
-	    READ_2DA_ENTRY 8 col cols bastard
-	    PATCH_IF (VARIABLE_IS_SET %bastard%) AND (VARIABLE_IS_SET %longsword%) BEGIN
-	      PATCH_IF (%bastard% > %longsword%) BEGIN
-	    	SET_2DA_ENTRY 9 col cols %bastard%
+	FOR (col = 2; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 7 col cols dagger_mod
+	    READ_2DA_ENTRY 18 col cols darts_mod
+	    PATCH_IF (VARIABLE_IS_SET %dagger_mod%) AND (VARIABLE_IS_SET %darts_mod%) BEGIN
+	      PATCH_IF (%darts_mod% > %dagger_mod%) BEGIN
+	    	  SET_2DA_ENTRY 7 col cols %darts_mod%
 		  END
 		END
-	    SET_2DA_ENTRY 8 col cols ~0~
+	    SET_2DA_ENTRY 18 col cols 0
 	END
+BUT_ONLY
 //__________________________________________________________________________________
 
+//merge halberds > spears____________________________________________________________
+//
+COPY_EXISTING ~weapprof.2da~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 4; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 18 col cols spear
+	    READ_2DA_ENTRY 19 col cols halberd
+	    PATCH_IF (%halberd% >= %spear%) BEGIN
+	    	SET_2DA_ENTRY 18 col cols %halberd%
+		END
+	    SET_2DA_ENTRY 19 col cols 0
+	END
+BUT_ONLY
 
-// NEED FnP COMPATIBILITY
-// ... replace 181 effects for substituted categories
-// ... right?
-// ... ya. that's gonna be annoying
+COPY_EXISTING ~racethac.2da~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 2; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 10 col cols spear_mod
+	    READ_2DA_ENTRY 11 col cols halberd_mod
+	    PATCH_IF (VARIABLE_IS_SET %spear_mod%) AND (VARIABLE_IS_SET %halberd_mod%) BEGIN
+	      PATCH_IF (%halberd_mod% > %spear_mod%) BEGIN
+	    	  SET_2DA_ENTRY 10 col cols %halberd_mod%
+		  END
+		END
+	    SET_2DA_ENTRY 11 col cols 0
+	END
+BUT_ONLY
+//__________________________________________________________________________________
 
-CLEAR_ARRAYS
+//move club + mace > 99______________________________________________________________
+//
+COPY_EXISTING ~weapprof.2da~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 4; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 17 col cols club
+	    READ_2DA_ENTRY 19 col cols halberd
+	    READ_2DA_ENTRY 21 col cols mace
+	    PATCH_IF (%club% >= %mace%) BEGIN
+	    	SET_2DA_ENTRY 19 col cols %club%
+		END
+	    PATCH_IF (%mace% >= %club%) BEGIN
+	    	SET_2DA_ENTRY 19 col cols %mace%
+		END
+/* keep this in case decide to include morning stars
+	    READ_2DA_ENTRY 17 col cols club
+	    READ_2DA_ENTRY 20 col cols flail
+	    READ_2DA_ENTRY 21 col cols mace
+	    PATCH_IF (%flail% >= %mace%) BEGIN
+	      PATCH_IF (%flail% >= %club%) BEGIN
+	    	SET_2DA_ENTRY 12 col cols %flail%
+	      END
+	      PATCH_IF (%club% >= %flail%) BEGIN
+	    	SET_2DA_ENTRY 12 col cols %club%
+	      END
+		END
+	    PATCH_IF (%mace% >= %hammer%) BEGIN
+	      PATCH_IF (%mace% >= %club%) BEGIN
+	    	SET_2DA_ENTRY 12 col cols %mace%
+	      END
+	      PATCH_IF (%club% >= %mace%) BEGIN
+	    	SET_2DA_ENTRY 12 col cols %club%
+	      END
+		END
+*/
+	    SET_2DA_ENTRY 17 col cols 0
+	    SET_2DA_ENTRY 21 col cols 0
+	END
+BUT_ONLY
+
+COPY_EXISTING ~racethac.2da~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 2; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 9 col cols club_mod
+	    READ_2DA_ENTRY 13 col cols mace_mod
+	    PATCH_IF (VARIABLE_IS_SET %club_mod%) AND (VARIABLE_IS_SET %mace_mod%) BEGIN
+	      PATCH_IF (%club_mod% >= %mace_mod%) BEGIN
+	    	  SET_2DA_ENTRY 11 col cols %club_mod%
+		  END
+	      PATCH_IF (%mace_mod% > %club_mod%) BEGIN
+	    	  SET_2DA_ENTRY 11 col cols %mace_mod%
+		  END
+		END
+	    SET_2DA_ENTRY 9 col cols 0
+	    SET_2DA_ENTRY 13 col cols 0
+	END
+BUT_ONLY
+//__________________________________________________________________________________
+
+//move longbow + shortbow > 102______________________________________________________
+//
+COPY_EXISTING ~weapprof.2da~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 4; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 22 col cols staff
+	    READ_2DA_ENTRY 24 col cols longbow
+	    READ_2DA_ENTRY 25 col cols shortbow
+	    PATCH_IF (%longbow% >= %shortbow%) BEGIN
+	    	SET_2DA_ENTRY 22 col cols %longbow%
+		END
+	    PATCH_IF (%shortbow% >= %longbow%) BEGIN
+	    	SET_2DA_ENTRY 22 col cols %shortbow%
+		END
+	    SET_2DA_ENTRY 24 col cols 0
+	    SET_2DA_ENTRY 25 col cols 0
+	END
+BUT_ONLY
+
+COPY_EXISTING ~racethac.2da~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 2; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 16 col cols longbow_mod
+	    READ_2DA_ENTRY 17 col cols shortbow_mod
+	    PATCH_IF (VARIABLE_IS_SET %longbow_mod%) AND (VARIABLE_IS_SET %shortbow_mod%) BEGIN
+	      PATCH_IF (%longbow_mod% >= %shortbow_mod%) BEGIN
+	    	  SET_2DA_ENTRY 14 col cols %longbow_mod%
+		  END
+	      PATCH_IF (%shortbow_mod% > %longbow_mod%) BEGIN
+	    	  SET_2DA_ENTRY 14 col cols %shortbow_mod%
+		  END
+		END
+	    SET_2DA_ENTRY 16 col cols 0
+	    SET_2DA_ENTRY 17 col cols 0
+	END
+BUT_ONLY
+//__________________________________________________________________________________
+
+//move sling > 101___________________________________________________________________
+//
+COPY_EXISTING ~weapprof.2da~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 4; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 21 col cols mace
+	    READ_2DA_ENTRY 27 col cols sling
+	    PATCH_IF (VARIABLE_IS_SET %mace%) AND (VARIABLE_IS_SET %sling%) BEGIN
+	      SET_2DA_ENTRY 21 col cols %sling%
+	      SET_2DA_ENTRY 27 col cols 0
+		END
+	END
+BUT_ONLY
+
+COPY_EXISTING ~racethac.2da~ ~override~
+	COUNT_2DA_COLS cols
+	FOR (col = 2; col < cols; col += 1) BEGIN
+	    READ_2DA_ENTRY 19 col cols sling_mod
+	    SET_2DA_ENTRY 13 col cols %sling_mod%
+	    SET_2DA_ENTRY 19 col cols 0
+	END
+BUT_ONLY
+//__________________________________________________________________________________
+
+//handle creatures___________________________________________________________________
+//
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 89 parameter2 = 90 END
+
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 102 parameter2 = 89 END
+
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 106 parameter2 = 96 END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 99 parameter2 = 98 END
+
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 101 parameter2 = 99 END
+
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 115 parameter2 = 99 END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 104 parameter2 = 102 END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 105 parameter2 = 102 END
+
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 233 match_parameter2 = 107 parameter2 = 101 END
+IF_EXISTS BUT_ONLY
+//__________________________________________________________________________________
+	
+//rename row headers and apply class defaults for new skills_________________________
+//
+COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS 5 rows
+  FOR (row = 7; row < rows; ++row) BEGIN
+    READ_2DA_ENTRY row 1 5 stat
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~89~) BEGIN
+      SET_2DA_ENTRY row 0 5 ~QUARTERSTAFF~
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~95~) BEGIN
+      SET_2DA_ENTRY row 0 5 ~SCIMITAR                ~
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~99~) BEGIN
+      SET_2DA_ENTRY row 0 5 ~CLUBMACE~
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~100~) BEGIN
+      SET_2DA_ENTRY row 0 5 ~FLAIL           ~
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~101~) BEGIN
+      SET_2DA_ENTRY row 0 5 ~SLING~
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~102~) BEGIN
+      SET_2DA_ENTRY row 0 5 ~BOWS        ~
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~103~) BEGIN
+      SET_2DA_ENTRY row 0 5 ~CROSSBOW~
+    END
+  END
+BUT_ONLY
+//__________________________________________________________________________________
+
+//update proficiency strings_________________________________________________________
+//
+COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS 5 rows
+  FOR (row = 7; row < rows; ++row) BEGIN
+    READ_2DA_ENTRY row 1 5 stat
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~102~) BEGIN
+      READ_2DA_ENTRY row 2 5 staff_weapon_name
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~107~) BEGIN
+      READ_2DA_ENTRY row 2 5 sling_weapon_name
+    END
+  END
+BUT_ONLY
+
+COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+  FOR (row = 7; row < rows; ++row) BEGIN
+    READ_2DA_ENTRY row 1 cols stat
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~89~) BEGIN
+      SET_2DA_ENTRY row 2 cols %staff_weapon_name%
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1241)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~90~) BEGIN
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@1226)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1230)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~91~) BEGIN
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1231)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~92~) BEGIN
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1232)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~93~) BEGIN
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1233)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~94~) BEGIN
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1240)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~95~) BEGIN
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1234)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~96~) BEGIN
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@1227)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1235)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~97~) BEGIN
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1236)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~98~) BEGIN
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@1228)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1238)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~99~) BEGIN
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@1223)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1237)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~100~) BEGIN
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1239)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~101~) BEGIN
+      SET_2DA_ENTRY row 2 cols %sling_weapon_name%
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1244)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~102~) BEGIN
+      SET_2DA_ENTRY row 2 cols RESOLVE_STR_REF (@1229)
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1243)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~103~) BEGIN
+      SET_2DA_ENTRY row 3 cols RESOLVE_STR_REF (@1242)
+    END
+  END
+BUT_ONLY
+//__________________________________________________________________________________
+
 
 END // end function

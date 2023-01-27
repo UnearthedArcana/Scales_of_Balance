@@ -136,17 +136,18 @@ END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~clck05.itm~ THEN BEGIN
 	COPY_EXISTING ~clck05.itm~ ~override~ // Cloak of Balduran
+				  ~thclck03.itm~ ~override~ // Improved Cloak of Balduran
 //	charisma bonus
 		LPF ALTER_EFFECT INT_VAR match_opcode=166 opcode=6 parameter1=1 END 
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=44 parameter1=1 timing=2 END 
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=15 parameter1=1 timing=2 END 
 		FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 			READ_LONG "%index%" "valid"
 			PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
 				READ_STRREF "%index%" "description"
 					PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~Magic Resistance~) = 0 BEGIN // more validation
 					INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
-						REPLACE_TEXTUALLY ~Magic Resistance~ ~Strength and Charisma~
-						REPLACE_TEXTUALLY ~Magic Resistance~ ~Strength and Charisma~
+						REPLACE_TEXTUALLY ~Magic Resistance~ ~Dexterity and Charisma~
+						REPLACE_TEXTUALLY ~Magic Resistance~ ~Dexterity and Charisma~
 						REPLACE_TEXTUALLY ~25%~ ~1~
 						REPLACE_TEXTUALLY ~10%~ ~1~
 					END
@@ -713,7 +714,7 @@ END
 ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
 	COPY_EXISTING ~wa2s1h.itm~ ~override~ // Sword of Balduran (10%)
 //	bonus to movement
-		LPF ALTER_EFFECT INT_VAR match_opcode=166 opcode=126 parameter1=120 parameter2=2 END
+		LPF ALTER_EFFECT INT_VAR match_opcode=166 opcode=126 parameter1=120 parameter2=3 END
 		FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 			READ_LONG "%index%" "valid"
 			PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
@@ -814,12 +815,15 @@ END
 
 ACTION_IF FILE_EXISTS_IN_GAME ~wa2plat.itm~ THEN BEGIN
 	COPY_EXISTING ~wa2plat.itm~ ~override~ // Plate of Balduran
-//	+5% to elemental resistances
+//	+1 STR
+		LPF ALTER_EFFECT INT_VAR match_opcode=166 opcode=44 parameter1=1 END 
+/*
 		LPF ALTER_EFFECT INT_VAR match_opcode=166 opcode=31 parameter1=5 END
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=27 parameter1=5 timing=2 END
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=28 parameter1=5 timing=2 END
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=29 parameter1=5 timing=2 END
-		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=30 parameter1=5 timing=2 END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=27 target=1 parameter1=5 timing=2 END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=28 target=1 parameter1=5 timing=2 END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=29 target=1 parameter1=5 timing=2 END
+		LPF ADD_ITEM_EQEFFECT INT_VAR opcode=30 target=1 parameter1=5 timing=2 END
+*/
 		FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 			READ_LONG "%index%" "valid"
 			PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
@@ -1023,3 +1027,51 @@ END
 CLEAR_ARRAYS
 
 END // end function
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+DEFINE_ACTION_FUNCTION reduce_magic_resistance BEGIN
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 166 match_timing = 2 match_parameter2 = 0 parameter2 = 1 END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 166 match_timing = 2 match_parameter1 = 50 parameter1 = 30 END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 166 match_timing = 2 match_parameter1 = 40 parameter1 = 25 END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 166 match_timing = 2 match_parameter1 = 30 parameter1 = 20 END
+  LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 166 match_timing = 2 match_parameter1 = 25 parameter1 = 15 END
+  PATCH_FOR_EACH desc IN ~0x54~ ~0x50~ BEGIN 
+    READ_LONG ~%desc%~ valid
+    PATCH_IF (valid < 2147483646) AND (valid >= 0) BEGIN
+      READ_STRREF ~%desc%~ description
+      PATCH_IF (~%description%~ STRING_CONTAINS_REGEXP ~Magic Resistance: \+~) = 0 BEGIN // more validation
+//        PATCH_PRINT ~changing MR on %SOURCE_RES%~
+        INNER_PATCH_SAVE new_desc ~%description%~ BEGIN
+          REPLACE_TEXTUALLY ~Magic Resistance: \+~ ~Magic Resistance: ~
+          REPLACE_TEXTUALLY ~% bonus~ ~%~
+          REPLACE_TEXTUALLY ~50%~ ~30%~
+          REPLACE_TEXTUALLY ~40%~ ~25%~
+          REPLACE_TEXTUALLY ~30%~ ~20%~
+          REPLACE_TEXTUALLY ~25%~ ~15%~
+        END
+        SAY_EVALUATED ~%desc%~ ~%new_desc%~
+      END
+    END
+  END
+BUT_ONLY
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.cre$~ ~override~
+  PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+    READ_BYTE 0x5d mr
+    PATCH_IF (IS_AN_INT %mr%) BEGIN
+      PATCH_IF (mr > 0) BEGIN
+        SET new_mr = (mr / 2)
+        WRITE_BYTE 0x5d %new_mr%
+      END
+    END
+  END
+BUT_ONLY
+
+END // end function
+

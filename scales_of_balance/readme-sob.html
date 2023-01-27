@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 6.3 </strong><br />
+  <p><strong> Version 6.4 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -54,11 +54,12 @@
     <li> Rogue Rebalancing</li>
     <li> Monastic Orders of Faerun</li>
     <li> Tome & Blood</li>
-    <li> Faiths & Powers</li>
-    <li> Might and Guile</li>
+    <li> Will to Power</li>
+    <li> Might and Guile v5+</li>
+    <li> Faiths & Powers v0.85+</li>
     <li> [tweak mods including Tweaks Anthology]</li>
-    <li> Scales of Balance</li>
     <li> SCS</li>
+    <li> Scales of Balance</li>
     <li> [end-of-order mods like LevelOneNPCs, NPC_EE, Randomiser, etc.]</li>
   </ul>
   <p><strong>Modder Resources:</strong><br />
@@ -93,7 +94,7 @@
     <p>This component allows casting arcane spells in armor, but with steep casting time penalties. (As of now, these penalties do not affect divine casters.) It also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>This also makes changes to Dexterity bonuses: bonuses to AC and thieving skills are increased so that the penalty for wearing armor is more meaningful without being crippling, and the option to go without armor is a bit more reasonable.</p>
     <p>Finally, this alters the Armor of Faith spell to only give a flat 10% DR bonus, at all levels; and reduces the DR bonus from Hardiness and Defensive Stance form 40% to 20%; and reduces the price of the Defender of Easthaven while reducing its DR bonus from 20% to 5%.</p>
-    <p><b>NOTE:</b> you can change these values by editing them in /Scales_of_Balance/ini/YARAS_default.ini. As of version 5.33, there is another version of these settings, which only applies thief skill penalties a chance of miscast magic... this is meant to mimic the "Allow Thieving in Heavy Armor" and "Allow Spellcasting in Armor" components of Tweaks Anthology, but is compatible with mods like Might & Guile and the 5E spellcasting conversion. To use those settings or your own personal preferences, copy /Scales_of_Balance/ini/YARAS_CD.ini or your modified version of /Scales_of_Balance/ini/YARAS_default.ini into your override folder and rename it to "d5_yaras.ini." If that file is in your override folder at the time of installation, the mod will use those settings instead of the default settings. You can keep a copy with your own preferred settings and use it each time you install mods.</p>
+    <p><b>NOTE:</b> you can change these values by editing them in /Scales_of_Balance/ini/YARAS_default.ini. As of version 5.33, there is another version of these settings, which only applies thief skill penalties a chance of miscast magic... this is meant to mimic the "Allow Thieving in Heavy Armor" and "Allow Spellcasting in Armor" components of Tweaks Anthology, but is compatible with mods like Might & Guile and the 5E spellcasting conversion. To use those settings or your own personal preferences, copy /Scales_of_Balance/ini/YARAS_CD.ini or your modified version of /Scales_of_Balance/ini/YARAS_default.ini into your override folder and rename it to "d5_yaras.ini." If that file is in your override folder at the time of installation, the mod will use those settings instead of the default settings. If you like, you can keep a copy of "d5_yaras.ini" with your own preferred settings and simply drop it into your override folder before each time you install mods.</p>
     <p><b>Compatibility:</b> this component covers the same ground as the IR component "Revised Armors" as well as the "Spellcasting in Armor" component.  Ditto for the Full Plate and Packing Steel mod, and some armor/casting-related components of Tweaks Anthology and Klatu Tweaks. Don't install these things together; choose one armor system mod and stick with it.</p>
   </div>
   <h4 class="subheader">Component 101: </h4>
@@ -372,9 +373,9 @@
   <h4 class="subheader">Component 123: </h4>
   <div class="section">
     <p><strong><em>WPO: Expanded Combat Skills System</em></strong></p>
-      <p><b>INSTALL NOTE:</b> if you choose to install this component, then you cannot install component #121 (Weapon Category Combination). This component already folds in a handful of combined categories - though not as many as that component. </p>
-      <p>This component is an <b>alternative</b> to component #121 the older revised Proficiencies. This system is more conservative in some ways: it does not combine as many weapon groups together, and it does not alter other systems like thac0 advancement or weapon styles. However it adds a lot of new abilities. Its chief aim is to expand the definition of "proficiency" and the options for how players develop their combat skills. It folds in a number of 3E-style feats borrowed from the Might & Guile mod, and uses a single currency - proficiency points - to manage both weapon skill and feats.</p>
-      <p>First off, this system folds a few weapon categories together:
+      <p><b>INSTALL NOTE:</b> if you choose to install this component, it will also, of necessity, install component #121 (Weapon Category Combination).</p>
+      <p>This component adds a lot of new abilities to the weapon proficiency system. Its chief aim is to expand the definition of "proficiency" into a broader set of "skills." It folds in a number of 3E-style feats borrowed from the Might & Guile mod, and uses a single currency - proficiency points - to manage both weapon skills and other feats.</p>
+      <p>First off, to recap the combined weapon categories:
       <ul>
         <li> Long swords and bastard swords are combined.</li>
         <li> Clubs and Maces are combined.</li>
@@ -382,33 +383,25 @@
         <li> Daggers and darts are combined.</li>
         <li> Long bows and short bows are combined.</li>
       </ul>
-    <p>Second, this streamlines the number of proficiencies you can put into a weapon:
-      <div class="kit_description">
-        <p>Proficiency benefits (cumulative totals)<br />
-        &ndash; ** = +2 thac0; +1 damage<br />
-        &ndash; *** = +3 thac0; +3 damage<br />
-        &ndash; **** = +3 thac0; +3 damage, +.5 APR<br />.</p>
-      </div>
-    <p>Third, it introduces six new impovable combat skills that act similar to weapon styles:
+    <p>Second, this component introduces six new impovable combat skills that act similar to weapon styles:
       <ul>
-        <li> The <b>Attack Speed</b> skill improves weapon speed with one rank, and increase APR by 0.5 with each subsequent rank. Warriors may take four ranks in this proficiency; most non-warriors may take two. (<b>NOTE:</b> in this system there are no automatic APR bonuses for reaching certain levels, or from being specialized with a weapon. The only ways to increase APR is to invest in this proficiency, and to reach the fourth and final pip with weapon proficiencies. So do not neglect this!)</li>
-        <li> The <b>Dodge</b> skill grants a 1-point bonus to armor class with each rank. Most character may take two ranks in this proficiency; Swashbucklers may take up to six. (And this replaces Swashbucklers' automatic level-based AC bonus.)</li>
         <li> The <b>Backstab</b> skill applies a 1-point bonus to a character's backstab damage multiplier. Most thieves can take four ranks in this proficiency; Assassins can take six; Shadowdancers and Stalkers can take two. (And this replaces thieves' automatic level-based bonuses to backstab multiplier.)</li>
-        <li> The <b>Set Snares</b> skill allows a character to set one snare per day, for each rank taken. Bounty Hunters can set one normal snare and one special snare for each rank taken. (And this replaces thieves' automatic level-based Set Snare ability.)</li>
-        <li> The <b>Ranged Accuracy</b> skill grants a 1-point bonus to attack and damage rolls with ranged weapons, for each rank taken. Most characters can take up to two ranks in this proficiency; Archers can take six. (And this replaces Archers' automatic level-based bonuses.)</li>
-        <li>The <b>Thrown Weapons</b> skill makes a character more likely to successfully strike enemies with thrown weapons like daggers and axes. A baseline 3-point penalty to ranged attack rolls is applied to these weapons; one rank in this proficiency reduces that to a -1 penalty, and a second rank results in a 1-point bonus. Halflings automatically begin the game with two ranks in this proficiency.</li>
+        <li> The <b>Set Snares</b> skill grants a character the ability set one snare per day, for each rank taken. Bounty Hunters can set one normal snare and one special snare for each rank taken. (This replaces thieves' automatic level-based Set Snare ability.) <b>Note:</b> an attempt to set a snare may still fail without investing thief skill points into the Set Snares skill.</li>
+        <li> The <b>Dodge</b> skill grants a 1-point bonus to armor class with each rank. Most character may take two ranks in this proficiency; Swashbucklers get one rank for free and can take up to five more. (And this replaces Swashbucklers' automatic level-based AC bonus.) <b>Note:</b> this armor class bonus is <b>not</b> cumulative with any bonuses from using a shield - it is only applied when equipping a one-handed weapon, a two-handed weapon, or two weapons.</li>
+        <li> The <b>Melee Training</b> skill grants a 1-point bonus to attack rolls with all melee weapons, regardless of proficiency, for each rank taken. Most characters can take up to two ranks in this proficiency; Swashbucklers get one rank for free and can take five more. (And this replaces Swashbucklers' automatic level-based bonuses.)</li>
+        <li> The <b>Ranged Accuracy</b> skill grants a 1-point bonus to attack and damage rolls with ranged weapons, for each rank taken. Most characters can take up to two ranks in this proficiency; Archers get one rank for free and can take five more. (And this replaces Archers' automatic level-based bonuses.)</li>
+        <li>The <b>Thrown Weapons</b> skill makes a character more likely to successfully strike enemies with thrown weapons like daggers and axes. A baseline 3-point penalty to ranged attack rolls is applied to all such weapons; one rank in this proficiency reduces that to a -1 penalty, and a second rank results in a 1-point bonus. Halflings automatically begin the game with two ranks in this proficiency.</li>
       </ul>
-    <p>Fourth, this component introduces four more groups of feats that characters can learn. Each of these is tied to a single proficiency; each point spent on that proficiency grants an innate spell which, when cast, triggers a dialogue and allows the character to choose one feat from the group. These groups of feats are:</p>
-    <p><b>Combat Postures:</b> these abilities represent the style and approach a character uses in combat. These are exclusive to each other - a character can only use one at any given time. But characters can learn more than one posture, and switch between them as it is convenient. 
+    <p>Third, this component introduces four more groups of feats that characters can learn. Each of these is tied to a single proficiency; each point spent on that proficiency grants an innate spell which, when cast, allows the character to choose one feat via a dialogue. These groups of feats are:</p>
+    <p><b>Combat Postures:</b> these abilities represent the style and approach a character uses in combat. These are exclusive to each other - a character can only use one posture at any given time. But characters can learn more than one posture, and switch between them as it is convenient. 
       <ul>
         <li> Leadership: when in this posture all nearby allies gain a 1-point bonus to attack rolls, armoor class, and casting speed.</li>
         <li> Grappling: when using this approach, in addition to attacking the character will attempt to grab and hold a nearby enemy. Each round a nearby enemy must save vs. breath weapon or have their movement restricted for 3 seconds and be slowed for 6 seconds. If this occurs, the grappling character will also have their movement restricted for 3 seconds.</li>
         <li> Precise Strike: when in this posture, a character focuses on delivering penetrating attacks, and is thereby 5% more likely to land a critical hit.</li>
-        <li> Parry Slashing: in this posture a character can block one otherwise-successful attack per round of this damage type. (Elemental damage attached to the attack will still affect the character, however.)</li>
-        <li> Parry Piercing: in this posture a character can block one otherwise-successful attack per round of this damage type. (Elemental damage attached to the attack will still affect the character, however.)</li>
-        <li> Parry Crushing: in this posture a character can block one otherwise-successful attack per round of this damage type. (Elemental damage attached to the attack will still affect the character, however.)</li>
+        <li> Reckless Attack: in this posture, attacks can be made faster (1/2 extra attack per round), but all attacks incur a 3-point penalty to attack rolls.</li>
+        <li> Fighting Dirty: this posture involves the use of dirty tricks to gain advantage over enemies. Once each round the nearest attacker must save vs. breath weapon or be briefly tripped, blinded or weakened.</li>
+        <li> Parrying: this posture gives a 50% chance to block the physical damage (slashing, piercing, or crushing) of one successful attack. Only one attack can be parried in this way each round.</li>
         <li> Missil Snaring: in this posture a character can block one otherwise-successful missile attack each round. (Elemental damage attached to the attack will still affect the character, however.)</li>
-        <li> Fighting Dirty: this character attempts to use dirty tricks to gain advantage over enemies. Each successful attack will for the target to save vs. breath weapon or be briefly blinded, tripped, or weakened.</li>
         <li> Spell Evasion: when in this posture a character can make an extra save vs. breath weapon in order to evade the effects of certain targeted and wide-area spells, such as Magic Missile and Fireball.</li>
       </ul>
     <p><b>Physical Fitness:</b> These are ways a character can improve their physical capabilities.
@@ -506,14 +499,13 @@
       <p><b>INSTALL NOTE:</b> if you choose to install component #122, the Weapon Proficiency Overhaul, then this component will also be installed automatically. </p>
       <p>This component groups certain proficiencies together:</p>
       <ul>
-        <li> Two-handed swords and bastard swords are combined into a "greatswords" proficiency.</li>
-        <li> Scimitars, katanas, and wakizashi are combined into a "scimitar/katana" proficiency.</li>
+        <li> Longswords and bastard swords are combined into a single longswords proficiency.</li>
         <li> Clubs and Maces are combined into a "club/mace" proficiency.</li>
-        <li> Spears and halberds are combined into a "spear/halberd" proficiency.</li>
+        <li> Spears and halberds are combined into a "spear/polearm" proficiency.</li>
         <li> Daggers and darts are combined into a "dagger/dart" proficiency.</li>
         <li> Long bows and short bows are combined into a "bows" proficiency.</li>
       </ul>
-    <p><b>Compatibility:</b> this component is probably not compatible with most other proficiency system changes. However, it <b>IS</b> compatible with the <i>first subcomponent</i> of the "Revised Proficiencies" options in Tweaks Anthology - the one that basically just merges maces and morning stars. If you install that first, then clubs maces & morning stars will all share a proficiency.</p>
+    <p><b>Compatibility:</b> this component is probably not compatible with most other proficiency system changes, such as CDTweaks BG1 and IWD profiencies, or the Skills & Abilities system. However, it <b>IS</b> compatible with the <i>first subcomponent</i> of the "Revised Proficiencies" options in Tweaks Anthology - the one that basically just merges maces and morning stars. If you install that first, then clubs, maces, & morning stars will all share a proficiency. This component <b>IS</b> compatible with Item Revisions.</p>
   </div>
   <h4 class="subheader">Component 124 (for EE 1.4+): </h4>
   <div class="section">
@@ -550,7 +542,7 @@
       <p><b>Shield bash:</b> in addition to the knockdown effect, it stuns opponents for 1 second starting at level 5; and the saving throw is at a -1 penalty for each 5 levels, up to level 20.</p>
       <p><b>Thrown daggers and darts:</b> will have their base APR reduced from 2 to 1.5, and from 3 to 2.5, respectively.  So you will need to be specialized in Fencing/SWS to get the full benefit of those items.</p>
       <p><b>OPTION:</b> by editing Scales_of_Balance/ini/styles.ini, you can set Two-Handed Weapon Style to match Single Weapon Style (it is a single weapon, after all) in granting extra APR for specialization, instead of extra damage and crit chance.</p>
-      <p><b>Compatibility:</b> this component covers the same ground as the "Dual-Wielding Changes for Light and Heavy Weapons" component of Item Revisions. You can probably use both together, but the effects will be compounded and will likely be somewhat extreme. Best to choose one or the other.</p>
+      <p><b>Compatibility:</b> this component covers the same ground as the "Dual-Wielding Changes for Light and Heavy Weapons" component of Item Revisions. You can probably use both together, but the effects will be compounded and will likely be somewhat extreme. Best to choose one or the other. If the Item Revisions "Revised Shields" is installed and applies thac0 penalties to medium and large shields, then being proficient in shield-fighting will offset one point of those penalties.</p>
   </div>
   <h4 class="subheader">Component 125 (for EE 1.4+): </h4>
   <div class="section">
@@ -1479,9 +1471,9 @@
     </ul></p>
     <p>This works in BG2EE, as well as in EET games. I have not tested it in the pre-EE engine, but if the game includes STARTARE.2DA, then this should work on TOB and BGT games.</p>
   </div>
-  <h4 class="subheader">Component 230: </h4>
+  <h4 class="subheader">Component 231: </h4>
   <div class="section">
-    <p><strong><em>Magic Resistance Overhaul (MRO): Eliminate MR</em></strong></p>
+    <p><strong><em>Magic Resistance Overhaul (MRO): Replace MR With Other Effects</em></strong></p>
     <p>WARNING: This component makes very severe changes to the way the game works, and should be considered as 'beta' quality. Its purpose is to largely (but not completely) remove the probability-based "magic resistance" mechanic from the game. It makes the following changes:</p>
     <ul>
       <li>All creatures in the game, such as drow, dragons, skeleton warriors, etc., will have their MR set to zero. Instead, they will receive +3 bonuses to saving throws vs. Breath, Petrification, and Wands, and a +6 bonus to saving throws vs. Spells. (No bonus to saves vs. Death - this should make necromancy magic a little stronger and more special.)</li>
@@ -1489,6 +1481,19 @@
       <li>Almost all items in the game that grant MR have been changed. Some, like the Amulet of Magic Resistance, have their MR converted into resistance to all elemental and magic damage. Others, like Carsomyr, instead get large bonuses to saving throws. Some are very different, like the Sword of Balduran which now grants a movement rate bonus.</li>
       <li>It is still possible to get *some* MR, from the Hell Trials and the Machine of Lum the Mad. That's okay, 15% MR isn't game-breaking... it only gets stupid when it is stacked to high levels.</li>
       <li>Likewise, the "Magic Resistance" spell is left untouched. It can be used as another form of magic protection along with the likes of Spell Deflections and Globes of Invulnerability. Lower Resistance, Pierce Magic, and Pierce Shield are still effective against this spell, and SCS enemies will use them against you.</li>
+    </ul></p>
+    <p><b>Compatibility:</b> this should be installed after all mods that add creatures and items that may be subject to magic resistance. Notably, if you want this to affect fiends (removing their MR), then this component should be installed after Spell Revisions, SCS, and aTweaks.</p>
+  </div>
+  <h4 class="subheader">Component 232: </h4>
+  <div class="section">
+    <p><strong><em>Magic Resistance Overhaul (MRO): Reduce MR</em></strong></p>
+    <p>This is a less severe version of the prior component. It reduces the MR of creatures and equipped items, and prevents MR from stacking.</p>
+    <ul>
+      <li>All creatures in the game, such as drow, dragons, skeleton warriors, etc., will have their MR set to 1/2 of its normal value.</li>
+      <li>Monks and Wizard Slayers get their normal MR progression.</li>
+      <li>Many items in the game that grant MR an an equipping effect have the effect reduced: 50%-->30%, 40%-->25%, 30%-->20%, and 25%-->15%. Any items that grant a different amount of MR are unchanged.</li>
+      <li>All items that grant MR as an equipping effect now apply it by <b>setting</b> the MR value, instead of increasing it. So wearing two MR items will no longer result in a cumulative benefit.</li>
+      <li>Again, the "Magic Resistance" spell is left untouched. It can be used as another form of magic protection along with the likes of Spell Deflections and Globes of Invulnerability. Lower Resistance, Pierce Magic, and Pierce Shield are still effective against this spell, and SCS enemies will use them against you.</li>
     </ul></p>
     <p><b>Compatibility:</b> this should be installed after all mods that add creatures and items that may be subject to magic resistance. Notably, if you want this to affect fiends (removing their MR), then this component should be installed after Spell Revisions, SCS, and aTweaks.</p>
   </div>
