@@ -11,7 +11,7 @@
 <div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 6.4 </strong><br />
+  <p><strong> Version 6.5 </strong><br />
     <strong> Languages:</strong> English<br />
     <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
 </div>
@@ -50,16 +50,13 @@
     <li> [spell mods including Spell Revisions]</li>
     <li> [small kit mods]</li>
     <li> Divine Remix</li>
-    <li> Song & Silence</li>
-    <li> Rogue Rebalancing</li>
-    <li> Monastic Orders of Faerun</li>
     <li> Tome & Blood</li>
     <li> Will to Power</li>
-    <li> Might and Guile v5+</li>
-    <li> Faiths & Powers v0.85+</li>
+    <li> Might and Guile (v5+)</li>
+    <li> Faiths & Powers (v0.85+)</li>
     <li> [tweak mods including Tweaks Anthology]</li>
     <li> SCS</li>
-    <li> Scales of Balance</li>
+    <li> Scales of Balance (v6+)</li>
     <li> [end-of-order mods like LevelOneNPCs, NPC_EE, Randomiser, etc.]</li>
   </ul>
   <p><strong>Modder Resources:</strong><br />
