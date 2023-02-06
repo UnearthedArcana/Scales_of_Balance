@@ -1,5 +1,5 @@
 
-// v10.4 - fixed semi_innate
+// v10.5 - fixed semi_innate
 
 /*
 functions in this file:
@@ -1850,6 +1850,52 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5zclons.2da~) BEGIN
     END
 
   END	//	end FnP
+  
+  COPY_EXISTING ~kitlist.2da~ ~override~
+    READ_2DA_ENTRIES_NOW ~r2en_kitlist~ 10
+    FOR (row = 2; row < r2en_kitlist; row += 1) BEGIN
+      READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 5 kit_clab
+      SPRINT $clabs_to_check(~%kit_clab%~)~1~
+    END
+  BUT_ONLY
+ 
+  ACTION_PHP_EACH clabs_to_check AS clab => ind BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%clab%.2da~) BEGIN
+      COPY_EXISTING ~%clab%.2da~ ~override~
+        LPF 2DA_MISSING_COLS STR_VAR entry = ~****~ END 
+      BUT_ONLY
+      COPY_EXISTING ~%clab%.2da~ ~override~
+        COUNT_2DA_COLS cols
+        READ_2DA_ENTRIES_NOW r2en_clab cols
+        FOR (col = 1; col < cols; ++col) BEGIN
+          FOR (row = 0; row < r2en_clab; ++row) BEGIN
+            READ_2DA_ENTRY_FORMER r2en_clab row col kit_abil
+            PATCH_IF (~%kit_abil%~ STRING_CONTAINS_REGEXP ~GA_~) = 0 BEGIN
+              SPRINT $ga_abils(~%kit_abil%~)~1~
+            END
+          END
+        END
+      BUT_ONLY
+    END
+  END
+
+  ACTION_PHP_EACH ga_abils AS abil => ind BEGIN
+    OUTER_INNER_PATCH_SAVE abil ~%abil%~ BEGIN
+      REPLACE_TEXTUALLY ~GA_~ ~~
+    END
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%abil%.spl~) BEGIN
+      COPY_EXISTING ~%abil%.spl~ ~override~
+        READ_BYTE 0x1c spl_type
+        PATCH_IF (spl_type = 2) BEGIN			//	if a priest spell
+          INNER_ACTION BEGIN
+	        OUTER_SET high_ind = high_ind + 1
+		    OUTER_SET spl_ind = high_ind
+            APPEND ~d5zclons.2da~ ~%spl_ind% 	%abil% 	%abil% 	divine 	no ~ UNLESS ~%abil%~
+          END
+        END
+      BUT_ONLY
+    END
+  END
 
   COPY ~%MOD_FOLDER%/lib/semi_spont/d5_marker.d5~ ~override/d5__5E_casting_divine.d5~
 
@@ -2057,6 +2103,52 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~d5zclons.2da~) BEGIN
 	    OUTER_SET spl_ind = high_ind
 	  END
       APPEND ~d5zclons.2da~ ~%spl_ind% 	%sorc_spell% 	%sorc_spell% 	arcane 	no ~ UNLESS ~%sorc_spell% 	%sorc_spell%~
+    END
+  END
+
+  COPY_EXISTING ~kitlist.2da~ ~override~
+    READ_2DA_ENTRIES_NOW ~r2en_kitlist~ 10
+    FOR (row = 2; row < r2en_kitlist; row += 1) BEGIN
+      READ_2DA_ENTRY_FORMER ~r2en_kitlist~ row 5 kit_clab
+      SPRINT $clabs_to_check(~%kit_clab%~)~1~
+    END
+  BUT_ONLY
+ 
+  ACTION_PHP_EACH clabs_to_check AS clab => ind BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%clab%.2da~) BEGIN
+      COPY_EXISTING ~%clab%.2da~ ~override~
+        LPF 2DA_MISSING_COLS STR_VAR entry = ~****~ END 
+      BUT_ONLY
+      COPY_EXISTING ~%clab%.2da~ ~override~
+        COUNT_2DA_COLS cols
+        READ_2DA_ENTRIES_NOW r2en_clab cols
+        FOR (col = 1; col < cols; ++col) BEGIN
+          FOR (row = 0; row < r2en_clab; ++row) BEGIN
+            READ_2DA_ENTRY_FORMER r2en_clab row col kit_abil
+            PATCH_IF (~%kit_abil%~ STRING_CONTAINS_REGEXP ~GA_~) = 0 BEGIN
+              SPRINT $ga_abils(~%kit_abil%~)~1~
+            END
+          END
+        END
+      BUT_ONLY
+    END
+  END
+
+  ACTION_PHP_EACH ga_abils AS abil => ind BEGIN
+    OUTER_INNER_PATCH_SAVE abil ~%abil%~ BEGIN
+      REPLACE_TEXTUALLY ~GA_~ ~~
+    END
+    ACTION_IF (FILE_EXISTS_IN_GAME ~%abil%.spl~) BEGIN
+      COPY_EXISTING ~%abil%.spl~ ~override~
+        READ_BYTE 0x1c spl_type
+        PATCH_IF (spl_type = 1) BEGIN			// if a wizard spell
+          INNER_ACTION BEGIN
+	        OUTER_SET high_ind = high_ind + 1
+		    OUTER_SET spl_ind = high_ind
+            APPEND ~d5zclons.2da~ ~%spl_ind% 	%abil% 	%abil% 	divine 	no ~ UNLESS ~%abil%~
+          END
+        END
+      BUT_ONLY
     END
   END
 
@@ -2415,7 +2507,7 @@ ACTION_IF (FILE_CONTAINS_EVALUATED (~d5zclons.2da~ ~%free_spell%~)) BEGIN
     FOR (row = 0; row < r2en_zclons; ++row) BEGIN
       READ_2DA_ENTRY_FORMER ~r2en_zclons~ row 0 z_ind
       READ_2DA_ENTRY_FORMER ~r2en_zclons~ row 1 mem_spell
-      READ_2DA_ENTRY_FORMER ~r2en_zclons~ row 1 cast_spell
+//      READ_2DA_ENTRY_FORMER ~r2en_zclons~ row 2 cast_spell
       PATCH_IF (~%mem_spell%~ STRING_EQUAL_CASE ~%free_spell%~) BEGIN
         SET free_spell_ind = %z_ind%
       END 
