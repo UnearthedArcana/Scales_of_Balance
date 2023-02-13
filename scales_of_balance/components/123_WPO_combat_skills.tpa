@@ -736,36 +736,6 @@ COPY ~%MOD_FOLDER%/csp/profsmax.2da~ ~override~
 
 //LOTS of stuff to do in weapprof.2da________________________________________________
 //
-// get everyone on the 4-point system
-COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols
-  REPLACE_TEXTUALLY ~[ %TAB%]ID[ %TAB%]~ ~ D5TYPE ID ~
-  REPLACE_TEXTUALLY ~[ %TAB%]5 ~ ~ 4 ~
-  REPLACE_TEXTUALLY ~[ %TAB%]4 ~ ~ 3 ~
-//  REPLACE_TEXTUALLY ~[ %TAB%]3 ~ ~ 4 ~
-  REPLACE_TEXTUALLY ~[ %TAB%]2 ~ ~ 3 ~
-  REPLACE_TEXTUALLY ~[ %TAB%]1 ~ ~ 2 ~
-  FOR (row = 3; row < 11; ++row) BEGIN
-    FOR (col = 4; col < cols; ++col) BEGIN
-      SET_2DA_ENTRY_LATER ~#weapprof~ row col 0
-    END
-  END
-// mages
-  SET_2DA_ENTRY_LATER ~#weapprof~ 18 4 1
-  SET_2DA_ENTRY_LATER ~#weapprof~ 20 4 1
-  SET_2DA_ENTRY_LATER ~#weapprof~ 25 4 1
-  SET_2DA_ENTRY_LATER ~#weapprof~ 26 4 1
-  SET_2DA_ENTRY_LATER ~#weapprof~ 30 4 1
-// no need to set individual kits, because the class maxes are the kit maxes
-// ***** wait. shit. is that right? no. why does the WPO have mage kits commented out?
-// formatting fixes
-  SET_2DA_ENTRY_LATER ~#weapprof~ 4 1 1
-  SET_2DA_ENTRY_LATER ~#weapprof~ 5 1 2
-  SET_2DA_ENTRY_LATER ~#weapprof~ 6 1 3
-  SET_2DA_ENTRY_LATER ~#weapprof~ 8 1 5
-  SET_2DA_ENTRIES_NOW ~#weapprof~ 1
-  REPLACE_TEXTUALLY ~D5TYPE ~ ~%TAB%%TAB%%TAB%%TAB%%TAB%%TAB%~
-
 // arrange the rows to reflect the CS system
 COPY_EXISTING ~weapprof.2da~ ~override~
 //  COUNT_2DA_COLS cols
@@ -3109,7 +3079,7 @@ END
 //__________________________________________________________________________________
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csi1l.spl~
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5csi1~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 duration = 0 STR_VAR resource = EVAL ~d5_umd~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 9 STR_VAR resource = EVAL ~d5csi1~ END
 
 CREATE EFF  ~d5csi1~
@@ -3130,12 +3100,14 @@ LAF use_magical_devices END
 
 COPY ~%MOD_FOLDER%/csp/d5_umd.bam~ ~override/d5csi1.bam~
 
+/* just cast d5_umd
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csi1.spl~					//			UMD
     WRITE_ASCII 0x3a ~d5csi1~ #8
     LPF ALTER_SPELL_HEADER INT_VAR target = 5 STR_VAR icon = ~d5csi1~ END
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5_numd~ END
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 4 duration = 2 STR_VAR resource = ~d5_numd~ END
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 duration = 0 STR_VAR resource = ~d5_numd~ END
+*/
 
 //END
 //	end use scrolls/wands
