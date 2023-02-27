@@ -1,7 +1,7 @@
 BACKUP ~weidu_external/backup/scales_of_balance~
 AUTHOR ~SubtleD~
 
-VERSION ~v6.5a3~
+VERSION ~v6.5a4~
 
 //README ~scales_of_balance/readme-SoB.html~
 
@@ -128,7 +128,7 @@ INCLUDE ~scales_of_balance/components/103_IWO_light_heavy.tpa~
 BEGIN @104 // IWDEE tweaks
 DESIGNATED 104
 LABEL ~D5_IWDEE_ITEM_TWEAKS~
-REQUIRE_PREDICATE GAME_IS ~iwdee~ @8
+REQUIRE_PREDICATE (GAME_IS ~iwdee~) OR (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) @8
 
 INCLUDE ~scales_of_balance/components/104_IWO_IWDEE.tpa~
 

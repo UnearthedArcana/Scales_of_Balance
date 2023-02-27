@@ -67,111 +67,130 @@ BUT_ONLY
 //AMEND WEAPPROF.2da________________________________________________________________
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+  FOR (row = 1; row < rows; ++row) BEGIN
+    READ_2DA_ENTRY row 1 cols stat
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~111~) BEGIN
+      SET 2h_row = (row + 3)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~112~) BEGIN
+      SET ss_row = (row + 3)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~113~) BEGIN
+      SET sw_row = (row + 3)
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~114~) BEGIN
+      SET dw_row = (row + 3)
+    END
+  END
+  PATCH_IF (IS_AN_INT %2h_row%) AND (IS_AN_INT %ss_row%) AND (IS_AN_INT %sw_row%) AND (IS_AN_INT %dw_row%) BEGIN
 	// Wizard
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 4 0	//	2-hand
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 4 0	//	shield
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 4 0	//	single
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 4 0	//	dual-wield
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 4 0	//	2-hand
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 4 0	//	shield
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 4 0	//	single
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 4 0	//	dual-wield
 	// Fighter
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 5 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 5 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 5 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 5 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 5 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 5 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 5 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 5 2
 	// Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 6 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 6 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 6 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 6 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 6 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 6 2
 	// Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 7 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 7 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 7 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 7 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 7 2
 	// Bard
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 8 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 8 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 8 2
 	// Paladin
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 9 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 9 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 9 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 9 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 9 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 9 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 9 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 9 2
 	// Druid
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 10 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 10 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 10 2
 	// Ranger
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 11 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 11 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 11 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 11 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 11 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 11 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 11 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 11 2
 	// Fighter/Mage
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 12 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 12 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 12 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 12 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 12 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 12 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 12 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 12 2
 	// Fighter/Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 13 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 13 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 13 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 13 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 13 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 13 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 13 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 13 2
 	// Fighter/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 14 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 14 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 14 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 14 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 14 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 14 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 14 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 14 2
 	// Fighter/Mage/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 15 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 15 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 15 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 15 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 15 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 15 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 15 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 15 2
 	// Mage/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 16 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 16 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 16 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 16 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 16 2
 	// Cleric/Mage
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 17 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 17 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 17 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 17 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 17 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 17 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 17 2
 	// Cleric/Thief
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 18 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 18 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 18 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 18 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 18 2
 	// Fighter/Druid
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 19 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 19 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 19 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 19 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 19 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 19 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 19 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 19 2
 	// Fighter/Mage/Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 20 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 20 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 20 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 20 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 20 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 20 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 20 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 20 2
 	// Ranger/Cleric
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 21 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 21 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 21 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 21 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 21 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 21 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 21 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 21 2
 	// Monk
-	SET_2DA_ENTRY_LATER ~#weapprof~ 31 51 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 32 51 0
-	SET_2DA_ENTRY_LATER ~#weapprof~ 33 51 2
-	SET_2DA_ENTRY_LATER ~#weapprof~ 34 51 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 51 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 51 0
+	SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 51 2
+	SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 51 2
 	// shaman
 	PATCH_IF FILE_EXISTS_IN_GAME ~enginest.2da~ BEGIN
-	 SET_2DA_ENTRY_LATER ~#weapprof~ 31 60 2
-	 SET_2DA_ENTRY_LATER ~#weapprof~ 32 60 0
-	 SET_2DA_ENTRY_LATER ~#weapprof~ 33 60 2
-	 SET_2DA_ENTRY_LATER ~#weapprof~ 34 60 2
+	 SET_2DA_ENTRY_LATER ~#weapprof~ 2h_row 60 2
+	 SET_2DA_ENTRY_LATER ~#weapprof~ ss_row 60 0
+	 SET_2DA_ENTRY_LATER ~#weapprof~ sw_row 60 2
+	 SET_2DA_ENTRY_LATER ~#weapprof~ dw_row 60 2
 	END
-	// done
-	SET_2DA_ENTRIES_NOW ~#weapprof~ 1
-	REPLACE_TEXTUALLY ~^ID ~ ~%TAB%%TAB%%TAB%%TAB%%TAB%%TAB%ID ~
+  END
+  // done
+  SET_2DA_ENTRIES_NOW ~#weapprof~ 1
+  REPLACE_TEXTUALLY ~^ID ~ ~%TAB%%TAB%%TAB%%TAB%%TAB%%TAB%ID ~
 //__________________________________________________________________________________
 
 
@@ -219,130 +238,92 @@ BUT_ONLY
 //STYLES FOR KIT CLERICS____________________________________________________________
 //
 COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols 
-  PHP_EACH d5_clerics_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 2 // shield
-    SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
-    SET_2DA_ENTRY 31 (%kit_col% + 1) cols 2 // dual-wield
+  COUNT_2DA_COLS cols
+  COUNT_2DA_ROWS cols rows
+  FOR (row = 1; row < rows; ++row) BEGIN
+    READ_2DA_ENTRY row 1 cols stat
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~111~) BEGIN
+     SET 2h_row = row
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~112~) BEGIN
+     SET ss_row = row
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~113~) BEGIN
+     SET sw_row = row
+    END
+    PATCH_IF (~%stat%~ STRING_EQUAL_CASE ~114~) BEGIN
+     SET dw_row = row
+    END
+  END
+  PATCH_IF (IS_AN_INT %2h_row%) AND (IS_AN_INT %ss_row%) AND (IS_AN_INT %sw_row%) AND (IS_AN_INT %dw_row%) BEGIN
+   PHP_EACH d5_clerics_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 2h_row (%kit_col% + 1) cols 2 // 2Hand
+    SET_2DA_ENTRY ss_row (%kit_col% + 1) cols 2 // shield
+    SET_2DA_ENTRY sw_row (%kit_col% + 1) cols 2 // single
+    SET_2DA_ENTRY dw_row (%kit_col% + 1) cols 2 // dual-wield
+   END
+   PHP_EACH d5_druids_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 2h_row (%kit_col% + 1) cols 2 // 2Hand
+    SET_2DA_ENTRY ss_row (%kit_col% + 1) cols 0 // shield
+    SET_2DA_ENTRY sw_row (%kit_col% + 1) cols 2 // single
+    SET_2DA_ENTRY dw_row (%kit_col% + 1) cols 2 // dual-wield
+   END
+   PHP_EACH d5_wizards_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 2h_row (%kit_col% + 1) cols 0 // 2Hand
+    SET_2DA_ENTRY ss_row (%kit_col% + 1) cols 0 // shield
+    SET_2DA_ENTRY sw_row (%kit_col% + 1) cols 0 // single
+    SET_2DA_ENTRY dw_row (%kit_col% + 1) cols 0 // dual-wield
+   END
+   PHP_EACH d5_mc_mages_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 2h_row (%kit_col% + 1) cols 2 // 2Hand
+    SET_2DA_ENTRY ss_row (%kit_col% + 1) cols 0 // shield
+    SET_2DA_ENTRY sw_row (%kit_col% + 1) cols 2 // single
+    SET_2DA_ENTRY dw_row (%kit_col% + 1) cols 2 // dual-wield
+   END
+   PHP_EACH d5_thieves_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 2h_row (%kit_col% + 1) cols 2 // 2Hand
+    SET_2DA_ENTRY ss_row (%kit_col% + 1) cols 0 // shield
+    SET_2DA_ENTRY sw_row (%kit_col% + 1) cols 2 // single
+    SET_2DA_ENTRY dw_row (%kit_col% + 1) cols 2 // dual-wield
+   END
+   PHP_EACH d5_bards_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 2h_row (%kit_col% + 1) cols 2 // 2Hand
+    SET_2DA_ENTRY ss_row (%kit_col% + 1) cols 2 // shield
+    SET_2DA_ENTRY sw_row (%kit_col% + 1) cols 2 // single
+    SET_2DA_ENTRY dw_row (%kit_col% + 1) cols 2 // dual-wield
+   END
+   PHP_EACH d5_rangers_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 2h_row (%kit_col% + 1) cols 2 // 2Hand
+    SET_2DA_ENTRY ss_row (%kit_col% + 1) cols 2 // shield
+    SET_2DA_ENTRY sw_row (%kit_col% + 1) cols 2 // single
+    SET_2DA_ENTRY dw_row (%kit_col% + 1) cols 2 // dual-wield
+   END
+   PHP_EACH d5_paladins_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 2h_row (%kit_col% + 1) cols 2 // 2Hand
+    SET_2DA_ENTRY ss_row (%kit_col% + 1) cols 2 // shield
+    SET_2DA_ENTRY sw_row (%kit_col% + 1) cols 2 // single
+    SET_2DA_ENTRY dw_row (%kit_col% + 1) cols 2 // dual-wield
+   END
+   PHP_EACH d5_fighters_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 2h_row (%kit_col% + 1) cols 2 // 2Hand
+    SET_2DA_ENTRY ss_row (%kit_col% + 1) cols 2 // shield
+    SET_2DA_ENTRY sw_row (%kit_col% + 1) cols 2 // single
+    SET_2DA_ENTRY dw_row (%kit_col% + 1) cols 2 // dual-wield
+   END
+   PHP_EACH d5_monks_array AS kit_col => class BEGIN
+    SET_2DA_ENTRY 2h_row (%kit_col% + 1) cols 0 // 2Hand
+    SET_2DA_ENTRY ss_row (%kit_col% + 1) cols 0 // shield
+    SET_2DA_ENTRY sw_row (%kit_col% + 1) cols 2 // single
+    SET_2DA_ENTRY dw_row (%kit_col% + 1) cols 2 // dual-wield
+   END
   END
 BUT_ONLY
 
-//STYLES FOR KIT DRUIDS_____________________________________________________________
-//
-COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols 
-  PHP_EACH d5_druids_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
-    SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
-    SET_2DA_ENTRY 31 (%kit_col% + 1) cols 2 // dual-wield
-  END
-BUT_ONLY
 
-//STYLES FOR KIT WIZARDS____________________________________________________________
-//
-COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols 
-  PHP_EACH d5_wizards_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 0 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
-    SET_2DA_ENTRY 30 (%kit_col% + 1) cols 0 // single
-    SET_2DA_ENTRY 31 (%kit_col% + 1) cols 0 // dual-wield
-  END
-BUT_ONLY
-
-//STYLES FOR KIT MC MAGES___________________________________________________________
-//
-COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols 
-  PHP_EACH d5_mc_mages_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
-    SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
-    SET_2DA_ENTRY 31 (%kit_col% + 1) cols 2 // dual-wield
-  END
-BUT_ONLY
-
-//STYLES FOR KIT THIEVES____________________________________________________________
-//
-COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols 
-  PHP_EACH d5_thieves_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
-    SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
-    SET_2DA_ENTRY 31 (%kit_col% + 1) cols 2 // dual-wield
-  END
-BUT_ONLY
-
-//STYLES FOR KIT BARDS______________________________________________________________
-//
-COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols 
-  PHP_EACH d5_bards_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 2 // shield
-    SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
-    SET_2DA_ENTRY 31 (%kit_col% + 1) cols 2 // dual-wield
-  END
-BUT_ONLY
-
-//STYLES FOR KIT RANGERS____________________________________________________________
-//
-COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols 
-  PHP_EACH d5_rangers_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 2 // shield
-    SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
-    SET_2DA_ENTRY 31 (%kit_col% + 1) cols 2 // dual-wield
-  END
-BUT_ONLY
-
-//STYLES FOR KIT PALADINS___________________________________________________________
-//
-COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols 
-  PHP_EACH d5_paladins_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 2 // shield
-    SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
-    SET_2DA_ENTRY 31 (%kit_col% + 1) cols 2 // dual-wield
-  END
-BUT_ONLY
-
-//STYLES FOR KIT FIGHTERS___________________________________________________________
-//
-COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols 
-  PHP_EACH d5_fighters_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 2 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 2 // shield
-    SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
-    SET_2DA_ENTRY 31 (%kit_col% + 1) cols 2 // dual-wield
-  END
-BUT_ONLY
-
-//STYLES FOR KIT MONKS______________________________________________________________
-//
-COPY_EXISTING ~weapprof.2da~ ~override~
-  COUNT_2DA_COLS cols 
-  PHP_EACH d5_monks_array AS kit_col => class BEGIN
-    SET_2DA_ENTRY 28 (%kit_col% + 1) cols 0 // 2Hand
-    SET_2DA_ENTRY 29 (%kit_col% + 1) cols 0 // shield
-    SET_2DA_ENTRY 30 (%kit_col% + 1) cols 2 // single
-    SET_2DA_ENTRY 31 (%kit_col% + 1) cols 2 // dual-wield
-  END
-BUT_ONLY
-//__________________________________________________________________________________
-
-
-//CHANGE BASIC BONUSES______________________________________________________________
+//CHANGE BASIC BONUSE VALUES________________________________________________________
 //
 COPY ~scales_of_balance/profs/stylbonu2.2da~ ~override/stylbonu.2da~
 //__________________________________________________________________________________
-
 
 
 //PREP SPLPROT.2DA__________________________________________________________________

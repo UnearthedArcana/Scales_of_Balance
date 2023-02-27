@@ -10,8 +10,10 @@ DEFINE_ACTION_FUNCTION iwd_weapon_tweaks BEGIN
 
 //random little stuff_______________________________________________________________
 //
-COPY ~scales_of_balance/misc/iwdee/bknight.itm~ ~override~
-COPY ~scales_of_balance/misc/iwdee/bishop.itm~ ~override~
+ACTION_IF (GAME_IS ~iwdee~) BEGIN
+  COPY ~scales_of_balance/misc/iwdee/bknight.itm~ ~override~
+  COPY ~scales_of_balance/misc/iwdee/bishop.itm~ ~override~
+END
 
 COPY_EXISTING ~quost.itm~ ~override~
   READ_BYTE 0x21 druid_usability
@@ -21,7 +23,76 @@ COPY_EXISTING ~quost.itm~ ~override~
 
 //less-ramdomized loot______________________________________________________________
 //
+ACTION_IF (GAME_IS ~iwdee~) BEGIN
   COPY ~scales_of_balance/misc/iwdee/rndtres.2da~ ~override~
+END
+
+ACTION_IF (MOD_IS_INSTALLED ~SETUP-IWD1_EET.TP2~ ~1~) BEGIN
+  COPY_EXISTING ~rndtres.2da~ ~override~
+    REPLACE_TEXTUALLY ~AROW_P1.+$~ ~AROW_P2 hqarow   hqarow   arow02   arow02   arow08   arow08   arow09   arow09   hqarow   *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~AROW_P2.+$~ ~AROW_P2 hqarow   hqarow   arow02   arow02   arow08   arow08   arow09   arow09   arow02   hqarow   *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~ASKELP1.+$~ ~ASKELP1 blun06   ax1h01   sw1h01   sw1h04   *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~ASKELP2.+$~ ~ASKELP2 blun06   ax1h01   sw1h01   sw1h04   hqmstar  hqbswrd  hqlswrd  hqaxe    *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~ASKELP3.+$~ ~ASKELP3 hqmstar  hqbswrd  hqlswrd  hqaxe    sw1h02   sw1h05   sw1h08   ax1h02   *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~DE1TRES.+$~ ~DE1TRES ShldRng  ShldRng  uRobe1a  uRing3a  uRobe1a  uRing2a  *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~DE2TRES.+$~ ~DE2TRES uDagg3b  uDagg3b  uDagg3a  uDagg3a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~DE3TRES.+$~ ~DE3TRES ArowTrn  TrnBolt  uHXbw3a  ArowTrn  uLBow3a  zzh8gk   lxbowbm  *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~DE4TRES.+$~ ~DE4TRES uFlal3a  uMstr3a  PeaceKe  PeaceKe  u1Ham3a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~DE6TRES.+$~ ~DE6TRES intrces  uBswd3b  Diver    Diver    Days     Days     *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~DE7TRES.+$~ ~DE7TRES ShldRed  ShldRed  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~EC3TRES.+$~ ~EC3TRES ring06   uRing1a  BeltBea  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~EH1TRES.+$~ ~EH1TRES u1Ham2a  uMstr2a  uMstr2b  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~EXTRES1.+$~ ~EXTRES1 beltbon  helmsh   stomper  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~EXTRES2.+$~ ~EXTRES2 robearm  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~EXTRES4.+$~ ~EXTRES4 ogien    cloakin  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~EXTRES5.+$~ ~EXTRES5 wisp     wisp     *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~KT1TRES.+$~ ~KT1TRES uFlal2a  u2Ham2a  Dazer    uLXbw2a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~KT2TRES.+$~ ~KT2TRES uDagg2b  uDagg2a  uSswd2a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~KT3TRES.+$~ ~KT3TRES Mielikk  Turodah  uLswd3a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~LD1TRES.+$~ ~LD1TRES uBswd4a  u1hAx4a  u2hAx4a  uHalb4a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~LD2TRES.+$~ ~LD2TRES uLXbw3a  uHXbw4a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~LD3TRES.+$~ ~LD3TRES uDagg5a  uDagg5a  uSltr4a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~LD4TRES.+$~ ~LD4TRES uMstr5b  uMstr5a  u1Ham4b  uMstr4a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~LD5TRES.+$~ ~LD5TRES uSpot5b  uRing4a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~ORCTRES.+$~ ~ORCTRES Dazer    glimglm  mhorn    *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~OrkTres.+$~ ~ORKTRES cloakmi  cloakmi  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~RNGP1.+$~ ~RNGP1 uDart1a  arow01   arow01   uDart1a  arow02   bolt01   bull02   bolt01   bull02   hqbolt   *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~RNGP2.+$~ ~RNGP2 uDart2a  uArow2a  Arow02   uDart2a  uArow2a  arow01   arow01   Arow08   bolt02   bull03   bolt02   bolt02   hqbolt   *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~RNGP3.+$~ ~RNGP3 uArow3a  uArow3b  uArow3c  Arow08   Arow09   Arow11   uDart3a  uDart3b  bolt02   bolt06   bolt06   *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~RNGP4.+$~ ~RNGP4 uArow4a  uDart4a  Arow08   Arow10   uBull4a  bolt03   bolt04   bolt03   udart5a  *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~SH_AXE.+$~ ~SH_AXE UTswd3b  UTswd3a  Ax1H05   *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~SH_BOW.+$~ ~SH_BOW Clbhand  Ulbow3c  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+//    REPLACE_TEXTUALLY ~SH_GEM.+$~ ~SH_GEM~
+    REPLACE_TEXTUALLY ~SH_INGSW.+$~ ~SH_INGSW Lshand   Ulswd3d  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+//    REPLACE_TEXTUALLY ~SH_MSTR.+$~ ~SH_MSTR~
+    REPLACE_TEXTUALLY ~SH_SHLD.+$~ ~SH_SHLD Shshld   Ushld3b  Shldbch  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~SH_SSWD.+$~ ~SH_SSWD Usswd3c  Usswd3c  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~SH_WHMR.+$~ ~SH_WHMR U1ham3b  U2ham3a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+//    REPLACE_TEXTUALLY ~SH_XBOW.+$~ ~SH_XBOW~
+    REPLACE_TEXTUALLY ~SH1TRES.+$~ ~SH1TRES Kris     Berserk  Serrate  BoneAm   *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~SH2TRES.+$~ ~SH2TRES KayChai  KayGlov  KayChai  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~SH3TRES.+$~ ~SH3TRES ShRobe   ShBoots  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~SH4TRES.+$~ ~SH4TRES Corello  Labelas  Solonor  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~SH8TRES.+$~ ~SH8TRES poker    *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~SHT_CLR.+$~ ~SHT_CLR ElfChan  USpot3c  ElfChan  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~SHT_MAG.+$~ ~SHT_MAG Shstaff  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~TFGTRES.+$~ ~TFGTRES uLBow2b  uLBow2a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~TG1TRES.+$~ ~TG1TRES Bknight  AmulBra  Bknight  BootMan  Bknight  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~TG2TRES.+$~ ~TG2TRES uSswd3c  uSltr01  uSltr2a  uSswd2b  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~TG3TRES.+$~ ~TG3TRES PeasRew  Reaver   *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~UD1TRES.+$~ ~UD1TRES u1hAx4a  u1hAx2a  u1hAx2a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~UD2TRES.+$~ ~UD2TRES uRing4b  Bishop   DBone    *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~UD3TRES.+$~ ~UD3TRES u1Ham5a  uShld3a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~UD4TRES.+$~ ~UD4TRES uDagg4b  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~UD5TRES.+$~ ~UD5TRES uSswd4a  uLswd4a  uSswd4a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+//    REPLACE_TEXTUALLY ~VS1TRES.+$~ ~VS1TRES~
+    REPLACE_TEXTUALLY ~VS2TRES.+$~ ~VS2TRES uTswd1a  uLswd1a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~VS3TRES.+$~ ~VS3TRES uDagg1b  uRing1a  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~WT1TRES.+$~ ~WT1TRES redemt   *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~WT2TRES.+$~ ~WT2TRES uTswd5a  uSswd4b  HelmPat  *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+    REPLACE_TEXTUALLY ~WT3TRES.+$~ ~WT3TRES uSpot4b  SpenStaf SpenStaf *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *        *~
+  IF_EXISTS BUT_ONLY
+END
 //__________________________________________________________________________________
 
 
@@ -29,73 +100,107 @@ COPY_EXISTING ~quost.itm~ ~override~
 //
 	COPY_EXISTING ~amaunat.itm~ ~override~
 		WRITE_LONG 0x34 ~20000~
+	IF_EXISTS
 	COPY_EXISTING ~bael.itm~ ~override~
 		WRITE_LONG 0x34 ~15000~
+	IF_EXISTS
 	COPY_EXISTING ~bess.itm~ ~override~
 		WRITE_LONG 0x34 ~10000~
+	IF_EXISTS
 	COPY_EXISTING ~blckbow.itm~ ~override~
 		WRITE_LONG 0x34 ~13500~
+	IF_EXISTS
 	COPY_EXISTING ~daisy.itm~ ~override~
 		WRITE_LONG 0x34 ~13500~
+	IF_EXISTS
 	COPY_EXISTING ~doves.itm~ ~override~
 		WRITE_LONG 0x34 ~20000~
+	IF_EXISTS
 	COPY_EXISTING ~eron.itm~ ~override~
 		WRITE_LONG 0x34 ~10000~
+	IF_EXISTS
 	COPY_EXISTING ~fayr.itm~ ~override~
 		WRITE_LONG 0x34 ~15500~
+	IF_EXISTS
 	COPY_EXISTING ~giving.itm~ ~override~
 		WRITE_LONG 0x34 ~14000~
+	IF_EXISTS
 	COPY_EXISTING ~hellpik.itm~ ~override~
 		WRITE_LONG 0x34 ~12000~
+	IF_EXISTS
 	COPY_EXISTING ~kinetic.itm~ ~override~
 		WRITE_LONG 0x34 ~11000~
+	IF_EXISTS
 	COPY_EXISTING ~lonesom.itm~ ~override~
 		WRITE_LONG 0x34 ~17500~
+	IF_EXISTS
 	COPY_EXISTING ~lucky.itm~ ~override~
 		WRITE_LONG 0x34 ~8500~
+	IF_EXISTS
 	COPY_EXISTING ~mae.itm~ ~override~
 		WRITE_LONG 0x34 ~17000~
+	IF_EXISTS
 	COPY_EXISTING ~myrloch.itm~ ~override~
 		WRITE_LONG 0x34 ~17500~
+	IF_EXISTS
 	COPY_EXISTING ~pikeman.itm~ ~override~
 		WRITE_LONG 0x34 ~17000~
+	IF_EXISTS
 	COPY_EXISTING ~relian.itm~ ~override~
 		WRITE_LONG 0x34 ~16000~
+	IF_EXISTS
 	COPY_EXISTING ~tomb.itm~ ~override~
 		WRITE_LONG 0x34 ~15500~
+	IF_EXISTS
 	COPY_EXISTING ~waukeen.itm~ ~override~
 		WRITE_LONG 0x34 ~12000~
+	IF_EXISTS
 	COPY_EXISTING ~whtash.itm~ ~override~
 		WRITE_LONG 0x34 ~9000~
+	IF_EXISTS
 	COPY_EXISTING ~zz14in.itm~ ~override~
 		WRITE_LONG 0x34 ~13000~
+	IF_EXISTS
 	COPY_EXISTING ~zze6pe.itm~ ~override~
 		WRITE_LONG 0x34 ~18000~
+	IF_EXISTS
 	COPY_EXISTING ~zzg7ts.itm~ ~override~
 		WRITE_LONG 0x34 ~7000~
+	IF_EXISTS
 	COPY_EXISTING ~zzs6sc.itm~ ~override~
 		WRITE_LONG 0x34 ~4000~
+	IF_EXISTS
 ACTION_IF FILE_EXISTS_IN_GAME ~wa2amu.itm~ BEGIN
 	COPY_EXISTING ~wa2amu.itm~ ~override~
 		WRITE_LONG 0x34 ~6000~
+	IF_EXISTS
 	COPY_EXISTING ~wa2dak.itm~ ~override~
 		WRITE_LONG 0x34 ~9500~
+	IF_EXISTS
 	COPY_EXISTING ~wa2halb.itm~ ~override~
 		WRITE_LONG 0x34 ~10000~
+	IF_EXISTS
 	COPY_EXISTING ~wa2harp.itm~ ~override~
 		WRITE_LONG 0x34 ~8500~
+	IF_EXISTS
 	COPY_EXISTING ~wa2helm.itm~ ~override~
 		WRITE_LONG 0x34 ~16000~
+	IF_EXISTS
 	COPY_EXISTING ~wa2plat.itm~ ~override~
 		WRITE_LONG 0x34 ~24000~
+	IF_EXISTS
 	COPY_EXISTING ~wa2ring.itm~ ~override~
 		WRITE_LONG 0x34 ~7000~
+	IF_EXISTS
 	COPY_EXISTING ~wa2robe.itm~ ~override~
 		WRITE_LONG 0x34 ~20000~
+	IF_EXISTS
 	COPY_EXISTING ~wa2s1h.itm~ ~override~
 		WRITE_LONG 0x34 ~9000~
+	IF_EXISTS
 	COPY_EXISTING ~wa2shiel.itm~ ~override~
 		WRITE_LONG 0x34 ~12000~
+	IF_EXISTS
 END
 //__________________________________________________________________________________
 
@@ -107,6 +212,7 @@ END
 				~ulswd3d.itm~ ~override~
 			LPF DELETE_EFFECT INT_VAR match_opcode = 1 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=1 target=1 timing=2 power=1 parameter1=7 parameter2=1 END
+	IF_EXISTS
 	COPY_EXISTING ~valiant.itm~ ~override~
 				~ulswd5a.itm~ ~override~
 				~uflal3a.itm~ ~override~
@@ -115,6 +221,7 @@ END
 				~umstr5a.itm~ ~override~
 			LPF DELETE_EFFECT INT_VAR match_opcode = 1 END
 			LPF ADD_ITEM_EQEFFECT INT_VAR opcode=1 target=1 timing=2 power=1 parameter1=2 parameter2=1 END
+	IF_EXISTS
 //__________________________________________________________________________________
 
 
@@ -122,9 +229,11 @@ END
 //
 	COPY_EXISTING ~uhxbw3b.itm~ ~override~
 		LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter2=1 parameter1=7 END	
+	IF_EXISTS
 	COPY_EXISTING ~uhxbw5a.itm~ ~override~
 				~ulbow4a.itm~ ~override~
 		LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter2=1 parameter1=2 END
+	IF_EXISTS
 	COPY_EXISTING ~bowmess.itm~ ~override~
 				~sbowebu.itm~ ~override~
 				~ulbow5a.itm~ ~override~
@@ -133,12 +242,14 @@ END
 				~xbow06.itm~ ~override~
 				~xxbow06.itm~ ~override~
 		LPF ALTER_EFFECT INT_VAR match_opcode=1 parameter2=1 parameter1=8 END
+	IF_EXISTS
 //__________________________________________________________________________________
 
 
 //wizard stuff usable by bards______________________________________________________
 //
-COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
+ACTION_IF (GAME_IS ~iwdee~) BEGIN
+ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
 	READ_BYTE 0x1f fm //reads the byte containing the fighter usability flag
 	PATCH_IF ((~%fm%~ BAND ~0b00100000~) = ~0b00000000~) BEGIN // if *usable* by fighter/mages
@@ -146,7 +257,8 @@ COPY_EXISTING_REGEXP GLOB ~.*\.itm~ ~override~
 	  WRITE_BYTE  0x1e (~%bards%~ BAND ~0b10111111~) // make usable by bards
 	END
   END
-BUT_ONLY
+ BUT_ONLY
+END
 //__________________________________________________________________________________
 
 END // end function
