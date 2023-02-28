@@ -905,10 +905,10 @@ Proficiencies:
 Proficiencies:
 - Halflings receive one bonus proficiency point in the use of slings, and free specialization (two points) in the Thrown Weapons skill.
 ~
-@12254  = ~Melee Training~
-@12255  = ~Dodge~
-@12256  = ~Backstab~
-@12257  = ~Set Snare~
+@12254  = ~Backstab~
+@12255  = ~Set Snare~
+@12256  = ~Dodge~
+@12257  = ~Melee Training~
 @12258  = ~Ranged Accuracy~
 @12259  = ~Thrown Weapons~
 @12265  = ~Fighting Postures~
