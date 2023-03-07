@@ -588,7 +588,7 @@ Each rank in this proficiency will allow one attempt per day to set a trap.
 - Precise Strike (increased chance of critical hits)
 - Reckless Attack (increased APR but worse thac0)
 - Fighting Dirty (trip, blind, or weaken nearby opponents)
-- Parrying (%0% chance to block one attack each round)
+- Parrying (50% chance to block one attack each round)
 - Missile Snaring (block one missile attack each round)
 - Spell Evasion (save to avoid effects of spell projectiles)
 

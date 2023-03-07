@@ -1,7 +1,7 @@
 BACKUP ~weidu_external/backup/scales_of_balance~
 AUTHOR ~SubtleD~
 
-VERSION ~v6.5a5~
+VERSION ~v6.5a6~
 
 //README ~scales_of_balance/readme-SoB.html~
 
@@ -351,22 +351,35 @@ DESIGNATED 2013
 LABEL ~D5_SBO_5E_CASTING_SLOTS_ONLY_~
 SUBCOMPONENT @2011
 
-ACTION_IF (FILE_EXISTS_IN_GAME ~d5zzini.spl~) AND (MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~201~) BEGIN
- INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
+INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
 
- INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
+ACTION_IF (MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~201~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5zzini.spl~) BEGIN
+    INCLUDE ~scales_of_balance/components/201_SBO_bonus_spells.tpa~
+    ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
+      OUTER_SET 5e_int_bonus_memorization = 0
+      LAM semi_int_slots
+    END
+    ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) BEGIN
+      OUTER_SET 5e_wis_bonus_casting = 1
+      LAM semi_wis_slots
+      LAF 5e_no_priest_mem_bonus END
+    END
+  END
+END
 
- ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
-  OUTER_SET 5e_int_bonus_memorization = 0
-  LAM semi_int_slots
- END
-
- ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) BEGIN
-  OUTER_SET 5e_wis_bonus_casting = 1
-  LAM semi_wis_slots
-  LAF 5e_no_priest_mem_bonus END
- END
-
+ACTION_IF !(MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~201~) BEGIN
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5zzini.spl~) BEGIN
+    ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_arcane.d5~) BEGIN
+      OUTER_SET 5e_int_bonus_memorization = 0
+      LAM semi_int_slots
+    END
+    ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) BEGIN
+      OUTER_SET 5e_wis_bonus_casting = 1
+      LAM semi_wis_slots
+      COPY ~scales_of_balance/stats/mxsplwis_0.2da~ ~override/mxsplwis.2da~
+    END
+  END
 END
 //__________________________________________________________________________________
 

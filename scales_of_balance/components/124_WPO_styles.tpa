@@ -819,7 +819,7 @@ END
 
 */
 
-APPEND ~splprot.2da~ ~D5_SPEC_SNS%TAB%112%TAB%2%TAB%4~
+APPEND ~splprot.2da~ ~D5_SPEC_SNS%TAB%112%TAB%2%TAB%8~
 
 COPY_EXISTING ~splprot.2da~ ~override~
 	COUNT_2DA_COLS cols
@@ -833,6 +833,30 @@ COPY_EXISTING ~splprot.2da~ ~override~
 BUT_ONLY
 
 ADD_PROJECTILE ~scales_of_balance/profs/d5_sns.pro~
+ CREATE EFF ~d5_sns~
+	WRITE_LONG 0x10 232
+	WRITE_LONG 0x14 1
+	WRITE_LONG 0x20 20
+	WRITE_LONG 0x24 2
+	WRITE_SHORT 0x2c 100
+	WRITE_ASCII 0x30 ~D5_SNS1~ #8
+	WRITE_LONG 0x48 102
+COPY ~scales_of_balance/lib/d5_base.spl~ ~override/d5_sns1.spl~						// cast sns2 if spec.
+CREATE SPL ~d5_sns1~
+COPY_EXISTING ~d5_sns1.spl~ ~override~
+  LPF QD_ADD_EMPTY_SPELL_HEADER INT_VAR type = 1 location = 4 target = 5 required_level = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter2 = %sns_spec% timing = 1 STR_VAR resource = ~d5_sns3~ END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter2 = %sns_spec% timing = 1 STR_VAR resource = ~d5_sns2~ END
+CREATE SPL ~d5_sns3~
+COPY_EXISTING ~d5_sns3.spl~ ~override~
+  WRITE_BYTE 0x1a (THIS BOR 0b00000001)
+  LPF QD_ADD_EMPTY_SPELL_HEADER INT_VAR type = 1 location = 4 target = 5 required_level = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END
+COPY ~scales_of_balance/profs/d5_sns2.spl~ ~override~						// knockback/damage/etc.
+  LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5_sns% END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2  parameter1 = 205 parameter2 = 105 timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END 
+
+/* old
 COPY ~scales_of_balance/profs/d5_sns.eff~ ~override~						// cast sns when attacked
 COPY ~scales_of_balance/profs/d5_sns1.spl~ ~override~						// cast sns2 if spec.
 	LPF ALTER_EFFECT INT_VAR silent = 1 match_opcode = 326 parameter1 = 0 parameter2 = %sns_spec% END
@@ -858,6 +882,7 @@ ACTION_PHP_EACH d5_sns_thieves AS lemon => lime BEGIN
 	END
   END
 END
+*/
 
 COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
