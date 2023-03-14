@@ -2130,13 +2130,13 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp2a.spl~					//		grappling eff
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 0 duration = 126144000 STR_VAR resource = ~d5csp2a~ END
 
- CREATE EFF ~d5csp5a~
+ CREATE EFF ~d5csp2a~
 	WRITE_LONG 0x10 232
 	WRITE_LONG 0x14 1
 	WRITE_LONG 0x20 20
 	WRITE_LONG 0x24 2
 	WRITE_SHORT 0x2c 100
-	WRITE_ASCII 0x30 ~D5CSP5B~ #8
+	WRITE_ASCII 0x30 ~D5CSP2B~ #8
 	WRITE_LONG 0x48 102
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp2b.spl~					//		grappling effect
@@ -3143,10 +3143,12 @@ END
 INCLUDE ~%MOD_FOLDER%/lib/semi_spontaneous.tpa~
 
 LAF semi_innate_casting INT_VAR semi_innate_stat = 109 semi_innate_shift = 24 STR_VAR semi_innate_prefix = ~d5ci~ semi_innate_array = ~semi_innate_spells~ END
+//LAF semi_innate_casting INT_VAR semi_innate_stat = 109 semi_innate_shift = 20 STR_VAR semi_innate_prefix = ~d5ki~ semi_innate_array = ~semi_innate_ki~ points_table = ~d5kisam~ table_spl = ~d5kisam~ END
 
 ACTION_FOR_EACH mag_spl IN ~2~ ~3~ ~4~ ~5~ ~6~ ~7~ ~8~ ~9~ BEGIN			//		set up magic skills
 
   COPY_EXISTING ~d5csi%mag_spl%l.spl~ ~override~
+    LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5cix1a~ END
     LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5cix1a~ END
     LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 9 STR_VAR resource = EVAL ~d5csi%mag_spl%~ END
   IF_EXISTS BUT_ONLY
