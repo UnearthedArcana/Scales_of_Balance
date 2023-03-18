@@ -2129,6 +2129,7 @@ IF_EXISTS BUT_ONLY
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp2a.spl~					//		grappling effect
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 0 duration = 126144000 STR_VAR resource = ~d5csp2a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 128 parameter2 = 102 timing = 0 duration = 1 STR_VAR resource = ~d5csp2a~ END
 
  CREATE EFF ~d5csp2a~
 	WRITE_LONG 0x10 232
@@ -2141,8 +2142,9 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp2a.spl~					//		grappling eff
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp2b.spl~					//		grappling effect
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp2x~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp2c~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 0 parameter2 = 142 timing = 0 duration = 1 STR_VAR resource = ~d5csp2b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 128 parameter2 = 102 timing = 0 duration = 1 STR_VAR resource = ~d5csp2b~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp2c.spl~					//		grappling effect
   LPF ALTER_SPELL_HEADER INT_VAR type = 1 target = 1 projectile = %d5csp2% END
@@ -2152,11 +2154,6 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp2c.spl~					//		grappling eff
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 0 target = 2 parameter1 = (0 - 4) timing = 0 duration = 3 savingthrow = 16 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 target = 2 parameter1 = (0 - 4) timing = 0 duration = 3 savingthrow = 16 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 50 target = 2 parameter1 = 26368 parameter2 = 2 timing = 0 duration = 3 savingthrow = 16 END
-
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp2x.spl~
-  WRITE_BYTE 0x1a (THIS BOR 0b00000001)
-  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 1 STR_VAR resource = ~d5csp2c~ END
 
 /*
 CREATE EFF ~d5csp2c~
@@ -2233,6 +2230,7 @@ IF_EXISTS BUT_ONLY
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp5a.spl~					//		dirty fighting effect
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 0 duration = 126144000 STR_VAR resource = ~d5csp5a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 128 parameter2 = 102 timing = 0 duration = 1 STR_VAR resource = ~d5csp5a~ END
 
  CREATE EFF ~d5csp5a~
 	WRITE_LONG 0x10 232
@@ -2245,8 +2243,9 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp5a.spl~					//		dirty fightin
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp5b.spl~
   LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp5x~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp5c~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 0 parameter2 = 142 timing = 0 duration = 1 STR_VAR resource = ~d5csp5b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 128 parameter2 = 102 timing = 0 duration = 1 STR_VAR resource = ~d5csp5b~ END
 
 COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp5c.spl~					//		dirty fighting effects
   LPF ALTER_SPELL_HEADER INT_VAR type = 1 target = 1 range = 3 projectile = %d5csp2% END
@@ -2258,11 +2257,6 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp5c.spl~					//		dirty fightin
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 283 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 6 probability1 = 100 probability2 = 67 savingthrow = 16 STR_VAR resource = ~d5csp5i~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 2 savingthrow = 16 STR_VAR resource = ~d5csp5j~ END
 //  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 2 parameter1 = (0 - 1) timing = 0 duration = 7 savingthrow = 16 STR_VAR resource = ~d5csp5b~ END
-
-COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp5x.spl~
-  WRITE_BYTE 0x1a (THIS BOR 0b00000001)
-  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
-  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 0 duration = 1 STR_VAR resource = ~d5csp5c~ END
 
 CREATE EFF  ~d5csp5d~
 	WRITE_LONG 0x10 74

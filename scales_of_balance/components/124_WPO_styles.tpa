@@ -855,6 +855,8 @@ COPY_EXISTING ~d5_sns3.spl~ ~override~
 COPY ~scales_of_balance/profs/d5_sns2.spl~ ~override~						// knockback/damage/etc.
   LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5_sns% END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2  parameter1 = 205 parameter2 = 105 timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END 
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 0 parameter2 = 142 timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 128 parameter2 = 102 timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END
 
 /* old
 COPY ~scales_of_balance/profs/d5_sns.eff~ ~override~						// cast sns when attacked
