@@ -54,10 +54,10 @@
     <li> Will to Power</li>
     <li> Might and Guile (v5+)</li>
     <li> Faiths & Powers (v0.85+)</li>
-    <li> [tweak mods including Tweaks Anthology]</li>
+    <li> [tweak mods like Tweaks Anthology]</li>
     <li> SCS</li>
     <li> Scales of Balance (v6+)</li>
-    <li> [end-of-order mods like LevelOneNPCs, NPC_EE, Randomiser, etc.]</li>
+    <li> [end-of-order mods like LevelOneNPCs, NPC_EE, Dual to Kit, etc.]</li>
   </ul>
   <p><strong>Modder Resources:</strong><br />
 	Scales of Balance adds several custom spellstates to SPLSTATE.IDS.  It uses the 4th byte of stat 115, Clubs proficiency, for certain features, principally the Revised Weapon Styles component. </p>
