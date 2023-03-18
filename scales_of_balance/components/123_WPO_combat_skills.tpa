@@ -5494,6 +5494,8 @@ ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
 //  PRINT ~%cre% => %dv%~ 
   COPY_EXISTING ~%cre%~ ~override~
 	PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+	 READ_BYTE 0x270 ea
+	 PATCH_IF (ea = 200) BEGIN
 	  READ_BYTE 0x234 level
 	  READ_BYTE 0x273 npc_class
 	  PATCH_IF (npc_class = 4) OR (npc_class = 6) OR (npc_class = 12) OR (npc_class = 7) OR (npc_class = 8) OR (npc_class = 16) OR (npc_class = 17) OR (npc_class = 18) BEGIN
@@ -5624,6 +5626,7 @@ ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
           LPF ADD_CRE_EFFECT INT_VAR target = 1 opcode = 1 parameter1 = 6 parameter2 = 0 timing = 9 END
         END
 	  END
+	 END
 	END
   BUT_ONLY
 END
