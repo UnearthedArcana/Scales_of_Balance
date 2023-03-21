@@ -2154,6 +2154,8 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp2c.spl~					//		grappling eff
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 0 target = 2 parameter1 = (0 - 4) timing = 0 duration = 3 savingthrow = 16 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 278 target = 2 parameter1 = (0 - 4) timing = 0 duration = 3 savingthrow = 16 END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 50 target = 2 parameter1 = 26368 parameter2 = 2 timing = 0 duration = 3 savingthrow = 16 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2 parameter1 = 128 parameter2 = 102 timing = 0 duration = 1 STR_VAR resource = ~d5csp2c~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2 parameter1 = 0 parameter2 = 49 timing = 0 duration = 1 STR_VAR resource = ~d5csp2c~ END
 
 /*
 CREATE EFF ~d5csp2c~
@@ -2256,6 +2258,8 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5csp5c.spl~					//		dirty fightin
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 283 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 6 probability1 = 100 probability2 = 67 savingthrow = 16 STR_VAR resource = ~d5csp5h~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 283 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 6 probability1 = 100 probability2 = 67 savingthrow = 16 STR_VAR resource = ~d5csp5i~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 177 target = 2 parameter1 = 0 parameter2 = 2 timing = 0 duration = 2 savingthrow = 16 STR_VAR resource = ~d5csp5j~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2 parameter1 = 128 parameter2 = 102 timing = 0 duration = 1 STR_VAR resource = ~d5csp5c~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2 parameter1 = 0 parameter2 = 49 timing = 0 duration = 1 STR_VAR resource = ~d5csp5c~ END
 //  LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 2 parameter1 = (0 - 1) timing = 0 duration = 7 savingthrow = 16 STR_VAR resource = ~d5csp5b~ END
 
 CREATE EFF  ~d5csp5d~
@@ -5470,13 +5474,13 @@ backstab
 
 give enemies... 4 feats? 
 warriors 1: luck		parrying		DEX				toughness
-warriors 2: dodge		grappling		health			determination
-warriors 3: precise 	resistance		STR				fortitude
-warriors 4: dirty		missilesnare	quickstride		flaming weapon
+warriors 2: dodge		STR				health			determination
+warriors 3: precise 	resistance		precise			fortitude
+warriors 4: reckless	missilesnare	quickstride		flaming weapon
 
-rogues 1:  dodge		parrying		missilesnare	parrying
+rogues 1:  dodge		DEX				missilesnare	luck
 rogues 2:  precise		dodge			health			precise
-rogues 3:  dirty		DEX				dirty			dirty
+rogues 3:  DEX			DEX				parrying		parrying
 rogues 4:  evasion		escapeartist	slipperymind	luck
 */
 
@@ -5492,7 +5496,7 @@ ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
 	 PATCH_IF (ea = 200) BEGIN
 	  READ_BYTE 0x234 level
 	  READ_BYTE 0x273 npc_class
-	  PATCH_IF (npc_class = 4) OR (npc_class = 6) OR (npc_class = 12) OR (npc_class = 7) OR (npc_class = 8) OR (npc_class = 16) OR (npc_class = 17) OR (npc_class = 18) BEGIN
+	  PATCH_IF (npc_class = 2) OR (npc_class = 12) OR (npc_class = 7) OR (npc_class = 8) OR (npc_class = 16) OR (npc_class = 17) OR (npc_class = 18) BEGIN
 		SET random_num1 = RANDOM (1 4)
 		PATCH_IF (%random_num1% = 1) BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csm7~ END
@@ -5511,7 +5515,7 @@ ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode = 0 target = 1 parameter1 = 1 parameter2 = 0 timing = 0 duration = 126144000 END
 		END
 		PATCH_IF (%random_num2% = 2) BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp2a~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf7~ END
 		END
 		PATCH_IF (%random_num2% = 3) BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf1~ END
@@ -5529,7 +5533,7 @@ ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
 		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf3~ END
 		  END
 		  PATCH_IF (%random_num3% = 3) BEGIN
-		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf7~ END
+		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp3a~ END
 		  END
 		  PATCH_IF (%random_num3% = 4) BEGIN
 //		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf5~ END
@@ -5539,7 +5543,7 @@ ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
 		PATCH_IF (level > 7) BEGIN
 		  SET random_num4 = RANDOM (1 5)
 		  PATCH_IF (%random_num4% = 1) BEGIN
-		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp5a~ END
+		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp4a~ END
 		  END
 		  PATCH_IF (%random_num4% = 2) BEGIN
 		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp7a~ END
@@ -5564,13 +5568,13 @@ ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode = 0 target = 1 parameter1 = 1 parameter2 = 0 timing = 0 duration = 126144000 END
 		END
 		PATCH_IF (%random_num1% = 2) BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp6a~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf8~ END
 		END
 		PATCH_IF (%random_num1% = 3) BEGIN
 		  LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp7a~ END
 		END
 		PATCH_IF (%random_num1% = 4) BEGIN
-		  LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp6a~ END
+		  LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csm7~ END
 		END
 		SET random_num2 = RANDOM (1 4)
 		PATCH_IF (%random_num2% = 1) BEGIN
@@ -5588,16 +5592,16 @@ ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
 		PATCH_IF (level > 4) BEGIN
 		  SET random_num3 = RANDOM (1 4)
 		  PATCH_IF (%random_num3% = 1) BEGIN
-		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp5a~ END
-		  END
-		  PATCH_IF (%random_num3% = 2) BEGIN
-		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp5a~ END
-		  END
-		  PATCH_IF (%random_num3% = 3) BEGIN
 		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csf8~ END
 		  END
+		  PATCH_IF (%random_num3% = 2) BEGIN
+		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp6a~ END
+		  END
+		  PATCH_IF (%random_num3% = 3) BEGIN
+		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp6a~ END
+		  END
 		  PATCH_IF (%random_num3% = 4) BEGIN
-		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp5a~ END
+		    LPF ADD_CRE_EFFECT INT_VAR opcode = 146 target = 1 parameter1 = 0 parameter2 = 1 timing = 1 STR_VAR resource = ~d5csp6a~ END
 		  END
 		END
 		PATCH_IF (level > 7) BEGIN
