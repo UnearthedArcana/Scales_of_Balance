@@ -5003,7 +5003,7 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs001.spl~
 /*
   PATCH_FOR_EACH skil IN ~115~ ~124~ ~127~ ~110~ BEGIN
     PATCH_FOR_EACH letr IN ~j~ ~k~ ~l~ BEGIN
-      LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5cs%skil%%letr%~ END
+      LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 321 timing = 1 STR_VAR resource = EVAL ~d5cs%skil%%letr%~ END
     END
   END
 */
@@ -5021,7 +5021,7 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs001.spl~
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter1 = (4 << 3) parameter2 = %prof_110_beq% timing = 1 STR_VAR resource = ~d5cs110l~ END
   PATCH_FOR_EACH skil IN ~104~ ~105~ ~106~ ~107~ ~108~ ~109~ BEGIN
     PATCH_FOR_EACH letr IN ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ ~g~ BEGIN
-      LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 321 timing = 1 STR_VAR resource = ~d5cs%skil%%letr%~ END
+      LPF ADD_SPELL_EFFECT INT_VAR target = 1 opcode = 321 timing = 1 STR_VAR resource = EVAL ~d5cs%skil%%letr%~ END
     END
   END
 /*
@@ -5258,7 +5258,7 @@ LAM PROF_DIALOGUE
 
 //joinable NPCs______________________________________________________________________
 //
-// joinable NPCs: zero out their existing  profs, and give them the dialprof ability
+// joinable NPCs: zero out their existing profs, and give them the dialprof ability
 
 LAM JOINABLE_NPC_ARRAYS
 
