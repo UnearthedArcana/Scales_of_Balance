@@ -1647,6 +1647,7 @@ COPY ~%MOD_FOLDER%/lib/d5_base.spl~ ~override/d5cs1066.spl~
 COPY_EXISTING ~shld29.itm~ ~override~
   LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 177 target = 1 parameter1 = 0 parameter2 = 2 timing = 2 STR_VAR resource = ~d5cs106x~ END
   LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5cs106x~ END
+IF_EXISTS BUT_ONLY
 
 
 //melee thac0________________________________________________________________________
