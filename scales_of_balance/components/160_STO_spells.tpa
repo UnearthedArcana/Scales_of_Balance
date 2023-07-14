@@ -263,7 +263,6 @@ COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
   PATCH_IF (~%SOURCE_SIZE%~ > ~0x71~) BEGIN
 	READ_SHORT 0x1c type
 	PATCH_IF (type = 35) BEGIN
-	  LPF ALTER_EFFECT INT_VAR silent = 1 savingthrow = 2 END
 	  FOR (index = 0x54 ; index >= 0x50 ; index -= 4) BEGIN // loop through descriptions
 		READ_LONG "%index%" "valid"
 		PATCH_IF ("%valid%" < 2147483646) AND ("%valid%" >= 0) BEGIN // verify description is valid
