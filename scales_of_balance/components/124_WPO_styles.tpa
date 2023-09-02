@@ -847,6 +847,12 @@ COPY_EXISTING ~d5_sns1.spl~ ~override~
   LPF QD_ADD_EMPTY_SPELL_HEADER INT_VAR type = 1 location = 4 target = 5 required_level = 1 END
 //  LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter2 = %sns_spec% timing = 1 STR_VAR resource = ~d5_sns3~ END
   LPF ADD_SPELL_EFFECT INT_VAR opcode = 326 target = 1 parameter2 = %sns_spec% timing = 1 STR_VAR resource = ~d5_sns2~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 1048576 parameter2 = 138 timing = 0 duration = 1 STR_VAR resource = ~d5_sns1~ END 
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 128 parameter2 = 138 timing = 0 duration = 1 STR_VAR resource = ~d5_sns1~ END 
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 32 parameter2 = 138 timing = 0 duration = 1 STR_VAR resource = ~d5_sns1~ END 
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 16 parameter2 = 138 timing = 0 duration = 1 STR_VAR resource = ~d5_sns1~ END 
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 1 parameter2 = 138 timing = 0 duration = 1 STR_VAR resource = ~d5_sns1~ END 
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 1 parameter1 = 0 parameter2 = 74 timing = 0 duration = 1 STR_VAR resource = ~d5_sns1~ END 
 COPY ~scales_of_balance/profs/d5_sns2.spl~ ~override~						// knockback/damage/etc.
   LPF ALTER_SPELL_HEADER INT_VAR projectile = %d5_sns% END
   LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 318 target = 2 parameter1 = 205 parameter2 = 105 timing = 0 duration = 1 STR_VAR resource = ~d5_sns2~ END 
