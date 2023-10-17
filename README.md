@@ -9,11 +9,22 @@
 <body>
 <h1>Scales of Balance</h1>
 <div class="section">
+  <p><strong>NOTICE!!! <br />
+    THIS MOD IS DEPCRECATED</p>
+  <p>INSTEAD, USE: 
+  <ul>
+    <li>SUBTLEDOCTOR'S ITEM TWEAKS,<br /></li>
+    <li>COMBAT SKILLS & PROFICIENCIES,<br /></li>
+    <li>and SUBTLEDOCTOR'S STATS OVERHAUL<br /></li>
+    <li>(in that install order)</li>
+  </ul></p>
+  <p>THANK YOU.</strong></p>
+</div>
+<div class="section">
   <p><strong>Author: <a href="http://forums.gibberlings3.net/index.php?showuser=6306">Duns Scotus, the SubtleDoctor</a><br />
     On the web: <a href="http://www.gibberlings3.net">Home page</a></strong> and <strong><a href="http://forums.gibberlings3.net/index.php?showtopic=26838">discussion forum</a></strong></p>
-  <p><strong> Version 6.6 </strong><br />
-    <strong> Languages:</strong> English<br />
-    <strong>Platforms: </strong>Windows, Mac OS X, Linux (...?)</p>
+  <p><strong> LAST VERSION: 6.6 </strong><br />
+</p>
 </div>
 <h2>Overview</h2>
 <div class="section">
