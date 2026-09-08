@@ -1,0 +1,737 @@
+
+// v12 - handle WIS slots better
+
+/*
+
+functions in this file:
+
+- semi_int_slots - line 5646
+    adds bonus casting slots for high INT scores
+    bonuses are according to Tome & Blood (levels 1-7) - NB, this is not flexible
+    5e_int_bonus_memorization variable can turn bonuses on or off for memorization slots
+        (^^ when used with Scales of Balance spell slot bonuses)
+
+- semi_cha_slots - line 5876
+    adds bonus casting slots for high CHA scores
+    bonuses are according to Tome & Blood (levels 1-5) - NB, this is not flexible
+
+- semi_wis_slots - line 6128
+    adds bonus casting slots for high WIS scores
+    bonuses are according to Tome & Blood (spell levels 1-7) - NB, this is not flexible
+    5e_wis_bonus_memorization variable can turn bonuses on or off for memorization slots
+        (^^ when used with Scales of Balance spell slot bonuses)
+
+*/
+
+
+INCLUDE ~%MOD_FOLDER%/lib/semi_spont/semi_misc_functions.tpa~
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+DEFINE_ACTION_MACRO semi_int_slots BEGIN
+
+ACTION_IF !(VARIABLE_IS_SET %5e_int_bonus_memorization%)  BEGIN
+  OUTER_SET 5e_int_bonus_memorization = 0
+END
+
+ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~D5_SEMI_ARCANE~)) BEGIN
+  COPY_EXISTING ~splstate.ids~ ~override~
+	COUNT_2DA_COLS cols
+	READ_2DA_ENTRIES_NOW rows cols
+	FOR (row = 1; row < rows; ++row) BEGIN
+	  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+	  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+	  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~D5_SEMI_ARCANE~) BEGIN
+		SET semi_spont_arcane = %state_ind%
+	  END
+	END
+  BUT_ONLY
+END
+ACTION_IF !(VARIABLE_IS_SET %semi_spont_arcane%) BEGIN
+  LAF d5_resolve_state STR_VAR new_state_id = ~D5_SEMI_ARCANE~ RET new_state_ind END
+  OUTER_SET semi_spont_arcane = %new_state_ind%
+END
+
+APPEND ~splprot.2da~ ~D5_LEVEL_LESS%TAB%34%TAB%-1%TAB%2~ UNLESS ~D5_LEVEL_LESS~
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols
+	READ_2DA_ENTRIES_NOW rows cols
+	FOR (row = 1; row < rows; ++row) BEGIN
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_LEVEL_LESS~ BEGIN
+	    SET level_less_row = %row%
+	  END
+	END
+BUT_ONLY
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY int_nums_lets BEGIN
+	13	=> 1a
+	14	=> 1b
+	15	=> 2a
+	16	=> 2b
+	17	=> 3a
+	18	=> 3b
+	19	=> 4a
+	20	=> 4b
+	21	=> 5a
+	22	=> 5b
+	23	=> 6a
+	24	=> 6b
+	25	=> 7a
+END
+
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__semi_int.d5~) BEGIN
+
+// stat-based bonus spells____________________________________________________________
+//
+/*
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5nabsw.spl~) BEGIN
+  COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5nabsw.spl~
+	LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5absp1~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5absp1~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5abspw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5abspw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwl~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwm~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwn~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwo~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwq~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwr~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intws~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwu~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwv~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intww~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwx~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwy~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsl~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsm~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsn~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrso~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsq~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsr~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrss~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrst~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsu~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsv~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsx~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsy~ END
+END
+*/
+
+ACTION_IF (5e_int_bonus_memorization = 0) BEGIN
+ ACTION_IF (FILE_EXISTS_IN_GAME ~d5absp1.spl~) BEGIN
+  COPY_EXISTING ~d5zzini.spl~ ~override~
+//  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5nabsw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5abspb~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwl~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwm~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwn~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwo~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwq~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwr~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intws~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwu~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwv~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intww~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwx~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5intwy~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5absp1~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5absp1~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5abspw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5abspw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5absp2~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5absp2~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5abspb~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zislt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zjslt~ END
+ END
+END
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intbz.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 127 target = 1 timing = 9 END
+
+//OUTER_SET string = RESOLVE_STR_REF(~something is happening...~)
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb1a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  PATCH_IF !(MOD_IS_INSTALLED ~tomeandblood.tp2~ ~62~) BEGIN	//	L1 cantrips
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 8) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb1a~ END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 1 parameter1 = %string% timing = 1 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb1b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  PATCH_IF !(MOD_IS_INSTALLED ~tomeandblood.tp2~ ~62~) BEGIN	//	L1 cantrips
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 8) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb1b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb2a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 12) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 3 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb2a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb2a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb2b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 12) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 3 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb2b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb2b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb3a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 16) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 5 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb3a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb3a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb3b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 16) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 5 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb3b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb3b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb4a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 20) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 7 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb4a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb4a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb4b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 20) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 7 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb4b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb4b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb5a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 24) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 9 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb5a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb5a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb5b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 24) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 9 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb5b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb5b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb6a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 28) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 12 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb6a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb6a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb6b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 28) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 12 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb6b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb6b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5intb7a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 20) parameter2 = (109 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 14 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5intb7a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb7a~ END
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5zintz.spl~
+  PHP_EACH int_nums_lets AS int => slot BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 326 target = 1 parameter1 = %int% parameter2 = 128 timing = 1 STR_VAR resource = EVAL ~d5intb%slot%~ END
+  END
+/*
+  PHP_EACH int_nums_lets AS int => slot BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5intb%slot%~ END
+  END
+*/
+IF_EXISTS BUT_ONLY
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5zlotf.spl~) BEGIN
+  COPY_EXISTING ~d5zlotf.spl~ ~override~
+    LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 326 target = 1 parameter1 = %semi_spont_arcane% parameter2 = 110 timing = 1 duration = 0 STR_VAR resource = ~d5zintz~ END
+  BUT_ONLY
+END
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_marker.d5~ ~override/d5__semi_int.d5~
+
+END
+
+// ***** ^^ the above only needs to be done once ^^___________________________________
+
+
+END		//	end define function
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+DEFINE_ACTION_MACRO semi_cha_slots BEGIN
+
+/*
+APPEND ~splprot.2da~ ~D5_CHR_SLOTS%TAB%42%TAB%-1%TAB%1~ UNLESS ~D5_CHR_SLOTS~
+
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols 
+	READ_2DA_ENTRIES_NOW rows cols   
+	FOR (row = 1; row < rows; ++row) BEGIN 
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~ 
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_CHR_SLOTS~ BEGIN
+	    SET chr_slots = %row%
+	  END
+	END
+BUT_ONLY
+*/
+
+ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~D5_SEMI_SORC~)) BEGIN
+  COPY_EXISTING ~splstate.ids~ ~override~
+	COUNT_2DA_COLS cols
+	READ_2DA_ENTRIES_NOW rows cols
+	FOR (row = 1; row < rows; ++row) BEGIN
+	  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+	  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+	  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~D5_SEMI_SORC~) BEGIN
+		SET semi_sorc_state = %state_ind%
+	  END
+	END
+  BUT_ONLY
+END
+ACTION_IF !(VARIABLE_IS_SET %semi_sorc_state%) BEGIN
+  LAF d5_resolve_state STR_VAR new_state_id = ~D5_SEMI_SORC~ RET new_state_ind END
+  OUTER_SET semi_sorc_state = %new_state_ind%
+END
+
+APPEND ~splprot.2da~ ~D5_LEVEL_LESS%TAB%34%TAB%-1%TAB%2~ UNLESS ~D5_LEVEL_LESS~
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols
+	READ_2DA_ENTRIES_NOW rows cols
+	FOR (row = 1; row < rows; ++row) BEGIN
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_LEVEL_LESS~ BEGIN
+	    SET level_less_row = %row%
+	  END
+	END
+BUT_ONLY
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY cha_nums_lets BEGIN
+	13	=> 1a
+	14	=> 1b
+	15	=> 2a
+	16	=> 2c
+	17	=> 2b
+	18	=> 3a
+	19	=> 3c
+	20	=> 3b
+	21	=> 4a
+	22	=> 4c
+	23	=> 4b
+	24	=> 5a
+END
+
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__semi_cha.d5~) BEGIN
+
+// stat-based bonus spells____________________________________________________________
+//
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5nabsw.spl~) BEGIN
+  COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5nabsw.spl~
+	LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5absp1~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5absp1~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5abspw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5abspw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwl~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwm~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwn~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwo~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwq~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwr~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intws~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwt~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwu~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwv~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intww~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwx~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5intwy~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsl~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsm~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsn~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrso~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsq~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsr~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrss~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrst~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsu~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsv~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsx~ END
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5chrsy~ END
+END
+
+COPY_EXISTING ~d5xxini.spl~ ~override~
+//  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5nabsw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5absp1~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5absp1~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5abspw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5abspw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5absp2~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5absp2~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5abspb~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5abspb~ END
+//	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zislt~ END
+//	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 1 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5zjslt~ END
+IF_EXISTS BUT_ONLY
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chasz.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 42 parameter1 = (0 - 1) parameter2 = 31 target = 1 timing = 9 END
+
+//OUTER_SET string = RESOLVE_STR_REF(~something is happening...~)
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas1a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  PATCH_IF !(MOD_IS_INSTALLED ~tomeandblood.tp2~ ~62~) BEGIN	//	L1 cantrips
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 8) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 1 parameter1 = %string% timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas1a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas1b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  PATCH_IF !(MOD_IS_INSTALLED ~tomeandblood.tp2~ ~62~) BEGIN	//	L1 cantrips
+	LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 8) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas1b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas2a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 12) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 3 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5chas2a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas2a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas2c.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 target = 1 parameter1 = 1 parameter2 = 0 timing = 0 duration = 126144000 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas2c~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas2b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 12) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 3 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5chas2b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas2b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas3a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 16) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 5 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5chas3a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas3a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas3c.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 target = 1 parameter1 = 2 parameter2 = 0 timing = 0 duration = 126144000 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas3c~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas3b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 16) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 5 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5chas3b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas3b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas4a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 20) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 7 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5chas4a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas4a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas4c.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 target = 1 parameter1 = 3 parameter2 = 0 timing = 0 duration = 126144000 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas4c~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas4b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 20) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 7 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5chas4b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas4b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5chas5a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 24) parameter2 = (108 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 9 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5chas5a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas5a~ END
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham1a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 1 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham1b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 2 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham2a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 3 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham2c.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 target = 1 parameter1 = 1 parameter2 = 0 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham2b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 4 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham3a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 5 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham3c.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 target = 1 parameter1 = 2 parameter2 = 0 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham3b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 6 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham4a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 7 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham4c.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 191 target = 1 parameter1 = 3 parameter2 = 0 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham4b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 8 timing = 0 duration = 126144000 END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5cham5a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 95 target = 1 parameter1 = 9 timing = 0 duration = 126144000 END
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5xchaz.spl~
+  PHP_EACH cha_nums_lets AS cha => slot BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 326 target = 1 parameter1 = %cha% parameter2 = 132 timing = 1 STR_VAR resource = EVAL ~d5chas%slot%~ END
+  END
+/*
+  PHP_EACH cha_nums_lets AS cha => slot BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5chas%slot%~ END
+  END
+*/
+IF_EXISTS BUT_ONLY
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~d5xlotf.spl~) BEGIN
+  COPY_EXISTING ~d5xlotf.spl~ ~override~
+    LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 326 target = 1 parameter1 = %semi_sorc_state% parameter2 = 110 timing = 1 duration = 0 STR_VAR resource = ~d5xchaz~ END
+  BUT_ONLY
+END
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_marker.d5~ ~override/d5__semi_cha.d5~
+
+END
+
+// ***** ^^ the above only needs to be done once ^^___________________________________
+
+
+END		//	end define function
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+
+DEFINE_ACTION_MACRO semi_wis_slots BEGIN
+
+ACTION_IF !(VARIABLE_IS_SET %5e_wis_bonus_memorization%)  BEGIN
+  OUTER_SET 5e_wis_bonus_memorization = 0
+END
+
+ACTION_IF !(VARIABLE_IS_SET %5e_wis_bonus_casting%)  BEGIN
+  OUTER_SET 5e_wis_bonus_casting = 0
+END
+
+ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~D5_SEMI_DIVINE~)) BEGIN
+  COPY_EXISTING ~splstate.ids~ ~override~
+	COUNT_2DA_COLS cols
+	READ_2DA_ENTRIES_NOW rows cols
+	FOR (row = 1; row < rows; ++row) BEGIN
+	  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+	  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+	  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~D5_SEMI_DIVINE~) BEGIN
+		SET semi_spont_divine = %state_ind%
+	  END
+	END
+  BUT_ONLY
+END
+ACTION_IF !(VARIABLE_IS_SET %semi_spont_divine%) BEGIN
+  LAF d5_resolve_state STR_VAR new_state_id = ~D5_SEMI_DIVINE~ RET new_state_ind END
+  OUTER_SET semi_spont_divine = %new_state_ind%
+END
+
+/*
+ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~D5_SEMI_SHAM~)) BEGIN
+  COPY_EXISTING ~splstate.ids~ ~override~
+	COUNT_2DA_COLS cols
+	READ_2DA_ENTRIES_NOW rows cols
+	FOR (row = 1; row < rows; ++row) BEGIN
+	  READ_2DA_ENTRY_FORMER rows row 1 ~state_name~
+	  READ_2DA_ENTRY_FORMER rows row 0 ~state_ind~
+	  PATCH_IF (~%state_name%~ STRING_EQUAL_CASE ~D5_SEMI_SHAM~) BEGIN
+		SET semi_sham_state = %state_ind%
+	  END
+	END
+  BUT_ONLY
+END
+ACTION_IF !(VARIABLE_IS_SET %semi_sham_state%) BEGIN
+  LAF d5_resolve_state STR_VAR new_state_id = ~D5_SEMI_SHAM~ RET new_state_ind END
+  OUTER_SET semi_sham_state = %new_state_ind%
+END
+*/
+
+APPEND ~splprot.2da~ ~D5_LEVEL_LESS%TAB%34%TAB%-1%TAB%2~ UNLESS ~D5_LEVEL_LESS~
+COPY_EXISTING ~splprot.2da~ ~override~
+	COUNT_2DA_COLS cols
+	READ_2DA_ENTRIES_NOW rows cols
+	FOR (row = 1; row < rows; ++row) BEGIN
+	  READ_2DA_ENTRY_FORMER rows row 0 ~stat~
+	  PATCH_IF ~%stat%~ STRING_EQUAL_CASE ~D5_LEVEL_LESS~ BEGIN
+	    SET level_less_row = %row%
+	  END
+	END
+BUT_ONLY
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY wis_nums_lets BEGIN
+	13	=> 1a
+	14	=> 1b
+	15	=> 2a
+	16	=> 2b
+	17	=> 3a
+	18	=> 3b
+	19	=> 4a
+	20	=> 4b
+	21	=> 5a
+	22	=> 5b
+	23	=> 6a
+	24	=> 6b
+	25	=> 7a
+END
+
+ACTION_IF !(FILE_EXISTS_IN_GAME ~d5__semi_wis.d5~) BEGIN
+
+// stat-based bonus spells____________________________________________________________
+//
+
+ACTION_IF (5e_wis_bonus_memorization = 0) BEGIN
+ ACTION_IF (FILE_EXISTS_IN_GAME ~d5absp4.spl~) BEGIN
+  COPY_EXISTING ~d5zzini.spl~ ~override~
+//  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 146 target = 1 parameter2 = 1 timing = 1 STR_VAR resource = ~d5nabsh~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5abspb~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishl~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishm~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishn~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wisho~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishp~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishq~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishr~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishs~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wisht~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishu~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishv~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishw~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishx~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 1 STR_VAR resource = ~d5wishy~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5absp4~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5absp4~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 206 target = 1 parameter1 = (0 - 1) timing = 9 STR_VAR resource = ~d5absph~ END
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 4 opcode = 321 target = 1 timing = 9 STR_VAR resource = ~d5absph~ END
+  IF_EXISTS
+ END
+END
+
+//OUTER_SET string = RESOLVE_STR_REF(~something is happening...~)
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb1a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 8) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+//  LPF ADD_SPELL_EFFECT INT_VAR opcode = 139 target = 1 parameter1 = %string% timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb1a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb1b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 8) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb1b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb2a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 12) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 3 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb2a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb2a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb2b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 12) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 3 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb2b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb2b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb3a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 16) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 5 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb3a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb3a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb3b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 16) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 5 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb3b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb3b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb4a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 20) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 7 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb4a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb4a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb4b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 20) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 7 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb4b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb4b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb5a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 24) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 9 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb5a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb5a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb5b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 24) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 9 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb5b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb5b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb6a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 28) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 11 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb6a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb6a~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb6b.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 28) parameter2 = (134 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 11 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb6b~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb6b~ END
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5wisb7a.spl~
+  LPF ALTER_SPELL_HEADER INT_VAR target = 5 END
+  LPF ADD_SPELL_EFFECT INT_VAR opcode = 233 target = 1 parameter1 = (1 << 16) parameter2 = (109 + (0x10000 * 1)) timing = 1 END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 target = 1 opcode = 318 parameter1 = 14 parameter2 = %level_less_row% timing = 0 duration = 1 STR_VAR resource = ~d5wisb7a~ END
+  LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb7a~ END
+
+COPY_EXISTING ~d5shfrsh.spl~ ~override~
+			  ~d5yrfsh.spl~ ~override~
+  PHP_EACH wis_nums_lets AS wis => slot BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 326 target = 1 parameter1 = %wis% parameter2 = 130 timing = 1 STR_VAR resource = EVAL ~d5wisb%slot%~ END
+  END
+/*
+  PHP_EACH wis_nums_lets AS wis => slot BEGIN
+	LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb%slot%~ END
+  END
+*/
+IF_EXISTS BUT_ONLY
+
+COPY ~%MOD_FOLDER%/lib/semi_spont/d5_marker.d5~ ~override/d5__semi_wis.d5~
+
+END
+
+// ***** ^^ the above only needs to be done once ^^___________________________________
+
+ACTION_IF (5e_wis_bonus_casting = 1) BEGIN
+  ACTION_IF !(FILE_EXISTS_IN_GAME ~d5zwisz.spl~) BEGIN
+    COPY ~%MOD_FOLDER%/lib/semi_spont/d5_base.spl~ ~override/d5zwisz.spl~
+      PHP_EACH int_nums_lets AS wis => slot BEGIN
+        LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 326 target = 1 parameter1 = %wis% parameter2 = 130 timing = 1 STR_VAR resource = EVAL ~d5wisb%slot%~ END
+      END
+      PHP_EACH int_nums_lets AS wis => slot BEGIN
+        LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 321 target = 1 timing = 1 STR_VAR resource = EVAL ~d5wisb%slot%~ END
+      END
+    BUT_ONLY
+  END
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~d5zlotf.spl~) BEGIN
+    COPY_EXISTING ~d5zlotf.spl~ ~override~
+      LPF DELETE_EFFECT INT_VAR match_opcode = 326 STR_VAR match_resource = ~d5zwisz~ END
+      LPF ADD_SPELL_EFFECT INT_VAR insert_point = 0 opcode = 326 target = 1 parameter1 = %semi_spont_divine% parameter2 = 110 timing = 1 duration = 0 STR_VAR resource = ~d5zwisz~ END
+    BUT_ONLY
+  END
+END
+
+
+END		//	end define function
+
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+

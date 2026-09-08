@@ -1,0 +1,2 @@
+@10001  = ~^Clase de armadura:.+$~
+@11011  = ~Daño:~

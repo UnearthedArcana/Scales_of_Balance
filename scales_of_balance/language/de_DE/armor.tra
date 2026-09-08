@@ -1,3 +1,0 @@
-@10001  = ~^Rüstungsklasse:.+$~
-@10011  = ~Drache~
-@10012  = ~Elfen~

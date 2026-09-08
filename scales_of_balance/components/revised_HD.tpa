@@ -1,0 +1,79 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//							HIT DICE CHANGES
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+DEFINE_ACTION_FUNCTION revise_hit_dice BEGIN
+
+//CHANGE HIT DICE TABLES_______________________________________________________________
+//
+COPY ~%MOD_FOLDER%/data/stats/hpconbon.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpbarb.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpcm.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpct.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpfc.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpfm.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpfmt.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpft.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpmt.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpmonk.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpprs.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hprog.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpwar.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/stats/hpwiz.2da~ ~override~
+//___________________________________________________________________________________
+
+
+//EDIT CON DESCRIPTION_______________________________________________________________
+//
+  STRING_SET 9583 @20007 
+//___________________________________________________________________________________
+
+
+//ADD HP TO NPCs_______________________________________________________________
+//
+LAM JOINABLE_NPC_ARRAYS
+
+ACTION_PHP_EACH JOINABLE_NPC_ARRAY AS cre => dv BEGIN
+//  PRINT ~%cre% = non-joinable~ 
+  COPY_EXISTING ~%cre%~ ~override~
+    PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+        READ_SHORT 0x24 curhp
+        PATCH_IF (curhp > 1) AND (curhp < 42) BEGIN
+          WRITE_SHORT 0x24 (curhp + 4)
+        END
+        READ_SHORT 0x26 maxhp
+        PATCH_IF (maxhp > 1) AND (maxhp < 42) BEGIN
+          WRITE_SHORT 0x24 (maxhp + 4)
+        END
+//        LPF ADD_CRE_EFFECT INT_VAR opcode=17 target=1 timing=1 power=1 parameter1=4 parameter2=0 END
+//        LPF ADD_CRE_EFFECT INT_VAR opcode=18 target=1 timing=9 power=1 parameter1=4 parameter2=0 END
+    END
+  BUT_ONLY
+END
+ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
+//  PRINT ~%cre% = non-joinable~ 
+  COPY_EXISTING ~%cre%~ ~override~
+    PATCH_IF (SOURCE_SIZE > 0x2d3) BEGIN
+      READ_LONG 0x28 animation
+      PATCH_IF !(animation = 0xc300) AND !(animation = 0xcc04) BEGIN
+        READ_SHORT 0x24 curhp
+        PATCH_IF (curhp > 1) AND (curhp < 25) BEGIN
+          WRITE_SHORT 0x24 (curhp + 5)
+        END
+        READ_SHORT 0x26 maxhp
+        PATCH_IF (maxhp > 1) AND (maxhp < 25) BEGIN
+          WRITE_SHORT 0x24 (maxhp + 5)
+        END
+//        LPF ADD_CRE_EFFECT INT_VAR opcode=17 target=1 timing=1 power=1 parameter1=4 parameter2=0 END
+//        LPF ADD_CRE_EFFECT INT_VAR opcode=18 target=1 timing=9 power=1 parameter1=4 parameter2=0 END        
+      END
+    END
+  BUT_ONLY
+END
+//___________________________________________________________________________________
+
+END // end function

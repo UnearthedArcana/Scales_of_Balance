@@ -1,8 +1,0 @@
-IF
-	NumTimesTalkedTo(0)
-	Global("D5_ARCHER","GLOBAL",0)
-	Kit(LastSummonerOf(Myself),D5EARCH)
-THEN
-	RESPONSE #100
-	SetGlobal("D5_ARCHER","GLOBAL",1)
-END

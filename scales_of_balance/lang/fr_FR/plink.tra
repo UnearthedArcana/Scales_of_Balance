@@ -1,0 +1,2 @@
+@10001  = ~^\(Classe d'armure[^:]*:.+\)\|\(Armor Class:.+\)$~ // because not everything will be translated ina multi-mod install:/
+@11011  = ~Dégâts :~

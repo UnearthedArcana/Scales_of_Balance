@@ -1,0 +1,164 @@
+
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+//
+//						WPO - APR ON SPEC
+//__________________________________________________________________________________
+//__________________________________________________________________________________
+
+DEFINE_ACTION_FUNCTION apr_on_spec BEGIN
+
+//WSPATCK FOR ALL___________________________________________________________________
+//
+ACTION_IF FILE_EXISTS_IN_GAME ~clswpbon.2da~ BEGIN
+
+  COPY_EXISTING ~clswpbon.2da~ ~override~
+	COUNT_2DA_ROWS ~3~ rows
+	FOR (row = 1; row < rows; row += 1) BEGIN
+		SET_2DA_ENTRY row 1 3 ~1~
+	END
+  BUT_ONLY
+
+  ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__apr.d5~ BEGIN
+
+   ACTION_IF NOT FILE_EXISTS_IN_GAME ~d5__profs.d5~ BEGIN
+
+	COPY ~%MOD_FOLDER%/data/profs/wspat1.2da~ ~override/WSPATCK.2DA~
+
+	COPY ~%MOD_FOLDER%/data/misc/d5_numat.spl~ ~override~
+
+	COPY_EXISTING ~clabfi01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~%MOD_FOLDER%/data/profs/w1apr.txt~
+		BUT_ONLY
+	COPY_EXISTING ~clabpa01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~%MOD_FOLDER%/data/profs/w1apr.txt~
+		BUT_ONLY
+	COPY_EXISTING ~clabrn01.2da~ ~override~
+		LPM remove_blank_lines
+		APPEND_FILE ~%MOD_FOLDER%/data/profs/w1apr.txt~
+		BUT_ONLY
+
+/*
+	ACTION_IF GAME_IS ~bgee~ THEN BEGIN
+		STRING_SET 24220 @103
+		STRING_SET 24221 @104
+		STRING_SET 24222 @105
+		STRING_SET 24223 @106
+		STRING_SET 24315 @107
+	END
+
+	ACTION_IF GAME_IS ~bg2ee eet~ THEN BEGIN
+		STRING_SET 9588 @107
+	END
+*/
+
+	COPY_EXISTING ~kitlist.2da~ ~override~
+		COUNT_2DA_ROWS ~10~ "rows"
+		FOR ( index = 1 ; index < rows ; index = index + 1 ) BEGIN
+			READ_2DA_ENTRY %index% 5 10 modclab
+			READ_2DA_ENTRY %index% 8 10 modclass
+			DEFINE_ASSOCIATIVE_ARRAY d5_apr_clabs BEGIN "%modclab%" => "%modclass%" END
+		END
+		BUT_ONLY
+	ACTION_PHP_EACH d5_apr_clabs AS foo => zoo BEGIN
+		ACTION_IF (%zoo% = 2) AND (FILE_EXISTS_IN_GAME ~%foo%.2da~) THEN BEGIN
+			COPY_EXISTING ~%foo%.2DA~ ~override~
+				LPM remove_blank_lines
+				APPEND_FILE ~%MOD_FOLDER%/data/profs/w1apr.txt~
+				BUT_ONLY
+		END
+		ACTION_IF (%zoo% = 6) AND (FILE_EXISTS_IN_GAME ~%foo%.2da~) THEN BEGIN
+			COPY_EXISTING ~%foo%.2DA~ ~override~
+				LPM remove_blank_lines
+				APPEND_FILE ~%MOD_FOLDER%/data/profs/w1apr.txt~
+				BUT_ONLY
+		END
+		ACTION_IF (%zoo% = 12) AND (FILE_EXISTS_IN_GAME ~%foo%.2da~) THEN BEGIN
+			COPY_EXISTING ~%foo%.2DA~ ~override~
+				LPM remove_blank_lines
+				APPEND_FILE ~%MOD_FOLDER%/data/profs/w1apr.txt~
+				BUT_ONLY
+		END
+	END
+
+	CLEAR_ARRAYS
+
+   END
+  
+  END
+
+END
+//__________________________________________________________________________________
+
+
+//fix non-joinable NPC APR__________________________________________________________
+//
+LAM JOINABLE_NPC_ARRAYS
+
+ACTION_PHP_EACH NON_JOINABLE_NPC_ARRAY AS cre => dv BEGIN
+//  PRINT ~%cre% => %dv%~ 
+  COPY_EXISTING ~%cre%~ ~override~
+    READ_BYTE 0x273 class
+    PATCH_IF ((class = 2) OR ((class >= 6) AND (class <= 10)) OR (class = 12) OR ((class >= 16) AND (class <= 18)) OR (class = 20)) BEGIN
+      PATCH_IF !(MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~10~) BEGIN
+        PATCH_IF (class = 18) BEGIN // cleric rangers have warrior levels in the second field, otherwise everyone else is in the first level field
+          READ_BYTE 0x235 level
+        END ELSE BEGIN
+          READ_BYTE 0x234 level
+        END   
+        PATCH_IF level > 6 BEGIN // don't bother unless we have levels high enough to warrant changes
+          READ_BYTE 0x53 apr
+          // check we're in the allowed range first
+          PATCH_IF (apr < 0) BEGIN // illegal values 
+            SET apr = 0 // set to 0
+          END ELSE  
+          PATCH_IF (apr > 10) BEGIN // illegal values 
+            SET apr = 5 // set to max 5 APR
+          END  
+          PATCH_IF level > 12 BEGIN // +1 APR
+            SET apr = apr + 1
+            PATCH_IF ((apr > 10) OR (apr = 6)) BEGIN SET apr = 5 END // 5 = 5 APR and 10 = 9/2, so if we end up at 6 or 11 we should be at max 5 APR
+          END ELSE  
+          PATCH_IF level > 6 BEGIN // +1/2 APR
+            PATCH_IF (apr < 5) BEGIN // 1-4 APR (leave 5 alone as it's maxed)
+              SET apr = apr + 6
+            END ELSE 
+            PATCH_IF (apr > 5) BEGIN // 1/2 through 9/2
+              SET apr = apr - 5
+            END
+          END  
+          WRITE_BYTE 0x53 apr 
+        END // level check
+      END // end WPO not installed
+      PATCH_IF (MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~10~) BEGIN
+        PATCH_IF (class = 18) BEGIN // cleric rangers have warrior levels in the second field, otherwise everyone else is in the first level field
+          READ_BYTE 0x235 level
+        END ELSE BEGIN
+          READ_BYTE 0x234 level
+        END   
+        PATCH_IF level > 11 BEGIN // don't bother unless we have levels high enough to warrant changes
+          READ_BYTE 0x53 apr
+          // check we're in the allowed range first
+          PATCH_IF (apr < 0) BEGIN // illegal values 
+            SET apr = 0 // set to 0
+          END ELSE  
+          PATCH_IF (apr > 10) BEGIN // illegal values 
+            SET apr = 5 // set to max 5 APR
+          END  
+          PATCH_IF (apr < 5) BEGIN // 1-4 APR (leave 5 alone as it's maxed)
+            SET apr = apr + 6
+          END ELSE 
+          PATCH_IF (apr > 5) BEGIN // 1/2 through 9/2
+            SET apr = apr - 5
+          END  
+          WRITE_BYTE 0x53 apr 
+        END // level check
+      END // end WPO not installed
+    END // class check        
+  BUT_ONLY
+END
+//__________________________________________________________________________________
+
+END // end function

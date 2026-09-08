@@ -1,0 +1,6 @@
+
+DEFINE_ACTION_FUNCTION lower_dualclass_requirements BEGIN
+
+COPY_EXISTING ~abdcscrq.2da~ ~override/abdcdsrq.2da~
+
+END	//	end function

@@ -1,0 +1,2 @@
+@10001  = ~^Rüstungsklasse:.+$~
+@11011  = ~Schaden:~

@@ -1,0 +1,131 @@
+
+DEFINE_ACTION_FUNCTION plinkify BEGIN
+
+/*
+
+/- reduce STR damage
+
+/- reduce specialization damage
+
+/- reduce/remove enchanted weapon damage
+	...change thac0 tables so enchanted thac0 bonuses are more consequential
+
+- address kensai and archers
+
+- reduce weapon elemental damage
+	...or have it replace base weapon damage (in some cases?)
+
+- reduce damage from buff spells?
+
+- ...what else?
+
+*/
+
+//USE GAME INSTALL LANGUAGE FOR WORD MATCHING_______________________________________
+//
+ACTION_IF !(VARIABLE_IS_SET %EE_LANGUAGE%) BEGIN
+  COPY_EXISTING ~leat01.itm~ ~override~
+	READ_STRREF 0x08 ac_string
+  BUT_ONLY
+  ACTION_FOR_EACH lang IN ~en_US~ ~pl_PL~ ~de_DE~ ~es_ES~ ~fr_FR~ ~cs_CZ~ ~ru_RU~ ~ko_KR~ BEGIN
+	WITH_TRA ~%MOD_FOLDER%/lang/%lang%/plink.tra~ BEGIN
+	  OUTER_SPRINT ac_lang @11001
+	END	  
+	ACTION_IF NOT (~%ac_string%~ STRING_CONTAINS_REGEXP ~%ac_lang%~) BEGIN
+	  OUTER_SPRINT plink_lang ~%lang%~
+	END
+  END
+END
+
+ACTION_IF VARIABLE_IS_SET %EE_LANGUAGE% BEGIN
+  OUTER_SPRINT ee_lang ~%EE_LANGUAGE%~
+  ACTION_IF FILE_EXISTS ~%MOD_FOLDER%/lang/%ee_lang%/plink.tra~ BEGIN
+	OUTER_SPRINT plink_lang ~%EE_LANGUAGE%~
+  END
+END
+ELSE BEGIN
+	OUTER_SPRINT plink_lang ~en_US~
+END
+
+WITH_TRA ~%MOD_FOLDER%/lang/%plink_lang%/plink.tra~ BEGIN
+	OUTER_SPRINT damage_string @11011
+END
+//__________________________________________________________________________________
+
+
+// new thac0, strmod, and wspecial tables
+
+COPY ~%MOD_FOLDER%/data/plink/thac0.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/plink/strmod.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/plink/strmodex.2da~ ~override~
+COPY ~%MOD_FOLDER%/data/plink/wspecial.2da~ ~override~
+
+
+// change enchantment damage
+
+COPY_EXISTING_REGEXP GLOB ~^.+\.itm$~ ~override~
+ PATCH_IF (%SOURCE_SIZE% > 0x71) BEGIN
+  READ_BYTE 0x31 prof
+  READ_LONG 0x60 enchantment
+  PATCH_IF (%prof% > 88) AND (%prof% < 116) BEGIN // weapons
+    READ_LONG 0x64 abil_offset
+    READ_SHORT 0x68 abil_number
+    WHILE (%abil_number% > 0) BEGIN
+      SET abil_number = (%abil_number% - 1)
+      READ_SHORT (%abil_offset% + (0x38 * %abil_number%)) header_type
+      PATCH_IF (%header_type% = 1) OR (%header_type% = 2) OR (%header_type% = 4) BEGIN // melee or ranged or launcher
+        READ_SHORT (%abil_offset% + 0x1a + (0x38 * %abil_number%)) damage_bonus
+        PATCH_IF (%damage_bonus% > %enchantment%) BEGIN
+          SET new_bonus = (%damage_bonus% - %enchantment%)
+          SPRINT new_bonus_text ~+%new_bonus%~
+        END
+        PATCH_IF (%damage_bonus% = %enchantment%) BEGIN
+          SET new_bonus = 0
+          SPRINT new_bonus_text ~~
+        END
+        WRITE_SHORT (%abil_offset% + 0x1a + (0x38 * %abil_number%)) new_bonus
+      END
+    END
+    // [description patch]
+    READ_LONG 0x54 valid
+    PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+      READ_STRREF 0x54 "desc"
+      INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+        REPLACE_TEXTUALLY ~^\(%damage_string%.+\)\+ %damage_bonus%~ ~\1%new_bonus_text%~
+        REPLACE_TEXTUALLY ~^\(%damage_string%.+\)\+%damage_bonus%~ ~\1%new_bonus_text%~
+      END
+      SAY_EVALUATED 0x54 ~%new_desc%~
+    END
+    ELSE BEGIN
+      READ_STRREF 0x50 "desc"
+      INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+        REPLACE_TEXTUALLY ~^\(%damage_string%.+\)\+ %damage_bonus%~ ~\1%new_bonus_text%~
+        REPLACE_TEXTUALLY ~^\(%damage_string%.+\)\+%damage_bonus%~ ~\1%new_bonus_text%~
+      END
+      SAY_EVALUATED 0x50 ~%new_desc%~
+    END
+  END
+ END
+BUT_ONLY
+
+ACTION_IF !(MOD_IS_INSTALLED ~item_rev.tp2~ ~0~) BEGIN
+  COPY_EXISTING ~sw1h34.itm~ ~override~
+    LPF ALTER_ITEM_HEADER INT_VAR header_type = 1 damage = 1 END
+    READ_LONG 0x54 valid
+    PATCH_IF (%valid% >= 0) BEGIN // verify name is valid
+      READ_STRREF 0x54 "desc"
+      INNER_PATCH_SAVE new_desc ~%desc%~ BEGIN
+        REPLACE_TEXTUALLY ~^\(%damage_string%.+\)\+ 3~ ~\1 !1~
+        REPLACE_TEXTUALLY ~^\(%damage_string%.+\)\+3~ ~\1 +1~
+      END
+      SAY_EVALUATED 0x54 ~%new_desc%~
+    END
+  IF_EXISTS BUT_ONLY
+END
+
+ 
+END	//	end define function
+//__________________________________________________________________________________
+
+
+
