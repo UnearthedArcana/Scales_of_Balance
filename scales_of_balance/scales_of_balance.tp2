@@ -1,7 +1,7 @@
 BACKUP ~weidu_external/backup/scales_of_balance~
 AUTHOR ~SubtleD~
 
-VERSION ~v7.0.1~
+VERSION ~v7.0.2~
 
 //README ~scales_of_balance/readme-SoB.html~
 
@@ -241,6 +241,7 @@ ACTION_IF (MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~110~) BEGIN
     END
     ACTION_IF (FILE_EXISTS_IN_GAME ~d5__5E_casting_divine.d5~) BEGIN
       OUTER_SET 5e_wis_bonus_memorization = 0
+      OUTER_SET 5e_wis_bonus_casting = 1
       LAM semi_wis_slots
     END
   END
@@ -257,7 +258,7 @@ ACTION_IF !(MOD_IS_INSTALLED ~scales_of_balance.tp2~ ~110~) BEGIN
       OUTER_SET 5e_wis_bonus_casting = 1
       LAM semi_wis_slots
     END
-    COPY ~%MOD_FOLDER%/stats/mxsplwis_0.2da~ ~override/mxsplwis.2da~
+    COPY ~%MOD_FOLDER%/data/stats/mxsplwis_0.2da~ ~override/mxsplwis.2da~
   END
 END
 //__________________________________________________________________________________

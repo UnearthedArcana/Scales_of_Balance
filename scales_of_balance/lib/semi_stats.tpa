@@ -1,5 +1,5 @@
 
-// v12 - handle WIS slots better
+// v12.1 - handle WIS slots better
 
 /*
 
@@ -522,7 +522,7 @@ ACTION_IF !(VARIABLE_IS_SET %5e_wis_bonus_memorization%)  BEGIN
 END
 
 ACTION_IF !(VARIABLE_IS_SET %5e_wis_bonus_casting%)  BEGIN
-  OUTER_SET 5e_wis_bonus_casting = 0
+  OUTER_SET 5e_wis_bonus_casting = 1
 END
 
 ACTION_IF (FILE_CONTAINS_EVALUATED (~splstate.ids~ ~D5_SEMI_DIVINE~)) BEGIN
